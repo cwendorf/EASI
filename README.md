@@ -1,4 +1,2 @@
-# EASI
-Estimation Approach to Statistical Inference
-
-This is just kind of fun!
+# EASI (Estimation Approach to Statistical Inference)
+An R Implementation
