@@ -21,11 +21,11 @@ plotGroups <- function(y,mu=NULL,...){
   if (!is.null(mu)) {arrows(0,mu,nrow(results)+.5,mu,code=3,length=0,lty=2)}  
 }
 
-plotVars <- function(...,conf.level=.95,mu=NULL){
+plotVariables <- function(...,conf.level=.95,mu=NULL){
   main="Confidence Interval Plot for the Variables"
   ylab="Outcome"
   xlab="Variables"
-  results=easiVars(...,conf.level=conf.level)
+  results=easiVariables(...,conf.level=conf.level)
   plot(results[,"M"],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,"LL"])/2)*2,ceiling(max(results[,"UL"])/2)*2), xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
   for (i in 1:nrow(results)) lines(x=c(i,i), y=c(results[,"LL"][i],results[,"UL"][i]),lwd=2)
@@ -42,12 +42,10 @@ plotGroupDiff <- function(y,...){
   ylab=all.vars(y)[1]
   xlab=all.vars(y)[2]
   Groups=easiGroups(y,...)
-  rn=Groups[,1]
-  Groups=subset(Groups[[2]],select=c(2,5,6))
+  rn=Groups[2:1,1]
+  Groups=Groups[[2]][2:1,c(2,5,6)]
   rownames(Groups)=rn
-  Groups=Groups[dim(Groups)[1]:1,]
-  Diff=easiGroupDiff(y,...)
-  Diff=Diff[c(1,5,6)]
+  Diff=easiGroupDiff(y,...)[c(1,4,5)]
   results=rbind(Groups,Diff)
   Diff=Diff+Groups[1]
   graph=rbind(Groups,Diff)
@@ -62,25 +60,20 @@ plotGroupDiff <- function(y,...){
   text(3,graph[,"UL"][3],results[,"UL"][3],cex=.8,pos=4,offset=1)
   arrows(1,graph[1],4.5,graph[1],code=3,length=0,lty=2)  
   arrows(2,graph[2],4.5,graph[2],code=3,length=0,lty=2)
-  if(results[1]>=results[2]) {
-    val=axTicks(4)-axTicks(4)[min(which(axTicks(4)>median(axTicks(4))))]
-    loc=axTicks(4)-(axTicks(4)[min(which(axTicks(4)>median(axTicks(4))))]-graph[1])
-  }
-  if(results[1]<results[2]) {
-    val=axTicks(4)-axTicks(4)[max(which(axTicks(4)<median(axTicks(4))))]
-    loc=axTicks(4)-(axTicks(4)[max(which(axTicks(4)<median(axTicks(4))))]-graph[1])
-  }
+  if(graph[1]<graph[2]) {td=graph[1]-axTicks(4)[max(which(axTicks(4)<graph[1]))]}
+  if(graph[1]>=graph[2]) {td=graph[1]-axTicks(4)[min(which(axTicks(4)>graph[1]))]}  
+  val=axTicks(4)-graph[1]+td
+  loc=axTicks(4)+td  
   axis(4,at=loc,labels=val,las=1)
   rect(2.5,-1e6,4.5,1e6,col=rgb(.5,.5,.5,.07),border=NA)
 }
-plotGroupDiff(Outcome~Comp)
 
-plotVarDiff <- function(...){
+plotVariableDiff <- function(...){
   main="Mean Difference Plot for the Variables"
   ylab="Outcome"
   xlab="Variables"
-  Vars=easiVars(...)[2:1,c(2,5,6)]
-  Diff=easiVarDiff(...)[c(1,5,6)]
+  Vars=easiVariables(...)[2:1,c(2,5,6)]
+  Diff=easiVariableDiff(...)[c(1,4,5)]
   results=rbind(Vars,Diff)
   Diff=Diff+Vars[1,1]  
   graph=rbind(Vars,Diff)
@@ -96,21 +89,12 @@ plotVarDiff <- function(...){
   text(3,graph[,"UL"][3],results[,"UL"][3],cex=.8,pos=4,offset=1)
   arrows(1,graph[1,1],4.5,graph[1,1],code=3,length=0,lty=2)  
   arrows(2,graph[2,1],4.5,graph[2,1],code=3,length=0,lty=2)
-  if(results[1,1]>=results[2,1]) {
-    val=axTicks(4)-axTicks(4)[min(which(axTicks(4)>median(axTicks(4))))]
-    loc=axTicks(4)-(axTicks(4)[min(which(axTicks(4)>median(axTicks(4))))]-graph[1,1])
-  }
-  if(results[1,1]<results[2,1]) {
-    val=axTicks(4)-axTicks(4)[max(which(axTicks(4)<median(axTicks(4))))]
-    loc=axTicks(4)-(axTicks(4)[max(which(axTicks(4)<median(axTicks(4))))]-graph[1,1])
-  }
+
+  if(results[1,1]<results[2,1]) {td=graph[1,1]-axTicks(4)[max(which(axTicks(4)<graph[1,1]))]}
+  if(results[1,1]>=results[2,1]) {td=graph[1,1]-axTicks(4)[min(which(axTicks(4)>graph[1,1]))]}  
+  val=axTicks(4)-graph[1,1]+td
+  loc=axTicks(4)+td  
+
   axis(4,at=loc,labels=val,las=1)
   rect(2.5,-1e6,4.5,1e6,col=rgb(.5,.5,.5,.07),border=NA)
 }
-
-
-# These are functions in development
-
-
-
-

@@ -5,7 +5,7 @@
 # Basic NHST Functions
 # These can operate on their own or be called from other functions
 
-nhstVar <- function(y,...){
+nhstVariable <- function(y,...){
   model=t.test(y,...)
   mu=as.numeric(model$null.value)
   MD=as.numeric(model$estimate-mu)
@@ -13,21 +13,21 @@ nhstVar <- function(y,...){
   t=as.numeric(model$statistic)
   df=as.numeric(model$parameter)
   p=as.numeric(model$p.value)
-  results=round(c(Hyp=mu,Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  results=round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
   return(results)
 }
 
-nhstVars <- function(...,mu=0){
+nhstVariables <- function(...,mu=0){
   df=data.frame(...)
   results=data.frame(matrix(ncol=6,nrow=0))
-  for (i in 1:ncol(df)) results[i,]=nhstVar(df[,i],mu=mu)
-  colnames(results)=c("Hyp","Diff","SE","t","df","p")
+  for (i in 1:ncol(df)) results[i,]=nhstVariable(df[,i],mu=mu)
+  colnames(results)=c("Diff","SE","t","df","p")
   rownames(results)=colnames(df)
   return(results)
 }
 
 nhstGroups <- function(y,...) {
-  results=aggregate(y,FUN=nhstVar,...)
+  results=aggregate(y,FUN=nhstVariable,...)
   colnames(results)=c("Group","")
   return(results)
 }
@@ -40,11 +40,11 @@ nhstGroupDiff <- function(y,...){
   t=as.numeric(model$statistic)
   df=as.numeric(model$parameter)
   p=as.numeric(model$p.value)
-  results=round(c(Hyp=mu,Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  results=round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
   return(results)
 }
 
-nhstVarDiff <- function(x,y,...){
+nhstVariableDiff <- function(x,y,...){
   model=t.test(x,y,paired=TRUE,...)
   mu=as.numeric(model$null.value) 
   MD=as.numeric(model$estimate)
@@ -52,24 +52,23 @@ nhstVarDiff <- function(x,y,...){
   t=as.numeric(model$statistic)
   df=as.numeric(model$parameter)
   p=as.numeric(model$p.value)
-  results=round(c(Hyp=mu,Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  results=round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
   return(results)
 }
-
 
 # Wrappers for NHST Functions
 # These call the basic functions and print with titles
 
-testVar <- function(y,...){
+testVariable <- function(y,...){
   cat("\nHYPOTHESIS TEST FOR THE VARIABLE\n\n")
-  results=nhstVar(y,...)
+  results=nhstVariable(y,...)
   print(results)
   cat("\n")
 }
 
-testVars <- function(...,mu=0){
+testVariables <- function(...,mu=0){
   cat("\nHYPOTHESIS TESTS FOR THE VARIABLES\n\n")
-  results=nhstVars(...,mu=mu)
+  results=nhstVariables(...,mu=mu)
   print(results)
   cat("\n")
 }
@@ -88,13 +87,9 @@ testGroupDiff <- function(y,...){
   cat("\n")
 }
 
-testVarDiff <- function(x,y,...){
+testVariableDiff <- function(x,y,...){
   cat("\nHYPOTHESIS TEST FOR THE COMPARISON OF THE VARIABLES\n\n")
-  results=nhstVarDiff(x,y,...)
+  results=nhstVariableDiff(x,y,...)
   print(results) 
   cat("\n")
 }
-
-
-# The functions below are still in development
-
