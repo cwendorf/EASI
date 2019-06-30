@@ -17,3 +17,21 @@ mydata=read.csv("DonohueData.csv")
 attach(mydata)
 mydata
 
+
+# Analyses of the Different Variables
+
+estimateVariables(Pretest,Posttest,Followup)
+plotVariables(Pretest,Posttest,Followup)
+
+# Analysis of Variable Differences
+
+estimateVariableDiff(Posttest,Followup)
+plotVariableDiff(Posttest,Followup)
+testVariableDiff(Posttest,Followup)
+effectVariableDiff(Posttest,Followup)
+
+PostFollow=(Posttest+Followup)/2
+estimateVariableDiff(Pretest,PostFollow)
+plotVariableDiff(Pretest,PostFollow)
+testVariableDiff(Pretest,PostFollow)
+effectVariableDiff(Pretest,PostFollow)
