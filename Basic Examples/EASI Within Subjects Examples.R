@@ -39,21 +39,25 @@ estimateVariables(Time1,Time2)
 estimateVariableDiff(Time1,Time2)
 plotVariableDiff(Time1,Time2)
 testVariableDiff(Time1,Time2)
+effectVariableDiff(Time1,Time2)
 
 estimateVariableDiff(Time1,Time2,conf.level=.99)
 plotVariableDiff(Time1,Time2,conf.level=.99)
 testVariableDiff(Time1,Time2,mu=-2)
+effectVariableDiff(Time1,Time2,conf.level=.99)
 
 estimateVariables(Time3,Time1)
 estimateVariableDiff(Time3,Time1)
 plotVariableDiff(Time3,Time1)
 testVariableDiff(Time3,Time1)
+effectVariableDiff(Time3,Time1)
 
 Time1a2=(Time1+Time2)/2
 estimateVariables(Time3,Time1a2)
 estimateVariableDiff(Time3,Time1a2)
 plotVariableDiff(Time3,Time1a2)
 testVariableDiff(Time3,Time1a2)
+effectVariableDiff(Time3,Time1a2)
 
 
 
