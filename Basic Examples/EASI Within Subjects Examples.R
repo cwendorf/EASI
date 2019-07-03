@@ -59,6 +59,27 @@ plotVariableDiff(Time3,Time1a2)
 testVariableDiff(Time3,Time1a2)
 effectVariableDiff(Time3,Time1a2)
 
+# Analyses of Sets of Contrasts
+
+estimateVariableContrasts(Time1,Time2,Time3)
+testVariableContrasts(Time1,Time2,Time3)
+plotVariableContrasts(Time1,Time2,Time3)
+
+estimateVariableContrasts(Time1,Time2,Time3,conf.level=.99)
+plotVariableContrasts(Time1,Time2,Time3,conf.level=.99)
+
+estimateVariableContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
+testVariableContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
+plotVariableContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
+
+setcontrasts=contr.treatment
+estimateVariableContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
+
+
+
+
+
+
 
 
 

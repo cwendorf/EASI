@@ -53,6 +53,42 @@ easiVariableDiff <- function(x,y,...){
   return(results)
 }
 
+easiGroupPairs <- function(y,conf.level=.95,...){
+  anova=aov(y,...)
+  results=round(TukeyHSD(anova,conf.level=conf.level)[[1]][,1:3],3)
+  colnames(results)=c("Diff","LL","UL")
+  return(results)
+}
+
+easiGroupContrasts <- function(y,contrasts=contr.sum,conf.level=.95,...){
+  x=eval(y[[3]])
+  y=eval(y[[2]])
+  contrasts(x)=contrasts
+  mymodel=lm(y~x,...)
+  results=round(cbind(summary(mymodel)[[4]][,1:2],confint(mymodel,level=conf.level)),3)
+  colnames(results)=c("Diff","SE","LL","UL")
+  rownames(results)[1]="Base"
+  return(results)
+}
+
+easiVariableContrasts <- function(...,contrasts=contr.sum,conf.level=.95){
+  data=data.frame(...)
+  columns=dim(data)[2]
+  dataLong=reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
+  dataLong$Subjects=as.factor(dataLong$Subjects)
+  dataLong$Variable=as.factor(dataLong$Variable)
+  vlevels=nlevels(dataLong$Variable)
+  contrasts(dataLong$Variable)=contrasts
+  contrasts(dataLong$Subjects)=contr.sum
+  anova=aov(Outcome~Variable+Error(Subjects),data=dataLong)
+  first=summary(lm(anova))[[4]][1:vlevels,1:2]
+  second=confint(lm(anova),level=conf.level)[1:vlevels,1:2]
+  results=round(cbind(first,second),3)
+  colnames(results)=c("Diff","SE","LL","UL")
+  rownames(results)[1]="Base"
+  return(results)
+}
+
 # Wrappers for EASI Functions
 # These call the basic functions and print with titles
 
@@ -90,3 +126,25 @@ estimateVariableDiff <- function(x,y,...){
   print(results) 
   cat("\n")
 }
+
+estimateGroupPairs <- function(y,...) {
+  cat("\nCONFIDENCE INTERVALS FOR TUKEY HSD COMPARISONS OF THE GROUPS\n\n")
+  results=easiGroupPairs(y,...)
+  print(results) 
+  cat("\n")  
+}
+  
+estimateGroupContrasts <- function(y,contrasts=contr.sum,...) {
+  cat("\nCONFIDENCE INTERVALS FOR THE CONTRASTS OF THE GROUPS\n\n")
+  results=easiGroupContrasts(y,contrasts,...)
+  print(results) 
+  cat("\n")  
+}
+
+estimateVariableContrasts <- function(...,contrasts=contr.sum,conf.level=.95) {
+  cat("\nCONFIDENCE INTERVALS FOR THE CONTRASTS OF THE VARIABLES\n\n")
+  results=easiVariableContrasts(...,contrasts=contrasts,conf.level=conf.level)
+  print(results) 
+  cat("\n")  
+}
+

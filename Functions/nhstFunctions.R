@@ -56,6 +56,41 @@ nhstVariableDiff <- function(x,y,...){
   return(results)
 }
 
+nhstGroupPairs <- function(y,...){
+  anova=aov(y,...)
+  results=round(TukeyHSD(anova)[[1]][,c(1,4)],3)
+  colnames(results)=c("Diff","p adj")
+  return(results)
+}
+
+nhstGroupContrasts <- function(y,contrasts=contr.sum,...){
+  x=eval(y[[3]])
+  y=eval(y[[2]])
+  contrasts(x)=contrasts
+  mymodel=lm(y~x,...)
+  results=round(summary(mymodel)[[4]][,],3)
+  colnames(results)=c("Diff","SE","t","p")
+  rownames(results)[1]="Base"
+  return(results)
+}
+
+nhstVariableContrasts <- function(...,contrasts=contr.sum){
+  data=data.frame(...)
+  columns=dim(data)[2]
+  dataLong=reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
+  dataLong$Subjects=as.factor(dataLong$Subjects)
+  dataLong$Variable=as.factor(dataLong$Variable)
+  vlevels=nlevels(dataLong$Variable)
+  contrasts(dataLong$Variable)=contrasts
+  contrasts(dataLong$Subjects)=contr.sum
+  anova=aov(Outcome~Variable+Error(Subjects),data=dataLong)
+  first=summary(lm(anova))[[4]][1:vlevels,1:4]
+  results=round(first,3)
+  colnames(results)=c("Diff","SE","t","p")
+  rownames(results)[1]="Base"
+  return(results)
+}
+
 # Wrappers for NHST Functions
 # These call the basic functions and print with titles
 
@@ -92,4 +127,25 @@ testVariableDiff <- function(x,y,...){
   results=nhstVariableDiff(x,y,...)
   print(results) 
   cat("\n")
+}
+
+testGroupPairs <- function(y,...) {
+  cat("\nHYPOTHESIS TESTS FOR TUKEY HSD COMPARISONS OF THE GROUPS\n\n")
+  results=nhstGroupPairs(y,...)
+  print(results) 
+  cat("\n")  
+}
+
+testGroupContrasts<-function(y,contrasts=contr.sum,...) {
+  cat("\nHYPOTHESIS TESTS FOR THE CONTRASTS OF THE GROUPS\n\n")
+  results=nhstGroupContrasts(y,...)
+  print(results) 
+  cat("\n")  
+}
+
+testVariableContrasts <- function(...,contrasts=contr.sum) {
+  cat("\nHYPOTHESIS TESTS FOR THE CONTRASTS OF THE VARIABLES\n\n")
+  results=nhstVariableContrasts(...,contrasts=contrasts)
+  print(results) 
+  cat("\n")  
 }
