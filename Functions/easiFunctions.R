@@ -17,11 +17,11 @@ easiVariable <- function(y,...){
 }
 
 easiVariables <- function(...,conf.level=.95){
-  df=data.frame(...)
+  data=data.frame(...)
   results=data.frame(matrix(ncol=6,nrow=0))
-  for (i in 1:ncol(df)) results[i,]=easiVariable(df[,i],conf.level=conf.level)
+  for (i in 1:ncol(data)) results[i,]=easiVariable(data[,i],conf.level=conf.level)
   colnames(results)=c("N","M","SD","SE","LL","UL")
-  rownames(results)=colnames(df)
+  rownames(results)=colnames(data)
   return(results)
 }
 
@@ -54,8 +54,8 @@ easiVariableDiff <- function(x,y,...){
 }
 
 easiGroupPairs <- function(y,conf.level=.95,...){
-  anova=aov(y,...)
-  results=round(TukeyHSD(anova,conf.level=conf.level)[[1]][,1:3],3)
+  model=aov(y,...)
+  results=round(TukeyHSD(model,conf.level=conf.level)[[1]][,1:3],3)
   colnames(results)=c("Diff","LL","UL")
   return(results)
 }
@@ -64,8 +64,8 @@ easiGroupContrasts <- function(y,contrasts=contr.sum,conf.level=.95,...){
   x=eval(y[[3]])
   y=eval(y[[2]])
   contrasts(x)=contrasts
-  mymodel=lm(y~x,...)
-  results=round(cbind(summary(mymodel)[[4]][,1:2],confint(mymodel,level=conf.level)),3)
+  model=lm(y~x,...)
+  results=round(cbind(summary(model)[[4]][,1:2],confint(model,level=conf.level)),3)
   colnames(results)=c("Diff","SE","LL","UL")
   rownames(results)[1]="Base"
   return(results)
@@ -80,9 +80,9 @@ easiVariableContrasts <- function(...,contrasts=contr.sum,conf.level=.95){
   vlevels=nlevels(dataLong$Variable)
   contrasts(dataLong$Variable)=contrasts
   contrasts(dataLong$Subjects)=contr.sum
-  anova=aov(Outcome~Variable+Error(Subjects),data=dataLong)
-  first=summary(lm(anova))[[4]][1:vlevels,1:2]
-  second=confint(lm(anova),level=conf.level)[1:vlevels,1:2]
+  model=aov(Outcome~Variable+Error(Subjects),data=dataLong)
+  first=summary(lm(model))[[4]][1:vlevels,1:2]
+  second=confint(lm(model),level=conf.level)[1:vlevels,1:2]
   results=round(cbind(first,second),3)
   colnames(results)=c("Diff","SE","LL","UL")
   rownames(results)[1]="Base"

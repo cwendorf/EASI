@@ -18,11 +18,11 @@ nhstVariable <- function(y,...){
 }
 
 nhstVariables <- function(...,mu=0){
-  df=data.frame(...)
-  results=data.frame(matrix(ncol=6,nrow=0))
-  for (i in 1:ncol(df)) results[i,]=nhstVariable(df[,i],mu=mu)
+  data=data.frame(...)
+  results=data.frame(matrix(ncol=5,nrow=0))
+  for (i in 1:ncol(data)) results[i,]=nhstVariable(data[,i],mu=mu)
   colnames(results)=c("Diff","SE","t","df","p")
-  rownames(results)=colnames(df)
+  rownames(results)=colnames(data)
   return(results)
 }
 
@@ -57,8 +57,8 @@ nhstVariableDiff <- function(x,y,...){
 }
 
 nhstGroupPairs <- function(y,...){
-  anova=aov(y,...)
-  results=round(TukeyHSD(anova)[[1]][,c(1,4)],3)
+  model=aov(y,...)
+  results=round(TukeyHSD(model)[[1]][,c(1,4)],3)
   colnames(results)=c("Diff","p adj")
   return(results)
 }
@@ -67,8 +67,8 @@ nhstGroupContrasts <- function(y,contrasts=contr.sum,...){
   x=eval(y[[3]])
   y=eval(y[[2]])
   contrasts(x)=contrasts
-  mymodel=lm(y~x,...)
-  results=round(summary(mymodel)[[4]][,],3)
+  model=lm(y~x,...)
+  results=round(summary(model)[[4]][,],3)
   colnames(results)=c("Diff","SE","t","p")
   rownames(results)[1]="Base"
   return(results)
@@ -83,8 +83,8 @@ nhstVariableContrasts <- function(...,contrasts=contr.sum){
   vlevels=nlevels(dataLong$Variable)
   contrasts(dataLong$Variable)=contrasts
   contrasts(dataLong$Subjects)=contr.sum
-  anova=aov(Outcome~Variable+Error(Subjects),data=dataLong)
-  first=summary(lm(anova))[[4]][1:vlevels,1:4]
+  model=aov(Outcome~Variable+Error(Subjects),data=dataLong)
+  first=summary(lm(model))[[4]][1:vlevels,1:4]
   results=round(first,3)
   colnames(results)=c("Diff","SE","t","p")
   rownames(results)[1]="Base"

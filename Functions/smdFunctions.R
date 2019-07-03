@@ -25,9 +25,9 @@ smdVariable <- function(y,conf.level=.95,mu=0,...){
 }
 
 smdVariables <- function(...,conf.level=.95,mu=0){
-  df=data.frame(...)
+  data=data.frame(...)
   results=data.frame(matrix(ncol=4,nrow=0))
-  for (i in 1:ncol(df)) results[i,]=smdVariable(df[,i],conf.level=conf.level,mu=mu)
+  for (i in 1:ncol(data)) results[i,]=smdVariable(data[,i],conf.level=conf.level,mu=mu)
   colnames(results)=c("d","g","LL","UL")
   rownames(results)=colnames(df)
   return(results)

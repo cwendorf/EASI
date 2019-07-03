@@ -103,8 +103,8 @@ plotGroupPairs <- function(y,conf.level=.95,mu=NA,...) {
   main="Confidence Intervals for the\nTukey HSD Comparisons of the Groups"
   ylab="Mean Difference"
   xlab="Comparisons"
-  anova=aov(y,...)
-  results=round(TukeyHSD(anova,conf.level=conf.level)[[1]],3)
+  model=aov(y,...)
+  results=round(TukeyHSD(model,conf.level=conf.level)[[1]],3)
   plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1,at=1:length(results[,1]),labels=row.names(results))
   for (i in 1:nrow(results)) lines(x=c(i,i), y=c(results[,2][i],results[,3][i]),lwd=2)
