@@ -68,73 +68,58 @@
 
 > # Analyses of the Different Groups
 > 
-> estimateGroups(Motivation~Feedback)
+> estimateLevels(Motivation~Feedback)
 
-CONFIDENCE INTERVALS FOR THE LEVELS OF THE VARIABLE
+CONFIDENCE INTERVALS FOR THE LEVELS
 
-     Group      N      M     SD     SE     LL     UL
-   Comfort 18.000  3.333  1.917  0.452  2.380  4.287
- Challenge 17.000  5.265  1.448  0.351  4.520  6.009
-   Control 19.000  4.447  1.433  0.329  3.757  5.138
+           N     M    SD    SE    LL    UL
+Comfort   18 3.333 1.917 0.452 2.380 4.287
+Challenge 17 5.265 1.448 0.351 4.520 6.009
+Control   19 4.447 1.433 0.329 3.757 5.138
 
-> plotGroups(Motivation~Feedback)
+> plotLevels(Motivation~Feedback)
 
-[See BattanGraph1.jpg]
- 
+[See RattanGraph1.jpg]
+
 > # Analysis of Group Differences
 > 
 > Comparison=factor(Feedback,c("Comfort","Challenge"))
-> estimateGroupDiff(Motivation~Comparison)
+> estimateDifference(Motivation~Comparison)
 
-CONFIDENCE INTERVAL FOR THE COMPARISON ON THE VARIABLE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
   Diff     SE     df     LL     UL 
 -1.931  0.572 31.521 -3.098 -0.765 
 
-> plotGroupDiff(Motivation~Comparison)
+> plotDifference(Motivation~Comparison)
 
-[See BattanGraph2.jpg]
+[See RattanGraph2.jpg]
 
-> testGroupDiff(Motivation~Comparison)
+> effectDifference(Motivation~Comparison)
 
-HYPOTHESIS TEST FOR THE COMPARISON ON THE VARIABLE
-
-  Diff     SE      t     df      p 
--1.931  0.572 -3.374 31.521  0.002 
-
-> effectGroupDiff(Motivation~Comparison)
-
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON ON THE VARIABLE
+STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
     d     g    LL    UL 
 1.133 1.107 0.439 1.925 
 
-> 
 > Contrast=factor(Feedback)
 > levels(Contrast)=c("Comfort","Other","Other")
-> estimateGroupDiff(Motivation~Contrast)
+> estimateDifference(Motivation~Contrast)
 
-CONFIDENCE INTERVAL FOR THE COMPARISON ON THE VARIABLE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
   Diff     SE     df     LL     UL 
 -1.500  0.515 27.432 -2.555 -0.445 
 
-> plotGroupDiff(Motivation~Contrast)
+> plotDifference(Motivation~Contrast)
 
-[See BattanGraph3.jpg]
+[See RattanGraph3.jpg]
 
-> testGroupDiff(Motivation~Contrast)
+> effectDifference(Motivation~Contrast)
 
-HYPOTHESIS TEST FOR THE COMPARISON ON THE VARIABLE
-
-  Diff     SE      t     df      p 
--1.500  0.515 -2.914 27.432  0.007 
-
-> effectGroupDiff(Motivation~Contrast)
-
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON ON THE VARIABLE
+STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
     d     g    LL    UL 
 0.918 0.904 0.337 1.549 
 
-> 
+

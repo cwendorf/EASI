@@ -19,21 +19,19 @@ mydata
 
 # Analyses of the Different Groups
 
-estimateGroups(Motivation~Feedback)
-plotGroups(Motivation~Feedback)
+estimateLevels(Motivation~Feedback)
+plotLevels(Motivation~Feedback)
 
 # Analysis of Group Differences
 
 Comparison=factor(Feedback,c("Comfort","Challenge"))
-estimateGroupDiff(Motivation~Comparison)
-plotGroupDiff(Motivation~Comparison)
-testGroupDiff(Motivation~Comparison)
-effectGroupDiff(Motivation~Comparison)
+estimateDifference(Motivation~Comparison)
+plotDifference(Motivation~Comparison)
+effectDifference(Motivation~Comparison)
 
 Contrast=factor(Feedback)
 levels(Contrast)=c("Comfort","Other","Other")
-estimateGroupDiff(Motivation~Contrast)
-plotGroupDiff(Motivation~Contrast)
-testGroupDiff(Motivation~Contrast)
-effectGroupDiff(Motivation~Contrast)
+estimateDifference(Motivation~Contrast)
+plotDifference(Motivation~Contrast)
+effectDifference(Motivation~Contrast)
 
