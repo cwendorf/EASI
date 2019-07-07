@@ -21,3 +21,6 @@ EASI is a set of fast and simple scripts for R that calculate, test, and plot co
 - Both Cohen's d and Hedge's g are presented.
 - Confidence intervals are centered on g.
 - Confidence intervals are based on the noncentral t distribution.
+
+------
+![Screenshot](EASI.jpg)
