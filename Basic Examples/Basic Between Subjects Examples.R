@@ -4,7 +4,7 @@
 
 # Three Group Example Data
 
-Group=c(rep(1,3),rep(2,3),rep(4,3))
+Group=c(rep(1,3),rep(2,3),rep(3,3))
 Outcome=c(3,4,5,7,8,9,8,9,10)
 Group=factor(Group)
 
@@ -33,6 +33,7 @@ effectLevels(Outcome~Group,mu=5,conf.level=.99)
 Comparison=factor(Group,c(1,2))
 estimateLevels(Outcome~Comparison)
 estimateDifference(Outcome~Comparison)
+testDifference(Outcome~Comparison)
 plotDifference(Outcome~Comparison)
 effectDifference(Outcome~Comparison)
 
