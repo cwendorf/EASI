@@ -4,6 +4,10 @@ EASI is a set of fast and simple scripts for R that calculate, test, and plot co
 
 ------
 
+![Screenshot](EASI.jpg)
+
+------
+
 ### Overview of EASI
 
 - EASI is designed to provide quick calculation of basic statistics.
@@ -21,6 +25,3 @@ EASI is a set of fast and simple scripts for R that calculate, test, and plot co
 - Both Cohen's d and Hedge's g are presented.
 - Confidence intervals are centered on g.
 - Confidence intervals are based on the noncentral t distribution.
-
-------
-![Screenshot](EASI.jpg)
