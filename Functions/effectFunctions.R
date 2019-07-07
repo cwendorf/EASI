@@ -92,8 +92,6 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-smdDifference(Outcome~Comparison)
-
 # Wrappers for SMD Functions
 # These call the functions and print with titles
 

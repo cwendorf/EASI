@@ -19,12 +19,12 @@ plotData(Outcome~Group,method="stack",col="black")
 # Analyses of Multiple Groups
 
 estimateLevels(Outcome~Group)
-plotGroups(Outcome~Group)
+plotLevels(Outcome~Group)
 testLevels(Outcome~Group)
 effectLevels(Outcome~Group)
 
 estimateLevels(Outcome~Group,conf.level=.99)
-plotGroups(Outcome~Group,conf.level=.99,mu=5)
+plotLevels(Outcome~Group,conf.level=.99,mu=5)
 testLevels(Outcome~Group,mu=5)
 effectLevels(Outcome~Group,mu=5,conf.level=.99)
 

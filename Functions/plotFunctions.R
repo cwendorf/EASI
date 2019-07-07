@@ -31,7 +31,6 @@ plotData.formula <- function(formula,method="jitter",col="gray60",...) {
   mx=max(adjustX,na.rm=TRUE)
   stripchart(formula,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=16,col=col)
 }
-plotData(Outcome~Comparison)
 
 # Confidence Interval Plots
 
