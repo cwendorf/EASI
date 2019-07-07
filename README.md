@@ -6,9 +6,9 @@ EASI is a set of fast and simple scripts for R that calculate, test, and plot co
 
 ## Overview of EASI
 
-*EASI is designed to provide quick calculation of basic statistics.
-*EASI emphasizes effect sizes and confidence intervals (and not NHST).
-*EASI calculates statistics not readily available in other statistics packages.
+* EASI is designed to provide quick calculation of basic statistics.
+* EASI emphasizes effect sizes and confidence intervals (and not NHST).
+* EASI calculates statistics not readily available in other statistics packages.
 
 ## For Means and Mean Differences
 
