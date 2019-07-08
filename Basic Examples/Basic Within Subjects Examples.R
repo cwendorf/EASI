@@ -11,11 +11,6 @@ Time3=c(8,8,9,9,9)
 mydata=data.frame(Time1,Time2,Time3)
 mydata
 
-# Preliminary Examination of the Data
-
-plotData(Time1,Time2,Time3)
-plotData(Time1,Time2,Time3,method="stack",col="black")
-
 # Analyses of Multiple Variables
 
 estimateLevels(Time1,Time2,Time3)
@@ -28,7 +23,7 @@ plotLevels(Time1,Time2,Time3,conf.level=.99,mu=6)
 testLevels(Time1,Time2,Time3,mu=6)
 effectLevels(Time1,Time2,Time3,mu=6,conf.level=.99)
 
-# Analyses of Variable Differences
+# Analyses of a Comparison
 
 estimateLevels(Time1,Time2)
 estimateDifference(Time1,Time2)
@@ -71,3 +66,12 @@ setcontrasts=contr.treatment
 estimateContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
 plotContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
 
+# Analyses of Pairwise Comparisons
+
+estimatePairwise(Time1,Time2,Time3)
+plotPairwise(Time1,Time2,Time3)
+testPairwise(Time1,Time2,Time3)
+
+estimatePairwise(Time1,Time2,Time3,conf.level=.99)
+plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99)
+testPairwise(Time1,Time2,Time3,mu=-2)

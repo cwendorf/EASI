@@ -100,13 +100,62 @@ nhstContrasts.formula <- function(formula,contrasts=contr.sum,...){
   return(results)
 }
 
-# NHST Function for Group Pairwise Comparisons
+# NHST Function for Pairwise Comparisons
 
-nhstPairwise <- function(formula,...){
-  model=aov(formula,...)
-  results=round(TukeyHSD(model)[[1]][,c(1,4)],3)
-  colnames(results)=c("Diff","p adj")
-  return(results)
+nhstPairwise <- function(...) 
+  UseMethod("nhstPairwise")
+
+nhstPairwise.default <- function(...,conf.level=.95,mu=0){
+  data=data.frame(...)
+  nr=dim(data)[2]
+  rn=colnames(data)
+  ncomp=(nr)*(nr-1)/2
+  results=data.frame(matrix(ncol=5,nrow=ncomp))
+  colnames(results)=c("Diff","SE","t","df","p")
+  comp=1
+  for( i in 1:(nr-1) ){
+  for( j in (i+1):nr ){
+    rownames(results)[comp]=paste(rn[i],"v",rn[j])
+	varx=get(rn[i])
+	vary=get(rn[j])
+	model=t.test(varx,vary,paired=TRUE,conf.level=conf.level,mu=mu)
+	MD=as.numeric(model$estimate)
+	SE=as.numeric(model$stderr)
+	t=as.numeric(model$statistic)
+	df=as.numeric(model$parameter)
+	p=as.numeric(model$p.value)
+    results[comp,]=c(MD,SE,t,df,p)
+  	comp=comp+1
+  }
+  }
+return(round(results,3))
+}
+
+nhstPairwise.formula <- function(formula,...){
+  varx=eval(formula[[3]])
+  vary=eval(formula[[2]])
+  nr=nlevels(varx)
+  rn=levels(varx)
+  ncomp=(nr)*(nr-1)/2
+  results=data.frame(matrix(ncol=5,nrow=ncomp))
+  colnames(results)=c("Diff","SE","t","df","p")
+  comp=1
+  for( i in 1:(nr-1) ){
+  for( j in (i+1):nr ){
+    rownames(results)[comp]=paste(rn[i],"v",rn[j])
+	Comparison=factor(varx,c(rn[i],rn[j]))
+	model=t.test(vary~Comparison,...)
+	mu=as.numeric(model$null.value)
+	MD=as.numeric(model$estimate[1]-model$estimate[2]-mu)		
+    SE=as.numeric(model$stderr)
+	t=as.numeric(model$statistic)
+	df=as.numeric(model$parameter)
+	p=as.numeric(model$p.value)
+    results[comp,]=c(MD,SE,t,df,p)
+	comp=comp+1
+  }
+  }
+  return(round(results,3))
 }
 
 # Wrappers for NHST Functions
@@ -119,23 +168,23 @@ testLevels <- function(...){
   cat("\n")
 }
 
-testDifference <- function(y,...){
+testDifference <- function(...){
   cat("\nHYPOTHESIS TEST FOR THE COMPARISON\n\n")
-  results=nhstDifference(y,...)
+  results=nhstDifference(...)
   print(results) 
   cat("\n")
 }
 
-testContrasts<-function(y,...) {
+testContrasts<-function(...) {
   cat("\nHYPOTHESIS TESTS FOR THE CONTRASTS\n\n")
-  results=nhstContrasts(y,...)
+  results=nhstContrasts(...)
   print(results) 
   cat("\n")  
 }
 
-testPairwise <- function(y,...) {
-  cat("\nHYPOTHESIS TESTS FOR TUKEY HSD COMPARISONS\n\n")
-  results=nhstPairwise(y,...)
+testPairwise <- function(...) {
+  cat("\nHYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS\n\n")
+  results=nhstPairwise(...)
   print(results) 
   cat("\n")  
 }

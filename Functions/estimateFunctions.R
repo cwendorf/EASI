@@ -98,13 +98,61 @@ easiContrasts.formula <- function(formula,contrasts=contr.sum,conf.level=.95,...
   return(results)
 }
 
-# EASI Function for Group Pairwise Comparisons
+# EASI Function for Pairwise Comparisons
 
-easiPairwise <- function(formula,conf.level=.95,...){
-  model=aov(formula,...)
-  results=round(TukeyHSD(model,conf.level=conf.level)[[1]][,1:3],3)
-  colnames(results)=c("Diff","LL","UL")
-  return(results)
+easiPairwise <- function(...) 
+  UseMethod("easiPairwise")
+
+easiPairwise.default <- function(...,conf.level=.95,mu=0){
+  data=data.frame(...)
+  nr=dim(data)[2]
+  rn=colnames(data)
+  ncomp=(nr)*(nr-1)/2
+  results=data.frame(matrix(ncol=5,nrow=ncomp))
+  colnames(results)=c("Diff","SE","df","LL","UL")
+  comp=1
+  for( i in 1:(nr-1) ){
+  for( j in (i+1):nr ){
+    rownames(results)[comp]=paste(rn[i],"v",rn[j])
+	varx=get(rn[i])
+	vary=get(rn[j])
+	model=t.test(varx,vary,paired=TRUE,conf.level=conf.level,mu=mu)
+	MD=as.numeric(model$estimate)
+	SE=as.numeric(model$stderr)
+	df=as.numeric(model$parameter)
+	LL=model$conf.int[1]
+	UL=model$conf.int[2]
+    results[comp,]=c(MD,SE,df,LL,UL)
+  	comp=comp+1
+  }
+  }
+return(round(results,3))
+}
+
+easiPairwise.formula <- function(formula,...){
+  varx=eval(formula[[3]])
+  vary=eval(formula[[2]])
+  nr=nlevels(varx)
+  rn=levels(varx)
+  ncomp=(nr)*(nr-1)/2
+  results=data.frame(matrix(ncol=5,nrow=ncomp))
+  colnames(results)=c("Diff","SE","df","LL","UL")
+  comp=1
+  for( i in 1:(nr-1) ){
+  for( j in (i+1):nr ){
+    rownames(results)[comp]=paste(rn[i],"v",rn[j])
+	Comparison=factor(varx,c(rn[i],rn[j]))
+	model=t.test(vary~Comparison,...)
+    MD=as.numeric(model$estimate)[1]-as.numeric(model$estimate)[2]
+    SE=as.numeric(model$stderr)
+    df=as.numeric(model$parameter)
+    LL=model$conf.int[1]
+    UL=model$conf.int[2]
+    results[comp,]=c(MD,SE,df,LL,UL)
+	comp=comp+1
+  }
+  }
+  return(round(results,3))
 }
 
 # Wrappers for EASI Functions
@@ -117,23 +165,23 @@ estimateLevels <- function(...){
   cat("\n")
 }
 
-estimateDifference<-function(y,...) {
+estimateDifference<-function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE COMPARISON\n\n")
-  results=easiDifference(y,...)
+  results=easiDifference(...)
   print(results) 
   cat("\n")  
 }
   
-estimateContrasts <- function(y,...) {
+estimateContrasts <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE CONTRASTS\n\n")
-  results=easiContrasts(y,...)
+  results=easiContrasts(...)
   print(results) 
   cat("\n")  
 }
 
-estimatePairwise <- function(y,...) {
-  cat("\nCONFIDENCE INTERVALS FOR TUKEY HSD COMPARISONS\n\n")
-  results=easiPairwise(y,...)
+estimatePairwise <- function(...) {
+  cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
+  results=easiPairwise(...)
   print(results) 
   cat("\n")  
 }

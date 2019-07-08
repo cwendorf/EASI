@@ -11,11 +11,6 @@ Group=factor(Group)
 mydata=data.frame(Group,Outcome)
 mydata
 
-# Preliminary Examination of the Data
-
-plotData(Outcome~Group)
-plotData(Outcome~Group,method="stack",col="black")
-
 # Analyses of Multiple Groups
 
 estimateLevels(Outcome~Group)
@@ -28,7 +23,7 @@ plotLevels(Outcome~Group,conf.level=.99,mu=5)
 testLevels(Outcome~Group,mu=5)
 effectLevels(Outcome~Group,mu=5,conf.level=.99)
 
-# Analyses of Group Differences
+# Analyses of a Comparison
 
 Comparison=factor(Group,c(1,2))
 estimateLevels(Outcome~Comparison)
@@ -115,8 +110,8 @@ plotPairwise(Outcome~Group)
 testPairwise(Outcome~Group)
 
 estimatePairwise(Outcome~Group,conf.level=.99)
-plotPairwise(Outcome~Group,mu=0,conf.level=.99)
-testPairwise(Outcome~Group)
+plotPairwise(Outcome~Group,mu=-2,conf.level=.99)
+testPairwise(Outcome~Group,mu=-2)
 
 
 
