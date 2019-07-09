@@ -98,7 +98,7 @@ easiContrasts.formula <- function(formula,contrasts=contr.sum,conf.level=.95,...
   return(results)
 }
 
-# EASI Function for Pairwise Comparisons
+# EASI Function for Pairwise Group and Variable Comparisons
 
 easiPairwise <- function(...) 
   UseMethod("easiPairwise")

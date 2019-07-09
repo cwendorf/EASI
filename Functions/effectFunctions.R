@@ -2,7 +2,7 @@
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 # STANDARDIZED MEAN DIFFERENCE FUNCTIONS 
 
-# Basic SMD Functions
+# Basic SMD Function
 
 smd <- function(y,conf.level=.95,mu=0,...){
   Var=easi(y,...)
@@ -92,20 +92,100 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
+# SMD Function for Pairwise Group and Variable Comparisons
+
+smdPairwise <- function(...) 
+  UseMethod("smdPairwise")
+  
+smdPairwise.default <- function(...,conf.level=.95){
+  Vars=easiLevels(...)
+  nr=dim(Vars)[1]
+  rn=rownames(Vars)
+  ncomp=(nr)*(nr-1)/2
+  results=data.frame(matrix(ncol=4,nrow=ncomp))
+  colnames(results)=c("d","g","LL","UL")
+  comp=1
+  for( i in 1:(nr-1) ){
+  for( j in (i+1):nr ){
+    rownames(results)[comp]=paste(rn[i],"v",rn[j])
+	varx=get(rn[i])
+	vary=get(rn[j])
+    ns=as.numeric(Vars[c(i,j),1])
+	mns=as.numeric(Vars[c(i,j),2])
+	sds=as.numeric(Vars[c(i,j),3])
+	ntilde=1/mean(1/ns) 
+	dmn=abs(mns[2]-mns[1])
+	sdp=sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
+	cohend=dmn/sdp
+	eta=ns[1]+ns[2]-2
+	J=gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
+	hedgesg=cohend*J
+	r=cor(varx,vary)
+	lambda=hedgesg*sqrt(ntilde/(2*(1-r)))
+	tlow=qt(1/2-conf.level/2,df=eta,ncp=lambda)
+	thig=qt(1/2+conf.level/2,df=eta,ncp=lambda)
+	dlow=tlow/lambda*hedgesg 
+	dhig=thig/lambda*hedgesg 
+    results[comp,]=c(d=cohend,g=hedgesg,LL=dlow,UL=dhig)
+  	comp=comp+1
+  }
+  }
+return(round(results,3))
+} 
+ 
+smdPairwise.formula <- function(formula,conf.level=.95,...){
+  Groups=easiLevels(formula,...)
+  nr=dim(Groups)[1]
+  rn=rownames(Groups)
+  ncomp=(nr)*(nr-1)/2
+  results=data.frame(matrix(ncol=4,nrow=ncomp))
+  colnames(results)=c("d","g","LL","UL")
+  comp=1
+  for( i in 1:(nr-1) ){
+  for( j in (i+1):nr ){
+    rownames(results)[comp]=paste(rn[i],"v",rn[j])
+	ns=as.numeric(Groups[c(i,j),1])
+	mns=as.numeric(Groups[c(i,j),2])
+	sds=as.numeric(Groups[c(i,j),3])
+	ntilde=1/mean(1/ns) 
+	dmn=abs(mns[2]-mns[1])
+	sdp=sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
+	cohend=dmn/sdp
+	eta=ns[1]+ns[2]-2
+	J=gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
+	hedgesg=cohend*J
+	lambda=hedgesg*sqrt(ntilde/2)
+	tlow=qt(1/2-conf.level/2,df=eta,ncp=lambda)
+	thig=qt(1/2+conf.level/2,df=eta,ncp=lambda)
+	dlow=tlow/lambda*hedgesg 
+	dhig=thig/lambda*hedgesg 
+    results[comp,]=c(d=cohend,g=hedgesg,LL=dlow,UL=dhig)
+  	comp=comp+1
+  }
+  }
+return(round(results,3))
+}
+
 # Wrappers for SMD Functions
 # These call the functions and print with titles
 
-effectLevels <- function(y,...){
+effectLevels <- function(...){
   cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE LEVELS\n\n")
-  results=smdLevels(y,...)
+  results=smdLevels(...)
   print(results)
   cat("\n")
 }
 
-effectDifference <- function(y,...) {
+effectDifference <- function(...) {
   cat("\nSTANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON\n\n")
-  results=smdDifference(y,...)
+  results=smdDifference(...)
   print(results)
   cat("\n")  
 }
 
+effectPairwise <- function(...) {
+  cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS\n\n")
+  results=smdPairwise(...)
+  print(results)
+  cat("\n")  
+}

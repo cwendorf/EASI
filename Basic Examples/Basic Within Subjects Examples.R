@@ -23,7 +23,7 @@ plotLevels(Time1,Time2,Time3,conf.level=.99,mu=6)
 testLevels(Time1,Time2,Time3,mu=6)
 effectLevels(Time1,Time2,Time3,mu=6,conf.level=.99)
 
-# Analyses of a Comparison
+# Analyses of a Variable Comparison
 
 estimateLevels(Time1,Time2)
 estimateDifference(Time1,Time2)
@@ -49,7 +49,7 @@ plotDifference(Time3,Time1a2)
 testDifference(Time3,Time1a2)
 effectDifference(Time3,Time1a2)
 
-# Analyses of Sets of Contrasts
+# Analyses of Sets of Variable Contrasts
 
 estimateContrasts(Time1,Time2,Time3)
 testContrasts(Time1,Time2,Time3)
@@ -66,12 +66,14 @@ setcontrasts=contr.treatment
 estimateContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
 plotContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
 
-# Analyses of Pairwise Comparisons
+# Analyses of Pairwise Variable Comparisons
 
 estimatePairwise(Time1,Time2,Time3)
 plotPairwise(Time1,Time2,Time3)
 testPairwise(Time1,Time2,Time3)
+effectPairwise(Time1,Time2,Time3)
 
 estimatePairwise(Time1,Time2,Time3,conf.level=.99)
 plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99)
 testPairwise(Time1,Time2,Time3,mu=-2)
+effectPairwise(Time1,Time2,Time3,conf.level=.99)

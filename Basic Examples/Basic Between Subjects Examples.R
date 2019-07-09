@@ -23,7 +23,7 @@ plotLevels(Outcome~Group,conf.level=.99,mu=5)
 testLevels(Outcome~Group,mu=5)
 effectLevels(Outcome~Group,mu=5,conf.level=.99)
 
-# Analyses of a Comparison
+# Analyses of a Group Comparison
 
 Comparison=factor(Group,c(1,2))
 estimateLevels(Outcome~Comparison)
@@ -79,7 +79,7 @@ plotDifference(Outcome~Comparison)
 testDifference(Outcome~Comparison)
 effectDifference(Outcome~Comparison)
 
-# Analyses of Sets of Contrasts
+# Analyses of Sets of Group Contrasts
 
 estimateContrasts(Outcome~Group)
 testContrasts(Outcome~Group)
@@ -103,15 +103,18 @@ estimateContrasts(Outcome~Group,contrasts=setcontrasts)
 setcontrasts=contr.SAS
 estimateContrasts(Outcome~Group,contrasts=setcontrasts)
 
-# Analyses of Pairwise Comparisons
+# Analyses of Pairwise Group Comparisons
 
 estimatePairwise(Outcome~Group)
 plotPairwise(Outcome~Group)
 testPairwise(Outcome~Group)
+effectPairwise(Outcome~Group)
 
 estimatePairwise(Outcome~Group,conf.level=.99)
 plotPairwise(Outcome~Group,mu=-2,conf.level=.99)
 testPairwise(Outcome~Group,mu=-2)
+effectPairwise(Outcome~Group,conf.level=.99)
+
 
 
 
