@@ -12,6 +12,7 @@ mydata=data.frame(Group,Outcome)
 mydata
 
 # Analyses of Multiple Groups
+# (equivalent to one-sample analyses for each level of a factor)
 
 estimateLevels(Outcome~Group)
 plotLevels(Outcome~Group)
@@ -24,6 +25,7 @@ testLevels(Outcome~Group,mu=5)
 effectLevels(Outcome~Group,mu=5,conf.level=.99)
 
 # Analyses of a Group Comparison
+# (equivalent to analyses for two levels of a factor)
 
 Comparison=factor(Group,c(1,2))
 estimateLevels(Outcome~Comparison)
@@ -80,6 +82,7 @@ testDifference(Outcome~Comparison)
 effectDifference(Outcome~Comparison)
 
 # Analyses of Sets of Group Contrasts
+# (equivalent to dummy, effect, and other sets of codes)
 
 estimateContrasts(Outcome~Group)
 testContrasts(Outcome~Group)
@@ -104,6 +107,7 @@ setcontrasts=contr.SAS
 estimateContrasts(Outcome~Group,contrasts=setcontrasts)
 
 # Analyses of Pairwise Group Comparisons
+# (equivalent to Tukey LSD pairwise comparisons))
 
 estimatePairwise(Outcome~Group)
 plotPairwise(Outcome~Group)

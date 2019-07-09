@@ -2,7 +2,7 @@
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 # WITHIN-SUBJECTS EXAMPLES
 
-# Create Data
+# Three Time Period Example Data
 
 Time1=c(5,6,6,7,8)
 Time2=c(7,7,8,8,9)
@@ -12,6 +12,7 @@ mydata=data.frame(Time1,Time2,Time3)
 mydata
 
 # Analyses of Multiple Variables
+# (equivalent to one-sample analyses for each level of a factor)
 
 estimateLevels(Time1,Time2,Time3)
 plotLevels(Time1,Time2,Time3)
@@ -24,6 +25,7 @@ testLevels(Time1,Time2,Time3,mu=6)
 effectLevels(Time1,Time2,Time3,mu=6,conf.level=.99)
 
 # Analyses of a Variable Comparison
+# (equivalent to analyses for two levels of a factor)
 
 estimateLevels(Time1,Time2)
 estimateDifference(Time1,Time2)
@@ -50,6 +52,7 @@ testDifference(Time3,Time1a2)
 effectDifference(Time3,Time1a2)
 
 # Analyses of Sets of Variable Contrasts
+# (equivalent to dummy, effect, and other sets of codes)
 
 estimateContrasts(Time1,Time2,Time3)
 testContrasts(Time1,Time2,Time3)
@@ -67,6 +70,7 @@ estimateContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
 plotContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
 
 # Analyses of Pairwise Variable Comparisons
+# (equivalent to Tukey LSD pairwise comparisons))
 
 estimatePairwise(Time1,Time2,Time3)
 plotPairwise(Time1,Time2,Time3)
