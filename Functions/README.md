@@ -1,3 +1,5 @@
+# Estimation Approach to Statistical Inference
+
 ### Overview of EASI
 
 - EASI is designed to provide quick calculation of basic statistics.
