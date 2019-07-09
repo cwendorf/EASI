@@ -103,7 +103,7 @@ easiContrasts.formula <- function(formula,contrasts=contr.sum,conf.level=.95,...
 easiPairwise <- function(...) 
   UseMethod("easiPairwise")
 
-easiPairwise.default <- function(...,conf.level=.95,mu=0){
+easiPairwise.default <- function(...,conf.level=.95){
   data=data.frame(...)
   nr=dim(data)[2]
   rn=colnames(data)
@@ -116,7 +116,7 @@ easiPairwise.default <- function(...,conf.level=.95,mu=0){
     rownames(results)[comp]=paste(rn[i],"v",rn[j])
 	varx=get(rn[i])
 	vary=get(rn[j])
-	model=t.test(varx,vary,paired=TRUE,conf.level=conf.level,mu=mu)
+	model=t.test(varx,vary,paired=TRUE,conf.level=conf.level)
 	MD=as.numeric(model$estimate)
 	SE=as.numeric(model$stderr)
 	df=as.numeric(model$parameter)

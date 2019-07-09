@@ -49,13 +49,13 @@ smdLevels.formula <- function(formula,...) {
 smdDifference <- function(...) 
   UseMethod("smdDifference")  
 
-smdDifference.default <- function(...,conf.level=.95,mu=0){
+smdDifference.default <- function(...,conf.level=.95){
   Vars=easiLevels(...)
   ns=as.numeric(Vars[1:2,1])
   mns=as.numeric(Vars[1:2,2])
   sds=as.numeric(Vars[1:2,3])
   ntilde=1/mean(1/ns) 
-  dmn=(mns[1]-mns[2]-mu)
+  dmn=(mns[1]-mns[2])
   sdp=sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
   cohend=dmn/sdp
   eta=ns[1]+ns[2]-2
@@ -71,13 +71,13 @@ smdDifference.default <- function(...,conf.level=.95,mu=0){
   return(results)
 }
 
-smdDifference.formula <- function(formula,conf.level=.95,mu=0,...){
+smdDifference.formula <- function(formula,conf.level=.95,...){
   Groups=easiLevels(formula,...)
   ns=as.numeric(Groups[1:2,1])
   mns=as.numeric(Groups[1:2,2])
   sds=as.numeric(Groups[1:2,3])
   ntilde=1/mean(1/ns) 
-  dmn=(mns[1]-mns[2]-mu)
+  dmn=(mns[1]-mns[2])
   sdp=sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
   cohend=dmn/sdp
   eta=ns[1]+ns[2]-2
@@ -97,7 +97,7 @@ smdDifference.formula <- function(formula,conf.level=.95,mu=0,...){
 smdPairwise <- function(...) 
   UseMethod("smdPairwise")
   
-smdPairwise.default <- function(...,conf.level=.95,mu=0){
+smdPairwise.default <- function(...,conf.level=.95){
   Vars=easiLevels(...)
   nr=dim(Vars)[1]
   rn=rownames(Vars)
@@ -114,7 +114,7 @@ smdPairwise.default <- function(...,conf.level=.95,mu=0){
 	mns=as.numeric(Vars[c(i,j),2])
 	sds=as.numeric(Vars[c(i,j),3])
 	ntilde=1/mean(1/ns) 
-	dmn=(mns[1]-mns[2]-mu)
+	dmn=(mns[1]-mns[2])
 	sdp=sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
 	cohend=dmn/sdp
 	eta=ns[1]+ns[2]-2
@@ -133,7 +133,7 @@ smdPairwise.default <- function(...,conf.level=.95,mu=0){
 return(round(results,3))
 } 
  
-smdPairwise.formula <- function(formula,conf.level=.95,mu=0,...){
+smdPairwise.formula <- function(formula,conf.level=.95,...){
   Groups=easiLevels(formula,...)
   nr=dim(Groups)[1]
   rn=rownames(Groups)
@@ -148,7 +148,7 @@ smdPairwise.formula <- function(formula,conf.level=.95,mu=0,...){
 	mns=as.numeric(Groups[c(i,j),2])
 	sds=as.numeric(Groups[c(i,j),3])
 	ntilde=1/mean(1/ns) 
-	dmn=(mns[1]-mns[2]-mu)
+	dmn=(mns[1]-mns[2])
 	sdp=sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
 	cohend=dmn/sdp
 	eta=ns[1]+ns[2]-2
