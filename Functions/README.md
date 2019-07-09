@@ -5,7 +5,7 @@
 ### Overview of EASI
 
 - EASI is designed to provide quick calculation of basic statistics.
-- EASI emphasizes effect sizes and confidence intervals (and not NHST).
+- EASI emphasizes confidence intervalsand effect sizes (though NHST is included).
 - EASI calculates statistics not readily available in other statistics packages.
 
 ### For Means and Mean Differences
