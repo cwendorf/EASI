@@ -2,11 +2,15 @@
 
 ## The Functions
 
-### Overview of EASI
+### Overview of EASI Functions
 
-- EASI is designed to provide quick calculation of basic statistics.
-- EASI emphasizes confidence intervals and effect sizes (though NHST is included).
-- EASI calculates statistics not readily available in other statistics packages.
+The EASI functions are in four basic files:
+- estimateFunctions.R (scripts that estimate means, mean differences, and their confidence intervals)
+- plotFunctions.R (scripts that plot means, mean differences, and their confidence intervals)
+- effectFunctions.R (scripts that calculate standardized effect sizes and their confidence intervals)
+- testFunctions.R (scripts that calculate NHST for means and mean differences)
+
+All EASI scripts should be run prior to conducting analyses. In particular, the **estimateFunctions.R** file is particularly important, as the other functions make calls to these.
 
 ### For Means and Mean Differences
 
