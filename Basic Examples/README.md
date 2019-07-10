@@ -11,9 +11,16 @@
 
 ### Included Examples
 
-**Basic Between-Subjects Examples.R** includes:
+The file **Basic Between-Subjects Examples.R** includes:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Comparisons/Differences (equivalent to analyses for two levels of a factor)
 - Analyses of Set of Contrasts (equivalent to dummy, effect, and other sets of codes)
 - Analyses of Pairwise Comparisons (equivalent to Tukey LSD pairwise comparisons)
+
+The file **Basic Writhin-Subjects Examples.R** includes:
+
+- Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of the same variable)
+- Analyses of Comparisons/Differences (equivalent to analyses of differences for two instances of the same variable)
+- Analyses of Set of Contrasts (equivalent to dummy, effect, and other sets of codes among instances of a variable)
+- Analyses of Pairwise Comparisons (equivalent to Tukey LSD pairwise comparisons of instances of a variable)
