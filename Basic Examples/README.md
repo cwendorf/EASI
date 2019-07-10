@@ -11,6 +11,8 @@
 
 ### Included Examples
 
+**Basic Between-Subjects Examples.R** includes:
+
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Comparisons/Differences (equivalent to analyses for two levels of a factor)
 - Analyses of Set of Contrasts (equivalent to dummy, effect, and other sets of codes)
