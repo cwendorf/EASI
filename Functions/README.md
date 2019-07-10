@@ -12,6 +12,8 @@ The EASI functions are in four basic files:
 
 All EASI scripts should be run prior to conducting analyses. In particular, the **estimateFunctions.R** file is especially important, as the other functions make calls to these functions.
 
+## Technical Details
+
 ### For Means and Mean Differences
 
 - Confidence intervals are based on the central t distribution.
