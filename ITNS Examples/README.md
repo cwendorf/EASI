@@ -4,7 +4,7 @@
 
 ### Overview of the Examples
 
-- Examples from the Introduction to the New Statistics (ITNS) book are included
+- Examples from the [Introduction to the New Statistics (ITNS)](https://thenewstatistics.com/itns/ "Introduction to the New Statistics") book are included
 - Each example contains a data file, a syntax file, an output file, and graphs
 
 ### Included Examples
