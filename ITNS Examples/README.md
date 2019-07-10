@@ -15,4 +15,4 @@
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). Introduction to the New Statistics. New York: Routledge.
+Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the New Statistics._ New York: Routledge.
