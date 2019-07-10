@@ -4,7 +4,7 @@
 
 ### Overview of the Examples
 
-- There are basic example files for between-subjects and for within-subjects design
+- There are basic example files for between-subjects desgins and for within-subjects designs
 - Examples provide a simple data set for each design
 - Examples show both the default output and the available options
 - Examples include estimation, plots, significance tests, and effect sizes
