@@ -10,7 +10,7 @@ The EASI functions are in four basic files:
 - **effectFunctions.R** (scripts that calculate standardized effect sizes and their confidence intervals)
 - **testFunctions.R** (scripts that calculate NHST for means and mean differences)
 
-All EASI scripts should be run prior to conducting analyses. In particular, the **estimateFunctions.R** file is particularly important, as the other functions make calls to these.
+All EASI scripts should be run prior to conducting analyses. In particular, the **estimateFunctions.R** file is especially important, as the other functions make calls to these functions.
 
 ### For Means and Mean Differences
 
