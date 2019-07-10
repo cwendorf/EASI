@@ -4,10 +4,11 @@
 
 ### Overview of the Examples
 
-- Examples from the Introduction to the New Statistics (ITNS) book are included
-- Each example contains a data file, a syntax file, an output file, and graphs
+- Examples from the [Introduction to the New Statistics (ITNS)](https://thenewstatistics.com/itns/ "Introduction to the New Statistics") book are included
+- Each example contains a data file, a syntax file, a text output file, and graphs in jpg form
+- Additional forms of the data can be obtained from https://github.com/gitrman/itns
 
 ### Included Examples
 
-- Donohue: An example of a within-subjects design
-- Rattan et al: An example of a between-subjects design
+- Donohue et al. (2002): An example of a within-subjects design, from ITNS Ch. 14
+- Rattan et al (2012): An example of a between-subjects design, from ITNS Ch. 14
