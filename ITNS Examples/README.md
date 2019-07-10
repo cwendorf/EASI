@@ -12,3 +12,7 @@
 
 - Donohue et al. (2002): An example of a within-subjects design, from ITNS Ch. 14
 - Rattan et al (2012): An example of a between-subjects design, from ITNS Ch. 14
+
+## References
+
+Cumming, G., & Calin-Jageman, R. (2017). Introduction to the New Statistics. New York; Routledge.
