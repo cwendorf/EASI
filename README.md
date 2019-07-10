@@ -18,4 +18,4 @@ EASI can be used to calculate and plot confidence intervals of mean differences 
 
 ## How to Cite these Scripts
 
-Wendorf, C.A. (2019). An Estimation Approach to Statistical Inference (EASI). Software available GitHub at https://github.com/cwendorf/EASI.
+Wendorf, C.A. (2019). _An Estimation Approach to Statistical Inference (EASI)._ Software available GitHub at https://github.com/cwendorf/EASI.
