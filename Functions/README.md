@@ -12,7 +12,7 @@ The EASI functions are in four basic files:
 
 ### Installation of the Functions
 
-`EASI` is not currently on CRAN, but you can install it from GitHub by pasting the text of the scripts about directly into R.
+EASI is not currently on CRAN or compiled as a package, but you can install it from GitHub by pasting the text of the scripts about directly into R.
 
 All EASI scripts should be run prior to conducting analyses. In particular, the **estimateFunctions.R** file is especially important, as the other functions make calls to these functions.
 
