@@ -1,7 +1,6 @@
 # Estimation Approach to Statistical Inference (EASI)
 
 ## Basic Examples with Simple Fictional Data
-
 ### Overview of the Examples
 
 - There are basic example files for between-subjects and for within-subjects design
