@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference (EASI)
 
-## Basic Examples
+## Basic Examples with Simple Fictional Data
 
 ### Overview of the Examples
 
