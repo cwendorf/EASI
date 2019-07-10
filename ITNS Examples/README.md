@@ -9,5 +9,5 @@
 
 ### Included Examples
 
-- Donohue: An example of a within-subjects design
-- Rattan et al: An example of a between-subjects design
+- Donohue et al: An example of a within-subjects design, from ITNS Ch. 14
+- Rattan et al: An example of a between-subjects design, from ITNS Ch. 14
