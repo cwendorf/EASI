@@ -14,7 +14,7 @@ EASI extentions are functions that go beyond the original vision for EASI. The E
 
 EASI is not currently on CRAN or compiled as a package, but you can install it by pasting the text of the scripts about directly into R.
 
-All EASI scripts should be run prior to conducting analyses. Because these are extensions, the original **basicFunctions** should also pasted into R.
+All EASI scripts should be run prior to conducting analyses. Because these are extensions, the basic Functions should also pasted into R.
 
 ## Technical Details
 

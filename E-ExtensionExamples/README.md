@@ -7,6 +7,7 @@
 - Basic example files for between-subjects desgins and for within-subjects designs are included
 - Examples show both the default output and the available options
 - Examples include estimation, plots, significance tests, and effect sizes
+- Each example provides a syntax file, a text output file, and graphs
 
 ### Included Examples
 
