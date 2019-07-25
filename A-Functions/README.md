@@ -23,6 +23,7 @@ All EASI scripts should be run prior to conducting analyses. In particular, the 
 - Confidence intervals are based on the central t distribution.
 - Confidence intervals are calculated independent of each other (i.e., they are not simultaneous).
 - No adjustments for multiple intervals have been made.
+- Unlike other implementations, all intervals assume heterogenity of variance.
 
 ### For Standardized Effect Sizes
 
