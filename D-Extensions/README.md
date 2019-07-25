@@ -4,7 +4,7 @@
 
 ### Overview of the Extensions
 
-EASI extentions are functions that go beyond the original vision for EASI (and the "new statistics"). The EASI extensions parallel the four basic function files:
+EASI extentions are functions that go beyond the original vision for EASI. The EASI extensions parallel the four basic function files by adding the following:
 - **estimateExtensions.R** (scripts that estimate confidence intervals for sets of built-in contrasts and pairwise comparisons)
 - **plotExtensions.R** (scripts that plot onfidence intervals for sets of built-in contrasts and pairwise comparisons)
 - **effectExtensions.R** (scripts that calculate standardized effect sizes and confidence intervals for sets of built-in contrasts and pairwise comparisons)
