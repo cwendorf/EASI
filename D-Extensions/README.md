@@ -1,4 +1,4 @@
-# Estimation Approach to Statistical Inference (EASI)t
+# Estimation Approach to Statistical Inference (EASI)
 
 ## Extensions of the Basic EASI Functions
 
