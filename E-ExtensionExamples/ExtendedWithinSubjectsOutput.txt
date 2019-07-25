@@ -1,0 +1,159 @@
+> # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
+> # WITHIN-SUBJECTS EXAMPLES
+> # EXTENDED FUNCTIONS FOR COMPARISONS AND CONTRASTS
+> 
+> # Three Time Period Example Data
+> 
+> Time1 <- c(5,6,6,7,8)
+> Time2 <- c(7,7,8,8,9)
+> Time3 <- c(8,8,9,9,9)
+> 
+> mydata <- data.frame(Time1,Time2,Time3)
+> mydata
+
+  Time1 Time2 Time3
+1     5     7     8
+2     6     7     8
+3     6     8     9
+4     7     8     9
+5     8     9     9
+
+> # Analyses of Sets of Variable Contrasts
+> # (equivalent to dummy, effect, and other sets of codes)
+> 
+> estimateContrasts(Time1,Time2,Time3)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+             Est    SE     LL     UL
+(Intercept)  7.6 0.115  7.334  7.866
+Variable1   -1.2 0.163 -1.577 -0.823
+Variable2    0.2 0.163 -0.177  0.577
+
+> testContrasts(Time1,Time2,Time3)
+
+HYPOTHESIS TESTS FOR THE CONTRASTS
+
+            Diff    SE      t     p
+(Intercept)  7.6 0.115 65.818 0.000
+Variable1   -1.2 0.163 -7.348 0.000
+Variable2    0.2 0.163  1.225 0.256
+
+> plotContrasts(Time1,Time2,Time3)
+
+[See ExtendedWithinSubjectsGraph1.jpeg]
+
+> estimateContrasts(Time1,Time2,Time3,conf.level=.99)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+             Est    SE     LL     UL
+(Intercept)  7.6 0.115  7.213  7.987
+Variable1   -1.2 0.163 -1.748 -0.652
+Variable2    0.2 0.163 -0.348  0.748
+
+> plotContrasts(Time1,Time2,Time3,conf.level=.99)
+
+[See ExtendedWithinSubjectsGraph2.jpeg]
+
+> estimateContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+            Est    SE    LL    UL
+(Intercept) 6.4 0.200 5.939 6.861
+Variable2   1.4 0.283 0.748 2.052
+Variable3   2.2 0.283 1.548 2.852
+
+> testContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
+
+HYPOTHESIS TESTS FOR THE CONTRASTS
+
+            Diff    SE      t     p
+(Intercept)  6.4 0.200 32.000 0.000
+Variable2    1.4 0.283  4.950 0.001
+Variable3    2.2 0.283  7.778 0.000
+
+> plotContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
+
+[See ExtendedWithinSubjectsGraph3.jpeg]
+
+> setcontrasts=contr.treatment
+> estimateContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+            Est    SE    LL    UL
+(Intercept) 6.4 0.200 5.939 6.861
+Variable2   1.4 0.283 0.748 2.052
+Variable3   2.2 0.283 1.548 2.852
+
+> plotContrasts(Time1,Time2,Time3,contrasts=setcontrasts)
+
+[See ExtendedWithinSubjectsGraph4.jpeg]
+
+> # Analyses of Pairwise Variable Comparisons
+> # (equivalent to Tukey LSD pairwise comparisons))
+> 
+> estimatePairwise(Time1,Time2,Time3)
+
+CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
+
+              Diff    SE df     LL     UL
+Time1 v Time2 -1.4 0.245  4 -2.080 -0.720
+Time1 v Time3 -2.2 0.374  4 -3.239 -1.161
+Time2 v Time3 -0.8 0.200  4 -1.355 -0.245
+
+> plotPairwise(Time1,Time2,Time3)
+
+[See ExtendedWithinSubjectsGraph5.jpeg]
+
+> testPairwise(Time1,Time2,Time3)
+
+HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
+
+              Diff    SE      t df     p
+Time1 v Time2 -1.4 0.245 -5.715  4 0.005
+Time1 v Time3 -2.2 0.374 -5.880  4 0.004
+Time2 v Time3 -0.8 0.200 -4.000  4 0.016
+
+> effectPairwise(Time1,Time2,Time3)
+
+STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+
+                   d      g     LL     UL
+Time1 v Time2 -1.400 -1.264 -2.566 -0.735
+Time1 v Time3 -2.460 -2.220 -4.468 -1.326
+Time2 v Time3 -1.131 -1.021 -2.153 -0.524
+
+> estimatePairwise(Time1,Time2,Time3,conf.level=.99)
+
+CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
+
+              Diff    SE df     LL     UL
+Time1 v Time2 -1.4 0.245  4 -2.528 -0.272
+Time1 v Time3 -2.2 0.374  4 -3.923 -0.477
+Time2 v Time3 -0.8 0.200  4 -1.721  0.121
+
+> plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99)
+
+[See ExtendedWithinSubjectsGraph6.jpeg]
+
+> testPairwise(Time1,Time2,Time3,mu=-2)
+
+HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
+
+              Diff    SE      t df     p
+Time1 v Time2 -1.4 0.245  2.449  4 0.070
+Time1 v Time3 -2.2 0.374 -0.535  4 0.621
+Time2 v Time3 -0.8 0.200  6.000  4 0.004
+
+> effectPairwise(Time1,Time2,Time3,conf.level=.99)
+
+STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+
+                   d      g     LL     UL
+Time1 v Time2 -1.400 -1.264 -3.298 -0.608
+Time1 v Time3 -2.460 -2.220 -5.735 -1.114
+Time2 v Time3 -1.131 -1.021 -2.782 -0.396
+
