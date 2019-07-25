@@ -28,5 +28,5 @@ All EASI scripts should be run prior to conducting analyses. In particular, the 
 ### For Standardized Effect Sizes
 
 - Both Cohen's d and Hedge's g are presented.
-- Confidence intervals are centered on g.
+- Confidence intervals are centered on Hedge's g.
 - Confidence intervals are based on the noncentral t distribution.
