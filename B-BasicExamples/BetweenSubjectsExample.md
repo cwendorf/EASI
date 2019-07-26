@@ -1,3 +1,8 @@
+<kbd>![alt-text](https://example.com/image.png)</kbd>
+
+<kbd><img src="https://example.com/image.png" /></kbd>
+
+
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 ## BASIC BETWEEN-SUBJECTS EXAMPLES
 
