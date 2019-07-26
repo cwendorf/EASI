@@ -1,5 +1,5 @@
 
-<kbd><img src="https://www4.uwsp.edu/psych/cw/statistics/AnnotatedOutput.jpg" /></kbd>
+<kbd style="width:100%"><img src="https://www4.uwsp.edu/psych/cw/statistics/AnnotatedOutput.jpg" /></kbd>
 
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
