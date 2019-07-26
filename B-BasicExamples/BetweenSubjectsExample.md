@@ -1,3 +1,7 @@
+<div width="100%" style="border:1px solid gray; background:white;">
+<img src="https://github.com/cwendorf/EASI/blob/master/B-BasicExamples/BetweenSubjectsGraph1.jpeg">
+</div>
+
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 ## BASIC BETWEEN-SUBJECTS EXAMPLES
 
