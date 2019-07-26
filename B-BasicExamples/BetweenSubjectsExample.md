@@ -49,9 +49,6 @@ Entering this code:
 ```
 plotLevels(Outcome~Group)
 ```
-
-Displays this output:
-
 <kbd><img src="BetweenSubjectsGraph1.jpeg"></kbd>
 
 
