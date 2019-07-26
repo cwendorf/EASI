@@ -1,6 +1,5 @@
-<kbd>![alt-text](https://example.com/image.png)</kbd>
 
-<kbd><img src="https://example.com/image.png" /></kbd>
+<img src="https://example.com/image.png" />
 
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
