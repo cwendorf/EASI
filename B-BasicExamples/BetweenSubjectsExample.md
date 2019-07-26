@@ -1,6 +1,6 @@
-<div width="100%" style="border:1px solid gray !important; background:white !important;">
+<kbd>
 <img src="BetweenSubjectsGraph1.jpeg">
-</div>
+</kbd>
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 ## BASIC BETWEEN-SUBJECTS EXAMPLES
