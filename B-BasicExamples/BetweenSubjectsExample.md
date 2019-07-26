@@ -1,5 +1,5 @@
-<div width="100%">
-<img src="BetweenSubjectsGraph1.jpeg" border="10">
+<div width="100%" border="10 gray">
+<img src="BetweenSubjectsGraph1.jpeg">
 </div>
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
