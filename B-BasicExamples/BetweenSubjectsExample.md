@@ -12,9 +12,7 @@ Group <- factor(Group)
 mydata <- data.frame(Group,Outcome)
 mydata
 ```
-
-Displays this output:
-<pre style="background-color:white !important;">
+~~~
    Group Outcome
 1 Group1       3
 2 Group1       4
@@ -25,7 +23,7 @@ Displays this output:
 7 Group3       8
 8 Group3       9
 9 Group3      10
-</pre>
+~~~
 
 
 ### Analyses of Multiple Groups
