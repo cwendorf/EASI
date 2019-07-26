@@ -52,7 +52,7 @@ plotLevels(Outcome~Group)
 
 Displays this output:
 
-![Screenshot1](BetweenSubjectsGraph1.jpeg)
+<kbd><img src="BetweenSubjectsGraph1.jpeg"></kbd>
 
 
 Entering this code:
