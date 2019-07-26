@@ -1,8 +1,3 @@
-<style>
-pre code{background-color:blue !important;}
-pre output{background-color:red !important;}
-</style>
-
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 ## BASIC BETWEEN-SUBJECTS EXAMPLES
 
