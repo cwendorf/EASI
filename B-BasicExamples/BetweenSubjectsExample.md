@@ -14,7 +14,7 @@ mydata
 ```
 
 Displays this output:
-<pre style="background-color:white;">
+<pre style="background-color:white !important;">
    Group Outcome
 1 Group1       3
 2 Group1       4
