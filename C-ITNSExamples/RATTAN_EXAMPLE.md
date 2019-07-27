@@ -1,14 +1,16 @@
-> # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-> ## BETWEEN-SUBJECTS EXAMPLE WITH RATTAN DATA
-> 
-> ### Input Data
-> 
-> Feedback=c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3)
-> Motivation=c(5.5,5,5.5,6,1,2.5,4.5,1,3.5,1.5,5.5,6,1.5,1,3.5,2.5,3,1,2,6,4.5,4.5,6,7,3,7,3.5,5,4.5,5.5,6.5,6,6,7,5.5,6,2.5,4.5,3.5,6,5,6,3.5,4,3,5.5,3,6,3,5,6,6.5,3.5,2)
-> Feedback=factor(Feedback,levels=c(1,2,3),labels=c("Comfort","Challenge","Control"))
-> mydata=data.frame(Feedback,Motivation)
-> mydata
+# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
+## BETWEEN-SUBJECTS EXAMPLE WITH RATTAN DATA
 
+### Input Data
+
+```r
+Feedback=c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3)
+Motivation=c(5.5,5,5.5,6,1,2.5,4.5,1,3.5,1.5,5.5,6,1.5,1,3.5,2.5,3,1,2,6,4.5,4.5,6,7,3,7,3.5,5,4.5,5.5,6.5,6,6,7,5.5,6,2.5,4.5,3.5,6,5,6,3.5,4,3,5.5,3,6,3,5,6,6.5,3.5,2)
+Feedback=factor(Feedback,levels=c(1,2,3),labels=c("Comfort","Challenge","Control"))
+mydata=data.frame(Feedback,Motivation)
+mydata
+```
+```
     Feedback Motivation
 1    Comfort        5.5
 2    Comfort        5.0
@@ -64,56 +66,70 @@
 52   Control        6.5
 53   Control        3.5
 54   Control        2.0
+```
 
-> ### Analyses of the Different Groups
-> 
-> estimateLevels(Motivation~Feedback)
+### Analyses of the Different Groups
 
+```r
+estimateLevels(Motivation~Feedback)
+```
+```
 CONFIDENCE INTERVALS FOR THE LEVELS
 
            N     M    SD    SE    LL    UL
 Comfort   18 3.333 1.917 0.452 2.380 4.287
 Challenge 17 5.265 1.448 0.351 4.520 6.009
 Control   19 4.447 1.433 0.329 3.757 5.138
+```
+```r
+plotLevels(Motivation~Feedback)
+```
+<kbd><img src="RattanGraph1.jpg"></kbd>
 
-> plotLevels(Motivation~Feedback)
+### Analysis of a Group Difference
 
-[See RattanGraph1.jpg]
-
-> ### Analysis of a Group Difference
-> 
-> Comparison=factor(Feedback,c("Comfort","Challenge"))
-> estimateDifference(Motivation~Comparison)
-
+```r
+Comparison=factor(Feedback,c("Comfort","Challenge"))
+estimateDifference(Motivation~Comparison)
+```
+```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
   Diff     SE     df     LL     UL 
 -1.931  0.572 31.521 -3.098 -0.765 
-
-> plotDifference(Motivation~Comparison)
-
-[See RattanGraph2.jpg]
-
-> effectDifference(Motivation~Comparison)
-
+```
+```r
+plotDifference(Motivation~Comparison)
+```
+<kbd><img src="RattanGraph2.jpg"></kbd>
+```r
+effectDifference(Motivation~Comparison)
+```
+```
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
     d     g    LL    UL 
 1.133 1.107 0.439 1.925 
+```
 
-> ### Analysis of a Group Contrast
-> 
-> ComfortvsOthers <- c(-1,.5,.5)
-> estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+### Analysis of a Group Contrast
 
+```r
+ComfortvsOthers <- c(-1,.5,.5)
+estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+```
+```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE     df    LL    UL
 Contrast 1.523 0.512 26.903 0.473 2.573
-
-> testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
-
+```
+```r
+testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+```
+```
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t     df     p
 Contrast 1.523 0.512 2.975 26.903 0.006
+```
