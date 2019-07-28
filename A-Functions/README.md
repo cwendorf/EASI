@@ -12,7 +12,9 @@ The EASI functions were written in four basic categories of analyses:
 
 ### Installation of the Functions
 
-EASI is not currently on CRAN or compiled as a package, but you can install it by pasting the contents of the **ALL_FUNCTIONS.R** file directly into R.
+EASI is not currently on CRAN or compiled as a package, but you can install it by pasting the contents of the [**ALL_FUNCTIONS.R**](./ALL_FUNCTIONS.R) file directly into R.
+
+All EASI scripts should be run prior to conducting analyses. 
 
 ## Technical Details
 
