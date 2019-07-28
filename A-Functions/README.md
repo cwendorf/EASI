@@ -4,7 +4,7 @@
 
 ### Overview of the Functions
 
-The EASI functions are in four basic files:
+The EASI functions were written in four basic categories of analyses:
 - **estimateFunctions.R** (scripts that estimate means, mean differences, and their confidence intervals)
 - **plotFunctions.R** (scripts that plot means, mean differences, and their confidence intervals)
 - **effectFunctions.R** (scripts that calculate standardized effect sizes and their confidence intervals)
@@ -12,9 +12,7 @@ The EASI functions are in four basic files:
 
 ### Installation of the Functions
 
-EASI is not currently on CRAN or compiled as a package, but you can install it from GitHub by pasting the text of the scripts about directly into R.
-
-All EASI scripts should be run prior to conducting analyses. In particular, the **estimateFunctions.R** file is especially important, as the other functions make calls to these functions.
+EASI is not currently on CRAN or compiled as a package, but you can install it by pasting the contents of the **ALL_FUNCTIONS.R** file directly into R.
 
 ## Technical Details
 
