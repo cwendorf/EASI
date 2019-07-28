@@ -83,6 +83,7 @@ STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 PrevsPostFollow <- c(1,-.5,.5)
 estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
+```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
           Est    SE df     LL     UL
