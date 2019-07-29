@@ -1,38 +1,7 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# NULL HYPOTHESIS SIGNIFICANCE TEST FUNCTIONS 
 # EXTENDED FUNCTIONS FOR COMPARISONS AND CONTRASTS
-
-# NHST Function for Group and Variable Contrasts
-
-nhstContrasts <- function(...) 
-  UseMethod("nhstContrasts")
-
-nhstContrasts.default <- function(...,contrasts=contr.sum){
-  data <- data.frame(...)
-  columns <- dim(data)[2]
-  dataLong <- reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
-  dataLong$Subjects <- as.factor(dataLong$Subjects)
-  dataLong$Variable <- as.factor(dataLong$Variable)
-  vlevels <- nlevels(dataLong$Variable)
-  contrasts(dataLong$Variable) <- contrasts
-  contrasts(dataLong$Subjects) <- contr.sum
-  model <- aov(Outcome~Variable+Error(Subjects),data=dataLong)
-  first <- summary(lm(model))[[4]][1:vlevels,1:4]
-  results <- round(first,3)
-  colnames(results) <- c("Diff","SE","t","p")
-  results
-}
-
-nhstContrasts.formula <- function(formula,contrasts=contr.sum,...){
-  x <- eval(formula[[3]])
-  y <- eval(formula[[2]])
-  contrasts(x) <- contrasts
-  model <- lm(y~x,...)
-  results <- round(summary(model)[[4]][,],3)
-  colnames(results) <- c("Diff","SE","t","p")
-  results
-}
+# NULL HYPOTHESIS SIGNIFICANCE TEST FUNCTIONS 
 
 # NHST Function for Pairwise Comparisons
 
@@ -92,17 +61,48 @@ nhstPairwise.formula <- function(formula,...){
   round(results,3)
 }
 
+# NHST Function for Group and Variable Contrasts
+
+nhstContrasts <- function(...) 
+  UseMethod("nhstContrasts")
+
+nhstContrasts.default <- function(...,contrasts=contr.sum){
+  data <- data.frame(...)
+  columns <- dim(data)[2]
+  dataLong <- reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
+  dataLong$Subjects <- as.factor(dataLong$Subjects)
+  dataLong$Variable <- as.factor(dataLong$Variable)
+  vlevels <- nlevels(dataLong$Variable)
+  contrasts(dataLong$Variable) <- contrasts
+  contrasts(dataLong$Subjects) <- contr.sum
+  model <- aov(Outcome~Variable+Error(Subjects),data=dataLong)
+  first <- summary(lm(model))[[4]][1:vlevels,1:4]
+  results <- round(first,3)
+  colnames(results) <- c("Diff","SE","t","p")
+  results
+}
+
+nhstContrasts.formula <- function(formula,contrasts=contr.sum,...){
+  x <- eval(formula[[3]])
+  y <- eval(formula[[2]])
+  contrasts(x) <- contrasts
+  model <- lm(y~x,...)
+  results <- round(summary(model)[[4]][,],3)
+  colnames(results) <- c("Diff","SE","t","p")
+  results
+}
+
 # Wrappers for NHST Functions
 # These call the functions and print with titles
-
-testContrasts<-function(...) {
-  cat("\nHYPOTHESIS TESTS FOR THE CONTRASTS\n\n")
-  print(nhstContrasts(...)) 
-  cat("\n")  
-}
 
 testPairwise <- function(...) {
   cat("\nHYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS\n\n")
   print(nhstPairwise(...)) 
+  cat("\n")  
+}
+
+testContrasts<-function(...) {
+  cat("\nHYPOTHESIS TESTS FOR THE CONTRASTS\n\n")
+  print(nhstContrasts(...)) 
   cat("\n")  
 }

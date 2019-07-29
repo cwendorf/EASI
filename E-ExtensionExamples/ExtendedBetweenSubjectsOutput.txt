@@ -1,8 +1,7 @@
 > # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-> # BETWEEN-SUBJECTS EXAMPLES
-> # EXTENDED FUNCTIONS FOR COMPARISONS AND CONTRASTS
+> ## EXTENDED BETWEEN-SUBJECTS EXAMPLES
 > 
-> # Three Group Example Data
+> ### Three Group Example Data
 > 
 > Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))
 > Outcome <- c(3,4,5,7,8,9,8,9,10)
@@ -10,7 +9,6 @@
 > 
 > mydata <- data.frame(Group,Outcome)
 > mydata
-
    Group Outcome
 1 Group1       3
 2 Group1       4
@@ -21,120 +19,11 @@
 7 Group3       8
 8 Group3       9
 9 Group3      10
- 
-> # Analyses of Sets of Group Contrasts
-> # (equivalent to dummy, effect, and other sets of codes)
 > 
-> estimateContrasts(Outcome~Group)
-
-CONFIDENCE INTERVALS FOR THE CONTRASTS
-
-            Est    SE     LL     UL
-(Intercept)   7 0.333  6.184  7.816
-x1           -3 0.471 -4.153 -1.847
-x2            1 0.471 -0.153  2.153
-
-> testContrasts(Outcome~Group)
-
-HYPOTHESIS TESTS FOR THE CONTRASTS
-
-            Diff    SE      t     p
-(Intercept)    7 0.333 21.000 0.000
-x1            -3 0.471 -6.364 0.001
-x2             1 0.471  2.121 0.078
-
-> plotContrasts(Outcome~Group)
-
-[See ExtendedBetweenSubjectsGraph1.jpeg]
-
-> estimateContrasts(Outcome~Group,conf.level=.99)
-
-CONFIDENCE INTERVALS FOR THE CONTRASTS
-
-            Est    SE     LL     UL
-(Intercept)   7 0.333  5.764  8.236
-x1           -3 0.471 -4.748 -1.252
-x2            1 0.471 -0.748  2.748
-
-> plotContrasts(Outcome~Group,conf.level=.99)
-
-[See ExtendedBetweenSubjectsGraph2.jpeg]
-
-> estimateContrasts(Outcome~Group,contrasts=contr.treatment)
-
-CONFIDENCE INTERVALS FOR THE CONTRASTS
-
-            Est    SE    LL    UL
-(Intercept)   4 0.577 2.587 5.413
-x2            4 0.816 2.002 5.998
-x3            5 0.816 3.002 6.998
-
-> testContrasts(Outcome~Group,contrasts=contr.treatment)
-
-HYPOTHESIS TESTS FOR THE CONTRASTS
-
-            Diff    SE     t     p
-(Intercept)    4 0.577 6.928 0.000
-x2             4 0.816 4.899 0.003
-x3             5 0.816 6.124 0.001
-
-> plotContrasts(Outcome~Group,contrasts=contr.treatment)
-
-[See ExtendedBetweenSubjectsGraph3.jpeg]
-
-> setcontrasts=contr.treatment
-> estimateContrasts(Outcome~Group,contrasts=setcontrasts)
-
-CONFIDENCE INTERVALS FOR THE CONTRASTS
-
-            Est    SE    LL    UL
-(Intercept)   4 0.577 2.587 5.413
-x2            4 0.816 2.002 5.998
-x3            5 0.816 3.002 6.998
-
-> setcontrasts=contr.poly
-> estimateContrasts(Outcome~Group,contrasts=setcontrasts)
-
-CONFIDENCE INTERVALS FOR THE CONTRASTS
-
-               Est    SE     LL    UL
-(Intercept)  7.000 0.333  6.184 7.816
-x.L          3.536 0.577  2.123 4.948
-x.Q         -1.225 0.577 -2.637 0.188
-
-> setcontrasts=contr.helmert
-> estimateContrasts(Outcome~Group,contrasts=setcontrasts)
-
-CONFIDENCE INTERVALS FOR THE CONTRASTS
-
-            Est    SE    LL    UL
-(Intercept)   7 0.333 6.184 7.816
-x1            2 0.408 1.001 2.999
-x2            1 0.236 0.423 1.577
-
-> setcontrasts=contr.sum
-> estimateContrasts(Outcome~Group,contrasts=setcontrasts)
-
-CONFIDENCE INTERVALS FOR THE CONTRASTS
-
-            Est    SE     LL     UL
-(Intercept)   7 0.333  6.184  7.816
-x1           -3 0.471 -4.153 -1.847
-x2            1 0.471 -0.153  2.153
-
-> setcontrasts=contr.SAS
-> estimateContrasts(Outcome~Group,contrasts=setcontrasts)
-
-CONFIDENCE INTERVALS FOR THE CONTRASTS
-
-            Est    SE     LL     UL
-(Intercept)   9 0.577  7.587 10.413
-x1           -5 0.816 -6.998 -3.002
-x2           -1 0.816 -2.998  0.998
-
+> ### Analyses of Pairwise Group Comparisons
+> ### (equivalent to uncorrected t tests)
 > 
-> # Analyses of Pairwise Group Comparisons
-> # (equivalent to Tukey LSD pairwise comparisons))
+> #### Confidence Intervals for the Pairwise Comparisons
 > 
 > estimatePairwise(Outcome~Group)
 
@@ -145,28 +34,6 @@ Group1 v Group2   -4 0.816  4 -6.267 -1.733
 Group1 v Group3   -5 0.816  4 -7.267 -2.733
 Group2 v Group3   -1 0.816  4 -3.267  1.267
 
-> plotPairwise(Outcome~Group)
-
-[See ExtendedBetweenSubjectsGraph4.jpeg]
-
-> testPairwise(Outcome~Group)
-
-HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
-
-                Diff    SE      t df     p
-Group1 v Group2   -4 0.816 -4.899  4 0.008
-Group1 v Group3   -5 0.816 -6.124  4 0.004
-Group2 v Group3   -1 0.816 -1.225  4 0.288
-
-> effectPairwise(Outcome~Group)
-
-STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
-
-                 d      g      LL     UL
-Group1 v Group2 -4 -3.192  -9.861 -1.398
-Group1 v Group3 -5 -3.989 -12.033 -1.979
-Group2 v Group3 -1 -0.798  -3.872  0.981
-
 > estimatePairwise(Outcome~Group,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
@@ -176,9 +43,22 @@ Group1 v Group2   -4 0.816  4 -7.759 -0.241
 Group1 v Group3   -5 0.816  4 -8.759 -1.241
 Group2 v Group3   -1 0.816  4 -4.759  2.759
 
+> 
+> #### Plots of the Confidence Intervals for the Pairwise Comparisons
+> 
+> plotPairwise(Outcome~Group)
 > plotPairwise(Outcome~Group,mu=-2,conf.level=.99)
+> 
+> #### Significance Tests of the Pairwise Comparisons
+> 
+> testPairwise(Outcome~Group)
 
-[See ExtendedBetweenSubjectsGraph5.jpeg]
+HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
+
+                Diff    SE      t df     p
+Group1 v Group2   -4 0.816 -4.899  4 0.008
+Group1 v Group3   -5 0.816 -6.124  4 0.004
+Group2 v Group3   -1 0.816 -1.225  4 0.288
 
 > testPairwise(Outcome~Group,mu=-2)
 
@@ -188,6 +68,18 @@ HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 Group1 v Group2   -2 0.816 -2.449  4 0.070
 Group1 v Group3   -3 0.816 -3.674  4 0.021
 Group2 v Group3    1 0.816  1.225  4 0.288
+
+> 
+> #### Effect Sizes for the Pairwise Comparisons
+> 
+> effectPairwise(Outcome~Group)
+
+STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+
+                 d      g      LL     UL
+Group1 v Group2 -4 -3.192  -9.861 -1.398
+Group1 v Group3 -5 -3.989 -12.033 -1.979
+Group2 v Group3 -1 -0.798  -3.872  0.981
 
 > effectPairwise(Outcome~Group,conf.level=.99)
 
@@ -199,3 +91,140 @@ Group1 v Group3 -5 -3.989 -18.500 -1.529
 Group2 v Group3 -1 -0.798  -6.141  1.910
 
 > 
+> ### Analyses of Sets of Group Contrasts
+> ### (equivalent to dummy, effect, and other sets of codes)
+> 
+> #### Estimate, Plot, and Test a Set of Contrasts
+> #### (default are sum contrasts -- comparisons of levels to grand mean)
+> 
+> estimateContrasts(Outcome~Group)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+            Est    SE     LL     UL
+(Intercept)   7 0.333  6.184  7.816
+x1           -3 0.471 -4.153 -1.847
+x2            1 0.471 -0.153  2.153
+
+> plotContrasts(Outcome~Group)
+> testContrasts(Outcome~Group)
+
+HYPOTHESIS TESTS FOR THE CONTRASTS
+
+            Diff    SE      t     p
+(Intercept)    7 0.333 21.000 0.000
+x1            -3 0.471 -6.364 0.001
+x2             1 0.471  2.121 0.078
+
+> 
+> estimateContrasts(Outcome~Group,conf.level=.99)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+            Est    SE     LL     UL
+(Intercept)   7 0.333  5.764  8.236
+x1           -3 0.471 -4.748 -1.252
+x2            1 0.471 -0.748  2.748
+
+> plotContrasts(Outcome~Group,conf.level=.99)
+> 
+> #### Other Standard Sets of Contrasts can be Specified
+> 
+> estimateContrasts(Outcome~Group,contrasts=contr.sum)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+            Est    SE     LL     UL
+(Intercept)   7 0.333  6.184  7.816
+x1           -3 0.471 -4.153 -1.847
+x2            1 0.471 -0.153  2.153
+
+> testContrasts(Outcome~Group,contrasts=contr.sum)
+
+HYPOTHESIS TESTS FOR THE CONTRASTS
+
+            Diff    SE      t     p
+(Intercept)    7 0.333 21.000 0.000
+x1            -3 0.471 -6.364 0.001
+x2             1 0.471  2.121 0.078
+
+> plotContrasts(Outcome~Group,contrasts=contr.sum)
+> 
+> estimateContrasts(Outcome~Group,contrasts=contr.treatment)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+            Est    SE    LL    UL
+(Intercept)   4 0.577 2.587 5.413
+x2            4 0.816 2.002 5.998
+x3            5 0.816 3.002 6.998
+
+> plotContrasts(Outcome~Group,contrasts=contr.treatment)
+> testContrasts(Outcome~Group,contrasts=contr.treatment)
+
+HYPOTHESIS TESTS FOR THE CONTRASTS
+
+            Diff    SE     t     p
+(Intercept)    4 0.577 6.928 0.000
+x2             4 0.816 4.899 0.003
+x3             5 0.816 6.124 0.001
+
+> 
+> estimateContrasts(Outcome~Group,contrasts=contr.poly)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+               Est    SE     LL    UL
+(Intercept)  7.000 0.333  6.184 7.816
+x.L          3.536 0.577  2.123 4.948
+x.Q         -1.225 0.577 -2.637 0.188
+
+> plotContrasts(Outcome~Group,contrasts=contr.poly)
+> testContrasts(Outcome~Group,contrasts=contr.poly)
+
+HYPOTHESIS TESTS FOR THE CONTRASTS
+
+              Diff    SE      t     p
+(Intercept)  7.000 0.333 21.000 0.000
+x.L          3.536 0.577  6.124 0.001
+x.Q         -1.225 0.577 -2.121 0.078
+
+> 
+> estimateContrasts(Outcome~Group,contrasts=contr.helmert)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+            Est    SE    LL    UL
+(Intercept)   7 0.333 6.184 7.816
+x1            2 0.408 1.001 2.999
+x2            1 0.236 0.423 1.577
+
+> plotContrasts(Outcome~Group,contrasts=contr.helmert)
+> testContrasts(Outcome~Group,contrasts=contr.helmert)
+
+HYPOTHESIS TESTS FOR THE CONTRASTS
+
+            Diff    SE      t     p
+(Intercept)    7 0.333 21.000 0.000
+x1             2 0.408  4.899 0.003
+x2             1 0.236  4.243 0.005
+
+> 
+> estimateContrasts(Outcome~Group,contrasts=contr.SAS)
+
+CONFIDENCE INTERVALS FOR THE CONTRASTS
+
+            Est    SE     LL     UL
+(Intercept)   9 0.577  7.587 10.413
+x1           -5 0.816 -6.998 -3.002
+x2           -1 0.816 -2.998  0.998
+
+> plotContrasts(Outcome~Group,contrasts=contr.SAS)
+> testContrasts(Outcome~Group,contrasts=contr.SAS)
+
+HYPOTHESIS TESTS FOR THE CONTRASTS
+
+            Diff    SE      t     p
+(Intercept)    9 0.577 15.588 0.000
+x1            -5 0.816 -6.124 0.001
+x2            -1 0.816 -1.225 0.267

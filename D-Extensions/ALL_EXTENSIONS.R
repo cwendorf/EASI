@@ -3,39 +3,6 @@
 # ALL EXTENDED FUNCTIONS (ESTIMATE, PLOT, TEST, AND EFFECT)
 # TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
-
-# EASI Function for Group and Variable Contrasts
-
-easiContrasts <- function(...) 
-  UseMethod("easiContrasts")
-
-easiContrasts.default <- function(...,contrasts=contr.sum,conf.level=.95){
-  data <- data.frame(...)
-  columns <- dim(data)[2]
-  dataLong <- reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
-  dataLong$Subjects <- as.factor(dataLong$Subjects)
-  dataLong$Variable <- as.factor(dataLong$Variable)
-  vlevels <- nlevels(dataLong$Variable)
-  contrasts(dataLong$Variable) <- contrasts
-  contrasts(dataLong$Subjects) <- contr.sum
-  model <- aov(Outcome~Variable+Error(Subjects),data=dataLong)
-  first <- summary(lm(model))[[4]][1:vlevels,1:2]
-  second <- confint(lm(model),level=conf.level)[1:vlevels,1:2]
-  results <- round(cbind(first,second),3)
-  colnames(results) <- c("Est","SE","LL","UL")
-  results
-}
-
-easiContrasts.formula <- function(formula,contrasts=contr.sum,conf.level=.95,...){
-  x <- eval(formula[[3]])
-  y <- eval(formula[[2]])
-  contrasts(x) <- contrasts
-  model <- lm(y~x,...)
-  results <- round(cbind(summary(model)[[4]][,1:2],confint(model,level=conf.level)),3)
-  colnames(results) <- c("Est","SE","LL","UL")
-  results
-}
-
 # EASI Function for Pairwise Group and Variable Comparisons
 
 easiPairwise <- function(...) 
@@ -93,53 +60,51 @@ easiPairwise.formula <- function(formula,...){
   round(results,3)
 }
 
+# EASI Function for Group and Variable Contrasts
+
+easiContrasts <- function(...) 
+  UseMethod("easiContrasts")
+
+easiContrasts.default <- function(...,contrasts=contr.sum,conf.level=.95){
+  data <- data.frame(...)
+  columns <- dim(data)[2]
+  dataLong <- reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
+  dataLong$Subjects <- as.factor(dataLong$Subjects)
+  dataLong$Variable <- as.factor(dataLong$Variable)
+  vlevels <- nlevels(dataLong$Variable)
+  contrasts(dataLong$Variable) <- contrasts
+  contrasts(dataLong$Subjects) <- contr.sum
+  model <- aov(Outcome~Variable+Error(Subjects),data=dataLong)
+  first <- summary(lm(model))[[4]][1:vlevels,1:2]
+  second <- confint(lm(model),level=conf.level)[1:vlevels,1:2]
+  results <- round(cbind(first,second),3)
+  colnames(results) <- c("Est","SE","LL","UL")
+  results
+}
+
+easiContrasts.formula <- function(formula,contrasts=contr.sum,conf.level=.95,...){
+  x <- eval(formula[[3]])
+  y <- eval(formula[[2]])
+  contrasts(x) <- contrasts
+  model <- lm(y~x,...)
+  results <- round(cbind(summary(model)[[4]][,1:2],confint(model,level=conf.level)),3)
+  colnames(results) <- c("Est","SE","LL","UL")
+  results
+}
+
 # Wrappers for EASI Functions
 # These call the functions and print with titles
-  
-estimateContrasts <- function(...) {
-  cat("\nCONFIDENCE INTERVALS FOR THE CONTRASTS\n\n")
-  print(easiContrasts(...)) 
-  cat("\n")  
-}
 
 estimatePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
   print(easiPairwise(...)) 
   cat("\n")  
 }
-
-
-# Contrast Plots
-
-plotContrasts <- function(...) 
-  UseMethod("plotContrasts")
-
-plotContrasts.default <- function(...,mu=NULL) {
-  main="Confidence Intervals for the Contrasts"
-  ylab="Mean Difference"
-  xlab="Contrasts"
-  results <- easiContrasts(...)[,c(1,3,4)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
-}
-
-plotContrasts.formula <- function(formula,mu=NULL,...) {
-  main="Confidence Intervals for the Contrasts"
-  ylab="Mean Difference"
-  xlab="Contrasts"
-  results <- easiContrasts(formula,...)[,c(1,3,4)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  
+estimateContrasts <- function(...) {
+  cat("\nCONFIDENCE INTERVALS FOR THE CONTRASTS\n\n")
+  print(easiContrasts(...)) 
+  cat("\n")  
 }
 
 # Pairwise Plots
@@ -175,36 +140,37 @@ plotPairwise.formula <- function(formula,conf.level=.95,mu=NA,...) {
   if (!is.null(mu)) {abline(h=mu,lty=2)} 
 }
 
+# Contrast Plots
 
-# NHST Function for Group and Variable Contrasts
+plotContrasts <- function(...) 
+  UseMethod("plotContrasts")
 
-nhstContrasts <- function(...) 
-  UseMethod("nhstContrasts")
-
-nhstContrasts.default <- function(...,contrasts=contr.sum){
-  data <- data.frame(...)
-  columns <- dim(data)[2]
-  dataLong <- reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
-  dataLong$Subjects <- as.factor(dataLong$Subjects)
-  dataLong$Variable <- as.factor(dataLong$Variable)
-  vlevels <- nlevels(dataLong$Variable)
-  contrasts(dataLong$Variable) <- contrasts
-  contrasts(dataLong$Subjects) <- contr.sum
-  model <- aov(Outcome~Variable+Error(Subjects),data=dataLong)
-  first <- summary(lm(model))[[4]][1:vlevels,1:4]
-  results <- round(first,3)
-  colnames(results) <- c("Diff","SE","t","p")
-  results
+plotContrasts.default <- function(...,mu=NULL) {
+  main="Confidence Intervals for the Contrasts"
+  ylab="Mean Difference"
+  xlab="Contrasts"
+  results <- easiContrasts(...)[,c(1,3,4)]
+  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
+  axis(1,at=1:length(results[,1]),labels=row.names(results))
+  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
+  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
+  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
+  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
+  if (!is.null(mu)) {abline(h=mu,lty=2)} 
 }
 
-nhstContrasts.formula <- function(formula,contrasts=contr.sum,...){
-  x <- eval(formula[[3]])
-  y <- eval(formula[[2]])
-  contrasts(x) <- contrasts
-  model <- lm(y~x,...)
-  results <- round(summary(model)[[4]][,],3)
-  colnames(results) <- c("Diff","SE","t","p")
-  results
+plotContrasts.formula <- function(formula,mu=NULL,...) {
+  main="Confidence Intervals for the Contrasts"
+  ylab="Mean Difference"
+  xlab="Contrasts"
+  results <- easiContrasts(formula,...)[,c(1,3,4)]
+  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
+  axis(1,at=1:length(results[,1]),labels=row.names(results))
+  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
+  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
+  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
+  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
+  if (!is.null(mu)) {abline(h=mu,lty=2)} 
 }
 
 # NHST Function for Pairwise Comparisons
@@ -265,14 +231,39 @@ nhstPairwise.formula <- function(formula,...){
   round(results,3)
 }
 
+# NHST Function for Group and Variable Contrasts
+
+nhstContrasts <- function(...) 
+  UseMethod("nhstContrasts")
+
+nhstContrasts.default <- function(...,contrasts=contr.sum){
+  data <- data.frame(...)
+  columns <- dim(data)[2]
+  dataLong <- reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
+  dataLong$Subjects <- as.factor(dataLong$Subjects)
+  dataLong$Variable <- as.factor(dataLong$Variable)
+  vlevels <- nlevels(dataLong$Variable)
+  contrasts(dataLong$Variable) <- contrasts
+  contrasts(dataLong$Subjects) <- contr.sum
+  model <- aov(Outcome~Variable+Error(Subjects),data=dataLong)
+  first <- summary(lm(model))[[4]][1:vlevels,1:4]
+  results <- round(first,3)
+  colnames(results) <- c("Diff","SE","t","p")
+  results
+}
+
+nhstContrasts.formula <- function(formula,contrasts=contr.sum,...){
+  x <- eval(formula[[3]])
+  y <- eval(formula[[2]])
+  contrasts(x) <- contrasts
+  model <- lm(y~x,...)
+  results <- round(summary(model)[[4]][,],3)
+  colnames(results) <- c("Diff","SE","t","p")
+  results
+}
+
 # Wrappers for NHST Functions
 # These call the functions and print with titles
-
-testContrasts<-function(...) {
-  cat("\nHYPOTHESIS TESTS FOR THE CONTRASTS\n\n")
-  print(nhstContrasts(...)) 
-  cat("\n")  
-}
 
 testPairwise <- function(...) {
   cat("\nHYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS\n\n")
@@ -280,6 +271,11 @@ testPairwise <- function(...) {
   cat("\n")  
 }
 
+testContrasts<-function(...) {
+  cat("\nHYPOTHESIS TESTS FOR THE CONTRASTS\n\n")
+  print(nhstContrasts(...)) 
+  cat("\n")  
+}
 
 # SMD Function for Pairwise Group and Variable Comparisons
 

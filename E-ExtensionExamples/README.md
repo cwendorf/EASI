@@ -13,10 +13,10 @@
 
 The **ExtendedBetweenSubjects** files include:
 
+- Analyses of Pairwise Comparisons (equivalent to uncorrected t tests among all levels of a factor)
 - Analyses of Set of Contrasts (equivalent to dummy, effect, and other sets of contrasts among all levels of a factor)
-- Analyses of Pairwise Comparisons (equivalent to Tukey LSD pairwise comparisons among all levels of a factor)
 
 The **ExtendedWithinSubjects** files include:
 
+- Analyses of Pairwise Comparisons (equivalent to uncorrected t tests among of all instances of a variable)
 - Analyses of Set of Contrasts (equivalent to dummy, effect, and other sets of codes among all instances of a variable)
-- Analyses of Pairwise Comparisons (equivalent to Tukey LSD pairwise comparisons of all instances of a variable)
