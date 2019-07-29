@@ -23,7 +23,7 @@ mydata
  
 ### Analyses of Multiple Variables
 
-This section produces output that is equivalent to one-sample analyses separately for each level of a factor.
+This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
@@ -101,7 +101,7 @@ effectLevels(Time1,Time2,Time3,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 
-This section produces output that is equivalent to analyses for two levels of a factor.
+This section produces analyses that are equivalent to analyses for two levels of a factor.
 
 #### Confidence Interval for the Mean Difference
 
@@ -177,7 +177,7 @@ effectDifference(Time1,Time2,conf.level=.99)
 
 ### Analyses of a Variable Contrast
 
-This section produces output that is equivalent to analyses involving multiple levels of a factor.
+This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
 
 #### Confidence Interval for Combined Levels
 

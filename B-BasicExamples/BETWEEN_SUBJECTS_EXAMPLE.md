@@ -27,8 +27,7 @@ mydata
 
 ### Analyses of Multiple Groups
 
-This section produces output that is equivalent to one-sample analyses separately for each level of a factor.
-
+This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
@@ -107,7 +106,7 @@ effectLevels(Outcome~Group,mu=5,conf.level=.99)
  
 ### Analyses of a Group Comparison
 
-This section produces output that is equivalent to analyses for two levels of a factor.
+This section produces analyses that are equivalent to analyses for two levels of a factor.
 
 #### Confidence Interval for a Mean Difference
 
@@ -185,7 +184,7 @@ effectDifference(Outcome~Comparison,conf.level=.99)
 
 ### Analyses of a Group Contrast
 
-This section produces output that is equivalent to analyses involving multiple levels of a factor.
+This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
 
 #### Confidence Interval for Combined Levels
 
