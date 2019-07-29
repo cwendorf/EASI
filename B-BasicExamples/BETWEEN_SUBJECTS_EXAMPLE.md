@@ -197,8 +197,8 @@ estimateContrast(Outcome~Group,contrast=G1)
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-           Est    SE df     LL    UL
-Contrast 4.667 1.202  2 -0.505 9.839
+         Est    SE df    LL    UL
+Contrast   4 0.577  2 1.516 6.484
 ```
 ```r
 G2nG3 <- c(0,.5,.5)
@@ -207,8 +207,8 @@ estimateContrast(Outcome~Group,contrast=G2nG3)
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-         Est    SE   df    LL     UL
-Contrast 7.5 1.291 2.21 2.421 12.579
+         Est    SE df    LL    UL
+Contrast 8.5 0.408  4 7.367 9.633
 ```
 
 #### Confidence Interval for a Contrast
@@ -274,8 +274,8 @@ estimateDifference(Outcome~Comparison)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-            Diff    SE    df     LL     UL
-Comparison 1.333 2.789 2.867 -7.779 10.446
+           Diff    SE df    LL    UL
+Comparison    4 0.816  4 1.733 6.267
 ```
 ```r
 testDifference(Outcome~Comparison)
@@ -283,8 +283,8 @@ testDifference(Outcome~Comparison)
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-            Diff    SE     t    df     p
-Comparison 1.333 2.789 0.478 2.867 0.667
+           Diff    SE     t df     p
+Comparison    4 0.816 4.899  4 0.008
 ```
 
 #### The Contrast Approach (Adapted from Above)
@@ -296,8 +296,8 @@ estimateContrast(Outcome~Group,contrast=G1vsG2)
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-           Est    SE    df    LL     UL
-Contrast 1.333 2.789 2.867 -7.78 10.446
+         Est    SE df    LL    UL
+Contrast   4 0.816  4 1.733 6.267
 ```
 ```r
 testContrast(Outcome~Group,contrast=G1vsG2)
@@ -305,6 +305,6 @@ testContrast(Outcome~Group,contrast=G1vsG2)
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
 
-           Est    SE     t    df     p
-Contrast 1.333 2.789 0.478 2.867 0.667
+         Est    SE     t df     p
+Contrast   4 0.816 4.899  4 0.008
 ```
