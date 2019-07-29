@@ -90,6 +90,10 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 19.2 1.386 19 16.299 22.101
 ```
 ```r
+plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
+```
+<kbd><img src="DonohueGraph3.jpg"></kbd>
+```r
 testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
 ```

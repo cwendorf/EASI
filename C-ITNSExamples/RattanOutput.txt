@@ -111,6 +111,10 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
            Est    SE     df    LL    UL
 Contrast 1.523 0.512 26.903 0.473 2.573
 
+> plotContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+
+[See RattanGraph3.jpg]
+
 > testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 
 HYPOTHESIS TEST FOR THE CONTRAST

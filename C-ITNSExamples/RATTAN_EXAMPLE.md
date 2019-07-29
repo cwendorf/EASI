@@ -125,6 +125,10 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 1.523 0.512 26.903 0.473 2.573
 ```
 ```r
+plotContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+```
+<kbd><img src="RattanGraph3.jpg"></kbd>
+```r
 testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
 ```

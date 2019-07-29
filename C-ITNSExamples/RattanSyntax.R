@@ -37,6 +37,7 @@ effectDifference(Motivation~Comparison)
 
 ComfortvsOthers <- c(-1,.5,.5)
 estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+plotContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 
 

@@ -77,6 +77,10 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
           Est    SE df     LL     UL
 Contrast 19.2 1.386 19 16.299 22.101
 
+> estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
+
+[See DonohueGraph3.jpg]
+
 > testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 
 HYPOTHESIS TEST FOR THE CONTRAST

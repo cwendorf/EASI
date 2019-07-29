@@ -35,5 +35,6 @@ effectDifference(Posttest,Followup)
 
 PrevsPostFollow <- c(1,-.5,.5)
 estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
+plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 
