@@ -179,6 +179,29 @@ effectDifference(Time1,Time2,conf.level=.99)
 
 This section produces output that is equivalent to analyses involving multiple levels of a factor.
 
+#### Confidence Interval for Combined Levels
+
+This code creates combinations of variables and produces a confidence interval for those pooled variables.
+```r
+T1 <- c(1,0,0)
+T2nT3 <- c(0,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=T1)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+         Est   SE df    LL    UL
+Contrast 6.4 0.51  4 4.984 7.816
+```
+```r
+estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+         Est  SE df    LL    UL
+Contrast 8.2 0.3  4 7.367 9.033
+```
 #### Confidence Interval for the Contrast
 
 This code identifies a contrast among the levels and produces a confidence interval for that contrast.
@@ -198,6 +221,19 @@ As in all other cases, the default value of the confidence interval can be chang
 estimateContrast(Time1,Time2,Time3,contrast=T1vsT2,conf.level=.99)
 ```
 
+#### Plots of Confidence Intervals for a Contrast
+
+This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
+```r
+plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
+````
+<kbd><img src="WithinSubjectsGraph4.jpeg"></kbd>
+
+The width of the confidence interval for the contrast can be altered if desired.
+```r
+plotContrast(Time1,Time2,Time3,contrast=G1vsOthers,conf.level=.99)
+```
+
 #### Significance Test for the Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
@@ -214,4 +250,51 @@ Contrast -1.4 0.245 -5.715  4 0.005
 If desired, the contrast can be tested against other values if needed.
 ```r
 testContrast(Time1,Time2,Time3,contrast=T1vsT2,mu=-1)
+```
+
+### Different Methods for Comparing Two Levels
+
+This section demonstrates the equivalence of Difference/Comparison and Contrast approaches from above.
+
+#### The Difference/Comparison Approach (Copied from Above)
+
+```r
+estimateDifference(Time2,Time1)
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+           Diff    SE df   LL   UL
+Comparison  1.4 0.245  4 0.72 2.08
+```
+```r
+testDifference(Time2,Time1)
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+           Diff    SE     t df     p
+Comparison  1.4 0.245 5.715  4 0.005
+```
+
+#### The Contrast Approach (Adapted from Above)
+
+```r
+T1vsT2 <- c(-1,1,0)
+estimateContrast(Time1,Time2,Time3,contrast=T1vsT2)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+         Est    SE df   LL   UL
+Contrast 1.4 0.245  4 0.72 2.08
+```
+```r
+testContrast(Time1,Time2,Time3,contrast=T1vsT2)
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+         Est    SE     t df     p
+Contrast 1.4 0.245 5.715  4 0.005
 ```

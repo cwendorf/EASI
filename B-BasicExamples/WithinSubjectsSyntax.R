@@ -60,13 +60,41 @@ effectDifference(Time1,Time2,conf.level=.99)
 ### Analyses of a Variable Contrast
 ### (equivalent to analyses for multiple levels of a factor)
 
+#### Confidence Intervals for Combined Levels
+
+T1 <- c(1,0,0)
+T2nT3 <- c(0,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=T1)
+estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
+
 #### Confidence Interval for the Contrast
 
-T1vsT2 <- c(1,-1,0)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsT2)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsT2,conf.level=.99)
+T1vsOthers <- c(-1,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers)
+estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
+
+#### Plots of Confidence Intervals for a Contrast
+
+plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
+plotContrast(Time1,Time2,Time3,contrast=G1vsOthers,conf.level=.99)
 
 #### Significance Test for the Contrast
 
+testContrast(Time1,Time2,Time3,contrast=T1vsOthers)
+testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=-1)
+
+### Different Methods for Comparing Two Levels
+### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
+
+#### The Difference/Comparison Approach (Copied from Above)
+
+estimateDifference(Time2,Time1)
+plotDifference(Time2,Time1)
+testDifference(Time2,Time1)
+
+#### The Contrast Approach (Adapted from Above)
+
+T1vsT2 <- c(-1,1,0)
+estimateContrast(Time1,Time2,Time3,contrast=T1vsT2)
+plotContrast(Time1,Time2,Time3,contrast=T1vsT2)
 testContrast(Time1,Time2,Time3,contrast=T1vsT2)
-testContrast(Time1,Time2,Time3,contrast=T1vsT2,mu=-1)

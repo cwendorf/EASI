@@ -158,6 +158,25 @@ STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 > ### Analyses of a Group Contrast
 > ### (equivalent to analyses for multiple levels of a factor)
 > 
+> #### Confidence Intervals for Combined Levels
+> 
+> G1 <- c(1,0,0)
+> G2nG3 <- c(0,.5,.5)
+> estimateContrast(Outcome~Group,contrast=G1)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE df     LL    UL
+Contrast 4.667 1.202  2 -0.505 9.839
+
+> estimateContrast(Outcome~Group,contrast=G2nG3)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+         Est    SE   df    LL     UL
+Contrast 7.5 1.291 2.21 2.421 12.579
+
+> 
 > #### Confidence Interval for a Contrast
 > 
 > G1vsOthers <- c(-1,.5,.5)
@@ -165,28 +184,75 @@ STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-         Est    SE df    LL    UL
-Contrast 4.5 0.707  4 2.537 6.463
+           Est    SE    df     LL    UL
+Contrast 2.833 1.764 4.208 -1.971 7.637
 
 > estimateContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-         Est    SE df    LL    UL
-Contrast 4.5 0.707  4 1.244 7.756
+           Est    SE    df     LL     UL
+Contrast 2.833 1.764 4.208 -5.021 10.687
 
+> 
+> #### Plots of Confidence Intervals for a Contrast
+> 
+> plotContrast(Outcome~Group,contrast=G1vsOthers)
+> plotContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
+> 
 > #### Significance Test for a Contrast
 > 
 > testContrast(Outcome~Group,contrast=G1vsOthers)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
-         Est    SE     t df     p
-Contrast 4.5 0.707 6.364  4 0.003
+           Est    SE     t    df    p
+Contrast 2.833 1.764 1.606 4.208 0.18
 
 > testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
-         Est    SE     t df     p
-Contrast 0.5 0.707 0.707  4 0.519
+            Est    SE      t    df     p
+Contrast -1.167 1.764 -0.662 4.208 0.543
+
+> 
+> ### Different Methods for Comparing Two Groups
+> ### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
+> 
+> #### The Difference/Comparison Approach (Copied from Above)
+> 
+> Comparison=factor(Group,c("Group2","Group1"))
+> estimateDifference(Outcome~Comparison)
+
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+            Diff    SE    df     LL     UL
+Comparison 1.333 2.789 2.867 -7.779 10.446
+
+> plotDifference(Outcome~Comparison)
+> testDifference(Outcome~Comparison)
+
+HYPOTHESIS TEST FOR THE COMPARISON
+
+            Diff    SE     t    df     p
+Comparison 1.333 2.789 0.478 2.867 0.667
+
+> 
+> #### The Contrast Approach (Adapted from Above)
+> 
+> G1vsG2 <- c(-1,1,0)
+> estimateContrast(Outcome~Group,contrast=G1vsG2)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df    LL     UL
+Contrast 1.333 2.789 2.867 -7.78 10.446
+
+> plotContrast(Outcome~Group,contrast=G1vsG2)
+> testContrast(Outcome~Group,contrast=G1vsG2)
+
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 1.333 2.789 0.478 2.867 0.667

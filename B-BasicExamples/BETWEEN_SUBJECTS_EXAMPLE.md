@@ -187,6 +187,30 @@ effectDifference(Outcome~Comparison,conf.level=.99)
 
 This section produces output that is equivalent to analyses involving multiple levels of a factor.
 
+#### Confidence Interval for Combined Levels
+
+This code creates combinations of groups and produces a confidence interval for those pooled groups.
+```r
+G1 <- c(1,0,0)
+G2nG3 <- c(0,.5,.5)
+estimateContrast(Outcome~Group,contrast=G1)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE df     LL    UL
+Contrast 4.667 1.202  2 -0.505 9.839
+```
+```r
+> estimateContrast(Outcome~Group,contrast=G2nG3)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+         Est    SE   df    LL     UL
+Contrast 7.5 1.291 2.21 2.421 12.579
+```
+
 #### Confidence Interval for a Contrast
 
 This code identifies a contrast among the groups and produces a confidence interval for that contrast.
@@ -206,6 +230,19 @@ As in all other cases, the default value of the confidence interval can be chang
 estimateContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 ```
 
+#### Plots of Confidence Intervals for a Contrast
+
+This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
+```r
+plotContrast(Outcome~Group,contrast=G1vsOthers)
+````
+<kbd><img src="BetweenSubjectsGraph4.jpeg"></kbd>
+
+The width of the confidence interval for the contrast can be altered if desired.
+```r
+plotContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
+```
+
 #### Significance Test for a Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
@@ -222,4 +259,52 @@ Contrast 4.5 0.707 6.364  4 0.003
 If desired, the contrast can be tested against other values if needed.
 ```r
 testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
+```
+
+### Different Methods for Comparing Two Groups
+
+This section demonstrates the equivalence of Difference/Comparison and Contrast approaches from above.
+
+#### The Difference/Comparison Approach (Copied from Above)
+
+```r
+Comparison=factor(Group,c("Group2","Group1"))
+estimateDifference(Outcome~Comparison)
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+            Diff    SE    df     LL     UL
+Comparison 1.333 2.789 2.867 -7.779 10.446
+```
+```r
+> testDifference(Outcome~Comparison)
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+            Diff    SE     t    df     p
+Comparison 1.333 2.789 0.478 2.867 0.667
+```
+
+#### The Contrast Approach (Adapted from Above)
+
+```r
+G1vsG2 <- c(-1,1,0)
+estimateContrast(Outcome~Group,contrast=G1vsG2)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df    LL     UL
+Contrast 1.333 2.789 2.867 -7.78 10.446
+```
+```r
+testContrast(Outcome~Group,contrast=G1vsG2)
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 1.333 2.789 0.478 2.867 0.667
 ```
