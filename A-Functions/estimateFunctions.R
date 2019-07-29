@@ -1,7 +1,7 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# CONFIDENCE INTERVAL FUNCTIONS 
 # BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
+# CONFIDENCE INTERVAL FUNCTIONS 
 
 # Basic EASI Function
 
@@ -49,7 +49,9 @@ easiDifference.default <- function(x,y,...){
   df <- as.numeric(model$parameter)
   LL <- model$conf.int[1]
   UL <- model$conf.int[2]
-  round(c(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  results=round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  rownames(results) <- c("Comparison")
+  results  
 }
 
 easiDifference.formula <- function(formula,...){
@@ -59,7 +61,9 @@ easiDifference.formula <- function(formula,...){
   df <- as.numeric(model$parameter)
   LL <- model$conf.int[1]
   UL <- model$conf.int[2]
-  round(c(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  results=round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 # EASI Function for a Single Group and Variable Contrast

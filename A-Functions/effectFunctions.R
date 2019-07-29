@@ -1,7 +1,7 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# STANDARDIZED MEAN DIFFERENCE FUNCTIONS
 # BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
+# STANDARDIZED MEAN DIFFERENCE FUNCTIONS
 
 # Basic SMD Function
 
@@ -67,7 +67,9 @@ smdDifference.default <- function(...,conf.level=.95){
   thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
   dlow <- tlow/lambda*hedgesg 
   dhig <- thig/lambda*hedgesg 
-  round(c(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
+  results=round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 smdDifference.formula <- function(formula,conf.level=.95,...){
@@ -87,7 +89,9 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
   thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
   dlow <- tlow/lambda*hedgesg 
   dhig <- thig/lambda*hedgesg 
-  round(c(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
+  results=round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 # Wrappers for SMD Functions

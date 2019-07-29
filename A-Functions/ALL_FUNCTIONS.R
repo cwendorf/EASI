@@ -3,6 +3,7 @@
 # ALL BASIC FUNCTIONS (ESTIMATE, PLOT, TEST, AND EFFECT)
 # TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
+
 # Basic EASI Function
 
 easi <- function(y,...){
@@ -49,7 +50,9 @@ easiDifference.default <- function(x,y,...){
   df <- as.numeric(model$parameter)
   LL <- model$conf.int[1]
   UL <- model$conf.int[2]
-  round(c(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  results=round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  rownames(results) <- c("Comparison")
+  results  
 }
 
 easiDifference.formula <- function(formula,...){
@@ -59,7 +62,9 @@ easiDifference.formula <- function(formula,...){
   df <- as.numeric(model$parameter)
   LL <- model$conf.int[1]
   UL <- model$conf.int[2]
-  round(c(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  results=round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 # EASI Function for a Single Group and Variable Contrast
@@ -120,7 +125,8 @@ estimateContrast<-function(...) {
   cat("\n")  
 }
 
-# Confidence Interval Plots
+
+# Plot Function for Confidence Intervals for Multiple Groups and Levels
 
 plotLevels <- function(...) 
   UseMethod("plotLevels")
@@ -156,7 +162,7 @@ plotLevels.formula <- function(formula,mu=NULL,...){
   if (!is.null(mu)) {abline(h=mu,lty=2)}  
 }
 
-# Mean Difference Plots
+# Plot Function for Confidence Intervals of a Mean Difference/Comparison of Groups and Variables
 
 plotDifference <- function(...) 
   UseMethod("plotDifference")
@@ -219,6 +225,77 @@ plotDifference.formula <- function(formula,...){
   rect(2.5,-1e6,4.5,1e6,col=rgb(.5,.5,.5,.07),border=NA)
 }
 
+# Plot Function for Confidence Interval of a Mean Contrast of Groups and Variables
+
+plotContrast <- function(...) 
+  UseMethod("plotContrast")
+
+plotContrast.default <- function(...,contrast){
+  main="Confidence Intervals for the Contrast"
+  ylab="Outcome"
+  xlab="Variables"
+  convar1 <- ifelse(contrast<0,0,contrast)
+  resvar1 <- easiContrast(...,contrast=convar1)
+  convar2 <- ifelse(contrast>0,0,abs(contrast))
+  resvar2 <- easiContrast(...,contrast=convar2)
+  Vars <- rbind(resvar1,resvar2)
+  Vars <- Vars[2:1,c(1,4,5)]  
+  Diff <- easiContrast(...,contrast=contrast)[c(1,4,5)]
+  results <- rbind(Vars,Diff)
+  Diff <- Diff+Vars[1,1]  
+  graph <- rbind(Vars,Diff)
+  plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,"LL"])/2)*2,ceiling(max(graph[,"UL"])/2)*2),pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
+  axis(1,at=c(1,2,3),labels=c("Neg Weights","Pos Weights","Contrast"))
+  for (i in 1:3) lines(x=c(i,i), y=c(graph[,"LL"][i],graph[,"UL"][i]),lwd=2)
+  for (i in 1:2) text(i,graph[,"Est"][i],graph[,"Est"][i],cex=.8,pos=2,offset=.5,font=2)
+  for (i in 1:2) text(i,graph[,"LL"][i],graph[,"LL"][i],cex=.8,pos=2,offset=.5)  
+  for (i in 1:2) text(i,graph[,"UL"][i],graph[,"UL"][i],cex=.8,pos=2,offset=.5)
+  text(3,graph[,"Est"][3],results[,"Est"][3],cex=.8,pos=4,offset=.5,font=2)
+  text(3,graph[,"LL"][3],results[,"LL"][3],cex=.8,pos=4,offset=.5)  
+  text(3,graph[,"UL"][3],results[,"UL"][3],cex=.8,pos=4,offset=.5)
+  arrows(1,graph[1],4.5,graph[1],code=3,length=0,lty=2)  
+  arrows(2,graph[2],4.5,graph[2],code=3,length=0,lty=2)
+  if(graph[1]<graph[2]) {td <- graph[1]-axTicks(4)[max(which(axTicks(4)<graph[1]))]}
+  if(graph[1]>=graph[2]) {td <- graph[1]-axTicks(4)[min(which(axTicks(4)>graph[1]))]}  
+  val <- axTicks(4)-graph[1]+td
+  loc <- axTicks(4)+td  
+  axis(4,at=loc,labels=val,las=1)
+  rect(2.5,-1e6,4.5,1e6,col=rgb(.5,.5,.5,.07),border=NA)  
+}
+
+plotContrast.formula <- function(formula,contrast,...){
+  main="Confidence Intervals for the Contrast"
+  ylab=all.vars(formula)[1]
+  xlab=all.vars(formula)[2]
+  congrp1 <- ifelse(contrast<0,0,contrast)
+  resgrp1 <- easiContrast(formula,contrast=congrp1,...)
+  congrp2 <- ifelse(contrast>0,0,abs(contrast))
+  resgrp2 <- easiContrast(formula,contrast=congrp2,...)
+  Groups <- rbind(resgrp1,resgrp2)
+  Groups <- Groups[2:1,c(1,4,5)]
+  Diff <- easiContrast(formula,contrast=contrast,...)[c(1,4,5)]
+  results <- rbind(Groups,Diff)
+  Diff <- Diff+Groups[1]
+  graph <- rbind(Groups,Diff)
+  plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,"LL"])/2)*2,ceiling(max(graph[,"UL"])/2)*2),pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
+  axis(1,at=c(1,2,3),labels=c("Neg Weights","Pos Weights","Contrast"))
+  for (i in 1:3) lines(x=c(i,i), y=c(graph[,"LL"][i],graph[,"UL"][i]),lwd=2)
+  for (i in 1:2) text(i,graph[,"Est"][i],graph[,"Est"][i],cex=.8,pos=2,offset=.5,font=2)
+  for (i in 1:2) text(i,graph[,"LL"][i],graph[,"LL"][i],cex=.8,pos=2,offset=.5)  
+  for (i in 1:2) text(i,graph[,"UL"][i],graph[,"UL"][i],cex=.8,pos=2,offset=.5)
+  text(3,graph[,"Est"][3],results[,"Est"][3],cex=.8,pos=4,offset=.5,font=2)
+  text(3,graph[,"LL"][3],results[,"LL"][3],cex=.8,pos=4,offset=.5)  
+  text(3,graph[,"UL"][3],results[,"UL"][3],cex=.8,pos=4,offset=.5)
+  arrows(1,graph[1],4.5,graph[1],code=3,length=0,lty=2)  
+  arrows(2,graph[2],4.5,graph[2],code=3,length=0,lty=2)
+  if(graph[1]<graph[2]) {td <- graph[1]-axTicks(4)[max(which(axTicks(4)<graph[1]))]}
+  if(graph[1]>=graph[2]) {td <- graph[1]-axTicks(4)[min(which(axTicks(4)>graph[1]))]}  
+  val <- axTicks(4)-graph[1]+td
+  loc <- axTicks(4)+td  
+  axis(4,at=loc,labels=val,las=1)
+  rect(2.5,-1e6,4.5,1e6,col=rgb(.5,.5,.5,.07),border=NA)
+}
+
 
 # Basic NHST Function
 
@@ -268,7 +345,9 @@ nhstDifference.default <- function(x,y,...){
   t <- as.numeric(model$statistic)
   df <- as.numeric(model$parameter)
   p <- as.numeric(model$p.value)
-  round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  results=round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 nhstDifference.formula <- function(formula,...){
@@ -279,7 +358,9 @@ nhstDifference.formula <- function(formula,...){
   t <- as.numeric(model$statistic)
   df <- as.numeric(model$parameter)
   p <- as.numeric(model$p.value)
-  round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  results=round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 # NHST Function for a Single Group and Variable Contrast
@@ -404,7 +485,9 @@ smdDifference.default <- function(...,conf.level=.95){
   thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
   dlow <- tlow/lambda*hedgesg 
   dhig <- thig/lambda*hedgesg 
-  round(c(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
+  results=round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 smdDifference.formula <- function(formula,conf.level=.95,...){
@@ -424,7 +507,9 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
   thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
   dlow <- tlow/lambda*hedgesg 
   dhig <- thig/lambda*hedgesg 
-  round(c(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
+  results=round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 # Wrappers for SMD Functions

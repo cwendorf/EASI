@@ -1,7 +1,7 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# NULL HYPOTHESIS SIGNIFICANCE TEST FUNCTIONS
 # BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES  
+# NULL HYPOTHESIS SIGNIFICANCE TEST FUNCTIONS
 
 # Basic NHST Function
 
@@ -51,7 +51,9 @@ nhstDifference.default <- function(x,y,...){
   t <- as.numeric(model$statistic)
   df <- as.numeric(model$parameter)
   p <- as.numeric(model$p.value)
-  round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  results=round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 nhstDifference.formula <- function(formula,...){
@@ -62,7 +64,9 @@ nhstDifference.formula <- function(formula,...){
   t <- as.numeric(model$statistic)
   df <- as.numeric(model$parameter)
   p <- as.numeric(model$p.value)
-  round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  results=round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  rownames(results) <- c("Comparison")
+  results
 }
 
 # NHST Function for a Single Group and Variable Contrast
