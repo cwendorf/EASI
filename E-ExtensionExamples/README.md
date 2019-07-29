@@ -1,15 +1,15 @@
 # Estimation Approach to Statistical Inference (EASI)
 
-## Basic Examples with Simple Fictional Data
+## Extended Examples with Simple Fictional Data
 
-### Overview of the Examples
+### Overview of the Extended Examples
 
-- Basic example files for between-subjects designs and for within-subjects designs are included
+- Extended example files for between-subjects designs and for within-subjects designs are included
 - Examples show both the default output and the available options
 - Examples include estimation, plots, significance tests, and effect sizes
 - Each example provides a syntax file, a text output file, and graphs
 
-### Included Examples
+### Included Extended Examples
 
 The [**EXTENDED_BETWEEN_SUBJECTS_EXAMPLE.md**](./EXTENDED_BETWEEN_SUBJECTS_EXAMPLE.md) document and associated files include:
 
