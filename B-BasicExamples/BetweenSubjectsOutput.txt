@@ -9,7 +9,6 @@
 > 
 > mydata <- data.frame(Group,Outcome)
 > mydata
-
    Group Outcome
 1 Group1       3
 2 Group1       4
@@ -20,12 +19,12 @@
 7 Group3       8
 8 Group3       9
 9 Group3      10
-
+> 
 > ### Analyses of Multiple Groups
 > ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > #### Confidence Intervals for the Means
->
+> 
 > estimateLevels(Outcome~Group)
 
 CONFIDENCE INTERVALS FOR THE LEVELS
@@ -44,6 +43,7 @@ Group1 3 4  1 0.577 -1.73  9.73
 Group2 3 8  1 0.577  2.27 13.73
 Group3 3 9  1 0.577  3.27 14.73
 
+> 
 > #### Plot of the Confidence Intervals for the Means
 > 
 > plotLevels(Outcome~Group)
@@ -69,6 +69,7 @@ Group1   -1 0.577 -1.732  2 0.225
 Group2    3 0.577  5.196  2 0.035
 Group3    4 0.577  6.928  2 0.020
 
+> 
 > #### Effect Sizes for the Means
 > 
 > effectLevels(Outcome~Group)
@@ -89,6 +90,7 @@ Group1  -1.000  -0.564 -11.145   2.232
 Group2   3.000   1.693   0.207  25.246
 Group3   4.000   2.257   0.627  32.892
 
+> 
 > ### Analyses of a Group Comparison
 > ### (equivalent to analyses for two levels of a factor)
 > 
@@ -99,23 +101,23 @@ Group3   4.000   2.257   0.627  32.892
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-  Diff     SE     df     LL     UL 
--4.000  0.816  4.000 -6.267 -1.733 
+           Diff    SE df     LL     UL
+Comparison   -4 0.816  4 -6.267 -1.733
 
 > estimateDifference(Outcome~Comparison,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-  Diff     SE     df     LL     UL 
--4.000  0.816  4.000 -7.759 -0.241 
+           Diff    SE df     LL     UL
+Comparison   -4 0.816  4 -7.759 -0.241
 
 > Comparison=factor(Group,c("Group3","Group1"))
 > estimateDifference(Outcome~Comparison)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
- Diff    SE    df    LL    UL 
-5.000 0.816 4.000 2.733 7.267 
+           Diff    SE df    LL    UL
+Comparison    5 0.816  4 2.733 7.267
 
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
@@ -129,32 +131,34 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
- Diff    SE     t    df     p 
-5.000 0.816 6.124 4.000 0.004 
+           Diff    SE     t df     p
+Comparison    5 0.816 6.124  4 0.004
 
 > testDifference(Outcome~Comparison,mu=2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
- Diff    SE     t    df     p 
-3.000 0.816 3.674 4.000 0.021 
+           Diff    SE     t df     p
+Comparison    3 0.816 3.674  4 0.021
 
+> 
 > #### Effect Size for the Mean Difference
 > 
 > effectDifference(Outcome~Comparison)
 
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
-     d      g     LL     UL 
- 5.000  3.989  1.979 12.033 
+           d     g    LL     UL
+Comparison 5 3.989 1.979 12.033
 
 > effectDifference(Outcome~Comparison,conf.level=.99)
 
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
-     d      g     LL     UL 
- 5.000  3.989  1.529 18.500 
+           d     g    LL   UL
+Comparison 5 3.989 1.529 18.5
 
+> 
 > ### Analyses of a Group Contrast
 > ### (equivalent to analyses for multiple levels of a factor)
 > 
@@ -256,3 +260,5 @@ HYPOTHESIS TEST FOR THE CONTRAST
 
          Est    SE     t df     p
 Contrast   4 0.816 4.899  4 0.008
+
+> 

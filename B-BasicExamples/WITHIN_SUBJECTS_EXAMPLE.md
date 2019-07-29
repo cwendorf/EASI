@@ -89,9 +89,9 @@ effectLevels(Time1,Time2,Time3)
 STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
 
        d      g    LL     UL
-1  5.614  4.479 2.574 13.031
-2  9.319  7.435 4.389 21.463
-3 15.693 12.522 7.463 36.039
+Time1  5.614  4.479 2.574 13.031
+Time2  9.319  7.435 4.389 21.463
+Time3 15.693 12.522 7.463 36.039
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.

@@ -9,14 +9,13 @@
 > 
 > mydata <- data.frame(Time1,Time2,Time3)
 > mydata
-
   Time1 Time2 Time3
 1     5     7     8
 2     6     7     8
 3     6     8     9
 4     7     8     9
 5     8     9     9
- 
+> 
 > ### Analyses of Multiple Variables
 > ### (equivalent to one-sample analyses for each level of a factor)
 > 
@@ -74,18 +73,18 @@ Time3  2.6 0.245 10.614  4 0.000
 STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
 
        d      g    LL     UL
-1  5.614  4.479 2.574 13.031
-2  9.319  7.435 4.389 21.463
-3 15.693 12.522 7.463 36.039
+Time1  5.614  4.479 2.574 13.031
+Time2  9.319  7.435 4.389 21.463
+Time3 15.693 12.522 7.463 36.039
 
 > effectLevels(Time1,Time2,Time3,mu=6,conf.level=.99)
 
 STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
 
       d     g     LL     UL
-1 0.351 0.280 -1.374  2.865
-2 2.151 1.716  0.504  8.191
-3 4.745 3.786  1.798 16.958
+Time1 0.351 0.280 -1.374  2.865
+Time2 2.151 1.716  0.504  8.191
+Time3 4.745 3.786  1.798 16.958
 
 > 
 > ### Analyses of a Variable Comparison
@@ -97,22 +96,22 @@ STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-  Diff     SE     df     LL     UL 
--1.400  0.245  4.000 -2.080 -0.720 
+           Diff    SE df    LL    UL
+Comparison -1.4 0.245  4 -2.08 -0.72
 
 > estimateDifference(Time1,Time2,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-  Diff     SE     df     LL     UL 
--1.400  0.245  4.000 -2.528 -0.272 
+           Diff    SE df     LL     UL
+Comparison -1.4 0.245  4 -2.528 -0.272
 
 > estimateDifference(Time3,Time1)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
- Diff    SE    df    LL    UL 
-2.200 0.374 4.000 1.161 3.239 
+           Diff    SE df    LL    UL
+Comparison  2.2 0.374  4 1.161 3.239
 
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
@@ -126,15 +125,15 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
-  Diff     SE      t     df      p 
--1.400  0.245 -5.715  4.000  0.005 
+           Diff    SE      t df     p
+Comparison -1.4 0.245 -5.715  4 0.005
 
 > testDifference(Time1,Time2,mu=-2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
-  Diff     SE      t     df      p 
--1.400  0.245  2.449  4.000  0.070 
+           Diff    SE     t df    p
+Comparison -1.4 0.245 2.449  4 0.07
 
 > 
 > #### Effect Size for the Mean Difference
@@ -143,16 +142,17 @@ HYPOTHESIS TEST FOR THE COMPARISON
 
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
-     d      g     LL     UL 
--1.400 -1.264 -2.566 -0.735 
+              d      g     LL     UL
+Comparison -1.4 -1.264 -2.566 -0.735
 
 > effectDifference(Time1,Time2,conf.level=.99)
 
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
-     d      g     LL     UL 
--1.400 -1.264 -3.298 -0.608 
+              d      g     LL     UL
+Comparison -1.4 -1.264 -3.298 -0.608
 
+> 
 > ### Analyses of a Variable Contrast
 > ### (equivalent to analyses for multiple levels of a factor)
 > 
@@ -253,3 +253,5 @@ HYPOTHESIS TEST FOR THE CONTRAST
 
          Est    SE     t df     p
 Contrast 1.4 0.245 5.715  4 0.005
+
+> 
