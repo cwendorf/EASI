@@ -66,8 +66,8 @@ effectDifference(Outcome~Comparison,conf.level=.99)
 #### Confidence Intervals for Combined Levels
 
 G1 <- c(1,0,0)
-G2nG3 <- c(0,.5,.5)
 estimateContrast(Outcome~Group,contrast=G1)
+G2nG3 <- c(0,.5,.5)
 estimateContrast(Outcome~Group,contrast=G2nG3)
 
 #### Confidence Interval for a Contrast

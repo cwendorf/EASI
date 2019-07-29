@@ -192,7 +192,6 @@ This section produces output that is equivalent to analyses involving multiple l
 This code creates combinations of groups and produces a confidence interval for those pooled groups.
 ```r
 G1 <- c(1,0,0)
-G2nG3 <- c(0,.5,.5)
 estimateContrast(Outcome~Group,contrast=G1)
 ```
 ```
@@ -202,7 +201,8 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 4.667 1.202  2 -0.505 9.839
 ```
 ```r
-> estimateContrast(Outcome~Group,contrast=G2nG3)
+G2nG3 <- c(0,.5,.5)
+estimateContrast(Outcome~Group,contrast=G2nG3)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -278,7 +278,7 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 Comparison 1.333 2.789 2.867 -7.779 10.446
 ```
 ```r
-> testDifference(Outcome~Comparison)
+testDifference(Outcome~Comparison)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON

@@ -159,7 +159,6 @@ STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 > #### Confidence Intervals for Combined Levels
 > 
 > T1 <- c(1,0,0)
-> T2nT3 <- c(0,.5,.5)
 > estimateContrast(Time1,Time2,Time3,contrast=T1)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -167,6 +166,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
          Est   SE df    LL    UL
 Contrast 6.4 0.51  4 4.984 7.816
 
+> T2nT3 <- c(0,.5,.5)
 > estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST

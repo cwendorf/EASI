@@ -184,7 +184,6 @@ This section produces output that is equivalent to analyses involving multiple l
 This code creates combinations of variables and produces a confidence interval for those pooled variables.
 ```r
 T1 <- c(1,0,0)
-T2nT3 <- c(0,.5,.5)
 estimateContrast(Time1,Time2,Time3,contrast=T1)
 ```
 ```
@@ -194,6 +193,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 6.4 0.51  4 4.984 7.816
 ```
 ```r
+T2nT3 <- c(0,.5,.5)
 estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
 ```
 ```
@@ -202,6 +202,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
          Est  SE df    LL    UL
 Contrast 8.2 0.3  4 7.367 9.033
 ```
+
 #### Confidence Interval for the Contrast
 
 This code identifies a contrast among the levels and produces a confidence interval for that contrast.

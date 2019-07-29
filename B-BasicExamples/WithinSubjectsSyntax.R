@@ -63,8 +63,8 @@ effectDifference(Time1,Time2,conf.level=.99)
 #### Confidence Intervals for Combined Levels
 
 T1 <- c(1,0,0)
-T2nT3 <- c(0,.5,.5)
 estimateContrast(Time1,Time2,Time3,contrast=T1)
+T2nT3 <- c(0,.5,.5)
 estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
 
 #### Confidence Interval for the Contrast

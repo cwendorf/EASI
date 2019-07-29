@@ -161,7 +161,6 @@ STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 > #### Confidence Intervals for Combined Levels
 > 
 > G1 <- c(1,0,0)
-> G2nG3 <- c(0,.5,.5)
 > estimateContrast(Outcome~Group,contrast=G1)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -169,6 +168,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
            Est    SE df     LL    UL
 Contrast 4.667 1.202  2 -0.505 9.839
 
+> G2nG3 <- c(0,.5,.5)
 > estimateContrast(Outcome~Group,contrast=G2nG3)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
