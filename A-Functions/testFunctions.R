@@ -1,9 +1,10 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES  
-# NULL HYPOTHESIS SIGNIFICANCE TEST FUNCTIONS
+## BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES  
 
-# Basic NHST Function
+### Null Hypothesis Significance Test Functions
+
+#### Basic NHST Function
 
 nhst <- function(y,...){
   model <- t.test(y,...)
@@ -16,7 +17,7 @@ nhst <- function(y,...){
   round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
 }
 
-# NHST Function for Mutiple Groups and Variables
+#### NHST Function for Mutiple Groups and Variables
 
 nhstLevels <- function(...) 
   UseMethod("nhstLevels")
@@ -38,7 +39,7 @@ nhstLevels.formula <- function(formula,...) {
   results
 }
 
-# NHST Function for Group and Variable Differences
+##### NHST Function for Group and Variable Differences
 
 nhstDifference <- function(...) 
   UseMethod("nhstDifference")
@@ -69,7 +70,7 @@ nhstDifference.formula <- function(formula,...){
   results
 }
 
-# NHST Function for a Single Group and Variable Contrast
+#### NHST Function for a Single Group and Variable Contrast
 
 nhstContrast <- function(...) 
   UseMethod("nhstContrast")
@@ -105,8 +106,7 @@ nhstContrast.formula <- function(y,contrast,conf.level=.95,mu=0,...) {
   round(results,3)
 }
 
-# Wrappers for NHST Functions
-# These call the functions and print with titles
+### Wrappers for NHST Functions
 
 testLevels <- function(...){
   cat("\nHYPOTHESIS TESTS FOR THE LEVELS\n\n")

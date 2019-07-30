@@ -1,9 +1,10 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
-# STANDARDIZED MEAN DIFFERENCE FUNCTIONS
+## BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
 
-# Basic SMD Function
+### Standardized Mean Difference Functions
+
+#### Basic SMD Function
 
 smd <- function(y,conf.level=.95,mu=0,...){
   Var <- easi(y,...)
@@ -23,7 +24,7 @@ smd <- function(y,conf.level=.95,mu=0,...){
   round(c(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
 }
 
-# SMD Function for Mutiple Groups and Variables
+#### SMD Function for Mutiple Groups and Variables
 
 smdLevels <- function(...) 
   UseMethod("smdLevels")
@@ -44,7 +45,7 @@ smdLevels.formula <- function(formula,...) {
   results[2]
 }
 
-# SMD Function for Group and Variable Differences
+#### SMD Function for Group and Variable Differences
 
 smdDifference <- function(...) 
   UseMethod("smdDifference")  
@@ -94,8 +95,7 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
   results
 }
 
-# Wrappers for SMD Functions
-# These call the functions and print with titles
+### Wrappers for SMD Functions
 
 effectLevels <- function(...){
   cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE LEVELS\n\n")

@@ -4,7 +4,9 @@
 # TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
 
-# Basic EASI Function
+### Confidence Interval Functions 
+
+#### Basic EASI Function
 
 easi <- function(y,...){
   N <- length(y)
@@ -16,7 +18,7 @@ easi <- function(y,...){
   round(c(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3)
 }
 
-# EASI Function for Mutiple Groups and Variables
+#### EASI Function for Mutiple Groups and Variables
 
 easiLevels <- function(...) 
   UseMethod("easiLevels")
@@ -38,7 +40,7 @@ easiLevels.formula <- function(formula,...) {
   results
 }
 
-# EASI Function for Group and Variable Differences
+#### EASI Function for Group and Variable Differences
 
 easiDifference <- function(...) 
   UseMethod("easiDifference")
@@ -67,7 +69,7 @@ easiDifference.formula <- function(formula,...){
   results
 }
 
-# EASI Function for a Single Group and Variable Contrast
+#### EASI Function for a Single Group and Variable Contrast
 
 easiContrast <- function(...) 
   UseMethod("easiContrast")
@@ -104,8 +106,7 @@ easiContrast.formula <- function(y,contrast,conf.level=.95,...) {
   round(results,3)
 }
 
-# Wrappers for EASI Functions
-# These call the functions and print with titles
+### Wrappers for EASI Functions
 
 estimateLevels <- function(...){
   cat("\nCONFIDENCE INTERVALS FOR THE LEVELS\n\n")
@@ -126,7 +127,9 @@ estimateContrast<-function(...) {
 }
 
 
-# Plot Function for Confidence Intervals for Multiple Groups and Levels
+### Confidence Interval Plot Functions
+
+#### Plot Function for Confidence Intervals for Multiple Groups and Levels
 
 plotLevels <- function(...) 
   UseMethod("plotLevels")
@@ -162,7 +165,7 @@ plotLevels.formula <- function(formula,mu=NULL,...){
   if (!is.null(mu)) {abline(h=mu,lty=2)}  
 }
 
-# Plot Function for Confidence Intervals of a Mean Difference/Comparison of Groups and Variables
+#### Plot Function for Confidence Intervals of a Mean Difference/Comparison of Groups and Variables
 
 plotDifference <- function(...) 
   UseMethod("plotDifference")
@@ -225,7 +228,7 @@ plotDifference.formula <- function(formula,...){
   rect(2.5,-1e6,4.5,1e6,col=rgb(.5,.5,.5,.07),border=NA)
 }
 
-# Plot Function for Confidence Interval of a Mean Contrast of Groups and Variables
+#### Plot Function for Confidence Interval of a Mean Contrast of Groups and Variables
 
 plotContrast <- function(...) 
   UseMethod("plotContrast")
@@ -245,7 +248,7 @@ plotContrast.default <- function(...,contrast){
   Diff <- Diff+Vars[1,1]  
   graph <- rbind(Vars,Diff)
   plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,"LL"])/2)*2,ceiling(max(graph[,"UL"])/2)*2),pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
-  axis(1,at=c(1,2,3),labels=c("Neg Weights","Pos Weights","Contrast"))
+  axis(1,at=c(1,2,3),labels=c("Neg Weighted","Pos Weighted","Contrast"))
   for (i in 1:3) lines(x=c(i,i), y=c(graph[,"LL"][i],graph[,"UL"][i]),lwd=2)
   for (i in 1:2) text(i,graph[,"Est"][i],graph[,"Est"][i],cex=.8,pos=2,offset=.5,font=2)
   for (i in 1:2) text(i,graph[,"LL"][i],graph[,"LL"][i],cex=.8,pos=2,offset=.5)  
@@ -278,7 +281,7 @@ plotContrast.formula <- function(formula,contrast,...){
   Diff <- Diff+Groups[1]
   graph <- rbind(Groups,Diff)
   plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,"LL"])/2)*2,ceiling(max(graph[,"UL"])/2)*2),pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
-  axis(1,at=c(1,2,3),labels=c("Neg Weights","Pos Weights","Contrast"))
+  axis(1,at=c(1,2,3),labels=c("Neg Weighted","Pos Weighted","Contrast"))
   for (i in 1:3) lines(x=c(i,i), y=c(graph[,"LL"][i],graph[,"UL"][i]),lwd=2)
   for (i in 1:2) text(i,graph[,"Est"][i],graph[,"Est"][i],cex=.8,pos=2,offset=.5,font=2)
   for (i in 1:2) text(i,graph[,"LL"][i],graph[,"LL"][i],cex=.8,pos=2,offset=.5)  
@@ -297,7 +300,9 @@ plotContrast.formula <- function(formula,contrast,...){
 }
 
 
-# Basic NHST Function
+### Null Hypothesis Significance Test Functions
+
+#### Basic NHST Function
 
 nhst <- function(y,...){
   model <- t.test(y,...)
@@ -310,7 +315,7 @@ nhst <- function(y,...){
   round(c(Diff=MD,SE=SE,t=t,df=df,p=p),3)
 }
 
-# NHST Function for Mutiple Groups and Variables
+#### NHST Function for Mutiple Groups and Variables
 
 nhstLevels <- function(...) 
   UseMethod("nhstLevels")
@@ -332,7 +337,7 @@ nhstLevels.formula <- function(formula,...) {
   results
 }
 
-# NHST Function for Group and Variable Differences
+##### NHST Function for Group and Variable Differences
 
 nhstDifference <- function(...) 
   UseMethod("nhstDifference")
@@ -363,7 +368,7 @@ nhstDifference.formula <- function(formula,...){
   results
 }
 
-# NHST Function for a Single Group and Variable Contrast
+#### NHST Function for a Single Group and Variable Contrast
 
 nhstContrast <- function(...) 
   UseMethod("nhstContrast")
@@ -399,8 +404,7 @@ nhstContrast.formula <- function(y,contrast,conf.level=.95,mu=0,...) {
   round(results,3)
 }
 
-# Wrappers for NHST Functions
-# These call the functions and print with titles
+### Wrappers for NHST Functions
 
 testLevels <- function(...){
   cat("\nHYPOTHESIS TESTS FOR THE LEVELS\n\n")
@@ -421,7 +425,9 @@ testContrast<-function(...) {
 }
 
 
-# Basic SMD Function
+### Standardized Mean Difference Functions
+
+#### Basic SMD Function
 
 smd <- function(y,conf.level=.95,mu=0,...){
   Var <- easi(y,...)
@@ -441,7 +447,7 @@ smd <- function(y,conf.level=.95,mu=0,...){
   round(c(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
 }
 
-# SMD Function for Mutiple Groups and Variables
+#### SMD Function for Mutiple Groups and Variables
 
 smdLevels <- function(...) 
   UseMethod("smdLevels")
@@ -462,7 +468,7 @@ smdLevels.formula <- function(formula,...) {
   results[2]
 }
 
-# SMD Function for Group and Variable Differences
+#### SMD Function for Group and Variable Differences
 
 smdDifference <- function(...) 
   UseMethod("smdDifference")  
@@ -512,8 +518,7 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
   results
 }
 
-# Wrappers for SMD Functions
-# These call the functions and print with titles
+### Wrappers for SMD Functions
 
 effectLevels <- function(...){
   cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE LEVELS\n\n")

@@ -1,9 +1,10 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
-# CONFIDENCE INTERVAL FUNCTIONS 
+## BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
 
-# Basic EASI Function
+### Confidence Interval Functions 
+
+#### Basic EASI Function
 
 easi <- function(y,...){
   N <- length(y)
@@ -15,7 +16,7 @@ easi <- function(y,...){
   round(c(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3)
 }
 
-# EASI Function for Mutiple Groups and Variables
+#### EASI Function for Mutiple Groups and Variables
 
 easiLevels <- function(...) 
   UseMethod("easiLevels")
@@ -37,7 +38,7 @@ easiLevels.formula <- function(formula,...) {
   results
 }
 
-# EASI Function for Group and Variable Differences
+#### EASI Function for Group and Variable Differences
 
 easiDifference <- function(...) 
   UseMethod("easiDifference")
@@ -66,7 +67,7 @@ easiDifference.formula <- function(formula,...){
   results
 }
 
-# EASI Function for a Single Group and Variable Contrast
+#### EASI Function for a Single Group and Variable Contrast
 
 easiContrast <- function(...) 
   UseMethod("easiContrast")
@@ -103,8 +104,7 @@ easiContrast.formula <- function(y,contrast,conf.level=.95,...) {
   round(results,3)
 }
 
-# Wrappers for EASI Functions
-# These call the functions and print with titles
+### Wrappers for EASI Functions
 
 estimateLevels <- function(...){
   cat("\nCONFIDENCE INTERVALS FOR THE LEVELS\n\n")

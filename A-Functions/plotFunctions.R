@@ -1,9 +1,10 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
-# CONFIDENCE INTERVALS PLOT FUNCTIONS
+## BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
 
-# Plot Function for Confidence Intervals for Multiple Groups and Levels
+### Confidence Interval Plot Functions
+
+#### Plot Function for Confidence Intervals for Multiple Groups and Levels
 
 plotLevels <- function(...) 
   UseMethod("plotLevels")
@@ -39,7 +40,7 @@ plotLevels.formula <- function(formula,mu=NULL,...){
   if (!is.null(mu)) {abline(h=mu,lty=2)}  
 }
 
-# Plot Function for Confidence Intervals of a Mean Difference/Comparison of Groups and Variables
+#### Plot Function for Confidence Intervals of a Mean Difference/Comparison of Groups and Variables
 
 plotDifference <- function(...) 
   UseMethod("plotDifference")
@@ -102,7 +103,7 @@ plotDifference.formula <- function(formula,...){
   rect(2.5,-1e6,4.5,1e6,col=rgb(.5,.5,.5,.07),border=NA)
 }
 
-# Plot Function for Confidence Interval of a Mean Contrast of Groups and Variables
+#### Plot Function for Confidence Interval of a Mean Contrast of Groups and Variables
 
 plotContrast <- function(...) 
   UseMethod("plotContrast")
@@ -122,7 +123,7 @@ plotContrast.default <- function(...,contrast){
   Diff <- Diff+Vars[1,1]  
   graph <- rbind(Vars,Diff)
   plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,"LL"])/2)*2,ceiling(max(graph[,"UL"])/2)*2),pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
-  axis(1,at=c(1,2,3),labels=c("Neg Weights","Pos Weights","Contrast"))
+  axis(1,at=c(1,2,3),labels=c("Neg Weighted","Pos Weighted","Contrast"))
   for (i in 1:3) lines(x=c(i,i), y=c(graph[,"LL"][i],graph[,"UL"][i]),lwd=2)
   for (i in 1:2) text(i,graph[,"Est"][i],graph[,"Est"][i],cex=.8,pos=2,offset=.5,font=2)
   for (i in 1:2) text(i,graph[,"LL"][i],graph[,"LL"][i],cex=.8,pos=2,offset=.5)  
@@ -155,7 +156,7 @@ plotContrast.formula <- function(formula,contrast,...){
   Diff <- Diff+Groups[1]
   graph <- rbind(Groups,Diff)
   plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,"LL"])/2)*2,ceiling(max(graph[,"UL"])/2)*2),pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
-  axis(1,at=c(1,2,3),labels=c("Neg Weights","Pos Weights","Contrast"))
+  axis(1,at=c(1,2,3),labels=c("Neg Weighted","Pos Weighted","Contrast"))
   for (i in 1:3) lines(x=c(i,i), y=c(graph[,"LL"][i],graph[,"UL"][i]),lwd=2)
   for (i in 1:2) text(i,graph[,"Est"][i],graph[,"Est"][i],cex=.8,pos=2,offset=.5,font=2)
   for (i in 1:2) text(i,graph[,"LL"][i],graph[,"LL"][i],cex=.8,pos=2,offset=.5)  
