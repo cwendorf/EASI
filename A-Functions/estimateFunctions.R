@@ -2,68 +2,91 @@
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 ## BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
 
-### Confidence Interval Functions 
-
-#### Basic EASI Function
-
-easi <- function(y,...){
-  N <- length(y)
-  M <- mean(y,na.rm=TRUE)
-  SD <- sd(y,na.rm=TRUE)
-  SE <- SD/sqrt(N)
-  LL <- t.test(y,...)$conf.int[1]
-  UL <- t.test(y,...)$conf.int[2]
-  round(c(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3)
-}
+### Confidence Interval Functions
 
 #### EASI Function for Mutiple Groups and Variables
 
 easiLevels <- function(...) 
   UseMethod("easiLevels")
 
+easiLevels.wss <- easiLevels.bss <- function(sumstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  SE <- SD/sqrt(N)
+  tcrit <- qt((1-conf.level)/2,N-1,lower.tail=FALSE)
+  LL <- M-tcrit*SE
+  UL <- M+tcrit*SE
+  results <- round(cbind(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3)
+  results
+}
+
 easiLevels.default <- function(...,conf.level=.95){
-  data <- data.frame(...)
-  results <- data.frame(matrix(ncol=6,nrow=0))
-  for (i in 1:ncol(data)) results[i,] <- easi(data[,i],conf.level=conf.level)
-  colnames(results) <- c("N","M","SD","SE","LL","UL")
-  rownames(results) <- colnames(data)
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  results <- easiLevels(sumstats,conf.level=conf.level)
   results
 }
 
-easiLevels.formula <- function(formula,...) {
-  results <- aggregate(formula,FUN=easi,...)
-  rn <- results[,1]
-  results <- results[[2]]
-  rownames(results) <- rn
+easiLevels.formula <- function(formula,conf.level=.95,...){
+  sumstats <- describeLevels(formula)
+  class(sumstats) <- "bss"
+  results <- easiLevels(sumstats,conf.level=conf.level)
   results
 }
 
-#### EASI Function for Group and Variable Differences
+#### EASI Function for Group and Variable Differences 
 
 easiDifference <- function(...) 
   UseMethod("easiDifference")
-
-easiDifference.default <- function(x,y,...){
-  model <- t.test(x,y,paired=TRUE,...)
-  MD <- as.numeric(model$estimate)
-  SE <- as.numeric(model$stderr)
-  df <- as.numeric(model$parameter)
-  LL <- model$conf.int[1]
-  UL <- model$conf.int[2]
-  results=round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  
+easiDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
+  compstats <- compstats[1:2,]
+  N <- compstats[,"N"]
+  M <- compstats[,"M"]
+  SD <- compstats[,"SD"]
+  rn <- rownames(compstats)
+  R <- corrstats[rn[1],rn[2]]
+  MD <- M[1]-M[2]
+  SE <- SD/sqrt(N)
+  SE <- sqrt(SE[1]^2+SE[2]^2-2*R*SE[1]*SE[2])
+  df <- min(N)-1
+  tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
+  LL <- MD-tcrit*SE
+  UL <- MD+tcrit*SE
+  results <- round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
   rownames(results) <- c("Comparison")
-  results  
+  results
 }
 
-easiDifference.formula <- function(formula,...){
-  model <- t.test(formula,...)
-  MD <- as.numeric(model$estimate[1]-model$estimate[2])
-  SE <- as.numeric(model$stderr)
-  df <- as.numeric(model$parameter)
-  LL <- model$conf.int[1]
-  UL <- model$conf.int[2]
-  results=round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+easiDifference.bss <- function(compstats,conf.level=.95,...){
+  compstats <- compstats[1:2,]
+  N <- compstats[,"N"]
+  M <- compstats[,"M"]
+  SD <- compstats[,"SD"]
+  MD <- M[1]-M[2]
+  SE <- sqrt( (SD[1]^2/N[1]) + (SD[2]^2/N[2]) )
+  df <- ((SD[1]^2/N[1] + SD[2]^2/N[2])^2 )/( (SD[1]^2/N[1])^2/(N[1]-1) + (SD[2]^2/N[2])^2/(N[2]-1) )
+  tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
+  LL <- MD-tcrit*SE
+  UL <- MD+tcrit*SE
+  results <- round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
   rownames(results) <- c("Comparison")
+  results
+}
+
+easiDifference.default <- function(x,y,conf.level=.95,...){
+  compstats <- easiLevels(x,y)
+  class(compstats) <- "wss"
+  corrstats <- correlateLevels(x,y)
+  results <- easiDifference(compstats,corrstats,conf.level=conf.level)
+  results
+}
+
+easiDifference.formula <- function(formula,conf.level=.95,...){
+  compstats <- easiLevels(formula)
+  class(compstats) <- "bss"
+  results <- easiDifference(compstats,conf.level=conf.level)
   results
 }
 
@@ -72,24 +95,26 @@ easiDifference.formula <- function(formula,...){
 easiContrast <- function(...) 
   UseMethod("easiContrast")
 
-easiContrast.default <- function(...,contrast,conf.level=.95){
-  data <- as.matrix(data.frame(...))
-  model <- t.test(data %*% contrast,conf.level=conf.level)
-  Est <- as.numeric(model$estimate)
-  SE <- as.numeric(model$stderr)
-  df <- as.numeric(model$parameter)
-  LL <- model$conf.int[1]
-  UL <- model$conf.int[2]
-  results <- round(cbind(Est=Est,SE=SE,df=df,LL=LL,UL=UL),3)
+easiContrast.wss <- function(sumstats,covstats,contrast,conf.level=.95) {
+  N <- min(sumstats[,"N"])
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  df <- N-1
+  tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
+  Est <- (t(contrast)%*%M)
+  SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
+  LL <- Est-tcrit*SE
+  UL <- Est+tcrit*SE
+  results <- t(c(Est,SE,df,LL,UL))
+  colnames(results) <- c("Est","SE","df","LL","UL")
   rownames(results) <- c("Contrast")
-  results
+  round(results,3)
 }
 
-easiContrast.formula <- function(y,contrast,conf.level=.95,...) {
-  sumstats=easiLevels(y)
-  N=sumstats[,"N"]
-  M=sumstats[,"M"]
-  SD=sumstats[,"SD"]
+easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
   Est <- t(contrast)%*%M
   k <- length(M)
   v <- diag(SD^2)%*%(solve(diag(N)))
@@ -102,6 +127,21 @@ easiContrast.formula <- function(y,contrast,conf.level=.95,...) {
   colnames(results) <- c("Est","SE","df","LL","UL")
   rownames(results) <- c("Contrast")
   round(results,3)
+}
+
+easiContrast.default <- function(...,contrast,conf.level=.95){
+  sumstats <- easiLevels(...)
+  class(sumstats) <- "wss"
+  covstats <- correlateLevels(...,mat="cov")
+  results <- easiContrast(sumstats,covstats,contrast,conf.level=conf.level)
+  results
+}
+
+easiContrast.formula <- function(formula,contrast,conf.level=.95,...){
+  sumstats <- easiLevels(formula)
+  class(sumstats) <- "bss"
+  results <- easiContrast(sumstats,contrast,conf.level=conf.level)
+  results
 }
 
 ### Wrappers for EASI Functions

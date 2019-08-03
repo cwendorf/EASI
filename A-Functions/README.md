@@ -5,6 +5,7 @@
 ### Overview of the Functions
 
 The EASI functions were written in four basic categories of analyses:
+- **describeFunctions.R** (sccripts that calculate basic descriptive statistics and matrices)
 - **estimateFunctions.R** (scripts that estimate means, mean differences, and their confidence intervals)
 - **plotFunctions.R** (scripts that plot means, mean differences, and their confidence intervals)
 - **effectFunctions.R** (scripts that calculate standardized effect sizes and their confidence intervals)

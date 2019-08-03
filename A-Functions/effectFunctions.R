@@ -2,68 +2,66 @@
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 ## BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
 
-### Standardized Mean Difference Functions
-
-#### Basic SMD Function
-
-smd <- function(y,conf.level=.95,mu=0,...){
-  Var <- easi(y,...)
-  n <- as.numeric(Var[1])
-  m <- as.numeric(Var[2])
-  sd <- as.numeric(Var[3])
-  md <- m-mu
-  cohend <- md/sd
-  eta <- n-1
-  J <- gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
-  hedgesg <- cohend*J
-  lambda <- hedgesg*sqrt(n)
-  tlow <- qt(1/2-conf.level/2,df=eta,ncp=lambda)
-  thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
-  dlow <- tlow/lambda*hedgesg 
-  dhig <- thig/lambda*hedgesg 
-  round(c(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
-}
+### SMD Functions
 
 #### SMD Function for Mutiple Groups and Variables
 
 smdLevels <- function(...) 
   UseMethod("smdLevels")
-
-smdLevels.default <- function(...,conf.level=.95,mu=0){
-  data <- data.frame(...)
-  results <- data.frame(matrix(ncol=4,nrow=0))
-  for (i in 1:ncol(data)) results[i,] <- smd(data[,i],conf.level=conf.level,mu=mu)
-  colnames(results) <- c("d","g","LL","UL")
-  rownames(results) <- colnames(data)
+  
+smdLevels.wss <- smdLevels.bss <- function(sumstats,conf.level=.95,mu=0,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  MD <- M-mu
+  cohend <- MD/SD
+  eta <- N-1
+  J <- gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
+  hedgesg <- cohend*J
+  lambda <- hedgesg*sqrt(N)
+  tlow <- qt(1/2-conf.level/2,df=eta,ncp=lambda)
+  thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
+  dlow <- tlow/lambda*hedgesg 
+  dhig <- thig/lambda*hedgesg 
+  results <- round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
   results
 }
 
-smdLevels.formula <- function(formula,...) {
-  results <- aggregate(formula,FUN=smd,...)
-  colnames(results) <- c("Group","")
-  rownames(results) <- results[,1]
-  results[2]
+smdLevels.default <- function(...,conf.level=.95,mu=0){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
+  results
 }
+
+smdLevels.formula <- function(formula,conf.level=.95,mu=0,...){
+  sumstats <- describeLevels(formula)
+  class(sumstats) <- "bss"
+  results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
+  results
+}
+
 
 #### SMD Function for Group and Variable Differences
 
 smdDifference <- function(...) 
-  UseMethod("smdDifference")  
-
-smdDifference.default <- function(...,conf.level=.95){
-  Vars <- easiLevels(...)
-  ns  <- as.numeric(Vars[1:2,1])
-  mns <- as.numeric(Vars[1:2,2])
-  sds <- as.numeric(Vars[1:2,3])
-  ntilde <- 1/mean(1/ns) 
-  md <- (mns[1]-mns[2])
-  sdp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
-  cohend <- md/sdp
-  eta <- ns[1]+ns[2]-2
+  UseMethod("smdDifference")
+  
+smdDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
+  compstats <- compstats[1:2,]
+  N  <- compstats[1:2,1]
+  M <- compstats[1:2,2]
+  SD <- compstats[1:2,3]
+  rn <- rownames(compstats)
+  R <- corrstats[rn[1],rn[2]]  
+  ntilde <- 1/mean(1/N) 
+  MD <- M[1]-M[2]
+  SDp <- sqrt((N[1]-1)*SD[1]^2+(N[2]-1)*SD[2]^2)/sqrt(N[1]+N[2]-2)
+  cohend <- MD/SDp
+  eta <- N[1]+N[2]-2
   J <- gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
   hedgesg <- cohend*J
-  r <- cor(...)
-  lambda <- hedgesg*sqrt(ntilde/(2*(1-r)))
+  lambda <- hedgesg*sqrt(ntilde/(2*(1-R)))
   tlow <- qt(1/2-conf.level/2,df=eta,ncp=lambda)
   thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
   dlow <- tlow/lambda*hedgesg 
@@ -73,16 +71,16 @@ smdDifference.default <- function(...,conf.level=.95){
   results
 }
 
-smdDifference.formula <- function(formula,conf.level=.95,...){
-  Groups <- easiLevels(formula,...)
-  ns <- as.numeric(Groups[1:2,1])
-  mns <- as.numeric(Groups[1:2,2])
-  sds <- as.numeric(Groups[1:2,3])
-  ntilde <- 1/mean(1/ns) 
-  md <- (mns[1]-mns[2])
-  sdp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
-  cohend <- md/sdp
-  eta <- ns[1]+ns[2]-2
+smdDifference.bss <- function(compstats,conf.level=.95,...){
+  compstats <- compstats[1:2,]
+  N <- compstats[1:2,1]
+  M <- compstats[1:2,2]
+  SD <- compstats[1:2,3]
+  ntilde <- 1/mean(1/N) 
+  MD <- (M[1]-M[2])
+  SDp <- sqrt((N[1]-1)*SD[1]^2+(N[2]-1)*SD[2]^2)/sqrt(N[1]+N[2]-2)
+  cohend <- MD/SDp
+  eta <- N[1]+N[2]-2
   J <- gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
   hedgesg <- cohend*J
   lambda <- hedgesg*sqrt(ntilde/2)
@@ -94,6 +92,22 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
   rownames(results) <- c("Comparison")
   results
 }
+
+smdDifference.default <- function(x,y,conf.level=.95,...){
+  compstats <- describeLevels(x,y)
+  class(compstats) <- "wss"
+  corrstats <- correlateLevels(x,y)
+  results <- smdDifference(compstats,corrstats,conf.level=conf.level)
+  results
+}
+
+smdDifference.formula <- function(formula,conf.level=.95,...){
+  compstats <- describeLevels(formula)
+  class(compstats) <- "bss"
+  results <- smdDifference(compstats,conf.level=conf.level)
+  results
+}
+
 
 ### Wrappers for SMD Functions
 
