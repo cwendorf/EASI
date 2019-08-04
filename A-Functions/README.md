@@ -13,21 +13,17 @@ The EASI functions were written in four basic categories of analyses:
 
 ### Installation of the Functions
 
-EASI is not currently on CRAN or compiled as a package, but you can install it by pasting the contents of the [**ALL_FUNCTIONS.R**](./ALL_FUNCTIONS.R) file directly into R.
-
-All EASI scripts should be run prior to conducting analyses. 
+EASI is not currently on CRAN or compiled as a package, but you can install it by pasting the contents of the [**ALL_FUNCTIONS.R**](./ALL_FUNCTIONS.R) file directly into R. This should be done prior to conducting analyses. 
 
 ## Technical Details
 
-### For Means and Mean Differences
+### For Means, Mean Differences, and Contrasts
 
-- Confidence intervals are based on the central t distribution.
 - Confidence intervals are calculated independent of each other (i.e., they are not simultaneous).
 - No adjustments for multiple intervals have been made.
-- Unlike other implementations of the "new statistics", all intervals assume heterogenity of variance.
+- All intervals assume heterogenity of variance.
 
 ### For Standardized Effect Sizes
 
 - Both Cohen's d and Hedge's g are presented.
 - Confidence intervals are centered on Hedge's g.
-- Confidence intervals are based on the noncentral t distribution.
