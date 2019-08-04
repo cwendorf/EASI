@@ -95,12 +95,13 @@ easiDifference.formula <- function(formula,conf.level=.95,...){
 easiContrast <- function(...) 
   UseMethod("easiContrast")
 
-easiContrast.wss <- function(sumstats,covstats,contrast,conf.level=.95) {
+easiContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95) {
   N <- min(sumstats[,"N"])
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
   df <- N-1
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
+  covstats <- cor2cov(corrstats,SD)
   Est <- (t(contrast)%*%M)
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
   LL <- Est-tcrit*SE
@@ -132,8 +133,8 @@ easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
 easiContrast.default <- function(...,contrast,conf.level=.95){
   sumstats <- easiLevels(...)
   class(sumstats) <- "wss"
-  covstats <- correlateLevels(...,mat="cov")
-  results <- easiContrast(sumstats,covstats,contrast,conf.level=conf.level)
+  corrstats <- correlateLevels(...)
+  results <- easiContrast(sumstats,corrstats,contrast,conf.level=conf.level)
   results
 }
 

@@ -110,11 +110,12 @@ nhstContrast.bss <- function(sumstats,contrast,mu=0,...) {
   round(results,3)
 }
 
-nhstContrast.wss <- function(sumstats,covstats,contrast,mu=0,...) {
+nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,...) {
   N <- min(sumstats[,"N"])
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
   Est <- (t(contrast)%*%M)
+  covstats <- cor2cov(corrstats,SD)
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
   t <- Est/SE
   df <- N-1
@@ -128,8 +129,8 @@ nhstContrast.wss <- function(sumstats,covstats,contrast,mu=0,...) {
 nhstContrast.default <- function(...,contrast,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
-  covstats <- correlateLevels(...,mat="cov")
-  results <- nhstContrast(sumstats,covstats,contrast,mu=mu)
+  corrstats <- correlateLevels(...)
+  results <- nhstContrast(sumstats,corrstats,contrast,mu=mu)
   results
 }
 

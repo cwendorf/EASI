@@ -91,7 +91,7 @@ plotDifference.wss <- function(compstats,corrstats,...){
   Groups <- easiLevels(compstats,...)[2:1,c(2,5,6)]
   Diff <- easiDifference(compstats,corrstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
-  rownames(results)[3]="Diff"
+  rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
 }
 
@@ -102,7 +102,7 @@ plotDifference.bss <- function(compstats,...){
   Groups <- easiLevels(compstats,...)[2:1,c(2,5,6)]
   Diff <- easiDifference(compstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
-  rownames(results)[3]="Diff"
+  rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
 }
 
@@ -113,7 +113,7 @@ plotDifference.default <- function(...){
   Vars <- easiLevels(...)[2:1,c(2,5,6)]
   Diff <- easiDifference(...)[c(1,4,5)]
   results <- rbind(Vars,Diff)
-  rownames(results)[3]="Diff"
+  rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
 }
 
@@ -125,7 +125,7 @@ plotDifference.formula <- function(formula,...){
   Groups <- Groups[2:1,c(2,5,6)]
   Diff <- easiDifference(formula,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
-  rownames(results)[3]="Diff"
+  rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
 }
 

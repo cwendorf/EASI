@@ -32,9 +32,14 @@ describeLevels.formula <- function(formula,...){
 correlateLevels <- function(...) 
   UseMethod("correlateLevels")
 
-correlateLevels.default <- function(...,mat="cor"){
+correlateLevels.default <- function(...){
   data <- data.frame(...)
-  if(mat=="cor") {results <- cor(data)}
-  if(mat=="cov") {results <- cov(data)}
+  results <- cor(data)
   results
+}
+
+cor2cov <- function(corrstats,SD) {
+  sdsquare <- SD %*% t(SD)
+  covstats <- sdsquare * corrstats
+  covstats
 }

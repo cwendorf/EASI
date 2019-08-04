@@ -33,11 +33,16 @@ describeLevels.formula <- function(formula,...){
 correlateLevels <- function(...) 
   UseMethod("correlateLevels")
 
-correlateLevels.default <- function(...,mat="cor"){
+correlateLevels.default <- function(...){
   data <- data.frame(...)
-  if(mat=="cor") {results <- cor(data)}
-  if(mat=="cov") {results <- cov(data)}
+  results <- cor(data)
   results
+}
+
+cor2cov <- function(corrstats,SD) {
+  sdsquare <- SD %*% t(SD)
+  covstats <- sdsquare * corrstats
+  covstats
 }
 
 ### Confidence Interval Functions
@@ -133,12 +138,13 @@ easiDifference.formula <- function(formula,conf.level=.95,...){
 easiContrast <- function(...) 
   UseMethod("easiContrast")
 
-easiContrast.wss <- function(sumstats,covstats,contrast,conf.level=.95) {
+easiContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95) {
   N <- min(sumstats[,"N"])
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
   df <- N-1
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
+  covstats <- cor2cov(corrstats,SD)
   Est <- (t(contrast)%*%M)
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
   LL <- Est-tcrit*SE
@@ -170,8 +176,8 @@ easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
 easiContrast.default <- function(...,contrast,conf.level=.95){
   sumstats <- easiLevels(...)
   class(sumstats) <- "wss"
-  covstats <- correlateLevels(...,mat="cov")
-  results <- easiContrast(sumstats,covstats,contrast,conf.level=conf.level)
+  corrstats <- correlateLevels(...)
+  results <- easiContrast(sumstats,corrstats,contrast,conf.level=conf.level)
   results
 }
 
@@ -292,7 +298,7 @@ plotDifference.wss <- function(compstats,corrstats,...){
   Groups <- easiLevels(compstats,...)[2:1,c(2,5,6)]
   Diff <- easiDifference(compstats,corrstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
-  rownames(results)[3]="Diff"
+  rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
 }
 
@@ -303,7 +309,7 @@ plotDifference.bss <- function(compstats,...){
   Groups <- easiLevels(compstats,...)[2:1,c(2,5,6)]
   Diff <- easiDifference(compstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
-  rownames(results)[3]="Diff"
+  rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
 }
 
@@ -314,7 +320,7 @@ plotDifference.default <- function(...){
   Vars <- easiLevels(...)[2:1,c(2,5,6)]
   Diff <- easiDifference(...)[c(1,4,5)]
   results <- rbind(Vars,Diff)
-  rownames(results)[3]="Diff"
+  rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
 }
 
@@ -326,7 +332,7 @@ plotDifference.formula <- function(formula,...){
   Groups <- Groups[2:1,c(2,5,6)]
   Diff <- easiDifference(formula,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
-  rownames(results)[3]="Diff"
+  rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
 }
 
@@ -492,11 +498,12 @@ nhstContrast.bss <- function(sumstats,contrast,mu=0,...) {
   round(results,3)
 }
 
-nhstContrast.wss <- function(sumstats,covstats,contrast,mu=0,...) {
+nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,...) {
   N <- min(sumstats[,"N"])
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
   Est <- (t(contrast)%*%M)
+  covstats <- cor2cov(corrstats,SD)
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
   t <- Est/SE
   df <- N-1
@@ -510,8 +517,8 @@ nhstContrast.wss <- function(sumstats,covstats,contrast,mu=0,...) {
 nhstContrast.default <- function(...,contrast,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
-  covstats <- correlateLevels(...,mat="cov")
-  results <- nhstContrast(sumstats,covstats,contrast,mu=mu)
+  corrstats <- correlateLevels(...)
+  results <- nhstContrast(sumstats,corrstats,contrast,mu=mu)
   results
 }
 
