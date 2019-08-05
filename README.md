@@ -20,11 +20,11 @@ EASI can be used to calculate and plot confidence intervals of mean differences 
 
 This site includes the basic function scripts and extensions of EASI, along with numerous example showing how to use the scripts.
 
-- The [**A-Functions**](./A-Functions) folder (the basic functions to be "installed" in R in order to run the analyses)
-- The [**B-BasicExamples**](./B-BasicExamples) folder (between-subjects and within-subjects examples that highlight the functions)
-- The [**ITNSExamples**](./C-ITNSExamples) folder (between-subjects and within-subjects examples from the book _Introduction to the New Statistics_)
-- The [**D-Extensions**](./D-Extensions) folder (additional functions that can be "installed" to add additional options)
-- The [**E-ExtensionExamples**](./E-ExtensionExamples) folder (between-subjects and within-subjects examples of the extensions)
+- [**A-Functions**](./A-Functions): Contains the basic functions to be "installed" in R in order to run the analyses
+- [**B-BasicExamples**](./B-BasicExamples): Contains between-subjects and within-subjects examples that highlight the functions
+- [**ITNSExamples**](./C-ITNSExamples): Contains (between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
+- [**D-Extensions**](./D-Extensions): Contains additional functions that can be "installed" to add options
+- [**E-ExtensionExamples**](./E-ExtensionExamples): Contains between-subjects and within-subjects examples of the extensions
 
 ## How to Cite EASI
 
