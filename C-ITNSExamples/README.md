@@ -24,7 +24,7 @@ The [**DONOHUE_EXAMPLE.md**](./DONOHUE_EXAMPLE.md) document and associated files
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the New Statistics._ New York: Routledge.
+Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
 
 
 

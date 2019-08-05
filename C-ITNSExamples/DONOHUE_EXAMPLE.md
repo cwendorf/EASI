@@ -1,5 +1,5 @@
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## WITHIN-SUBJECTS EXAMPLE WITH DONOHUE DATA
+# Estimation Approach to Statisticsl Inference (EASI)
+## Within-Subjects Example with Donohue Data
 
 ### Input Data
 

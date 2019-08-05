@@ -1,5 +1,5 @@
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## BETWEEN-SUBJECTS EXAMPLE WITH RATTAN DATA
+# Estimation Approach to Statisticsl Inference  (EASI)
+## Between-Subjects Example with Rattan Data
 
 ### Input Data
 
