@@ -1,17 +1,22 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 # ALL EXTENDED FUNCTIONS (ESTIMATE, PLOT, TEST, AND EFFECT)
-# TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
+# TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R
+# ALL BASIC FUNCTIONS FOR EASI SHOULD BE INSTALLED TOO
+
 
 # EASI Function for Pairwise Group and Variable Comparisons
 
 easiPairwise <- function(...) 
   UseMethod("easiPairwise")
 
-easiPairwise.default <- function(...,conf.level=.95){
-  data <- data.frame(...)
-  nr <- dim(data)[2]
-  rn <- colnames(data)
+easiPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  SE <- SD/sqrt(N)
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","LL","UL")
@@ -19,26 +24,26 @@ easiPairwise.default <- function(...,conf.level=.95){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	varx <- get(rn[i])
-	vary <- get(rn[j])
-	model <- t.test(varx,vary,paired=TRUE,conf.level=conf.level)
-	MD <- as.numeric(model$estimate)
-	SE <- as.numeric(model$stderr)
-	df <- as.numeric(model$parameter)
-	LL <- model$conf.int[1]
-	UL <- model$conf.int[2]
-    results[comp,] <- c(MD,SE,df,LL,UL)
-  	comp <-comp+1
+    MD <- M[rn[i]]-M[rn[j]]
+    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*corrstats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
+    df <- min(N)-1
+    tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
+    LL <- MD-tcrit*SEd
+    UL <- MD+tcrit*SEd
+    results[comp,] <- c(MD,SEd,df,LL,UL)
+   	comp <- comp+1
   }
   }
   round(results,3)
 }
 
-easiPairwise.formula <- function(formula,...){
-  varx <- eval(formula[[3]])
-  vary <- eval(formula[[2]])
-  nr <- nlevels(varx)
-  rn <- levels(varx)
+easiPairwise.bss <- function(sumstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  SE <- SD/sqrt(N)
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","LL","UL")
@@ -46,18 +51,32 @@ easiPairwise.formula <- function(formula,...){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	Comparison <- factor(varx,c(rn[i],rn[j]))
-	model <- t.test(vary~Comparison,...)
-    MD <- as.numeric(model$estimate)[1]-as.numeric(model$estimate)[2]
-    SE <- as.numeric(model$stderr)
-    df <- as.numeric(model$parameter)
-    LL <- model$conf.int[1]
-    UL <- model$conf.int[2]
-    results[comp,] <- c(MD,SE,df,LL,UL)
-	comp <- comp+1
+    MD <- M[rn[i]]-M[rn[j]]
+    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
+    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
+    tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
+    LL <- MD-tcrit*SEd
+    UL <- MD+tcrit*SEd
+    results[comp,] <- c(MD,SEd,df,LL,UL)
+   	comp <- comp+1
   }
   }
   round(results,3)
+}
+
+easiPairwise.default <- function(...,conf.level=.95){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  corrstats <- correlateLevels(...)
+  results <- easiPairwise(sumstats,corrstats,conf.level=conf.level)
+  results
+}
+
+easiPairwise.formula <- function(formula,conf.level=.95,...){
+  sumstats <- describeLevels(formula)
+  class(sumstats) <- "bss"
+  results <- easiPairwise(sumstats,conf.level=conf.level)
+  results
 }
 
 # EASI Function for Group and Variable Contrasts
@@ -94,13 +113,13 @@ easiContrasts.formula <- function(formula,contrasts=contr.sum,conf.level=.95,...
 
 # Wrappers for EASI Functions
 # These call the functions and print with titles
-
+ 
 estimatePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
   print(easiPairwise(...)) 
   cat("\n")  
 }
-  
+ 
 estimateContrasts <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE CONTRASTS\n\n")
   print(easiContrasts(...)) 
@@ -117,13 +136,7 @@ plotPairwise.default <- function(...,mu=NULL) {
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
   results <- easiPairwise(...)[,c(1,4,5)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i), y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  cipLevels(results,main,ylab,xlab,mu) 
 }
 
 plotPairwise.formula <- function(formula,conf.level=.95,mu=NA,...) {
@@ -131,13 +144,7 @@ plotPairwise.formula <- function(formula,conf.level=.95,mu=NA,...) {
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
   results <- easiPairwise(formula,...)[,c(1,4,5)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i), y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  cipLevels(results,main,ylab,xlab,mu) 
 }
 
 # Contrast Plots
@@ -150,13 +157,7 @@ plotContrasts.default <- function(...,mu=NULL) {
   ylab="Mean Difference"
   xlab="Contrasts"
   results <- easiContrasts(...)[,c(1,3,4)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  cipLevels(results,main,ylab,xlab,mu) 
 }
 
 plotContrasts.formula <- function(formula,mu=NULL,...) {
@@ -164,13 +165,7 @@ plotContrasts.formula <- function(formula,mu=NULL,...) {
   ylab="Mean Difference"
   xlab="Contrasts"
   results <- easiContrasts(formula,...)[,c(1,3,4)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  cipLevels(results,main,ylab,xlab,mu) 
 }
 
 # NHST Function for Pairwise Comparisons
@@ -178,10 +173,13 @@ plotContrasts.formula <- function(formula,mu=NULL,...) {
 nhstPairwise <- function(...) 
   UseMethod("nhstPairwise")
 
-nhstPairwise.default <- function(...,conf.level=.95,mu=0){
-  data <- data.frame(...)
-  nr <- dim(data)[2]
-  rn <- colnames(data)
+nhstPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  SE <- SD/sqrt(N)
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","t","df","p")
@@ -189,26 +187,25 @@ nhstPairwise.default <- function(...,conf.level=.95,mu=0){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	varx <- get(rn[i])
-	vary <- get(rn[j])
-	model <- t.test(varx,vary,paired=TRUE,conf.level=conf.level,mu=mu)
-	MD <- as.numeric(model$estimate)
-	SE <- as.numeric(model$stderr)
-	t <- as.numeric(model$statistic)
-	df <- as.numeric(model$parameter)
-	p <- as.numeric(model$p.value)
-    results[comp,] <- c(MD,SE,t,df,p)
-  	comp <- comp+1
+    MD <- M[rn[i]]-M[rn[j]]
+    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*corrstats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
+    df <- min(N)-1
+    t <- MD/SEd
+    p <- 2*(1 - pt(abs(t),df))
+    results[comp,] <- c(MD,SEd,t,df,p)
+   	comp <- comp+1
   }
   }
   round(results,3)
 }
 
-nhstPairwise.formula <- function(formula,...){
-  varx <- eval(formula[[3]])
-  vary <- eval(formula[[2]])
-  nr <- nlevels(varx)
-  rn <- levels(varx)
+nhstPairwise.bss <- function(sumstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  SE <- SD/sqrt(N)
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","t","df","p")
@@ -216,19 +213,31 @@ nhstPairwise.formula <- function(formula,...){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	Comparison <- factor(varx,c(rn[i],rn[j]))
-	model <- t.test(vary~Comparison,...)
-	mu <- as.numeric(model$null.value)
-	MD <- as.numeric(model$estimate[1]-model$estimate[2]-mu)		
-    SE <- as.numeric(model$stderr)
-	t <- as.numeric(model$statistic)
-	df <- as.numeric(model$parameter)
-	p <- as.numeric(model$p.value)
-    results[comp,] <- c(MD,SE,t,df,p)
-	comp <- comp+1
+    MD <- M[rn[i]]-M[rn[j]]
+    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
+    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
+    t <- MD/SEd
+    p <- 2*(1 - pt(abs(t),df))
+    results[comp,] <- c(MD,SEd,t,df,p)
+   	comp <- comp+1
   }
   }
   round(results,3)
+}
+
+nhstPairwise.default <- function(...,conf.level=.95){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  corrstats <- correlateLevels(...)
+  results <- nhstPairwise(sumstats,corrstats,conf.level=conf.level)
+  results
+}
+
+nhstPairwise.formula <- function(formula,conf.level=.95,...){
+  sumstats <- describeLevels(formula)
+  class(sumstats) <- "bss"
+  results <- nhstPairwise(sumstats,conf.level=conf.level)
+  results
 }
 
 # NHST Function for Group and Variable Contrasts
@@ -281,11 +290,13 @@ testContrasts<-function(...) {
 
 smdPairwise <- function(...) 
   UseMethod("smdPairwise")
-  
-smdPairwise.default <- function(...,conf.level=.95){
-  Vars <- easiLevels(...)
-  nr <- dim(Vars)[1]
-  rn <- rownames(Vars)
+
+smdPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results)<- c("d","g","LL","UL")
@@ -293,20 +304,18 @@ smdPairwise.default <- function(...,conf.level=.95){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	varx <- get(rn[i])
-	vary <- get(rn[j])
-    ns <- as.numeric(Vars[c(i,j),1])
-	mns <- as.numeric(Vars[c(i,j),2])
-	sds <- as.numeric(Vars[c(i,j),3])
+    R <- corrstats[rn[1],rn[2]]  
+    ns <- N[rn[c(i,j)]]
+	mns <- M[rn[c(i,j)]]
+	sds <- SD[rn[c(i,j)]]
 	ntilde <- 1/mean(1/ns) 
-	md <- (mns[1]-mns[2])
-	sdp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
-	cohend <- md/sdp
+    MD <- mns[1]-mns[2]	
+    SDp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
+	cohend <- MD/SDp
 	eta <- ns[1]+ns[2]-2
 	J <- gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
 	hedgesg <- cohend*J
-	r <- cor(varx,vary)
-	lambda <- hedgesg*sqrt(ntilde/(2*(1-r)))
+	lambda <- hedgesg*sqrt(ntilde/(2*(1-R)))
 	tlow <- qt(1/2-conf.level/2,df=eta,ncp=lambda)
 	thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
 	dlow <- tlow/lambda*hedgesg 
@@ -316,22 +325,24 @@ smdPairwise.default <- function(...,conf.level=.95){
   }
   }
   round(results,3)
-} 
- 
-smdPairwise.formula <- function(formula,conf.level=.95,...){
-  Groups <- easiLevels(formula,...)
-  nr <- dim(Groups)[1]
-  rn <- rownames(Groups)
+}
+
+smdPairwise.bss <- function(sumstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
-  colnames(results) <- c("d","g","LL","UL")
+  colnames(results)<- c("d","g","LL","UL")
   comp <- 1
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	ns <- as.numeric(Groups[c(i,j),1])
-	mns <- as.numeric(Groups[c(i,j),2])
-	sds <- as.numeric(Groups[c(i,j),3])
+    ns <- N[rn[c(i,j)]]
+	mns <- M[rn[c(i,j)]]
+	sds <- SD[rn[c(i,j)]]
 	ntilde <- 1/mean(1/ns) 
 	md <- (mns[1]-mns[2])
 	sdp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
@@ -349,6 +360,21 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
   }
   }
   round(results,3)
+}
+
+smdPairwise.default <- function(...,conf.level=.95){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  corrstats <- correlateLevels(...)
+  results <- smdPairwise(sumstats,corrstats,conf.level=conf.level)
+  results
+}
+
+smdPairwise.formula <- function(formula,conf.level=.95,...){
+  sumstats <- describeLevels(formula)
+  class(sumstats) <- "bss"
+  results <- smdPairwise(sumstats,conf.level=conf.level)
+  results
 }
 
 # Wrappers for SMD Functions

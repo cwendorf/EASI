@@ -8,10 +8,13 @@
 nhstPairwise <- function(...) 
   UseMethod("nhstPairwise")
 
-nhstPairwise.default <- function(...,conf.level=.95,mu=0){
-  data <- data.frame(...)
-  nr <- dim(data)[2]
-  rn <- colnames(data)
+nhstPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  SE <- SD/sqrt(N)
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","t","df","p")
@@ -19,26 +22,25 @@ nhstPairwise.default <- function(...,conf.level=.95,mu=0){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	varx <- get(rn[i])
-	vary <- get(rn[j])
-	model <- t.test(varx,vary,paired=TRUE,conf.level=conf.level,mu=mu)
-	MD <- as.numeric(model$estimate)
-	SE <- as.numeric(model$stderr)
-	t <- as.numeric(model$statistic)
-	df <- as.numeric(model$parameter)
-	p <- as.numeric(model$p.value)
-    results[comp,] <- c(MD,SE,t,df,p)
-  	comp <- comp+1
+    MD <- M[rn[i]]-M[rn[j]]
+    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*corrstats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
+    df <- min(N)-1
+    t <- MD/SEd
+    p <- 2*(1 - pt(abs(t),df))
+    results[comp,] <- c(MD,SEd,t,df,p)
+   	comp <- comp+1
   }
   }
   round(results,3)
 }
 
-nhstPairwise.formula <- function(formula,...){
-  varx <- eval(formula[[3]])
-  vary <- eval(formula[[2]])
-  nr <- nlevels(varx)
-  rn <- levels(varx)
+nhstPairwise.bss <- function(sumstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  SE <- SD/sqrt(N)
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","t","df","p")
@@ -46,19 +48,31 @@ nhstPairwise.formula <- function(formula,...){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	Comparison <- factor(varx,c(rn[i],rn[j]))
-	model <- t.test(vary~Comparison,...)
-	mu <- as.numeric(model$null.value)
-	MD <- as.numeric(model$estimate[1]-model$estimate[2]-mu)		
-    SE <- as.numeric(model$stderr)
-	t <- as.numeric(model$statistic)
-	df <- as.numeric(model$parameter)
-	p <- as.numeric(model$p.value)
-    results[comp,] <- c(MD,SE,t,df,p)
-	comp <- comp+1
+    MD <- M[rn[i]]-M[rn[j]]
+    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
+    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
+    t <- MD/SEd
+    p <- 2*(1 - pt(abs(t),df))
+    results[comp,] <- c(MD,SEd,t,df,p)
+   	comp <- comp+1
   }
   }
   round(results,3)
+}
+
+nhstPairwise.default <- function(...,conf.level=.95){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  corrstats <- correlateLevels(...)
+  results <- nhstPairwise(sumstats,corrstats,conf.level=conf.level)
+  results
+}
+
+nhstPairwise.formula <- function(formula,conf.level=.95,...){
+  sumstats <- describeLevels(formula)
+  class(sumstats) <- "bss"
+  results <- nhstPairwise(sumstats,conf.level=conf.level)
+  results
 }
 
 # NHST Function for Group and Variable Contrasts

@@ -7,11 +7,13 @@
 
 smdPairwise <- function(...) 
   UseMethod("smdPairwise")
-  
-smdPairwise.default <- function(...,conf.level=.95){
-  Vars <- easiLevels(...)
-  nr <- dim(Vars)[1]
-  rn <- rownames(Vars)
+
+smdPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results)<- c("d","g","LL","UL")
@@ -19,20 +21,18 @@ smdPairwise.default <- function(...,conf.level=.95){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	varx <- get(rn[i])
-	vary <- get(rn[j])
-    ns <- as.numeric(Vars[c(i,j),1])
-	mns <- as.numeric(Vars[c(i,j),2])
-	sds <- as.numeric(Vars[c(i,j),3])
+    R <- corrstats[rn[1],rn[2]]  
+    ns <- N[rn[c(i,j)]]
+	mns <- M[rn[c(i,j)]]
+	sds <- SD[rn[c(i,j)]]
 	ntilde <- 1/mean(1/ns) 
-	md <- (mns[1]-mns[2])
-	sdp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
-	cohend <- md/sdp
+    MD <- mns[1]-mns[2]	
+    SDp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
+	cohend <- MD/SDp
 	eta <- ns[1]+ns[2]-2
 	J <- gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
 	hedgesg <- cohend*J
-	r <- cor(varx,vary)
-	lambda <- hedgesg*sqrt(ntilde/(2*(1-r)))
+	lambda <- hedgesg*sqrt(ntilde/(2*(1-R)))
 	tlow <- qt(1/2-conf.level/2,df=eta,ncp=lambda)
 	thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
 	dlow <- tlow/lambda*hedgesg 
@@ -42,22 +42,24 @@ smdPairwise.default <- function(...,conf.level=.95){
   }
   }
   round(results,3)
-} 
- 
-smdPairwise.formula <- function(formula,conf.level=.95,...){
-  Groups <- easiLevels(formula,...)
-  nr <- dim(Groups)[1]
-  rn <- rownames(Groups)
+}
+
+smdPairwise.bss <- function(sumstats,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  rn <- rownames(sumstats)
+  nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
-  colnames(results) <- c("d","g","LL","UL")
+  colnames(results)<- c("d","g","LL","UL")
   comp <- 1
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-	ns <- as.numeric(Groups[c(i,j),1])
-	mns <- as.numeric(Groups[c(i,j),2])
-	sds <- as.numeric(Groups[c(i,j),3])
+    ns <- N[rn[c(i,j)]]
+	mns <- M[rn[c(i,j)]]
+	sds <- SD[rn[c(i,j)]]
 	ntilde <- 1/mean(1/ns) 
 	md <- (mns[1]-mns[2])
 	sdp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
@@ -75,6 +77,21 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
   }
   }
   round(results,3)
+}
+
+smdPairwise.default <- function(...,conf.level=.95){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  corrstats <- correlateLevels(...)
+  results <- smdPairwise(sumstats,corrstats,conf.level=conf.level)
+  results
+}
+
+smdPairwise.formula <- function(formula,conf.level=.95,...){
+  sumstats <- describeLevels(formula)
+  class(sumstats) <- "bss"
+  results <- smdPairwise(sumstats,conf.level=conf.level)
+  results
 }
 
 # Wrappers for SMD Functions

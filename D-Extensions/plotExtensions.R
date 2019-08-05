@@ -13,13 +13,7 @@ plotPairwise.default <- function(...,mu=NULL) {
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
   results <- easiPairwise(...)[,c(1,4,5)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i), y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  cipLevels(results,main,ylab,xlab,mu) 
 }
 
 plotPairwise.formula <- function(formula,conf.level=.95,mu=NA,...) {
@@ -27,13 +21,7 @@ plotPairwise.formula <- function(formula,conf.level=.95,mu=NA,...) {
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
   results <- easiPairwise(formula,...)[,c(1,4,5)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i), y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  cipLevels(results,main,ylab,xlab,mu) 
 }
 
 # Contrast Plots
@@ -46,13 +34,7 @@ plotContrasts.default <- function(...,mu=NULL) {
   ylab="Mean Difference"
   xlab="Contrasts"
   results <- easiContrasts(...)[,c(1,3,4)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  cipLevels(results,main,ylab,xlab,mu) 
 }
 
 plotContrasts.formula <- function(formula,mu=NULL,...) {
@@ -60,11 +42,5 @@ plotContrasts.formula <- function(formula,mu=NULL,...) {
   ylab="Mean Difference"
   xlab="Contrasts"
   results <- easiContrasts(formula,...)[,c(1,3,4)]
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1,at=1:length(results[,1]),labels=row.names(results))
-  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
-  for (i in 1:nrow(results)) text(i,results[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,results[,2][i],results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,results[,3][i],results[,3][i],cex=.8,pos=2,offset=.5)
-  if (!is.null(mu)) {abline(h=mu,lty=2)} 
+  cipLevels(results,main,ylab,xlab,mu) 
 }
