@@ -16,6 +16,7 @@ EASI can be used to calculate and plot confidence intervals of mean differences 
 
 ![Screenshot2](easiDifferences.jpg)
 
+<<<<<<< HEAD
 ## Functions and Examples on this Site
 
 This site includes the basic function scripts and extensions of EASI, along with numerous example showing how to use the scripts.
@@ -25,6 +26,9 @@ This site includes the basic function scripts and extensions of EASI, along with
 - The [**ITNSExamples**](./C-ITNSExamples) folder (between-subjects and within-subjects examples from the book _Introduction to the New Statistics_)
 - The [**D-Extentions**](./D-Extentions) folder (additional functions that can be "installed" to add additional options)
 - The [**E-ExtensionExamples**](./E-ExtensionExamples) folder (between-subjects and within-subjects examples of the extensions)
+=======
+The [**A-Functions**](./A-Functions) folder
+>>>>>>> 4d83e060dcb92e93aaf714377355cc6a7bf31ca9
 
 ## How to Cite EASI
 
