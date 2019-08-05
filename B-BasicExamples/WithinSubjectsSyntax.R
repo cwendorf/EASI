@@ -1,7 +1,7 @@
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## BASIC WITHIN-SUBJECTS EXAMPLE
+# Estimation Approach to Statistical Inference (EASI)
+## Basic Within-Subjects Example
 
-#### Three Time Period Example Data
+### Three Time Period Example Data
 
 Time1 <- c(5,6,6,7,8)
 Time2 <- c(7,7,8,8,9)

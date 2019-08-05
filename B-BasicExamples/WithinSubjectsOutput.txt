@@ -1,5 +1,5 @@
-> # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-> ## BASIC WITHIN-SUBJECTS EXAMPLES
+> # Estimation Approach to Statistical Inference (EASI)
+> ## Basic Within-Subjects Example
 > 
 > #### Three Time Period Example Data
 > 

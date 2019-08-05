@@ -1,5 +1,5 @@
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## BASIC BETWEEN-SUBJECTS EXAMPLE
+# Estimation Approach to Statistical Inference (EASI)
+## Basic Between-Subjects Example
 
 ### Three Group Example Data
 

@@ -8,8 +8,8 @@ The EASI functions were written in four basic categories of analyses:
 - **describeFunctions.R** (sccripts that calculate basic descriptive statistics and matrices)
 - **estimateFunctions.R** (scripts that estimate means, mean differences, and their confidence intervals)
 - **plotFunctions.R** (scripts that plot means, mean differences, and their confidence intervals)
-- **effectFunctions.R** (scripts that calculate standardized effect sizes and their confidence intervals)
 - **testFunctions.R** (scripts that calculate NHST for means and mean differences)
+- **effectFunctions.R** (scripts that calculate standardized effect sizes and their confidence intervals)
 
 ### Installation of the Functions
 
@@ -27,3 +27,7 @@ EASI is not currently on CRAN or compiled as a package, but you can install it b
 
 - Both Cohen's d and Hedge's g are presented.
 - Confidence intervals are centered on Hedge's g.
+
+## References
+
+Goulet-Pelletier, J.C., & Cousineau, D. (2018). A review of effect sizes and their confidence intervals, Part I: The Cohen’s d family. _Quantitative Methods in Psycholology, 14,_ 242–265.
