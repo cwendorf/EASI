@@ -22,7 +22,7 @@ This site includes the basic function scripts and extensions of EASI, along with
 
 - [**A-Functions**](./A-Functions): Contains the basic functions to be "installed" in R in order to run the analyses
 - [**B-BasicExamples**](./B-BasicExamples): Contains between-subjects and within-subjects examples that highlight the functions
-- [**ITNSExamples**](./C-ITNSExamples): Contains (between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
+- [**ITNSExamples**](./C-ITNSExamples): Contains between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
 - [**D-Extensions**](./D-Extensions): Contains additional functions that can be "installed" to add options
 - [**E-ExtensionExamples**](./E-ExtensionExamples): Contains between-subjects and within-subjects examples of the extensions
 
