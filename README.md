@@ -12,9 +12,19 @@ EASI can be used to calculate and plot confidence intervals for the means of gro
 
 ### EASI for Group and Variable Comparisons
 
-EASI can be used to calculate and plot confidence intervals of mean differences for independent groups (between-subjects design) or paired means (within-subjects designs). Additional functions can show the standardized effect sizes and statistical significance tests for the designated comparison. 
+EASI can be used to calculate and plot confidence intervals of mean differences and mean contrasts for independent groups (between-subjects design) or paired means (within-subjects designs). Additional functions can show the standardized effect sizes and statistical significance tests for the designated comparison. 
 
 ![Screenshot2](easiDifferences.jpg)
+
+## Functions and Examples on this Site
+
+This site includes the basic function scripts and extensions of EASI, along with numerous example showing how to use the scripts.
+
+- The [**A-Functions**](./A-Functions) folder (the basic functions to be "installed" in R in order to run the analyses)
+- The [**B-BasicExamples**](./B-BasicExamples) folder (between-subjects and within-subjects examples that highlight the functions)
+- The [**ITNSExamples**](./C-ITNSExamples) folder (between-subjects and within-subjects examples from the book _Introduction to the New Statistics_)
+- The [**D-Extentions**](./D-Extentions) folder (additional functions that can be "installed" to add additional options)
+- The [**E-ExtensionExamples**](./E-ExtensionExamples) folder (between-subjects and within-subjects examples of the extensions)
 
 ## How to Cite EASI
 
