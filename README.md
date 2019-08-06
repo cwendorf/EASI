@@ -1,11 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
 
-[**Home**](README.md) | 
-[**Core Functions**](./A-Functions) | 
-[**Basic Examples**](./B-BasicExamples) | 
-[**ITNS Examples**](./C-ITNSExamples) | 
-[**Extensions**](./D-Extensions) | 
-[**Extension Examples**](./E-ExtensionExamples)
+[**Home**](https://github.com/cwendorf/EASI/) | 
+[**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
+[**Basic Examples**](https://github.com/cwendorf/EASI/tree/master/B-BasicExamples) | 
+[**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
+[**Extensions**](https://github.com/cwendorf/EASI/tree/master/D-Extensions) | 
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/E-ExtensionExamples) 
 
 ---
 
