@@ -2,6 +2,8 @@
 
 ### **[Overview of EASI](#overview-of-easi)** | **[Functions and Examples](#functions-and-examples-on-this-site)** | **[How to Cite](#how-to-cite-easi)**
 
+---
+
 ## Overview of EASI
 
 EASI is a set of fast and simple scripts for R that implement basic features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Stats on Wikipedia"). These scripts calculate, test, and plot confidence intervals for means and standardized effect sizes. All scripts and examples are updated frequently.
