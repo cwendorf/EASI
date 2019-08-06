@@ -1,5 +1,14 @@
 # Estimation Approach to Statistical Inference (EASI)
 
+[**Home**](https://github.com/cwendorf/EASI/) | 
+[**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
+[**Basic Examples**](https://github.com/cwendorf/EASI/tree/master/B-BasicExamples) | 
+[**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
+[**Extensions**](https://github.com/cwendorf/EASI/tree/master/D-Extensions) | 
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/E-ExtensionExamples) 
+
+---
+
 ## About the EASI Functions
 
 ### Overview of the Functions
@@ -30,4 +39,4 @@ EASI is not currently on CRAN or compiled as a package, but you can install it b
 
 ## References
 
-Goulet-Pelletier, J.C., & Cousineau, D. (2018). A review of effect sizes and their confidence intervals, Part I: The Cohen’s d family. _Quantitative Methods in Psycholology, 14,_ 242–265.
+Goulet-Pelletier, J-C., & Cousineau, D. (2018). A review of effect sizes and their confidence intervals, Part I: The Cohen’s d family. _Quantitative Methods in Psycholology, 14,_ 242–265.

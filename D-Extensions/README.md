@@ -1,5 +1,14 @@
 # Estimation Approach to Statistical Inference (EASI)
 
+[**Home**](https://github.com/cwendorf/EASI/) | 
+[**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
+[**Basic Examples**](https://github.com/cwendorf/EASI/tree/master/B-BasicExamples) | 
+[**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
+[**Extensions**](https://github.com/cwendorf/EASI/tree/master/D-Extensions) | 
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/E-ExtensionExamples) 
+
+---
+
 ## Extensions of the EASI Functions
 
 ### Overview of the Extensions
@@ -12,9 +21,7 @@ EASI extentions are functions that go beyond the original vision for EASI. The E
 
 ### Installation of the Functions and Extensions
 
-Like the basic EASI functions, the EASI extentions are not currently on CRAN or compiled as a package, but you can install them by pasting the contents of the [**ALL_EXTENSIONS.R**](./ALL_EXTENSIONS.R) file directly into R.
-
-Both the basic function and the extensions should both be pasted into R prior to conducting analyses.
+Like the basic EASI functions, the EASI extentions are not currently on CRAN or compiled as a package, but you can install them by pasting the contents of the [**ALL_EXTENSIONS.R**](./ALL_EXTENSIONS.R) file directly into R. Both the basic functions and the extensions should both be pasted into R prior to conducting analyses.
 
 ## References
 

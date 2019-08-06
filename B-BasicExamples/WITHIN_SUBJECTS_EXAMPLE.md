@@ -2,7 +2,7 @@
 
 ## Basic Within-Subjects Example
 
-#### Three Time Period Example Data
+### Three Time Period Example Data
 
 This code inputs the variable names and creates a viewable data frame.
 ```r
