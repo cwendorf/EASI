@@ -1,5 +1,14 @@
 # Estimation Approach to Statistical Inference (EASI)
 
+[**Home**](https://github.com/cwendorf/EASI/) | 
+[**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
+[**Basic Examples**](https://github.com/cwendorf/EASI/tree/master/B-BasicExamples) | 
+[**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
+[**Extensions**](https://github.com/cwendorf/EASI/tree/master/D-Extensions) | 
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/E-ExtensionExamples) 
+
+---
+
 ## Overview of EASI
 
 EASI is a set of fast and simple scripts for R that implement basic features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Stats on Wikipedia"). These scripts calculate, test, and plot confidence intervals for means and standardized effect sizes. All scripts and examples are updated frequently.
