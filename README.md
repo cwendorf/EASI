@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference (EASI)
 
-**[Overview](##_Overview_of_EASI)** | **[Functions](##Functions-and-Examples-on-this-Site)**
+**[Overview of EASI](##-Overview-of-EASI)** | **[Functions and Examples](##-Functions-and-Examples-on-this-Site)** | **[How to Cite](##-How-to-Cite-EASI)**
 
 ## Overview of EASI
 
