@@ -1,6 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
 
-**[Overview of EASI](#overview-of-easi)** | **[Functions and Examples on this Site](#functions-and-examples-on-this-site)** | **[How to Cite EASI](#how-to-cite-easi)**
+[**Home**](README.md) | 
+[**Core Functions**](./A-Functions) | 
+[**Basic Examples**](./B-BasicExamples) | 
+[**ITNS Examples**](./C-ITNSExamples) | 
+[**Extensions**](./D-Extensions) | 
+[**Extension Examples**](./E-ExtensionExamples)
 
 ---
 
