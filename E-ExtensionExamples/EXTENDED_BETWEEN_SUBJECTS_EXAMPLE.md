@@ -13,7 +13,7 @@
 
 ### Three Group Example Data
 
-```r
+```{r}
 Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))
 Outcome <- c(3,4,5,7,8,9,8,9,10)
 Group <- factor(Group)
