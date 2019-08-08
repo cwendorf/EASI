@@ -11,7 +11,8 @@
 
 ## Overview of EASI
 
-EASI is a set of fast and simple scripts for R that implement basic features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Stats on Wikipedia"). These scripts calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. EASI scripts can take either raw data or summary statistics as input.
+EASI is a set of fast and simple scripts for R that implement basic features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Stats on Wikipedia"). These scripts calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. Functions and examples are available for different single-factor designs (between-subjects vs. within-subjects) and can take either raw data or summary statistics as input.
+
 ### EASI for Individual Groups and Variables
 
 EASI can be used to calculate and plot confidence intervals for the means of groups (in a between-subjects design) or instances of a variable (in a within-subjects design). Additional functions can show the standardized effect sizes and statistical significance tests associated with the groups and variables.
