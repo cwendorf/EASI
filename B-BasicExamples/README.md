@@ -23,7 +23,7 @@
 
 The [**BETWEEN_SUBJECTS_DATA_EXAMPLE.md**](./BETWEEN_SUBJECTS_DATA_EXAMPLE.md) uses raw data input.
 
-The [**BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md**](./BETWEEN_SUBJECTS_SUMmAry_EXAMPLE.md) uses summary statistics input.
+The [**BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md**](./BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md) uses summary statistics input.
 
 Both documents and the associated files include:
 
@@ -33,7 +33,7 @@ Both documents and the associated files include:
 
 The [**WITHIN_SUBJECTS_DATA_EXAMPLE.md**](./WITHIN_SUBJECTS_DATA_EXAMPLE.md) uses raw data input.
 
-The [**WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md**](./WITHIN_SUBJECTS_SUMmAry_EXAMPLE.md) uses summary statistics input.
+The [**WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md**](./WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md) uses summary statistics input.
 
 Both documents and the associated files include:
 
