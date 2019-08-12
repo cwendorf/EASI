@@ -27,7 +27,7 @@ EASI is not currently on CRAN or compiled as a package, but you can install the 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
 ```
 
-Alternatively, you can paste the contents of the [**EASI_FUNCTIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL_EASI_FUNCTIONS.R) file directly into R. 
+Alternatively, you can paste the contents of the [**ALL_EASI_FUNCTIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL_EASI_FUNCTIONS.R) file directly into R. 
 
 ## Technical Details
 

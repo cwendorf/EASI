@@ -26,7 +26,7 @@ Like the basic EASI functions, the EASI extentions are not currently on CRAN or 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
 ```
 
-Alternatively, you can paste the contents of the [**EASI_EXTENSIONS.R**](https://github.com/cwendorf/EASI/raw/master/D-Extensions/ALL_EASI_EXTENSIONS.R) file directly into R. 
+Alternatively, you can paste the contents of the [**ALL_EASI_EXTENSIONS.R**](https://github.com/cwendorf/EASI/raw/master/D-Extensions/ALL_EASI_EXTENSIONS.R) file directly into R. 
 
 The basic EASI functions must be installed in order for the extensions to operate properly.
 
