@@ -28,8 +28,10 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_E
 
 Alternatively, you can paste the contents of the [**ALL_EASI_EXTENSIONS.R**](https://github.com/cwendorf/EASI/raw/master/D-Extensions/ALL_EASI_EXTENSIONS.R) file directly into R. 
 
-The basic EASI functions must be installed in order for the extensions to operate properly.
+The basic EASI functions also must be installed in order for the extensions to operate properly.
 
 ## References
+
+Cousineau, D. (2017). Varieties of confidence intervals. _Advances in Cognitive Psychology, 13_(2), 140-155.
 
 Wendorf, C.A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. _Methodology, 8_(4), 125-133.

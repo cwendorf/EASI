@@ -44,4 +44,4 @@ Alternatively, you can paste the contents of the [**ALL_EASI_FUNCTIONS.R**](http
 
 ## References
 
-Goulet-Pelletier, J-C., & Cousineau, D. (2018). A review of effect sizes and their confidence intervals, Part I: The Cohen’s d family. _Quantitative Methods in Psycholology, 14,_ 242–265.
+Goulet-Pelletier, J-C., & Cousineau, D. (2018). A review of effect sizes and their confidence intervals, Part I: The Cohen’s d family. _Quantitative Methods for Psycholology, 14,_ 242–265.

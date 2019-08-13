@@ -21,20 +21,16 @@
 
 ### Included Examples
 
-The [**BETWEEN_SUBJECTS_DATA_EXAMPLE.md**](./BETWEEN_SUBJECTS_DATA_EXAMPLE.md) uses raw data input.
-
-The [**BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md**](./BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md) uses summary statistics input.
-
+The [**BETWEEN_SUBJECTS_DATA_EXAMPLE.md**](./BETWEEN_SUBJECTS_DATA_EXAMPLE.md) uses raw data input.  
+The [**BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md**](./BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md) uses summary statistics input.  
 Both documents and the associated files include:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 - Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor)
 
-The [**WITHIN_SUBJECTS_DATA_EXAMPLE.md**](./WITHIN_SUBJECTS_DATA_EXAMPLE.md) uses raw data input.
-
-The [**WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md**](./WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md) uses summary statistics input.
-
+The [**WITHIN_SUBJECTS_DATA_EXAMPLE.md**](./WITHIN_SUBJECTS_DATA_EXAMPLE.md) uses raw data input.  
+The [**WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md**](./WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md) uses summary statistics input.  
 Both documents and the associated files include:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
