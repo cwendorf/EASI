@@ -23,9 +23,7 @@
 The [**EXTENDED_BETWEEN_SUBJECTS_EXAMPLE.md**](./EXTENDED_BETWEEN_SUBJECTS_EXAMPLE.md) document and associated files include:
 
 - Analyses of Pairwise Comparisons (equivalent to uncorrected t tests among all levels of a factor)
-- Analyses of Set of Contrasts (equivalent to dummy, effect, and other sets of contrasts among all levels of a factor)
 
 The [**EXTENDED_WITHIN_SUBJECTS_EXAMPLE.md**](./EXTENDED_WITHIN_SUBJECTS_EXAMPLE.md) document and associated files include:
 
 - Analyses of Pairwise Comparisons (equivalent to uncorrected t tests among of all instances of a variable)
-- Analyses of Set of Contrasts (equivalent to dummy, effect, and other sets of codes among all instances of a variable)

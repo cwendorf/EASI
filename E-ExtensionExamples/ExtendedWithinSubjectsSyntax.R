@@ -33,38 +33,3 @@ testPairwise(Time1,Time2,Time3,mu=-2)
 
 effectPairwise(Time1,Time2,Time3)
 effectPairwise(Time1,Time2,Time3,conf.level=.99)
-
-### Analyses of Sets of Variable Contrasts
-### (equivalent to dummy, effect, and other sets of codes)
-
-#### Estimate, Plot, and Test a Set of Contrasts
-#### (default are sum contrasts -- comparisons of levels to grand mean)
-
-estimateContrasts(Time1,Time2,Time3)
-plotContrasts(Time1,Time2,Time3)
-testContrasts(Time1,Time2,Time3)
-
-estimateContrasts(Time1,Time2,Time3,conf.level=.99)
-plotContrasts(Time1,Time2,Time3,conf.level=.99)
-
-#### Other Standard Sets of Contrasts can be Specified
-
-estimateContrasts(Time1,Time2,Time3,contrasts=contr.sum)
-plotContrasts(Time1,Time2,Time3,contrasts=contr.sum)
-testContrasts(Time1,Time2,Time3,contrasts=contr.sum)
-
-estimateContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
-plotContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
-testContrasts(Time1,Time2,Time3,contrasts=contr.treatment)
-
-estimateContrasts(Time1,Time2,Time3,contrasts=contr.poly)
-plotContrasts(Time1,Time2,Time3,contrasts=contr.poly)
-testContrasts(Time1,Time2,Time3,contrasts=contr.poly)
-
-estimateContrasts(Time1,Time2,Time3,contrasts=contr.helmert)
-plotContrasts(Time1,Time2,Time3,contrasts=contr.helmert)
-testContrasts(Time1,Time2,Time3,contrasts=contr.helmert)
-
-estimateContrasts(Time1,Time2,Time3,contrasts=contr.SAS)
-plotContrasts(Time1,Time2,Time3,contrasts=contr.SAS)
-testContrasts(Time1,Time2,Time3,contrasts=contr.SAS)

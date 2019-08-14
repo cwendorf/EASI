@@ -33,38 +33,3 @@ testPairwise(Outcome~Group,mu=-2)
 
 effectPairwise(Outcome~Group)
 effectPairwise(Outcome~Group,conf.level=.99)
-
-### Analyses of Sets of Group Contrasts
-### (equivalent to dummy, effect, and other sets of codes)
-
-#### Estimate, Plot, and Test a Set of Contrasts
-#### (default are sum contrasts -- comparisons of levels to grand mean)
-
-estimateContrasts(Outcome~Group)
-plotContrasts(Outcome~Group)
-testContrasts(Outcome~Group)
-
-estimateContrasts(Outcome~Group,conf.level=.99)
-plotContrasts(Outcome~Group,conf.level=.99)
-
-#### Other Standard Sets of Contrasts can be Specified
-
-estimateContrasts(Outcome~Group,contrasts=contr.sum)
-testContrasts(Outcome~Group,contrasts=contr.sum)
-plotContrasts(Outcome~Group,contrasts=contr.sum)
-
-estimateContrasts(Outcome~Group,contrasts=contr.treatment)
-plotContrasts(Outcome~Group,contrasts=contr.treatment)
-testContrasts(Outcome~Group,contrasts=contr.treatment)
-
-estimateContrasts(Outcome~Group,contrasts=contr.poly)
-plotContrasts(Outcome~Group,contrasts=contr.poly)
-testContrasts(Outcome~Group,contrasts=contr.poly)
-
-estimateContrasts(Outcome~Group,contrasts=contr.helmert)
-plotContrasts(Outcome~Group,contrasts=contr.helmert)
-testContrasts(Outcome~Group,contrasts=contr.helmert)
-
-estimateContrasts(Outcome~Group,contrasts=contr.SAS)
-plotContrasts(Outcome~Group,contrasts=contr.SAS)
-testContrasts(Outcome~Group,contrasts=contr.SAS)
