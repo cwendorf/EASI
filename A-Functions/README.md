@@ -11,15 +11,6 @@
 
 ## About the EASI Functions
 
-### Overview of the Functions
-
-The EASI functions were written in five basic categories of analyses:
-- **describeFunctions.R** (functions that calculate basic descriptive statistics and matrices)
-- **estimateFunctions.R** (functions that estimate means, mean differences, and their confidence intervals)
-- **plotFunctions.R** (functions that plot means, mean differences, and their confidence intervals)
-- **testFunctions.R** (functions that calculate NHST for means and mean differences)
-- **effectFunctions.R** (functions that calculate standardized effect sizes and their confidence intervals)
-
 ### Installation of the Functions
 
 EASI is not currently on CRAN or compiled as a package, but you can install the complete and current version of it by pasting the following line into R. The functions will automatically be available for use in analyses.
@@ -28,6 +19,15 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EA
 ```
 
 Alternatively, you can paste the contents of the [**ALL_EASI_FUNCTIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL_EASI_FUNCTIONS.R) file directly into R. 
+
+### Summary of the Functions
+
+The EASI functions were written in five basic categories of analyses:
+- **describeFunctions.R** (functions that help calculate basic descriptive statistics and matrices)
+- **estimateFunctions.R** (functions that estimate confidence intervals for means and mean differences)
+- **plotFunctions.R** (functions that plot confidence intervals for means and mean differences)
+- **testFunctions.R** (functions that calculate NHST for means and mean differences)
+- **effectFunctions.R** (functions that calculate confidence intervals for standardized effect sizes)
 
 ## Technical Details
 

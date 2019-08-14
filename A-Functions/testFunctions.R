@@ -3,12 +3,12 @@
 
 ### Null Hypothesis Significance Test Functions
 
-#### NHST Function for Mutiple Groups and Variables
+#### NHST Function for Means of Levels
 
-nhstLevels <- function(...) 
-  UseMethod("nhstLevels")
+nhstMeans <- function(...) 
+  UseMethod("nhstMeans")
   
-nhstLevels.wss <- nhstLevels.bss <- function(sumstats,mu=0,...){
+nhstMeans.wss <- nhstMeans.bss <- function(sumstats,mu=0,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SE <- sumstats[,"SD"]/sqrt(N)
@@ -20,21 +20,21 @@ nhstLevels.wss <- nhstLevels.bss <- function(sumstats,mu=0,...){
   return(results)
 }
 
-nhstLevels.default <- function(...,mu=0){
+nhstMeans.default <- function(...,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
-  results <- nhstLevels(sumstats,mu=mu)
+  results <- nhstMeans(sumstats,mu=mu)
   return(results)
 }
 
-nhstLevels.formula <- function(formula,mu=0,...){
+nhstMeans.formula <- function(formula,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- nhstLevels(sumstats,mu=mu)
+  results <- nhstMeans(sumstats,mu=mu)
   return(results)
 }
 
-##### NHST Function for Group and Variable Differences
+##### NHST Function for Mean Differences/Comparison of Levels
 
 nhstDifference <- function(...) 
   UseMethod("nhstDifference")
@@ -87,7 +87,7 @@ nhstDifference.formula <- function(formula,mu=0,...){
   return(results)
 }
 
-#### NHST Function for a Single Group and Variable Contrast
+#### NHST Function for a Mean Contrast of Levels
 
 nhstContrast <- function(...) 
   UseMethod("nhstContrast")
@@ -142,9 +142,9 @@ nhstContrast.formula <- function(formula,contrast,mu=0,...){
 
 ### Wrappers for NHST Functions
 
-testLevels <- function(...){
-  cat("\nHYPOTHESIS TESTS FOR THE LEVELS\n\n")
-  print(nhstLevels(...))
+testMeans <- function(...){
+  cat("\nHYPOTHESIS TESTS FOR THE MEANS\n\n")
+  print(nhstMeans(...))
   cat("\n")
 }
 

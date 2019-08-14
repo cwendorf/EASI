@@ -11,13 +11,13 @@
 
 ## Overview of EASI
 
-EASI is a set of fast and simple scripts for R that implement basic features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Stats on Wikipedia"). These scripts calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. Functions and examples are available for different single-factor designs (between-subjects vs. within-subjects) and can take either raw data or summary statistics as input.
+EASI is a set of fast and simple functions for R that implement basic features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Stats on Wikipedia"). These functions calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. Functions and examples are available for different single-factor designs (between-subjects vs. within-subjects) and can take either raw data or summary statistics as input.
 
 ### EASI for Individual Groups and Variables
 
 EASI can be used to calculate and plot confidence intervals for the means of groups (in a between-subjects design) or instances of a variable (in a within-subjects design). Additional functions can show the standardized effect sizes and statistical significance tests associated with the groups and variables.
 
-![Screenshot1](easiLevels.jpg)
+![Screenshot1](easiMeans.jpg)
 
 ### EASI for Group and Variable Comparisons
 
@@ -25,9 +25,9 @@ EASI can be used to calculate and plot confidence intervals of mean differences 
 
 ![Screenshot2](easiDifferences.jpg)
 
-## Functions and Examples on this Site
+## Materials Available on this Site
 
-This site includes the basic function scripts and extensions of EASI, along with numerous example showing how to use the scripts.
+This site includes the basic functions and extensions of EASI, along with numerous example showing how to use the functions.
 
 - [**A-Functions**](./A-Functions): Contains the basic functions to be "installed" in R in order to run the analyses
 - [**B-BasicExamples**](./B-BasicExamples): Contains between-subjects and within-subjects examples that highlight the functions

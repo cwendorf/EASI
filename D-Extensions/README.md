@@ -11,14 +11,6 @@
 
 ## Extensions of the EASI Functions
 
-### Overview of the Extensions
-
-EASI extentions are functions that go beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
-- **estimateExtensions.R** (functions that estimate confidence intervals for pairwise comparisons)
-- **plotExtensions.R** (functions that plot onfidence intervals for pairwise comparisons)
-- **testExtensions.R** (functions that calculate NHST for pairwise comparisons)
-- **effectExtensions.R** (functions that calculate standardized effect sizes and confidence intervals for pairwise comparisons)
-
 ### Installation of the Functions and Extensions
 
 Like the basic EASI functions, the EASI extentions are not currently on CRAN or compiled as a package. You can install the complete and current extensions file by pasting the following line into R. The functions will automatically be available for use in analyses.
@@ -29,3 +21,25 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_E
 Alternatively, you can paste the contents of the [**ALL_EASI_EXTENSIONS.R**](https://github.com/cwendorf/EASI/raw/master/D-Extensions/ALL_EASI_EXTENSIONS.R) file directly into R. 
 
 The basic EASI functions also must be installed in order for the extensions to operate properly.
+
+### Overview of the Extensions
+
+EASI extentions are functions that go beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
+- **estimateExtensions.R** (functions that estimate confidence intervals for pairwise comparisons)
+- **plotExtensions.R** (functions that plot onfidence intervals for pairwise comparisons)
+- **testExtensions.R** (functions that calculate NHST for pairwise comparisons)
+- **effectExtensions.R** (functions that calculate confidence intervals for pairwise comparison effect sizes)
+
+## Technical Details
+
+### For Pairwise Comparisons
+
+- Confidence intervals are calculated independent of each other (i.e., they are not simultaneous).
+- No adjustments for multiple intervals have been made.
+- All intervals assume heterogenity of variance.
+
+### For Standardized Effect Sizes
+
+- Both Cohen's d and Hedge's g are presented.
+- Confidence intervals are centered on Hedge's g.
+

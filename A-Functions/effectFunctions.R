@@ -3,12 +3,12 @@
 
 ### Standardized Mean Difference Functions
 
-#### SMD Function for Mutiple Groups and Variables
+#### SMD Function for Means of Levels
 
-smdLevels <- function(...) 
-  UseMethod("smdLevels")
+smdMeans <- function(...) 
+  UseMethod("smdMeans")
   
-smdLevels.wss <- smdLevels.bss <- function(sumstats,conf.level=.95,mu=0,...){
+smdMeans.wss <- smdMeans.bss <- function(sumstats,conf.level=.95,mu=0,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -26,22 +26,21 @@ smdLevels.wss <- smdLevels.bss <- function(sumstats,conf.level=.95,mu=0,...){
   return(results)
 }
 
-smdLevels.default <- function(...,conf.level=.95,mu=0){
+smdMeans.default <- function(...,conf.level=.95,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
-  results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
+  results <- smdMeans(sumstats,conf.level=conf.level,mu=mu)
   return(results)
 }
 
-smdLevels.formula <- function(formula,conf.level=.95,mu=0,...){
+smdMeans.formula <- function(formula,conf.level=.95,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
+  results <- smdMeans(sumstats,conf.level=conf.level,mu=mu)
   return(results)
 }
 
-
-#### SMD Function for Group and Variable Differences
+#### SMD Function for Mean Differences/Comparison of Levels
 
 smdDifference <- function(...) 
   UseMethod("smdDifference")
@@ -109,9 +108,9 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
 
 ### Wrappers for SMD Functions
 
-effectLevels <- function(...){
-  cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE LEVELS\n\n")
-  print(smdLevels(...))
+effectMeans <- function(...){
+  cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE MEANS\n\n")
+  print(smdMeans(...))
   cat("\n")
 }
 

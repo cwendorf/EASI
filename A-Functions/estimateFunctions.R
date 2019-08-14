@@ -3,12 +3,12 @@
 
 ### Confidence Interval Functions
 
-#### CI Function for Mutiple Groups and Variables
+#### CI Function for Means of Levels
 
-easiLevels <- function(...) 
-  UseMethod("easiLevels")
+ciMeans <- function(...) 
+  UseMethod("ciMeans")
 
-easiLevels.wss <- easiLevels.bss <- function(sumstats,conf.level=.95,...){
+ciMeans.wss <- ciMeans.bss <- function(sumstats,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -20,21 +20,21 @@ easiLevels.wss <- easiLevels.bss <- function(sumstats,conf.level=.95,...){
   return(results)
 }
 
-easiLevels.default <- function(...,conf.level=.95){
+ciMeans.default <- function(...,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
-  results <- easiLevels(sumstats,conf.level=conf.level)
+  results <- ciMeans(sumstats,conf.level=conf.level)
   return(results)
 }
 
-easiLevels.formula <- function(formula,conf.level=.95,...){
+ciMeans.formula <- function(formula,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- easiLevels(sumstats,conf.level=conf.level)
+  results <- ciMeans(sumstats,conf.level=conf.level)
   return(results)
 }
 
-#### CI Function for Group and Variable Differences 
+#### CI Function for Mean Differences/Comparison of Levels 
 
 easiDifference <- function(...) 
   UseMethod("easiDifference")
@@ -75,7 +75,7 @@ easiDifference.bss <- function(compstats,conf.level=.95,...){
 }
 
 easiDifference.default <- function(x,y,conf.level=.95,...){
-  compstats <- easiLevels(x,y)
+  compstats <- ciMeans(x,y)
   class(compstats) <- "wss"
   corrstats <- correlateLevels(x,y)
   results <- easiDifference(compstats,corrstats,conf.level=conf.level)
@@ -83,13 +83,13 @@ easiDifference.default <- function(x,y,conf.level=.95,...){
 }
 
 easiDifference.formula <- function(formula,conf.level=.95,...){
-  compstats <- easiLevels(formula)
+  compstats <- ciMeans(formula)
   class(compstats) <- "bss"
   results <- easiDifference(compstats,conf.level=conf.level)
   return(results)
 }
 
-#### CI Function for a Single Group and Variable Contrast
+#### CI Function for a Mean Contrast of Levels
 
 easiContrast <- function(...) 
   UseMethod("easiContrast")
@@ -130,7 +130,7 @@ easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
 }
 
 easiContrast.default <- function(...,contrast,conf.level=.95){
-  sumstats <- easiLevels(...)
+  sumstats <- ciMeans(...)
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
   results <- easiContrast(sumstats,corrstats,contrast,conf.level=conf.level)
@@ -138,7 +138,7 @@ easiContrast.default <- function(...,contrast,conf.level=.95){
 }
 
 easiContrast.formula <- function(formula,contrast,conf.level=.95,...){
-  sumstats <- easiLevels(formula)
+  sumstats <- ciMeans(formula)
   class(sumstats) <- "bss"
   results <- easiContrast(sumstats,contrast,conf.level=conf.level)
   return(results)
@@ -146,9 +146,9 @@ easiContrast.formula <- function(formula,contrast,conf.level=.95,...){
 
 ### Wrappers for CI Functions
 
-estimateLevels <- function(...){
-  cat("\nCONFIDENCE INTERVALS FOR THE LEVELS\n\n")
-  print(easiLevels(...))
+estimateMeans <- function(...){
+  cat("\nCONFIDENCE INTERVALS FOR THE MEANS\n\n")
+  print(ciMeans(...))
   cat("\n")
 }
 

@@ -80,12 +80,12 @@ fillCorrMatrix <- function(mat){
 
 ### Confidence Interval Functions
 
-#### CI Function for Mutiple Groups and Variables
+#### CI Function for Means of Levels
 
-easiLevels <- function(...) 
-  UseMethod("easiLevels")
+ciMeans <- function(...) 
+  UseMethod("ciMeans")
 
-easiLevels.wss <- easiLevels.bss <- function(sumstats,conf.level=.95,...){
+ciMeans.wss <- ciMeans.bss <- function(sumstats,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -97,21 +97,21 @@ easiLevels.wss <- easiLevels.bss <- function(sumstats,conf.level=.95,...){
   return(results)
 }
 
-easiLevels.default <- function(...,conf.level=.95){
+ciMeans.default <- function(...,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
-  results <- easiLevels(sumstats,conf.level=conf.level)
+  results <- ciMeans(sumstats,conf.level=conf.level)
   return(results)
 }
 
-easiLevels.formula <- function(formula,conf.level=.95,...){
+ciMeans.formula <- function(formula,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- easiLevels(sumstats,conf.level=conf.level)
+  results <- ciMeans(sumstats,conf.level=conf.level)
   return(results)
 }
 
-#### CI Function for Group and Variable Differences 
+#### CI Function for Mean Differences/Comparison of Levels 
 
 easiDifference <- function(...) 
   UseMethod("easiDifference")
@@ -152,7 +152,7 @@ easiDifference.bss <- function(compstats,conf.level=.95,...){
 }
 
 easiDifference.default <- function(x,y,conf.level=.95,...){
-  compstats <- easiLevels(x,y)
+  compstats <- ciMeans(x,y)
   class(compstats) <- "wss"
   corrstats <- correlateLevels(x,y)
   results <- easiDifference(compstats,corrstats,conf.level=conf.level)
@@ -160,13 +160,13 @@ easiDifference.default <- function(x,y,conf.level=.95,...){
 }
 
 easiDifference.formula <- function(formula,conf.level=.95,...){
-  compstats <- easiLevels(formula)
+  compstats <- ciMeans(formula)
   class(compstats) <- "bss"
   results <- easiDifference(compstats,conf.level=conf.level)
   return(results)
 }
 
-#### CI Function for a Single Group and Variable Contrast
+#### CI Function for a Mean Contrast of Levels
 
 easiContrast <- function(...) 
   UseMethod("easiContrast")
@@ -207,7 +207,7 @@ easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
 }
 
 easiContrast.default <- function(...,contrast,conf.level=.95){
-  sumstats <- easiLevels(...)
+  sumstats <- ciMeans(...)
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
   results <- easiContrast(sumstats,corrstats,contrast,conf.level=conf.level)
@@ -215,7 +215,7 @@ easiContrast.default <- function(...,contrast,conf.level=.95){
 }
 
 easiContrast.formula <- function(formula,contrast,conf.level=.95,...){
-  sumstats <- easiLevels(formula)
+  sumstats <- ciMeans(formula)
   class(sumstats) <- "bss"
   results <- easiContrast(sumstats,contrast,conf.level=conf.level)
   return(results)
@@ -223,9 +223,9 @@ easiContrast.formula <- function(formula,contrast,conf.level=.95,...){
 
 ### Wrappers for CI Functions
 
-estimateLevels <- function(...){
-  cat("\nCONFIDENCE INTERVALS FOR THE LEVELS\n\n")
-  print(easiLevels(...))
+estimateMeans <- function(...){
+  cat("\nCONFIDENCE INTERVALS FOR THE MEANS\n\n")
+  print(ciMeans(...))
   cat("\n")
 }
 
@@ -245,7 +245,7 @@ estimateContrast<-function(...) {
 
 #### Basic Plot Functions
 
-cipLevels <- function(results,main,ylab,xlab,mu){
+cipMeans <- function(results,main,ylab,xlab,mu){
   plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
   for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
@@ -277,48 +277,48 @@ cipDifference <- function(results,main,ylab,xlab){
   rect(2.5,-1e6,4.5,1e6,col=rgb(.5,.5,.5,.07),border=NA)
 }
 
-#### Plot Function for Confidence Intervals for Multiple Groups and Levels
+#### Plot Function for Confidence Intervals for the Means of Levels
 
-plotLevels <- function(...) 
-  UseMethod("plotLevels")
+plotMeans <- function(...) 
+  UseMethod("plotMeans")
 
-plotLevels.default <- function(...,conf.level=.95,mu=NULL){
-  main="Confidence Intervals for the Levels"
+plotMeans.default <- function(...,conf.level=.95,mu=NULL){
+  main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Variables"
-  results <- easiLevels(...,conf.level=conf.level)[,c(2,5,6)]
-  cipLevels(results,main,ylab,xlab,mu)
+  results <- ciMeans(...,conf.level=conf.level)[,c(2,5,6)]
+  cipMeans(results,main,ylab,xlab,mu)
 }
 
-plotLevels.formula <- function(formula,mu=NULL,...){
-  main="Confidence Intervals for the Levels"
+plotMeans.formula <- function(formula,mu=NULL,...){
+  main="Confidence Intervals for the Means"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
-  results <- easiLevels(formula,...)[,c(2,5,6)]
+  results <- ciMeans(formula,...)[,c(2,5,6)]
   x <- eval(formula[[3]])
   y <- eval(formula[[2]])
   row.names(results) <- levels(x)
-  cipLevels(results,main,ylab,xlab,mu)
+  cipMeans(results,main,ylab,xlab,mu)
 }
  
-plotLevels.wss <- function(sumstats,mu=NULL,...){
-  main="Confidence Intervals for the Levels"
+plotMeans.wss <- function(sumstats,mu=NULL,...){
+  main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Variables"
-  results <- easiLevels(sumstats,...)[,c(2,5,6)]
-  cipLevels(results,main,ylab,xlab,mu)
+  results <- ciMeans(sumstats,...)[,c(2,5,6)]
+  cipMeans(results,main,ylab,xlab,mu)
 }
 
-plotLevels.bss <- function(sumstats,mu=NULL,...){
-  main="Confidence Intervals for the Levels"
+plotMeans.bss <- function(sumstats,mu=NULL,...){
+  main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Groups"
-  results <- easiLevels(sumstats,...)[,c(2,5,6)]
-  cipLevels(results,main,ylab,xlab,mu)
+  results <- ciMeans(sumstats,...)[,c(2,5,6)]
+  cipMeans(results,main,ylab,xlab,mu)
 }
 
 
-#### Plot Function for Confidence Intervals of a Mean Difference/Comparison of Groups and Variables
+#### Plot Function for Confidence Intervals of a Mean Difference/Comparison of Levels
 
 plotDifference <- function(...) 
   UseMethod("plotDifference")
@@ -327,7 +327,7 @@ plotDifference.wss <- function(compstats,corrstats,...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
-  Groups <- easiLevels(compstats,...)[2:1,c(2,5,6)]
+  Groups <- ciMeans(compstats,...)[2:1,c(2,5,6)]
   Diff <- easiDifference(compstats,corrstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
@@ -338,7 +338,7 @@ plotDifference.bss <- function(compstats,...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Groups"
-  Groups <- easiLevels(compstats,...)[2:1,c(2,5,6)]
+  Groups <- ciMeans(compstats,...)[2:1,c(2,5,6)]
   Diff <- easiDifference(compstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
@@ -349,7 +349,7 @@ plotDifference.default <- function(...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
-  Vars <- easiLevels(...)[2:1,c(2,5,6)]
+  Vars <- ciMeans(...)[2:1,c(2,5,6)]
   Diff <- easiDifference(...)[c(1,4,5)]
   results <- rbind(Vars,Diff)
   rownames(results)[3]="Comparison"
@@ -360,7 +360,7 @@ plotDifference.formula <- function(formula,...){
   main="Confidence Intervals for the Comparison"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
-  Groups <- easiLevels(formula,...)
+  Groups <- ciMeans(formula,...)
   Groups <- Groups[2:1,c(2,5,6)]
   Diff <- easiDifference(formula,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
@@ -368,7 +368,7 @@ plotDifference.formula <- function(formula,...){
   cipDifference(results,main,ylab,xlab)
 }
 
-#### Plot Function for Confidence Interval of a Mean Contrast of Groups and Variables
+#### Plot Function for Confidence Interval of a Mean Contrast of Levels
 
 plotContrast <- function(...) 
   UseMethod("plotContrast")
@@ -388,7 +388,6 @@ plotContrast.bss <- function(sumstats,contrast,...){
   rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")
   cipDifference(results,main,ylab,xlab)
 }
-
 
 plotContrast.default <- function(...,contrast){
   main="Confidence Intervals for the Contrast"
@@ -424,12 +423,12 @@ plotContrast.formula <- function(formula,contrast,...){
 
 ### Null Hypothesis Significance Test Functions
 
-#### NHST Function for Mutiple Groups and Variables
+#### NHST Function for Means of Levels
 
-nhstLevels <- function(...) 
-  UseMethod("nhstLevels")
+nhstMeans <- function(...) 
+  UseMethod("nhstMeans")
   
-nhstLevels.wss <- nhstLevels.bss <- function(sumstats,mu=0,...){
+nhstMeans.wss <- nhstMeans.bss <- function(sumstats,mu=0,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SE <- sumstats[,"SD"]/sqrt(N)
@@ -441,21 +440,21 @@ nhstLevels.wss <- nhstLevels.bss <- function(sumstats,mu=0,...){
   return(results)
 }
 
-nhstLevels.default <- function(...,mu=0){
+nhstMeans.default <- function(...,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
-  results <- nhstLevels(sumstats,mu=mu)
+  results <- nhstMeans(sumstats,mu=mu)
   return(results)
 }
 
-nhstLevels.formula <- function(formula,mu=0,...){
+nhstMeans.formula <- function(formula,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- nhstLevels(sumstats,mu=mu)
+  results <- nhstMeans(sumstats,mu=mu)
   return(results)
 }
 
-##### NHST Function for Group and Variable Differences
+##### NHST Function for Mean Differences/Comparison of Levels
 
 nhstDifference <- function(...) 
   UseMethod("nhstDifference")
@@ -508,7 +507,7 @@ nhstDifference.formula <- function(formula,mu=0,...){
   return(results)
 }
 
-#### NHST Function for a Single Group and Variable Contrast
+#### NHST Function for a Mean Contrast of Levels
 
 nhstContrast <- function(...) 
   UseMethod("nhstContrast")
@@ -563,9 +562,9 @@ nhstContrast.formula <- function(formula,contrast,mu=0,...){
 
 ### Wrappers for NHST Functions
 
-testLevels <- function(...){
-  cat("\nHYPOTHESIS TESTS FOR THE LEVELS\n\n")
-  print(nhstLevels(...))
+testMeans <- function(...){
+  cat("\nHYPOTHESIS TESTS FOR THE MEANS\n\n")
+  print(nhstMeans(...))
   cat("\n")
 }
 
@@ -581,14 +580,14 @@ testContrast<-function(...) {
   cat("\n")  
 }
 
-### Standardized Effect Size Functions
+### Standardized Mean Difference Functions
 
-#### SMD Function for Mutiple Groups and Variables
+#### SMD Function for Means of Levels
 
-smdLevels <- function(...) 
-  UseMethod("smdLevels")
+smdMeans <- function(...) 
+  UseMethod("smdMeans")
   
-smdLevels.wss <- smdLevels.bss <- function(sumstats,conf.level=.95,mu=0,...){
+smdMeans.wss <- smdMeans.bss <- function(sumstats,conf.level=.95,mu=0,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -606,22 +605,21 @@ smdLevels.wss <- smdLevels.bss <- function(sumstats,conf.level=.95,mu=0,...){
   return(results)
 }
 
-smdLevels.default <- function(...,conf.level=.95,mu=0){
+smdMeans.default <- function(...,conf.level=.95,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
-  results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
+  results <- smdMeans(sumstats,conf.level=conf.level,mu=mu)
   return(results)
 }
 
-smdLevels.formula <- function(formula,conf.level=.95,mu=0,...){
+smdMeans.formula <- function(formula,conf.level=.95,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
+  results <- smdMeans(sumstats,conf.level=conf.level,mu=mu)
   return(results)
 }
 
-
-#### SMD Function for Group and Variable Differences
+#### SMD Function for Mean Differences/Comparison of Levels
 
 smdDifference <- function(...) 
   UseMethod("smdDifference")
@@ -687,12 +685,11 @@ smdDifference.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-
 ### Wrappers for SMD Functions
 
-effectLevels <- function(...){
-  cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE LEVELS\n\n")
-  print(smdLevels(...))
+effectMeans <- function(...){
+  cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE MEANS\n\n")
+  print(smdMeans(...))
   cat("\n")
 }
 
