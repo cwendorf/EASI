@@ -41,7 +41,3 @@ Alternatively, you can paste the contents of the [**ALL_EASI_FUNCTIONS.R**](http
 
 - Both Cohen's d and Hedge's g are presented.
 - Confidence intervals are centered on Hedge's g.
-
-## References
-
-Goulet-Pelletier, J-C., & Cousineau, D. (2018). A review of effect sizes and their confidence intervals, Part I: The Cohen’s d family. _Quantitative Methods for Psycholology, 14,_ 242–265.
