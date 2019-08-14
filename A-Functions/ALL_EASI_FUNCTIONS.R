@@ -1,6 +1,5 @@
-
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## ALL FUNCTIONS (DESCRIBE, ESTIMATE, PLOT, TEST, AND EFFECT)
+# Estimation Approach to Statistical Inference (EASI)
+## Basic Functions for Means and Mean Differences
 ### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
 ### Describe Functions

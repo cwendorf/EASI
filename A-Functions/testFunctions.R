@@ -1,6 +1,5 @@
-
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES  
+# Estimation Approach to Statistical Inference (EASI)
+## Basic Functions for Means and Mean Differences 
 
 ### Null Hypothesis Significance Test Functions
 

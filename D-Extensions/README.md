@@ -14,10 +14,10 @@
 ### Overview of the Extensions
 
 EASI extentions are functions that go beyond the original vision for EASI. The EASI extensions parallel the four basic categories of analyses but add the following:
-- **estimateExtensions.R** (scripts that estimate confidence intervals for pairwise comparisons and sets of built-in contrast codes)
-- **plotExtensions.R** (scripts that plot onfidence intervals for pairwise comparisons and sets of built-in contrast codes)
-- **testExtensions.R** (scripts that calculate NHST for pairwise comparisons and sets of built-in contrast codes)
-- **effectExtensions.R** (scripts that calculate standardized effect sizes and confidence intervals for pairwise comparisons and sets of built-in contrast codes)
+- **estimateExtensions.R** (scripts that estimate confidence intervals for pairwise comparisons)
+- **plotExtensions.R** (scripts that plot onfidence intervals for pairwise comparisons)
+- **testExtensions.R** (scripts that calculate NHST for pairwise comparisons)
+- **effectExtensions.R** (scripts that calculate standardized effect sizes and confidence intervals for pairwise comparisons)
 
 ### Installation of the Functions and Extensions
 

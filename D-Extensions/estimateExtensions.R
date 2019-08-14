@@ -1,6 +1,5 @@
-
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## EXTENDED FUNCTIONS FOR COMPARISONS AND CONTRASTS 
+# Estimation Approach to Statistical Inference (EASI)
+## Extended Functions for Comparisons and Contrasts
 
 ### Confidence Interval Functions
 
