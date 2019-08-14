@@ -39,10 +39,10 @@ This section produces analyses that are equivalent to one-sample analyses separa
 
 This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```r
-estimateLevels(Time1,Time2,Time3)
+estimateMeans(Time1,Time2,Time3)
 ```
 ```
-CONFIDENCE INTERVALS FOR THE LEVELS
+CONFIDENCE INTERVALS FOR THE MEANS
 
       N   M    SD    SE    LL    UL
 Time1 5 6.4 1.140 0.510 4.984 7.816
@@ -52,20 +52,20 @@ Time3 5 8.6 0.548 0.245 7.920 9.280
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
-estimateLevels(Time1,Time2,Time3,conf.level=.99)
+estimateMeans(Time1,Time2,Time3,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for the Means
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotLevels(Time1,Time2,Time3)
+plotMeans(Time1,Time2,Time3)
 ```
 <kbd><img src="WithinSubjectsGraph1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotLevels(Time1,Time2,Time3,conf.level=.99,mu=6)
+plotMeans(Time1,Time2,Time3,conf.level=.99,mu=6)
 ```
 <kbd><img src="WithinSubjectsGraph2.jpeg"></kbd>
 
@@ -73,10 +73,10 @@ plotLevels(Time1,Time2,Time3,conf.level=.99,mu=6)
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```r
-testLevels(Time1,Time2,Time3)
+testMeans(Time1,Time2,Time3)
 ```
 ```
-HYPOTHESIS TESTS FOR THE LEVELS
+HYPOTHESIS TESTS FOR THE MEANS
 
       Diff    SE      t df p
 Time1  6.4 0.510 12.551  4 0
@@ -86,17 +86,17 @@ Time3  8.6 0.245 35.109  4 0
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
-testLevels(Time1,Time2,Time3,mu=6)
+testMeans(Time1,Time2,Time3,mu=6)
 ```
 
 #### Effect Sizes for the Means
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```r
-effectLevels(Time1,Time2,Time3)
+effectMeans(Time1,Time2,Time3)
 ```
 ```
-STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
+STANDARDIZED MEAN DIFFERENCES FOR THE MEANS
 
        d      g    LL     UL
 Time1  5.614  4.479 2.574 13.031
@@ -106,7 +106,7 @@ Time3 15.693 12.522 7.463 36.039
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```
-effectLevels(Time1,Time2,Time3,mu=6,conf.level=.99)
+effectMeans(Time1,Time2,Time3,mu=6,conf.level=.99)
 ```
 
 ### Analyses of a Variable Comparison
@@ -263,7 +263,7 @@ If desired, the contrast can be tested against other values if needed.
 testContrast(Time1,Time2,Time3,contrast=T1vsT2,mu=-1)
 ```
 
-### Different Methods for Comparing Two Levels
+### Different Methods for Comparing Two Means
 
 This section demonstrates the equivalence of Difference/Comparison and Contrast approaches from above.
 

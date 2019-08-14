@@ -47,10 +47,10 @@ mydata
 ### Analyses of the Different Variables
 
 ```r
-estimateLevels(Pretest,Posttest,Followup)
+estimateMeans(Pretest,Posttest,Followup)
 ```
 ```
-CONFIDENCE INTERVALS FOR THE LEVELS
+CONFIDENCE INTERVALS FOR THE MEANS
 
           N    M    SD    SE     LL     UL
 Pretest  20 19.3 5.904 1.320 16.537 22.063
@@ -58,7 +58,7 @@ Posttest 20 23.6 4.762 1.065 21.371 25.829
 Followup 20 23.4 4.616 1.032 21.240 25.560
 ```
 ```r
-plotLevels(Pretest,Posttest,Followup)
+plotMeans(Pretest,Posttest,Followup)
 ```
 <kbd><img src="DonohueGraph1.jpg"></kbd>
  

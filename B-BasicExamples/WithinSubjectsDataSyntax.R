@@ -15,23 +15,23 @@ mydata
 
 #### Confidence Intervals for the Means
 
-estimateLevels(Time1,Time2,Time3)
-estimateLevels(Time1,Time2,Time3,conf.level=.99)
+estimateMeans(Time1,Time2,Time3)
+estimateMeans(Time1,Time2,Time3,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotLevels(Time1,Time2,Time3)
-plotLevels(Time1,Time2,Time3,conf.level=.99,mu=6)
+plotMeans(Time1,Time2,Time3)
+plotMeans(Time1,Time2,Time3,conf.level=.99,mu=6)
 
 #### Significance Tests for the Means
 
-testLevels(Time1,Time2,Time3)
-testLevels(Time1,Time2,Time3,mu=6)
+testMeans(Time1,Time2,Time3)
+testMeans(Time1,Time2,Time3,mu=6)
 
 #### Effect Sizes for the Means
 
-effectLevels(Time1,Time2,Time3)
-effectLevels(Time1,Time2,Time3,mu=6,conf.level=.99)
+effectMeans(Time1,Time2,Time3)
+effectMeans(Time1,Time2,Time3,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
@@ -83,7 +83,7 @@ plotContrast(Time1,Time2,Time3,contrast=G1vsOthers,conf.level=.99)
 testContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=-1)
 
-### Different Methods for Comparing Two Levels
+### Different Methods for Comparing Two Means
 ### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
 
 #### The Difference/Comparison Approach (Copied from Above)

@@ -15,23 +15,23 @@ mydata
 
 #### Confidence Intervals for the Means
 
-estimateLevels(Outcome~Group)
-estimateLevels(Outcome~Group,conf.level=.99)
+estimateMeans(Outcome~Group)
+estimateMeans(Outcome~Group,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotLevels(Outcome~Group)
-plotLevels(Outcome~Group,conf.level=.99,mu=5)
+plotMeans(Outcome~Group)
+plotMeans(Outcome~Group,conf.level=.99,mu=5)
 
 #### Significance Tests for the Means
 
-testLevels(Outcome~Group)
-testLevels(Outcome~Group,mu=5)
+testMeans(Outcome~Group)
+testMeans(Outcome~Group,mu=5)
 
 #### Effect Sizes for the Means
 
-effectLevels(Outcome~Group)
-effectLevels(Outcome~Group,mu=5,conf.level=.99)
+effectMeans(Outcome~Group)
+effectMeans(Outcome~Group,mu=5,conf.level=.99)
 
 ### Analyses of a Group Comparison
 ### (equivalent to analyses for two levels of a factor)

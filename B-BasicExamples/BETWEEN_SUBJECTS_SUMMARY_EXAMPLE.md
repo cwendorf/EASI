@@ -39,10 +39,10 @@ This section produces analyses that are equivalent to one-sample analyses separa
 
 This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```r
-estimateLevels(sumstats)
+estimateMeans(sumstats)
 ```
 ```
-CONFIDENCE INTERVALS FOR THE LEVELS
+CONFIDENCE INTERVALS FOR THE MEANS
 
        N M SD    SE    LL     UL
 Group1 3 4  1 0.577 1.516  6.484
@@ -52,20 +52,20 @@ Group3 3 9  1 0.577 6.516 11.484
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
-estimateLevels(sumstats,conf.level=.99)
+estimateMeans(sumstats,conf.level=.99)
 ```
 
 #### Plots of the Confidence Intervals for the Means
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotLevels(sumstats)
+plotMeans(sumstats)
 ```
 <kbd><img src="BetweenSubjectsGraph1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotLevels(sumstats,conf.level=.99,mu=5)
+plotMeans(sumstats,conf.level=.99,mu=5)
 ```
 <kbd><img src="BetweenSubjectsGraph2.jpeg"></kbd>
 
@@ -74,10 +74,10 @@ plotLevels(sumstats,conf.level=.99,mu=5)
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```r
-testLevels(sumstats)
+testMeans(sumstats)
 ```
 ```
-HYPOTHESIS TESTS FOR THE LEVELS
+HYPOTHESIS TESTS FOR THE MEANS
 
        Diff    SE      t df     p
 Group1    4 0.577  6.928  2 0.020
@@ -87,17 +87,17 @@ Group3    9 0.577 15.588  2 0.004
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
-testLevels(sumstats,mu=5)
+testMeans(sumstats,mu=5)
 ```
 
 #### Effect Sizes for the Means
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```r
-effectLevels(sumstats)
+effectMeans(sumstats)
 ```
 ```
-STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
+STANDARDIZED MEAN DIFFERENCES FOR THE MEANS
 
             d      g     LL     UL
 Group1  4.000  2.257  0.913 14.618
@@ -107,7 +107,7 @@ Group3  9.000  5.078  2.533 32.107
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```
-effectLevels(sumstats,mu=5,conf.level=.99)
+effectMeans(sumstats,mu=5,conf.level=.99)
 ```
  
 ### Analyses of a Group Comparison

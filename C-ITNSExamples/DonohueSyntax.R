@@ -1,5 +1,5 @@
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## WITHIN-SUBJECTS EXAMPLE WITH DONOHUE DATA
+# Estimation Approach to Statistical Inference (EASI)
+## Within-Subjects Example with Donohue Data
 
 ### Read Data from Files
 
@@ -22,8 +22,8 @@ Donohue
 
 ### Analyses of the Different Variables
 
-estimateLevels(Pretest,Posttest,Followup)
-plotLevels(Pretest,Posttest,Followup)
+estimateMeans(Pretest,Posttest,Followup)
+plotMeans(Pretest,Posttest,Followup)
 
 ### Analysis of a Variable Difference
 

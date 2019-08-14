@@ -81,10 +81,10 @@ mydata
 ### Analyses of the Different Groups
 
 ```r
-estimateLevels(Motivation~Feedback)
+estimateMeans(Motivation~Feedback)
 ```
 ```
-CONFIDENCE INTERVALS FOR THE LEVELS
+CONFIDENCE INTERVALS FOR THE MEANS
 
            N     M    SD    SE    LL    UL
 Comfort   18 3.333 1.917 0.452 2.380 4.287
@@ -92,7 +92,7 @@ Challenge 17 5.265 1.448 0.351 4.520 6.009
 Control   19 4.447 1.433 0.329 3.757 5.138
 ```
 ```r
-plotLevels(Motivation~Feedback)
+plotMeans(Motivation~Feedback)
 ```
 <kbd><img src="RattanGraph1.jpg"></kbd>
 

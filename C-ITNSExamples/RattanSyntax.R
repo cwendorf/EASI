@@ -1,6 +1,5 @@
-
-# ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-## BETWEEN-SUBJECTS EXAMPLE WITH RATTAN DATA
+# Estimation Approach to Statistical Inference (EASI)
+## Between-Subjects Example with Rattan Data
 
 ### Read Data from File
 
@@ -23,8 +22,8 @@ Rattan
 
 ### Analyses of the Different Groups
 
-estimateLevels(Motivation~Feedback)
-plotLevels(Motivation~Feedback)
+estimateMeans(Motivation~Feedback)
+plotMeans(Motivation~Feedback)
 
 ### Analysis of a Group Comparison
 

@@ -15,23 +15,23 @@ sumstats
 
 #### Confidence Intervals for the Means
 
-estimateLevels(sumstats)
-estimateLevels(sumstats,conf.level=.99)
+estimateMeans(sumstats)
+estimateMeans(sumstats,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotLevels(sumstats)
-plotLevels(sumstats,conf.level=.99,mu=5)
+plotMeans(sumstats)
+plotMeans(sumstats,conf.level=.99,mu=5)
 
 #### Significance Tests for the Means
 
-testLevels(sumstats)
-testLevels(sumstats,mu=5)
+testMeans(sumstats)
+testMeans(sumstats,mu=5)
 
 #### Effect Sizes for the Means
 
-effectLevels(sumstats)
-effectLevels(sumstats,mu=5,conf.level=.99)
+effectMeans(sumstats)
+effectMeans(sumstats,mu=5,conf.level=.99)
 
 ### Analyses of a Group Comparison
 ### (equivalent to analyses for two levels of a factor)

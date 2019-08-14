@@ -22,23 +22,23 @@ corrstats
 
 #### Confidence Intervals for the Means
 
-estimateLevels(sumstats)
-estimateLevels(sumstats,conf.level=.99)
+estimateMeans(sumstats)
+estimateMeans(sumstats,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotLevels(sumstats)
-plotLevels(sumstats,conf.level=.99,mu=6)
+plotMeans(sumstats)
+plotMeans(sumstats,conf.level=.99,mu=6)
 
 #### Significance Tests for the Means
 
-testLevels(sumstats)
-testLevels(sumstats,mu=6)
+testMeans(sumstats)
+testMeans(sumstats,mu=6)
 
 #### Effect Sizes for the Means
 
-effectLevels(sumstats)
-effectLevels(sumstats,mu=6,conf.level=.99)
+effectMeans(sumstats)
+effectMeans(sumstats,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
@@ -95,7 +95,7 @@ plotContrast(sumstats,corrstats,contrast=G1vsOthers,conf.level=.99)
 testContrast(sumstats,corrstats,contrast=T1vsOthers)
 testContrast(sumstats,corrstats,contrast=T1vsOthers,mu=-1)
 
-### Different Methods for Comparing Two Levels
+### Different Methods for Comparing Two Means
 ### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
 
 #### The Difference/Comparison Approach (Copied from Above)
