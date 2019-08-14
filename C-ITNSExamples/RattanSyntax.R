@@ -12,6 +12,10 @@ load(file="RattanData.rda")
 attach(Rattan)
 Rattan
 
+
+# Estimation Approach to Statistical Inference (EASI)
+## Between-Subjects Example with Rattan Data
+
 ### Input Data Instead
 
 Feedback=c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3)
