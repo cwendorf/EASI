@@ -1,9 +1,10 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# EXTENDED FUNCTIONS FOR COMPARISONS AND CONTRASTS
-# STANDARDIZED MEAN DIFFERENCE FUNCTIONS
+## EXTENDED FUNCTIONS FOR COMPARISONS AND CONTRASTS
 
-# SMD Function for Pairwise Group and Variable Comparisons
+### Standardized Mean Difference Functions
+
+#### SMD Function for Pairwise Group and Variable Comparisons
 
 smdPairwise <- function(...) 
   UseMethod("smdPairwise")
@@ -41,7 +42,7 @@ smdPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   	comp <- comp+1
   }
   }
-  round(results,3)
+  return(round(results,3))
 }
 
 smdPairwise.bss <- function(sumstats,conf.level=.95,...){
@@ -76,7 +77,7 @@ smdPairwise.bss <- function(sumstats,conf.level=.95,...){
   	comp <- comp+1
   }
   }
-  round(results,3)
+  return(round(results,3))
 }
 
 smdPairwise.default <- function(...,conf.level=.95){
@@ -84,18 +85,17 @@ smdPairwise.default <- function(...,conf.level=.95){
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
   results <- smdPairwise(sumstats,corrstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
 smdPairwise.formula <- function(formula,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- smdPairwise(sumstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
-# Wrappers for SMD Functions
-# These call the functions and print with titles
+### Wrappers for SMD Functions
 
 effectPairwise <- function(...) {
   cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS\n\n")

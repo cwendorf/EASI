@@ -2,7 +2,7 @@
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
 ## BASIC FUNCTIONS FOR MEANS AND MEAN DIFFERENCES 
 
-### SMD Functions
+### Standardized Mean Difference Functions
 
 #### SMD Function for Mutiple Groups and Variables
 
@@ -24,21 +24,21 @@ smdLevels.wss <- smdLevels.bss <- function(sumstats,conf.level=.95,mu=0,...){
   dlow <- tlow/lambda*hedgesg 
   dhig <- thig/lambda*hedgesg 
   results <- round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
-  results
+  return(results)
 }
 
 smdLevels.default <- function(...,conf.level=.95,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
-  results
+  return(results)
 }
 
 smdLevels.formula <- function(formula,conf.level=.95,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
-  results
+  return(results)
 }
 
 
@@ -68,7 +68,7 @@ smdDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
   dhig <- thig/lambda*hedgesg 
   results=round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 smdDifference.bss <- function(compstats,conf.level=.95,...){
@@ -90,7 +90,7 @@ smdDifference.bss <- function(compstats,conf.level=.95,...){
   dhig <- thig/lambda*hedgesg 
   results=round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 smdDifference.default <- function(x,y,conf.level=.95,...){
@@ -98,16 +98,15 @@ smdDifference.default <- function(x,y,conf.level=.95,...){
   class(compstats) <- "wss"
   corrstats <- correlateLevels(x,y)
   results <- smdDifference(compstats,corrstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
 smdDifference.formula <- function(formula,conf.level=.95,...){
   compstats <- describeLevels(formula)
   class(compstats) <- "bss"
   results <- smdDifference(compstats,conf.level=conf.level)
-  results
+  return(results)
 }
-
 
 ### Wrappers for SMD Functions
 

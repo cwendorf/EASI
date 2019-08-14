@@ -1,7 +1,7 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# ALL FUNCTIONS (DESCRIBE, ESTIMATE, PLOT, TEST, AND EFFECT)
-# TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
+## ALL FUNCTIONS (DESCRIBE, ESTIMATE, PLOT, TEST, AND EFFECT)
+### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
 ### Describe Functions
 
@@ -16,7 +16,7 @@ describeLevels.default <- function(...){
   M <- sapply(data,mean,na.rm=TRUE)
   SD <- sapply(data,sd,na.rm=TRUE)
   results <- round(cbind(N=N,M=M,SD=SD),3)
-  results
+  return(results)
 }
 
 describeLevels.formula <- function(formula,...){
@@ -25,7 +25,7 @@ describeLevels.formula <- function(formula,...){
   results <- results[[2]]
   rownames(results) <- rn
   colnames(results) <- c("N","M","SD")
-  results
+  return(results)
 }
 
 #### Correlate/Covary Function for Mutiple Variables
@@ -36,13 +36,13 @@ correlateLevels <- function(...)
 correlateLevels.default <- function(...){
   data <- data.frame(...)
   results <- cor(data)
-  results
+  return(results)
 }
 
 cor2cov <- function(corrstats,SD) {
   sdsquare <- SD %*% t(SD)
   covstats <- sdsquare * corrstats
-  covstats
+  return(covstats)
 }
 
 ### Declare and Fill Blanks in Matrix
@@ -53,7 +53,7 @@ declareCorrMatrix <- function(...){
   results=matrix(data=NA,nr,nr)
   rownames(results)=clist
   colnames(results)=clist
-  results
+  return(results)
 }
 
 fillCorrMatrix <- function(mat){
@@ -76,12 +76,12 @@ fillCorrMatrix <- function(mat){
   }
   }
   diag(results) <- 1.000
-  results
+  return(results)
 }
 
 ### Confidence Interval Functions
 
-#### EASI Function for Mutiple Groups and Variables
+#### CI Function for Mutiple Groups and Variables
 
 easiLevels <- function(...) 
   UseMethod("easiLevels")
@@ -95,24 +95,24 @@ easiLevels.wss <- easiLevels.bss <- function(sumstats,conf.level=.95,...){
   LL <- M-tcrit*SE
   UL <- M+tcrit*SE
   results <- round(cbind(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3)
-  results
+  return(results)
 }
 
 easiLevels.default <- function(...,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- easiLevels(sumstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
 easiLevels.formula <- function(formula,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- easiLevels(sumstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
-#### EASI Function for Group and Variable Differences 
+#### CI Function for Group and Variable Differences 
 
 easiDifference <- function(...) 
   UseMethod("easiDifference")
@@ -133,7 +133,7 @@ easiDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
   UL <- MD+tcrit*SE
   results <- round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 easiDifference.bss <- function(compstats,conf.level=.95,...){
@@ -149,7 +149,7 @@ easiDifference.bss <- function(compstats,conf.level=.95,...){
   UL <- MD+tcrit*SE
   results <- round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 easiDifference.default <- function(x,y,conf.level=.95,...){
@@ -157,17 +157,17 @@ easiDifference.default <- function(x,y,conf.level=.95,...){
   class(compstats) <- "wss"
   corrstats <- correlateLevels(x,y)
   results <- easiDifference(compstats,corrstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
 easiDifference.formula <- function(formula,conf.level=.95,...){
   compstats <- easiLevels(formula)
   class(compstats) <- "bss"
   results <- easiDifference(compstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
-#### EASI Function for a Single Group and Variable Contrast
+#### CI Function for a Single Group and Variable Contrast
 
 easiContrast <- function(...) 
   UseMethod("easiContrast")
@@ -186,7 +186,7 @@ easiContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95) {
   results <- t(c(Est,SE,df,LL,UL))
   colnames(results) <- c("Est","SE","df","LL","UL")
   rownames(results) <- c("Contrast")
-  round(results,3)
+  return(round(results,3))
 }
 
 easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
@@ -204,7 +204,7 @@ easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   results <- t(c(Est,SE,df,LL,UL))
   colnames(results) <- c("Est","SE","df","LL","UL")
   rownames(results) <- c("Contrast")
-  round(results,3)
+  return(round(results,3))
 }
 
 easiContrast.default <- function(...,contrast,conf.level=.95){
@@ -219,10 +219,10 @@ easiContrast.formula <- function(formula,contrast,conf.level=.95,...){
   sumstats <- easiLevels(formula)
   class(sumstats) <- "bss"
   results <- easiContrast(sumstats,contrast,conf.level=conf.level)
-  results
+  return(results)
 }
 
-### Wrappers for EASI Functions
+### Wrappers for CI Functions
 
 estimateLevels <- function(...){
   cat("\nCONFIDENCE INTERVALS FOR THE LEVELS\n\n")
@@ -241,7 +241,6 @@ estimateContrast<-function(...) {
   print(easiContrast(...)) 
   cat("\n")  
 }
-
 
 ### Confidence Interval Plot Functions
 
@@ -440,21 +439,21 @@ nhstLevels.wss <- nhstLevels.bss <- function(sumstats,mu=0,...){
   df <- N-1
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=Diff,SE=SE,t=t,df=df,p=p),3)
-  results
+  return(results)
 }
 
 nhstLevels.default <- function(...,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- nhstLevels(sumstats,mu=mu)
-  results
+  return(results)
 }
 
 nhstLevels.formula <- function(formula,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- nhstLevels(sumstats,mu=mu)
-  results
+  return(results)
 }
 
 ##### NHST Function for Group and Variable Differences
@@ -477,7 +476,7 @@ nhstDifference.wss <- function(compstats,corrstats,mu=0,...){
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)  
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 nhstDifference.bss <- function(compstats,mu=0,...){
@@ -492,7 +491,7 @@ nhstDifference.bss <- function(compstats,mu=0,...){
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 nhstDifference.default <- function(x,y,mu=0){
@@ -500,14 +499,14 @@ nhstDifference.default <- function(x,y,mu=0){
   class(compstats) <- "wss"
   corrstats <- correlateLevels(x,y)
   results <- nhstDifference(compstats,corrstats,mu=mu)
-  results
+  return(results)
 }
 
 nhstDifference.formula <- function(formula,mu=0,...){
   compstats <- describeLevels(formula)
   class(compstats) <- "bss"
   results <- nhstDifference(compstats,mu=mu)
-  results
+  return(results)
 }
 
 #### NHST Function for a Single Group and Variable Contrast
@@ -529,7 +528,7 @@ nhstContrast.bss <- function(sumstats,contrast,mu=0,...) {
   results <- t(c(Est,SE,t,df,p))
   colnames(results) <- c("Est","SE","t","df","p")
   rownames(results) <- c("Contrast")
-  round(results,3)
+  return(round(results,3))
 }
 
 nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,...) {
@@ -545,7 +544,7 @@ nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,...) {
   results <- t(c(Est,SE,t,df,p))
   colnames(results) <- c("Est","SE","t","df","p")
   rownames(results) <- c("Contrast")
-  round(results,3)
+  return(round(results,3))
 }
 
 nhstContrast.default <- function(...,contrast,mu=0){
@@ -553,14 +552,14 @@ nhstContrast.default <- function(...,contrast,mu=0){
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
   results <- nhstContrast(sumstats,corrstats,contrast,mu=mu)
-  results
+  return(results)
 }
 
 nhstContrast.formula <- function(formula,contrast,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- nhstContrast(sumstats,contrast,mu=mu)
-  results
+  return(results)
 }
 
 ### Wrappers for NHST Functions
@@ -583,7 +582,7 @@ testContrast<-function(...) {
   cat("\n")  
 }
 
-### SMD Functions
+### Standardized Effect Size Functions
 
 #### SMD Function for Mutiple Groups and Variables
 
@@ -605,21 +604,21 @@ smdLevels.wss <- smdLevels.bss <- function(sumstats,conf.level=.95,mu=0,...){
   dlow <- tlow/lambda*hedgesg 
   dhig <- thig/lambda*hedgesg 
   results <- round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
-  results
+  return(results)
 }
 
 smdLevels.default <- function(...,conf.level=.95,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
-  results
+  return(results)
 }
 
 smdLevels.formula <- function(formula,conf.level=.95,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- smdLevels(sumstats,conf.level=conf.level,mu=mu)
-  results
+  return(results)
 }
 
 
@@ -649,7 +648,7 @@ smdDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
   dhig <- thig/lambda*hedgesg 
   results=round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 smdDifference.bss <- function(compstats,conf.level=.95,...){
@@ -671,7 +670,7 @@ smdDifference.bss <- function(compstats,conf.level=.95,...){
   dhig <- thig/lambda*hedgesg 
   results=round(cbind(d=cohend,g=hedgesg,LL=dlow,UL=dhig),3)
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 smdDifference.default <- function(x,y,conf.level=.95,...){
@@ -679,14 +678,14 @@ smdDifference.default <- function(x,y,conf.level=.95,...){
   class(compstats) <- "wss"
   corrstats <- correlateLevels(x,y)
   results <- smdDifference(compstats,corrstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
 smdDifference.formula <- function(formula,conf.level=.95,...){
   compstats <- describeLevels(formula)
   class(compstats) <- "bss"
   results <- smdDifference(compstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
 

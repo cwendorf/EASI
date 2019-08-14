@@ -1,9 +1,10 @@
 
 # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-# EXTENDED FUNCTIONS FOR COMPARISONS AND CONTRASTS 
-# CONFIDENCE INTERVAL FUNCTIONS
+## EXTENDED FUNCTIONS FOR COMPARISONS AND CONTRASTS 
 
-# EASI Function for Pairwise Group and Variable Comparisons
+### Confidence Interval Functions
+
+#### CI Function for Pairwise Group and Variable Comparisons
 
 easiPairwise <- function(...) 
   UseMethod("easiPairwise")
@@ -32,7 +33,7 @@ easiPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
    	comp <- comp+1
   }
   }
-  round(results,3)
+  return(round(results,3))
 }
 
 easiPairwise.bss <- function(sumstats,conf.level=.95,...){
@@ -59,7 +60,7 @@ easiPairwise.bss <- function(sumstats,conf.level=.95,...){
    	comp <- comp+1
   }
   }
-  round(results,3)
+  return(round(results,3))
 }
 
 easiPairwise.default <- function(...,conf.level=.95){
@@ -67,59 +68,20 @@ easiPairwise.default <- function(...,conf.level=.95){
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
   results <- easiPairwise(sumstats,corrstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
 easiPairwise.formula <- function(formula,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- easiPairwise(sumstats,conf.level=conf.level)
-  results
+  return(results)
 }
 
-# EASI Function for Group and Variable Contrasts
-
-easiContrasts <- function(...) 
-  UseMethod("easiContrasts")
-
-easiContrasts.default <- function(...,contrasts=contr.sum,conf.level=.95){
-  data <- data.frame(...)
-  columns <- dim(data)[2]
-  dataLong <- reshape(data,varying=1:columns,v.names="Outcome",timevar="Variable",idvar="Subjects",direction="long")
-  dataLong$Subjects <- as.factor(dataLong$Subjects)
-  dataLong$Variable <- as.factor(dataLong$Variable)
-  vlevels <- nlevels(dataLong$Variable)
-  contrasts(dataLong$Variable) <- contrasts
-  contrasts(dataLong$Subjects) <- contr.sum
-  model <- aov(Outcome~Variable+Error(Subjects),data=dataLong)
-  first <- summary(lm(model))[[4]][1:vlevels,1:2]
-  second <- confint(lm(model),level=conf.level)[1:vlevels,1:2]
-  results <- round(cbind(first,second),3)
-  colnames(results) <- c("Est","SE","LL","UL")
-  results
-}
-
-easiContrasts.formula <- function(formula,contrasts=contr.sum,conf.level=.95,...){
-  x <- eval(formula[[3]])
-  y <- eval(formula[[2]])
-  contrasts(x) <- contrasts
-  model <- lm(y~x,...)
-  results <- round(cbind(summary(model)[[4]][,1:2],confint(model,level=conf.level)),3)
-  colnames(results) <- c("Est","SE","LL","UL")
-  results
-}
-
-# Wrappers for EASI Functions
-# These call the functions and print with titles
+### Wrappers for CI Functions
  
 estimatePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
   print(easiPairwise(...)) 
-  cat("\n")  
-}
- 
-estimateContrasts <- function(...) {
-  cat("\nCONFIDENCE INTERVALS FOR THE CONTRASTS\n\n")
-  print(easiContrasts(...)) 
   cat("\n")  
 }

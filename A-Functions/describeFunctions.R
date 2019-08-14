@@ -15,7 +15,7 @@ describeLevels.default <- function(...){
   M <- sapply(data,mean,na.rm=TRUE)
   SD <- sapply(data,sd,na.rm=TRUE)
   results <- round(cbind(N=N,M=M,SD=SD),3)
-  results
+  return(results)
 }
 
 describeLevels.formula <- function(formula,...){
@@ -24,7 +24,7 @@ describeLevels.formula <- function(formula,...){
   results <- results[[2]]
   rownames(results) <- rn
   colnames(results) <- c("N","M","SD")
-  results
+  return(results)
 }
 
 #### Correlate/Covary Function for Mutiple Variables
@@ -35,13 +35,13 @@ correlateLevels <- function(...)
 correlateLevels.default <- function(...){
   data <- data.frame(...)
   results <- cor(data)
-  results
+  return(results)
 }
 
 cor2cov <- function(corrstats,SD) {
   sdsquare <- SD %*% t(SD)
   covstats <- sdsquare * corrstats
-  covstats
+  return(covstats)
 }
 
 ### Declare and Fill Blanks in Matrix
@@ -52,7 +52,7 @@ declareCorrMatrix <- function(...){
   results=matrix(data=NA,nr,nr)
   rownames(results)=clist
   colnames(results)=clist
-  results
+  return(results)
 }
 
 fillCorrMatrix <- function(mat){
@@ -75,5 +75,5 @@ fillCorrMatrix <- function(mat){
   }
   }
   diag(results) <- 1.000
-  results
+  return(results)
 }

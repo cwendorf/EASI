@@ -18,21 +18,21 @@ nhstLevels.wss <- nhstLevels.bss <- function(sumstats,mu=0,...){
   df <- N-1
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=Diff,SE=SE,t=t,df=df,p=p),3)
-  results
+  return(results)
 }
 
 nhstLevels.default <- function(...,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- nhstLevels(sumstats,mu=mu)
-  results
+  return(results)
 }
 
 nhstLevels.formula <- function(formula,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- nhstLevels(sumstats,mu=mu)
-  results
+  return(results)
 }
 
 ##### NHST Function for Group and Variable Differences
@@ -55,7 +55,7 @@ nhstDifference.wss <- function(compstats,corrstats,mu=0,...){
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)  
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 nhstDifference.bss <- function(compstats,mu=0,...){
@@ -70,7 +70,7 @@ nhstDifference.bss <- function(compstats,mu=0,...){
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)
   rownames(results) <- c("Comparison")
-  results
+  return(results)
 }
 
 nhstDifference.default <- function(x,y,mu=0){
@@ -78,14 +78,14 @@ nhstDifference.default <- function(x,y,mu=0){
   class(compstats) <- "wss"
   corrstats <- correlateLevels(x,y)
   results <- nhstDifference(compstats,corrstats,mu=mu)
-  results
+  return(results)
 }
 
 nhstDifference.formula <- function(formula,mu=0,...){
   compstats <- describeLevels(formula)
   class(compstats) <- "bss"
   results <- nhstDifference(compstats,mu=mu)
-  results
+  return(results)
 }
 
 #### NHST Function for a Single Group and Variable Contrast
@@ -107,7 +107,7 @@ nhstContrast.bss <- function(sumstats,contrast,mu=0,...) {
   results <- t(c(Est,SE,t,df,p))
   colnames(results) <- c("Est","SE","t","df","p")
   rownames(results) <- c("Contrast")
-  round(results,3)
+  return(round(results,3))
 }
 
 nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,...) {
@@ -123,7 +123,7 @@ nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,...) {
   results <- t(c(Est,SE,t,df,p))
   colnames(results) <- c("Est","SE","t","df","p")
   rownames(results) <- c("Contrast")
-  round(results,3)
+  return(round(results,3))
 }
 
 nhstContrast.default <- function(...,contrast,mu=0){
@@ -131,14 +131,14 @@ nhstContrast.default <- function(...,contrast,mu=0){
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
   results <- nhstContrast(sumstats,corrstats,contrast,mu=mu)
-  results
+  return(results)
 }
 
 nhstContrast.formula <- function(formula,contrast,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- nhstContrast(sumstats,contrast,mu=mu)
-  results
+  return(results)
 }
 
 ### Wrappers for NHST Functions
