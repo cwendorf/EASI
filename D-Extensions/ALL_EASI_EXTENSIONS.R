@@ -7,10 +7,10 @@
 
 #### CI Function for Pairwise Group and Variable Comparisons
 
-easiPairwise <- function(...) 
-  UseMethod("easiPairwise")
+ciPairwise <- function(...) 
+  UseMethod("ciPairwise")
 
-easiPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
+ciPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -37,7 +37,7 @@ easiPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   return(round(results,3))
 }
 
-easiPairwise.bss <- function(sumstats,conf.level=.95,...){
+ciPairwise.bss <- function(sumstats,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -64,18 +64,18 @@ easiPairwise.bss <- function(sumstats,conf.level=.95,...){
   return(round(results,3))
 }
 
-easiPairwise.default <- function(...,conf.level=.95){
+ciPairwise.default <- function(...,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
-  results <- easiPairwise(sumstats,corrstats,conf.level=conf.level)
+  results <- ciPairwise(sumstats,corrstats,conf.level=conf.level)
   return(results)
 }
 
-easiPairwise.formula <- function(formula,conf.level=.95,...){
+ciPairwise.formula <- function(formula,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- easiPairwise(sumstats,conf.level=conf.level)
+  results <- ciPairwise(sumstats,conf.level=conf.level)
   return(results)
 }
 
@@ -83,7 +83,7 @@ easiPairwise.formula <- function(formula,conf.level=.95,...){
  
 estimatePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
-  print(easiPairwise(...)) 
+  print(ciPairwise(...)) 
   cat("\n")  
 }
 
@@ -98,16 +98,16 @@ plotPairwise.default <- function(...,mu=NULL) {
   main="Confidence Intervals for the Pairwise Comparisons"
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
-  results <- easiPairwise(...)[,c(1,4,5)]
-  cipLevels(results,main,ylab,xlab,mu) 
+  results <- ciPairwise(...)[,c(1,4,5)]
+  cipMeans(results,main,ylab,xlab,mu) 
 }
 
 plotPairwise.formula <- function(formula,conf.level=.95,mu=NA,...) {
   main="Confidence Intervals for the Pairwise Comparisons"
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
-  results <- easiPairwise(formula,...)[,c(1,4,5)]
-  cipLevels(results,main,ylab,xlab,mu) 
+  results <- ciPairwise(formula,...)[,c(1,4,5)]
+  cipMeans(results,main,ylab,xlab,mu) 
 }
 
 ### Null Hypothesis Significance Test Functions 

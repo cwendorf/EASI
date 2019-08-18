@@ -5,10 +5,10 @@
 
 #### CI Function for Pairwise Group and Variable Comparisons
 
-easiPairwise <- function(...) 
-  UseMethod("easiPairwise")
+ciPairwise <- function(...) 
+  UseMethod("ciPairwise")
 
-easiPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
+ciPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -35,7 +35,7 @@ easiPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   return(round(results,3))
 }
 
-easiPairwise.bss <- function(sumstats,conf.level=.95,...){
+ciPairwise.bss <- function(sumstats,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -62,18 +62,18 @@ easiPairwise.bss <- function(sumstats,conf.level=.95,...){
   return(round(results,3))
 }
 
-easiPairwise.default <- function(...,conf.level=.95){
+ciPairwise.default <- function(...,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
-  results <- easiPairwise(sumstats,corrstats,conf.level=conf.level)
+  results <- ciPairwise(sumstats,corrstats,conf.level=conf.level)
   return(results)
 }
 
-easiPairwise.formula <- function(formula,conf.level=.95,...){
+ciPairwise.formula <- function(formula,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- easiPairwise(sumstats,conf.level=conf.level)
+  results <- ciPairwise(sumstats,conf.level=conf.level)
   return(results)
 }
 
@@ -81,6 +81,6 @@ easiPairwise.formula <- function(formula,conf.level=.95,...){
  
 estimatePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
-  print(easiPairwise(...)) 
+  print(ciPairwise(...)) 
   cat("\n")  
 }
