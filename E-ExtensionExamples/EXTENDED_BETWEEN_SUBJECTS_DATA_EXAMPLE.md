@@ -36,7 +36,7 @@ mydata
 
 ### Analyses of Pairwise Group Comparisons
 
-This section produces analyses that are equivalent to uncorrected t tests.
+This section produces analyses that are equivalent to unadjusted t tests.
 
 #### Confidence Intervals for the Pairwise Comparisons
 

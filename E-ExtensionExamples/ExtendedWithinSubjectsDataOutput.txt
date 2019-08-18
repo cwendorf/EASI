@@ -1,5 +1,5 @@
-> # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-> ## EXTENDED WITHIN-SUBJECTS EXAMPLES
+> # Estimation Approach to Statistical Inference (EASI)
+> ## Extended Within-Subjects Data Example
 > 
 > ### Three Time Period Example Data
 > 
@@ -17,7 +17,7 @@
 5     8     9     9
 > 
 > ### Analyses of Pairwise Variable Comparisons
-> ### (equivalent to uncorrected t tests)
+> ### (equivalent to unadjusted t tests)
 > 
 > #### Confidence Intervals for the Pairwise Comparisons
 > 
@@ -35,8 +35,8 @@ Time2 v Time3 -0.8 0.200  4 -1.355 -0.245
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
               Diff    SE df     LL     UL
-Time1 v Time2 -1.4 0.245  4 -2.528 -0.272
-Time1 v Time3 -2.2 0.374  4 -3.923 -0.477
+Time1 v Time2 -1.4 0.245  4 -2.527 -0.273
+Time1 v Time3 -2.2 0.374  4 -3.922 -0.478
 Time2 v Time3 -0.8 0.200  4 -1.721  0.121
 
 > 
@@ -52,18 +52,18 @@ Time2 v Time3 -0.8 0.200  4 -1.721  0.121
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
               Diff    SE      t df     p
-Time1 v Time2 -1.4 0.245 -5.715  4 0.005
-Time1 v Time3 -2.2 0.374 -5.880  4 0.004
-Time2 v Time3 -0.8 0.200 -4.000  4 0.016
+Time1 v Time2 -1.4 0.245 -5.718  4 0.005
+Time1 v Time3 -2.2 0.374 -5.881  4 0.004
+Time2 v Time3 -0.8 0.200 -3.999  4 0.016
 
 > testPairwise(Time1,Time2,Time3,mu=-2)
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
               Diff    SE      t df     p
-Time1 v Time2 -1.4 0.245  2.449  4 0.070
-Time1 v Time3 -2.2 0.374 -0.535  4 0.621
-Time2 v Time3 -0.8 0.200  6.000  4 0.004
+Time1 v Time2  0.6 0.245  2.451  4 0.070
+Time1 v Time3 -0.2 0.374 -0.535  4 0.621
+Time2 v Time3  1.2 0.200  5.998  4 0.004
 
 > 
 > #### Effect Sizes for the Pairwise Comparisons
@@ -74,8 +74,8 @@ STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
 
                    d      g     LL     UL
 Time1 v Time2 -1.400 -1.264 -2.566 -0.735
-Time1 v Time3 -2.460 -2.220 -4.468 -1.326
-Time2 v Time3 -1.131 -1.021 -2.153 -0.524
+Time1 v Time3 -2.460 -2.220 -4.341 -1.431
+Time2 v Time3 -1.131 -1.021 -2.128 -0.546
 
 > effectPairwise(Time1,Time2,Time3,conf.level=.99)
 
@@ -83,7 +83,5 @@ STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
 
                    d      g     LL     UL
 Time1 v Time2 -1.400 -1.264 -3.298 -0.608
-Time1 v Time3 -2.460 -2.220 -5.735 -1.114
-Time2 v Time3 -1.131 -1.021 -2.782 -0.396
-
-> 
+Time1 v Time3 -2.460 -2.220 -5.547 -1.252
+Time2 v Time3 -1.131 -1.021 -2.745 -0.427

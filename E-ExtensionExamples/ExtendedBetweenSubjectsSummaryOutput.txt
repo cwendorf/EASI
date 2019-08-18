@@ -1,31 +1,27 @@
-> # ESTIMATION APPROACH TO STATISTICAL INFERENCE (EASI)
-> ## EXTENDED BETWEEN-SUBJECTS EXAMPLES
+> # Estimation Approach to Statistical Inference (EASI)
+> ## Extended Between-Subjects Summary Example
 > 
-> ### Three Group Example Data
+> ### Three Group Example Summary Statistics
 > 
-> Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))
-> Outcome <- c(3,4,5,7,8,9,8,9,10)
-> Group <- factor(Group)
-> 
-> mydata <- data.frame(Group,Outcome)
-> mydata
-   Group Outcome
-1 Group1       3
-2 Group1       4
-3 Group1       5
-4 Group2       7
-5 Group2       8
-6 Group2       9
-7 Group3       8
-8 Group3       9
-9 Group3      10
+> Group1 <- c(N=3,M=4,SD=1)
+> Group2 <- c(N=3,M=8,SD=1)
+> Group3 <- c(N=3,M=9,SD=1)
+> sumstats <- rbind(Group1,Group2,Group3)
+> class(sumstats) <- "bss"
+> sumstats
+       N M SD
+Group1 3 4  1
+Group2 3 8  1
+Group3 3 9  1
+attr(,"class")
+[1] "bss"
 > 
 > ### Analyses of Pairwise Group Comparisons
-> ### (equivalent to uncorrected t tests)
+> ### (equivalent to unadjusted t tests)
 > 
 > #### Confidence Intervals for the Pairwise Comparisons
 > 
-> estimatePairwise(Outcome~Group)
+> estimatePairwise(sumstats)
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
@@ -34,7 +30,7 @@ Group1 v Group2   -4 0.816  4 -6.267 -1.733
 Group1 v Group3   -5 0.816  4 -7.267 -2.733
 Group2 v Group3   -1 0.816  4 -3.267  1.267
 
-> estimatePairwise(Outcome~Group,conf.level=.99)
+> estimatePairwise(sumstats,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
@@ -46,12 +42,12 @@ Group2 v Group3   -1 0.816  4 -4.759  2.759
 > 
 > #### Plots of the Confidence Intervals for the Pairwise Comparisons
 > 
-> plotPairwise(Outcome~Group)
-> plotPairwise(Outcome~Group,mu=-2,conf.level=.99)
+> plotPairwise(sumstats)
+> plotPairwise(sumstats,mu=-2,conf.level=.99)
 > 
 > #### Significance Tests of the Pairwise Comparisons
 > 
-> testPairwise(Outcome~Group)
+> testPairwise(sumstats)
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
@@ -60,7 +56,7 @@ Group1 v Group2   -4 0.816 -4.899  4 0.008
 Group1 v Group3   -5 0.816 -6.124  4 0.004
 Group2 v Group3   -1 0.816 -1.225  4 0.288
 
-> testPairwise(Outcome~Group,mu=-2)
+> testPairwise(sumstats,mu=-2)
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
@@ -72,7 +68,7 @@ Group2 v Group3    1 0.816  1.225  4 0.288
 > 
 > #### Effect Sizes for the Pairwise Comparisons
 > 
-> effectPairwise(Outcome~Group)
+> effectPairwise(sumstats)
 
 STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
 
@@ -81,7 +77,7 @@ Group1 v Group2 -4 -3.192  -9.861 -1.398
 Group1 v Group3 -5 -3.989 -12.033 -1.979
 Group2 v Group3 -1 -0.798  -3.872  0.981
 
-> effectPairwise(Outcome~Group,conf.level=.99)
+> effectPairwise(sumstats,conf.level=.99)
 
 STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
 

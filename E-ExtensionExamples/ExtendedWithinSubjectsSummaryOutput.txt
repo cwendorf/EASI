@@ -1,0 +1,98 @@
+> # Estimation Approach to Statistical Inference (EASI)
+> ## Extended Within-Subjects Summary Example
+> 
+> ### Three Time Period Example Summary Statistics
+> 
+> Time1 <- c(N=5,M=6.4,SD=1.14)
+> Time2 <- c(N=5,M=7.8,SD=.837)
+> Time3 <- c(N=5,M=8.6,SD=.548)
+> sumstats <- rbind(Time1,Time2,Time3)
+> class(sumstats) <- "wss"
+> sumstats
+      N   M    SD
+Time1 5 6.4 1.140
+Time2 5 7.8 0.837
+Time3 5 8.6 0.548
+attr(,"class")
+[1] "wss"
+> 
+> corrstats <- declareCorrMatrix("Time1","Time2","Time3")
+> corrstats["Time1","Time2"] <- .891
+> corrstats["Time1","Time3"] <- .721
+> corrstats["Time2","Time3"] <- .873
+> corrstats <- fillCorrMatrix(corrstats)
+> corrstats
+      Time1 Time2 Time3
+Time1 1.000 0.891 0.721
+Time2 0.891 1.000 0.873
+Time3 0.721 0.873 1.000
+> 
+> ### Analyses of Pairwise Variable Comparisons
+> ### (equivalent to unadjusted t tests)
+> 
+> #### Confidence Intervals for the Pairwise Comparisons
+> 
+> estimatePairwise(sumstats,corrstats)
+
+CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
+
+              Diff    SE df     LL     UL
+Time1 v Time2 -1.4 0.245  4 -2.080 -0.720
+Time1 v Time3 -2.2 0.374  4 -3.238 -1.162
+Time2 v Time3 -0.8 0.200  4 -1.355 -0.245
+
+> estimatePairwise(sumstats,corrstats,conf.level=.99)
+
+CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
+
+              Diff    SE df     LL     UL
+Time1 v Time2 -1.4 0.245  4 -2.527 -0.273
+Time1 v Time3 -2.2 0.374  4 -3.922 -0.478
+Time2 v Time3 -0.8 0.200  4 -1.721  0.121
+
+> 
+> #### Plots of the Confidence Intervals for the Pairwise Comparisons
+> 
+> plotPairwise(sumstats,corrstats)
+> plotPairwise(sumstats,corrstats,mu=-2,conf.level=.99)
+> 
+> #### Significance Tests of the Pairwise Comparisons
+> 
+> testPairwise(sumstats,corrstats)
+
+HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
+
+              Diff    SE      t df     p
+Time1 v Time2 -1.4 0.245 -5.717  4 0.005
+Time1 v Time3 -2.2 0.374 -5.884  4 0.004
+Time2 v Time3 -0.8 0.200 -4.000  4 0.016
+
+> testPairwise(sumstats,corrstats,mu=-2)
+
+HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
+
+              Diff    SE      t df     p
+Time1 v Time2  0.6 0.245  2.450  4 0.070
+Time1 v Time3 -0.2 0.374 -0.535  4 0.621
+Time2 v Time3  1.2 0.200  6.000  4 0.004
+
+> 
+> #### Effect Sizes for the Pairwise Comparisons
+> 
+> effectPairwise(sumstats,corrstats)
+
+STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+
+                   d      g     LL     UL
+Time1 v Time2 -1.400 -1.264 -2.566 -0.735
+Time1 v Time3 -2.460 -2.220 -4.341 -1.431
+Time2 v Time3 -1.131 -1.021 -2.128 -0.546
+
+> effectPairwise(sumstats,corrstats,conf.level=.99)
+
+STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+
+                   d      g     LL     UL
+Time1 v Time2 -1.400 -1.264 -3.298 -0.608
+Time1 v Time3 -2.460 -2.220 -5.547 -1.252
+Time2 v Time3 -1.131 -1.021 -2.745 -0.427

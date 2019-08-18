@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Extended Between-Subjects Example
+## Extended Between-Subjects Data Example
 
 ### Three Group Example Data
 
@@ -11,7 +11,7 @@ mydata <- data.frame(Group,Outcome)
 mydata
 
 ### Analyses of Pairwise Group Comparisons
-### (equivalent to uncorrected t tests)
+### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons
 

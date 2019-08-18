@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Extended Within-Subjects Example
+## Extended Within-Subjects Data Example
 
 ### Three Time Period Example Data
 
@@ -11,7 +11,7 @@ mydata <- data.frame(Time1,Time2,Time3)
 mydata
 
 ### Analyses of Pairwise Variable Comparisons
-### (equivalent to uncorrected t tests)
+### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons
 

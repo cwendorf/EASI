@@ -14,16 +14,21 @@
 ### Overview of the Extended Examples
 
 - Extended example files for between-subjects designs and for within-subjects designs are included
+- The examples are duplicated using raw data input and summary statistics input
 - Examples show both the default output and the available options
 - Examples include estimation, plots, significance tests, and effect sizes
 - Each example provides a syntax file, a text output file, and graphs
 
 ### Included Extended Examples
 
-The [**EXTENDED_BETWEEN_SUBJECTS_EXAMPLE.md**](./EXTENDED_BETWEEN_SUBJECTS_EXAMPLE.md) document and associated files include:
+The [**EXTENDED_BETWEEN_SUBJECTS_DATA_EXAMPLE.md**](./EXTENDED_BETWEEN_SUBJECTS_DATA_EXAMPLE.md) uses raw data input.  
+The [**EXTENDED_BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md**](./EXTENDED_BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md) uses summary statistics input.  
+Both documents and the associated files include:
 
-- Analyses of Pairwise Comparisons (equivalent to uncorrected t tests among all levels of a factor)
+- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among all levels of a factor)
 
-The [**EXTENDED_WITHIN_SUBJECTS_EXAMPLE.md**](./EXTENDED_WITHIN_SUBJECTS_EXAMPLE.md) document and associated files include:
+The [**EXTENDED_WITHIN_SUBJECTS_DATA_EXAMPLE.md**](./EXTENDED_WITHIN_SUBJECTS_DATA_EXAMPLE.md) uses raw data input.  
+The [**EXTENDED_WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md**](./EXTENDED_WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md) uses summary statistics input.  
+Both documents and the associated files include:
 
-- Analyses of Pairwise Comparisons (equivalent to uncorrected t tests among of all instances of a variable)
+- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
