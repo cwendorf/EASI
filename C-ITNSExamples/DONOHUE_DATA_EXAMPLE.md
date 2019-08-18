@@ -11,6 +11,12 @@
 
 ## Within-Subjects Example with Donohue Data
 
+### Source the EASI Functions
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+```
+
 ### Input Data
 
 ```r
@@ -60,7 +66,7 @@ Followup 20 23.4 4.616 1.032 21.240 25.560
 ```r
 plotMeans(Pretest,Posttest,Followup)
 ```
-<kbd><img src="DonohueGraph1.jpg"></kbd>
+<kbd><img src="DonohueFigure1.jpg"></kbd>
  
 ### Analysis of a Variable Difference
 
@@ -76,7 +82,7 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 ```r
 plotDifference(Posttest,Followup)
 ```
-<kbd><img src="DonohueGraph2.jpg"></kbd>
+<kbd><img src="DonohueFigure2.jpg"></kbd>
 ```r
 effectDifference(Posttest,Followup)
 ```
@@ -102,7 +108,7 @@ Contrast 19.2 1.386 19 16.299 22.101
 ```r
 plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
-<kbd><img src="DonohueGraph3.jpg"></kbd>
+<kbd><img src="DonohueFigure3.jpg"></kbd>
 ```r
 testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```

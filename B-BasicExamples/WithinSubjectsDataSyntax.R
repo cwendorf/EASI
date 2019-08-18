@@ -1,6 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Basic Within-Subjects Data Example
 
+### Source the EASI Functions and Extensions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+
 ### Three Time Period Example Data
 
 Time1 <- c(5,6,6,7,8)

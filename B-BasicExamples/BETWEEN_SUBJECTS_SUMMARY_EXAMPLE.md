@@ -11,6 +11,12 @@
 
 ## Basic Between-Subjects Data Example
 
+### Source the EASI Functions
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+```
+
 ### Three Group Example Summary Statistics
 
 This code inputs the variable summaries and creates a single summary table.
@@ -61,13 +67,13 @@ This code will produce a graph of the confidence intervals for each level of the
 ```r
 plotMeans(sumstats)
 ```
-<kbd><img src="BetweenSubjectsGraph1.jpeg"></kbd>
+<kbd><img src="BetweenSubjectsFigure1.jpg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
 plotMeans(sumstats,conf.level=.99,mu=5)
 ```
-<kbd><img src="BetweenSubjectsGraph2.jpeg"></kbd>
+<kbd><img src="BetweenSubjectsFigure2.jpg"></kbd>
 
 
 #### Significance Tests for the Means
@@ -147,7 +153,7 @@ This code obtains and plots the confidence intervals for the groups and the mean
 ```r
 plotDifference(compstats)
 ```
-<kbd><img src="BetweenSubjectsGraph3.jpeg"></kbd>
+<kbd><img src="BetweenSubjectsFigure3.jpg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
@@ -243,7 +249,7 @@ This code obtains and plots the confidence intervals for the groups and the mean
 ```r
 plotContrast(sumstats,contrast=G1vsOthers)
 ````
-<kbd><img src="BetweenSubjectsGraph4.jpeg"></kbd>
+<kbd><img src="BetweenSubjectsFigure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r

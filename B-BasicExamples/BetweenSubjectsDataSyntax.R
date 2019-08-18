@@ -1,6 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Basic Between-Subjects Data Example
 
+### Source the EASI Functions and Extensions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+
 ### Three Group Example Data
 
 Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))

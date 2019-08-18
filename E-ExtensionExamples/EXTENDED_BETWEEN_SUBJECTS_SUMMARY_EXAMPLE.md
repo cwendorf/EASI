@@ -11,6 +11,13 @@
 
 ## Extended Between-Subjects Summary Example
 
+### Source the EASI Functions and Extensions
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+```
+
 ### Three Group Example Summary Statistics
 
 ```r
@@ -56,11 +63,11 @@ estimatePairwise(sumstats,conf.level=.99)
 ```r
 plotPairwise(sumstats)
 ```
-<kbd><img src="ExtendedBetweenSubjectsGraph1.jpg"></kbd>
+<kbd><img src="ExtendedBetweenSubjectsFigure1.jpg"></kbd>
 ```r
 plotPairwise(sumstats,mu=-2,conf.level=.99)
 ```
-<kbd><img src="ExtendedBetweenSubjectsGraph2.jpg"></kbd>
+<kbd><img src="ExtendedBetweenSubjectsFigure2.jpg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 

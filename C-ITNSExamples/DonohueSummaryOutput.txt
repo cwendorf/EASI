@@ -1,6 +1,10 @@
  > # Estimation Approach to Statistical Inference (EASI)
 > ## Within-Subjects Example with Donohue Summary Statistics
 > 
+> ### Source the EASI Functions
+> 
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+> 
 > ### Enter Summary Statistics
 > 
 > Pretest <- c(N=20,M=19.300,SD=5.904)

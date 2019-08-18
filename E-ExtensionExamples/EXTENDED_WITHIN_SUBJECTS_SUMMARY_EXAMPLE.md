@@ -11,6 +11,13 @@
 
 ## Extended Within-Subjects Summary Example
 
+### Source the EASI Functions and Extensions
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+```
+
 ### Three Time Period Example Summary Statistics
 
 ```r
@@ -70,11 +77,11 @@ estimatePairwise(sumstats,corrstats,conf.level=.99)
 ```r
 plotPairwise(sumstats,corrstats)
 ```
-<kbd><img src="ExtendedWithinSubjectsGraph1.jpg"></kbd>
+<kbd><img src="ExtendedWithinSubjectsFigure1.jpg"></kbd>
 ```r
 plotPairwise(sumstats,corrstats,mu=-2,conf.level=.99)
 ```
-<kbd><img src="ExtendedWithinSubjectsGraph2.jpg"></kbd>
+<kbd><img src="ExtendedWithinSubjectsFigure2.jpg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 

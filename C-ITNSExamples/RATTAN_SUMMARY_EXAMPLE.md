@@ -11,6 +11,12 @@
 
 ## Between-Subjects Example with Rattan Summary Statistics
 
+### Source the EASI Functions
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+```
+
 ### Enter Summary Statistics
 
 ```r
@@ -46,7 +52,7 @@ Control   19 4.447 1.433 0.329 3.757 5.138
 ```r
 plotMeans(sumstats)
 ```
-<kbd><img src="RattanGraph1.jpg"></kbd>
+<kbd><img src="RattanFigure1.jpg"></kbd>
 
 ### Analysis of a Group Difference
 
@@ -64,7 +70,7 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 ```r
 plotDifference(ccompstats)
 ```
-<kbd><img src="RattanGraph2.jpg"></kbd>
+<kbd><img src="RattanFigure2.jpg"></kbd>
 ```r
 effectDifference(compstats)
 ```
@@ -90,7 +96,7 @@ Contrast 1.523 0.512 26.903 0.473 2.573
 ```r
 plotContrast(sumstats,contrast=ComfortvsOthers)
 ```
-<kbd><img src="RattanGraph3.jpg"></kbd>
+<kbd><img src="RattanFigure3.jpg"></kbd>
 ```r
 testContrast(sumstats,contrast=ComfortvsOthers)
 ```

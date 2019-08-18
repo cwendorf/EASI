@@ -1,6 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Basic Between-Subjects Summary Example
 
+### Source the EASI Functions and Extensions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+
 ### Three Group Example Summary Statistics
 
 Group1 <- c(N=3,M=4,SD=1)

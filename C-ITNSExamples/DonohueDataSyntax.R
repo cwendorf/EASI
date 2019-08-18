@@ -1,6 +1,10 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Within-Subjects Example with Donohue Data
 
+### Source the EASI Functions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+
 ### Read Data from Files
 
 Donohue <- read.table("DonohueData.csv",header=T,sep=",")

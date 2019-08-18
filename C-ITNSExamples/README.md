@@ -20,17 +20,19 @@
 
 ### Included Examples
 
-The **RATTAN** documents and files analyze an example of a between-subjects design (from ITNS, CH.14).  
+The **Rattan** documents and files analyze an example of a single-factor between-subjects design (from ITNS, Ch. 14).  
 The [**RATTAN_DATA_EXAMPLE.md**](./RATTAN_DATA_EXAMPLE.md) uses raw data input.  
 The [**RATTAN_SUMMARY_EXAMPLE.md**](./RATTAN_SUMMARY_EXAMPLE.md) uses summary statistics input.  
+These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 - Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor)
 
-The **DONOHUE** documents and files analyze an example of a within-subjects design (from ITNS, Ch. 14).  
+The **Donohue** documents and files analyze an example of a single-factor within-subjects design (from ITNS, Ch. 14).  
 The [**DONOHUE_DATA_EXAMPLE.md**](./DONOHUE_DATA_EXAMPLE.md) uses raw data input.  
-The [**DONOHUE_SUMMARY_EXAMPLE.md**](./DONOHUE_SUMMARY_EXAMPLE.md) uses summary statistics input.
+The [**DONOHUE_SUMMARY_EXAMPLE.md**](./DONOHUE_SUMMARY_EXAMPLE.md) uses summary statistics input.  
+These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)

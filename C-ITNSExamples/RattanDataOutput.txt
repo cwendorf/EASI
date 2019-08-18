@@ -1,6 +1,10 @@
 > # Estimation Approach to Statistical Inference (EASI)
 > ## Between-Subjects Example with Rattan Data
 > 
+> ### Source the EASI Functions
+> 
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+> 
 > ### Input Data Instead
 > 
 > Feedback <- c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3)

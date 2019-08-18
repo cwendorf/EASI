@@ -11,6 +11,12 @@
 
 ## Basic Within-Subjects Data Example
 
+### Source the EASI Functions
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+```
+
 ### Three Time Period Example Data
 
 This code inputs the variable names and creates a viewable data frame.
@@ -61,13 +67,13 @@ This code will produce a graph of the confidence intervals for each level of the
 ```r
 plotMeans(Time1,Time2,Time3)
 ```
-<kbd><img src="WithinSubjectsGraph1.jpeg"></kbd>
+<kbd><img src="WithinSubjectsFigure1.jpg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
 plotMeans(Time1,Time2,Time3,conf.level=.99,mu=6)
 ```
-<kbd><img src="WithinSubjectsGraph2.jpeg"></kbd>
+<kbd><img src="WithinSubjectsFigure2.jpg"></kbd>
 
 #### Significance Tests for the Means
 
@@ -142,7 +148,7 @@ This code obtains and plots the confidence intervals for the levels and the mean
 ```r
 plotDifference(Time1,Time2)
 ```
-<kbd><img src="WithinSubjectsGraph3.jpeg"></kbd>
+<kbd><img src="WithinSubjectsFigure3.jpg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
@@ -238,7 +244,7 @@ This code obtains and plots the confidence intervals for the groups and the mean
 ```r
 plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 ````
-<kbd><img src="WithinSubjectsGraph4.jpeg"></kbd>
+<kbd><img src="WithinSubjectsFigure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r

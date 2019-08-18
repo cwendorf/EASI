@@ -1,6 +1,10 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Between-Subjects Example with Rattan Summary Statistics
 
+### Source the EASI Functions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+
 ### Enter Summary Statistics
 
 Comfort <- c(N=18,M=3.333,SD=1.917)
