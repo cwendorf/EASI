@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Basic Between-Subjects Summary Example
 
-### Three Group Example Summary
+### Three Group Example Summary Statistics
 
 Group1 <- c(N=3,M=4,SD=1)
 Group2 <- c(N=3,M=8,SD=1)

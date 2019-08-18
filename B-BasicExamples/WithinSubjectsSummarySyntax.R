@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Basic Within-Subjects Summary Example
 
-### Three Time Period Example Summary
+### Three Time Period Example Summary Statistics
 
 Time1 <- c(N=5,M=6.4,SD=1.14)
 Time2 <- c(N=5,M=7.8,SD=.837)

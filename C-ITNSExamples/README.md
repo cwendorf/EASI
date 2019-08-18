@@ -9,23 +9,28 @@
 
 ---
 
-## Examples from the Introduction to the New Statistics
+## Examples from the _Introduction to the New Statistics_
 
 ### Overview of the Examples
 
-- Examples from the [Introduction to the New Statistics (ITNS)](https://thenewstatistics.com/itns/ "Introduction to the New Statistics") book are included
+- Examples from the _[Introduction to the New Statistics (ITNS)](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ book are included
+- The examples are duplicated using raw data input and summary statistics input
+- The examples include estimation, plots, significance tests, and effect sizes
 - Each example contains a data file, a syntax file, a text output file, and graphs
-- Additional forms of the data can be obtained from https://github.com/gitrman/itns
 
 ### Included Examples
 
-The [**RATTAN_EXAMPLE.md**](./RATTAN_EXAMPLE.md) document and associated files analyze an example of a between-subjects design (from ITNS, CH.14):
+The **RATTAN** documents and files analyze an example of a between-subjects design (from ITNS, CH.14).  
+The [**RATTAN_DATA_EXAMPLE.md**](./RATTAN_DATA_EXAMPLE.md) uses raw data input.  
+The [**RATTAN_SUMMARY_EXAMPLE.md**](./RATTAN_SUMMARY_EXAMPLE.md) uses summary statistics input.  
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 - Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor)
 
-The [**DONOHUE_EXAMPLE.md**](./DONOHUE_EXAMPLE.md) document and associated files analyze an example of a within-subjects design (from ITNS, Ch. 14):
+The **DONOHUE** documents and files analyze an example of a within-subjects design (from ITNS, Ch. 14).  
+The [**DONOHUE_DATA_EXAMPLE.md**](./DONOHUE_DATA_EXAMPLE.md) uses raw data input.  
+The [**DONOHUE_SUMMARY_EXAMPLE.md**](./DONOHUE_SUMMARY_EXAMPLE.md) uses summary statistics input.
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
@@ -34,7 +39,3 @@ The [**DONOHUE_EXAMPLE.md**](./DONOHUE_EXAMPLE.md) document and associated files
 ## References
 
 Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
-
-
-
-

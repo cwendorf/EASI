@@ -11,25 +11,7 @@
 
 ## Basic Within-Subjects Data Example
 
-### Three Time Period Example Data
-
-This code inputs the variable names and creates a viewable data frame.
-```r
-Time1 <- c(5,6,6,7,8)
-Time2 <- c(7,7,8,8,9)
-Time3 <- c(8,8,9,9,9)
-
-mydata <- data.frame(Time1,Time2,Time3)
-mydata
-```
-```
-  Time1 Time2 Time3
-1     5     7     8
-2     6     7     8
-3     6     8     9
-4     7     8     9
-5     8     9     9
-```
+### Three Time Period Example Summary Statistics
 
 This code inputs the variable summaries and creates a summary table.
 ```r

@@ -11,7 +11,7 @@
 
 ## Basic Between-Subjects Data Example
 
-### Three Group Example Summary
+### Three Group Example Summary Statistics
 
 This code inputs the variable summaries and creates a single summary table.
 ```r
