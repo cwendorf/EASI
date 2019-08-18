@@ -38,6 +38,15 @@ These analyses include the following:
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
 
+The **Frenda** documents and files analyze and example of a two-factor between-subjects design (from ITNS, Ch. 15).  
+The [**FRENDA_SUMMARY_EXAMPLE.md**](./FRENDA_SUMMARY_EXAMPLE.md) uses summary statistics input.  
+These analyses include the following:
+
+- Analyses of Multiple Groups (equivalent to one-sample analyses of each level of the design)
+- Analyses of Marginal Means (equivalent to one-sample analyses of the marginal means)
+- Analyses of Main Effects (equivalent to a comparison analysis of marginal means for each factor in the design)
+- Analyses of the Interaction (equivalent to comparisons analysis of the simple effects)
+
 ## References
 
 Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
