@@ -41,3 +41,9 @@ The EASI functions were written in five basic categories of analyses:
 
 - Both Cohen's d and Hedge's g are presented.
 - Confidence intervals are centered on Hedge's g.
+
+## References
+
+Goulet-Pelletier, J-C., & Cousineau, D. (2018). A review of effect sizes and their confidence intervals, Part I: The Cohen's d family. _The Quantitative Methods for Psychology_, _14_(4), 242-265.
+
+Keppel, G., & Wickens, T. D. (2004). _Design and analysis: A researcher's handbook._ Upper Saddle River, NJ: Pearson Education.
