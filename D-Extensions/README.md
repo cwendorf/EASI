@@ -43,3 +43,8 @@ EASI extentions are functions that go beyond the original vision for EASI. The E
 - Both Cohen's d and Hedge's g are presented.
 - Confidence intervals are centered on Hedge's g.
 
+## References
+
+Cousineau, D. (2017). Varieties of confidence intervals. _Advances in Cognitive Psychology_, _13_(2), 140-155.
+
+Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. _Methodology_, _8_(4), 125-133.
