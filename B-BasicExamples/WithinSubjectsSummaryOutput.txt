@@ -1,10 +1,9 @@
 > # Estimation Approach to Statistical Inference (EASI)
 > ## Basic Within-Subjects Summary Example
 > 
-> ### Source the EASI Functions and Extensions
+> ### Source the EASI Functions
 > 
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
-> source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
 > 
 > ### Three Time Period Example Summary
 > 
