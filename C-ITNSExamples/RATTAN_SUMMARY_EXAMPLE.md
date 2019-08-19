@@ -23,9 +23,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EA
 Comfort <- c(N=18,M=3.333,SD=1.917)
 Challenge <- c(N=17,M=5.265,SD=1.448)
 Control <- c(N=19,M=4.447,SD=1.433)
-sumstats <- rbind(Comfort,Challenge,Control)
-class(sumstats) <- "bss"
-sumstats
+RattanSummary <- rbind(Comfort,Challenge,Control)
+class(RattanSummary) <- "bss"
+RattanSummary
 ```
 ```
            N     M    SD
@@ -39,7 +39,7 @@ attr(,"class")
 ### Analyses of the Different Groups
 
 ```r
-estimateMeans(sumstats)
+estimateMeans(RattanSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -50,16 +50,16 @@ Challenge 17 5.265 1.448 0.351 4.520 6.009
 Control   19 4.447 1.433 0.329 3.757 5.138
 ```
 ```r
-plotMeans(sumstats)
+plotMeans(RattanSummary)
 ```
 <kbd><img src="RattanFigure1.jpg"></kbd>
 
 ### Analysis of a Group Difference
 
 ```r
-compstats <- rbind(Comfort,Challenge)
-class(compstats) <- "bss"
-estimateDifference(compstats)
+ComfortvsChallenge <- rbind(Comfort,Challenge)
+class(ComfortvsChallenge) <- "bss"
+estimateDifference(ComfortvsChallenge)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -68,11 +68,11 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 -1.931  0.572 31.521 -3.098 -0.765 
 ```
 ```r
-plotDifference(ccompstats)
+plotDifference(cComfortvsChallenge)
 ```
 <kbd><img src="RattanFigure2.jpg"></kbd>
 ```r
-effectDifference(compstats)
+effectDifference(ComfortvsChallenge)
 ```
 ```
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
@@ -85,7 +85,7 @@ STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
 ```r
 ComfortvsOthers <- c(-1,.5,.5)
-estimateContrast(sumstats,contrast=ComfortvsOthers)
+estimateContrast(RattanSummary,contrast=ComfortvsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -94,11 +94,11 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 1.523 0.512 26.903 0.473 2.573
 ```
 ```r
-plotContrast(sumstats,contrast=ComfortvsOthers)
+plotContrast(RattanSummary,contrast=ComfortvsOthers)
 ```
 <kbd><img src="RattanFigure3.jpg"></kbd>
 ```r
-testContrast(sumstats,contrast=ComfortvsOthers)
+testContrast(RattanSummary,contrast=ComfortvsOthers)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST

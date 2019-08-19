@@ -10,33 +10,33 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EA
 Pretest <- c(N=20,M=19.300,SD=5.904)
 Posttest <- c(N=20,M=23.600,SD=4.762)
 Followup <- c(N=20,M=23.400,SD=4.616)
-sumstats <- rbind(Pretest,Posttest,Followup)
-class(sumstats) <- "wss"
-sumstats
+DonohueSummary <- rbind(Pretest,Posttest,Followup)
+class(DonohueSummary) <- "wss"
+DonohueSummary
 
-corrstats <- declareCorrMatrix("Pretest","Posttest","Followup")
-corrstats["Pretest","Posttest"] <- .493
-corrstats["Pretest","Followup"] <- .536
-corrstats["Posttest","Followup"] <- .743
-corrstats <- fillCorrMatrix(corrstats)
-corrstats
+DonohueCorr <- declareCorrMatrix("Pretest","Posttest","Followup")
+DonohueCorr["Pretest","Posttest"] <- .493
+DonohueCorr["Pretest","Followup"] <- .536
+DonohueCorr["Posttest","Followup"] <- .743
+DonohueCorr <- fillCorrMatrix(DonohueCorr)
+DonohueCorr
 
 ### Analyses of the Different Variables
 
-estimateMeans(sumstats)
-plotMeans(sumstats)
+estimateMeans(DonohueSummary)
+plotMeans(DonohueSummary)
 
 ### Analysis of a Variable Difference
 
-compstats <- sumstats[c(2,3),]
-class(compstats) <- "wss"
-estimateDifference(compstats,corrstats)
-plotDifference(compstats,corrstats)
-effectDifference(compstats,corrstats)
+PostvsFollowup <- DonohueSummary[c(2,3),]
+class(PostvsFollowup) <- "wss"
+estimateDifference(PostvsFollowup,DonohueCorr)
+plotDifference(PostvsFollowup,DonohueCorr)
+effectDifference(PostvsFollowup,DonohueCorr)
 
 ### Analysis of a Variable Contrast
 
 PrevsPostFollow <- c(1,-.5,.5)
-estimateContrast(sumstats,corrstats,contrast=PrevsPostFollow)
-plotContrast(sumstats,corrstats,contrast=PrevsPostFollow)
-testContrast(sumstats,corrstats,contrast=PrevsPostFollow)
+estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
+plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
+testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)

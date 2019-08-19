@@ -10,9 +10,9 @@
 > Pretest <- c(N=20,M=19.300,SD=5.904)
 > Posttest <- c(N=20,M=23.600,SD=4.762)
 > Followup <- c(N=20,M=23.400,SD=4.616)
-> sumstats <- rbind(Pretest,Posttest,Followup)
-> class(sumstats) <- "wss"
-> sumstats
+> DonohueSummary <- rbind(Pretest,Posttest,Followup)
+> class(DonohueSummary) <- "wss"
+> DonohueSummary
           N    M    SD
 Pretest  20 19.3 5.904
 Posttest 20 23.6 4.762
@@ -20,12 +20,12 @@ Followup 20 23.4 4.616
 attr(,"class")
 [1] "wss"
 > 
-> corrstats <- declareCorrMatrix("Pretest","Posttest","Followup")
-> corrstats["Pretest","Posttest"] <- .493
-> corrstats["Pretest","Followup"] <- .536
-> corrstats["Posttest","Followup"] <- .743
-> corrstats <- fillCorrMatrix(corrstats)
-> corrstats
+> DonohueCorr <- declareCorrMatrix("Pretest","Posttest","Followup")
+> DonohueCorr["Pretest","Posttest"] <- .493
+> DonohueCorr["Pretest","Followup"] <- .536
+> DonohueCorr["Posttest","Followup"] <- .743
+> DonohueCorr <- fillCorrMatrix(DonohueCorr)
+> DonohueCorr
          Pretest Posttest Followup
 Pretest    1.000    0.493    0.536
 Posttest   0.493    1.000    0.743
@@ -33,7 +33,7 @@ Followup   0.536    0.743    1.000
 > 
 > ### Analyses of the Different Variables
 > 
-> estimateMeans(sumstats)
+> estimateMeans(DonohueSummary)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
@@ -42,21 +42,21 @@ Pretest  20 19.3 5.904 1.320 16.537 22.063
 Posttest 20 23.6 4.762 1.065 21.371 25.829
 Followup 20 23.4 4.616 1.032 21.240 25.560
 
-> plotMeans(sumstats)
+> plotMeans(DonohueSummary)
 > 
 > ### Analysis of a Variable Difference
 > 
-> compstats <- sumstats[c(2,3),]
-> class(compstats) <- "wss"
-> estimateDifference(compstats,corrstats)
+> PostvsFollowup <- DonohueSummary[c(2,3),]
+> class(PostvsFollowup) <- "wss"
+> estimateDifference(PostvsFollowup,DonohueCorr)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
            Diff    SE df     LL    UL
 Comparison  0.2 0.752 19 -1.375 1.775
 
-> plotDifference(compstats,corrstats)
-> effectDifference(compstats,corrstats)
+> plotDifference(PostvsFollowup,DonohueCorr)
+> effectDifference(PostvsFollowup,DonohueCorr)
 
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
@@ -67,15 +67,15 @@ Comparison 0.043 0.042 -0.28 0.369
 > ### Analysis of a Variable Contrast
 > 
 > PrevsPostFollow <- c(1,-.5,.5)
-> estimateContrast(sumstats,corrstats,contrast=PrevsPostFollow)
+> estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
           Est    SE df     LL     UL
 Contrast 19.2 1.386 19 16.299 22.101
 
-> plotContrast(sumstats,corrstats,contrast=PrevsPostFollow)
-> testContrast(sumstats,corrstats,contrast=PrevsPostFollow)
+> plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
+> testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 

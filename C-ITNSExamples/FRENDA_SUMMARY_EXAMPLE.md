@@ -24,9 +24,9 @@ A1B1 <- c(N=26,M=1.50,SD=1.38)
 A2B1 <- c(N=25,M=1.38,SD=1.50)
 A1B2 <- c(N=26,M=1.14,SD=0.96)
 A2B2 <- c(N=26,M=2.22,SD=1.68)
-sumstats <- rbind(A1B1,A2B1,A1B2,A2B2)
-class(sumstats) <- "bss"
-sumstats
+FrendaSummary <- rbind(A1B1,A2B1,A1B2,A2B2)
+class(FrendaSummary) <- "bss"
+FrendaSummary
 ```
 ```
       N    M   SD
@@ -41,7 +41,7 @@ attr(,"class")
 ### Analyses of the Different Groups
 
 ```r
-estimateMeans(sumstats)
+estimateMeans(FrendaSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -53,7 +53,7 @@ A1B2 26 1.14 0.96 0.188 0.752 1.528
 A2B2 26 2.22 1.68 0.329 1.541 2.899
 ```
 ```r
-plotMeans(sumstats)
+plotMeans(FrendaSummary)
 ```
 <kbd><img src="FrendaFigure1.jpg"></kbd>
 
@@ -61,7 +61,7 @@ plotMeans(sumstats)
 
 ```r
 Evening <- c(.5,0,.5,0)
-estimateContrast(sumstats,contrast=Evening)
+estimateContrast(FrendaSummary,contrast=Evening)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -71,7 +71,7 @@ Contrast 1.32 0.165 44.605 0.988 1.652
 ```
 ```r
 Morning <- c(0,.5,0,.5)
-estimateContrast(sumstats,contrast=Morning)
+estimateContrast(FrendaSummary,contrast=Morning)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -81,7 +81,7 @@ Contrast 1.8 0.223 48.74 1.352 2.248
 ```
 ```r
 Sleep <- c(.5,.5,0,0)
-estimateContrast(sumstats,contrast=Sleep)
+estimateContrast(FrendaSummary,contrast=Sleep)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -91,7 +91,7 @@ Contrast 1.44 0.202 48.269 1.034 1.846
 ```
 ```r
 Nosleep <- c(0,0,.5,.5)
-estimateContrast(sumstats,contrast=Nosleep)
+estimateContrast(FrendaSummary,contrast=Nosleep)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -104,7 +104,7 @@ Contrast 1.68 0.19 39.753 1.296 2.064
 
 ```r
 mainFactorA <- c(.5,-.5,.5,-.5)
-estimateContrast(sumstats,contrast=mainFactorA)
+estimateContrast(FrendaSummary,contrast=mainFactorA)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -113,7 +113,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast -0.48 0.277 87.919 -1.031 0.071
 ```
 ```r
-testContrast(sumstats,contrast=mainFactorA)
+testContrast(FrendaSummary,contrast=mainFactorA)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -122,7 +122,7 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast -0.48 0.277 -1.732 87.919 0.087
 ```
 ```r
-plotContrast(sumstats,contrast=mainFactorA)
+plotContrast(FrendaSummary,contrast=mainFactorA)
 ```
 <kbd><img src="FrendaFigure2.jpg"></kbd>
 
@@ -130,7 +130,7 @@ plotContrast(sumstats,contrast=mainFactorA)
 
 ```r
 mainFactorB <- c(-.5,-.5,.5,.5)
-estimateContrast(sumstats,contrast=mainFactorB)
+estimateContrast(FrendaSummary,contrast=mainFactorB)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -139,7 +139,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.24 0.277 87.919 -0.311 0.791
 ```
 ```r
-testContrast(sumstats,contrast=mainFactorB)
+testContrast(FrendaSummary,contrast=mainFactorB)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -148,7 +148,7 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 0.24 0.277 0.866 87.919 0.389
 ```
 ```r
-plotContrast(sumstats,contrast=mainFactorB)
+plotContrast(FrendaSummary,contrast=mainFactorB)
 ```
 <kbd><img src="FrendaFigure3.jpg"></kbd>
 
@@ -156,7 +156,7 @@ plotContrast(sumstats,contrast=mainFactorB)
 
 ```r
 Interaction <- c(.5,-.5,-.5,.5)
-estimateContrast(sumstats,contrast=Interaction)
+estimateContrast(FrendaSummary,contrast=Interaction)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -165,7 +165,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.6 0.277 87.919 0.049 1.151
 ```
 ```r
-testContrast(sumstats,contrast=Interaction)
+testContrast(FrendaSummary,contrast=Interaction)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -174,6 +174,6 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 0.6 0.277 2.165 87.919 0.033
 ```
 ```r
-plotContrast(sumstats,contrast=Interaction)
+plotContrast(FrendaSummary,contrast=Interaction)
 ```
 <kbd><img src="FrendaFigure4.jpg"></kbd>

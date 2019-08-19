@@ -7,22 +7,22 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EA
 
 ### Read Data from Files
 
-Donohue <- read.table("DonohueData.csv",header=T,sep=",")
-Donohue <- read.csv("DonohueData.csv")
-attach(Donohue)
-Donohue
+DonohueData <- read.table("DonohueData.csv",header=T,sep=",")
+DonohueData <- read.csv("DonohueData.csv")
+attach(DonohueData)
+DonohueData
 
 load(file="DonohueData.rda")
-attach(Donohue)
-Donohue
+attach(DonohueData)
+DonohueData
 
 ### Input Data Instead
 
 Pretest <- c(7,11,11,13,15,17,18,18,19,19,19,19,21,22,25,25,25,26,27,29)
 Posttest <- c(16,20,25,22,28,12,16,26,21,22,26,30,23,27,23,27,28,24,28,28)
 Followup <- c(16,18,23,21,27,21,18,21,24,21,27,28,18,27,23,28,31,18,31,27)
-Donohue <- data.frame(Pretest,Posttest,Followup)
-Donohue
+DonohueData <- data.frame(Pretest,Posttest,Followup)
+DonohueData
 
 ### Analyses of the Different Variables
 

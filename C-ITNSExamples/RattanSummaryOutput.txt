@@ -10,9 +10,9 @@
 > Comfort <- c(N=18,M=3.333,SD=1.917)
 > Challenge <- c(N=17,M=5.265,SD=1.448)
 > Control <- c(N=19,M=4.447,SD=1.433)
-> sumstats <- rbind(Comfort,Challenge,Control)
-> class(sumstats) <- "bss"
-> sumstats
+> RattanSummary <- rbind(Comfort,Challenge,Control)
+> class(RattanSummary) <- "bss"
+> RattanSummary
            N     M    SD
 Comfort   18 3.333 1.917
 Challenge 17 5.265 1.448
@@ -22,7 +22,7 @@ attr(,"class")
 > 
 > ### Analyses of the Different Groups
 > 
-> estimateMeans(sumstats)
+> estimateMeans(RattanSummary)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
@@ -31,21 +31,21 @@ Comfort   18 3.333 1.917 0.452 2.380 4.286
 Challenge 17 5.265 1.448 0.351 4.521 6.009
 Control   19 4.447 1.433 0.329 3.756 5.138
 
-> plotMeans(sumstats)
+> plotMeans(RattanSummary)
 > 
 > ### Analysis of a Group Comparison
 > 
-> compstats <- rbind(Comfort,Challenge)
-> class(compstats) <- "bss"
-> estimateDifference(compstats)
+> ComfortvsChallenge <- rbind(Comfort,Challenge)
+> class(ComfortvsChallenge) <- "bss"
+> estimateDifference(ComfortvsChallenge)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE     df     LL     UL
 Comparison -1.932 0.572 31.521 -3.098 -0.766
 
-> plotDifference(compstats)
-> effectDifference(compstats)
+> plotDifference(ComfortvsChallenge)
+> effectDifference(ComfortvsChallenge)
 
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
@@ -56,15 +56,15 @@ Comparison -1.133 -1.107 -1.925 -0.439
 > ### Analyses of a Group Contrast
 > 
 > ComfortvsOthers <- c(-1,.5,.5)
-> estimateContrast(sumstats,contrast=ComfortvsOthers)
+> estimateContrast(RattanSummary,contrast=ComfortvsOthers)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE     df    LL    UL
 Contrast 1.523 0.512 26.903 0.473 2.573
 
-> plotContrast(sumstats,contrast=ComfortvsOthers)
-> testContrast(sumstats,contrast=ComfortvsOthers)
+> plotContrast(RattanSummary,contrast=ComfortvsOthers)
+> testContrast(RattanSummary,contrast=ComfortvsOthers)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 

@@ -23,9 +23,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EA
 Pretest <- c(N=20,M=19.300,SD=5.904)
 Posttest <- c(N=20,M=23.600,SD=4.762)
 Followup <- c(N=20,M=23.400,SD=4.616)
-sumstats <- rbind(Pretest,Posttest,Followup)
-class(sumstats) <- "wss"
-sumstats
+DonohueSummary <- rbind(Pretest,Posttest,Followup)
+class(DonohueSummary) <- "wss"
+DonohueSummary
 ```
 ```
           N    M    SD
@@ -36,12 +36,12 @@ attr(,"class")
 [1] "wss"
 ```
 ```r
-corrstats <- declareCorrMatrix("Pretest","Posttest","Followup")
-corrstats["Pretest","Posttest"] <- .493
-corrstats["Pretest","Followup"] <- .536
-corrstats["Posttest","Followup"] <- .743
-corrstats <- fillCorrMatrix(corrstats)
-corrstats
+DonohueCorr <- declareCorrMatrix("Pretest","Posttest","Followup")
+DonohueCorr["Pretest","Posttest"] <- .493
+DonohueCorr["Pretest","Followup"] <- .536
+DonohueCorr["Posttest","Followup"] <- .743
+DonohueCorr <- fillCorrMatrix(DonohueCorr)
+DonohueCorr
 ```
 ```
          Pretest Posttest Followup
@@ -53,7 +53,7 @@ Followup   0.536    0.743    1.0``
 ### Analyses of the Different Variables
 
 ```r
-estimateMeans(sumstats)
+estimateMeans(DonohueSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -64,16 +64,16 @@ Posttest 20 23.6 4.762 1.065 21.371 25.829
 Followup 20 23.4 4.616 1.032 21.240 25.560
 ```
 ```r
-plotMeans(sumstats)
+plotMeans(DonohueSummary)
 ```
 <kbd><img src="DonohueFigure1.jpg"></kbd>
  
 ### Analysis of a Variable Difference
 
 ```r
-compstats <- sumstats[c(2,3),]
-class(compstats) <- "wss"
-estimateDifference(compstats,corrstats)
+PostvsFollowup <- DonohueSummary[c(2,3),]
+class(PostvsFollowup) <- "wss"
+estimateDifference(PostvsFollowup,DonohueCorr)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -82,11 +82,11 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
  0.200  0.753 19.000 -1.375  1.775 
 ```
 ```r
-plotDifference(compstats,corrstats)
+plotDifference(PostvsFollowup,DonohueCorr)
 ```
 <kbd><img src="DonohueFigure2.jpg"></kbd>
 ```r
-effectDifference(compstats,corrstats)
+effectDifference(PostvsFollowup,DonohueCorr)
 ```
 ```
 STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
@@ -99,7 +99,7 @@ STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
 ```r
 PrevsPostFollow <- c(1,-.5,.5)
-estimateContrast(sumstats,corrstats,contrast=PrevsPostFollow)
+estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -108,11 +108,11 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 19.2 1.386 19 16.299 22.101
 ```
 ```r
-plotContrast(sumstats,corrstats,contrast=PrevsPostFollow)
+plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```
 <kbd><img src="DonohueFigure3.jpg"></kbd>
 ```r
-testContrast(sumstats,corrstats,contrast=PrevsPostFollow)
+testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
