@@ -75,7 +75,10 @@ plotDifference(cComfortvsChallenge)
 standardizeDifference(ComfortvsChallenge)
 ```
 ```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
+              Est    SE     LL     UL
+Difference -1.137 0.376 -1.873 -0.401
 ```
 
 ### Analysis of a Group Contrast
@@ -104,8 +107,11 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 1.523 0.512 2.975 26.903 0.006
 ```
 ```r
-
+standardizeContrast(RattanSummary,contrast=ComfortvsOthers)
 ```
 ```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
+           Est   SE    LL   UL
+Contrast 0.943 0.34 0.276 1.61
 ```
