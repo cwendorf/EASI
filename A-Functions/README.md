@@ -27,7 +27,7 @@ The EASI functions were written in five basic categories of analyses:
 - **estimateFunctions.R** (functions that estimate confidence intervals for means and mean differences)
 - **plotFunctions.R** (functions that plot confidence intervals for means and mean differences)
 - **testFunctions.R** (functions that calculate NHST for means and mean differences)
-- **effectFunctions.R** (functions that calculate confidence intervals for standardized effect sizes)
+- **standardizeFunctions.R** (functions that calculate confidence intervals for standardized effect sizes)
 
 ## Technical Details
 
@@ -44,6 +44,6 @@ The EASI functions were written in five basic categories of analyses:
 
 ## References
 
-Goulet-Pelletier, J-C., & Cousineau, D. (2018). A review of effect sizes and their confidence intervals, Part I: The Cohen's d family. _The Quantitative Methods for Psychology_, _14_(4), 242-265.
+Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. _Psychological Methods_, _13_(2), 99-109.
 
 Keppel, G., & Wickens, T. D. (2004). _Design and analysis: A researcher's handbook._ Upper Saddle River, NJ: Pearson Education.

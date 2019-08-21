@@ -36,10 +36,10 @@ ciMeans.formula <- function(formula,conf.level=.95,...){
 
 #### CI Function for Mean Differences/Comparison of Levels 
 
-easiDifference <- function(...) 
-  UseMethod("easiDifference")
+ciDifference <- function(...) 
+  UseMethod("ciDifference")
   
-easiDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
+ciDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
   compstats <- compstats[1:2,]
   N <- compstats[,"N"]
   M <- compstats[,"M"]
@@ -58,7 +58,7 @@ easiDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
   return(results)
 }
 
-easiDifference.bss <- function(compstats,conf.level=.95,...){
+ciDifference.bss <- function(compstats,conf.level=.95,...){
   compstats <- compstats[1:2,]
   N <- compstats[,"N"]
   M <- compstats[,"M"]
@@ -74,27 +74,27 @@ easiDifference.bss <- function(compstats,conf.level=.95,...){
   return(results)
 }
 
-easiDifference.default <- function(x,y,conf.level=.95,...){
-  compstats <- ciMeans(x,y)
+ciDifference.default <- function(x,y,conf.level=.95,...){
+  compstats <- describeLevels(x,y)
   class(compstats) <- "wss"
   corrstats <- correlateLevels(x,y)
-  results <- easiDifference(compstats,corrstats,conf.level=conf.level)
+  results <- ciDifference(compstats,corrstats,conf.level=conf.level)
   return(results)
 }
 
-easiDifference.formula <- function(formula,conf.level=.95,...){
-  compstats <- ciMeans(formula)
+ciDifference.formula <- function(formula,conf.level=.95,...){
+  compstats <- describeLevels(formula)
   class(compstats) <- "bss"
-  results <- easiDifference(compstats,conf.level=conf.level)
+  results <- ciDifference(compstats,conf.level=conf.level)
   return(results)
 }
 
 #### CI Function for a Mean Contrast of Levels
 
-easiContrast <- function(...) 
-  UseMethod("easiContrast")
+ciContrast <- function(...) 
+  UseMethod("ciContrast")
 
-easiContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95) {
+ciContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95) {
   N <- min(sumstats[,"N"])
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -111,7 +111,7 @@ easiContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95) {
   return(round(results,3))
 }
 
-easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
+ciContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -129,18 +129,18 @@ easiContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   return(round(results,3))
 }
 
-easiContrast.default <- function(...,contrast,conf.level=.95){
-  sumstats <- ciMeans(...)
+ciContrast.default <- function(...,contrast,conf.level=.95){
+  sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
-  results <- easiContrast(sumstats,corrstats,contrast,conf.level=conf.level)
-  results
+  results <- ciContrast(sumstats,corrstats,contrast,conf.level=conf.level)
+  return(results)
 }
 
-easiContrast.formula <- function(formula,contrast,conf.level=.95,...){
-  sumstats <- ciMeans(formula)
+ciContrast.formula <- function(formula,contrast,conf.level=.95,...){
+  sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
-  results <- easiContrast(sumstats,contrast,conf.level=conf.level)
+  results <- ciContrast(sumstats,contrast,conf.level=conf.level)
   return(results)
 }
 
@@ -154,12 +154,12 @@ estimateMeans <- function(...){
 
 estimateDifference<-function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE COMPARISON\n\n")
-  print(easiDifference(...)) 
+  print(ciDifference(...)) 
   cat("\n")  
 }
 
 estimateContrast<-function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE CONTRAST\n\n")
-  print(easiContrast(...)) 
+  print(ciContrast(...)) 
   cat("\n")  
 }
