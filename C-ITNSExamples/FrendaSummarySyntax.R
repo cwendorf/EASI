@@ -35,19 +35,22 @@ estimateContrast(FrendaSummary,contrast=Nosleep)
 
 mainFactorA <- c(.5,-.5,.5,-.5)
 estimateContrast(FrendaSummary,contrast=mainFactorA)
-testContrast(FrendaSummary,contrast=mainFactorA)
 plotContrast(FrendaSummary,contrast=mainFactorA)
+testContrast(FrendaSummary,contrast=mainFactorA)
+standardizeContrast(FrendaSummary,contrast=mainFactorA)
 
 ### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
 
 mainFactorB <- c(-.5,-.5,.5,.5)
 estimateContrast(FrendaSummary,contrast=mainFactorB)
-testContrast(FrendaSummary,contrast=mainFactorB)
 plotContrast(FrendaSummary,contrast=mainFactorB)
+testContrast(FrendaSummary,contrast=mainFactorB)
+standardizeContrast(FrendaSummary,contrast=mainFactorB)
 
 ### Analyses of the Factor A x B Interaction
 
 Interaction <- c(.5,-.5,-.5,.5)
 estimateContrast(FrendaSummary,contrast=Interaction)
-testContrast(FrendaSummary,contrast=Interaction)
 plotContrast(FrendaSummary,contrast=Interaction)
+testContrast(FrendaSummary,contrast=Interaction)
+standardizeContrast(FrendaSummary,contrast=Interaction)

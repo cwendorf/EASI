@@ -25,8 +25,8 @@ Time1 <- c(5,6,6,7,8)
 Time2 <- c(7,7,8,8,9)
 Time3 <- c(8,8,9,9,9)
 
-mydata <- data.frame(Time1,Time2,Time3)
-mydata
+MyData <- data.frame(Time1,Time2,Time3)
+MyData
 ```
 ```
   Time1 Time2 Time3
@@ -95,26 +95,6 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 testMeans(Time1,Time2,Time3,mu=6)
 ```
 
-#### Effect Sizes for the Means
-
-This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
-```r
-effectMeans(Time1,Time2,Time3)
-```
-```
-STANDARDIZED MEAN DIFFERENCES FOR THE MEANS
-
-       d      g    LL     UL
-Time1  5.614  4.479 2.574 13.031
-Time2  9.319  7.435 4.389 21.463
-Time3 15.693 12.522 7.463 36.039
-```
-
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
-```
-effectMeans(Time1,Time2,Time3,mu=6,conf.level=.99)
-```
-
 ### Analyses of a Variable Comparison
 
 This section produces analyses that are equivalent to analyses for two levels of a factor.
@@ -177,18 +157,18 @@ testDifference(Time1,Time2,mu=-2)
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```r
-effectDifference(Time1,Time2)
+standardizeDifference(Time1,Time2)
 ```
 ```
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-     d      g     LL     UL 
--1.400 -1.264 -2.566 -0.735 
+          Est    SE     LL     UL
+Contrast -1.4 0.545 -2.468 -0.332
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-effectDifference(Time1,Time2,conf.level=.99)
+standardizeDifference(Time1,Time2,conf.level=.99)
 ```
 
 ### Analyses of a Variable Contrast
@@ -269,49 +249,20 @@ If desired, the contrast can be tested against other values if needed.
 testContrast(Time1,Time2,Time3,contrast=T1vsT2,mu=-1)
 ```
 
-### Different Methods for Comparing Two Means
+#### Effect Size for a Contrast
 
-This section demonstrates the equivalence of Difference/Comparison and Contrast approaches from above.
-
-#### The Difference/Comparison Approach (Copied from Above)
-
+This code calculates a standardized contrast and its confidence interval.
 ```r
-estimateDifference(Time2,Time1)
+standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 ```
 ```
-CONFIDENCE INTERVAL FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Diff    SE df   LL   UL
-Comparison  1.4 0.245  4 0.72 2.08
+           Est    SE    LL    UL
+Contrast 2.056 0.685 0.714 3.397
 ```
+
+The width of the confidence interval for the effect size can be altered if desired.
 ```r
-testDifference(Time2,Time1)
-```
-```
-HYPOTHESIS TEST FOR THE COMPARISON
-
-           Diff    SE     t df     p
-Comparison  1.4 0.245 5.715  4 0.005
-```
-
-#### The Contrast Approach (Adapted from Above)
-
-```r
-T1vsT2 <- c(-1,1,0)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsT2)
-```
-```
-CONFIDENCE INTERVAL FOR THE CONTRAST
-
-         Est    SE df   LL   UL
-Contrast 1.4 0.245  4 0.72 2.08
-```
-```r
-testContrast(Time1,Time2,Time3,contrast=T1vsT2)
-```
-```
-HYPOTHESIS TEST FOR THE CONTRAST
-
-         Est    SE     t df     p
-Contrast 1.4 0.245 5.715  4 0.005
+standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 ```

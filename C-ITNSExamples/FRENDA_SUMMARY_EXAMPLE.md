@@ -113,6 +113,10 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast -0.48 0.277 87.919 -1.031 0.071
 ```
 ```r
+plotContrast(FrendaSummary,contrast=mainFactorA)
+```
+<kbd><img src="FrendaFigure2.jpg"></kbd>
+```r
 testContrast(FrendaSummary,contrast=mainFactorA)
 ```
 ```
@@ -122,9 +126,14 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast -0.48 0.277 -1.732 87.919 0.087
 ```
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorA)
+standardizeContrast(FrendaSummary,contrast=mainFactorA)
 ```
-<kbd><img src="FrendaFigure2.jpg"></kbd>
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+            Est    SE     LL    UL
+Contrast -0.342 0.203 -0.739 0.056
+```
 
 ### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
 
@@ -139,6 +148,10 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.24 0.277 87.919 -0.311 0.791
 ```
 ```r
+plotContrast(FrendaSummary,contrast=mainFactorB)
+```
+<kbd><img src="FrendaFigure3.jpg"></kbd>
+```r
 testContrast(FrendaSummary,contrast=mainFactorB)
 ```
 ```
@@ -148,9 +161,14 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 0.24 0.277 0.866 87.919 0.389
 ```
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorB)
+standardizeContrast(FrendaSummary,contrast=mainFactorB)
 ```
-<kbd><img src="FrendaFigure3.jpg"></kbd>
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE     LL    UL
+Contrast 0.171 0.202 -0.224 0.566
+```
 
 ### Analyses of the Factor A x B Interaction
 
@@ -165,6 +183,10 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.6 0.277 87.919 0.049 1.151
 ```
 ```r
+plotContrast(FrendaSummary,contrast=Interaction)
+```
+<kbd><img src="FrendaFigure4.jpg"></kbd>
+```r
 testContrast(FrendaSummary,contrast=Interaction)
 ```
 ```
@@ -174,6 +196,11 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 0.6 0.277 2.165 87.919 0.033
 ```
 ```r
-plotContrast(FrendaSummary,contrast=Interaction)
+standardizeContrast(FrendaSummary,contrast=Interaction)
 ```
-<kbd><img src="FrendaFigure4.jpg"></kbd>
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE    LL    UL
+Contrast 0.427 0.204 0.028 0.826
+```

@@ -74,7 +74,29 @@ smdDifference.formula <- function(formula,contrast,conf.level=.95,...){
 smdContrast <- function(...) 
   UseMethod("smdContrast")
 
-
+smdContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95,...) {
+  N <- min(sumstats[,"N"])
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  R <- mean(corrstats[upper.tri(corrstats)])
+  df <- N-1
+  z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
+  a <- length(M)
+  s <- sqrt(sum(SD^2)/a)
+  Est <- (t(contrast)%*%M)/s
+  v1 <- Est^2/(2*a^2*s^4*df)
+  v2 <- sum(SD^4)
+  v3 <- R^2*t(SD^2)%*%SD^2 
+  v4 <- sum(contrast^2*SD^2)
+  v5 <- R*t(contrast*SD)%*%(contrast*SD)
+  SE <- sqrt(v1*(v2+v3)+(v4-v5)/(df*s^2))
+  LL <- Est-z*SE
+  UL <- Est+z*SE
+  results <- t(c(Est,SE,LL,UL))
+  colnames(results) <- c("Est","SE","LL","UL")
+  rownames(results) <- c("Contrast")
+  return(round(results,3))
+}
 
 smdContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   N <- sumstats[,"N"]
@@ -97,7 +119,13 @@ smdContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   return(round(results,3))
 }
 
-
+smdContrast.default <- function(...,contrast,conf.level=.95){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  corrstats <- correlateLevels(...)
+  results <- smdContrast(sumstats,corrstats,contrast,conf.level=conf.level)
+  return(results)
+}
 
 smdContrast.formula <- function(formula,contrast,conf.level=.95,...){
   sumstats <- describeLevels(formula)

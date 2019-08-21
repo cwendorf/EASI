@@ -1,6 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Extended Between-Subjects Summary Example
 
+### Source the EASI Functions and Extensions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+
 ### Three Group Example Summary Statistics
 
 Group1 <- c(N=3,M=4,SD=1)
@@ -30,5 +35,5 @@ testPairwise(sumstats,mu=-2)
 
 #### Effect Sizes for the Pairwise Comparisons
 
-effectPairwise(sumstats)
-effectPairwise(sumstats,conf.level=.99)
+standardizePairwise(sumstats)
+standardizePairwise(sumstats,conf.level=.99)

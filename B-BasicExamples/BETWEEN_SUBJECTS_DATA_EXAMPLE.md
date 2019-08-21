@@ -21,12 +21,12 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EA
 
 This code inputs the variable names and creates a viewable data frame.
 ```r
-Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))
+Group <- c(rep(1,3),rep(2,3),rep(3,3))
 Outcome <- c(3,4,5,7,8,9,8,9,10)
-Group <- factor(Group)
+Group <- factor(Group,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
 
-mydata <- data.frame(Group,Outcome)
-mydata
+MyData <- data.frame(Group,Outcome)
+MyData
 ```
 ```
    Group Outcome
@@ -99,26 +99,6 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 ```r
 testMeans(Outcome~Group,mu=5)
 ```
-
-#### Effect Sizes for the Means
-
-This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
-```r
-effectMeans(Outcome~Group)
-```
-```
-STANDARDIZED MEAN DIFFERENCES FOR THE MEANS
-
-            d      g     LL     UL
-Group1  4.000  2.257  0.913 14.618
-Group2  8.000  4.514  2.225 28.586
-Group3  9.000  5.078  2.533 32.107
-```
-
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
-```
-effectMeans(Outcome~Group,mu=5,conf.level=.99)
-```
  
 ### Analyses of a Group Comparison
 
@@ -184,18 +164,18 @@ testDifference(Outcome~Comparison,mu=2)
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```r
-effectDifference(Outcome~Comparison)
+standardizeDifference(Outcome~Comparison)
 ```
 ```
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-     d      g     LL     UL 
--4.000 -3.192 -9.861 -1.398 
+           Est    SE     LL     UL
+Difference  -4 1.732 -7.395 -0.605
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-effectDifference(Outcome~Comparison,conf.level=.99)
+standardizeDifference(Outcome~Comparison,conf.level=.99)
 ```
 
 ### Analyses of a Group Contrast
@@ -276,50 +256,20 @@ If desired, the contrast can be tested against other values if needed.
 testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
 ```
 
-### Different Methods for Comparing Two Groups
+#### Effect Size for a Contrast
 
-This section demonstrates the equivalence of Difference/Comparison and Contrast approaches from above.
-
-#### The Difference/Comparison Approach (Copied from Above)
-
+This code calculates a standardized contrast and its confidence interval.
 ```r
-Comparison=factor(Group,c("Group2","Group1"))
-estimateDifference(Outcome~Comparison)
+standardizeContrast(Outcome~Group,contrast=G1vsOthers)
 ```
 ```
-CONFIDENCE INTERVAL FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Diff    SE df    LL    UL
-Comparison    4 0.816  4 1.733 6.267
+         Est    SE   LL   UL
+Contrast 4.5 1.561 1.44 7.56
 ```
+
+The width of the confidence interval for the effect size can be altered if desired.
 ```r
-testDifference(Outcome~Comparison)
-```
-```
-HYPOTHESIS TEST FOR THE COMPARISON
-
-           Diff    SE     t df     p
-Comparison    4 0.816 4.899  4 0.008
-```
-
-#### The Contrast Approach (Adapted from Above)
-
-```r
-G1vsG2 <- c(-1,1,0)
-estimateContrast(Outcome~Group,contrast=G1vsG2)
-```
-```
-CONFIDENCE INTERVAL FOR THE CONTRAST
-
-         Est    SE df    LL    UL
-Contrast   4 0.816  4 1.733 6.267
-```
-```r
-testContrast(Outcome~Group,contrast=G1vsG2)
-```
-```
-HYPOTHESIS TEST FOR THE CONTRAST
-
-         Est    SE     t df     p
-Contrast   4 0.816 4.899  4 0.008
+standardizeContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 ```

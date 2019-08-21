@@ -89,16 +89,16 @@ testPairwise(sumstats,mu=-2)
 #### Effect Sizes for the Pairwise Comparisons
 
 ```r
-effectPairwise(sumstats)
+standardizePairwise(sumstats)
 ```
 ```
-STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                 d      g      LL     UL
-Group1 v Group2 -4 -3.192  -9.861 -1.398
-Group1 v Group3 -5 -3.989 -12.033 -1.979
-Group2 v Group3 -1 -0.798  -3.872  0.981
+                Est    SE     LL     UL
+Group1 v Group2  -4 1.732 -7.395 -0.605
+Group1 v Group3  -5 2.031 -8.981 -1.019
+Group2 v Group3  -1 1.061 -3.079  1.079
 ```
 ```r
-effectPairwise(sumstats,conf.level=.99)
+standardizePairwise(sumstats,conf.level=.99)
 ```

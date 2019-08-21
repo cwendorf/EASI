@@ -28,7 +28,7 @@ EASI extentions are functions that go beyond the original vision for EASI. The E
 - **estimateExtensions.R** (functions that estimate confidence intervals for pairwise comparisons)
 - **plotExtensions.R** (functions that plot onfidence intervals for pairwise comparisons)
 - **testExtensions.R** (functions that calculate NHST for pairwise comparisons)
-- **effectExtensions.R** (functions that calculate confidence intervals for pairwise comparison effect sizes)
+- **standardizeExtensions.R** (functions that calculate confidence intervals for pairwise comparison effect sizes)
 
 ## Technical Details
 

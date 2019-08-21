@@ -7,12 +7,12 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EA
 
 ### Three Group Example Data
 
-Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))
+Group <- c(rep(1,3),rep(2,3),rep(3,3))
 Outcome <- c(3,4,5,7,8,9,8,9,10)
-Group <- factor(Group)
+Group <- factor(Group,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
 
-mydata <- data.frame(Group,Outcome)
-mydata
+MyData <- data.frame(Group,Outcome)
+MyData
 
 ### Analyses of Multiple Groups
 ### (equivalent to one-sample analyses for each level of a factor)
@@ -31,11 +31,6 @@ plotMeans(Outcome~Group,conf.level=.99,mu=5)
 
 testMeans(Outcome~Group)
 testMeans(Outcome~Group,mu=5)
-
-#### Effect Sizes for the Means
-
-effectMeans(Outcome~Group)
-effectMeans(Outcome~Group,mu=5,conf.level=.99)
 
 ### Analyses of a Group Comparison
 ### (equivalent to analyses for two levels of a factor)
@@ -61,8 +56,8 @@ testDifference(Outcome~Comparison,mu=2)
 
 #### Effect Size for the Mean Difference
 
-effectDifference(Outcome~Comparison)
-effectDifference(Outcome~Comparison,conf.level=.99)
+standardizeDifference(Outcome~Comparison)
+standardizeDifference(Outcome~Comparison,conf.level=.99)
 
 ### Analyses of a Group Contrast
 ### (equivalent to analyses for multiple levels of a factor)
@@ -90,6 +85,11 @@ plotContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 testContrast(Outcome~Group,contrast=G1vsOthers)
 testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
 
+#### Effect Size for a Contrast
+
+standardizeContrast(Outcome~Group,contrast=G1vsOthers)
+standardizeContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
+
 ### Different Methods for Comparing Two Groups
 ### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
 
@@ -98,9 +98,11 @@ testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
 Comparison=factor(Group,c("Group2","Group1"))
 estimateDifference(Outcome~Comparison)
 testDifference(Outcome~Comparison)
+standardizeDifference(Outcome~Comparison)
 
 #### The Contrast Approach (Adapted from Above)
 
 G1vsG2 <- c(-1,1,0)
 estimateContrast(Outcome~Group,contrast=G1vsG2)
 testContrast(Outcome~Group,contrast=G1vsG2)
+standardizeContrast(Outcome~Group,contrast=G1vsG2)

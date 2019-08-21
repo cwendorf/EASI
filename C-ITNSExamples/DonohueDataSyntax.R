@@ -33,7 +33,7 @@ plotMeans(Pretest,Posttest,Followup)
 
 estimateDifference(Posttest,Followup)
 plotDifference(Posttest,Followup)
-effectDifference(Posttest,Followup)
+standardizeDifference(Posttest,Followup)
 
 ### Analysis of a Variable Contrast
 
@@ -41,3 +41,4 @@ PrevsPostFollow <- c(1,-.5,.5)
 estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
+standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)

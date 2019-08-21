@@ -11,8 +11,8 @@ Time1 <- c(5,6,6,7,8)
 Time2 <- c(7,7,8,8,9)
 Time3 <- c(8,8,9,9,9)
 
-mydata <- data.frame(Time1,Time2,Time3)
-mydata
+MyData <- data.frame(Time1,Time2,Time3)
+MyData
 
 ### Analyses of Multiple Variables
 ### (equivalent to one-sample analyses for each level of a factor)
@@ -31,11 +31,6 @@ plotMeans(Time1,Time2,Time3,conf.level=.99,mu=6)
 
 testMeans(Time1,Time2,Time3)
 testMeans(Time1,Time2,Time3,mu=6)
-
-#### Effect Sizes for the Means
-
-effectMeans(Time1,Time2,Time3)
-effectMeans(Time1,Time2,Time3,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
@@ -58,8 +53,8 @@ testDifference(Time1,Time2,mu=-2)
 
 #### Effect Size for the Mean Difference
 
-effectDifference(Time1,Time2)
-effectDifference(Time1,Time2,conf.level=.99)
+standardizeDifference(Time1,Time2)
+standardizeDifference(Time1,Time2,conf.level=.99)
 
 ### Analyses of a Variable Contrast
 ### (equivalent to analyses for multiple levels of a factor)
@@ -80,25 +75,14 @@ estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 #### Plots of Confidence Intervals for a Contrast
 
 plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-plotContrast(Time1,Time2,Time3,contrast=G1vsOthers,conf.level=.99)
+plotContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 
 #### Significance Test for the Contrast
 
 testContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=-1)
 
-### Different Methods for Comparing Two Means
-### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
+#### Effect Size for the Contrast
 
-#### The Difference/Comparison Approach (Copied from Above)
-
-estimateDifference(Time2,Time1)
-plotDifference(Time2,Time1)
-testDifference(Time2,Time1)
-
-#### The Contrast Approach (Adapted from Above)
-
-T1vsT2 <- c(-1,1,0)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsT2)
-plotContrast(Time1,Time2,Time3,contrast=T1vsT2)
-testContrast(Time1,Time2,Time3,contrast=T1vsT2)
+standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
+standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)

@@ -25,7 +25,7 @@ ComfortvsChallenge <- rbind(Comfort,Challenge)
 class(ComfortvsChallenge) <- "bss"
 estimateDifference(ComfortvsChallenge)
 plotDifference(ComfortvsChallenge)
-effectDifference(ComfortvsChallenge)
+standardizeDifference(ComfortvsChallenge)
 
 ### Analyses of a Group Contrast
 
@@ -33,3 +33,4 @@ ComfortvsOthers <- c(-1,.5,.5)
 estimateContrast(RattanSummary,contrast=ComfortvsOthers)
 plotContrast(RattanSummary,contrast=ComfortvsOthers)
 testContrast(RattanSummary,contrast=ComfortvsOthers)
+standardizeContrast(RattanSummary,contrast=ComfortvsOthers)

@@ -32,7 +32,7 @@ PostvsFollowup <- DonohueSummary[c(2,3),]
 class(PostvsFollowup) <- "wss"
 estimateDifference(PostvsFollowup,DonohueCorr)
 plotDifference(PostvsFollowup,DonohueCorr)
-effectDifference(PostvsFollowup,DonohueCorr)
+standardizeDifference(PostvsFollowup,DonohueCorr)
 
 ### Analysis of a Variable Contrast
 
@@ -40,3 +40,4 @@ PrevsPostFollow <- c(1,-.5,.5)
 estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
+standardizeContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)

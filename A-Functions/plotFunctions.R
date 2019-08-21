@@ -88,7 +88,7 @@ plotDifference.wss <- function(compstats,corrstats,...){
   ylab="Outcome"
   xlab="Variables"
   Groups <- ciMeans(compstats,...)[2:1,c(2,5,6)]
-  Diff <- easiDifference(compstats,corrstats,...)[c(1,4,5)]
+  Diff <- ciDifference(compstats,corrstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
@@ -99,7 +99,7 @@ plotDifference.bss <- function(compstats,...){
   ylab="Outcome"
   xlab="Groups"
   Groups <- ciMeans(compstats,...)[2:1,c(2,5,6)]
-  Diff <- easiDifference(compstats,...)[c(1,4,5)]
+  Diff <- ciDifference(compstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
@@ -110,7 +110,7 @@ plotDifference.default <- function(...){
   ylab="Outcome"
   xlab="Variables"
   Vars <- ciMeans(...)[2:1,c(2,5,6)]
-  Diff <- easiDifference(...)[c(1,4,5)]
+  Diff <- ciDifference(...)[c(1,4,5)]
   results <- rbind(Vars,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
@@ -122,7 +122,7 @@ plotDifference.formula <- function(formula,...){
   xlab=all.vars(formula)[2]
   Groups <- ciMeans(formula,...)
   Groups <- Groups[2:1,c(2,5,6)]
-  Diff <- easiDifference(formula,...)[c(1,4,5)]
+  Diff <- ciDifference(formula,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
@@ -138,12 +138,12 @@ plotContrast.bss <- function(sumstats,contrast,...){
   ylab="Outcome"
   xlab="Groups"
   congrp1 <- ifelse(contrast<0,0,contrast)
-  resgrp1 <- easiContrast(sumstats,contrast=congrp1,...)
+  resgrp1 <- ciContrast(sumstats,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
-  resgrp2 <- easiContrast(sumstats,contrast=congrp2,...)
+  resgrp2 <- ciContrast(sumstats,contrast=congrp2,...)
   Groups <- rbind(resgrp1,resgrp2)
   Groups <- Groups[2:1,c(1,4,5)]
-  Diff <- easiContrast(sumstats,contrast=contrast,...)[c(1,4,5)]
+  Diff <- ciContrast(sumstats,contrast=contrast,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")
   cipDifference(results,main,ylab,xlab)
@@ -154,12 +154,12 @@ plotContrast.default <- function(...,contrast){
   ylab="Outcome"
   xlab="Variables"
   convar1 <- ifelse(contrast<0,0,contrast)
-  resvar1 <- easiContrast(...,contrast=convar1)
+  resvar1 <- ciContrast(...,contrast=convar1)
   convar2 <- ifelse(contrast>0,0,abs(contrast))
-  resvar2 <- easiContrast(...,contrast=convar2)
+  resvar2 <- ciContrast(...,contrast=convar2)
   Vars <- rbind(resvar1,resvar2)
   Vars <- Vars[2:1,c(1,4,5)]  
-  Diff <- easiContrast(...,contrast=contrast)[c(1,4,5)]
+  Diff <- ciContrast(...,contrast=contrast)[c(1,4,5)]
   results <- rbind(Vars,Diff)
   rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")
   cipDifference(results,main,ylab,xlab)  
@@ -170,12 +170,12 @@ plotContrast.formula <- function(formula,contrast,...){
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
   congrp1 <- ifelse(contrast<0,0,contrast)
-  resgrp1 <- easiContrast(formula,contrast=congrp1,...)
+  resgrp1 <- ciContrast(formula,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
-  resgrp2 <- easiContrast(formula,contrast=congrp2,...)
+  resgrp2 <- ciContrast(formula,contrast=congrp2,...)
   Groups <- rbind(resgrp1,resgrp2)
   Groups <- Groups[2:1,c(1,4,5)]
-  Diff <- easiContrast(formula,contrast=contrast,...)[c(1,4,5)]
+  Diff <- ciContrast(formula,contrast=contrast,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast") 
   cipDifference(results,main,ylab,xlab)

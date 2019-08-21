@@ -72,13 +72,10 @@ plotDifference(cComfortvsChallenge)
 ```
 <kbd><img src="RattanFigure2.jpg"></kbd>
 ```r
-effectDifference(ComfortvsChallenge)
+standardizeDifference(ComfortvsChallenge)
 ```
 ```
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
 
-    d     g    LL    UL 
-1.133 1.107 0.439 1.925 
 ```
 
 ### Analysis of a Group Contrast
@@ -105,4 +102,10 @@ HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t     df     p
 Contrast 1.523 0.512 2.975 26.903 0.006
+```
+```r
+
+```
+```
+
 ```

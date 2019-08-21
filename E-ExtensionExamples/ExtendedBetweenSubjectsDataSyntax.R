@@ -1,14 +1,19 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Extended Between-Subjects Data Example
 
+### Source the EASI Functions and Extensions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+
 ### Three Group Example Data
 
 Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))
 Outcome <- c(3,4,5,7,8,9,8,9,10)
 Group <- factor(Group)
 
-mydata <- data.frame(Group,Outcome)
-mydata
+MyData <- data.frame(Group,Outcome)
+MyData
 
 ### Analyses of Pairwise Group Comparisons
 ### (equivalent to unadjusted t tests)
@@ -30,5 +35,5 @@ testPairwise(Outcome~Group,mu=-2)
 
 #### Effect Sizes for the Pairwise Comparisons
 
-effectPairwise(Outcome~Group)
-effectPairwise(Outcome~Group,conf.level=.99)
+standardizePairwise(Outcome~Group)
+standardizePairwise(Outcome~Group,conf.level=.99)

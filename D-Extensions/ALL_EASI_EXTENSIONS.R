@@ -207,28 +207,26 @@ smdPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
-  colnames(results)<- c("d","g","LL","UL")
+  colnames(results)<- c("Est","SE","LL","UL")
   comp <- 1
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
     R <- corrstats[rn[1],rn[2]]  
     ns <- N[rn[c(i,j)]]
-	mns <- M[rn[c(i,j)]]
-	sds <- SD[rn[c(i,j)]]
-	ntilde <- 1/mean(1/ns) 
-    MD <- mns[1]-mns[2]	
-    SDp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
-	cohend <- MD/SDp
-	eta <- ns[1]+ns[2]-2
-	J <- gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
-	hedgesg <- cohend*J
-	lambda <- hedgesg*sqrt(ntilde/(2*(1-R)))
-	tlow <- qt(1/2-conf.level/2,df=eta,ncp=lambda)
-	thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
-	dlow <- tlow/lambda*hedgesg 
-	dhig <- thig/lambda*hedgesg 
-    results[comp,] <- c(d=cohend,g=hedgesg,LL=dlow,UL=dhig)
+	  mns <- M[rn[c(i,j)]]
+	  sds <- SD[rn[c(i,j)]]
+    z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
+    s <- sqrt((sds[1]^2 + sds[2]^2)/2)
+    df <- min(ns-1)
+    v1 <- sds[1]^2
+    v2 <- sds[2]^2
+    vd <- v1+v2-2*R*sds[1]*sds[2]
+    Est <- (mns[1]-mns[2])/s
+    SE <- sqrt(Est^2*(v1^2+v2^2+2*R^2*v1*v2)/(8*df*s^4)+vd/(df*s^2))
+    LL <- Est-z*SE
+    UL <- Est+z*SE
+    results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1
   }
   }
@@ -243,27 +241,23 @@ smdPairwise.bss <- function(sumstats,conf.level=.95,...){
   nr <- nrow(sumstats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
-  colnames(results)<- c("d","g","LL","UL")
+  colnames(results)<- c("Est","SE","LL","UL")
   comp <- 1
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
     ns <- N[rn[c(i,j)]]
-	mns <- M[rn[c(i,j)]]
-	sds <- SD[rn[c(i,j)]]
-	ntilde <- 1/mean(1/ns) 
-	md <- (mns[1]-mns[2])
-	sdp <- sqrt((ns[1]-1)*sds[1]^2+(ns[2]-1)*sds[2]^2)/sqrt(ns[1]+ns[2]-2)
-	cohend <- md/sdp
-	eta <- ns[1]+ns[2]-2
-	J <- gamma(eta/2)/(sqrt(eta/2)*gamma((eta-1)/2))
-	hedgesg <- cohend*J
-	lambda <- hedgesg*sqrt(ntilde/2)
-	tlow <- qt(1/2-conf.level/2,df=eta,ncp=lambda)
-	thig <- qt(1/2+conf.level/2,df=eta,ncp=lambda)
-	dlow <- tlow/lambda*hedgesg 
-	dhig <- thig/lambda*hedgesg 
-    results[comp,] <- c(d=cohend,g=hedgesg,LL=dlow,UL=dhig)
+	  mns <- M[rn[c(i,j)]]
+	  sds <- SD[rn[c(i,j)]]
+    z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
+    v1 <- sds[1]^2
+    v2 <- sds[2]^2
+    s <- sqrt((v1+v2)/2)
+    Est <- (mns[1]-mns[2])/s
+    SE <- sqrt(Est^2*(v1^2/(N[1]-1) + v2^2/(N[2]-1))/(8*s^4) + (v1/(N[1]-1) + v2/(N[2]-1))/s^2)
+    LL <- Est-z*SE
+    UL <- Est+z*SE  
+    results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1
   }
   }
@@ -287,8 +281,8 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
 
 ### Wrappers for SMD Functions
 
-effectPairwise <- function(...) {
-  cat("\nSTANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS\n\n")
+standardizePairwise <- function(...) {
+  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS\n\n")
   print(smdPairwise(...))
   cat("\n")  
 }

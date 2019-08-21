@@ -34,7 +34,7 @@ plotMeans(Motivation~Feedback)
 Comparison <- factor(Feedback,c("Comfort","Challenge"))
 estimateDifference(Motivation~Comparison)
 plotDifference(Motivation~Comparison)
-effectDifference(Motivation~Comparison)
+standardizeDifference(Motivation~Comparison)
 
 ### Analyses of a Group Contrast
 
@@ -42,3 +42,4 @@ ComfortvsOthers <- c(-1,.5,.5)
 estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 plotContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+standardizeContrast(Motivation~Feedback,contrast=ComfortvsOthers)

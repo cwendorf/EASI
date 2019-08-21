@@ -5,14 +5,14 @@
 > 
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
 > 
-> #### Three Time Period Example Data
+> ### Three Time Period Example Data
 > 
 > Time1 <- c(5,6,6,7,8)
 > Time2 <- c(7,7,8,8,9)
 > Time3 <- c(8,8,9,9,9)
 > 
-> mydata <- data.frame(Time1,Time2,Time3)
-> mydata
+> MyData <- data.frame(Time1,Time2,Time3)
+> MyData
   Time1 Time2 Time3
 1     5     7     8
 2     6     7     8
@@ -25,70 +25,49 @@
 > 
 > #### Confidence Intervals for the Means
 > 
-> estimateLevels(Time1,Time2,Time3)
+> estimateMeans(Time1,Time2,Time3)
 
-CONFIDENCE INTERVALS FOR THE LEVELS
+CONFIDENCE INTERVALS FOR THE MEANS
 
       N   M    SD    SE    LL    UL
-Time1 5 6.4 1.140 0.510 4.984 7.816
+Time1 5 6.4 1.140 0.510 4.985 7.815
 Time2 5 7.8 0.837 0.374 6.761 8.839
 Time3 5 8.6 0.548 0.245 7.920 9.280
 
-> estimateLevels(Time1,Time2,Time3,conf.level=.99)
+> estimateMeans(Time1,Time2,Time3,conf.level=.99)
 
-CONFIDENCE INTERVALS FOR THE LEVELS
+CONFIDENCE INTERVALS FOR THE MEANS
 
       N   M    SD    SE    LL    UL
-Time1 5 6.4 1.140 0.510 4.052 8.748
+Time1 5 6.4 1.140 0.510 4.053 8.747
 Time2 5 7.8 0.837 0.374 6.077 9.523
 Time3 5 8.6 0.548 0.245 7.472 9.728
 
 > 
 > #### Plots of Confidence Intervals for the Means
 > 
-> plotLevels(Time1,Time2,Time3)
-> plotLevels(Time1,Time2,Time3,conf.level=.99,mu=6)
+> plotMeans(Time1,Time2,Time3)
+> plotMeans(Time1,Time2,Time3,conf.level=.99,mu=6)
 > 
 > #### Significance Tests for the Means
 > 
-> testLevels(Time1,Time2,Time3)
+> testMeans(Time1,Time2,Time3)
 
-HYPOTHESIS TESTS FOR THE LEVELS
+HYPOTHESIS TESTS FOR THE MEANS
 
       Diff    SE      t df p
-Time1  6.4 0.510 12.551  4 0
-Time2  7.8 0.374 20.846  4 0
-Time3  8.6 0.245 35.109  4 0
+Time1  6.4 0.510 12.553  4 0
+Time2  7.8 0.374 20.838  4 0
+Time3  8.6 0.245 35.092  4 0
 
-> testLevels(Time1,Time2,Time3,mu=6)
+> testMeans(Time1,Time2,Time3,mu=6)
 
-HYPOTHESIS TESTS FOR THE LEVELS
+HYPOTHESIS TESTS FOR THE MEANS
 
       Diff    SE      t df     p
-Time1  0.4 0.510  0.784  4 0.477
-Time2  1.8 0.374  4.811  4 0.009
-Time3  2.6 0.245 10.614  4 0.000
-
-> 
-> #### Effect Sizes for the Means
-> 
-> effectLevels(Time1,Time2,Time3)
-
-STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
-
-       d      g    LL     UL
-Time1  5.614  4.479 2.574 13.031
-Time2  9.319  7.435 4.389 21.463
-Time3 15.693 12.522 7.463 36.039
-
-> effectLevels(Time1,Time2,Time3,mu=6,conf.level=.99)
-
-STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
-
-      d     g     LL     UL
-Time1 0.351 0.280 -1.374  2.865
-Time2 2.151 1.716  0.504  8.191
-Time3 4.745 3.786  1.798 16.958
+Time1  0.4 0.510  0.785  4 0.477
+Time2  1.8 0.374  4.809  4 0.009
+Time3  2.6 0.245 10.609  4 0.000
 
 > 
 > ### Analyses of a Variable Comparison
@@ -108,7 +87,7 @@ Comparison -1.4 0.245  4 -2.08 -0.72
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
            Diff    SE df     LL     UL
-Comparison -1.4 0.245  4 -2.528 -0.272
+Comparison -1.4 0.245  4 -2.527 -0.273
 
 > estimateDifference(Time3,Time1)
 
@@ -130,31 +109,31 @@ Comparison  2.2 0.374  4 1.161 3.239
 HYPOTHESIS TEST FOR THE COMPARISON
 
            Diff    SE      t df     p
-Comparison -1.4 0.245 -5.715  4 0.005
+Comparison -1.4 0.245 -5.718  4 0.005
 
 > testDifference(Time1,Time2,mu=-2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
            Diff    SE     t df    p
-Comparison -1.4 0.245 2.449  4 0.07
+Comparison  0.6 0.245 2.451  4 0.07
 
 > 
 > #### Effect Size for the Mean Difference
 > 
-> effectDifference(Time1,Time2)
+> standardizeDifference(Time1,Time2)
 
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              d      g     LL     UL
-Comparison -1.4 -1.264 -2.566 -0.735
+          Est    SE     LL     UL
+Contrast -1.4 0.545 -2.468 -0.332
 
-> effectDifference(Time1,Time2,conf.level=.99)
+> standardizeDifference(Time1,Time2,conf.level=.99)
 
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              d      g     LL     UL
-Comparison -1.4 -1.264 -3.298 -0.608
+          Est    SE     LL    UL
+Contrast -1.4 0.545 -2.804 0.004
 
 > 
 > ### Analyses of a Variable Contrast
@@ -168,7 +147,7 @@ Comparison -1.4 -1.264 -3.298 -0.608
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
          Est   SE df    LL    UL
-Contrast 6.4 0.51  4 4.984 7.816
+Contrast 6.4 0.51  4 4.985 7.815
 
 > T2nT3 <- c(0,.5,.5)
 > estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
@@ -200,7 +179,7 @@ Contrast 1.8 0.3  4 0.419 3.181
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-> plotContrast(Time1,Time2,Time3,contrast=G1vsOthers,conf.level=.99)
+> plotContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 > 
 > #### Significance Test for the Contrast
 > 
@@ -208,52 +187,31 @@ Contrast 1.8 0.3  4 0.419 3.181
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
-         Est  SE t df     p
-Contrast 1.8 0.3 6  4 0.004
+         Est  SE     t df     p
+Contrast 1.8 0.3 6.002  4 0.004
 
 > testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=-1)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
          Est  SE     t df     p
-Contrast 2.8 0.3 9.333  4 0.001
+Contrast 1.8 0.3 6.002  4 0.004
 
 > 
-> ### Different Methods for Comparing Two Levels
-> ### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
+> #### Effect Size for the Contrast
 > 
-> #### The Difference/Comparison Approach (Copied from Above)
-> 
-> estimateDifference(Time2,Time1)
+> standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 
-CONFIDENCE INTERVAL FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Diff    SE df   LL   UL
-Comparison  1.4 0.245  4 0.72 2.08
+           Est    SE    LL    UL
+Contrast 2.056 0.685 0.714 3.397
 
-> testDifference(Time2,Time1)
+> standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 
-HYPOTHESIS TEST FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Diff    SE     t df     p
-Comparison  1.4 0.245 5.715  4 0.005
-
-> 
-> #### The Contrast Approach (Adapted from Above)
-> 
-> T1vsT2 <- c(-1,1,0)
-> estimateContrast(Time1,Time2,Time3,contrast=T1vsT2)
-
-CONFIDENCE INTERVAL FOR THE CONTRAST
-
-         Est    SE df   LL   UL
-Contrast 1.4 0.245  4 0.72 2.08
-
-> testContrast(Time1,Time2,Time3,contrast=T1vsT2)
-
-HYPOTHESIS TEST FOR THE CONTRAST
-
-         Est    SE     t df     p
-Contrast 1.4 0.245 5.715  4 0.005
+           Est    SE    LL    UL
+Contrast 2.056 0.685 0.292 3.819
 
 > 

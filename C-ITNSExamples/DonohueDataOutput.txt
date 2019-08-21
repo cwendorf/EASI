@@ -57,12 +57,12 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 Comparison  0.2 0.753 19 -1.375 1.775
 
 > plotDifference(Posttest,Followup)
-> effectDifference(Posttest,Followup)
+> standardizeDifference(Posttest,Followup)
 
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-               d     g     LL    UL
-Comparison 0.043 0.042 -0.281 0.369
+           Est    SE    LL    UL
+Contrast 0.043 0.165 -0.28 0.366
 
 > 
 > ### Analysis of a Variable Contrast
@@ -82,3 +82,10 @@ HYPOTHESIS TEST FOR THE CONTRAST
 
           Est    SE     t df p
 Contrast 19.2 1.386 13.85 19 0
+
+> standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE    LL    UL
+Contrast 3.745 0.461 2.842 4.649

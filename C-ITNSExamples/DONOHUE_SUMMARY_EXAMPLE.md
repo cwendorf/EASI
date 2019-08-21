@@ -86,13 +86,13 @@ plotDifference(PostvsFollowup,DonohueCorr)
 ```
 <kbd><img src="DonohueFigure2.jpg"></kbd>
 ```r
-effectDifference(PostvsFollowup,DonohueCorr)
+standardizeDifference(PostvsFollowup,DonohueCorr)
 ```
 ```
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-     d      g     LL     UL 
- 0.043  0.042 -0.281  0.369 
+           Est    SE    LL    UL
+Contrast 0.043 0.165 -0.28 0.365
 ```
 
 ### Analysis of a Variable Contrast
@@ -119,4 +119,13 @@ HYPOTHESIS TEST FOR THE CONTRAST
 
           Est    SE      t df p
 Contrast 19.2 1.386 13.851 19 0
+```
+```r
+standardizeContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE    LL    UL
+Contrast 3.745 0.461 2.842 4.649
 ```

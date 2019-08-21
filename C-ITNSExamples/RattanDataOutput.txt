@@ -92,12 +92,12 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 Comparison -1.932 0.572 31.521 -3.098 -0.766
 
 > plotDifference(Motivation~Comparison)
-> effectDifference(Motivation~Comparison)
+> standardizeDifference(Motivation~Comparison)
 
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-                d      g     LL     UL
-Comparison -1.133 -1.107 -1.925 -0.439
+              Est    SE     LL     UL
+Difference -1.137 0.376 -1.873 -0.401
 
 > 
 > ### Analyses of a Group Contrast
@@ -117,3 +117,12 @@ HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t     df     p
 Contrast 1.523 0.512 2.975 26.903 0.006
+
+> standardizeContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est   SE    LL   UL
+Contrast 0.943 0.34 0.276 1.61
+
+> 

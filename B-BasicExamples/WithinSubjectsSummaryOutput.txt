@@ -5,7 +5,7 @@
 > 
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
 > 
-> ### Three Time Period Example Summary
+> ### Three Time Period Example Summary Statistics
 > 
 > Time1 <- c(N=5,M=6.4,SD=1.14)
 > Time2 <- c(N=5,M=7.8,SD=.837)
@@ -36,18 +36,18 @@ Time3 0.721 0.873 1.000
 > 
 > #### Confidence Intervals for the Means
 > 
-> estimateLevels(sumstats)
+> estimateMeans(sumstats)
 
-CONFIDENCE INTERVALS FOR THE LEVELS
+CONFIDENCE INTERVALS FOR THE MEANS
 
       N   M    SD    SE    LL    UL
 Time1 5 6.4 1.140 0.510 4.985 7.815
 Time2 5 7.8 0.837 0.374 6.761 8.839
 Time3 5 8.6 0.548 0.245 7.920 9.280
 
-> estimateLevels(sumstats,conf.level=.99)
+> estimateMeans(sumstats,conf.level=.99)
 
-CONFIDENCE INTERVALS FOR THE LEVELS
+CONFIDENCE INTERVALS FOR THE MEANS
 
       N   M    SD    SE    LL    UL
 Time1 5 6.4 1.140 0.510 4.053 8.747
@@ -57,23 +57,23 @@ Time3 5 8.6 0.548 0.245 7.472 9.728
 > 
 > #### Plots of Confidence Intervals for the Means
 > 
-> plotLevels(sumstats)
-> plotLevels(sumstats,conf.level=.99,mu=6)
+> plotMeans(sumstats)
+> plotMeans(sumstats,conf.level=.99,mu=6)
 > 
 > #### Significance Tests for the Means
 > 
-> testLevels(sumstats)
+> testMeans(sumstats)
 
-HYPOTHESIS TESTS FOR THE LEVELS
+HYPOTHESIS TESTS FOR THE MEANS
 
       Diff    SE      t df p
 Time1  6.4 0.510 12.553  4 0
 Time2  7.8 0.374 20.838  4 0
 Time3  8.6 0.245 35.092  4 0
 
-> testLevels(sumstats,mu=6)
+> testMeans(sumstats,mu=6)
 
-HYPOTHESIS TESTS FOR THE LEVELS
+HYPOTHESIS TESTS FOR THE MEANS
 
       Diff    SE      t df     p
 Time1  0.4 0.510  0.785  4 0.477
@@ -81,33 +81,12 @@ Time2  1.8 0.374  4.809  4 0.009
 Time3  2.6 0.245 10.609  4 0.000
 
 > 
-> #### Effect Sizes for the Means
-> 
-> effectLevels(sumstats)
-
-STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
-
-           d      g    LL     UL
-Time1  5.614  4.479 2.574 13.031
-Time2  9.319  7.435 4.389 21.463
-Time3 15.693 12.522 7.463 36.039
-
-> effectLevels(sumstats,mu=6,conf.level=.99)
-
-STANDARDIZED MEAN DIFFERENCES FOR THE LEVELS
-
-          d     g     LL     UL
-Time1 0.351 0.280 -1.374  2.865
-Time2 2.151 1.716  0.504  8.191
-Time3 4.745 3.786  1.798 16.958
-
-> 
 > ### Analyses of a Variable Comparison
 > ### (equivalent to analyses for two levels of a factor)
 > 
 > #### Confidence Interval for the Mean Difference
 > 
-> compstats <- sumstats[c(1,2),]
+> compstats <- sumstats[c("Time1","Time2"),]
 > class(compstats) <- "wss"
 > estimateDifference(compstats,corrstats)
 
@@ -123,12 +102,12 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
            Diff    SE df     LL     UL
 Comparison -1.4 0.245  4 -2.527 -0.273
 
-> compstats <- sumstats[c(3,1),]
+> compstats <- sumstats[c("Time3","Time1"),]
 > class(compstats) <- "wss"
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
-> compstats <- sumstats[c(1,2),]
+> compstats <- sumstats[c("Time1","Time2"),]
 > class(compstats) <- "wss"
 > plotDifference(compstats,corrstats)
 > plotDifference(compstats,corrstats,conf.level=.99)
@@ -152,20 +131,21 @@ Comparison  0.6 0.245 2.45  4 0.07
 > 
 > #### Effect Size for the Mean Difference
 > 
-> effectDifference(compstats,corrstats)
+> standardizeDifference(compstats,corrstats)
 
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              d      g     LL     UL
-Comparison -1.4 -1.264 -2.566 -0.735
+          Est    SE     LL     UL
+Contrast -1.4 0.545 -2.468 -0.332
 
-> effectDifference(compstats,corrstats,conf.level=.99)
+> standardizeDifference(compstats,corrstats,conf.level=.99)
 
-STANDARDIZED MEAN DIFFERENCE FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              d      g     LL     UL
-Comparison -1.4 -1.264 -3.298 -0.608
+          Est    SE     LL    UL
+Contrast -1.4 0.545 -2.804 0.004
 
+> 
 > ### Analyses of a Variable Contrast
 > ### (equivalent to analyses for multiple levels of a factor)
 > 
@@ -209,7 +189,7 @@ Contrast 1.8 0.3  4 0.42 3.18
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > plotContrast(sumstats,corrstats,contrast=T1vsOthers)
-> plotContrast(sumstats,corrstats,contrast=G1vsOthers,conf.level=.99)
+> plotContrast(sumstats,corrstats,contrast=T1vsOthers,conf.level=.99)
 > 
 > #### Significance Test for the Contrast
 > 
@@ -228,43 +208,20 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 1.8 0.3 6.004  4 0.004
 
 > 
-> ### Different Methods for Comparing Two Levels
-> ### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
+> #### Significance Test for the Contrast
 > 
-> #### The Difference/Comparison Approach (Copied from Above)
-> 
-> compstats <- sumstats[c(2,1),]
-> class(compstats) <- "wss"
-> estimateDifference(compstats,corrstats)
+> standardizeContrast(sumstats,corrstats,contrast=T1vsOthers)
 
-CONFIDENCE INTERVAL FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Diff    SE df   LL   UL
-Comparison  1.4 0.245  4 0.72 2.08
+           Est    SE    LL    UL
+Contrast 2.056 0.685 0.714 3.397
 
-> testDifference(compstats,corrstats)
+> standardizeContrast(sumstats,corrstats,contrast=T1vsOthers,conf.level=.99)
 
-HYPOTHESIS TEST FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Diff    SE     t df     p
-Comparison  1.4 0.245 5.717  4 0.005
-
-> 
-> #### The Contrast Approach (Adapted from Above)
-> 
-> T1vsT2 <- c(-1,1,0)
-> estimateContrast(sumstats,corrstats,contrast=T1vsT2)
-
-CONFIDENCE INTERVAL FOR THE CONTRAST
-
-         Est    SE df   LL   UL
-Contrast 1.4 0.245  4 0.72 2.08
-
-> testContrast(sumstats,corrstats,contrast=T1vsT2)
-
-HYPOTHESIS TEST FOR THE CONTRAST
-
-         Est    SE     t df     p
-Contrast 1.4 0.245 5.717  4 0.005
+           Est    SE    LL    UL
+Contrast 2.056 0.685 0.292 3.819
 
 > 

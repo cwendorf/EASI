@@ -32,26 +32,23 @@ plotMeans(sumstats,conf.level=.99,mu=5)
 testMeans(sumstats)
 testMeans(sumstats,mu=5)
 
-#### Effect Sizes for the Means
-
-effectMeans(sumstats)
-effectMeans(sumstats,mu=5,conf.level=.99)
-
 ### Analyses of a Group Comparison
 ### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for a Mean Difference
 
-compstats <- sumstats[c(1,2),]
+compstats <- sumstats[c("Group1","Group2"),]
 class(compstats) <- "bss"
 estimateDifference(compstats)
 estimateDifference(compstats,conf.level=.99)
-compstats <- sumstats[c(3,1),]
+compstats <- sumstats[c("Group3","Group1"),]
 class(compstats) <- "bss"
 estimateDifference(compstats)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
+compstats <- sumstats[c("Group1","Group2"),]
+class(compstats) <- "bss"
 plotDifference(compstats)
 plotDifference(compstats,conf.level=.99)
 
@@ -62,8 +59,8 @@ testDifference(compstats,mu=2)
 
 #### Effect Size for the Mean Difference
 
-effectDifference(compstats)
-effectDifference(compstats,conf.level=.99)
+standardizeDifference(compstats)
+standardizeDifference(compstats,conf.level=.99)
 
 ### Analyses of a Group Contrast
 ### (equivalent to analyses for multiple levels of a factor)
@@ -91,18 +88,7 @@ plotContrast(sumstats,contrast=G1vsOthers,conf.level=.99)
 testContrast(sumstats,contrast=G1vsOthers)
 testContrast(sumstats,contrast=G1vsOthers,mu=4)
 
-### Different Methods for Comparing Two Groups
-### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
+#### Effect Size for a Contrast
 
-#### The Difference/Comparison Approach (Copied from Above)
-
-compstats <- sumstats[c(1,2),]
-class(compstats) <- "bss"
-estimateDifference(compstats)
-testDifference(compstats)
-
-#### The Contrast Approach (Adapted from Above)
-
-G1vsG2 <- c(-1,1,0)
-estimateContrast(sumstats,contrast=G1vsG2)
-testContrast(sumstats,contrast=G1vsG2)
+standardizeContrast(sumstats,contrast=G1vsOthers)
+standardizeContrast(sumstats,contrast=G1vsOthers,conf.level=.99)

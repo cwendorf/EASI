@@ -89,16 +89,16 @@ testPairwise(Time1,Time2,Time3,mu=-2)
 #### Effect Sizes for the Pairwise Comparisons
 
 ```r
-effectPairwise(Time1,Time2,Time3)
+standardizePairwise(Time1,Time2,Time3)
 ```
 ```
-STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                   d      g     LL     UL
-Time1 v Time2 -1.400 -1.264 -2.566 -0.735
-Time1 v Time3 -2.460 -2.220 -4.468 -1.326
-Time2 v Time3 -1.131 -1.021 -2.153 -0.524
+                 Est    SE     LL     UL
+Time1 v Time2 -1.400 0.545 -2.468 -0.332
+Time1 v Time3 -2.460 0.928 -4.278 -0.641
+Time2 v Time3 -1.131 0.488 -2.086 -0.175
 ```
 ```r
-effectPairwise(Time1,Time2,Time3,conf.level=.99)
+standardizePairwise(Time1,Time2,Time3,conf.level=.99)
 ```

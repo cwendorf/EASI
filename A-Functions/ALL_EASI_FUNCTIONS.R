@@ -2,9 +2,6 @@
 ## Basic Functions for Means and Mean Differences
 ### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
-# Estimation Approach to Statistical Inference (EASI)
-## Basic Functions for Means and Mean Differences
-
 ### Describe Functions
 
 #### Describe Function for Mutiple Groups and Variables
@@ -80,10 +77,6 @@ fillCorrMatrix <- function(mat){
   diag(results) <- 1.000
   return(results)
 }
-
-# Estimation Approach to Statistical Inference (EASI)
-## Basic Functions for Means and Mean Differences
-
 ### Confidence Interval Functions
 
 #### CI Function for Means of Levels
@@ -246,8 +239,6 @@ estimateContrast<-function(...) {
   print(ciContrast(...)) 
   cat("\n")  
 }
-# Estimation Approach to Statistical Inference (EASI)
-## Basic Functions for Means and Mean Differences
 
 ### Confidence Interval Plot Functions
 
@@ -336,7 +327,7 @@ plotDifference.wss <- function(compstats,corrstats,...){
   ylab="Outcome"
   xlab="Variables"
   Groups <- ciMeans(compstats,...)[2:1,c(2,5,6)]
-  Diff <- easiDifference(compstats,corrstats,...)[c(1,4,5)]
+  Diff <- ciDifference(compstats,corrstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
@@ -347,7 +338,7 @@ plotDifference.bss <- function(compstats,...){
   ylab="Outcome"
   xlab="Groups"
   Groups <- ciMeans(compstats,...)[2:1,c(2,5,6)]
-  Diff <- easiDifference(compstats,...)[c(1,4,5)]
+  Diff <- ciDifference(compstats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
@@ -358,7 +349,7 @@ plotDifference.default <- function(...){
   ylab="Outcome"
   xlab="Variables"
   Vars <- ciMeans(...)[2:1,c(2,5,6)]
-  Diff <- easiDifference(...)[c(1,4,5)]
+  Diff <- ciDifference(...)[c(1,4,5)]
   results <- rbind(Vars,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
@@ -370,7 +361,7 @@ plotDifference.formula <- function(formula,...){
   xlab=all.vars(formula)[2]
   Groups <- ciMeans(formula,...)
   Groups <- Groups[2:1,c(2,5,6)]
-  Diff <- easiDifference(formula,...)[c(1,4,5)]
+  Diff <- ciDifference(formula,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab)
@@ -386,12 +377,12 @@ plotContrast.bss <- function(sumstats,contrast,...){
   ylab="Outcome"
   xlab="Groups"
   congrp1 <- ifelse(contrast<0,0,contrast)
-  resgrp1 <- easiContrast(sumstats,contrast=congrp1,...)
+  resgrp1 <- ciContrast(sumstats,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
-  resgrp2 <- easiContrast(sumstats,contrast=congrp2,...)
+  resgrp2 <- ciContrast(sumstats,contrast=congrp2,...)
   Groups <- rbind(resgrp1,resgrp2)
   Groups <- Groups[2:1,c(1,4,5)]
-  Diff <- easiContrast(sumstats,contrast=contrast,...)[c(1,4,5)]
+  Diff <- ciContrast(sumstats,contrast=contrast,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")
   cipDifference(results,main,ylab,xlab)
@@ -402,12 +393,12 @@ plotContrast.default <- function(...,contrast){
   ylab="Outcome"
   xlab="Variables"
   convar1 <- ifelse(contrast<0,0,contrast)
-  resvar1 <- easiContrast(...,contrast=convar1)
+  resvar1 <- ciContrast(...,contrast=convar1)
   convar2 <- ifelse(contrast>0,0,abs(contrast))
-  resvar2 <- easiContrast(...,contrast=convar2)
+  resvar2 <- ciContrast(...,contrast=convar2)
   Vars <- rbind(resvar1,resvar2)
   Vars <- Vars[2:1,c(1,4,5)]  
-  Diff <- easiContrast(...,contrast=contrast)[c(1,4,5)]
+  Diff <- ciContrast(...,contrast=contrast)[c(1,4,5)]
   results <- rbind(Vars,Diff)
   rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")
   cipDifference(results,main,ylab,xlab)  
@@ -418,20 +409,16 @@ plotContrast.formula <- function(formula,contrast,...){
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
   congrp1 <- ifelse(contrast<0,0,contrast)
-  resgrp1 <- easiContrast(formula,contrast=congrp1,...)
+  resgrp1 <- ciContrast(formula,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
-  resgrp2 <- easiContrast(formula,contrast=congrp2,...)
+  resgrp2 <- ciContrast(formula,contrast=congrp2,...)
   Groups <- rbind(resgrp1,resgrp2)
   Groups <- Groups[2:1,c(1,4,5)]
-  Diff <- easiContrast(formula,contrast=contrast,...)[c(1,4,5)]
+  Diff <- ciContrast(formula,contrast=contrast,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast") 
   cipDifference(results,main,ylab,xlab)
 }
-# Estimation Approach to Statistical Inference (EASI)
-## Basic Functions for Means and Mean Differences 
-
-### Null Hypothesis Significance Test Functions
 
 #### NHST Function for Means of Levels
 
@@ -589,8 +576,6 @@ testContrast<-function(...) {
   print(nhstContrast(...)) 
   cat("\n")  
 }
-# Estimation Approach to Statistical Inference (EASI)
-## Basic Functions for Means and Mean Differences 
 
 ### Standardized Mean Difference Functions
 
@@ -665,7 +650,29 @@ smdDifference.formula <- function(formula,contrast,conf.level=.95,...){
 smdContrast <- function(...) 
   UseMethod("smdContrast")
 
-
+smdContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95,...) {
+  N <- min(sumstats[,"N"])
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  R <- mean(corrstats[upper.tri(corrstats)])
+  df <- N-1
+  z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
+  a <- length(M)
+  s <- sqrt(sum(SD^2)/a)
+  Est <- (t(contrast)%*%M)/s
+  v1 <- Est^2/(2*a^2*s^4*df)
+  v2 <- sum(SD^4)
+  v3 <- R^2*t(SD^2)%*%SD^2 
+  v4 <- sum(contrast^2*SD^2)
+  v5 <- R*t(contrast*SD)%*%(contrast*SD)
+  SE <- sqrt(v1*(v2+v3)+(v4-v5)/(df*s^2))
+  LL <- Est-z*SE
+  UL <- Est+z*SE
+  results <- t(c(Est,SE,LL,UL))
+  colnames(results) <- c("Est","SE","LL","UL")
+  rownames(results) <- c("Contrast")
+  return(round(results,3))
+}
 
 smdContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   N <- sumstats[,"N"]
@@ -688,7 +695,13 @@ smdContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   return(round(results,3))
 }
 
-
+smdContrast.default <- function(...,contrast,conf.level=.95){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  corrstats <- correlateLevels(...)
+  results <- smdContrast(sumstats,corrstats,contrast,conf.level=conf.level)
+  return(results)
+}
 
 smdContrast.formula <- function(formula,contrast,conf.level=.95,...){
   sumstats <- describeLevels(formula)
@@ -698,12 +711,6 @@ smdContrast.formula <- function(formula,contrast,conf.level=.95,...){
 }
 
 ### Wrappers for SMD Functions
-
-standardizeMeans <- function(...){
-  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS\n\n")
-  print(smdMeans(...))
-  cat("\n")
-}
 
 standardizeDifference <- function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")

@@ -1,6 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Extended Within-Subjects Summary Example
 
+### Source the EASI Functions and Extensions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+
 ### Three Time Period Example Summary Statistics
 
 Time1 <- c(N=5,M=6.4,SD=1.14)
@@ -37,5 +42,5 @@ testPairwise(sumstats,corrstats,mu=-2)
 
 #### Effect Sizes for the Pairwise Comparisons
 
-effectPairwise(sumstats,corrstats)
-effectPairwise(sumstats,corrstats,conf.level=.99)
+standardizePairwise(sumstats,corrstats)
+standardizePairwise(sumstats,corrstats,conf.level=.99)

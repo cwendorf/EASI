@@ -1,5 +1,10 @@
 > # Estimation Approach to Statistical Inference (EASI)
 > ## Extended Within-Subjects Data Example
+>
+> ### Source the EASI Functions and Extensions
+> 
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
 > 
 > ### Three Time Period Example Data
 > 
@@ -7,8 +12,8 @@
 > Time2 <- c(7,7,8,8,9)
 > Time3 <- c(8,8,9,9,9)
 > 
-> mydata <- data.frame(Time1,Time2,Time3)
-> mydata
+> MyData <- data.frame(Time1,Time2,Time3)
+> MyData
   Time1 Time2 Time3
 1     5     7     8
 2     6     7     8
@@ -68,20 +73,22 @@ Time2 v Time3  1.2 0.200  5.998  4 0.004
 > 
 > #### Effect Sizes for the Pairwise Comparisons
 > 
-> effectPairwise(Time1,Time2,Time3)
+> standardizePairwise(Time1,Time2,Time3)
 
-STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                   d      g     LL     UL
-Time1 v Time2 -1.400 -1.264 -2.566 -0.735
-Time1 v Time3 -2.460 -2.220 -4.341 -1.431
-Time2 v Time3 -1.131 -1.021 -2.128 -0.546
+                 Est    SE     LL     UL
+Time1 v Time2 -1.400 0.545 -2.468 -0.332
+Time1 v Time3 -2.460 0.928 -4.278 -0.641
+Time2 v Time3 -1.131 0.488 -2.086 -0.175
 
-> effectPairwise(Time1,Time2,Time3,conf.level=.99)
+> standardizePairwise(Time1,Time2,Time3,conf.level=.99)
 
-STANDARDIZED MEAN DIFFERENCES FOR THE PAIRWISE COMPARISONS
+CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                   d      g     LL     UL
-Time1 v Time2 -1.400 -1.264 -3.298 -0.608
-Time1 v Time3 -2.460 -2.220 -5.547 -1.252
-Time2 v Time3 -1.131 -1.021 -2.745 -0.427
+                 Est    SE     LL     UL
+Time1 v Time2 -1.400 0.545 -2.804  0.004
+Time1 v Time3 -2.460 0.928 -4.850 -0.070
+Time2 v Time3 -1.131 0.488 -2.387  0.125
+
+> 
