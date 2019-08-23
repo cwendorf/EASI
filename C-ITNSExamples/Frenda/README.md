@@ -13,15 +13,16 @@
 
 ### Overview of this Example
 
-This example is from the _[Introduction to the New Statistics (ITNS)](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_
+The **Frenda** documents and files analyze and example of a two-factor between-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 15).
+
 - The example uses only summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
 - The example contains a syntax file, a text output file, and graphs
 
 ### Details of this Example
 
-The **Frenda** documents and files analyze and example of a two-factor between-subjects design (from ITNS, Ch. 15).  
 The [**FRENDA_SUMMARY_EXAMPLE.md**](./FRENDA_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+
 These analyses include the following:
 
 - Analyses of Multiple Groups (equivalent to one-sample analyses of each level of the design)

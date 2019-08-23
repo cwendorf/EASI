@@ -13,16 +13,17 @@
 
 ### Overview of this Example
 
-This example is from the _[Introduction to the New Statistics (ITNS)](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_
+The **Rattan** documents and files analyze an example of a single-factor between-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14).
+
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
 - The example contains a data file, a syntax file, a text output file, and graphs
 
 ### Details of this Example
 
-The **Rattan** documents and files analyze an example of a single-factor between-subjects design (from ITNS, Ch. 14).  
 The [**RATTAN_DATA_EXAMPLE.md**](./RATTAN_DATA_EXAMPLE.md) file uses raw data input.  
 The [**RATTAN_SUMMARY_EXAMPLE.md**](./RATTAN_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+
 These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
