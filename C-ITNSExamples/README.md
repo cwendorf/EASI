@@ -21,8 +21,8 @@
 ### Included Examples
 
 The **Rattan** documents and files analyze an example of a single-factor between-subjects design (from ITNS, Ch. 14).  
-The [**RATTAN_DATA_EXAMPLE.md**](./RATTAN_DATA_EXAMPLE.md) uses raw data input.  
-The [**RATTAN_SUMMARY_EXAMPLE.md**](./RATTAN_SUMMARY_EXAMPLE.md) uses summary statistics input.  
+The [**RATTAN_DATA_EXAMPLE.md**](./Rattan/RATTAN_DATA_EXAMPLE.md) uses raw data input.  
+The [**RATTAN_SUMMARY_EXAMPLE.md**](./Rattan/RATTAN_SUMMARY_EXAMPLE.md) uses summary statistics input.  
 These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
@@ -30,8 +30,8 @@ These analyses include the following:
 - Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor)
 
 The **Donohue** documents and files analyze an example of a single-factor within-subjects design (from ITNS, Ch. 14).  
-The [**DONOHUE_DATA_EXAMPLE.md**](./DONOHUE_DATA_EXAMPLE.md) uses raw data input.  
-The [**DONOHUE_SUMMARY_EXAMPLE.md**](./DONOHUE_SUMMARY_EXAMPLE.md) uses summary statistics input.  
+The [**DONOHUE_DATA_EXAMPLE.md**](./Donohue/DONOHUE_DATA_EXAMPLE.md) uses raw data input.  
+The [**DONOHUE_SUMMARY_EXAMPLE.md**](./Donohue/DONOHUE_SUMMARY_EXAMPLE.md) uses summary statistics input.  
 These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
@@ -39,7 +39,7 @@ These analyses include the following:
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
 
 The **Frenda** documents and files analyze and example of a two-factor between-subjects design (from ITNS, Ch. 15).  
-The [**FRENDA_SUMMARY_EXAMPLE.md**](./FRENDA_SUMMARY_EXAMPLE.md) uses summary statistics input.  
+The [**FRENDA_SUMMARY_EXAMPLE.md**](./Frenda/FRENDA_SUMMARY_EXAMPLE.md) uses summary statistics input.  
 These analyses include the following:
 
 - Analyses of Multiple Groups (equivalent to one-sample analyses of each level of the design)
