@@ -89,20 +89,3 @@ testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
 
 standardizeContrast(Outcome~Group,contrast=G1vsOthers)
 standardizeContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
-
-### Different Methods for Comparing Two Groups
-### (demonstrating equivalence of Difference/Comparison and Contrast approaches)
-
-#### The Difference/Comparison Approach (Copied from Above)
-
-Comparison=factor(Group,c("Group2","Group1"))
-estimateDifference(Outcome~Comparison)
-testDifference(Outcome~Comparison)
-standardizeDifference(Outcome~Comparison)
-
-#### The Contrast Approach (Adapted from Above)
-
-G1vsG2 <- c(-1,1,0)
-estimateContrast(Outcome~Group,contrast=G1vsG2)
-testContrast(Outcome~Group,contrast=G1vsG2)
-standardizeContrast(Outcome~Group,contrast=G1vsG2)
