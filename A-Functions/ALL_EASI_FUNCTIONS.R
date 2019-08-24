@@ -607,7 +607,7 @@ smdDifference.wss <- function(sumstats,corrstats,conf.level=.95,...){
   UL <- Est+z*SE
   results <- t(c(Est,SE,LL,UL))
   colnames(results) <- c("Est","SE","LL","UL")
-  rownames(results) <- c("Contrast")
+  rownames(results) <- c("Comparison")
   return(round(results,3))
 }
 
@@ -626,7 +626,7 @@ smdDifference.bss <- function(sumstats,contrast,conf.level=.95,...) {
   UL <- Est+z*SE
   results <- t(c(Est,SE,LL,UL))
   colnames(results) <- c("Est","SE","LL","UL")
-  rownames(results) <- c("Difference")
+  rownames(results) <- c("Comparison")
   return(round(results,3))
 }
 

@@ -23,6 +23,7 @@ Alternatively, you can paste the contents of the [**ALL_EASI_FUNCTIONS.R**](http
 ### Summary of the Functions
 
 The EASI functions were written in five basic categories of analyses:
+
 - **describeFunctions.R** (functions that help calculate basic descriptive statistics and matrices)
 - **estimateFunctions.R** (functions that estimate confidence intervals for means and mean differences)
 - **plotFunctions.R** (functions that plot confidence intervals for means and mean differences)
@@ -33,14 +34,14 @@ The EASI functions were written in five basic categories of analyses:
 
 ### For Means, Mean Differences, and Contrasts
 
-- Confidence intervals are calculated independent of each other (i.e., they are not simultaneous).
-- No adjustments for multiple intervals have been made.
-- All intervals assume heterogenity of variance.
+- Confidence intervals are calculated independent of each other (i.e., they are not simultaneous)
+- No alpha adjustments for multiple intervals have been made
+- All calculations assume heterogenity of variance (see Keppel & Wickens, 2004)
 
 ### For Standardized Effect Sizes
 
-- Both Cohen's d and Hedge's g are presented.
-- Confidence intervals are centered on Hedge's g.
+- All effect sizes are calculated as standardized comparisons (Cohen's d) or as standardized contrasts (see Bonett, 2008)
+- Confidence intervals for standardized comparisons and contrasts are based on Bonett (2008)
 
 ## References
 
