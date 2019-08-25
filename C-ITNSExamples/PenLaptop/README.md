@@ -13,7 +13,7 @@
 
 ### Overview of this Example
 
-The **PenLaptop** documents and files analyze an example of a two-group between-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14).
+The **PenLaptop** documents and files analyze an example of a two-group between-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 7).
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
@@ -21,8 +21,8 @@ The **PenLaptop** documents and files analyze an example of a two-group between-
 
 ### Details of this Example
 
-The [**PENLAPTOP_DATA_EXAMPLE.md**](./RATTAN_DATA_EXAMPLE.md) file uses raw data input.  
-The [**PENLAPTOP_SUMMARY_EXAMPLE.md**](./RATTAN_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**PENLAPTOP_DATA_EXAMPLE.md**](./PENLAPTOP_DATA_EXAMPLE.md) file uses raw data input.  
+The [**PENLAPTOP_SUMMARY_EXAMPLE.md**](./PENLAPTOP_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
 
 These analyses include the following:
 

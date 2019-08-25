@@ -13,7 +13,7 @@
 
 ### Overview of this Example
 
-The **Thomason** documents and files analyze an example of a within-subjects design for two time points (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14).  
+The **Thomason** documents and files analyze an example of a within-subjects design for two time points (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 8).  
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
@@ -21,8 +21,8 @@ The **Thomason** documents and files analyze an example of a within-subjects des
 
 ### Details of this Example
 
-The [**THOMASON_DATA_EXAMPLE.md**](./DONOHUE_DATA_EXAMPLE.md) file uses raw data input.  
-The [**THOMASON_SUMMARY_EXAMPLE.md**](./DONOHUE_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**THOMASON_DATA_EXAMPLE.md**](./THOMASON_DATA_EXAMPLE.md) file uses raw data input.  
+The [**THOMASON_SUMMARY_EXAMPLE.md**](./THOMASON_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
 
 These analyses include the following:
 
