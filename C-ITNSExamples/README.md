@@ -20,8 +20,8 @@
 
 The following are examples for two-group and paired-samples designs (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 7-8).)
 
-- The [**PenLaptop**](./Rattan/) documents and files analyze examples of a two-group between-subjects design (independent-groups)
-- The [**Thomason**](./Donohue/) documents and files analyze examples of a within-subjects design for two time points (paired samples)
+- The [**PenLaptop**](./PenLaptop/) documents and files analyze examples of a two-group between-subjects design (independent-groups)
+- The [**Thomason**](./Thomason/) documents and files analyze examples of a within-subjects design for two time points (paired samples)
 
 The following are examples for single-factor designs (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14).)
 
