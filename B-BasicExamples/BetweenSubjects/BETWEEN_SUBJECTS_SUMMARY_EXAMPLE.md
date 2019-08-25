@@ -9,7 +9,7 @@
 
 ---
 
-## Basic Between-Subjects Data Example
+## Basic Between-Subjects Summary Statistics Example
 
 ### Source the EASI Functions
 

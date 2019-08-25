@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Basic Between-Subjects Summary Example
+## Basic Between-Subjects Summary Statistics Example
 
 ### Source the EASI Functions
 
