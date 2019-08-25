@@ -29,6 +29,8 @@ These analyses include the following:
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of Multiple Studies (examples from three different replication studies)
 
+> **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
+
 ## References
 
 Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
