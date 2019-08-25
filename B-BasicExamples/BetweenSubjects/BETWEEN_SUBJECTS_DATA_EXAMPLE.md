@@ -114,8 +114,8 @@ estimateDifference(Outcome~Comparison)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-  Diff     SE     df     LL     UL 
--4.000  0.816  4.000 -6.267 -1.733 
+           Diff    SE df     LL     UL
+Comparison   -4 0.816  4 -6.267 -1.733
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -151,8 +151,8 @@ testDifference(Outcome~Comparison)
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-  Diff     SE      t     df      p 
--4.000  0.816 -4.899  4.000  0.008 
+           Diff    SE      t df     p
+Comparison   -4 0.816 -4.899  4 0.008
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -170,7 +170,7 @@ standardizeDifference(Outcome~Comparison)
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
            Est    SE     LL     UL
-Difference  -4 1.732 -7.395 -0.605
+Comparison  -4 1.732 -7.395 -0.605
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.

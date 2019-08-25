@@ -9,32 +9,20 @@
 
 ---
 
-## Basic Examples with Simple Fictional Data
+## Examples from the _Introduction to the New Statistics_
 
 ### Overview of the Examples
 
-- Basic example files for between-subjects designs and for within-subjects designs are included
-- The examples are duplicated using raw data input and summary statistics input
-- The examples show both the default output and the available options
+- Examples use simple fictional data and include multiple version to show options
 - The examples include estimation, plots, significance tests, and effect sizes
-- Each example provides a syntax file, a text output file, and graphs
 
 ### Included Examples
 
-The **BetweenSubjects** documents and files analyze an example of a single-factor between-subjects design.  
-The [**BETWEEN_SUBJECTS_DATA_EXAMPLE.md**](./BETWEEN_SUBJECTS_DATA_EXAMPLE.md) file uses raw data input.  
-The [**BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md**](./BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
-These analyses include the following:
+The following are examples for single-factor designs.
 
-- Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
-- Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
-- Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor)
+- The [**BetweenSubjects**](./BetweenSubjects/) documents and files analyze an example of a single-factor between-subjects design 
+- The [**WithinSubjects**](./WithinSubjects/) documents and files analyze an example of a single-factor within-subjects design  
 
-The **WithinSubjects** documents and files analyze an example of a single-factor within-subjects design.  
-The [**WITHIN_SUBJECTS_DATA_EXAMPLE.md**](./WITHIN_SUBJECTS_DATA_EXAMPLE.md) file uses raw data input.  
-The [**WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md**](./WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
-These analyses include the following:
+## References
 
-- Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
-- Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
-- Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
+Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.

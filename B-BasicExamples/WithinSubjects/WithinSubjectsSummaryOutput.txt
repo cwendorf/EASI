@@ -136,14 +136,14 @@ Comparison  0.6 0.245 2.45  4 0.07
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
           Est    SE     LL     UL
-Contrast -1.4 0.545 -2.468 -0.332
+Comparison -1.4 0.545 -2.468 -0.332
 
 > standardizeDifference(compstats,corrstats,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
           Est    SE     LL    UL
-Contrast -1.4 0.545 -2.804 0.004
+Comparison -1.4 0.545 -2.804 0.004
 
 > 
 > ### Analyses of a Variable Contrast

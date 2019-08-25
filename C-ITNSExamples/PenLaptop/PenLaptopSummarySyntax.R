@@ -1,0 +1,36 @@
+# Estimation Approach to Statistical Inference (EASI)
+## Between-Subjects Example with PenLaptop Summary Statistics
+
+### Source the EASI Functions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+
+### PenLaptop1 Example
+
+Pen <- c(N=34,M=8.812,SD=4.749)
+Laptop <- c(N=31,M=14.519,SD=7.286)
+PenLaptop1Summary <- rbind(Pen,Laptop)
+class(PenLaptop1Summary) <- "bss"
+
+plotDifference(PenLaptop1Summary)
+standardizeDifference(PenLaptop1Summary)
+
+### PenLaptop2 Example
+
+Pen <- c(N=48,M=6.881,SD=4.219)
+Laptop <- c(N=103,M=12.088,SD=5.525)
+PenLaptop2Summary <- rbind(Pen,Laptop)
+class(PenLaptop2Summary) <- "bss"
+
+plotDifference(PenLaptop2Summary)
+standardizeDifference(PenLaptop2Summary)
+
+### PenLaptop3 Example
+
+Pen <- c(N=54,M=4.178,SD=2.549)
+Laptop <- c(N=55,M=11.622,SD=5.681)
+PenLaptop3Summary <- rbind(Pen,Laptop)
+class(PenLaptop3Summary) <- "bss"
+
+plotDifference(PenLaptop3Summary)
+standardizeDifference(PenLaptop3Summary)
