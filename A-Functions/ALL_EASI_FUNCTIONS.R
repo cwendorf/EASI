@@ -581,7 +581,57 @@ testContrast<-function(...) {
 
 #### SMD Function for Means of Levels
 
+smdMeans <- function(...) 
+  UseMethod("smdMeans")
+  
+smdMeans.wss <- smdMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
+  N <- sumstats[,"N"]
+  M <- sumstats[,"M"]
+  SD <- sumstats[,"SD"]
+  SE <- SD/sqrt(N)  
+  Diff <- M-mu
+  t <- Diff/SE
+  df <- N-1
+  alpha <- 1-conf.level
+  CD <- Diff/SD
+  CDU <- (1-3/(4*df-1))*CD
+  SE <- sqrt((df+2)/(N^2)+((CD^2)/(2*(df+2))))
+  k <- exp(((log(2)-log(df))/2)+lgamma((df+1)/2)-lgamma(df/2))
+  m <- t*k
+  v <- 1+(t^2)*(1-k^2)
+  w <- (2*m^3)-((2*df-1)/df)*(t^2*m)
+  skew <- abs(w/sqrt(v)^3)
+  sdz <- sqrt(v)
+  llz <- qnorm(1-alpha/2,lower.tail=FALSE)
+  ulz <- qnorm(1-alpha/2)
+  ll1 <- m+sdz*llz
+  ul1 <- m+sdz*ulz
+  c <- w/(4*v)
+  q <- v/(2*c^2)
+  a <- m-(q*c)
+  llp <- 2*(qgamma(alpha/2,q/2,rate=1))
+  ulp <- 2*(qgamma(1-alpha/2,q/2,rate=1))
+  ll2 <- ifelse(t>0,a+c*llp,a+c*ulp)
+  ul2 <- ifelse(t>0,a+c*ulp,a+c*llp)
+  LL <- ifelse(skew<.001,ll1*sqrt(1/N),ll2*sqrt(1/N))
+  UL <- ifelse(skew<.001,ul1*sqrt(1/N),ul2*sqrt(1/N))
+  results <- round(cbind(d=CD,"d(unb)"=CDU,df=df,SE=SE,LL=LL,UL=UL),3)
+  return(results)
+}
 
+smdMeans.default <- function(...,mu=0,conf.level=.95){
+  sumstats <- describeLevels(...)
+  class(sumstats) <- "wss"
+  results <- smdMeans(sumstats,mu=mu,conf.level=conf.level)
+  return(results)
+}
+
+smdMeans.formula <- function(formula,mu=0,conf.level=.95,...){
+  sumstats <- describeLevels(formula)
+  class(sumstats) <- "bss"
+  results <- smdMeans(sumstats,mu=mu,conf.level=conf.level)
+  return(results)
+}
 
 #### SMD Function for Mean Differences/Comparison of Levels
 
@@ -711,6 +761,12 @@ smdContrast.formula <- function(formula,contrast,conf.level=.95,...){
 }
 
 ### Wrappers for SMD Functions
+
+standardizeMeans <- function(...){
+  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS\n\n")
+  print(smdMeans(...))
+  cat("\n")
+}
 
 standardizeDifference <- function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
