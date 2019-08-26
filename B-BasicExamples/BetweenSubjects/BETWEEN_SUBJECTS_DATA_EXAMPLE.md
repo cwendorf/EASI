@@ -99,7 +99,27 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 ```r
 testMeans(Outcome~Group,mu=5)
 ```
- 
+
+#### Effect Sizes for the Means
+
+This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
+```r
+standardizeMeans(Outcome~Group)
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+       d d(unb) df    SE    LL     UL
+Group1 4  2.286  2 1.563 0.268  7.826
+Group2 8  4.571  2 2.906 0.871 15.456
+Group3 9  5.143  2 3.251 1.007 17.373
+```
+
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+```r
+standardizeMeans(Outcome~Group,mu=5,conf.level=.99)
+```
+
 ### Analyses of a Group Comparison
 
 This section produces analyses that are equivalent to analyses for two levels of a factor.

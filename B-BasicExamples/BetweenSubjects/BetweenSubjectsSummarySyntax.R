@@ -32,6 +32,11 @@ plotMeans(sumstats,conf.level=.99,mu=5)
 testMeans(sumstats)
 testMeans(sumstats,mu=5)
 
+#### Effect Size for the Means
+
+standardizeMeans(sumstats)
+standardizeMeans(sumstats,mu=5,conf.level=.99)
+
 ### Analyses of a Group Comparison
 ### (equivalent to analyses for two levels of a factor)
 

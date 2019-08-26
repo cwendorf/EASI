@@ -73,7 +73,28 @@ Group1   -1 0.577 -1.732  2 0.225
 Group2    3 0.577  5.196  2 0.035
 Group3    4 0.577  6.928  2 0.020
 
+> #### Effect Size for the Means
 > 
+> standardizeMeans(Outcome~Group)
+
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+       d d(unb) df    SE    LL     UL
+Group1 4  2.286  2 1.563 0.268  7.826
+Group2 8  4.571  2 2.906 0.871 15.456
+Group3 9  5.143  2 3.251 1.007 17.373
+
+> standardizeMeans(Outcome~Group,mu=5,conf.level=.99)
+
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+        d d(unb) df    SE     LL    UL
+Group1 -1 -0.571  2 0.755 -2.900 0.913
+Group2  3  1.714  2 1.253 -0.518 7.231
+Group3  4  2.286  2 1.563 -0.459 9.535
+
+> 
+
 > ### Analyses of a Group Comparison
 > ### (equivalent to analyses for two levels of a factor)
 > 

@@ -32,6 +32,11 @@ plotMeans(Time1,Time2,Time3,conf.level=.99,mu=6)
 testMeans(Time1,Time2,Time3)
 testMeans(Time1,Time2,Time3,mu=6)
 
+#### Effect Size for the Means
+
+standardizeMeans(Time1,Time2,Time3)
+standardizeMeans(Time1,Time2,Time3,mu=6,conf.level=.99)
+
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
 

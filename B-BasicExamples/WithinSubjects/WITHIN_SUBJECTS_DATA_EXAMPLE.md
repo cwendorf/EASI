@@ -95,6 +95,26 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 testMeans(Time1,Time2,Time3,mu=6)
 ```
 
+#### Effect Sizes for the Means
+
+This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
+```r
+standardizeMeans(Time1,Time2,Time3)
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+           d d(unb) df    SE    LL     UL
+Time1  5.614  4.491  4 1.693 1.782  9.469
+Time2  9.319  7.455  4 2.734 3.085 15.629
+Time3 15.693 12.555  4 4.557 5.275 26.265
+```
+
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+```r
+standardizeMeans(Time1,Time2,Time3,mu=6,conf.level=.99)
+```
+
 ### Analyses of a Variable Comparison
 
 This section produces analyses that are equivalent to analyses for two levels of a factor.
