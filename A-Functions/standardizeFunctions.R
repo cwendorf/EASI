@@ -39,7 +39,7 @@ smdMeans.wss <- smdMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
   ul2 <- ifelse(t>0,a+c*ulp,a+c*llp)
   LL <- ifelse(skew<.001,ll1*sqrt(1/N),ll2*sqrt(1/N))
   UL <- ifelse(skew<.001,ul1*sqrt(1/N),ul2*sqrt(1/N))
-  results <- round(cbind(d=CD,"d(unb)"=CDU,df=df,SE=SE,LL=LL,UL=UL),3)
+  results <- round(cbind(d=CD,"d(unb)"=CDU,SE=SE,LL=LL,UL=UL),3)
   return(results)
 }
 
