@@ -21,8 +21,8 @@ The **WithinSubjects** documents and files analyze an example of a single-factor
 
 ### Details of this Example
   
-The [**WITHIN_SUBJECTS_DATA_EXAMPLE.md**](./WITHIN_SUBJECTS_DATA_EXAMPLE.md) file uses raw data input.  
-The [**WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md**](./WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md) file uses summary statistics input.
+The [**WITHIN-SUBJECTS-DATA-EXAMPLE.md**](./WITHIN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
+The [**WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md**](./WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
 
 These analyses include the following:
 

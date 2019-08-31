@@ -14,7 +14,7 @@
 ### Source the EASI Functions
 
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
 
 ### Three Group Example Data

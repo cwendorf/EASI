@@ -21,8 +21,8 @@ The **PenLaptop** documents and files analyze an example of a two-group between-
 
 ### Details of this Example
 
-The [**PENLAPTOP_DATA_EXAMPLE.md**](./PENLAPTOP_DATA_EXAMPLE.md) file uses raw data input.  
-The [**PENLAPTOP_SUMMARY_EXAMPLE.md**](./PENLAPTOP_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**PENLAPTOP-DATA-EXAMPLE.md**](./PENLAPTOP-DATA-EXAMPLE.md) file uses raw data input.  
+The [**PENLAPTOP-SUMMARY-EXAMPLE.md**](./PENLAPTOP-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 
 These analyses include the following:
 

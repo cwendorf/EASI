@@ -15,10 +15,10 @@
 
 EASI is not currently on CRAN or compiled as a package, but you can install the complete and current version of it by pasting the following line into R. The functions will automatically be available for use in analyses.
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
 
-Alternatively, you can paste the contents of the [**ALL_EASI_FUNCTIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL_EASI_FUNCTIONS.R) file directly into R. 
+Alternatively, you can paste the contents of the [**ALL-EASI-FUNCTIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL-EASI-FUNCTIONS.R) file directly into R. 
 
 ### Summary of the Functions
 

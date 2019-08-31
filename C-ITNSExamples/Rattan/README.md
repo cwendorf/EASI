@@ -21,8 +21,8 @@ The **Rattan** documents and files analyze an example of a single-factor between
 
 ### Details of this Example
 
-The [**RATTAN_DATA_EXAMPLE.md**](./RATTAN_DATA_EXAMPLE.md) file uses raw data input.  
-The [**RATTAN_SUMMARY_EXAMPLE.md**](./RATTAN_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**RATTAN-DATA-EXAMPLE.md**](./RATTAN-DATA-EXAMPLE.md) file uses raw data input.  
+The [**RATTAN-SUMMARY-EXAMPLE.md**](./RATTAN-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 
 These analyses include the following:
 

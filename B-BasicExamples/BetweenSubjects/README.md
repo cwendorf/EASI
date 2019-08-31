@@ -21,8 +21,8 @@ The **BetweenSubjects** documents and files analyze an example of a single-facto
 
 ### Details of this Example
 
-The [**BETWEEN_SUBJECTS_DATA_EXAMPLE.md**](./BETWEEN_SUBJECTS_DATA_EXAMPLE.md) file uses raw data input.  
-The [**BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md**](./BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md) file uses summary statistics input.
+The [**BETWEEN-SUBJECTS-DATA-EXAMPLE.md**](./BETWEEN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
+The [**BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md**](./BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
 
 These analyses include the following:
 

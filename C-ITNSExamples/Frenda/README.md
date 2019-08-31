@@ -21,7 +21,7 @@ The **Frenda** documents and files analyze and example of a two-factor between-s
 
 ### Details of this Example
 
-The [**FRENDA_SUMMARY_EXAMPLE.md**](./FRENDA_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**FRENDA-SUMMARY-EXAMPLE.md**](./FRENDA-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 
 These analyses include the following:
 

@@ -21,8 +21,8 @@ The **Thomason** documents and files analyze an example of a within-subjects des
 
 ### Details of this Example
 
-The [**THOMASON_DATA_EXAMPLE.md**](./THOMASON_DATA_EXAMPLE.md) file uses raw data input.  
-The [**THOMASON_SUMMARY_EXAMPLE.md**](./THOMASON_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**THOMASON-DATA-EXAMPLE.md**](./THOMASON-DATA-EXAMPLE.md) file uses raw data input.  
+The [**THOMASON-SUMMARY-EXAMPLE.md**](./THOMASON-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 
 These analyses include the following:
 

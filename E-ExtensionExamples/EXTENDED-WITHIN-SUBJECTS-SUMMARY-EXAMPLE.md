@@ -9,32 +9,46 @@
 
 ---
 
-## Extended Within-Subjects Example
+## Extended Within-Subjects Summary Example
 
 ### Source the EASI Functions and Extensions
 
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL-EASI-EXTENSIONS.R")
 ```
 
-### Three Time Period Example Data
+### Three Time Period Example Summary Statistics
 
 ```r
-Time1 <- c(5,6,6,7,8)
-Time2 <- c(7,7,8,8,9)
-Time3 <- c(8,8,9,9,9)
-
-mydata <- data.frame(Time1,Time2,Time3)
-mydata
+Time1 <- c(N=5,M=6.4,SD=1.14)
+Time2 <- c(N=5,M=7.8,SD=.837)
+Time3 <- c(N=5,M=8.6,SD=.548)
+sumstats <- rbind(Time1,Time2,Time3)
+class(sumstats) <- "wss"
+sumstats
 ```
 ```
-  Time1 Time2 Time3
-1     5     7     8
-2     6     7     8
-3     6     8     9
-4     7     8     9
-5     8     9     9
+      N   M    SD
+Time1 5 6.4 1.140
+Time2 5 7.8 0.837
+Time3 5 8.6 0.548
+attr(,"class")
+[1] "wss"
+```
+```r
+corrstats <- declareCorrMatrix("Time1","Time2","Time3")
+corrstats["Time1","Time2"] <- .891
+corrstats["Time1","Time3"] <- .721
+corrstats["Time2","Time3"] <- .873
+corrstats <- fillCorrMatrix(corrstats)
+corrstats
+```
+```
+      Time1 Time2 Time3
+Time1 1.000 0.891 0.721
+Time2 0.891 1.000 0.873
+Time3 0.721 0.873 1.000
 ```
 
 ### Analyses of Pairwise Variable Comparisons
@@ -44,7 +58,7 @@ This section produces analyses that are equivalent to unadjusted t tests.
 #### Confidence Intervals for the Pairwise Comparisons
 
 ```r
-estimatePairwise(Time1,Time2,Time3)
+estimatePairwise(sumstats,corrstats)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
@@ -55,24 +69,24 @@ Time1 v Time3 -2.2 0.374  4 -3.239 -1.161
 Time2 v Time3 -0.8 0.200  4 -1.355 -0.245
 ```
 ```r
-estimatePairwise(Time1,Time2,Time3,conf.level=.99)
+estimatePairwise(sumstats,corrstats,conf.level=.99)
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
 ```r
-plotPairwise(Time1,Time2,Time3)
+plotPairwise(sumstats,corrstats)
 ```
 <kbd><img src="ExtendedWithinSubjectsFigure1.jpg"></kbd>
 ```r
-plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99)
+plotPairwise(sumstats,corrstats,mu=-2,conf.level=.99)
 ```
 <kbd><img src="ExtendedWithinSubjectsFigure2.jpg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 
 ```r
-testPairwise(Time1,Time2,Time3)
+testPairwise(sumstats,corrstats)
 ```
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
@@ -83,13 +97,13 @@ Time1 v Time3 -2.2 0.374 -5.880  4 0.004
 Time2 v Time3 -0.8 0.200 -4.000  4 0.016
 ```
 ```r
-testPairwise(Time1,Time2,Time3,mu=-2)
+testPairwise(sumstats,corrstats,mu=-2)
 ```
 
 #### Effect Sizes for the Pairwise Comparisons
 
 ```r
-standardizePairwise(Time1,Time2,Time3)
+standardizePairwise(sumstats,corrstats)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
@@ -100,5 +114,5 @@ Time1 v Time3 -2.460 0.928 -4.278 -0.641
 Time2 v Time3 -1.131 0.488 -2.086 -0.175
 ```
 ```r
-standardizePairwise(Time1,Time2,Time3,conf.level=.99)
+standardizePairwise(sumstats,corrstats,conf.level=.99)
 ```

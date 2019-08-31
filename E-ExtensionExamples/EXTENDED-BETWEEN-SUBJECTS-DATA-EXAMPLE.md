@@ -9,32 +9,36 @@
 
 ---
 
-## Extended Between-Subjects Summary Example
+## Extended Between-Subjects Example
 
 ### Source the EASI Functions and Extensions
 
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL_EASI_EXTENSIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL-EASI-EXTENSIONS.R")
 ```
 
-### Three Group Example Summary Statistics
+### Three Group Example Data
 
 ```r
-Group1 <- c(N=3,M=4,SD=1)
-Group2 <- c(N=3,M=8,SD=1)
-Group3 <- c(N=3,M=9,SD=1)
-sumstats <- rbind(Group1,Group2,Group3)
-class(sumstats) <- "bss"
-sumstats
+Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))
+Outcome <- c(3,4,5,7,8,9,8,9,10)
+Group <- factor(Group)
+
+mydata <- data.frame(Group,Outcome)
+mydata
 ```
 ```
-       N M SD
-Group1 3 4  1
-Group2 3 8  1
-Group3 3 9  1
-attr(,"class")
-[1] "bss"
+   Group Outcome
+1 Group1       3
+2 Group1       4
+3 Group1       5
+4 Group2       7
+5 Group2       8
+6 Group2       9
+7 Group3       8
+8 Group3       9
+9 Group3      10
 ```
 
 ### Analyses of Pairwise Group Comparisons
@@ -44,7 +48,7 @@ This section produces analyses that are equivalent to unadjusted t tests.
 #### Confidence Intervals for the Pairwise Comparisons
 
 ```r
-estimatePairwise(sumstats)
+estimatePairwise(Outcome~Group)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
@@ -55,24 +59,24 @@ Group1 v Group3   -5 0.816  4 -7.267 -2.733
 Group2 v Group3   -1 0.816  4 -3.267  1.267
 ```
 ```r
-estimatePairwise(sumstats,conf.level=.99)
+estimatePairwise(Outcome~Group,conf.level=.99)
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
 ```r
-plotPairwise(sumstats)
+plotPairwise(Outcome~Group)
 ```
 <kbd><img src="ExtendedBetweenSubjectsFigure1.jpg"></kbd>
 ```r
-plotPairwise(sumstats,mu=-2,conf.level=.99)
+plotPairwise(Outcome~Group,mu=-2,conf.level=.99)
 ```
 <kbd><img src="ExtendedBetweenSubjectsFigure2.jpg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 
 ```r
-testPairwise(sumstats)
+testPairwise(Outcome~Group)
 ```
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
@@ -83,13 +87,13 @@ Group1 v Group3   -5 0.816 -6.124  4 0.004
 Group2 v Group3   -1 0.816 -1.225  4 0.288
 ```
 ```r
-testPairwise(sumstats,mu=-2)
+testPairwise(Outcome~Group,mu=-2)
 ```
 
 #### Effect Sizes for the Pairwise Comparisons
 
 ```r
-standardizePairwise(sumstats)
+standardizePairwise(Outcome~Group)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
@@ -100,5 +104,5 @@ Group1 v Group3  -5 2.031 -8.981 -1.019
 Group2 v Group3  -1 1.061 -3.079  1.079
 ```
 ```r
-standardizePairwise(sumstats,conf.level=.99)
+standardizePairwise(Outcome~Group,conf.level=.99)
 ```

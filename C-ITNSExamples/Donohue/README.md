@@ -21,8 +21,8 @@ The **Donohue** documents and files analyze an example of a single-factor within
 
 ### Details of this Example
 
-The [**DONOHUE_DATA_EXAMPLE.md**](./DONOHUE_DATA_EXAMPLE.md) file uses raw data input.  
-The [**DONOHUE_SUMMARY_EXAMPLE.md**](./DONOHUE_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**DONOHUE-DATA-EXAMPLE.md**](./DONOHUE-DATA-EXAMPLE.md) file uses raw data input.  
+The [**DONOHUE-SUMMARY-EXAMPLE.md**](./DONOHUE-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 
 These analyses include the following:
 

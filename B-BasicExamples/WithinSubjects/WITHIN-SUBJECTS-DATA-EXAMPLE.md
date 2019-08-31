@@ -9,35 +9,35 @@
 
 ---
 
-## Basic Between-Subjects Summary Statistics Example
+## Basic Within-Subjects Data Example
 
 ### Source the EASI Functions
 
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL_EASI_FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
 
-### Three Group Example Summary Statistics
+### Three Time Period Example Data
 
-This code inputs the variable summaries and creates a single summary table.
+This code inputs the variable names and creates a viewable data frame.
 ```r
-Group1 <- c(N=3,M=4,SD=1)
-Group2 <- c(N=3,M=8,SD=1)
-Group3 <- c(N=3,M=9,SD=1)
-sumstats <- rbind(Group1,Group2,Group3)
-class(sumstats) <- "bss"
-sumstats
-```
-```
-       N M SD
-Group1 3 4  1
-Group2 3 8  1
-Group3 3 9  1
-attr(,"class")
-[1] "bss"
-```
+Time1 <- c(5,6,6,7,8)
+Time2 <- c(7,7,8,8,9)
+Time3 <- c(8,8,9,9,9)
 
-### Analyses of Multiple Groups
+MyData <- data.frame(Time1,Time2,Time3)
+MyData
+```
+```
+  Time1 Time2 Time3
+1     5     7     8
+2     6     7     8
+3     6     8     9
+4     7     8     9
+5     8     9     9
+```
+ 
+### Analyses of Multiple Variables
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
@@ -45,249 +45,244 @@ This section produces analyses that are equivalent to one-sample analyses separa
 
 This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```r
-estimateMeans(sumstats)
+estimateMeans(Time1,Time2,Time3)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-       N M SD    SE    LL     UL
-Group1 3 4  1 0.577 1.516  6.484
-Group2 3 8  1 0.577 5.516 10.484
-Group3 3 9  1 0.577 6.516 11.484
+      N   M    SD    SE    LL    UL
+Time1 5 6.4 1.140 0.510 4.984 7.816
+Time2 5 7.8 0.837 0.374 6.761 8.839
+Time3 5 8.6 0.548 0.245 7.920 9.280
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
-estimateMeans(sumstats,conf.level=.99)
+estimateMeans(Time1,Time2,Time3,conf.level=.99)
 ```
 
-#### Plots of the Confidence Intervals for the Means
+#### Plots of Confidence Intervals for the Means
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(sumstats)
+plotMeans(Time1,Time2,Time3)
 ```
-<kbd><img src="BetweenSubjectsFigure1.jpg"></kbd>
+<kbd><img src="WithinSubjectsFigure1.jpg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(sumstats,conf.level=.99,mu=5)
+plotMeans(Time1,Time2,Time3,conf.level=.99,mu=6)
 ```
-<kbd><img src="BetweenSubjectsFigure2.jpg"></kbd>
-
+<kbd><img src="WithinSubjectsFigure2.jpg"></kbd>
 
 #### Significance Tests for the Means
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```r
-testMeans(sumstats)
+testMeans(Time1,Time2,Time3)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-       Diff    SE      t df     p
-Group1    4 0.577  6.928  2 0.020
-Group2    8 0.577 13.856  2 0.005
-Group3    9 0.577 15.588  2 0.004
+      Diff    SE      t df p
+Time1  6.4 0.510 12.551  4 0
+Time2  7.8 0.374 20.846  4 0
+Time3  8.6 0.245 35.109  4 0
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
-testMeans(sumstats,mu=5)
+testMeans(Time1,Time2,Time3,mu=6)
 ```
 
 #### Effect Sizes for the Means
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```r
-standardizeMeans(sumstats)
+standardizeMeans(Time1,Time2,Time3)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-       d d(unb) df    SE    LL     UL
-Group1 4  2.286  2 1.563 0.268  7.826
-Group2 8  4.571  2 2.906 0.871 15.456
-Group3 9  5.143  2 3.251 1.007 17.373
+           d d(unb) df    SE    LL     UL
+Time1  5.614  4.491  4 1.693 1.782  9.469
+Time2  9.319  7.455  4 2.734 3.085 15.629
+Time3 15.693 12.555  4 4.557 5.275 26.265
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```r
-standardizeMeans(sumstats,mu=5,conf.level=.99)
+standardizeMeans(Time1,Time2,Time3,mu=6,conf.level=.99)
 ```
- 
-### Analyses of a Group Comparison
+
+### Analyses of a Variable Comparison
 
 This section produces analyses that are equivalent to analyses for two levels of a factor.
 
-#### Confidence Interval for a Mean Difference
+#### Confidence Interval for the Mean Difference
 
-This code creates a new table that identifies the two levels for comparison and estimates the confidence interval of the difference.
+This code identifies the two levels for comparison and estimates the confidence interval of the difference.
 ```r
-compstats <- sumstats[c("Group1","Group2"),]
-class(compstats) <- "bss"
-estimateDifference(compstats)
+estimateDifference(Time1,Time2)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-           Diff    SE df     LL     UL
-Comparison   -4 0.816  4 -6.267 -1.733
+           Diff    SE df    LL    UL
+Comparison -1.4 0.245  4 -2.08 -0.72
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```r
-estimateDifference(compstats,conf.level=.99)
+estimateDifference(Time1,Time2,conf.level=.99)
 ```
 
-It is also possible to alter the comparison by changing (or even reversing the order) of the groups.
+It is also possible to alter the comparison by changing (or even reversing the order) of the levels.
 ```r
-compstats <- sumstats[c("Group3","Group1"),]
-class(compstats) <- "bss"
-estimateDifference(compstats)
+estimateDifference(Time3,Time1)
 ```
 
-#### Plot of the Confidence Interval for a Mean Difference
+#### Plots of Confidence Intervals for the Mean Difference
 
-This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
+This code obtains and plots the confidence intervals for the levels and the mean difference in the identified comparison.
 ```r
-plotDifference(compstats)
+plotDifference(Time1,Time2)
 ```
-<kbd><img src="BetweenSubjectsFigure3.jpg"></kbd>
+<kbd><img src="WithinSubjectsFigure3.jpg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
-plotDifference(compstats,conf.level=.99)
+plotDifference(Time1,Time2,conf.level=.99)
 ```
 
-#### Significance Test for a Mean Difference
+#### Significance Test for the Mean Difference
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```r
-testDifference(compstats)
+testDifference(Time1,Time2)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
            Diff    SE      t df     p
-Comparison   -4 0.816 -4.899  4 0.008
+Comparison -1.4 0.245 -5.718  4 0.005
 ```
 
 If the default value of zero is not plausible, it too can be changed.
 ```r
-testDifference(compstats,mu=2)
+testDifference(Time1,Time2,mu=-2)
 ```
 
 #### Effect Size for the Mean Difference
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```r
-standardizeDifference(compstats)
+standardizeDifference(Time1,Time2)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-           Est    SE     LL     UL
-Comparison  -4 1.732 -7.395 -0.605
+          Est    SE     LL     UL
+Comparison -1.4 0.545 -2.468 -0.332
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeDifference(compstats,conf.level=.99)
+standardizeDifference(Time1,Time2,conf.level=.99)
 ```
 
-### Analyses of a Group Contrast
+### Analyses of a Variable Contrast
 
 This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
 
 #### Confidence Interval for Combined Levels
 
-This code creates combinations of groups and produces a confidence interval for those pooled groups.
+This code creates combinations of variables and produces a confidence interval for those pooled variables.
 ```r
-G1 <- c(1,0,0)
-estimateContrast(sumstats,contrast=G1)
+T1 <- c(1,0,0)
+estimateContrast(Time1,Time2,Time3,contrast=T1)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-         Est    SE df    LL    UL
-Contrast   4 0.577  2 1.516 6.484
+         Est   SE df    LL    UL
+Contrast 6.4 0.51  4 4.984 7.816
 ```
 ```r
-G2nG3 <- c(0,.5,.5)
-estimateContrast(sumstats,contrast=G2nG3)
+T2nT3 <- c(0,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-         Est    SE df    LL    UL
-Contrast 8.5 0.408  4 7.367 9.633
+         Est  SE df    LL    UL
+Contrast 8.2 0.3  4 7.367 9.033
 ```
 
-#### Confidence Interval for a Contrast
+#### Confidence Interval for the Contrast
 
-This code identifies a contrast among the groups and produces a confidence interval for that contrast.
+This code identifies a contrast among the levels and produces a confidence interval for that contrast.
 ```r
-G1vsOthers <- c(-1,.5,.5)
-estimateContrast(sumstats,contrast=G1vsOthers)
+T1vsT2 <- c(1,-1,0)
+estimateContrast(Time1,Time2,Time3,contrast=T1vsT2)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-         Est    SE df    LL    UL
-Contrast 4.5 0.707  4 2.537 6.463
+          Est    SE df    LL    UL
+Contrast -1.4 0.245  4 -2.08 -0.72
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```r
-estimateContrast(sumstats,contrast=G1vsOthers,conf.level=.99)
+estimateContrast(Time1,Time2,Time3,contrast=T1vsT2,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-plotContrast(sumstats,contrast=G1vsOthers)
+plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 ````
-<kbd><img src="BetweenSubjectsFigure4.jpg"></kbd>
+<kbd><img src="WithinSubjectsFigure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
-plotContrast(sumstats,contrast=G1vsOthers,conf.level=.99)
+plotContrast(Time1,Time2,Time3,contrast=G1vsOthers,conf.level=.99)
 ```
 
-#### Significance Test for a Contrast
+#### Significance Test for the Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```r
-testContrast(sumstats,contrast=G1vsOthers)
+testContrast(Time1,Time2,Time3,contrast=T1vsT2)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
 
-         Est    SE     t df     p
-Contrast 4.5 0.707 6.364  4 0.003
+          Est    SE      t df     p
+Contrast -1.4 0.245 -5.715  4 0.005
 ```
 
 If desired, the contrast can be tested against other values if needed.
 ```r
-testContrast(sumstats,contrast=G1vsOthers,mu=4)
+testContrast(Time1,Time2,Time3,contrast=T1vsT2,mu=-1)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```r
-standardizeContrast(sumstats,contrast=G1vsOthers)
+standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-         Est    SE   LL   UL
-Contrast 4.5 1.561 1.44 7.56
+           Est    SE    LL    UL
+Contrast 2.056 0.685 0.714 3.397
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeContrast(sumstats,contrast=G1vsOthers,conf.level=.99)
+standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 ```

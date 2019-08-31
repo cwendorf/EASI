@@ -22,15 +22,15 @@
 ### Included Extended Examples
 
 The **ExtendedBetweenSubjects** documents and files analyze an example of a single-factor between-subjects design. 
-The [**EXTENDED_BETWEEN_SUBJECTS_DATA_EXAMPLE.md**](./EXTENDED_BETWEEN_SUBJECTS_DATA_EXAMPLE.md) file uses raw data input.  
-The [**EXTENDED_BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md**](./EXTENDED_BETWEEN_SUBJECTS_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**EXTENDED-BETWEEN-SUBJECTS-DATA-EXAMPLE.md**](./EXTENDED-BETWEEN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
+The [**EXTENDED-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md**](./EXTENDED-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 These analyses include the following:
 
 - Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among all levels of a factor)
 
 The **ExtendedWithinSubjects** documents and files analyze an example of a single-factor within-subjects design.  
-The [**EXTENDED_WITHIN_SUBJECTS_DATA_EXAMPLE.md**](./EXTENDED_WITHIN_SUBJECTS_DATA_EXAMPLE.md) file uses raw data input.  
-The [**EXTENDED_WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md**](./EXTENDED_WITHIN_SUBJECTS_SUMMARY_EXAMPLE.md) file uses summary statistics input.  
+The [**EXTENDED-WITHIN-SUBJECTS-DATA-EXAMPLE.md**](./EXTENDED-WITHIN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
+The [**EXTENDED-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md**](./EXTENDED-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 These analyses include the following:
 
 - Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
