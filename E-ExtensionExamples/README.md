@@ -21,7 +21,7 @@
 
 ### Included Extended Examples
 
-The **ExtendedBetweenSubjects** documents and files analyze an example of a single-factor between-subjects design. 
+The **ExtendedBetweenSubjects** documents and files analyze an example of a single-factor between-subjects design.  
 The [**EXTENDED-BETWEEN-SUBJECTS-DATA-EXAMPLE.md**](./EXTENDED-BETWEEN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
 The [**EXTENDED-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md**](./EXTENDED-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 These analyses include the following:
