@@ -188,18 +188,18 @@ smdContrast.formula <- function(formula,contrast,conf.level=.95,...){
 
 standardizeMeans <- function(...){
   cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS\n\n")
-  print(smdMeans(...))
+  print(format(as.data.frame(smdMeans(...)),trim=T,nsmall=3))
   cat("\n")
 }
 
 standardizeDifference <- function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
-  print(smdDifference(...))
+  print(format(as.data.frame(smdDifference(...)),trim=T,nsmall=3))
   cat("\n")  
 }
 
 standardizeContrast <- function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST\n\n")
-  print(smdContrast(...))
+  print(format(as.data.frame(smdContrast(...)),trim=T,nsmall=3))
   cat("\n")  
 }

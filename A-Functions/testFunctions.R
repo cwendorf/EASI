@@ -144,18 +144,18 @@ nhstContrast.formula <- function(formula,contrast,mu=0,...){
 
 testMeans <- function(...){
   cat("\nHYPOTHESIS TESTS FOR THE MEANS\n\n")
-  print(nhstMeans(...))
+  print(format(as.data.frame(nhstMeans(...)),trim=T,nsmall=3))
   cat("\n")
 }
 
 testDifference <- function(...){
   cat("\nHYPOTHESIS TEST FOR THE COMPARISON\n\n")
-  print(nhstDifference(...)) 
+  print(format(as.data.frame(nhstDifference(...)),trim=T,nsmall=3))
   cat("\n")
 }
 
 testContrast<-function(...) {
   cat("\nHYPOTHESIS TEST FOR THE CONTRAST\n\n")
-  print(nhstContrast(...)) 
+  print(format(as.data.frame(nhstContrast(...)),trim=T,nsmall=3))
   cat("\n")  
 }

@@ -148,18 +148,18 @@ ciContrast.formula <- function(formula,contrast,conf.level=.95,...){
 
 estimateMeans <- function(...){
   cat("\nCONFIDENCE INTERVALS FOR THE MEANS\n\n")
-  print(ciMeans(...))
+   print(format(as.data.frame(ciMeans(...)),trim=T,nsmall=3))
   cat("\n")
 }
 
 estimateDifference<-function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE COMPARISON\n\n")
-  print(ciDifference(...)) 
+  print(format(as.data.frame(ciDifference(...)),trim=T,nsmall=3))
   cat("\n")  
 }
 
 estimateContrast<-function(...) {
   cat("\nCONFIDENCE INTERVAL FOR THE CONTRAST\n\n")
-  print(ciContrast(...)) 
+  print(format(as.data.frame(ciContrast(...)),trim=T,nsmall=3))
   cat("\n")  
 }
