@@ -74,10 +74,10 @@ ciDifference.bss <- function(compstats,conf.level=.95,...){
   return(results)
 }
 
-ciDifference.default <- function(x,y,conf.level=.95,...){
-  compstats <- describeLevels(x,y)
+ciDifference.default <- function(...,conf.level=.95){
+  compstats <- describeLevels(...)
   class(compstats) <- "wss"
-  corrstats <- correlateLevels(x,y)
+  corrstats <- correlateLevels(...)
   results <- ciDifference(compstats,corrstats,conf.level=conf.level)
   return(results)
 }

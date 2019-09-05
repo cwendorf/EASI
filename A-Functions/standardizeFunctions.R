@@ -104,10 +104,10 @@ smdDifference.bss <- function(sumstats,contrast,conf.level=.95,...) {
   return(round(results,3))
 }
 
-smdDifference.default <- function(x,y,conf.level=.95,...){
-  compstats <- describeLevels(x,y)
+smdDifference.default <- function(...,conf.level=.95){
+  compstats <- describeLevels(...)
   class(compstats) <- "wss"
-  corrstats <- correlateLevels(x,y)
+  corrstats <- correlateLevels(...)
   results <- smdDifference(compstats,corrstats,conf.level=conf.level)
   return(results)
 }

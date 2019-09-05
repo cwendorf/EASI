@@ -9,7 +9,7 @@
 describeLevels <- function(...) 
   UseMethod("describeLevels")
 
-describeLevels.default <- function(...){
+describeLevels.default <- function(...,mu=NULL,conf.level=NULL){
   data <- data.frame(...)
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
@@ -32,7 +32,7 @@ describeLevels.formula <- function(formula,...){
 correlateLevels <- function(...) 
   UseMethod("correlateLevels")
 
-correlateLevels.default <- function(...){
+correlateLevels.default <- function(...,mu=NULL,conf.level=NULL){
   data <- data.frame(...)
   results <- cor(data)
   return(results)
@@ -150,10 +150,10 @@ ciDifference.bss <- function(compstats,conf.level=.95,...){
   return(results)
 }
 
-ciDifference.default <- function(x,y,conf.level=.95,...){
-  compstats <- describeLevels(x,y)
+ciDifference.default <- function(...,conf.level=.95){
+  compstats <- describeLevels(...)
   class(compstats) <- "wss"
-  corrstats <- correlateLevels(x,y)
+  corrstats <- correlateLevels(...)
   results <- ciDifference(compstats,corrstats,conf.level=conf.level)
   return(results)
 }
@@ -507,10 +507,10 @@ nhstDifference.bss <- function(compstats,mu=0,...){
   return(results)
 }
 
-nhstDifference.default <- function(x,y,mu=0){
-  compstats <- describeLevels(x,y)
+nhstDifference.default <- function(...,mu=0){
+  compstats <- describeLevels(...)
   class(compstats) <- "wss"
-  corrstats <- correlateLevels(x,y)
+  corrstats <- correlateLevels(...)
   results <- nhstDifference(compstats,corrstats,mu=mu)
   return(results)
 }
@@ -698,10 +698,10 @@ smdDifference.bss <- function(sumstats,contrast,conf.level=.95,...) {
   return(round(results,3))
 }
 
-smdDifference.default <- function(x,y,conf.level=.95,...){
-  compstats <- describeLevels(x,y)
+smdDifference.default <- function(...,conf.level=.95){
+  compstats <- describeLevels(...)
   class(compstats) <- "wss"
-  corrstats <- correlateLevels(x,y)
+  corrstats <- correlateLevels(...)
   results <- smdDifference(compstats,corrstats,conf.level=conf.level)
   return(results)
 }

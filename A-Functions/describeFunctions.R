@@ -8,7 +8,7 @@
 describeLevels <- function(...) 
   UseMethod("describeLevels")
 
-describeLevels.default <- function(...){
+describeLevels.default <- function(...,mu=NULL,conf.level=NULL){
   data <- data.frame(...)
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
@@ -31,7 +31,7 @@ describeLevels.formula <- function(formula,...){
 correlateLevels <- function(...) 
   UseMethod("correlateLevels")
 
-correlateLevels.default <- function(...){
+correlateLevels.default <- function(...,mu=NULL,conf.level=NULL){
   data <- data.frame(...)
   results <- cor(data)
   return(results)

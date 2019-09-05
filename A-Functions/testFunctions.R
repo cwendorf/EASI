@@ -72,10 +72,10 @@ nhstDifference.bss <- function(compstats,mu=0,...){
   return(results)
 }
 
-nhstDifference.default <- function(x,y,mu=0){
-  compstats <- describeLevels(x,y)
+nhstDifference.default <- function(...,mu=0){
+  compstats <- describeLevels(...)
   class(compstats) <- "wss"
-  corrstats <- correlateLevels(x,y)
+  corrstats <- correlateLevels(...)
   results <- nhstDifference(compstats,corrstats,mu=mu)
   return(results)
 }
