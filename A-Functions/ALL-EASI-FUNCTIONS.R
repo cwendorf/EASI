@@ -243,6 +243,7 @@ estimateContrast<-function(...) {
 ### Confidence Interval Plot Functions
 
 #### Basic Plot Functions
+
 cipMeans <- function(results,main,ylab,xlab,mu){
   plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
@@ -373,23 +374,7 @@ plotDifference.formula <- function(formula,...){
 plotContrast <- function(...) 
   UseMethod("plotContrast")
 
-plotContrast.bss <- function(sumstats,contrast,...){
-  main="Confidence Intervals for the Contrast"
-  ylab="Outcome"
-  xlab="Groups"
-  congrp1 <- ifelse(contrast<0,0,contrast)
-  resgrp1 <- ciContrast(sumstats,contrast=congrp1,...)
-  congrp2 <- ifelse(contrast>0,0,abs(contrast))
-  resgrp2 <- ciContrast(sumstats,contrast=congrp2,...)
-  Groups <- rbind(resgrp1,resgrp2)
-  Groups <- Groups[2:1,c(1,4,5)]
-  Diff <- ciContrast(sumstats,contrast=contrast,...)[c(1,4,5)]
-  results <- rbind(Groups,Diff)
-  rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")
-  cipDifference(results,main,ylab,xlab)
-}
-
-plotContrast.default <- function(...,contrast){
+plotContrast.wss <- function(...,contrast,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Variables"
@@ -401,11 +386,43 @@ plotContrast.default <- function(...,contrast){
   Vars <- Vars[2:1,c(1,4,5)]  
   Diff <- ciContrast(...,contrast=contrast)[c(1,4,5)]
   results <- rbind(Vars,Diff)
-  rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")
+  if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- labels}
   cipDifference(results,main,ylab,xlab)  
 }
 
-plotContrast.formula <- function(formula,contrast,...){
+plotContrast.bss <- function(sumstats,contrast,labels=NULL,...){
+  main="Confidence Intervals for the Contrast"
+  ylab="Outcome"
+  xlab="Groups"
+  congrp1 <- ifelse(contrast<0,0,contrast)
+  resgrp1 <- ciContrast(sumstats,contrast=congrp1,...)
+  congrp2 <- ifelse(contrast>0,0,abs(contrast))
+  resgrp2 <- ciContrast(sumstats,contrast=congrp2,...)
+  Groups <- rbind(resgrp1,resgrp2)
+  Groups <- Groups[2:1,c(1,4,5)]
+  Diff <- ciContrast(sumstats,contrast=contrast,...)[c(1,4,5)]
+  results <- rbind(Groups,Diff)
+  if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- labels}
+  cipDifference(results,main,ylab,xlab)
+}
+
+plotContrast.default <- function(...,contrast,labels=NULL){
+  main="Confidence Intervals for the Contrast"
+  ylab="Outcome"
+  xlab="Variables"
+  convar1 <- ifelse(contrast<0,0,contrast)
+  resvar1 <- ciContrast(...,contrast=convar1)
+  convar2 <- ifelse(contrast>0,0,abs(contrast))
+  resvar2 <- ciContrast(...,contrast=convar2)
+  Vars <- rbind(resvar1,resvar2)
+  Vars <- Vars[2:1,c(1,4,5)]  
+  Diff <- ciContrast(...,contrast=contrast)[c(1,4,5)]
+  results <- rbind(Vars,Diff)
+  if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- labels}
+  cipDifference(results,main,ylab,xlab)  
+}
+
+plotContrast.formula <- function(formula,contrast,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
@@ -417,7 +434,7 @@ plotContrast.formula <- function(formula,contrast,...){
   Groups <- Groups[2:1,c(1,4,5)]
   Diff <- ciContrast(formula,contrast=contrast,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
-  rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast") 
+  if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- labels}
   cipDifference(results,main,ylab,xlab)
 }
 
