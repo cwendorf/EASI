@@ -44,7 +44,7 @@ cipDifference <- function(results,main,ylab,xlab){
 plotMeans <- function(...) 
   UseMethod("plotMeans")
 
-plotMeans.default <- function(...,conf.level=.95,mu=NULL){
+plotMeans.default <- function(...,mu=NULL,conf.level=.95){
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Variables"
@@ -52,7 +52,7 @@ plotMeans.default <- function(...,conf.level=.95,mu=NULL){
   cipMeans(results,main,ylab,xlab,mu)
 }
 
-plotMeans.formula <- function(formula,mu=NULL,...){
+plotMeans.formula <- function(formula,mu=NULL,conf.level=.95,...){
   main="Confidence Intervals for the Means"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
@@ -63,7 +63,7 @@ plotMeans.formula <- function(formula,mu=NULL,...){
   cipMeans(results,main,ylab,xlab,mu)
 }
  
-plotMeans.wss <- function(sumstats,mu=NULL,...){
+plotMeans.wss <- function(sumstats,mu=NULL,conf.level=.95,...){
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Variables"
@@ -71,7 +71,7 @@ plotMeans.wss <- function(sumstats,mu=NULL,...){
   cipMeans(results,main,ylab,xlab,mu)
 }
 
-plotMeans.bss <- function(sumstats,mu=NULL,...){
+plotMeans.bss <- function(sumstats,mu=NULL,conf.level=.95,...){
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Groups"
@@ -84,7 +84,7 @@ plotMeans.bss <- function(sumstats,mu=NULL,...){
 plotDifference <- function(...) 
   UseMethod("plotDifference")
   
-plotDifference.wss <- function(compstats,corrstats,...){
+plotDifference.wss <- function(compstats,corrstats,mu=NULL,conf.level=.95,...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
@@ -95,7 +95,7 @@ plotDifference.wss <- function(compstats,corrstats,...){
   cipDifference(results,main,ylab,xlab)
 }
 
-plotDifference.bss <- function(compstats,...){
+plotDifference.bss <- function(compstats,mu=NULL,conf.level=.95,...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Groups"
@@ -106,7 +106,7 @@ plotDifference.bss <- function(compstats,...){
   cipDifference(results,main,ylab,xlab)
 }
 
-plotDifference.default <- function(...){
+plotDifference.default <- function(...,mu=NULL,conf.level=.95){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
@@ -117,7 +117,7 @@ plotDifference.default <- function(...){
   cipDifference(results,main,ylab,xlab)
 }
 
-plotDifference.formula <- function(formula,...){
+plotDifference.formula <- function(formula,mu=NULL,conf.level=.95,...){
   main="Confidence Intervals for the Comparison"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
@@ -134,7 +134,7 @@ plotDifference.formula <- function(formula,...){
 plotContrast <- function(...) 
   UseMethod("plotContrast")
 
-plotContrast.wss <- function(...,contrast,labels=NULL){
+plotContrast.wss <- function(...,contrast,mu=NULL,conf.level=.95,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Variables"
@@ -150,7 +150,7 @@ plotContrast.wss <- function(...,contrast,labels=NULL){
   cipDifference(results,main,ylab,xlab)  
 }
 
-plotContrast.bss <- function(sumstats,contrast,labels=NULL,...){
+plotContrast.bss <- function(sumstats,contrast,mu=NULL,conf.level=.95,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Groups"
@@ -166,7 +166,7 @@ plotContrast.bss <- function(sumstats,contrast,labels=NULL,...){
   cipDifference(results,main,ylab,xlab)
 }
 
-plotContrast.default <- function(...,contrast,labels=NULL){
+plotContrast.default <- function(...,contrast,mu=NULL,conf.level=.95,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Variables"
@@ -182,7 +182,7 @@ plotContrast.default <- function(...,contrast,labels=NULL){
   cipDifference(results,main,ylab,xlab)  
 }
 
-plotContrast.formula <- function(formula,contrast,labels=NULL,...){
+plotContrast.formula <- function(formula,contrast,mu=NULL,conf.level=.95,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]

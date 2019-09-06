@@ -8,7 +8,7 @@
 ciMeans <- function(...) 
   UseMethod("ciMeans")
 
-ciMeans.wss <- ciMeans.bss <- function(sumstats,conf.level=.95,...){
+ciMeans.wss <- ciMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -20,14 +20,14 @@ ciMeans.wss <- ciMeans.bss <- function(sumstats,conf.level=.95,...){
   return(results)
 }
 
-ciMeans.default <- function(...,conf.level=.95){
+ciMeans.default <- function(...,mu=0,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- ciMeans(sumstats,conf.level=conf.level)
   return(results)
 }
 
-ciMeans.formula <- function(formula,conf.level=.95,...){
+ciMeans.formula <- function(formula,mu=0,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- ciMeans(sumstats,conf.level=conf.level)
@@ -39,7 +39,7 @@ ciMeans.formula <- function(formula,conf.level=.95,...){
 ciDifference <- function(...) 
   UseMethod("ciDifference")
   
-ciDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
+ciDifference.wss <- function(compstats,corrstats,mu=0,conf.level=.95,...){
   compstats <- compstats[1:2,]
   N <- compstats[,"N"]
   M <- compstats[,"M"]
@@ -58,7 +58,7 @@ ciDifference.wss <- function(compstats,corrstats,conf.level=.95,...){
   return(results)
 }
 
-ciDifference.bss <- function(compstats,conf.level=.95,...){
+ciDifference.bss <- function(compstats,mu=0,conf.level=.95,...){
   compstats <- compstats[1:2,]
   N <- compstats[,"N"]
   M <- compstats[,"M"]
@@ -74,7 +74,7 @@ ciDifference.bss <- function(compstats,conf.level=.95,...){
   return(results)
 }
 
-ciDifference.default <- function(...,conf.level=.95){
+ciDifference.default <- function(...,mu=0,conf.level=.95){
   compstats <- describeLevels(...)
   class(compstats) <- "wss"
   corrstats <- correlateLevels(...)
@@ -82,7 +82,7 @@ ciDifference.default <- function(...,conf.level=.95){
   return(results)
 }
 
-ciDifference.formula <- function(formula,conf.level=.95,...){
+ciDifference.formula <- function(formula,mu=0,conf.level=.95,...){
   compstats <- describeLevels(formula)
   class(compstats) <- "bss"
   results <- ciDifference(compstats,conf.level=conf.level)
@@ -94,7 +94,7 @@ ciDifference.formula <- function(formula,conf.level=.95,...){
 ciContrast <- function(...) 
   UseMethod("ciContrast")
 
-ciContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95) {
+ciContrast.wss <- function(sumstats,corrstats,contrast,mu=0,conf.level=.95) {
   N <- min(sumstats[,"N"])
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -111,7 +111,7 @@ ciContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95) {
   return(round(results,3))
 }
 
-ciContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
+ciContrast.bss <- function(sumstats,contrast,mu=0,conf.level=.95,...) {
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -129,7 +129,7 @@ ciContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   return(round(results,3))
 }
 
-ciContrast.default <- function(...,contrast,conf.level=.95){
+ciContrast.default <- function(...,contrast,mu=0,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
@@ -137,7 +137,7 @@ ciContrast.default <- function(...,contrast,conf.level=.95){
   return(results)
 }
 
-ciContrast.formula <- function(formula,contrast,conf.level=.95,...){
+ciContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- ciContrast(sumstats,contrast,conf.level=conf.level)
