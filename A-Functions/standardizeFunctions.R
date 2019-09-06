@@ -8,7 +8,7 @@
 smdMeans <- function(...) 
   UseMethod("smdMeans")
   
-smdMeans.wss <- smdMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
+smdMeans.wss <- smdMeans.bss <- function(sumstats,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -43,14 +43,14 @@ smdMeans.wss <- smdMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
   return(results)
 }
 
-smdMeans.default <- function(...,mu=0,conf.level=.95){
+smdMeans.default <- function(...,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- smdMeans(sumstats,mu=mu,conf.level=conf.level)
   return(results)
 }
 
-smdMeans.formula <- function(formula,mu=0,conf.level=.95,...){
+smdMeans.formula <- function(formula,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- smdMeans(sumstats,mu=mu,conf.level=conf.level)
@@ -62,7 +62,7 @@ smdMeans.formula <- function(formula,mu=0,conf.level=.95,...){
 smdDifference <- function(...) 
   UseMethod("smdDifference")
 
-smdDifference.wss <- function(sumstats,corrstats,mu=0,conf.level=.95,...){
+smdDifference.wss <- function(sumstats,corrstats,conf.level=.95,...){
   compstats <- sumstats[1:2,]
   N <- min(compstats[1:2,"N"])
   M <- compstats[1:2,"M"]
@@ -85,7 +85,7 @@ smdDifference.wss <- function(sumstats,corrstats,mu=0,conf.level=.95,...){
   return(round(results,3))
 }
 
-smdDifference.bss <- function(sumstats,contrast,mu=0,conf.level=.95,...) {
+smdDifference.bss <- function(sumstats,contrast,conf.level=.95,...) {
   compstats <- sumstats[1:2,]
   N <- compstats[1:2,"N"]
   M <- compstats[1:2,"M"]
@@ -104,7 +104,7 @@ smdDifference.bss <- function(sumstats,contrast,mu=0,conf.level=.95,...) {
   return(round(results,3))
 }
 
-smdDifference.default <- function(...,mu=0,conf.level=.95){
+smdDifference.default <- function(...,conf.level=.95){
   compstats <- describeLevels(...)
   class(compstats) <- "wss"
   corrstats <- correlateLevels(...)
@@ -112,7 +112,7 @@ smdDifference.default <- function(...,mu=0,conf.level=.95){
   return(results)
 }
 
-smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,...){
+smdDifference.formula <- function(formula,contrast,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- smdDifference(sumstats,contrast,conf.level=conf.level)
@@ -124,7 +124,7 @@ smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,...){
 smdContrast <- function(...) 
   UseMethod("smdContrast")
 
-smdContrast.wss <- function(sumstats,corrstats,contrast,mu=0,conf.level=.95,...) {
+smdContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95,...) {
   N <- min(sumstats[,"N"])
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -148,7 +148,7 @@ smdContrast.wss <- function(sumstats,corrstats,contrast,mu=0,conf.level=.95,...)
   return(round(results,3))
 }
 
-smdContrast.bss <- function(sumstats,contrast,mu=0,conf.level=.95,...) {
+smdContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -169,7 +169,7 @@ smdContrast.bss <- function(sumstats,contrast,mu=0,conf.level=.95,...) {
   return(round(results,3))
 }
 
-smdContrast.default <- function(...,contrast,mu=0,conf.level=.95){
+smdContrast.default <- function(...,contrast,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
@@ -177,7 +177,7 @@ smdContrast.default <- function(...,contrast,mu=0,conf.level=.95){
   return(results)
 }
 
-smdContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,...){
+smdContrast.formula <- function(formula,contrast,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- smdContrast(sumstats,contrast,conf.level=conf.level)

@@ -8,7 +8,7 @@
 describeLevels <- function(...) 
   UseMethod("describeLevels")
 
-describeLevels.default <- function(...,mu=0,conf.level=.95){
+describeLevels.default <- function(...){
   data <- data.frame(...)
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)

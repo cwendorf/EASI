@@ -8,7 +8,7 @@
 nhstMeans <- function(...) 
   UseMethod("nhstMeans")
   
-nhstMeans.wss <- nhstMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
+nhstMeans.wss <- nhstMeans.bss <- function(sumstats,mu=0,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SE <- sumstats[,"SD"]/sqrt(N)
@@ -20,14 +20,14 @@ nhstMeans.wss <- nhstMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
   return(results)
 }
 
-nhstMeans.default <- function(...,mu=0,conf.level=.95){
+nhstMeans.default <- function(...,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- nhstMeans(sumstats,mu=mu)
   return(results)
 }
 
-nhstMeans.formula <- function(formula,mu=0,conf.level=.95,...){
+nhstMeans.formula <- function(formula,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- nhstMeans(sumstats,mu=mu)
@@ -39,7 +39,7 @@ nhstMeans.formula <- function(formula,mu=0,conf.level=.95,...){
 nhstDifference <- function(...) 
   UseMethod("nhstDifference")
   
-nhstDifference.wss <- function(compstats,corrstats,mu=0,conf.level=.95,...){
+nhstDifference.wss <- function(compstats,corrstats,mu=0,...){
   compstats <- compstats[1:2,]
   N <- compstats[,"N"]
   M <- compstats[,"M"]
@@ -57,7 +57,7 @@ nhstDifference.wss <- function(compstats,corrstats,mu=0,conf.level=.95,...){
   return(results)
 }
 
-nhstDifference.bss <- function(compstats,mu=0,conf.level=.95,...){
+nhstDifference.bss <- function(compstats,mu=0,...){
   compstats <- compstats[1:2,]
   N <- compstats[,"N"]
   M <- compstats[,"M"]
@@ -72,7 +72,7 @@ nhstDifference.bss <- function(compstats,mu=0,conf.level=.95,...){
   return(results)
 }
 
-nhstDifference.default <- function(...,mu=0,conf.level=.95){
+nhstDifference.default <- function(...,mu=0){
   compstats <- describeLevels(...)
   class(compstats) <- "wss"
   corrstats <- correlateLevels(...)
@@ -80,7 +80,7 @@ nhstDifference.default <- function(...,mu=0,conf.level=.95){
   return(results)
 }
 
-nhstDifference.formula <- function(formula,mu=0,conf.level=.95,...){
+nhstDifference.formula <- function(formula,mu=0,...){
   compstats <- describeLevels(formula)
   class(compstats) <- "bss"
   results <- nhstDifference(compstats,mu=mu)
@@ -92,7 +92,7 @@ nhstDifference.formula <- function(formula,mu=0,conf.level=.95,...){
 nhstContrast <- function(...) 
   UseMethod("nhstContrast")
   
-nhstContrast.bss <- function(sumstats,contrast,mu=0,conf.level=.95,...) {
+nhstContrast.bss <- function(sumstats,contrast,mu=0,...) {
   N=sumstats[,"N"]
   M=sumstats[,"M"]
   SD=sumstats[,"SD"]
@@ -109,7 +109,7 @@ nhstContrast.bss <- function(sumstats,contrast,mu=0,conf.level=.95,...) {
   return(round(results,3))
 }
 
-nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,conf.level=.95,...) {
+nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,...) {
   N <- min(sumstats[,"N"])
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -125,7 +125,7 @@ nhstContrast.wss <- function(sumstats,corrstats,contrast,mu=0,conf.level=.95,...
   return(round(results,3))
 }
 
-nhstContrast.default <- function(...,contrast,mu=0,conf.level=.95){
+nhstContrast.default <- function(...,contrast,mu=0){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   corrstats <- correlateLevels(...)
@@ -133,7 +133,7 @@ nhstContrast.default <- function(...,contrast,mu=0,conf.level=.95){
   return(results)
 }
 
-nhstContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,...){
+nhstContrast.formula <- function(formula,contrast,mu=0,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- nhstContrast(sumstats,contrast,mu=mu)

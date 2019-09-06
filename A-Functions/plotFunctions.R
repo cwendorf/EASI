@@ -44,6 +44,21 @@ cipDifference <- function(results,main,ylab,xlab){
 plotMeans <- function(...) 
   UseMethod("plotMeans")
 
+plotMeans.wss <- function(sumstats,mu=NULL,...){
+  main="Confidence Intervals for the Means"
+  ylab="Outcome"
+  xlab="Variables"
+  results <- ciMeans(sumstats,...)[,c(2,5,6)]
+  cipMeans(results,main,ylab,xlab,mu)
+}
+
+plotMeans.bss <- function(sumstats,mu=NULL,...){
+  main="Confidence Intervals for the Means"
+  ylab="Outcome"
+  xlab="Groups"
+  results <- ciMeans(sumstats,...)[,c(2,5,6)]
+  cipMeans(results,main,ylab,xlab,mu)
+}
 plotMeans.default <- function(...,mu=NULL,conf.level=.95){
   main="Confidence Intervals for the Means"
   ylab="Outcome"
@@ -52,7 +67,7 @@ plotMeans.default <- function(...,mu=NULL,conf.level=.95){
   cipMeans(results,main,ylab,xlab,mu)
 }
 
-plotMeans.formula <- function(formula,mu=NULL,conf.level=.95,...){
+plotMeans.formula <- function(formula,mu=NULL,...){
   main="Confidence Intervals for the Means"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
@@ -63,28 +78,12 @@ plotMeans.formula <- function(formula,mu=NULL,conf.level=.95,...){
   cipMeans(results,main,ylab,xlab,mu)
 }
  
-plotMeans.wss <- function(sumstats,mu=NULL,conf.level=.95,...){
-  main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Variables"
-  results <- ciMeans(sumstats,...)[,c(2,5,6)]
-  cipMeans(results,main,ylab,xlab,mu)
-}
-
-plotMeans.bss <- function(sumstats,mu=NULL,conf.level=.95,...){
-  main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Groups"
-  results <- ciMeans(sumstats,...)[,c(2,5,6)]
-  cipMeans(results,main,ylab,xlab,mu)
-}
-
 #### Plot Function for Confidence Intervals of a Mean Difference/Comparison of Levels
 
 plotDifference <- function(...) 
   UseMethod("plotDifference")
   
-plotDifference.wss <- function(compstats,corrstats,mu=NULL,conf.level=.95,...){
+plotDifference.wss <- function(compstats,corrstats,...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
@@ -95,7 +94,7 @@ plotDifference.wss <- function(compstats,corrstats,mu=NULL,conf.level=.95,...){
   cipDifference(results,main,ylab,xlab)
 }
 
-plotDifference.bss <- function(compstats,mu=NULL,conf.level=.95,...){
+plotDifference.bss <- function(compstats,...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Groups"
@@ -106,7 +105,7 @@ plotDifference.bss <- function(compstats,mu=NULL,conf.level=.95,...){
   cipDifference(results,main,ylab,xlab)
 }
 
-plotDifference.default <- function(...,mu=NULL,conf.level=.95){
+plotDifference.default <- function(...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
@@ -117,7 +116,7 @@ plotDifference.default <- function(...,mu=NULL,conf.level=.95){
   cipDifference(results,main,ylab,xlab)
 }
 
-plotDifference.formula <- function(formula,mu=NULL,conf.level=.95,...){
+plotDifference.formula <- function(formula,...){
   main="Confidence Intervals for the Comparison"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
@@ -134,7 +133,7 @@ plotDifference.formula <- function(formula,mu=NULL,conf.level=.95,...){
 plotContrast <- function(...) 
   UseMethod("plotContrast")
 
-plotContrast.wss <- function(...,contrast,mu=NULL,conf.level=.95,labels=NULL){
+plotContrast.wss <- function(...,contrast,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Variables"
@@ -150,7 +149,7 @@ plotContrast.wss <- function(...,contrast,mu=NULL,conf.level=.95,labels=NULL){
   cipDifference(results,main,ylab,xlab)  
 }
 
-plotContrast.bss <- function(sumstats,contrast,mu=NULL,conf.level=.95,labels=NULL,...){
+plotContrast.bss <- function(sumstats,contrast,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Groups"
@@ -166,7 +165,7 @@ plotContrast.bss <- function(sumstats,contrast,mu=NULL,conf.level=.95,labels=NUL
   cipDifference(results,main,ylab,xlab)
 }
 
-plotContrast.default <- function(...,contrast,mu=NULL,conf.level=.95,labels=NULL){
+plotContrast.default <- function(...,contrast,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Variables"
@@ -182,7 +181,7 @@ plotContrast.default <- function(...,contrast,mu=NULL,conf.level=.95,labels=NULL
   cipDifference(results,main,ylab,xlab)  
 }
 
-plotContrast.formula <- function(formula,contrast,mu=NULL,conf.level=.95,labels=NULL,...){
+plotContrast.formula <- function(formula,contrast,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
