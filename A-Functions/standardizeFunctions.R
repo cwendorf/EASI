@@ -8,7 +8,7 @@
 smdMeans <- function(...) 
   UseMethod("smdMeans")
   
-smdMeans.wss <- smdMeans.bss <- function(sumstats,conf.level=.95,...){
+smdMeans.wss <- smdMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
   N <- sumstats[,"N"]
   M <- sumstats[,"M"]
   SD <- sumstats[,"SD"]
@@ -43,14 +43,14 @@ smdMeans.wss <- smdMeans.bss <- function(sumstats,conf.level=.95,...){
   return(results)
 }
 
-smdMeans.default <- function(...,conf.level=.95){
+smdMeans.default <- function(...,mu=0,conf.level=.95){
   sumstats <- describeLevels(...)
   class(sumstats) <- "wss"
   results <- smdMeans(sumstats,mu=mu,conf.level=conf.level)
   return(results)
 }
 
-smdMeans.formula <- function(formula,conf.level=.95,...){
+smdMeans.formula <- function(formula,mu=0,conf.level=.95,...){
   sumstats <- describeLevels(formula)
   class(sumstats) <- "bss"
   results <- smdMeans(sumstats,mu=mu,conf.level=conf.level)
