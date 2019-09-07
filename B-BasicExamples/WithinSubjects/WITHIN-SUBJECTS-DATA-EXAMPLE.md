@@ -50,10 +50,10 @@ estimateMeans(Time1,Time2,Time3)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-      N   M    SD    SE    LL    UL
-Time1 5 6.4 1.140 0.510 4.984 7.816
-Time2 5 7.8 0.837 0.374 6.761 8.839
-Time3 5 8.6 0.548 0.245 7.920 9.280
+          N     M    SD    SE    LL    UL
+Time1 5.000 6.400 1.140 0.510 4.985 7.815
+Time2 5.000 7.800 0.837 0.374 6.761 8.839
+Time3 5.000 8.600 0.548 0.245 7.920 9.280
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -84,10 +84,10 @@ testMeans(Time1,Time2,Time3)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-      Diff    SE      t df p
-Time1  6.4 0.510 12.551  4 0
-Time2  7.8 0.374 20.846  4 0
-Time3  8.6 0.245 35.109  4 0
+       Diff    SE      t    df     p
+Time1 6.400 0.510 12.553 4.000 0.000
+Time2 7.800 0.374 20.838 4.000 0.000
+Time3 8.600 0.245 35.092 4.000 0.000
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -104,10 +104,10 @@ standardizeMeans(Time1,Time2,Time3)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-           d d(unb) df    SE    LL     UL
-Time1  5.614  4.491  4 1.693 1.782  9.469
-Time2  9.319  7.455  4 2.734 3.085 15.629
-Time3 15.693 12.555  4 4.557 5.275 26.265
+           d d(unb)    SE    LL     UL
+Time1  5.614  4.491 1.693 1.782  9.469
+Time2  9.319  7.455 2.734 3.085 15.629
+Time3 15.693 12.555 4.557 5.275 26.265
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -128,8 +128,8 @@ estimateDifference(Time1,Time2)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-           Diff    SE df    LL    UL
-Comparison -1.4 0.245  4 -2.08 -0.72
+             Diff    SE    df     LL     UL
+Comparison -1.400 0.245 4.000 -2.080 -0.720
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -164,8 +164,8 @@ testDifference(Time1,Time2)
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-           Diff    SE      t df     p
-Comparison -1.4 0.245 -5.718  4 0.005
+             Diff    SE      t    df     p
+Comparison -1.400 0.245 -5.718 4.000 0.005
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -182,8 +182,8 @@ standardizeDifference(Time1,Time2)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-          Est    SE     LL     UL
-Comparison -1.4 0.545 -2.468 -0.332
+              Est    SE     LL     UL
+Comparison -1.400 0.545 -2.468 -0.332
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -199,81 +199,83 @@ This section produces analyses that are equivalent to analyses involving multipl
 
 This code creates combinations of variables and produces a confidence interval for those pooled variables.
 ```r
-T1 <- c(1,0,0)
-estimateContrast(Time1,Time2,Time3,contrast=T1)
+weights.T1 <- c(1,0,0)
+estimateContrast(Time1,Time2,Time3,contrast=weights.T1)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-         Est   SE df    LL    UL
-Contrast 6.4 0.51  4 4.984 7.816
+           Est    SE    df    LL    UL
+Contrast 6.400 0.510 4.000 4.985 7.815
 ```
 ```r
-T2nT3 <- c(0,.5,.5)
-estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
+weights.T2nT3 <- c(0,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=weights.T2nT3)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-         Est  SE df    LL    UL
-Contrast 8.2 0.3  4 7.367 9.033
+           Est    SE    df    LL    UL
+Contrast 8.200 0.300 4.000 7.367 9.033
 ```
 
 #### Confidence Interval for the Contrast
 
 This code identifies a contrast among the levels and produces a confidence interval for that contrast.
 ```r
-T1vsT2 <- c(1,-1,0)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsT2)
+weights.T1vsOthers <- c(-1,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-          Est    SE df    LL    UL
-Contrast -1.4 0.245  4 -2.08 -0.72
+           Est    SE    df    LL    UL
+Contrast 1.800 0.300 4.000 0.967 2.633
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```r
-estimateContrast(Time1,Time2,Time3,contrast=T1vsT2,conf.level=.99)
+estimateContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
+weights.T1vsOthers <- c(-1,.5,.5)
+descp.T1vsOthers <- c("Time1","Others","Contrast")
+plotContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,labels=descp.T1vsOthers)
 ````
 <kbd><img src="WithinSubjectsFigure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
-plotContrast(Time1,Time2,Time3,contrast=G1vsOthers,conf.level=.99)
+plotContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,labels=descp.T1vsOthers,conf.level=.99)
 ```
 
 #### Significance Test for the Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```r
-testContrast(Time1,Time2,Time3,contrast=T1vsT2)
+testContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
 
-          Est    SE      t df     p
-Contrast -1.4 0.245 -5.715  4 0.005
+           Est    SE     t    df     p
+Contrast 1.800 0.300 6.002 4.000 0.004
 ```
 
 If desired, the contrast can be tested against other values if needed.
 ```r
-testContrast(Time1,Time2,Time3,contrast=T1vsT2,mu=-1)
+testContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,mu=-1)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```r
-standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
+standardizeContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
@@ -284,5 +286,5 @@ Contrast 2.056 0.685 0.714 3.397
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
+standardizeContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,conf.level=.99)
 ```

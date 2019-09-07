@@ -66,28 +66,30 @@ standardizeDifference(Time1,Time2,conf.level=.99)
 
 #### Confidence Intervals for Combined Levels
 
-T1 <- c(1,0,0)
-estimateContrast(Time1,Time2,Time3,contrast=T1)
-T2nT3 <- c(0,.5,.5)
-estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
+weights.T1 <- c(1,0,0)
+estimateContrast(Time1,Time2,Time3,contrast=weights.T1)
+weights.T2nT3 <- c(0,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=weights.T2nT3)
 
 #### Confidence Interval for the Contrast
 
-T1vsOthers <- c(-1,.5,.5)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
+weights.T1vsOthers <- c(-1,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
+estimateContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-plotContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
+weights.T1vsOthers <- c(-1,.5,.5)
+descp.T1vsOthers <- c("Time1","Others","Contrast")
+plotContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,labels=descp.T1vsOthers)
+plotContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,labels=descp.T1vsOthers,conf.level=.99)
 
 #### Significance Test for the Contrast
 
-testContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=-1)
+testContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
+testContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,mu=-1)
 
 #### Effect Size for the Contrast
 
-standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
+standardizeContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
+standardizeContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,conf.level=.99)
