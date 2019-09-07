@@ -169,16 +169,16 @@ Comparison -4.000 1.732 -8.461 0.461
 > 
 > #### Confidence Intervals for Combined Levels
 > 
-> weights.G1 <- c(1,0,0)
-> estimateContrast(Outcome~Group,contrast=weights.G1)
+> G1 <- c(1,0,0)
+> estimateContrast(Outcome~Group,contrast=G1)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df    LL    UL
 Contrast 4.000 0.577 2.000 1.516 6.484
 
-> weights.G2nG3 <- c(0,.5,.5)
-> estimateContrast(Outcome~Group,contrast=weights.G2nG3)
+> G2nG3 <- c(0,.5,.5)
+> estimateContrast(Outcome~Group,contrast=G2nG3)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
@@ -188,15 +188,15 @@ Contrast 8.500 0.408 4.000 7.367 9.633
 > 
 > #### Confidence Interval for a Contrast
 > 
-> weights.G1vsOthers <- c(-1,.5,.5)
-> estimateContrast(Outcome~Group,contrast=weights.G1vsOthers)
+> G1vsOthers <- c(-1,.5,.5)
+> estimateContrast(Outcome~Group,contrast=G1vsOthers)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df    LL    UL
 Contrast 4.500 0.707 4.000 2.537 6.463
 
-> estimateContrast(Outcome~Group,contrast=weights.G1vsOthers,conf.level=.99)
+> estimateContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
@@ -206,21 +206,20 @@ Contrast 4.500 0.707 4.000 1.244 7.756
 > 
 > #### Plots of Confidence Intervals for a Contrast
 > 
-> weights.G1vsOthers <- c(-1,.5,.5)
-> descp.G1vsOthers <- c("Group1","Others","Contrast")
-> plotContrast(Outcome~Group,contrast=weights.G1vsOthers,labels=descp.G1vsOthers)
-> plotContrast(Outcome~Group,contrast=weights.G1vsOthers,labels=descp.G1vsOthers,conf.level=.99)
+> G1vsOthers <- c(-1,.5,.5)
+> plotContrast(Outcome~Group,contrast=G1vsOthers)
+> plotContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 > 
 > #### Significance Test for a Contrast
 > 
-> testContrast(Outcome~Group,contrast=weights.G1vsOthers)
+> testContrast(Outcome~Group,contrast=G1vsOthers)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
 Contrast 4.500 0.707 6.364 4.000 0.003
 
-> testContrast(Outcome~Group,contrast=weights.G1vsOthers,mu=4)
+> testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
@@ -230,14 +229,14 @@ Contrast 0.500 0.707 0.707 4.000 0.519
 > 
 > #### Effect Size for a Contrast
 > 
-> standardizeContrast(Outcome~Group,contrast=weights.G1vsOthers)
+> standardizeContrast(Outcome~Group,contrast=G1vsOthers)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
            Est    SE    LL    UL
 Contrast 4.500 1.561 1.440 7.560
 
-> standardizeContrast(Outcome~Group,contrast=weights.G1vsOthers,conf.level=.99)
+> standardizeContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 

@@ -69,30 +69,29 @@ standardizeDifference(Outcome~Comparison,conf.level=.99)
 
 #### Confidence Intervals for Combined Levels
 
-weights.G1 <- c(1,0,0)
-estimateContrast(Outcome~Group,contrast=weights.G1)
-weights.G2nG3 <- c(0,.5,.5)
-estimateContrast(Outcome~Group,contrast=weights.G2nG3)
+G1 <- c(1,0,0)
+estimateContrast(Outcome~Group,contrast=G1)
+G2nG3 <- c(0,.5,.5)
+estimateContrast(Outcome~Group,contrast=G2nG3)
 
 #### Confidence Interval for a Contrast
 
-weights.G1vsOthers <- c(-1,.5,.5)
-estimateContrast(Outcome~Group,contrast=weights.G1vsOthers)
-estimateContrast(Outcome~Group,contrast=weights.G1vsOthers,conf.level=.99)
+G1vsOthers <- c(-1,.5,.5)
+estimateContrast(Outcome~Group,contrast=G1vsOthers)
+estimateContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-weights.G1vsOthers <- c(-1,.5,.5)
-descp.G1vsOthers <- c("Group1","Others","Contrast")
-plotContrast(Outcome~Group,contrast=weights.G1vsOthers,labels=descp.G1vsOthers)
-plotContrast(Outcome~Group,contrast=weights.G1vsOthers,labels=descp.G1vsOthers,conf.level=.99)
+G1vsOthers <- c(-1,.5,.5)
+plotContrast(Outcome~Group,contrast=G1vsOthers)
+plotContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 
 #### Significance Test for a Contrast
 
-testContrast(Outcome~Group,contrast=weights.G1vsOthers)
-testContrast(Outcome~Group,contrast=weights.G1vsOthers,mu=4)
+testContrast(Outcome~Group,contrast=G1vsOthers)
+testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
 
 #### Effect Size for a Contrast
 
-standardizeContrast(Outcome~Group,contrast=weights.G1vsOthers)
-standardizeContrast(Outcome~Group,contrast=weights.G1vsOthers,conf.level=.99)
+standardizeContrast(Outcome~Group,contrast=G1vsOthers)
+standardizeContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)

@@ -204,8 +204,8 @@ This section produces analyses that are equivalent to analyses involving multipl
 
 This code creates combinations of groups and produces a confidence interval for those pooled groups.
 ```r
-weights.G1 <- c(1,0,0)
-estimateContrast(sumstats,contrast=weights.G1)
+G1 <- c(1,0,0)
+estimateContrast(sumstats,contrast=G1)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -214,8 +214,8 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 4.000 0.577 2.000 1.516 6.484
 ```
 ```r
-weights.G2nG3 <- c(0,.5,.5)
-estimateContrast(sumstats,contrast=weights.G2nG3)
+G2nG3 <- c(0,.5,.5)
+estimateContrast(sumstats,contrast=G2nG3)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -228,8 +228,8 @@ Contrast 8.500 0.408 4.000 7.367 9.633
 
 This code identifies a contrast among the groups and produces a confidence interval for that contrast.
 ```r
-weights.G1vsOthers <- c(-1,.5,.5)
-estimateContrast(sumstats,contrast=weights.G1vsOthers)
+G1vsOthers <- c(-1,.5,.5)
+estimateContrast(sumstats,contrast=G1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -240,29 +240,28 @@ Contrast 4.500 0.707 4.000 2.537 6.463
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```r
-estimateContrast(sumstats,contrast=weights.G1vsOthers,conf.level=.99)
+estimateContrast(sumstats,contrast=G1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-weights.G1vsOthers <- c(-1,.5,.5)
-descp.G1vsOthers <- c("Group1","Others","Contrast")
-plotContrast(sumstats,contrast=weights.G1vsOthers,labels=descp.G1vsOthers)
+G1vsOthers <- c(-1,.5,.5)
+plotContrast(sumstats,contrast=G1vsOthers)
 ````
 <kbd><img src="BetweenSubjectsFigure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
-plotContrast(sumstats,contrast=weights.G1vsOthers,labels=descp.G1vsOthers,conf.level=.99)
+plotContrast(sumstats,contrast=G1vsOthers,conf.level=.99)
 ```
 
 #### Significance Test for a Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```r
-testContrast(sumstats,contrast=weights.G1vsOthers)
+testContrast(sumstats,contrast=G1vsOthers)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -273,14 +272,14 @@ Contrast 4.500 0.707 6.364 4.000 0.003
 
 If desired, the contrast can be tested against other values if needed.
 ```r
-testContrast(sumstats,contrast=weights.G1vsOthers,mu=4)
+testContrast(sumstats,contrast=G1vsOthers,mu=4)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```r
-standardizeContrast(sumstats,contrast=weights.G1vsOthers)
+standardizeContrast(sumstats,contrast=G1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
@@ -291,5 +290,5 @@ Contrast 4.500 1.561 1.440 7.560
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeContrast(sumstats,contrast=weights.G1vsOthers,conf.level=.99)
+standardizeContrast(sumstats,contrast=G1vsOthers,conf.level=.99)
 ```

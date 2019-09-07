@@ -199,8 +199,8 @@ This section produces analyses that are equivalent to analyses involving multipl
 
 This code creates combinations of variables and produces a confidence interval for those pooled variables.
 ```r
-weights.T1 <- c(1,0,0)
-estimateContrast(Time1,Time2,Time3,contrast=weights.T1)
+T1 <- c(1,0,0)
+estimateContrast(Time1,Time2,Time3,contrast=T1)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -209,8 +209,8 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 6.400 0.510 4.000 4.985 7.815
 ```
 ```r
-weights.T2nT3 <- c(0,.5,.5)
-estimateContrast(Time1,Time2,Time3,contrast=weights.T2nT3)
+T2nT3 <- c(0,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -223,8 +223,8 @@ Contrast 8.200 0.300 4.000 7.367 9.033
 
 This code identifies a contrast among the levels and produces a confidence interval for that contrast.
 ```r
-weights.T1vsOthers <- c(-1,.5,.5)
-estimateContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
+T1vsOthers <- c(-1,.5,.5)
+estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -235,29 +235,28 @@ Contrast 1.800 0.300 4.000 0.967 2.633
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```r
-estimateContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,conf.level=.99)
+estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-weights.T1vsOthers <- c(-1,.5,.5)
-descp.T1vsOthers <- c("Time1","Others","Contrast")
-plotContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,labels=descp.T1vsOthers)
+T1vsOthers <- c(-1,.5,.5)
+plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 ````
 <kbd><img src="WithinSubjectsFigure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
-plotContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,labels=descp.T1vsOthers,conf.level=.99)
+plotContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 ```
 
 #### Significance Test for the Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```r
-testContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
+testContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -268,14 +267,14 @@ Contrast 1.800 0.300 6.002 4.000 0.004
 
 If desired, the contrast can be tested against other values if needed.
 ```r
-testContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,mu=-1)
+testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=-1)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```r
-standardizeContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers)
+standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
@@ -286,5 +285,5 @@ Contrast 2.056 0.685 0.714 3.397
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeContrast(Time1,Time2,Time3,contrast=weights.T1vsOthers,conf.level=.99)
+standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
 ```
