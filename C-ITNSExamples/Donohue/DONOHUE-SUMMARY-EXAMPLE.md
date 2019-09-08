@@ -47,7 +47,7 @@ DonohueCorr
          Pretest Posttest Followup
 Pretest    1.000    0.493    0.536
 Posttest   0.493    1.000    0.743
-Followup   0.536    0.743    1.0``
+Followup   0.536    0.743    1.000
 ```
 
 ### Analyses of the Different Variables
@@ -58,10 +58,10 @@ estimateMeans(DonohueSummary)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-          N    M    SD    SE     LL     UL
-Pretest  20 19.3 5.904 1.320 16.537 22.063
-Posttest 20 23.6 4.762 1.065 21.371 25.829
-Followup 20 23.4 4.616 1.032 21.240 25.560
+              N      M    SD    SE     LL     UL
+Pretest  20.000 19.300 5.904 1.320 16.537 22.063
+Posttest 20.000 23.600 4.762 1.065 21.371 25.829
+Followup 20.000 23.400 4.616 1.032 21.240 25.560
 ```
 ```r
 plotMeans(DonohueSummary)
@@ -78,8 +78,8 @@ estimateDifference(PostvsFollowup,DonohueCorr)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-  Diff     SE     df     LL     UL 
- 0.200  0.753 19.000 -1.375  1.775 
+            Diff    SE     df     LL    UL
+Comparison 0.200 0.752 19.000 -1.375 1.775
 ```
 ```r
 plotDifference(PostvsFollowup,DonohueCorr)
@@ -91,21 +91,21 @@ standardizeDifference(PostvsFollowup,DonohueCorr)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-           Est    SE    LL    UL
-Contrast 0.043 0.165 -0.28 0.365
+             Est    SE     LL    UL
+Comparison 0.043 0.165 -0.280 0.365
 ```
 
 ### Analysis of a Variable Contrast
 
 ```r
-PrevsPostFollow <- c(1,-.5,.5)
+PrevsPostFollow <- c(-1,.5,.5)
 estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-          Est    SE df     LL     UL
-Contrast 19.2 1.386 19 16.299 22.101
+           Est    SE     df    LL    UL
+Contrast 4.200 1.130 19.000 1.834 6.566
 ```
 ```r
 plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
@@ -117,8 +117,8 @@ testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
 
-          Est    SE      t df p
-Contrast 19.2 1.386 13.851 19 0
+           Est    SE     t     df     p
+Contrast 4.200 1.130 3.716 19.000 0.001
 ```
 ```r
 standardizeContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
@@ -127,5 +127,5 @@ standardizeContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
            Est    SE    LL    UL
-Contrast 3.745 0.461 2.842 4.649
+Contrast 0.819 0.214 0.399 1.239
 ```

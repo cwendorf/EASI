@@ -36,7 +36,7 @@ standardizeDifference(PostvsFollowup,DonohueCorr)
 
 ### Analysis of a Variable Contrast
 
-PrevsPostFollow <- c(1,-.5,.5)
+PrevsPostFollow <- c(-1,.5,.5)
 estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)

@@ -7,7 +7,6 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Read Data from File
 
-RattanData <- read.table("RattanData.csv",header=T,sep=",")
 RattanData <- read.csv("RattanData.csv")
 attach(RattanData)
 RattanData

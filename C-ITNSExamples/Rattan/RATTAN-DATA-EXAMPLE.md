@@ -92,10 +92,10 @@ estimateMeans(Motivation~Feedback)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-           N     M    SD    SE    LL    UL
-Comfort   18 3.333 1.917 0.452 2.380 4.287
-Challenge 17 5.265 1.448 0.351 4.520 6.009
-Control   19 4.447 1.433 0.329 3.757 5.138
+               N     M    SD    SE    LL    UL
+Comfort   18.000 3.333 1.917 0.452 2.380 4.286
+Challenge 17.000 5.265 1.448 0.351 4.521 6.009
+Control   19.000 4.447 1.433 0.329 3.756 5.138
 ```
 ```r
 plotMeans(Motivation~Feedback)
@@ -111,8 +111,8 @@ estimateDifference(Motivation~Comparison)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-  Diff     SE     df     LL     UL 
--1.931  0.572 31.521 -3.098 -0.765 
+             Diff    SE     df     LL     UL
+Comparison -1.932 0.572 31.521 -3.098 -0.766
 ```
 ```r
 plotDifference(Motivation~Comparison)
@@ -125,7 +125,7 @@ standardizeDifference(Motivation~Comparison)
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL     UL
-Difference -1.137 0.376 -1.873 -0.401
+Comparison -1.137 0.376 -1.873 -0.401
 ```
 
 ### Analysis of a Group Contrast
@@ -159,6 +159,6 @@ standardizeContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Est   SE    LL   UL
-Contrast 0.943 0.34 0.276 1.6
+           Est    SE    LL    UL
+Contrast 0.943 0.340 0.276 1.610
 ```

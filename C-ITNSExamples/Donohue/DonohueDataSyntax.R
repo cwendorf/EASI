@@ -7,7 +7,6 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Read Data from Files
 
-DonohueData <- read.table("DonohueData.csv",header=T,sep=",")
 DonohueData <- read.csv("DonohueData.csv")
 attach(DonohueData)
 DonohueData
@@ -37,7 +36,7 @@ standardizeDifference(Posttest,Followup)
 
 ### Analysis of a Variable Contrast
 
-PrevsPostFollow <- c(1,-.5,.5)
+PrevsPostFollow <- c(-1,.5,.5)
 estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
