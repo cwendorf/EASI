@@ -5,7 +5,7 @@
 > 
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/D-Extensions/ALL-EASI-EXTENSIONS.R")
->
+> 
 > ### Three Time Period Example Summary Statistics
 > 
 > Time1 <- c(N=5,M=6.4,SD=1.14)
@@ -41,19 +41,19 @@ Time3 0.721 0.873 1.000
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-              Diff    SE df     LL     UL
-Time1 v Time2 -1.4 0.245  4 -2.080 -0.720
-Time1 v Time3 -2.2 0.374  4 -3.238 -1.162
-Time2 v Time3 -0.8 0.200  4 -1.355 -0.245
+                Diff    SE    df     LL     UL
+Time1 v Time2 -1.400 0.245 4.000 -2.080 -0.720
+Time1 v Time3 -2.200 0.374 4.000 -3.238 -1.162
+Time2 v Time3 -0.800 0.200 4.000 -1.355 -0.245
 
 > estimatePairwise(sumstats,corrstats,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-              Diff    SE df     LL     UL
-Time1 v Time2 -1.4 0.245  4 -2.527 -0.273
-Time1 v Time3 -2.2 0.374  4 -3.922 -0.478
-Time2 v Time3 -0.8 0.200  4 -1.721  0.121
+                Diff    SE    df     LL     UL
+Time1 v Time2 -1.400 0.245 4.000 -2.527 -0.273
+Time1 v Time3 -2.200 0.374 4.000 -3.922 -0.478
+Time2 v Time3 -0.800 0.200 4.000 -1.721  0.121
 
 > 
 > #### Plots of the Confidence Intervals for the Pairwise Comparisons
@@ -67,19 +67,19 @@ Time2 v Time3 -0.8 0.200  4 -1.721  0.121
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-              Diff    SE      t df     p
-Time1 v Time2 -1.4 0.245 -5.717  4 0.005
-Time1 v Time3 -2.2 0.374 -5.884  4 0.004
-Time2 v Time3 -0.8 0.200 -4.000  4 0.016
+                Diff    SE      t    df     p
+Time1 v Time2 -1.400 0.245 -5.717 4.000 0.005
+Time1 v Time3 -2.200 0.374 -5.884 4.000 0.004
+Time2 v Time3 -0.800 0.200 -4.000 4.000 0.016
 
 > testPairwise(sumstats,corrstats,mu=-2)
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-              Diff    SE      t df     p
-Time1 v Time2  0.6 0.245  2.450  4 0.070
-Time1 v Time3 -0.2 0.374 -0.535  4 0.621
-Time2 v Time3  1.2 0.200  6.000  4 0.004
+                Diff    SE      t    df     p
+Time1 v Time2  0.600 0.245  2.450 4.000 0.070
+Time1 v Time3 -0.200 0.374 -0.535 4.000 0.621
+Time2 v Time3  1.200 0.200  6.000 4.000 0.004
 
 > 
 > #### Effect Sizes for the Pairwise Comparisons

@@ -63,10 +63,10 @@ estimatePairwise(sumstats,corrstats)
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-              Diff    SE df     LL     UL
-Time1 v Time2 -1.4 0.245  4 -2.080 -0.720
-Time1 v Time3 -2.2 0.374  4 -3.239 -1.161
-Time2 v Time3 -0.8 0.200  4 -1.355 -0.245
+                Diff    SE    df     LL     UL
+Time1 v Time2 -1.400 0.245 4.000 -2.080 -0.720
+Time1 v Time3 -2.200 0.374 4.000 -3.239 -1.161
+Time2 v Time3 -0.800 0.200 4.000 -1.355 -0.245
 ```
 ```r
 estimatePairwise(sumstats,corrstats,conf.level=.99)
@@ -91,10 +91,10 @@ testPairwise(sumstats,corrstats)
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-              Diff    SE      t df     p
-Time1 v Time2 -1.4 0.245 -5.715  4 0.005
-Time1 v Time3 -2.2 0.374 -5.880  4 0.004
-Time2 v Time3 -0.8 0.200 -4.000  4 0.016
+                Diff    SE      t    df     p
+Time1 v Time2 -1.400 0.245 -5.718 4.000 0.005
+Time1 v Time3 -2.200 0.374 -5.881 4.000 0.004
+Time2 v Time3 -0.800 0.200 -3.999 4.000 0.016
 ```
 ```r
 testPairwise(sumstats,corrstats,mu=-2)

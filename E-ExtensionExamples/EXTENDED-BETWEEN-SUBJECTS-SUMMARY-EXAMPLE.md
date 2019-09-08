@@ -49,10 +49,10 @@ estimatePairwise(sumstats)
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-                Diff    SE df     LL     UL
-Group1 v Group2   -4 0.816  4 -6.267 -1.733
-Group1 v Group3   -5 0.816  4 -7.267 -2.733
-Group2 v Group3   -1 0.816  4 -3.267  1.267
+                  Diff    SE    df     LL     UL
+Group1 v Group2 -4.000 0.816 4.000 -6.267 -1.733
+Group1 v Group3 -5.000 0.816 4.000 -7.267 -2.733
+Group2 v Group3 -1.000 0.816 4.000 -3.267  1.267
 ```
 ```r
 estimatePairwise(sumstats,conf.level=.99)
@@ -77,10 +77,10 @@ testPairwise(sumstats)
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-                Diff    SE      t df     p
-Group1 v Group2   -4 0.816 -4.899  4 0.008
-Group1 v Group3   -5 0.816 -6.124  4 0.004
-Group2 v Group3   -1 0.816 -1.225  4 0.288
+                  Diff    SE      t    df     p
+Group1 v Group2 -4.000 0.816 -4.899 4.000 0.008
+Group1 v Group3 -5.000 0.816 -6.124 4.000 0.004
+Group2 v Group3 -1.000 0.816 -1.225 4.000 0.288
 ```
 ```r
 testPairwise(sumstats,mu=-2)
@@ -94,10 +94,10 @@ standardizePairwise(sumstats)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                Est    SE     LL     UL
-Group1 v Group2  -4 1.732 -7.395 -0.605
-Group1 v Group3  -5 2.031 -8.981 -1.019
-Group2 v Group3  -1 1.061 -3.079  1.079
+                   Est    SE     LL     UL
+Group1 v Group2 -4.000 1.732 -7.395 -0.605
+Group1 v Group3 -5.000 2.031 -8.981 -1.019
+Group2 v Group3 -1.000 1.061 -3.079  1.079
 ```
 ```r
 standardizePairwise(sumstats,conf.level=.99)
