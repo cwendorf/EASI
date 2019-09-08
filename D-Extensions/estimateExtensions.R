@@ -81,6 +81,6 @@ ciPairwise.formula <- function(formula,conf.level=.95,...){
  
 estimatePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
-  print(ciPairwise(...)) 
+  print(format(as.data.frame(ciPairwise(...)),trim=T,nsmall=3))
   cat("\n")  
 }

@@ -92,6 +92,6 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
 
 standardizePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS\n\n")
-  print(smdPairwise(...))
+  print(format(as.data.frame(smdPairwise(...)),trim=T,nsmall=3))
   cat("\n")  
 }

@@ -83,7 +83,7 @@ ciPairwise.formula <- function(formula,conf.level=.95,...){
  
 estimatePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
-  print(ciPairwise(...)) 
+  print(format(as.data.frame(ciPairwise(...)),trim=T,nsmall=3)) 
   cat("\n")  
 }
 
@@ -188,7 +188,7 @@ nhstPairwise.formula <- function(formula,mu=0,...){
 
 testPairwise <- function(...) {
   cat("\nHYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS\n\n")
-  print(nhstPairwise(...)) 
+  print(format(as.data.frame(nhstPairwise(...)),trim=T,nsmall=3))
   cat("\n")  
 }
 
@@ -283,6 +283,6 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
 
 standardizePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS\n\n")
-  print(smdPairwise(...))
+  print(format(as.data.frame(smdPairwise(...)),trim=T,nsmall=3))
   cat("\n")  
 }

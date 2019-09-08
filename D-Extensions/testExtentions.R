@@ -79,6 +79,6 @@ nhstPairwise.formula <- function(formula,mu=0,...){
 
 testPairwise <- function(...) {
   cat("\nHYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS\n\n")
-  print(nhstPairwise(...)) 
+  print(format(as.data.frame(nhstPairwise(...)),trim=T,nsmall=3))
   cat("\n")  
 }
