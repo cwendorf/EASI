@@ -9,7 +9,7 @@
 
 ---
 
-## Examples from the _Introduction to the New Statistics_
+## Basic Examples with Simple Fictional Data
 
 ### Overview of the Examples
 
@@ -25,4 +25,4 @@ The following are examples for single-factor designs.
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
+Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
