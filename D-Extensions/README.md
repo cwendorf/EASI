@@ -35,17 +35,17 @@ EASI extentions are functions that go beyond the original vision for EASI. The E
 
 ### For Pairwise Comparisons
 
-- Confidence intervals are calculated independent of each other (i.e., they are not simultaneous).
-- No adjustments for multiple intervals have been made.
-- All intervals assume heterogenity of variance.
+- Confidence intervals are calculated independent of each other (i.e., they are not simultaneous)
+- No alpha adjustments for multiple intervals have been made
+- All calculations assume heterogenity of variance (see Keppel & Wickens, 2004)
 
 ### For Standardized Effect Sizes
 
-- Both Cohen's d and Hedge's g are presented.
-- Confidence intervals are centered on Hedge's g.
+- All effect sizes are calculated as standardized comparisons (Cohen's d) or as standardized contrasts (see Bonett, 2008)
+- Confidence intervals for standardized comparisons and contrasts are based on Bonett (2008)
 
 ## References
 
-Cousineau, D. (2017). Varieties of confidence intervals. _Advances in Cognitive Psychology_, _13_(2), 140-155.
+Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. _Psychological Methods_, _13_(2), 99-109.
 
-Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. _Methodology_, _8_(4), 125-133.
+Keppel, G., & Wickens, T. D. (2004). _Design and analysis: A researcher's handbook._ Upper Saddle River, NJ: Pearson Education.
