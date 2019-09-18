@@ -29,6 +29,7 @@ The EASI functions were written in five basic categories of analyses:
 - **plotFunctions.R** (functions that plot confidence intervals for means and mean differences)
 - **testFunctions.R** (functions that calculate NHST for means and mean differences)
 - **standardizeFunctions.R** (functions that calculate confidence intervals for standardized effect sizes)
+- **analyzeFunctions.R** (functions that serve as meta-wrappers for all other functions)
 
 ## Technical Details
 
