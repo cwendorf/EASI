@@ -2,9 +2,9 @@
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
-[**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
+[**Basic Examples**](https://github.com/cwendorf/EASI/tree/master/B-BasicExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples) 
 
 ---
 

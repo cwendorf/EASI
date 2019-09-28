@@ -8,29 +8,34 @@
 
 ---
 
-## Within-Subjects Example with Donohue Data
+## Within-Subjects Example with Simple Fictional Data
 
 ### Overview of this Example
 
-The **Donohue** documents and files analyze an example of a single-factor within-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14).  
+The **SingleWithinSubjects** documents and files analyze an example of a single-factor within-subjects design. 
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
 - The example contains a data file, a syntax file, a text output file, and graphs
 
 ### Details of this Example
-
-The [**DONOHUE-DATA-EXAMPLE.md**](./DONOHUE-DATA-EXAMPLE.md) file uses raw data input.  
-The [**DONOHUE-SUMMARY-EXAMPLE.md**](./DONOHUE-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
+  
+The [**SINGLE-WITHIN-SUBJECTS-DATA-EXAMPLE.md**](./SINGLE-WITHIN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
+The [**SINGLE-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md**](./SINGLE-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
 
 These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
+ 
+The [**EXTENDED-WITHIN-SUBJECTS-DATA-EXAMPLE.md**](./EXTENDED-WITHIN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
+The [**EXTENDED-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md**](./EXTENDED-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
 
-> **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
+These analyses include the following:
+
+- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
+Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)

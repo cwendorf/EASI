@@ -2,10 +2,9 @@
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
-[**Basic Examples**](https://github.com/cwendorf/EASI/tree/master/B-BasicExamples) | 
+[**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Extensions**](https://github.com/cwendorf/EASI/tree/master/D-Extensions) | 
-[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/E-ExtensionExamples) 
+[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
 
 ---
 
@@ -17,12 +16,16 @@ EASI is not currently on CRAN or compiled as a package, but you can install the 
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
+Similarly, you can install the set of extensions by pasting the following line into R.
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-EXTENSIONS.R")
+```
 
-Alternatively, you can paste the contents of the [**ALL-EASI-FUNCTIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL-EASI-FUNCTIONS.R) file directly into R. 
+Alternatively, you can paste the contents of the [**ALL-EASI-FUNCTIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL-EASI-FUNCTIONS.R) and [**ALL-EASI-EXTENSIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL-EASI-EXTENSIONS.R) files directly into R. 
 
-### Summary of the Functions
+### Summary of the Functions and Extensions
 
-The EASI functions were written in five basic categories of analyses:
+The EASI functions were written in six basic categories of analyses:
 
 - **describeFunctions.R** (functions that help calculate basic descriptive statistics and matrices)
 - **estimateFunctions.R** (functions that estimate confidence intervals for means and mean differences)
@@ -30,6 +33,13 @@ The EASI functions were written in five basic categories of analyses:
 - **testFunctions.R** (functions that calculate NHST for means and mean differences)
 - **standardizeFunctions.R** (functions that calculate confidence intervals for standardized effect sizes)
 - **analyzeFunctions.R** (functions that serve as meta-wrappers for all other functions)
+
+EASI extentions are functions that go beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
+
+- **estimateExtensions.R** (functions that estimate confidence intervals for pairwise comparisons)
+- **plotExtensions.R** (functions that plot onfidence intervals for pairwise comparisons)
+- **testExtensions.R** (functions that calculate NHST for pairwise comparisons)
+- **standardizeExtensions.R** (functions that calculate confidence intervals for pairwise comparison effect sizes)
 
 ## Technical Details
 

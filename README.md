@@ -2,10 +2,9 @@
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
-[**Basic Examples**](https://github.com/cwendorf/EASI/tree/master/B-BasicExamples) | 
+[**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Extensions**](https://github.com/cwendorf/EASI/tree/master/D-Extensions) | 
-[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/E-ExtensionExamples) 
+[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
 
 ---
 
@@ -29,11 +28,10 @@ EASI can be used to calculate and plot confidence intervals of mean differences 
 
 This site includes the basic functions and extensions of EASI, along with numerous example showing how to use the functions.
 
-- [**A-Functions**](./A-Functions): Contains the basic functions to be "installed" in R in order to run the analyses
-- [**B-BasicExamples**](./B-BasicExamples): Contains between-subjects and within-subjects examples that highlight the functions
+- [**A-Functions**](./A-Functions): Contains the basic functions and extensions that can be "installed" in R in order to run the analyses
+- [**B-BasicExamples**](./B-BasicExamples): Contains between-subjects and within-subjects examples that highlight the functions and examples
 - [**C-ITNSExamples**](./C-ITNSExamples): Contains between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
-- [**D-Extensions**](./D-Extensions): Contains additional functions that can be "installed" to add options
-- [**E-ExtensionExamples**](./E-ExtensionExamples): Contains between-subjects and within-subjects examples of the extensions
+- [**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples): Contains advanced applications and additional examples of the functions and extensions
 
 ## How to Cite EASI
 
