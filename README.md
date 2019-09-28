@@ -31,7 +31,7 @@ This site includes the basic functions and extensions of EASI, along with numero
 - [**A-Functions**](./A-Functions): Contains the basic functions and extensions that can be "installed" in R in order to run the analyses
 - [**B-BasicExamples**](./B-BasicExamples): Contains between-subjects and within-subjects examples that highlight the functions and examples
 - [**C-ITNSExamples**](./C-ITNSExamples): Contains between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
-- [**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples): Contains advanced applications and additional examples of the functions and extensions
+- [**Other Examples**](./D-OtherExamples): Contains advanced applications and additional examples of the functions and extensions
 
 ## How to Cite EASI
 
