@@ -13,8 +13,11 @@
 
 ### Overview of the Examples
 
-- Examples use simple fictional data and include multiple version to show options
-- The examples include estimation, plots, significance tests, and effect sizes
+- Example files for between-subjects designs and for within-subjects designs are included
+- The examples are duplicated using raw data input and summary statistics input
+- Examples show both the default output and the available options
+- Examples include estimation, plots, significance tests, and effect sizes
+- Each example provides a syntax file, a text output file, and graphs
 
 ### Included Examples
 

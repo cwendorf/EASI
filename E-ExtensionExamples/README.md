@@ -21,16 +21,11 @@
 
 ### Included Extended Examples
 
-The **ExtendedBetweenSubjects** documents and files analyze an example of a single-factor between-subjects design.  
-The [**EXTENDED-BETWEEN-SUBJECTS-DATA-EXAMPLE.md**](./EXTENDED-BETWEEN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
-The [**EXTENDED-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md**](./EXTENDED-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
-These analyses include the following:
+The following are examples for single-factor designs.
 
-- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among all levels of a factor)
+- The [**ExtendedBetweenSubjects**](./ExtendedBetweenSubjects/) documents and files analyze an extended example of a single-factor between-subjects design 
+- The [**ExtendedWithinSubjects**](./ExtendedWithinSubjects/) documents and files analyze an extended example of a single-factor within-subjects design  
 
-The **ExtendedWithinSubjects** documents and files analyze an example of a single-factor within-subjects design.  
-The [**EXTENDED-WITHIN-SUBJECTS-DATA-EXAMPLE.md**](./EXTENDED-WITHIN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
-The [**EXTENDED-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md**](./EXTENDED-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
-These analyses include the following:
+## References
 
-- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
+Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
