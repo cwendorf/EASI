@@ -1,0 +1,21 @@
+> ### Source the EASI Functions
+> 
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+> 
+> ### Enter Data
+> 
+> 
+> ### Analyses of the Different Groups
+> 
+> 
+> ### Analyses of the Marginal Means
+> 
+> 
+> ### Analyses of the Factor A Main Effect
+> 
+> 
+> ### Analyses of the Factor B Main Effect
+> 
+> 
+> ### Analyses of the Factor A x B Interaction
+> 

@@ -8,7 +8,7 @@
 
 ---
 
-## Basic Examples with Simple Fictional Data
+## Tutorial Examples with Simple Fictional Data
 
 ### Overview of the Examples
 
@@ -20,14 +20,13 @@
 
 ### Included Examples
 
-The following are examples for between-subjects designs.
+The following are examples for single-factor designs.
 
 - The [**SingleBetweenSubjects**](./SingleBetweenSubjects/) documents and files analyze an example of a single-factor between-subjects design
-- The [**FactorialBetweenSubjects**](./FactorialBetweenSubjects/) documents and files analyze an example of a two-factor between-subjects design
-
-The following are examples for within-subjects designs.
-
 - The [**SingleWithinSubjects**](./SingleWithinSubjects/) documents and files analyze an example of a single-factor within-subjects design
+
+The following are examples for two-factor designs.
+- The [**FactorialBetweenSubjects**](./FactorialBetweenSubjects/) documents and files analyze an example of a two-factor between-subjects design
 - The [**FactorialWithinSubjects**](./FactorialWithinSubjects) documents and files analyze an example of a two-factor within-subjects design
 
 > Functions and examples for mixed designs (combinations of between and within-subjects factors) are not yet available in EASI.

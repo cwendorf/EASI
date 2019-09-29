@@ -12,10 +12,10 @@
 
 ### Overview of the Examples
 
-> No advanced applications or examples are available yet.
+> No advanced applications or alternative examples are available at this time.
 
 ### Included Examples
 
-> No advanced applications or examples are available yet.  
+> No advanced applications or alternative examples are available at this time.  
 
 ## References

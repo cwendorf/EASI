@@ -1,0 +1,146 @@
+> ### Source the EASI Functions
+> 
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+> 
+> ### Enter Summary Statistics
+> 
+> A1B1 <- c(N=4,M=2.000,SD=2.449)
+> A2B1 <- c(N=4,M=6.000,SD=2.449)
+> A1B2 <- c(N=4,M=7.000,SD=2.449)
+> A2B2 <- c(N=4,M=5.000,SD=2.449)
+> FactorialSummary <- rbind(A1B1,A2B1,A1B2,A2B2)
+> class(FactorialSummary) <- "bss"
+> FactorialSummary
+     N M    SD
+A1B1 4 2 2.449
+A2B1 4 6 2.449
+A1B2 4 7 2.449
+A2B2 4 5 2.449
+attr(,"class")
+[1] "bss"
+> 
+> ### Analyses of the Different Groups
+> 
+> estimateMeans(FactorialSummary)
+
+CONFIDENCE INTERVALS FOR THE MEANS
+
+         N     M    SD    SE     LL     UL
+A1B1 4.000 2.000 2.449 1.224 -1.897  5.897
+A2B1 4.000 6.000 2.449 1.224  2.103  9.897
+A1B2 4.000 7.000 2.449 1.224  3.103 10.897
+A2B2 4.000 5.000 2.449 1.224  1.103  8.897
+
+> plotMeans(FactorialSummary)
+> 
+> ### Analyses of the Marginal Means
+> 
+> A1 <- c(.5,0,.5,0)
+> estimateContrast(FactorialSummary,contrast=A1)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df    LL    UL
+Contrast 4.500 0.866 6.000 2.381 6.619
+
+> A2 <- c(0,.5,0,.5)
+> estimateContrast(FactorialSummary,contrast=A2)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df    LL    UL
+Contrast 5.500 0.866 6.000 3.381 7.619
+
+> B1 <- c(.5,.5,0,0)
+> estimateContrast(FactorialSummary,contrast=B1)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df    LL    UL
+Contrast 4.000 0.866 6.000 1.881 6.119
+
+> B2 <- c(0,0,.5,.5)
+> estimateContrast(FactorialSummary,contrast=B2)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df    LL    UL
+Contrast 6.000 0.866 6.000 3.881 8.119
+
+> 
+> ### Analyses of the Factor A Main Effect
+> 
+> mainFactorA <- c(.5,-.5,.5,-.5)
+> estimateContrast(FactorialSummary,contrast=mainFactorA)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+            Est    SE     df     LL    UL
+Contrast -1.000 1.224 12.000 -3.668 1.668
+
+> plotContrast(FactorialSummary,contrast=mainFactorA)
+> testContrast(FactorialSummary,contrast=mainFactorA)
+
+HYPOTHESIS TEST FOR THE CONTRAST
+
+            Est    SE      t     df     p
+Contrast -1.000 1.224 -0.817 12.000 0.430
+
+> standardizeContrast(FactorialSummary,contrast=mainFactorA)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+            Est    SE     LL    UL
+Contrast -0.408 0.583 -1.552 0.735
+
+> 
+> ### Analyses of the Factor B Main Effect
+> 
+> mainFactorB <- c(-.5,-.5,.5,.5)
+> estimateContrast(FactorialSummary,contrast=mainFactorB)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE     df     LL    UL
+Contrast 2.000 1.224 12.000 -0.668 4.668
+
+> plotContrast(FactorialSummary,contrast=mainFactorB)
+> testContrast(FactorialSummary,contrast=mainFactorB)
+
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t     df     p
+Contrast 2.000 1.224 1.633 12.000 0.128
+
+> standardizeContrast(FactorialSummary,contrast=mainFactorB)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE     LL    UL
+Contrast 0.817 0.601 -0.361 1.994
+
+> 
+> ### Analyses of the Factor A x B Interaction
+> 
+> Interaction <- c(.5,-.5,-.5,.5)
+> estimateContrast(FactorialSummary,contrast=Interaction)
+
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+            Est    SE     df     LL     UL
+Contrast -3.000 1.224 12.000 -5.668 -0.332
+
+> plotContrast(FactorialSummary,contrast=Interaction)
+> testContrast(FactorialSummary,contrast=Interaction)
+
+HYPOTHESIS TEST FOR THE CONTRAST
+
+            Est    SE      t     df     p
+Contrast -3.000 1.224 -2.450 12.000 0.031
+
+> standardizeContrast(FactorialSummary,contrast=Interaction)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+            Est    SE     LL    UL
+Contrast -1.225 0.629 -2.458 0.008
