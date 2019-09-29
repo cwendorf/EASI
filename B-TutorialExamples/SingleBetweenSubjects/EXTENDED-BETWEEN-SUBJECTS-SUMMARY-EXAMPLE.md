@@ -23,9 +23,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 Group1 <- c(N=3,M=4,SD=1)
 Group2 <- c(N=3,M=8,SD=1)
 Group3 <- c(N=3,M=9,SD=1)
-sumstats <- rbind(Group1,Group2,Group3)
-class(sumstats) <- "bss"
-sumstats
+BetweenSummary <- rbind(Group1,Group2,Group3)
+class(BetweenSummary) <- "bss"
+BetweenSummary
 ```
 ```
        N M SD
@@ -43,7 +43,7 @@ This section produces analyses that are equivalent to unadjusted t tests.
 #### Confidence Intervals for the Pairwise Comparisons
 
 ```r
-estimatePairwise(sumstats)
+estimatePairwise(BetweenSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
@@ -54,24 +54,24 @@ Group1 v Group3 -5.000 0.816 4.000 -7.267 -2.733
 Group2 v Group3 -1.000 0.816 4.000 -3.267  1.267
 ```
 ```r
-estimatePairwise(sumstats,conf.level=.99)
+estimatePairwise(BetweenSummary,conf.level=.99)
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
 ```r
-plotPairwise(sumstats)
+plotPairwise(BetweenSummary)
 ```
 <kbd><img src="ExtendedBetweenSubjectsFigure1.jpg"></kbd>
 ```r
-plotPairwise(sumstats,mu=-2,conf.level=.99)
+plotPairwise(BetweenSummary,mu=-2,conf.level=.99)
 ```
 <kbd><img src="ExtendedBetweenSubjectsFigure2.jpg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 
 ```r
-testPairwise(sumstats)
+testPairwise(BetweenSummary)
 ```
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
@@ -82,13 +82,13 @@ Group1 v Group3 -5.000 0.816 -6.124 4.000 0.004
 Group2 v Group3 -1.000 0.816 -1.225 4.000 0.288
 ```
 ```r
-testPairwise(sumstats,mu=-2)
+testPairwise(BetweenSummary,mu=-2)
 ```
 
 #### Effect Sizes for the Pairwise Comparisons
 
 ```r
-standardizePairwise(sumstats)
+standardizePairwise(BetweenSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
@@ -99,5 +99,5 @@ Group1 v Group3 -5.000 2.031 -8.981 -1.019
 Group2 v Group3 -1.000 1.061 -3.079  1.079
 ```
 ```r
-standardizePairwise(sumstats,conf.level=.99)
+standardizePairwise(BetweenSummary,conf.level=.99)
 ```

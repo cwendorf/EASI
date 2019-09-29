@@ -11,9 +11,9 @@
 > Time1 <- c(N=5,M=6.4,SD=1.14)
 > Time2 <- c(N=5,M=7.8,SD=.837)
 > Time3 <- c(N=5,M=8.6,SD=.548)
-> sumstats <- rbind(Time1,Time2,Time3)
-> class(sumstats) <- "wss"
-> sumstats
+> WithinSummary <- rbind(Time1,Time2,Time3)
+> class(WithinSummary) <- "wss"
+> WithinSummary
       N   M    SD
 Time1 5 6.4 1.140
 Time2 5 7.8 0.837
@@ -21,12 +21,12 @@ Time3 5 8.6 0.548
 attr(,"class")
 [1] "wss"
 > 
-> corrstats <- declareCorrMatrix("Time1","Time2","Time3")
-> corrstats["Time1","Time2"] <- .891
-> corrstats["Time1","Time3"] <- .721
-> corrstats["Time2","Time3"] <- .873
-> corrstats <- fillCorrMatrix(corrstats)
-> corrstats
+> WithinCorr <- declareCorrMatrix("Time1","Time2","Time3")
+> WithinCorr["Time1","Time2"] <- .891
+> WithinCorr["Time1","Time3"] <- .721
+> WithinCorr["Time2","Time3"] <- .873
+> WithinCorr <- fillCorrMatrix(WithinCorr)
+> WithinCorr
       Time1 Time2 Time3
 Time1 1.000 0.891 0.721
 Time2 0.891 1.000 0.873
@@ -37,7 +37,7 @@ Time3 0.721 0.873 1.000
 > 
 > #### Confidence Intervals for the Pairwise Comparisons
 > 
-> estimatePairwise(sumstats,corrstats)
+> estimatePairwise(WithinSummary,WithinCorr)
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
@@ -46,7 +46,7 @@ Time1 v Time2 -1.400 0.245 4.000 -2.080 -0.720
 Time1 v Time3 -2.200 0.374 4.000 -3.238 -1.162
 Time2 v Time3 -0.800 0.200 4.000 -1.355 -0.245
 
-> estimatePairwise(sumstats,corrstats,conf.level=.99)
+> estimatePairwise(WithinSummary,WithinCorr,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
@@ -58,12 +58,12 @@ Time2 v Time3 -0.800 0.200 4.000 -1.721  0.121
 > 
 > #### Plots of the Confidence Intervals for the Pairwise Comparisons
 > 
-> plotPairwise(sumstats,corrstats)
-> plotPairwise(sumstats,corrstats,mu=-2,conf.level=.99)
+> plotPairwise(WithinSummary,WithinCorr)
+> plotPairwise(WithinSummary,WithinCorr,mu=-2,conf.level=.99)
 > 
 > #### Significance Tests of the Pairwise Comparisons
 > 
-> testPairwise(sumstats,corrstats)
+> testPairwise(WithinSummary,WithinCorr)
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
@@ -72,7 +72,7 @@ Time1 v Time2 -1.400 0.245 -5.717 4.000 0.005
 Time1 v Time3 -2.200 0.374 -5.884 4.000 0.004
 Time2 v Time3 -0.800 0.200 -4.000 4.000 0.016
 
-> testPairwise(sumstats,corrstats,mu=-2)
+> testPairwise(WithinSummary,WithinCorr,mu=-2)
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
@@ -84,7 +84,7 @@ Time2 v Time3  1.200 0.200  6.000 4.000 0.004
 > 
 > #### Effect Sizes for the Pairwise Comparisons
 > 
-> standardizePairwise(sumstats,corrstats)
+> standardizePairwise(WithinSummary,WithinCorr)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
@@ -93,7 +93,7 @@ Time1 v Time2 -1.400 0.545 -2.468 -0.332
 Time1 v Time3 -2.460 0.928 -4.278 -0.641
 Time2 v Time3 -1.131 0.488 -2.086 -0.175
 
-> standardizePairwise(sumstats,corrstats,conf.level=.99)
+> standardizePairwise(WithinSummary,WithinCorr,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 

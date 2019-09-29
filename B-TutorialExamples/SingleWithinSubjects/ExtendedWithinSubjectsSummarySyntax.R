@@ -11,36 +11,36 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 Time1 <- c(N=5,M=6.4,SD=1.14)
 Time2 <- c(N=5,M=7.8,SD=.837)
 Time3 <- c(N=5,M=8.6,SD=.548)
-sumstats <- rbind(Time1,Time2,Time3)
-class(sumstats) <- "wss"
-sumstats
+WithinSummary <- rbind(Time1,Time2,Time3)
+class(WithinSummary) <- "wss"
+WithinSummary
 
-corrstats <- declareCorrMatrix("Time1","Time2","Time3")
-corrstats["Time1","Time2"] <- .891
-corrstats["Time1","Time3"] <- .721
-corrstats["Time2","Time3"] <- .873
-corrstats <- fillCorrMatrix(corrstats)
-corrstats
+WithinCorr <- declareCorrMatrix("Time1","Time2","Time3")
+WithinCorr["Time1","Time2"] <- .891
+WithinCorr["Time1","Time3"] <- .721
+WithinCorr["Time2","Time3"] <- .873
+WithinCorr <- fillCorrMatrix(WithinCorr)
+WithinCorr
 
 ### Analyses of Pairwise Variable Comparisons
 ### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons
 
-estimatePairwise(sumstats,corrstats)
-estimatePairwise(sumstats,corrstats,conf.level=.99)
+estimatePairwise(WithinSummary,WithinCorr)
+estimatePairwise(WithinSummary,WithinCorr,conf.level=.99)
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
-plotPairwise(sumstats,corrstats)
-plotPairwise(sumstats,corrstats,mu=-2,conf.level=.99)
+plotPairwise(WithinSummary,WithinCorr)
+plotPairwise(WithinSummary,WithinCorr,mu=-2,conf.level=.99)
 
 #### Significance Tests of the Pairwise Comparisons
 
-testPairwise(sumstats,corrstats)
-testPairwise(sumstats,corrstats,mu=-2)
+testPairwise(WithinSummary,WithinCorr)
+testPairwise(WithinSummary,WithinCorr,mu=-2)
 
 #### Effect Sizes for the Pairwise Comparisons
 
-standardizePairwise(sumstats,corrstats)
-standardizePairwise(sumstats,corrstats,conf.level=.99)
+standardizePairwise(WithinSummary,WithinCorr)
+standardizePairwise(WithinSummary,WithinCorr,conf.level=.99)

@@ -24,8 +24,8 @@ Time1 <- c(5,6,6,7,8)
 Time2 <- c(7,7,8,8,9)
 Time3 <- c(8,8,9,9,9)
 
-MyData <- data.frame(Time1,Time2,Time3)
-MyData
+WithinData <- data.frame(Time1,Time2,Time3)
+WithinData
 ```
 ```
   Time1 Time2 Time3

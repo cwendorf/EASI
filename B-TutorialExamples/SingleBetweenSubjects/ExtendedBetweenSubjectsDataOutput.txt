@@ -12,8 +12,8 @@
 > Outcome <- c(3,4,5,7,8,9,8,9,10)
 > Group <- factor(Group)
 > 
-> MyData <- data.frame(Group,Outcome)
-> MyData
+> BetweenData <- data.frame(Group,Outcome)
+> BetweenData
    Group Outcome
 1 Group1       3
 2 Group1       4

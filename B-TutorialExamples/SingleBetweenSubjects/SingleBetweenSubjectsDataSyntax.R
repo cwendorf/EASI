@@ -11,8 +11,8 @@ Group <- c(rep(1,3),rep(2,3),rep(3,3))
 Outcome <- c(3,4,5,7,8,9,8,9,10)
 Group <- factor(Group,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
 
-MyData <- data.frame(Group,Outcome)
-MyData
+BetweenData <- data.frame(Group,Outcome)
+BetweenData
 
 ### Analyses of Multiple Groups
 ### (equivalent to one-sample analyses for each level of a factor)
