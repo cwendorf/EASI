@@ -28,13 +28,6 @@ These analyses include the following:
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 - Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor)
- 
-The [**EXTENDED-BETWEEN-SUBJECTS-DATA-EXAMPLE.md**](./EXTENDED-BETWEEN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
-The [**EXTENDED-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md**](./EXTENDED-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
-
-These analyses include the following:
-
-- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
 
 ## References
 

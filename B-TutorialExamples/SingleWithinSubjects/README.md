@@ -28,13 +28,6 @@ These analyses include the following:
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
- 
-The [**EXTENDED-WITHIN-SUBJECTS-DATA-EXAMPLE.md**](./EXTENDED-WITHIN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
-The [**EXTENDED-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md**](./EXTENDED-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
-
-These analyses include the following:
-
-- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
 
 ## References
 
