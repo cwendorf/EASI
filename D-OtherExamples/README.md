@@ -8,14 +8,21 @@
 
 ---
 
-## Other Examples and Applications
+## Other Examples and Advanced Applications
 
 ### Overview of the Examples
 
-> No advanced applications or alternative examples are available at this time.
+- Examples show both the default output and the available options
+- Examples include estimation, plots, significance tests, and effect sizes where relevant
+- Each example provides a syntax file, a text output file, and graphs
 
 ### Included Examples
 
-> No advanced applications or alternative examples are available at this time.  
+**Pairwise Comparisons**: The following are examples for single-factor designs.
+
+- The [**PairwiseBetweenSubjects**](./PairwiseBetweenSubjects/) documents and files analyze an example of a single-factor between-subjects design 
+- The [**PairwiseWithinSubjects**](./PairwiseWithinSubjects/) documents and files analyze an example of a single-factor within-subjects design  
 
 ## References
+
+Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
