@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **PairwiseWithinSubjects** documents and files analyze an example of pairwise comparisons for a single-factor within-subjects design. 
+The **PairwiseWithinSubjects** documents and files analyze an example of a single-factor within-subjects design. 
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
