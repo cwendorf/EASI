@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **PairwiseWithinSubjects** documents and files analyze an example of a single-factor within-subjects design. 
+The **PairwiseWithin** documents and files analyze an example of a single-factor within-subjects design. 
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
@@ -20,8 +20,8 @@ The **PairwiseWithinSubjects** documents and files analyze an example of a singl
 
 ### Details of this Example
  
-The [**PAIRWISE-WITHIN-SUBJECTS-DATA-EXAMPLE.md**](./PAIRWISE-WITHIN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
-The [**PARIWISE-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md**](./PAIRWISE-WITHIN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
+The [**PAIRWISEWITHIN-DATA-EXAMPLE.md**](./PAIRWISEWITHIN-DATA-EXAMPLE.md) file uses raw data input.  
+The [**PARIWISEWITHIN-SUMMARY-EXAMPLE.md**](./PAIRWISEWITHIN-SUMMARY-EXAMPLE.md) file uses summary statistics input.
 
 These analyses include the following:
 
