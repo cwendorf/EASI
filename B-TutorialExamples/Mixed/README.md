@@ -8,7 +8,7 @@
 
 ---
 
-## Factorial Within-Subjects Example
+## Mixed Design Example
 
 ### Overview of the Examples
 

@@ -8,7 +8,7 @@
 
 ---
 
-## Factorial Between-Subjects Example with Summary Statistics
+## Factorial Between-Subjects Summary Statistics Example
 
 ### Source the EASI Functions
 
@@ -54,7 +54,7 @@ A2B2 4.000 5.000 2.449 1.224  1.103  8.897
 ```r
 plotMeans(FactorialSummary)
 ```
-<kbd><img src="FactorialBetweenSubjectsFigure1.jpg"></kbd>
+<kbd><img src="FactorialBetween-Figure1.jpg"></kbd>
 
 ### Analyses of the Marginal Means
 
@@ -114,7 +114,7 @@ Contrast -1.000 1.224 12.000 -3.668 1.668
 ```r
 plotContrast(FactorialSummary,contrast=mainFactorA)
 ```
-<kbd><img src="FactorialBetweenSubjectsFigure2.jpg"></kbd>
+<kbd><img src="FactorialBetween-Figure2.jpg"></kbd>
 ```r
 testContrast(FactorialSummary,contrast=mainFactorA)
 ```
@@ -149,7 +149,7 @@ Contrast 2.000 1.224 12.000 -0.668 4.668
 ```r
 plotContrast(FactorialSummary,contrast=mainFactorB)
 ```
-<kbd><img src="FactorialBetweenSubjectsFigure3.jpg"></kbd>
+<kbd><img src="FactorialBetween-Figure3.jpg"></kbd>
 ```r
 testContrast(FactorialSummary,contrast=mainFactorB)
 ```
@@ -184,7 +184,7 @@ Contrast -3.000 1.224 12.000 -5.668 -0.332
 ```r
 plotContrast(FactorialSummary,contrast=Interaction)
 ```
-<kbd><img src="FactorialBetweenSubjectsFigure4.jpg"></kbd>
+<kbd><img src="FactorialBetween-Figure4.jpg"></kbd>
 ```r
 testContrast(FactorialSummary,contrast=Interaction)
 ```

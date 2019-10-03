@@ -66,11 +66,11 @@ estimatePairwise(Outcome~Group,conf.level=.99)
 ```r
 plotPairwise(Outcome~Group)
 ```
-<kbd><img src="PairwiseBetweenSubjectsFigure1.jpg"></kbd>
+<kbd><img src="PairwiseBetween-Figure1.jpg"></kbd>
 ```r
 plotPairwise(Outcome~Group,mu=-2,conf.level=.99)
 ```
-<kbd><img src="PairwiseBetweenSubjectsFigure2.jpg"></kbd>
+<kbd><img src="PairwiseBetween-Figure2.jpg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 

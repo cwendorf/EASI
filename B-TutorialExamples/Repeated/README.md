@@ -8,26 +8,26 @@
 
 ---
 
-## Single-Factor Between-Subjects Example
+## Repeated Measures (Single Within-Subjects) Example
 
 ### Overview of this Example
 
-The **SingleBetweenSubjects** documents and files analyze an example of a single-factor between-subjects design.
+The **Repeated** documents and files analyze an example of a single-factor within-subjects design. 
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
 - The example contains a data file, a syntax file, a text output file, and graphs
 
 ### Details of this Example
-
-The [**SINGLE-BETWEEN-SUBJECTS-DATA-EXAMPLE.md**](./SINGLE-BETWEEN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
-The [**SINGLE-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md**](./SINGLE-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
+  
+The [**REPEATED-DATA-EXAMPLE.md**](./REPEATED-DATA-EXAMPLE.md) file uses raw data input.  
+The [**REPEATED-SUMMARY-EXAMPLE.md**](./REPEATED-SUMMARY-EXAMPLE.md) file uses summary statistics input.
 
 These analyses include the following:
 
-- Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
-- Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
-- Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor)
+- Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
+- Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
+- Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
 
 ## References
 

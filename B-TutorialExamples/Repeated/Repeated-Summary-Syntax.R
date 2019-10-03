@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Single-Factor Within-Subjects Summary Statistics Example
+## Repeated Measures (Single-Factor Within-Subjects) Summary Statistics Example
 
 ### Source the EASI Functions
 
@@ -49,29 +49,29 @@ standardizeMeans(WithinSummary,mu=6,conf.level=.99)
 
 #### Confidence Interval for the Mean Difference
 
-compstats <- WithinSummary[c("Time1","Time2"),]
-class(compstats) <- "wss"
-estimateDifference(compstats,WithinCorr)
-estimateDifference(compstats,WithinCorr,conf.level=.99)
-compstats <- WithinSummary[c("Time3","Time1"),]
-class(compstats) <- "wss"
+CompSummary <- WithinSummary[c("Time1","Time2"),]
+class(CompSummary) <- "wss"
+estimateDifference(CompSummary,WithinCorr)
+estimateDifference(CompSummary,WithinCorr,conf.level=.99)
+CompSummary <- WithinSummary[c("Time3","Time1"),]
+class(CompSummary) <- "wss"
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-compstats <- WithinSummary[c("Time1","Time2"),]
-class(compstats) <- "wss"
-plotDifference(compstats,WithinCorr)
-plotDifference(compstats,WithinCorr,conf.level=.99)
+CompSummary <- WithinSummary[c("Time1","Time2"),]
+class(CompSummary) <- "wss"
+plotDifference(CompSummary,WithinCorr)
+plotDifference(CompSummary,WithinCorr,conf.level=.99)
 
 #### Significance Test for the Mean Difference
 
-testDifference(compstats,WithinCorr)
-testDifference(compstats,WithinCorr,mu=-2)
+testDifference(CompSummary,WithinCorr)
+testDifference(CompSummary,WithinCorr,mu=-2)
 
 #### Effect Size for the Mean Difference
 
-standardizeDifference(compstats,WithinCorr)
-standardizeDifference(compstats,WithinCorr,conf.level=.99)
+standardizeDifference(CompSummary,WithinCorr)
+standardizeDifference(CompSummary,WithinCorr,conf.level=.99)
 
 ### Analyses of a Variable Contrast
 ### (equivalent to analyses for multiple levels of a factor)

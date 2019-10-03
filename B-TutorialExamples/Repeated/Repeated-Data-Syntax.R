@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Single-Factor Within-Subjects Data Example
+## Repeated Measures (Single-Factor Within-Subjects) Data Example
 
 ### Source the EASI Functions
 

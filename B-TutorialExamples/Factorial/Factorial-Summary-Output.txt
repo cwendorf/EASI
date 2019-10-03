@@ -1,3 +1,6 @@
+> # Estimation Approach to Statistical Inference (EASI)
+> ## Factorial Between-Subjects Summary Statistics Example
+>
 > ### Source the EASI Functions
 > 
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")

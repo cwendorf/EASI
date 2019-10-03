@@ -8,24 +8,26 @@
 
 ---
 
-## Pairwise Comparisons Between-Subjects Example
+## Factorial Between-Subjects Example
 
-### Overview of this Example
+### Overview of the Examples
 
-The **PairwiseBetweenSubjects** documents and files analyze an example of a single-factor between-subjects design.
+The **Factorial** documents and files analyze an example of a single-factor between-subjects design.
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
 - The example contains a data file, a syntax file, a text output file, and graphs
 
-### Details of this Example
- 
-The [**PAIRWISE-BETWEEN-SUBJECTS-DATA-EXAMPLE.md**](./PAIRWISE-BETWEEN-SUBJECTS-DATA-EXAMPLE.md) file uses raw data input.  
-The [**PARIWISE-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md**](./PAIRWISE-BETWEEN-SUBJECTS-SUMMARY-EXAMPLE.md) file uses summary statistics input.
+### Included Examples
+
+The [**FACTORIAL-SUMMARY-EXAMPLE.md**](./FACTORIAL-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
 
 These analyses include the following:
 
-- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
+- Analyses of Multiple Groups (equivalent to one-sample analyses of each level of the design)
+- Analyses of Marginal Means (equivalent to one-sample analyses of the marginal means)
+- Analyses of Main Effects (equivalent to a comparison analysis of marginal means for each factor in the design)
+- Analyses of the Interaction (equivalent to comparisons analysis of the simple effects)
 
 ## References
 

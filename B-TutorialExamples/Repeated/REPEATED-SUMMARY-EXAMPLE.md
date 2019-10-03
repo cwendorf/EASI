@@ -8,7 +8,7 @@
 
 ---
 
-## Single-Factor Within-Subjects Summary Statistics Example
+## Repeated Measures (Single-Factor Within-Subjects) Summary Statistics Example
 
 ### Source the EASI Functions
 
@@ -81,13 +81,13 @@ This code will produce a graph of the confidence intervals for each level of the
 ```r
 plotMeans(WithinSummary)
 ```
-<kbd><img src="SingleWithinSubjectsFigure1.jpg"></kbd>
+<kbd><img src="Repeated-Figure1.jpg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
 plotMeans(WithinSummary,conf.level=.99,mu=6)
 ```
-<kbd><img src="SingleWithinSubjectsFigure2.jpg"></kbd>
+<kbd><img src="Repeated-Figure2.jpg"></kbd>
 
 #### Significance Tests for the Means
 
@@ -137,9 +137,9 @@ This section produces analyses that are equivalent to analyses for two levels of
 
 This code creates a new table that identifies the two levels for comparison and estimates the confidence interval of the difference.
 ```r
-compstats <- WithinSummary[c("Time1","Time2"),]
-class(compstats) <- "wss"
-estimateDifference(compstats,WithinCorr)
+CompSummary <- WithinSummary[c("Time1","Time2"),]
+class(CompSummary) <- "wss"
+estimateDifference(CompSummary,WithinCorr)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -150,34 +150,34 @@ Comparison -1.400 0.245 4.000 -2.080 -0.720
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```r
-estimateDifference(compstats,WithinCorr,conf.level=.99)
+estimateDifference(CompSummary,WithinCorr,conf.level=.99)
 ```
 
 It is also possible to alter the comparison by changing (or even reversing the order) of the levels.
 ```r
-compstats <- WithinSummary[c("Time3","Time1"),]
-class(compstats) <- "wss"
-estimateDifference(compstats,WithinCorr)
+CompSummary <- WithinSummary[c("Time3","Time1"),]
+class(CompSummary) <- "wss"
+estimateDifference(CompSummary,WithinCorr)
 ```
 
 #### Plots of Confidence Intervals for the Mean Difference
 
 This code obtains and plots the confidence intervals for the levels and the mean difference in the identified comparison.
 ```r
-plotDifference(compstats,WithinCorr)
+plotDifference(CompSummary,WithinCorr)
 ```
-<kbd><img src="SingleWithinSubjectsFigure3.jpg"></kbd>
+<kbd><img src="Repeated-Figure3.jpg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
-plotDifference(compstats,WithinCorr,conf.level=.99)
+plotDifference(CompSummary,WithinCorr,conf.level=.99)
 ```
 
 #### Significance Test for the Mean Difference
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```r
-testDifference(compstats,WithinCorr)
+testDifference(CompSummary,WithinCorr)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -188,14 +188,14 @@ Comparison -1.400 0.245 -5.717 4.000 0.005
 
 If the default value of zero is not plausible, it too can be changed.
 ```r
-testDifference(compstats,WithinCorr,mu=-2)
+testDifference(CompSummary,WithinCorr,mu=-2)
 ```
 
 #### Effect Size for the Mean Difference
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```r
-standardizeDifference(compstats,WithinCorr)
+standardizeDifference(CompSummary,WithinCorr)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -206,7 +206,7 @@ Comparison -1.400 0.545 -2.468 -0.332
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeDifference(compstats,WithinCorr,conf.level=.99)
+standardizeDifference(CompSummary,WithinCorr,conf.level=.99)
 ```
 
 ### Analyses of a Variable Contrast
@@ -264,7 +264,7 @@ T1vsOthers <- c(-1,.5,.5)
 plotContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
 > 
 ````
-<kbd><img src="SingleWithinSubjectsFigure4.jpg"></kbd>
+<kbd><img src="Repeated-Figure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r

@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Single-Factor Between-Subjects Summary Statistics Example
+## OneWay (Single-Factor Between-Subjects) Summary Statistics Example
 
 ### Source the EASI Functions
 
@@ -42,30 +42,30 @@ standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
 
 #### Confidence Interval for a Mean Difference
 
-compstats <- BetweenSummary[c("Group1","Group2"),]
-class(compstats) <- "bss"
-estimateDifference(compstats)
-estimateDifference(compstats,conf.level=.99)
-compstats <- BetweenSummary[c("Group3","Group1"),]
-class(compstats) <- "bss"
-estimateDifference(compstats)
+CompSummary <- BetweenSummary[c("Group1","Group2"),]
+class(CompSummary) <- "bss"
+estimateDifference(CompSummary)
+estimateDifference(CompSummary,conf.level=.99)
+CompSummary <- BetweenSummary[c("Group3","Group1"),]
+class(CompSummary) <- "bss"
+estimateDifference(CompSummary)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-compstats <- BetweenSummary[c("Group1","Group2"),]
-class(compstats) <- "bss"
-plotDifference(compstats)
-plotDifference(compstats,conf.level=.99)
+CompSummary <- BetweenSummary[c("Group1","Group2"),]
+class(CompSummary) <- "bss"
+plotDifference(CompSummary)
+plotDifference(CompSummary,conf.level=.99)
 
 #### Significance Test of the Mean Difference
 
-testDifference(compstats)
-testDifference(compstats,mu=2)
+testDifference(CompSummary)
+testDifference(CompSummary,mu=2)
 
 #### Effect Size for the Mean Difference
 
-standardizeDifference(compstats)
-standardizeDifference(compstats,conf.level=.99)
+standardizeDifference(CompSummary)
+standardizeDifference(CompSummary,conf.level=.99)
 
 ### Analyses of a Group Contrast
 ### (equivalent to analyses for multiple levels of a factor)

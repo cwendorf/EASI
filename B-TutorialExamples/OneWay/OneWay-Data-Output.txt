@@ -1,31 +1,35 @@
 > # Estimation Approach to Statistical Inference (EASI)
-> ## Single-Factor Between-Subjects Summary Statistics Example
+> ## OneWay (Single-Factor Between-Subjects) Data Example
 > 
 > ### Source the EASI Functions
 > 
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 > 
-> ### Three Group Example Summary Statistics
+> ### Three Group Example Data
 > 
-> Group1 <- c(N=3,M=4,SD=1)
-> Group2 <- c(N=3,M=8,SD=1)
-> Group3 <- c(N=3,M=9,SD=1)
-> BetweenSummary <- rbind(Group1,Group2,Group3)
-> class(BetweenSummary) <- "bss"
-> BetweenSummary
-       N M SD
-Group1 3 4  1
-Group2 3 8  1
-Group3 3 9  1
-attr(,"class")
-[1] "bss"
+> Group <- c(rep(1,3),rep(2,3),rep(3,3))
+> Outcome <- c(3,4,5,7,8,9,8,9,10)
+> Group <- factor(Group,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
+> 
+> BetweenData <- data.frame(Group,Outcome)
+> BetweenData
+   Group Outcome
+1 Group1       3
+2 Group1       4
+3 Group1       5
+4 Group2       7
+5 Group2       8
+6 Group2       9
+7 Group3       8
+8 Group3       9
+9 Group3      10
 > 
 > ### Analyses of Multiple Groups
 > ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > #### Confidence Intervals for the Means
 > 
-> estimateMeans(BetweenSummary)
+> estimateMeans(Outcome~Group)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
@@ -34,7 +38,7 @@ Group1 3.000 4.000 1.000 0.577 1.516  6.484
 Group2 3.000 8.000 1.000 0.577 5.516 10.484
 Group3 3.000 9.000 1.000 0.577 6.516 11.484
 
-> estimateMeans(BetweenSummary,conf.level=.99)
+> estimateMeans(Outcome~Group,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
@@ -46,12 +50,12 @@ Group3 3.000 9.000 1.000 0.577  3.270 14.730
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> plotMeans(BetweenSummary)
-> plotMeans(BetweenSummary,conf.level=.99,mu=5)
+> plotMeans(Outcome~Group)
+> plotMeans(Outcome~Group,conf.level=.99,mu=5)
 > 
 > #### Significance Tests for the Means
 > 
-> testMeans(BetweenSummary)
+> testMeans(Outcome~Group)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
@@ -60,7 +64,7 @@ Group1 4.000 0.577  6.928 2.000 0.020
 Group2 8.000 0.577 13.856 2.000 0.005
 Group3 9.000 0.577 15.588 2.000 0.004
 
-> testMeans(BetweenSummary,mu=5)
+> testMeans(Outcome~Group,mu=5)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
@@ -72,7 +76,7 @@ Group3  4.000 0.577  6.928 2.000 0.020
 > 
 > #### Effect Size for the Means
 > 
-> standardizeMeans(BetweenSummary)
+> standardizeMeans(Outcome~Group)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
@@ -81,7 +85,7 @@ Group1 4.000  2.286 1.563 0.268  7.826
 Group2 8.000  4.571 2.906 0.871 15.456
 Group3 9.000  5.143 3.251 1.007 17.373
 
-> standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
+> standardizeMeans(Outcome~Group,mu=5,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
@@ -96,25 +100,23 @@ Group3  4.000  2.286 1.563 -0.459 9.535
 > 
 > #### Confidence Interval for a Mean Difference
 > 
-> compstats <- BetweenSummary[c("Group1","Group2"),]
-> class(compstats) <- "bss"
-> estimateDifference(compstats)
+> Comparison=factor(Group,c("Group1","Group2"))
+> estimateDifference(Outcome~Comparison)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df     LL     UL
 Comparison -4.000 0.816 4.000 -6.267 -1.733
 
-> estimateDifference(compstats,conf.level=.99)
+> estimateDifference(Outcome~Comparison,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df     LL     UL
 Comparison -4.000 0.816 4.000 -7.759 -0.241
 
-> compstats <- BetweenSummary[c("Group3","Group1"),]
-> class(compstats) <- "bss"
-> estimateDifference(compstats)
+> Comparison=factor(Group,c("Group3","Group1"))
+> estimateDifference(Outcome~Comparison)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
@@ -124,21 +126,20 @@ Comparison 5.000 0.816 4.000 2.733 7.267
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
-> compstats <- BetweenSummary[c("Group1","Group2"),]
-> class(compstats) <- "bss"
-> plotDifference(compstats)
-> plotDifference(compstats,conf.level=.99)
+> Comparison=factor(Group,c("Group1","Group2"))
+> plotDifference(Outcome~Comparison)
+> plotDifference(Outcome~Comparison,conf.level=.99)
 > 
 > #### Significance Test of the Mean Difference
 > 
-> testDifference(compstats)
+> testDifference(Outcome~Comparison)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
 Comparison -4.000 0.816 -4.899 4.000 0.008
 
-> testDifference(compstats,mu=2)
+> testDifference(Outcome~Comparison,mu=2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
@@ -148,14 +149,14 @@ Comparison -6.000 0.816 -7.348 4.000 0.002
 > 
 > #### Effect Size for the Mean Difference
 > 
-> standardizeDifference(compstats)
+> standardizeDifference(Outcome~Comparison)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL     UL
 Comparison -4.000 1.732 -7.395 -0.605
 
-> standardizeDifference(compstats,conf.level=.99)
+> standardizeDifference(Outcome~Comparison,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
@@ -169,7 +170,7 @@ Comparison -4.000 1.732 -8.461 0.461
 > #### Confidence Intervals for Combined Levels
 > 
 > G1 <- c(1,0,0)
-> estimateContrast(BetweenSummary,contrast=G1)
+> estimateContrast(Outcome~Group,contrast=G1)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
@@ -177,7 +178,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 4.000 0.577 2.000 1.516 6.484
 
 > G2nG3 <- c(0,.5,.5)
-> estimateContrast(BetweenSummary,contrast=G2nG3)
+> estimateContrast(Outcome~Group,contrast=G2nG3)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
@@ -188,14 +189,14 @@ Contrast 8.500 0.408 4.000 7.367 9.633
 > #### Confidence Interval for a Contrast
 > 
 > G1vsOthers <- c(-1,.5,.5)
-> estimateContrast(BetweenSummary,contrast=G1vsOthers)
+> estimateContrast(Outcome~Group,contrast=G1vsOthers)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df    LL    UL
 Contrast 4.500 0.707 4.000 2.537 6.463
 
-> estimateContrast(BetweenSummary,contrast=G1vsOthers,conf.level=.99)
+> estimateContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
@@ -206,19 +207,19 @@ Contrast 4.500 0.707 4.000 1.244 7.756
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > G1vsOthers <- c(-1,.5,.5)
-> plotContrast(BetweenSummary,contrast=G1vsOthers)
-> plotContrast(BetweenSummary,contrast=G1vsOthers,conf.level=.99)
+> plotContrast(Outcome~Group,contrast=G1vsOthers)
+> plotContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 > 
 > #### Significance Test for a Contrast
 > 
-> testContrast(BetweenSummary,contrast=G1vsOthers)
+> testContrast(Outcome~Group,contrast=G1vsOthers)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
 Contrast 4.500 0.707 6.364 4.000 0.003
 
-> testContrast(BetweenSummary,contrast=G1vsOthers,mu=4)
+> testContrast(Outcome~Group,contrast=G1vsOthers,mu=4)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
@@ -228,14 +229,14 @@ Contrast 0.500 0.707 0.707 4.000 0.519
 > 
 > #### Effect Size for a Contrast
 > 
-> standardizeContrast(BetweenSummary,contrast=G1vsOthers)
+> standardizeContrast(Outcome~Group,contrast=G1vsOthers)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
            Est    SE    LL    UL
 Contrast 4.500 1.561 1.440 7.560
 
-> standardizeContrast(BetweenSummary,contrast=G1vsOthers,conf.level=.99)
+> standardizeContrast(Outcome~Group,contrast=G1vsOthers,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 

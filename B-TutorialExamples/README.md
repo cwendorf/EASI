@@ -22,14 +22,12 @@
 
 The following are examples for single-factor designs.
 
-- The [**SingleBetweenSubjects**](./SingleBetweenSubjects/) documents and files analyze an example of a single-factor between-subjects design
-- The [**SingleWithinSubjects**](./SingleWithinSubjects/) documents and files analyze an example of a single-factor within-subjects design
+- The [**OneWay**](./OneWay/) documents and files analyze an example of a single-factor between-subjects design
+- The [**Repeated**](./Repeated/) documents and files analyze an example of a single-factor within-subjects design
 
 The following are examples for two-factor designs.
-- The [**FactorialBetweenSubjects**](./FactorialBetweenSubjects/) documents and files analyze an example of a two-factor between-subjects design
-- The [**FactorialWithinSubjects**](./FactorialWithinSubjects) documents and files analyze an example of a two-factor within-subjects design
-
-> Functions and examples for mixed designs (combinations of between and within-subjects factors) are not yet available in EASI.
+- The [**Factorial**](./Factorial/) documents and files analyze an example of a two-factor between-subjects design
+- The [**Mixed**](./Mixed) documents and files analyze an example of a mixed design (one between-subjects and one within-subjects factor)
 
 ## References
 

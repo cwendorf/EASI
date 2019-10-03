@@ -8,7 +8,7 @@
 
 ---
 
-## Single-Factor Between-Subjects Summary Statistics Example
+## OneWay (Single-Factor Between-Subjects) Summary Statistics Example
 
 ### Source the EASI Functions
 
@@ -66,13 +66,13 @@ This code will produce a graph of the confidence intervals for each level of the
 ```r
 plotMeans(BetweenSummary)
 ```
-<kbd><img src="SingleBetweenSubjectsFigure1.jpg"></kbd>
+<kbd><img src="OneWay-Figure1.jpg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
 plotMeans(BetweenSummary,conf.level=.99,mu=5)
 ```
-<kbd><img src="SingleBetweenSubjectsFigure2.jpg"></kbd>
+<kbd><img src="OneWay-Figure2.jpg"></kbd>
 
 
 #### Significance Tests for the Means
@@ -123,9 +123,9 @@ This section produces analyses that are equivalent to analyses for two levels of
 
 This code creates a new table that identifies the two levels for comparison and estimates the confidence interval of the difference.
 ```r
-compstats <- BetweenSummary[c("Group1","Group2"),]
-class(compstats) <- "bss"
-estimateDifference(compstats)
+CompSummary <- BetweenSummary[c("Group1","Group2"),]
+class(CompSummary) <- "bss"
+estimateDifference(CompSummary)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -136,34 +136,34 @@ Comparison -4.000 0.816 4.000 -6.267 -1.733
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```r
-estimateDifference(compstats,conf.level=.99)
+estimateDifference(CompSummary,conf.level=.99)
 ```
 
 It is also possible to alter the comparison by changing (or even reversing the order) of the groups.
 ```r
-compstats <- BetweenSummary[c("Group3","Group1"),]
-class(compstats) <- "bss"
-estimateDifference(compstats)
+CompSummary <- BetweenSummary[c("Group3","Group1"),]
+class(CompSummary) <- "bss"
+estimateDifference(CompSummary)
 ```
 
 #### Plot of the Confidence Interval for a Mean Difference
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
 ```r
-plotDifference(compstats)
+plotDifference(CompSummary)
 ```
-<kbd><img src="SingleBetweenSubjectsFigure3.jpg"></kbd>
+<kbd><img src="OneWay-Figure3.jpg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
-plotDifference(compstats,conf.level=.99)
+plotDifference(CompSummary,conf.level=.99)
 ```
 
 #### Significance Test for a Mean Difference
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```r
-testDifference(compstats)
+testDifference(CompSummary)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -174,14 +174,14 @@ Comparison -4.000 0.816 -4.899 4.000 0.008
 
 If the default value of zero is not plausible, it too can be changed.
 ```r
-testDifference(compstats,mu=2)
+testDifference(CompSummary,mu=2)
 ```
 
 #### Effect Size for the Mean Difference
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```r
-standardizeDifference(compstats)
+standardizeDifference(CompSummary)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -192,7 +192,7 @@ Comparison -4.000 1.732 -7.395 -0.605
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeDifference(compstats,conf.level=.99)
+standardizeDifference(CompSummary,conf.level=.99)
 ```
 
 ### Analyses of a Group Contrast
@@ -249,7 +249,7 @@ This code obtains and plots the confidence intervals for the groups and the mean
 G1vsOthers <- c(-1,.5,.5)
 plotContrast(BetweenSummary,contrast=G1vsOthers)
 ````
-<kbd><img src="SingleBetweenSubjectsFigure4.jpg"></kbd>
+<kbd><img src="OneWay-Figure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
