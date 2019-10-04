@@ -76,11 +76,11 @@ estimatePairwise(WithinSummary,WithinCorr,conf.level=.99)
 ```r
 plotPairwise(WithinSummary,WithinCorr)
 ```
-<kbd><img src="PairwiseWithin-Figure1.jpg"></kbd>
+<kbd><img src="PairwiseRepeated-Figure1.jpg"></kbd>
 ```r
 plotPairwise(WithinSummary,WithinCorr,mu=-2,conf.level=.99)
 ```
-<kbd><img src="PairwiseWithin-Figure2.jpg"></kbd>
+<kbd><img src="PairwiseRepeated-Figure2.jpg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 

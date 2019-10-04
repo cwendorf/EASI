@@ -8,11 +8,11 @@
 
 ---
 
-## Pairwise Comparisons Between-Subjects Example
+## Pairwise Comparisons Within-Subjects Example
 
 ### Overview of this Example
 
-The **PairwiseBetween** documents and files analyze an example of a single-factor between-subjects design.
+The **PairwiseRepeated** documents and files analyze an example of a single-factor within-subjects design. 
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes
@@ -20,8 +20,8 @@ The **PairwiseBetween** documents and files analyze an example of a single-facto
 
 ### Details of this Example
  
-The [**PAIRWISEBETWEEN-DATA-EXAMPLE.md**](./PAIRWISEBETWEEN-DATA-EXAMPLE.md) file uses raw data input.  
-The [**PARIWISEBETWEEN-SUMMARY-EXAMPLE.md**](./PAIRWISEBETWEEN-SUMMARY-EXAMPLE.md) file uses summary statistics input.
+The [**PAIRWISEREPEATED-DATA-EXAMPLE.md**](./PAIRWISEREPEATED-DATA-EXAMPLE.md) file uses raw data input.  
+The [**PARIWISEREPEATED-SUMMARY-EXAMPLE.md**](./PAIRWISEREPEATED-SUMMARY-EXAMPLE.md) file uses summary statistics input.
 
 These analyses include the following:
 

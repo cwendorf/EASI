@@ -20,8 +20,8 @@
 
 **Pairwise Comparisons**: The following are examples for single-factor designs.
 
-- The [**PairwiseBetween**](./PairwiseBetween/) documents and files analyze an example of a single-factor between-subjects design 
-- The [**PairwiseWithin**](./PairwiseWithin/) documents and files analyze an example of a single-factor within-subjects design  
+- The [**PairwiseOneWay**](./PairwiseOneWay/) documents and files analyze an example of a single-factor between-subjects design 
+- The [**PairwiseRepeated**](./PairwiseRepeated/) documents and files analyze an example of a single-factor within-subjects design  
 
 ## References
 
