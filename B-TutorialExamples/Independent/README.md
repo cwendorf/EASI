@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **Independent** documents and files analyze an example of a single-factor between-subjects design.
+The **Independent** documents and files analyze an example of an independent groups design.
 
 - The example is duplicated both using raw data input and summary statistics input
 - The example includes estimation, plots, significance tests, and effect sizes

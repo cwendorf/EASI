@@ -7,8 +7,8 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Independent Groups Summary Statistics
 
-Group1 <- c(N=4,M=2.000,SD=2.449)
-Group2 <- c(N=4,M=6.000,SD=2.449)
+Group1 <- c(N=3,M=2.000,SD=2.449)
+Group2 <- c(N=3,M=6.000,SD=2.449)
 BetweenSummary <- rbind(Group1,Group2)
 class(BetweenSummary) <- "bss"
 BetweenSummary

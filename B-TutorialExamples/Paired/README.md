@@ -10,13 +10,23 @@
 
 ## Paired Samples Example
 
-### Overview of the Examples
+### Overview of this Example
 
-> No advanced applications or examples are available yet.
+The **Paired** documents and files analyze an example of a paired samples design. 
 
-### Included Examples
+- The example is duplicated both using raw data input and summary statistics input
+- The example includes estimation, plots, significance tests, and effect sizes
+- The example contains a data file, a syntax file, a text output file, and graphs
 
-> No advanced applications or examples are available yet.  
+### Details of this Example
+  
+The [**PAIRED-DATA-EXAMPLE.md**](./PAIRED-DATA-EXAMPLE.md) file uses raw data input.  
+The [**PAIRED-SUMMARY-EXAMPLE.md**](./PAIRED-SUMMARY-EXAMPLE.md) file uses summary statistics input.
+
+These analyses include the following:
+
+- Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
+- Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 
 ## References
 
