@@ -7,8 +7,8 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Three Group Example Data
 
-Group <- c(rep(1,3),rep(2,3),rep(3,3))
-Outcome <- c(3,4,5,7,8,9,8,9,10)
+Group <- c(rep(1,4),rep(2,4),rep(3,4))
+Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
 Group <- factor(Group,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
 
 BetweenData <- data.frame(Group,Outcome)

@@ -20,24 +20,26 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 This code inputs the variable names and creates a viewable data frame.
 ```r
-Group <- c(rep(1,3),rep(2,3),rep(3,3))
-Outcome <- c(3,4,5,7,8,9,8,9,10)
+Group <- c(rep(1,4),rep(2,4),rep(3,4))
+Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
 Group <- factor(Group,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
-
 BetweenData <- data.frame(Group,Outcome)
 BetweenData
 ```
 ```
-   Group Outcome
-1 Group1       3
-2 Group1       4
-3 Group1       5
-4 Group2       7
-5 Group2       8
-6 Group2       9
-7 Group3       8
-8 Group3       9
-9 Group3      10
+    Group Outcome
+1  Group1       0
+2  Group1       0
+3  Group1       3
+4  Group1       5
+5  Group2       4
+6  Group2       7
+7  Group2       4
+8  Group2       9
+9  Group3       9
+10 Group3       6
+11 Group3       4
+12 Group3       9
 ```
 
 ### Analyses of Multiple Groups
@@ -53,10 +55,10 @@ estimateMeans(Outcome~Group)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-           N     M    SD    SE    LL     UL
-Group1 3.000 4.000 1.000 0.577 1.516  6.484
-Group2 3.000 8.000 1.000 0.577 5.516 10.484
-Group3 3.000 9.000 1.000 0.577 6.516 11.484
+           N     M    SD    SE     LL     UL
+Group1 4.000 2.000 2.449 1.224 -1.897  5.897
+Group2 4.000 6.000 2.449 1.224  2.103  9.897
+Group3 4.000 7.000 2.449 1.224  3.103 10.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -88,10 +90,10 @@ testMeans(Outcome~Group)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-        Diff    SE      t    df     p
-Group1 4.000 0.577  6.928 2.000 0.020
-Group2 8.000 0.577 13.856 2.000 0.005
-Group3 9.000 0.577 15.588 2.000 0.004
+        Diff    SE     t    df     p
+Group1 2.000 1.224 1.633 3.000 0.201
+Group2 6.000 1.224 4.900 3.000 0.016
+Group3 7.000 1.224 5.717 3.000 0.011
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -108,10 +110,10 @@ standardizeMeans(Outcome~Group)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-           d d(unb)    SE    LL     UL
-Group1 4.000  2.286 1.563 0.268  7.826
-Group2 8.000  4.571 2.906 0.871 15.456
-Group3 9.000  5.143 3.251 1.007 17.373
+           d d(unb)    SE     LL    UL
+Group1 0.817  0.594 0.616 -0.387 1.934
+Group2 2.450  1.782 0.955  0.325 4.532
+Group3 2.858  2.079 1.063  0.464 5.227
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -133,8 +135,8 @@ estimateDifference(Outcome~Comparison)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df     LL     UL
-Comparison -4.000 0.816 4.000 -6.267 -1.733
+             Diff    SE    df     LL    UL
+Comparison -4.000 1.732 6.000 -8.237 0.237
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -171,7 +173,7 @@ testDifference(Outcome~Comparison)
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -4.000 0.816 -4.899 4.000 0.008
+Comparison -4.000 1.732 -2.310 6.000 0.060
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -188,8 +190,8 @@ standardizeDifference(Outcome~Comparison)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -4.000 1.732 -7.395 -0.605
+              Est    SE     LL    UL
+Comparison -1.633 0.943 -3.481 0.215
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -211,8 +213,8 @@ estimateContrast(Outcome~Group,contrast=G1)
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-           Est    SE    df    LL    UL
-Contrast 4.000 0.577 2.000 1.516 6.484
+           Est    SE    df     LL    UL
+Contrast 2.000 1.224 3.000 -1.897 5.897
 ```
 ```r
 G2nG3 <- c(0,.5,.5)
@@ -222,7 +224,7 @@ estimateContrast(Outcome~Group,contrast=G2nG3)
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df    LL    UL
-Contrast 8.500 0.408 4.000 7.367 9.633
+Contrast 6.500 0.866 6.000 4.381 8.619
 ```
 
 #### Confidence Interval for a Contrast
@@ -236,7 +238,7 @@ estimateContrast(Outcome~Group,contrast=G1vsOthers)
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df    LL    UL
-Contrast 4.500 0.707 4.000 2.537 6.463
+Contrast 4.500 1.500 6.000 0.830 8.170
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
@@ -268,7 +270,7 @@ testContrast(Outcome~Group,contrast=G1vsOthers)
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
-Contrast 4.500 0.707 6.364 4.000 0.003
+Contrast 4.500 1.500 3.001 6.000 0.024
 ```
 
 If desired, the contrast can be tested against other values if needed.
@@ -286,7 +288,7 @@ standardizeContrast(Outcome~Group,contrast=G1vsOthers)
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
            Est    SE    LL    UL
-Contrast 4.500 1.561 1.440 7.560
+Contrast 1.837 0.829 0.212 3.463
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.

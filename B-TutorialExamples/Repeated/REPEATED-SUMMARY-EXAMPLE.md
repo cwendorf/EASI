@@ -20,35 +20,36 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 This code inputs the variable summaries and creates a summary table.
 ```r
-Time1 <- c(N=5,M=6.4,SD=1.14)
-Time2 <- c(N=5,M=7.8,SD=.837)
-Time3 <- c(N=5,M=8.6,SD=.548)
-WithinSummary <- rbind(Time1,Time2,Time3)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+WithinSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(WithinSummary) <- "wss"
 WithinSummary
 ```
 ```
-      N   M    SD
-Time1 5 6.4 1.140
-Time2 5 7.8 0.837
-Time3 5 8.6 0.548
+         N M    SD
+Outcome1 4 2 2.449
+Outcome2 4 6 2.449
+Outcome3 4 7 2.449
 attr(,"class")
 [1] "wss"
 ```
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 ```r
-WithinCorr <- declareCorrMatrix("Time1","Time2","Time3")
-WithinCorr["Time1","Time2"] <- .891
-WithinCorr["Time1","Time3"] <- .721
-WithinCorr["Time2","Time3"] <- .873
+WithinCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorr["Outcome1","Outcome2"] <- .500
+WithinCorr["Outcome1","Outcome3"] <- .056
+WithinCorr["Outcome2","Outcome3"] <- .389
 WithinCorr <- fillCorrMatrix(WithinCorr)
 WithinCorr
 ```
 ```
-      Time1 Time2 Time3
-Time1 1.000 0.891 0.721
-Time2 0.891 1.000 0.873
-Time3 0.721 0.873 1.000
+> WithinCorr
+         Outcome1 Outcome2 Outcome3
+Outcome1    1.000    0.500    0.056
+Outcome2    0.500    1.000    0.389
+Outcome3    0.056    0.389    1.000
 ```
  
 ### Analyses of Multiple Variables
@@ -64,10 +65,10 @@ estimateMeans(WithinSummary)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-          N     M    SD    SE    LL    UL
-Time1 5.000 6.400 1.140 0.510 4.985 7.815
-Time2 5.000 7.800 0.837 0.374 6.761 8.839
-Time3 5.000 8.600 0.548 0.245 7.920 9.280
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
+Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
+Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -98,10 +99,10 @@ testMeans(WithinSummary)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-       Diff    SE      t    df     p
-Time1 6.400 0.510 12.553 4.000 0.000
-Time2 7.800 0.374 20.838 4.000 0.000
-Time3 8.600 0.245 35.092 4.000 0.000
+          Diff    SE     t    df     p
+Outcome1 2.000 1.224 1.633 3.000 0.201
+Outcome2 6.000 1.224 4.900 3.000 0.016
+Outcome3 7.000 1.224 5.717 3.000 0.011
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -118,10 +119,10 @@ standardizeMeans(WithinSummary)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-           d d(unb)    SE    LL     UL
-Time1  5.614  4.491 1.693 1.782  9.469
-Time2  9.319  7.455 2.734 3.085 15.629
-Time3 15.693 12.555 4.557 5.275 26.265
+             d d(unb)    SE     LL    UL
+Outcome1 0.817  0.594 0.616 -0.387 1.934
+Outcome2 2.450  1.782 0.955  0.325 4.532
+Outcome3 2.858  2.079 1.063  0.464 5.227
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -137,7 +138,7 @@ This section produces analyses that are equivalent to analyses for two levels of
 
 This code creates a new table that identifies the two levels for comparison and estimates the confidence interval of the difference.
 ```r
-CompSummary <- WithinSummary[c("Time1","Time2"),]
+CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 estimateDifference(CompSummary,WithinCorr)
 ```
@@ -145,7 +146,7 @@ estimateDifference(CompSummary,WithinCorr)
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df     LL     UL
-Comparison -1.400 0.245 4.000 -2.080 -0.720
+Comparison -4.000 1.224 3.000 -7.897 -0.103
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -155,7 +156,7 @@ estimateDifference(CompSummary,WithinCorr,conf.level=.99)
 
 It is also possible to alter the comparison by changing (or even reversing the order) of the levels.
 ```r
-CompSummary <- WithinSummary[c("Time3","Time1"),]
+CompSummary <- WithinSummary[c("Outcome3","Outcome1"),]
 class(CompSummary) <- "wss"
 estimateDifference(CompSummary,WithinCorr)
 ```
@@ -183,7 +184,7 @@ testDifference(CompSummary,WithinCorr)
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -1.400 0.245 -5.717 4.000 0.005
+Comparison -4.000 1.224 -3.267 3.000 0.047
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -201,7 +202,7 @@ standardizeDifference(CompSummary,WithinCorr)
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL     UL
-Comparison -1.400 0.545 -2.468 -0.332
+Comparison -1.633 0.782 -3.166 -0.101
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -217,92 +218,92 @@ This section produces analyses that are equivalent to analyses involving multipl
 
 This code creates combinations of variables and produces a confidence interval for those pooled variables.
 ```r
-T1 <- c(1,0,0)
-estimateContrast(WithinSummary,WithinCorr,contrast=T1)
+O1 <- c(1,0,0)
+estimateContrast(WithinSummary,WithinCorr,contrast=O1)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-           Est    SE    df    LL    UL
-Contrast 6.400 0.510 4.000 4.985 7.815
+           Est    SE    df     LL    UL
+Contrast 2.000 1.224 3.000 -1.897 5.897
 ```
 ```r
-T2nT3 <- c(0,.5,.5)
-estimateContrast(WithinSummary,WithinCorr,contrast=T2nT3)
+O2nO3 <- c(0,.5,.5)
+estimateContrast(WithinSummary,WithinCorr,contrast=O2nO3)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df    LL    UL
-Contrast 8.200 0.300 4.000 7.367 9.033
+Contrast 6.500 1.020 3.000 3.252 9.748
 ```
 
 #### Confidence Interval for the Contrast
 
 This code identifies a contrast among the levels and produces a confidence interval for that contrast.
 ```r
-T1vsOthers <- c(-1,.5,.5)
-estimateContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
+O1vsOthers <- c(-1,.5,.5)
+estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df    LL    UL
-Contrast 1.800 0.300 4.000 0.968 2.632
+Contrast 4.500 1.307 3.000 0.342 8.658
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```r
-estimateContrast(WithinSummary,WithinCorr,contrast=T1vsOthers,conf.level=.99)
+estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-T1vsOthers <- c(-1,.5,.5)
-plotContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
+O1vsOthers <- c(-1,.5,.5)
+plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
 > 
 ````
 <kbd><img src="Repeated-Figure4.jpg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
-plotContrast(WithinSummary,WithinCorr,contrast=T1vsOthers,conf.level=.99)
+plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
 ```
 
 #### Significance Test for the Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```r
-testContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
+testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
-Contrast 1.800 0.300 6.004 4.000 0.004
+Contrast 4.500 1.307 3.444 3.000 0.041
 ```
 
 If desired, the contrast can be tested against other values if needed.
 ```r
-testContrast(WithinSummary,WithinCorr,contrast=T1vsOthers,mu=-1)
+testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,mu=-1)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```r
-standardizeContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
+standardizeContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
            Est    SE    LL    UL
-Contrast 2.056 0.685 0.714 3.397
+Contrast 1.837 0.741 0.386 3.289
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeContrast(WithinSummary,WithinCorr,contrast=T1vsOthers,conf.level=.99)
+standardizeContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
 ```

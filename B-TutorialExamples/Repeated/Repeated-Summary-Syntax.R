@@ -7,17 +7,17 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Three Time Period Example Summary Statistics
 
-Time1 <- c(N=5,M=6.4,SD=1.14)
-Time2 <- c(N=5,M=7.8,SD=.837)
-Time3 <- c(N=5,M=8.6,SD=.548)
-WithinSummary <- rbind(Time1,Time2,Time3)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+WithinSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(WithinSummary) <- "wss"
 WithinSummary
 
-WithinCorr <- declareCorrMatrix("Time1","Time2","Time3")
-WithinCorr["Time1","Time2"] <- .891
-WithinCorr["Time1","Time3"] <- .721
-WithinCorr["Time2","Time3"] <- .873
+WithinCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorr["Outcome1","Outcome2"] <- .500
+WithinCorr["Outcome1","Outcome3"] <- .056
+WithinCorr["Outcome2","Outcome3"] <- .389
 WithinCorr <- fillCorrMatrix(WithinCorr)
 WithinCorr
 
@@ -49,16 +49,16 @@ standardizeMeans(WithinSummary,mu=6,conf.level=.99)
 
 #### Confidence Interval for the Mean Difference
 
-CompSummary <- WithinSummary[c("Time1","Time2"),]
+CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 estimateDifference(CompSummary,WithinCorr)
 estimateDifference(CompSummary,WithinCorr,conf.level=.99)
-CompSummary <- WithinSummary[c("Time3","Time1"),]
+CompSummary <- WithinSummary[c("Outcome3","Outcome1"),]
 class(CompSummary) <- "wss"
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-CompSummary <- WithinSummary[c("Time1","Time2"),]
+CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 plotDifference(CompSummary,WithinCorr)
 plotDifference(CompSummary,WithinCorr,conf.level=.99)
@@ -78,29 +78,29 @@ standardizeDifference(CompSummary,WithinCorr,conf.level=.99)
 
 #### Confidence Intervals for Combined Levels
 
-T1 <- c(1,0,0)
-estimateContrast(WithinSummary,WithinCorr,contrast=T1)
-T2nT3 <- c(0,.5,.5)
-estimateContrast(WithinSummary,WithinCorr,contrast=T2nT3)
+O1 <- c(1,0,0)
+estimateContrast(WithinSummary,WithinCorr,contrast=O1)
+O2nO3 <- c(0,.5,.5)
+estimateContrast(WithinSummary,WithinCorr,contrast=O2nO3)
 
 #### Confidence Interval for the Contrast
 
-T1vsOthers <- c(-1,.5,.5)
-estimateContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
-estimateContrast(WithinSummary,WithinCorr,contrast=T1vsOthers,conf.level=.99)
+O1vsOthers <- c(-1,.5,.5)
+estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
+estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-T1vsOthers <- c(-1,.5,.5)
-plotContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
-plotContrast(WithinSummary,WithinCorr,contrast=T1vsOthers,conf.level=.99)
+O1vsOthers <- c(-1,.5,.5)
+plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
+plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
 
 #### Significance Test for the Contrast
 
-testContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
-testContrast(WithinSummary,WithinCorr,contrast=T1vsOthers,mu=-1)
+testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
+testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,mu=-1)
 
 #### Significance Test for the Contrast
 
-standardizeContrast(WithinSummary,WithinCorr,contrast=T1vsOthers)
-standardizeContrast(WithinSummary,WithinCorr,contrast=T1vsOthers,conf.level=.99)
+standardizeContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
+standardizeContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)

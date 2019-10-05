@@ -20,6 +20,11 @@
 
 ### Included Examples
 
+The following are examples for two-group and paired-samples designs.
+
+- The [**Independent**](./Independent/) documents and files analyze examples of a two-group between-subjects design (independent-groups)
+- The [**Paired**](./Paired/) documents and files analyze examples of a within-subjects design for two time points (paired samples)
+
 The following are examples for single-factor designs.
 
 - The [**OneWay**](./OneWay/) documents and files analyze an example of a single-factor between-subjects design

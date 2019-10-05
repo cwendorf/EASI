@@ -7,11 +7,11 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Three Time Period Example Data
 
-Time1 <- c(5,6,6,7,8)
-Time2 <- c(7,7,8,8,9)
-Time3 <- c(8,8,9,9,9)
+Outcome1 <- c(0,0,3,5)
+Outcome2 <- c(4,7,4,9)
+Outcome3 <- c(9,6,4,9)
 
-WithinData <- data.frame(Time1,Time2,Time3)
+WithinData <- data.frame(Outcome1,Outcome2,Outcome3)
 WithinData
 
 ### Analyses of Multiple Variables
@@ -19,76 +19,76 @@ WithinData
 
 #### Confidence Intervals for the Means
 
-estimateMeans(Time1,Time2,Time3)
-estimateMeans(Time1,Time2,Time3,conf.level=.99)
+estimateMeans(Outcome1,Outcome2,Outcome3)
+estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(Time1,Time2,Time3)
-plotMeans(Time1,Time2,Time3,conf.level=.99,mu=6)
+plotMeans(Outcome1,Outcome2,Outcome3)
+plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=6)
 
 #### Significance Tests for the Means
 
-testMeans(Time1,Time2,Time3)
-testMeans(Time1,Time2,Time3,mu=6)
+testMeans(Outcome1,Outcome2,Outcome3)
+testMeans(Outcome1,Outcome2,Outcome3,mu=6)
 
 #### Effect Size for the Means
 
-standardizeMeans(Time1,Time2,Time3)
-standardizeMeans(Time1,Time2,Time3,mu=6,conf.level=.99)
+standardizeMeans(Outcome1,Outcome2,Outcome3)
+standardizeMeans(Outcome1,Outcome2,Outcome3,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for the Mean Difference
 
-estimateDifference(Time1,Time2)
-estimateDifference(Time1,Time2,conf.level=.99)
-estimateDifference(Time3,Time1)
+estimateDifference(Outcome1,Outcome2)
+estimateDifference(Outcome1,Outcome2,conf.level=.99)
+estimateDifference(Outcome3,Outcome1)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(Time1,Time2)
-plotDifference(Time1,Time2,conf.level=.99)
+plotDifference(Outcome1,Outcome2)
+plotDifference(Outcome1,Outcome2,conf.level=.99)
 
 #### Significance Test for the Mean Difference
 
-testDifference(Time1,Time2)
-testDifference(Time1,Time2,mu=-2)
+testDifference(Outcome1,Outcome2)
+testDifference(Outcome1,Outcome2,mu=-2)
 
 #### Effect Size for the Mean Difference
 
-standardizeDifference(Time1,Time2)
-standardizeDifference(Time1,Time2,conf.level=.99)
+standardizeDifference(Outcome1,Outcome2)
+standardizeDifference(Outcome1,Outcome2,conf.level=.99)
 
 ### Analyses of a Variable Contrast
 ### (equivalent to analyses for multiple levels of a factor)
 
 #### Confidence Intervals for Combined Levels
 
-T1 <- c(1,0,0)
-estimateContrast(Time1,Time2,Time3,contrast=T1)
-T2nT3 <- c(0,.5,.5)
-estimateContrast(Time1,Time2,Time3,contrast=T2nT3)
+O1 <- c(1,0,0)
+estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1)
+O2nO3 <- c(0,.5,.5)
+estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O2nO3)
 
 #### Confidence Interval for the Contrast
 
-T1vsOthers <- c(-1,.5,.5)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
+O1vsOthers <- c(-1,.5,.5)
+estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-T1vsOthers <- c(-1,.5,.5)
-plotContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-plotContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
+O1vsOthers <- c(-1,.5,.5)
+plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
 
 #### Significance Test for the Contrast
 
-testContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=-1)
+testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=-1)
 
 #### Effect Size for the Contrast
 
-standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
-standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99)
+standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
