@@ -20,16 +20,16 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 This code inputs the variable summaries and creates a single summary table.
 ```r
-Group1 <- c(N=3,M=2.000,SD=2.449)
-Group2 <- c(N=3,M=6.000,SD=2.449)
+Group1 <- c(N=4,M=2.000,SD=2.449)
+Group2 <- c(N=4,M=6.000,SD=2.449)
 BetweenSummary <- rbind(Group1,Group2)
 class(BetweenSummary) <- "bss"
 BetweenSummary
 ```
 ```
        N M    SD
-Group1 3 2 2.449
-Group2 3 6 2.449
+Group1 4 2 2.449
+Group2 4 6 2.449
 attr(,"class")
 [1] "bss"
 ```
@@ -47,9 +47,9 @@ estimateMeans(BetweenSummary)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-           N     M    SD    SE     LL     UL
-Group1 3.000 2.000 2.449 1.414 -4.084  8.084
-Group2 3.000 6.000 2.449 1.414 -0.084 12.084
+           N     M    SD    SE     LL    UL
+Group1 4.000 2.000 2.449 1.224 -1.897 5.897
+Group2 4.000 6.000 2.449 1.224  2.103 9.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -82,8 +82,8 @@ testMeans(BetweenSummary)
 HYPOTHESIS TESTS FOR THE MEANS
 
         Diff    SE     t    df     p
-Group1 2.000 1.414 1.414 2.000 0.293
-Group2 6.000 1.414 4.243 2.000 0.051
+Group1 2.000 1.224 1.633 3.000 0.201
+Group2 6.000 1.224 4.900 3.000 0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -101,8 +101,8 @@ standardizeMeans(BetweenSummary)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
            d d(unb)    SE     LL    UL
-Group1 0.817  0.467 0.727 -0.595 2.110
-Group2 2.450  1.400 1.093 -0.045 4.925
+Group1 0.817  0.594 0.616 -0.387 1.934
+Group2 2.450  1.782 0.955  0.325 4.532
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -124,7 +124,7 @@ estimateDifference(BetweenSummary)
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df     LL    UL
-Comparison -4.000 2.000 4.000 -9.552 1.552
+Comparison -4.000 1.732 6.000 -8.237 0.237
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -155,7 +155,7 @@ testDifference(BetweenSummary)
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -4.000 2.000 -2.000 4.000 0.116
+Comparison -4.000 1.732 -2.310 6.000 0.060
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -173,7 +173,7 @@ standardizeDifference(BetweenSummary)
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL    UL
-Comparison -1.633 1.155 -3.897 0.630
+Comparison -1.633 0.943 -3.481 0.215
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
