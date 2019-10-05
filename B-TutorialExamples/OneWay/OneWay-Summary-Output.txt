@@ -7,16 +7,16 @@
 > 
 > ### Three Group Example Summary Statistics
 > 
-> Group1 <- c(N=4,M=2.000,SD=2.449)
-> Group2 <- c(N=4,M=6.000,SD=2.449)
-> Group3 <- c(N=4,M=7.000,SD=2.449)
+> Group1 <- c(N=3,M=2.000,SD=2.449)
+> Group2 <- c(N=3,M=6.000,SD=2.449)
+> Group3 <- c(N=3,M=7.000,SD=2.449)
 > BetweenSummary <- rbind(Group1,Group2,Group3)
 > class(BetweenSummary) <- "bss"
 > BetweenSummary
        N M    SD
-Group1 4 2 2.449
-Group2 4 6 2.449
-Group3 4 7 2.449
+Group1 3 2 2.449
+Group2 3 6 2.449
+Group3 3 7 2.449
 attr(,"class")
 [1] "bss"
 > 
@@ -30,18 +30,18 @@ attr(,"class")
 CONFIDENCE INTERVALS FOR THE MEANS
 
            N     M    SD    SE     LL     UL
-Group1 4.000 2.000 2.449 1.224 -1.897  5.897
-Group2 4.000 6.000 2.449 1.224  2.103  9.897
-Group3 4.000 7.000 2.449 1.224  3.103 10.897
+Group1 3.000 2.000 2.449 1.414 -4.084  8.084
+Group2 3.000 6.000 2.449 1.414 -0.084 12.084
+Group3 3.000 7.000 2.449 1.414  0.916 13.084
 
 > estimateMeans(BetweenSummary,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
-           N     M    SD    SE     LL     UL
-Group1 4.000 2.000 2.449 1.224 -5.152  9.152
-Group2 4.000 6.000 2.449 1.224 -1.152 13.152
-Group3 4.000 7.000 2.449 1.224 -0.152 14.152
+           N     M    SD    SE      LL     UL
+Group1 3.000 2.000 2.449 1.414 -12.033 16.033
+Group2 3.000 6.000 2.449 1.414  -8.033 20.033
+Group3 3.000 7.000 2.449 1.414  -7.033 21.033
 
 > 
 > #### Plot of the Confidence Intervals for the Means
@@ -56,18 +56,18 @@ Group3 4.000 7.000 2.449 1.224 -0.152 14.152
 HYPOTHESIS TESTS FOR THE MEANS
 
         Diff    SE     t    df     p
-Group1 2.000 1.224 1.633 3.000 0.201
-Group2 6.000 1.224 4.900 3.000 0.016
-Group3 7.000 1.224 5.717 3.000 0.011
+Group1 2.000 1.414 1.414 2.000 0.293
+Group2 6.000 1.414 4.243 2.000 0.051
+Group3 7.000 1.414 4.951 2.000 0.038
 
 > testMeans(BetweenSummary,mu=5)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
          Diff    SE      t    df     p
-Group1 -3.000 1.224 -2.450 3.000 0.092
-Group2  1.000 1.224  0.817 3.000 0.474
-Group3  2.000 1.224  1.633 3.000 0.201
+Group1 -3.000 1.414 -2.122 2.000 0.168
+Group2  1.000 1.414  0.707 2.000 0.553
+Group3  2.000 1.414  1.414 2.000 0.293
 
 > 
 > #### Effect Size for the Means
@@ -77,18 +77,18 @@ Group3  2.000 1.224  1.633 3.000 0.201
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
            d d(unb)    SE     LL    UL
-Group1 0.817  0.594 0.616 -0.387 1.934
-Group2 2.450  1.782 0.955  0.325 4.532
-Group3 2.858  2.079 1.063  0.464 5.227
+Group1 0.817  0.467 0.727 -0.595 2.110
+Group2 2.450  1.400 1.093 -0.045 4.925
+Group3 2.858  1.633 1.211  0.048 5.681
 
 > standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
             d d(unb)    SE     LL    UL
-Group1 -1.225 -0.891 0.680 -3.011 0.547
-Group2  0.408  0.297 0.574 -0.968 1.734
-Group3  0.817  0.594 0.616 -0.732 2.320
+Group1 -1.225 -0.700 0.795 -3.336 0.834
+Group2  0.408  0.233 0.682 -1.192 1.938
+Group3  0.817  0.467 0.727 -0.987 2.569
 
 > 
 > ### Analyses of a Group Comparison
@@ -103,14 +103,14 @@ Group3  0.817  0.594 0.616 -0.732 2.320
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df     LL    UL
-Comparison -4.000 1.732 6.000 -8.237 0.237
+Comparison -4.000 2.000 4.000 -9.552 1.552
 
 > estimateDifference(CompSummary,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df      LL    UL
-Comparison -4.000 1.732 6.000 -10.420 2.420
+Comparison -4.000 2.000 4.000 -13.206 5.206
 
 > CompSummary <- BetweenSummary[c("Group3","Group1"),]
 > class(CompSummary) <- "bss"
@@ -118,8 +118,8 @@ Comparison -4.000 1.732 6.000 -10.420 2.420
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-            Diff    SE    df    LL    UL
-Comparison 5.000 1.732 6.000 0.763 9.237
+            Diff    SE    df     LL     UL
+Comparison 5.000 2.000 4.000 -0.552 10.552
 
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
@@ -136,14 +136,14 @@ Comparison 5.000 1.732 6.000 0.763 9.237
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -4.000 1.732 -2.310 6.000 0.060
+Comparison -4.000 2.000 -2.000 4.000 0.116
 
 > testDifference(CompSummary,mu=2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -6.000 1.732 -3.465 6.000 0.013
+Comparison -6.000 2.000 -3.001 4.000 0.040
 
 > 
 > #### Effect Size for the Mean Difference
@@ -153,14 +153,14 @@ Comparison -6.000 1.732 -3.465 6.000 0.013
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL    UL
-Comparison -1.633 0.943 -3.481 0.215
+Comparison -1.633 1.155 -3.897 0.630
 
 > standardizeDifference(CompSummary,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL    UL
-Comparison -1.633 0.943 -4.062 0.795
+Comparison -1.633 1.155 -4.608 1.341
 
 > 
 > ### Analyses of a Group Contrast
@@ -174,7 +174,7 @@ Comparison -1.633 0.943 -4.062 0.795
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df     LL    UL
-Contrast 2.000 1.224 3.000 -1.897 5.897
+Contrast 2.000 1.414 2.000 -4.084 8.084
 
 > G2nG3 <- c(0,.5,.5)
 > estimateContrast(BetweenSummary,contrast=G2nG3)
@@ -182,7 +182,7 @@ Contrast 2.000 1.224 3.000 -1.897 5.897
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df    LL    UL
-Contrast 6.500 0.866 6.000 4.381 8.619
+Contrast 6.500 1.000 4.000 3.724 9.276
 
 > 
 > #### Confidence Interval for a Contrast
@@ -192,15 +192,15 @@ Contrast 6.500 0.866 6.000 4.381 8.619
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-           Est    SE    df    LL    UL
-Contrast 4.500 1.500 6.000 0.830 8.170
+           Est    SE    df     LL    UL
+Contrast 4.500 1.732 4.000 -0.308 9.308
 
 > estimateContrast(BetweenSummary,contrast=G1vsOthers,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df     LL     UL
-Contrast 4.500 1.500 6.000 -1.060 10.060
+Contrast 4.500 1.732 4.000 -3.473 12.473
 
 > 
 > #### Plots of Confidence Intervals for a Contrast
@@ -216,14 +216,14 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
-Contrast 4.500 1.500 3.001 6.000 0.024
+Contrast 4.500 1.732 2.599 4.000 0.060
 
 > testContrast(BetweenSummary,contrast=G1vsOthers,mu=4)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
-Contrast 0.500 1.500 0.333 6.000 0.750
+Contrast 0.500 1.732 0.289 4.000 0.787
 
 > 
 > #### Effect Size for a Contrast
@@ -232,14 +232,14 @@ Contrast 0.500 1.500 0.333 6.000 0.750
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Est    SE    LL    UL
-Contrast 1.837 0.829 0.212 3.463
+           Est    SE     LL    UL
+Contrast 1.837 1.016 -0.153 3.828
 
 > standardizeContrast(BetweenSummary,contrast=G1vsOthers,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
            Est    SE     LL    UL
-Contrast 1.837 0.829 -0.298 3.973
+Contrast 1.837 1.016 -0.778 4.453
 
 > 
