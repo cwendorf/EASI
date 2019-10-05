@@ -117,7 +117,7 @@ standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
  
 ### Analyses of a Group Comparison
 
-This section produces analyses that are equivalent to analyses for two levels of a factor.
+This section produces analyses that are equivalent to comparisons of two levels of a factor.
 
 #### Confidence Interval for a Mean Difference
 

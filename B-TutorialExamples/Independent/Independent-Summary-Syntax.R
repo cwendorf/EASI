@@ -1,0 +1,60 @@
+# Estimation Approach to Statistical Inference (EASI)
+## Independent Groups Summary Statistics Example
+
+### Source the EASI Functions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+
+### Independent Groups Summary Statistics
+
+Group1 <- c(N=3,M=2.000,SD=2.449)
+Group2 <- c(N=3,M=6.000,SD=2.449)
+BetweenSummary <- rbind(Group1,Group2)
+class(BetweenSummary) <- "bss"
+BetweenSummary
+
+### Analyses of Multiple Groups
+### (equivalent to one-sample analyses for each level of a factor)
+
+#### Confidence Intervals for the Means
+
+estimateMeans(BetweenSummary)
+estimateMeans(BetweenSummary,conf.level=.99)
+
+#### Plot of the Confidence Intervals for the Means
+
+plotMeans(BetweenSummary)
+plotMeans(BetweenSummary,conf.level=.99,mu=5)
+
+#### Significance Tests for the Means
+
+testMeans(BetweenSummary)
+testMeans(BetweenSummary,mu=5)
+
+#### Effect Size for the Means
+
+standardizeMeans(BetweenSummary)
+standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
+
+### Analyses of a Group Comparison
+### (equivalent to analyses for two levels of a factor)
+
+#### Confidence Interval for a Mean Difference
+
+estimateDifference(BetweenSummary)
+estimateDifference(BetweenSummary,conf.level=.99)
+
+#### Plot of the Confidence Interval for the Mean Difference
+
+plotDifference(BetweenSummary)
+plotDifference(BetweenSummary,conf.level=.99)
+
+#### Significance Test of the Mean Difference
+
+testDifference(BetweenSummary)
+testDifference(BetweenSummary,mu=2)
+
+#### Effect Size for the Mean Difference
+
+standardizeDifference(BetweenSummary)
+standardizeDifference(BetweenSummary,conf.level=.99)

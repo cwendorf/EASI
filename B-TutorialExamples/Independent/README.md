@@ -8,15 +8,25 @@
 
 ---
 
-## Independet Samples Example
+## Independent Groups Example
 
-### Overview of the Examples
+### Overview of this Example
 
-> No advanced applications or examples are available yet.
+The **Independent** documents and files analyze an example of a single-factor between-subjects design.
 
-### Included Examples
+- The example is duplicated both using raw data input and summary statistics input
+- The example includes estimation, plots, significance tests, and effect sizes
+- The example contains a data file, a syntax file, a text output file, and graphs
 
-> No advanced applications or examples are available yet.  
+### Details of this Example
+
+The [**INDEPENDENT-DATA-EXAMPLE.md**](./INDEPENDENT-DATA-EXAMPLE.md) file uses raw data input.  
+The [**INDEPENDENT-SUMMARY-EXAMPLE.md**](./INDEPENDENT-SUMMARY-EXAMPLE.md) file uses summary statistics input.
+
+These analyses include the following:
+
+- Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
+- Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 
 ## References
 

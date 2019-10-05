@@ -132,7 +132,7 @@ standardizeMeans(WithinSummary,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 
-This section produces analyses that are equivalent to analyses for two levels of a factor.
+This section produces analyses that are equivalent to comparisons of two levels of a factor.
 
 #### Confidence Interval for the Mean Difference
 

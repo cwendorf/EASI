@@ -1,0 +1,144 @@
+> # Estimation Approach to Statistical Inference (EASI)
+> ## Independent Groups Summary Statistics Example
+> 
+> ### Source the EASI Functions
+> 
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+> 
+> ### Independent Groups Summary Statistics
+> 
+> Group1 <- c(N=3,M=2.000,SD=2.449)
+> Group2 <- c(N=3,M=6.000,SD=2.449)
+> BetweenSummary <- rbind(Group1,Group2)
+> class(BetweenSummary) <- "bss"
+> BetweenSummary
+       N M    SD
+Group1 3 2 2.449
+Group2 3 6 2.449
+attr(,"class")
+[1] "bss"
+> 
+> ### Analyses of Multiple Groups
+> ### (equivalent to one-sample analyses for each level of a factor)
+> 
+> #### Confidence Intervals for the Means
+> 
+> estimateMeans(BetweenSummary)
+
+CONFIDENCE INTERVALS FOR THE MEANS
+
+           N     M    SD    SE     LL     UL
+Group1 3.000 2.000 2.449 1.414 -4.084  8.084
+Group2 3.000 6.000 2.449 1.414 -0.084 12.084
+
+> estimateMeans(BetweenSummary,conf.level=.99)
+
+CONFIDENCE INTERVALS FOR THE MEANS
+
+           N     M    SD    SE      LL     UL
+Group1 3.000 2.000 2.449 1.414 -12.033 16.033
+Group2 3.000 6.000 2.449 1.414  -8.033 20.033
+
+> 
+> #### Plot of the Confidence Intervals for the Means
+> 
+> plotMeans(BetweenSummary)
+> plotMeans(BetweenSummary,conf.level=.99,mu=5)
+> 
+> #### Significance Tests for the Means
+> 
+> testMeans(BetweenSummary)
+
+HYPOTHESIS TESTS FOR THE MEANS
+
+        Diff    SE     t    df     p
+Group1 2.000 1.414 1.414 2.000 0.293
+Group2 6.000 1.414 4.243 2.000 0.051
+
+> testMeans(BetweenSummary,mu=5)
+
+HYPOTHESIS TESTS FOR THE MEANS
+
+         Diff    SE      t    df     p
+Group1 -3.000 1.414 -2.122 2.000 0.168
+Group2  1.000 1.414  0.707 2.000 0.553
+
+> 
+> #### Effect Size for the Means
+> 
+> standardizeMeans(BetweenSummary)
+
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+           d d(unb)    SE     LL    UL
+Group1 0.817  0.467 0.727 -0.595 2.110
+Group2 2.450  1.400 1.093 -0.045 4.925
+
+> standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
+
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+            d d(unb)    SE     LL    UL
+Group1 -1.225 -0.700 0.795 -3.336 0.834
+Group2  0.408  0.233 0.682 -1.192 1.938
+
+> 
+> ### Analyses of a Group Comparison
+> ### (equivalent to analyses for two levels of a factor)
+> 
+> #### Confidence Interval for a Mean Difference
+> 
+> estimateDifference(BetweenSummary)
+
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+             Diff    SE    df     LL    UL
+Comparison -4.000 2.000 4.000 -9.552 1.552
+
+> estimateDifference(BetweenSummary,conf.level=.99)
+
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+             Diff    SE    df      LL    UL
+Comparison -4.000 2.000 4.000 -13.206 5.206
+
+> 
+> #### Plot of the Confidence Interval for the Mean Difference
+> 
+> plotDifference(BetweenSummary)
+> plotDifference(BetweenSummary,conf.level=.99)
+> 
+> #### Significance Test of the Mean Difference
+> 
+> testDifference(BetweenSummary)
+
+HYPOTHESIS TEST FOR THE COMPARISON
+
+             Diff    SE      t    df     p
+Comparison -4.000 2.000 -2.000 4.000 0.116
+
+> testDifference(BetweenSummary,mu=2)
+
+HYPOTHESIS TEST FOR THE COMPARISON
+
+             Diff    SE      t    df     p
+Comparison -6.000 2.000 -3.001 4.000 0.040
+
+> 
+> #### Effect Size for the Mean Difference
+> 
+> standardizeDifference(BetweenSummary)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+              Est    SE     LL    UL
+Comparison -1.633 1.155 -3.897 0.630
+
+> standardizeDifference(BetweenSummary,conf.level=.99)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+              Est    SE     LL    UL
+Comparison -1.633 1.155 -4.608 1.341
+
+> 
