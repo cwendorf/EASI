@@ -61,6 +61,7 @@ plotMeans.bss <- function(sumstats,mu=NULL,rope=NULL,...){
   results <- ciMeans(sumstats,...)[,c(2,5,6)]
   cipMeans(results,main,ylab,xlab,mu,rope)
 }
+
 plotMeans.default <- function(...,mu=NULL,rope=NULL,conf.level=.95){
   main="Confidence Intervals for the Means"
   ylab="Outcome"

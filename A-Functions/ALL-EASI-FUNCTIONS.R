@@ -94,7 +94,8 @@ ciMeans.wss <- ciMeans.bss <- function(sumstats,conf.level=.95,...){
   tcrit <- qt((1-conf.level)/2,N-1,lower.tail=FALSE)
   LL <- M-tcrit*SE
   UL <- M+tcrit*SE
-  results <- round(cbind(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3)
+  results <- as.data.frame(round(cbind(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3))
+  rownames(results) <- rownames(sumstats)
   return(results)
 }
 
@@ -242,6 +243,7 @@ estimateContrast<-function(...) {
   cat("\n")  
 }
 
+
 ### Null Hypothesis Significance Test Functions
 
 #### NHST Function for Means of Levels
@@ -258,6 +260,7 @@ nhstMeans.wss <- nhstMeans.bss <- function(sumstats,mu=0,...){
   df <- N-1
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=Diff,SE=SE,t=t,df=df,p=p),3)
+  rownames(results) <- rownames(sumstats)  
   return(results)
 }
 
@@ -400,6 +403,8 @@ testContrast<-function(...) {
   print(format(as.data.frame(nhstContrast(...)),trim=T,nsmall=3))
   cat("\n")  
 }
+# Estimation Approach to Statistical Inference (EASI)
+## Basic Functions for Means and Mean Differences 
 
 ### Standardized Mean Difference Functions
 
@@ -440,6 +445,7 @@ smdMeans.wss <- smdMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
   LL <- ifelse(skew<.001,ll1*sqrt(1/N),ll2*sqrt(1/N))
   UL <- ifelse(skew<.001,ul1*sqrt(1/N),ul2*sqrt(1/N))
   results <- round(cbind(d=CD,"d(unb)"=CDU,SE=SE,LL=LL,UL=UL),3)
+  rownames(results) <- rownames(sumstats)
   return(results)
 }
 
@@ -603,6 +609,8 @@ standardizeContrast <- function(...) {
   print(format(as.data.frame(smdContrast(...)),trim=T,nsmall=3))
   cat("\n")  
 }
+# Estimation Approach to Statistical Inference (EASI)
+## Basic Functions for Means and Mean Differences
 
 ### Confidence Interval Plot Functions
 
@@ -664,6 +672,7 @@ plotMeans.bss <- function(sumstats,mu=NULL,rope=NULL,...){
   results <- ciMeans(sumstats,...)[,c(2,5,6)]
   cipMeans(results,main,ylab,xlab,mu,rope)
 }
+
 plotMeans.default <- function(...,mu=NULL,rope=NULL,conf.level=.95){
   main="Confidence Intervals for the Means"
   ylab="Outcome"

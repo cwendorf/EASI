@@ -17,6 +17,7 @@ nhstMeans.wss <- nhstMeans.bss <- function(sumstats,mu=0,...){
   df <- N-1
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=Diff,SE=SE,t=t,df=df,p=p),3)
+  rownames(results) <- rownames(sumstats)  
   return(results)
 }
 

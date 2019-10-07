@@ -16,7 +16,8 @@ ciMeans.wss <- ciMeans.bss <- function(sumstats,conf.level=.95,...){
   tcrit <- qt((1-conf.level)/2,N-1,lower.tail=FALSE)
   LL <- M-tcrit*SE
   UL <- M+tcrit*SE
-  results <- round(cbind(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3)
+  results <- as.data.frame(round(cbind(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3))
+  rownames(results) <- rownames(sumstats)
   return(results)
 }
 
