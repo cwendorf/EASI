@@ -8,7 +8,7 @@
 
 ---
 
-## Between-Subjects Example with Rattan Data
+## OneWay (Between-Subjects) Example with Rattan Data
 
 ### Source the EASI Functions
 
@@ -16,7 +16,7 @@
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
 
-### Input Data
+### Enter Data
 
 ```r
 Feedback <- c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3)
@@ -99,7 +99,7 @@ Control   19.000 4.447 1.433 0.329 3.756 5.138
 ```r
 plotMeans(Motivation~Feedback)
 ```
-<kbd><img src="RattanFigure1.jpg"></kbd>
+<kbd><img src="Rattan-Figure1.jpg"></kbd>
 
 ### Analysis of a Group Difference
 
@@ -116,7 +116,7 @@ Comparison -1.932 0.572 31.521 -3.098 -0.766
 ```r
 plotDifference(Motivation~Comparison)
 ```
-<kbd><img src="RattanFigure2.jpg"></kbd>
+<kbd><img src="Rattan-Figure2.jpg"></kbd>
 ```r
 standardizeDifference(Motivation~Comparison)
 ```
@@ -142,7 +142,7 @@ Contrast 1.523 0.512 26.903 0.473 2.573
 ```r
 plotContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
-<kbd><img src="RattanFigure3.jpg"></kbd>
+<kbd><img src="Rattan-Figure3.jpg"></kbd>
 ```r
 testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```

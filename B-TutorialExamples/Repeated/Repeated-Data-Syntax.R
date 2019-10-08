@@ -1,11 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Repeated Measures (Single-Factor Within-Subjects) Data Example
+## Repeated (Within-Subjects) Example with Tutorial Data
 
 ### Source the EASI Functions
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 
-### Three Time Period Example Data
+### Enter Data
 
 Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)

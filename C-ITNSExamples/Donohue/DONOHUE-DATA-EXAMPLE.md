@@ -8,7 +8,7 @@
 
 ---
 
-## Within-Subjects Example with Donohue Data
+## Repeated (Within-Subjects) Example with Donohue Data
 
 ### Source the EASI Functions
 
@@ -16,7 +16,7 @@
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
 
-### Input Data
+### Enter Data
 
 ```r
 Pretest <- c(7,11,11,13,15,17,18,18,19,19,19,19,21,22,25,25,25,26,27,29)
@@ -65,7 +65,7 @@ Followup 20.000 23.400 4.616 1.032 21.240 25.560
 ```r
 plotMeans(Pretest,Posttest,Followup)
 ```
-<kbd><img src="DonohueFigure1.jpg"></kbd>
+<kbd><img src="Donohue-Figure1.jpg"></kbd>
  
 ### Analysis of a Variable Difference
 
@@ -81,7 +81,7 @@ Comparison 0.200 0.753 19.000 -1.375 1.775
 ```r
 plotDifference(Posttest,Followup)
 ```
-<kbd><img src="DonohueFigure2.jpg"></kbd>
+<kbd><img src="Donohue-Figure2.jpg"></kbd>
 ```r
 standardizeDifference(Posttest,Followup)
 ```
@@ -107,7 +107,7 @@ Contrast 4.200 1.130 19.000 1.835 6.565
 ```r
 plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
-<kbd><img src="DonohueFigure3.jpg"></kbd>
+<kbd><img src="Donohue-Figure3.jpg"></kbd>
 ```r
 testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```

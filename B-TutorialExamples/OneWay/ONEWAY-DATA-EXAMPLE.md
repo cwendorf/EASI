@@ -8,7 +8,7 @@
 
 ---
 
-## OneWay (Single-Factor Between-Subjects) Data Example
+## OneWay (Between-Subjects) Example with Tutorial Data
 
 ### Source the EASI Functions
 
@@ -16,7 +16,7 @@
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
 
-### Three Group Example Data
+### Enter Data
 
 This code inputs the variable names and creates a viewable data frame.
 ```r

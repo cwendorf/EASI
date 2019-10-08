@@ -1,11 +1,11 @@
 > # Estimation Approach to Statistical Inference (EASI)
-> ## OneWay (Single-Factor Between-Subjects) Data Example
+> ## OneWay (Between-Subjects) Example with Tutorial Data
 > 
 > ### Source the EASI Functions
 > 
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 > 
-> ### Three Group Example Data
+> ### Enter Data
 > 
 > Group <- c(rep(1,4),rep(2,4),rep(3,4))
 > Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)

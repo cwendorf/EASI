@@ -8,7 +8,7 @@
 
 ---
 
-## Within-Subjects Example with Donohue Summary Statistics
+## Repeated (Within-Subjects) Example with Donohue Summary Statistics
 
 ### Source the EASI Functions
 
@@ -65,7 +65,7 @@ Followup 20.000 23.400 4.616 1.032 21.240 25.560
 ```r
 plotMeans(DonohueSummary)
 ```
-<kbd><img src="DonohueFigure1.jpg"></kbd>
+<kbd><img src="Donohue-Figure1.jpg"></kbd>
  
 ### Analysis of a Variable Difference
 
@@ -83,7 +83,7 @@ Comparison 0.200 0.752 19.000 -1.375 1.775
 ```r
 plotDifference(PostvsFollowup,DonohueCorr)
 ```
-<kbd><img src="DonohueFigure2.jpg"></kbd>
+<kbd><img src="Donohue-Figure2.jpg"></kbd>
 ```r
 standardizeDifference(PostvsFollowup,DonohueCorr)
 ```
@@ -109,7 +109,7 @@ Contrast 4.200 1.130 19.000 1.834 6.566
 ```r
 plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```
-<kbd><img src="DonohueFigure3.jpg"></kbd>
+<kbd><img src="Donohue-Figure3.jpg"></kbd>
 ```r
 testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```

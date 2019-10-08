@@ -8,7 +8,7 @@
 
 ---
 
-## Within-Subjects Example with Thomason Data
+## Paired Samples Example with Thomason Data
 
 ### Source the EASI Functions
 
@@ -25,7 +25,7 @@ Posttest <- c(14,13,16,12,15,18,13,10,10,8,14,16)
 ```r
 plotDifference(Pretest,Posttest)
 ```
-<kbd><img src="ThomasonFigure1.jpg"></kbd>
+<kbd><img src="Thomason-Figure1.jpg"></kbd>
 ```r
 standardizeDifference(Pretest,Posttest)
 ```
@@ -45,7 +45,7 @@ Posttest <- c(12,19,6,9,15,13,17,14,10,17,9,14,15,22,18,18)
 ```r
 plotDifference(Pretest,Posttest)
 ```
-<kbd><img src="ThomasonFigure2.jpg"></kbd>
+<kbd><img src="Thomason-Figure2.jpg"></kbd>
 ```r
 standardizeDifference(Pretest,Posttest)
 ```
@@ -65,7 +65,7 @@ Posttest <- c(52,63,69,71,80,80,69,76,78,77,67,76,69,73,73,68,70,81,70,76,77,75,
 ```r
 plotDifference(Pretest,Posttest)
 ```
-<kbd><img src="ThomasonFigure3.jpg"></kbd>
+<kbd><img src="Thomason-Figure3.jpg"></kbd>
 ```r
 standardizeDifference(Pretest,Posttest)
 ```

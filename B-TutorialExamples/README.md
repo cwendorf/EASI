@@ -20,6 +20,10 @@
 
 ### Included Examples
 
+The following is an example for a one-sample design.
+
+- The [**OneSample**](./OneSample/) documents and files analyze an example of a single-group design.
+
 The following are examples for two-group and paired-samples designs.
 
 - The [**Independent**](./Independent/) documents and files analyze examples of a two-group between-subjects design (independent-groups)

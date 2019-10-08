@@ -1,5 +1,5 @@
 > # Estimation Approach to Statistical Inference (EASI)
-> ## Between-Subjects Example with Rattan Summary Statistics
+> ## OneWay (Between-Subjects) Example with Rattan Summary Statistics
 > 
 > ### Source the EASI Functions
 > 

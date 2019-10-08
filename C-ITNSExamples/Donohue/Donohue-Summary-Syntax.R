@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Within-Subjects Example with Donohue Summary Statistics
+## Repeated (Within-Subjects) Example with Donohue Summary Statistics
 
 ### Source the EASI Functions
 

@@ -8,7 +8,7 @@
 
 ---
 
-## Repeated Measures (Single-Factor Within-Subjects) Summary Statistics Example
+## Repeated (Within-Subjects) Example with Tutorial Summary Statistics
 
 ### Source the EASI Functions
 
@@ -16,7 +16,7 @@
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
 
-### Three Time Period Example Summary Statistics
+### Enter Summary Statistics
 
 This code inputs the variable summaries and creates a summary table.
 ```r

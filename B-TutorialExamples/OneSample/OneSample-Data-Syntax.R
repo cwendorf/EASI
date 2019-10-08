@@ -1,0 +1,35 @@
+# Estimation Approach to Statistical Inference (EASI)
+## One Sample Example with Tutorial Data
+
+### Source the EASI Functions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+
+### Enter Data
+
+Outcome <- c(0,0,3,5,4,7,4,9)
+
+WithinData <- data.frame(Outcome)
+WithinData
+
+### Analyses of the Group
+
+#### Confidence Intervals for the Mean
+
+estimateMeans(Outcome)
+estimateMeans(Outcome,conf.level=.99)
+
+#### Plot of the Confidence Intervals for the Mean
+
+plotMeans(Outcome)
+plotMeans(Outcome,conf.level=.99,mu=5)
+
+#### Significance Tests for the Mean
+
+testMeans(Outcome)
+testMeans(Outcome,mu=5)
+
+#### Effect Size for the Mean
+
+standardizeMeans(Outcome)
+standardizeMeans(Outcome,mu=5,conf.level=.99)

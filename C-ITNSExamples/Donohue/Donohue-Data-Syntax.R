@@ -1,21 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Within-Subjects Example with Donohue Data
+## Repeated (Within-Subjects) Example with Donohue Data
 
 ### Source the EASI Functions
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 
-### Read Data from Files
-
-DonohueData <- read.csv("DonohueData.csv")
-attach(DonohueData)
-DonohueData
-
-load(file="DonohueData.rda")
-attach(DonohueData)
-DonohueData
-
-### Input Data Instead
+### Enter Data
 
 Pretest <- c(7,11,11,13,15,17,18,18,19,19,19,19,21,22,25,25,25,26,27,29)
 Posttest <- c(16,20,25,22,28,12,16,26,21,22,26,30,23,27,23,27,28,24,28,28)

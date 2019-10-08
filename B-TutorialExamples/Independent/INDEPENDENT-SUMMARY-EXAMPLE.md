@@ -8,7 +8,7 @@
 
 ---
 
-## Independent Groups Summary Statistics Example
+## Independent Groups Example with Tutorial Summary Statistics
 
 ### Source the EASI Functions
 
@@ -16,7 +16,7 @@
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
 
-### Independent Groups Summary Statistics
+### Enter Summary Statistics
 
 This code inputs the variable summaries and creates a single summary table.
 ```r

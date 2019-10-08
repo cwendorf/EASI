@@ -1,11 +1,11 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Repeated Measures (Single-Factor Within-Subjects) Summary Statistics Example
+## Paired Samples Example with Tutorial Summary Statistics
 
 ### Source the EASI Functions
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 
-### Three Time Period Example Summary Statistics
+### Enter Summary Statistics
 
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
 Outcome2 <- c(N=4,M=6.000,SD=2.449)

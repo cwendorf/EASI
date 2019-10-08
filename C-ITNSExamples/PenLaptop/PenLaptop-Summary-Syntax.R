@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Between-Subjects Example with PenLaptop Summary Statistics
+## Indendent Groups Example with PenLaptop Summary Statistics
 
 ### Source the EASI Functions
 

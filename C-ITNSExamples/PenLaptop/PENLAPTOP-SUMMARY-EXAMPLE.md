@@ -8,7 +8,7 @@
 
 ---
 
-## Between-Subjects Example with PenLaptop Summary Statistics
+## Indendent Groups Example with PenLaptop Summary Statistics
 
 ### Source the EASI Functions
 
@@ -27,7 +27,7 @@ class(PenLaptop1Summary) <- "bss"
 ```r
 plotDifference(PenLaptop1Summary)
 ```
-<kbd><img src="PenLaptopFigure1.jpg"></kbd>
+<kbd><img src="PenLaptop-Figure1.jpg"></kbd>
 ```r
 standardizeDifference(PenLaptop1Summary)
 ```
@@ -49,7 +49,7 @@ class(PenLaptop2Summary) <- "bss"
 ```r
 plotDifference(PenLaptop2Summary)
 ```
-<kbd><img src="PenLaptopFigure2.jpg"></kbd>
+<kbd><img src="PenLaptop-Figure2.jpg"></kbd>
 ```r
 standardizeDifference(PenLaptop2Summary)
 ```
@@ -71,7 +71,7 @@ class(PenLaptop3Summary) <- "bss"
 ```r
 plotDifference(PenLaptop3Summary)
 ```
-<kbd><img src="PenLaptopFigure3.jpg"></kbd>
+<kbd><img src="PenLaptop-Figure3.jpg"></kbd>
 ```r
 standardizeDifference(PenLaptop3Summary)
 ```

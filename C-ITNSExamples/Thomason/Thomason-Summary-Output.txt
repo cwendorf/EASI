@@ -1,5 +1,5 @@
 > # Estimation Approach to Statistical Inference (EASI)
-> ## Within-Subjects Example with Thomason Summary Statistics
+> ## Paired Samples Example with Thomason Summary Statistics
 > 
 > ### Source the EASI Functions
 > 

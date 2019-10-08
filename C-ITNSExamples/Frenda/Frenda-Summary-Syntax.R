@@ -8,10 +8,10 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 ### Enter Summary Statistics
 
 A1B1 <- c(N=26,M=1.50,SD=1.38)
-A2B1 <- c(N=25,M=1.38,SD=1.50)
 A1B2 <- c(N=26,M=1.14,SD=0.96)
+A2B1 <- c(N=25,M=1.38,SD=1.50)
 A2B2 <- c(N=26,M=2.22,SD=1.68)
-FrendaSummary <- rbind(A1B1,A2B1,A1B2,A2B2)
+FrendaSummary <- rbind(A1B1,A1B2,A2B1,A2B2)
 class(FrendaSummary) <- "bss"
 FrendaSummary
 
@@ -22,18 +22,18 @@ plotMeans(FrendaSummary)
 
 ### Analyses of the Marginal Means
 
-Evening <- c(.5,0,.5,0)
+Evening <- c(.5,.5,0,0)
 estimateContrast(FrendaSummary,contrast=Evening)
-Morning <- c(0,.5,0,.5)
+Morning <- c(0,0,.5,.5)
 estimateContrast(FrendaSummary,contrast=Morning)
-Sleep <- c(.5,.5,0,0)
+Sleep <- c(.5,0,.5,0)
 estimateContrast(FrendaSummary,contrast=Sleep)
-Nosleep <- c(0,0,.5,.5)
+Nosleep <- c(0,.5,0,.5)
 estimateContrast(FrendaSummary,contrast=Nosleep)
 
 ### Analyses of the Factor A (Evening vs Morning) Main Effect
 
-mainFactorA <- c(.5,-.5,.5,-.5)
+mainFactorA <- c(-.5,-.5,.5,.5)
 estimateContrast(FrendaSummary,contrast=mainFactorA)
 plotContrast(FrendaSummary,contrast=mainFactorA)
 testContrast(FrendaSummary,contrast=mainFactorA)
@@ -41,7 +41,7 @@ standardizeContrast(FrendaSummary,contrast=mainFactorA)
 
 ### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
 
-mainFactorB <- c(-.5,-.5,.5,.5)
+mainFactorB <- c(-.5,.5,-.5,.5)
 estimateContrast(FrendaSummary,contrast=mainFactorB)
 plotContrast(FrendaSummary,contrast=mainFactorB)
 testContrast(FrendaSummary,contrast=mainFactorB)
@@ -49,8 +49,23 @@ standardizeContrast(FrendaSummary,contrast=mainFactorB)
 
 ### Analyses of the Factor A x B Interaction
 
-Interaction <- c(.5,-.5,-.5,.5)
+Interaction <- c(1,-1,-1,1)
 estimateContrast(FrendaSummary,contrast=Interaction)
-plotContrast(FrendaSummary,contrast=Interaction)
 testContrast(FrendaSummary,contrast=Interaction)
 standardizeContrast(FrendaSummary,contrast=Interaction)
+
+### Analyses of the Factor B at A1 Simple Effect
+
+simpleAatB1 <- c(-1,1,0,0)
+estimateContrast(FrendaSummary,contrast=simpleAatB1)
+plotContrast(FrendaSummary,contrast=simpleAatB1)
+testContrast(FrendaSummary,contrast=simpleAatB1)
+standardizeContrast(FrendaSummary,contrast=simpleAatB1)
+
+### Analyses of the Factor B at A2 Simple Effect
+
+simpleAatB2 <- c(0,0,-1,1)
+estimateContrast(FrendaSummary,contrast=simpleAatB2)
+plotContrast(FrendaSummary,contrast=simpleAatB2)
+testContrast(FrendaSummary,contrast=simpleAatB2)
+standardizeContrast(FrendaSummary,contrast=simpleAatB2)

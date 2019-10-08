@@ -8,7 +8,7 @@
 
 ---
 
-## Within-Subjects Example with Thomason Summary Statistics
+## Paired Samples Example with Thomason Summary Statistics
 
 ### Source the EASI Functions
 
@@ -29,7 +29,7 @@ Thomason1Corr["Pretest","Posttest"] <- .892
 ```r
 plotDifference(Thomason1Summary,Thomason1Corr)
 ```
-<kbd><img src="ThomasonFigure1.jpg"></kbd>
+<kbd><img src="Thomason-Figure1.jpg"></kbd>
 ```r
 standardizeDifference(Thomason1Summary,Thomason1Corr)
 ```
@@ -53,7 +53,7 @@ Thomason2Corr["Pretest","Posttest"] <- .871
 ```r
 plotDifference(Thomason2Summary,Thomason2Corr)
 ```
-<kbd><img src="ThomasonFigure2.jpg"></kbd>
+<kbd><img src="Thomason-Figure2.jpg"></kbd>
 ```r
 standardizeDifference(Thomason2Summary,Thomason2Corr)
 ```
@@ -77,7 +77,7 @@ Thomason3Corr["Pretest","Posttest"] <- .601
 ```r
 plotDifference(Thomason3Summary,Thomason3Corr)
 ```
-<kbd><img src="ThomasonFigure3.jpg"></kbd>
+<kbd><img src="Thomason-Figure3.jpg"></kbd>
 ```r
 standardizeDifference(Thomason3Summary,Thomason3Corr)
 ```

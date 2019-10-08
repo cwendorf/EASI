@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Factorial Between-Subjects Summary Statistics Example
+## Between-Subjects Factorial Example with Tutorial Summary Statistics
 
 ### Source the EASI Functions
 

@@ -8,7 +8,7 @@
 
 ---
 
-## Between-Subjects Example with PenLaptop Data
+## Indendent Groups Example with PenLaptop Data
 
 ### Source the EASI Functions
 
@@ -26,7 +26,7 @@ Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```r
 plotDifference(Transcription~Group)
 ```
-<kbd><img src="PenLaptopFigure1.jpg"></kbd>
+<kbd><img src="PenLaptop-Figure1.jpg"></kbd>
 ```r
 standardizeDifference(Transcription~Group)
 ```
@@ -47,7 +47,7 @@ Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```r
 plotDifference(Transcription~Group)
 ```
-<kbd><img src="PenLaptopFigure2.jpg"></kbd>
+<kbd><img src="PenLaptop-Figure2.jpg"></kbd>
 ```r
 standardizeDifference(Transcription~Group)
 ```
@@ -68,7 +68,7 @@ Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```r
 plotDifference(Transcription~Group)
 ```
-<kbd><img src="PenLaptopFigure3.jpg"></kbd>
+<kbd><img src="PenLaptop-Figure3.jpg"></kbd>
 ```r
 standardizeDifference(Transcription~Group)
 ```
