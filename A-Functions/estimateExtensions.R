@@ -8,13 +8,13 @@
 ciPairwise <- function(...) 
   UseMethod("ciPairwise")
 
-ciPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
-  N <- sumstats[,"N"]
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
+ciPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(sumstats)
-  nr <- nrow(sumstats)
+  rn <- rownames(SumStats)
+  nr <- nrow(SumStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","LL","UL")
@@ -23,7 +23,7 @@ ciPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
     MD <- M[rn[i]]-M[rn[j]]
-    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*corrstats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
+    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
     df <- min(N)-1
     tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
     LL <- MD-tcrit*SEd
@@ -35,13 +35,13 @@ ciPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   return(round(results,3))
 }
 
-ciPairwise.bss <- function(sumstats,conf.level=.95,...){
-  N <- sumstats[,"N"]
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
+ciPairwise.bss <- function(SumStats,conf.level=.95,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(sumstats)
-  nr <- nrow(sumstats)
+  rn <- rownames(SumStats)
+  nr <- nrow(SumStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","LL","UL")
@@ -63,22 +63,20 @@ ciPairwise.bss <- function(sumstats,conf.level=.95,...){
 }
 
 ciPairwise.default <- function(...,conf.level=.95){
-  sumstats <- describeLevels(...)
-  class(sumstats) <- "wss"
-  corrstats <- correlateLevels(...)
-  results <- ciPairwise(sumstats,corrstats,conf.level=conf.level)
+  SumStats <- descLevels(...)
+  class(SumStats) <- "wss"
+  CorrStats <- corLevels(...)
+  results <- ciPairwise(SumStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 ciPairwise.formula <- function(formula,conf.level=.95,...){
-  sumstats <- describeLevels(formula)
-  class(sumstats) <- "bss"
-  results <- ciPairwise(sumstats,conf.level=conf.level)
+  SumStats <- descLevels(formula)
+  class(SumStats) <- "bss"
+  results <- ciPairwise(SumStats,conf.level=conf.level)
   return(results)
 }
 
-### Wrappers for CI Functions
- 
 estimatePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
   print(format(as.data.frame(ciPairwise(...)),trim=T,nsmall=3))

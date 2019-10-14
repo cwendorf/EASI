@@ -8,10 +8,10 @@
 smdMeans <- function(...) 
   UseMethod("smdMeans")
   
-smdMeans.wss <- smdMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
-  N <- sumstats[,"N"]
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
+smdMeans.wss <- smdMeans.bss <- function(SumStats,mu=0,conf.level=.95,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
   SE <- SD/sqrt(N)  
   Diff <- M-mu
   t <- Diff/SE
@@ -40,22 +40,28 @@ smdMeans.wss <- smdMeans.bss <- function(sumstats,mu=0,conf.level=.95,...){
   LL <- ifelse(skew<.001,ll1*sqrt(1/N),ll2*sqrt(1/N))
   UL <- ifelse(skew<.001,ul1*sqrt(1/N),ul2*sqrt(1/N))
   results <- round(cbind(d=CD,"d(unb)"=CDU,SE=SE,LL=LL,UL=UL),3)
-  rownames(results) <- rownames(sumstats)
+  rownames(results) <- rownames(SumStats)
   return(results)
 }
 
 smdMeans.default <- function(...,mu=0,conf.level=.95){
-  sumstats <- describeLevels(...)
-  class(sumstats) <- "wss"
-  results <- smdMeans(sumstats,mu=mu,conf.level=conf.level)
+  SumStats <- descLevels(...)
+  class(SumStats) <- "wss"
+  results <- smdMeans(SumStats,mu=mu,conf.level=conf.level)
   return(results)
 }
 
 smdMeans.formula <- function(formula,mu=0,conf.level=.95,...){
-  sumstats <- describeLevels(formula)
-  class(sumstats) <- "bss"
-  results <- smdMeans(sumstats,mu=mu,conf.level=conf.level)
+  SumStats <- descLevels(formula)
+  class(SumStats) <- "bss"
+  results <- smdMeans(SumStats,mu=mu,conf.level=conf.level)
   return(results)
+}
+
+standardizeMeans <- function(...){
+  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS\n\n")
+  print(format(as.data.frame(smdMeans(...)),trim=T,nsmall=3))
+  cat("\n")
 }
 
 #### SMD Function for Mean Differences/Comparison of Levels
@@ -63,13 +69,13 @@ smdMeans.formula <- function(formula,mu=0,conf.level=.95,...){
 smdDifference <- function(...) 
   UseMethod("smdDifference")
 
-smdDifference.wss <- function(sumstats,corrstats,conf.level=.95,...){
-  compstats <- sumstats[1:2,]
-  N <- min(compstats[1:2,"N"])
-  M <- compstats[1:2,"M"]
-  SD <- compstats[1:2,"SD"]
-  rn <- rownames(compstats)
-  R <- corrstats[rn[1],rn[2]]
+smdDifference.wss <- function(SumStats,CorrStats,conf.level=.95,...){
+  CompStats <- SumStats[1:2,]
+  N <- min(CompStats[1:2,"N"])
+  M <- CompStats[1:2,"M"]
+  SD <- CompStats[1:2,"SD"]
+  rn <- rownames(CompStats)
+  R <- CorrStats[rn[1],rn[2]]
   z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
   s <- sqrt((SD[1]^2 + SD[2]^2)/2)
   df <- N-1
@@ -86,11 +92,11 @@ smdDifference.wss <- function(sumstats,corrstats,conf.level=.95,...){
   return(round(results,3))
 }
 
-smdDifference.bss <- function(sumstats,contrast,conf.level=.95,...) {
-  compstats <- sumstats[1:2,]
-  N <- compstats[1:2,"N"]
-  M <- compstats[1:2,"M"]
-  SD <- compstats[1:2,"SD"]
+smdDifference.bss <- function(SumStats,contrast,conf.level=.95,...) {
+  CompStats <- SumStats[1:2,]
+  N <- CompStats[1:2,"N"]
+  M <- CompStats[1:2,"M"]
+  SD <- CompStats[1:2,"SD"]
   z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
   v1 <- SD[1]^2
   v2 <- SD[2]^2
@@ -106,18 +112,24 @@ smdDifference.bss <- function(sumstats,contrast,conf.level=.95,...) {
 }
 
 smdDifference.default <- function(...,conf.level=.95){
-  compstats <- describeLevels(...)
-  class(compstats) <- "wss"
-  corrstats <- correlateLevels(...)
-  results <- smdDifference(compstats,corrstats,conf.level=conf.level)
+  CompStats <- descLevels(...)
+  class(CompStats) <- "wss"
+  CorrStats <- corLevels(...)
+  results <- smdDifference(CompStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 smdDifference.formula <- function(formula,contrast,conf.level=.95,...){
-  sumstats <- describeLevels(formula)
-  class(sumstats) <- "bss"
-  results <- smdDifference(sumstats,contrast,conf.level=conf.level)
+  SumStats <- descLevels(formula)
+  class(SumStats) <- "bss"
+  results <- smdDifference(SumStats,contrast,conf.level=conf.level)
   return(results)
+}
+
+standardizeDifference <- function(...) {
+  cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
+  print(format(as.data.frame(smdDifference(...)),trim=T,nsmall=3))
+  cat("\n")  
 }
 
 #### SMD Function for a Mean Contrast of Levels
@@ -125,11 +137,11 @@ smdDifference.formula <- function(formula,contrast,conf.level=.95,...){
 smdContrast <- function(...) 
   UseMethod("smdContrast")
 
-smdContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95,...) {
-  N <- min(sumstats[,"N"])
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
-  R <- mean(corrstats[upper.tri(corrstats)])
+smdContrast.wss <- function(SumStats,CorrStats,contrast,conf.level=.95,...) {
+  N <- min(SumStats[,"N"])
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
+  R <- mean(CorrStats[upper.tri(CorrStats)])
   df <- N-1
   z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
   a <- length(M)
@@ -149,10 +161,10 @@ smdContrast.wss <- function(sumstats,corrstats,contrast,conf.level=.95,...) {
   return(round(results,3))
 }
 
-smdContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
-  N <- sumstats[,"N"]
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
+smdContrast.bss <- function(SumStats,contrast,conf.level=.95,...) {
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
   z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
   v <- SD^2
   a <- length(M)
@@ -171,32 +183,18 @@ smdContrast.bss <- function(sumstats,contrast,conf.level=.95,...) {
 }
 
 smdContrast.default <- function(...,contrast,conf.level=.95){
-  sumstats <- describeLevels(...)
-  class(sumstats) <- "wss"
-  corrstats <- correlateLevels(...)
-  results <- smdContrast(sumstats,corrstats,contrast,conf.level=conf.level)
+  SumStats <- descLevels(...)
+  class(SumStats) <- "wss"
+  CorrStats <- corLevels(...)
+  results <- smdContrast(SumStats,CorrStats,contrast,conf.level=conf.level)
   return(results)
 }
 
 smdContrast.formula <- function(formula,contrast,conf.level=.95,...){
-  sumstats <- describeLevels(formula)
-  class(sumstats) <- "bss"
-  results <- smdContrast(sumstats,contrast,conf.level=conf.level)
+  SumStats <- descLevels(formula)
+  class(SumStats) <- "bss"
+  results <- smdContrast(SumStats,contrast,conf.level=conf.level)
   return(results)
-}
-
-### Wrappers for SMD Functions
-
-standardizeMeans <- function(...){
-  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS\n\n")
-  print(format(as.data.frame(smdMeans(...)),trim=T,nsmall=3))
-  cat("\n")
-}
-
-standardizeDifference <- function(...) {
-  cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
-  print(format(as.data.frame(smdDifference(...)),trim=T,nsmall=3))
-  cat("\n")  
 }
 
 standardizeContrast <- function(...) {

@@ -5,10 +5,10 @@
 
 #### Describe Function for Mutiple Groups and Variables
 
-describeLevels <- function(...) 
-  UseMethod("describeLevels")
+descLevels <- function(...) 
+  UseMethod("descLevels")
 
-describeLevels.default <- function(...){
+descLevels.default <- function(...){
   data <- data.frame(...)
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
@@ -17,8 +17,8 @@ describeLevels.default <- function(...){
   return(results)
 }
 
-describeLevels.formula <- function(formula,...){
-  results <- aggregate(formula,FUN=describeLevels,...)
+descLevels.formula <- function(formula,...){
+  results <- aggregate(formula,FUN=descLevels,...)
   rn <- results[,1]
   results <- results[[2]]
   rownames(results) <- rn
@@ -26,20 +26,32 @@ describeLevels.formula <- function(formula,...){
   return(results)
 }
 
+describeLevels <- function(...) {
+  cat("\nDESCRIPTIVE STATISTICS FOR THE LEVELS\n\n")
+   print(descLevels(...))
+  cat("\n")
+}
+
 #### Correlate/Covary Function for Mutiple Variables
 
-correlateLevels <- function(...) 
-  UseMethod("correlateLevels")
+corLevels <- function(...) 
+  UseMethod("corLevels")
 
-correlateLevels.default <- function(...,mu=0,conf.level=.95){
+corLevels.default <- function(...,mu=0,conf.level=.95){
   data <- data.frame(...)
   results <- cor(data)
   return(results)
 }
 
-cor2cov <- function(corrstats,SD) {
+correlateLevels <- function(...) {
+  cat("\nCORRELATION MATRIX FOR THE LEVELS\n\n")
+   print(corLevels(...))
+  cat("\n")
+}
+
+cor2cov <- function(CorrStats,SD) {
   sdsquare <- SD %*% t(SD)
-  covstats <- sdsquare * corrstats
+  covstats <- sdsquare * CorrStats
   return(covstats)
 }
 

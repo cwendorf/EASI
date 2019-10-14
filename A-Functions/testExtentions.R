@@ -8,13 +8,13 @@
 nhstPairwise <- function(...) 
   UseMethod("nhstPairwise")
 
-nhstPairwise.wss <- function(sumstats,corrstats,mu=0,...){
-  N <- sumstats[,"N"]
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
+nhstPairwise.wss <- function(SumStats,CorrStats,mu=0,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(sumstats)
-  nr <- nrow(sumstats)
+  rn <- rownames(SumStats)
+  nr <- nrow(SumStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","t","df","p")
@@ -23,7 +23,7 @@ nhstPairwise.wss <- function(sumstats,corrstats,mu=0,...){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
     MD <- M[rn[i]]-M[rn[j]]-mu
-    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*corrstats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
+    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
     df <- min(N)-1
     t <- MD/SEd
     p <- 2*(1 - pt(abs(t),df))
@@ -34,13 +34,13 @@ nhstPairwise.wss <- function(sumstats,corrstats,mu=0,...){
   return(round(results,3))
 }
 
-nhstPairwise.bss <- function(sumstats,mu=0,...){
-  N <- sumstats[,"N"]
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
+nhstPairwise.bss <- function(SumStats,mu=0,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(sumstats)
-  nr <- nrow(sumstats)
+  rn <- rownames(SumStats)
+  nr <- nrow(SumStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","t","df","p")
@@ -61,21 +61,19 @@ nhstPairwise.bss <- function(sumstats,mu=0,...){
 }
 
 nhstPairwise.default <- function(...,mu=0){
-  sumstats <- describeLevels(...)
-  class(sumstats) <- "wss"
-  corrstats <- correlateLevels(...)
-  results <- nhstPairwise(sumstats,corrstats,mu=mu)
+  SumStats <- descLevels(...)
+  class(SumStats) <- "wss"
+  CorrStats <- corLevels(...)
+  results <- nhstPairwise(SumStats,CorrStats,mu=mu)
   return(results)
 }
 
 nhstPairwise.formula <- function(formula,mu=0,...){
-  sumstats <- describeLevels(formula)
-  class(sumstats) <- "bss"
-  results <- nhstPairwise(sumstats,mu=mu)
+  SumStats <- descLevels(formula)
+  class(SumStats) <- "bss"
+  results <- nhstPairwise(SumStats,mu=mu)
   return(results)
 }
-
-### Wrappers for NHST Functions
 
 testPairwise <- function(...) {
   cat("\nHYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS\n\n")

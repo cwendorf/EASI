@@ -21,6 +21,7 @@ cipDifference <- function(results,main,ylab,xlab,rope){
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
+  par(mar=c(5,5,5,5))  
   plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,2])/2)*2,ceiling(max(graph[,3])/2)*2),pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
   axis(1,at=c(1,2,3),labels=rownames(graph))
   results <- format(as.data.frame(results),trim=T,nsmall=3)
@@ -38,6 +39,7 @@ cipDifference <- function(results,main,ylab,xlab,rope){
   val <- axTicks(4)-graph[1,1]+td
   loc <- axTicks(4)+td  
   axis(4,at=loc,labels=val,las=1)
+  mtext("Mean Difference",side=4,las=3,cex=1.3,line=3)
   if(!is.null(rope)) {rect(2.5,graphrope[1],4.5,graphrope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
 }
 
@@ -46,19 +48,19 @@ cipDifference <- function(results,main,ylab,xlab,rope){
 plotMeans <- function(...) 
   UseMethod("plotMeans")
 
-plotMeans.wss <- function(sumstats,mu=NULL,rope=NULL,...){
+plotMeans.wss <- function(SumStats,mu=NULL,rope=NULL,...){
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Variables"
-  results <- ciMeans(sumstats,...)[,c(2,5,6)]
+  results <- ciMeans(SumStats,...)[,c(2,5,6)]
   cipMeans(results,main,ylab,xlab,mu,rope)
 }
 
-plotMeans.bss <- function(sumstats,mu=NULL,rope=NULL,...){
+plotMeans.bss <- function(SumStats,mu=NULL,rope=NULL,...){
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Groups"
-  results <- ciMeans(sumstats,...)[,c(2,5,6)]
+  results <- ciMeans(SumStats,...)[,c(2,5,6)]
   cipMeans(results,main,ylab,xlab,mu,rope)
 }
 
@@ -86,23 +88,23 @@ plotMeans.formula <- function(formula,mu=NULL,rope=NULL,...){
 plotDifference <- function(...) 
   UseMethod("plotDifference")
   
-plotDifference.wss <- function(compstats,corrstats,rope=NULL,...){
+plotDifference.wss <- function(CompStats,CorrStats,rope=NULL,...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
-  Groups <- ciMeans(compstats,...)[2:1,c(2,5,6)]
-  Diff <- ciDifference(compstats,corrstats,...)[c(1,4,5)]
+  Groups <- ciMeans(CompStats,...)[2:1,c(2,5,6)]
+  Diff <- ciDifference(CompStats,CorrStats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab,rope)
 }
 
-plotDifference.bss <- function(compstats,rope=NULL,...){
+plotDifference.bss <- function(CompStats,rope=NULL,...){
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Groups"
-  Groups <- ciMeans(compstats,...)[2:1,c(2,5,6)]
-  Diff <- ciDifference(compstats,...)[c(1,4,5)]
+  Groups <- ciMeans(CompStats,...)[2:1,c(2,5,6)]
+  Diff <- ciDifference(CompStats,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab,rope)
@@ -152,17 +154,17 @@ plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL){
   cipDifference(results,main,ylab,xlab,rope)  
 }
 
-plotContrast.bss <- function(sumstats,contrast,rope=NULL,labels=NULL,...){
+plotContrast.bss <- function(SumStats,contrast,rope=NULL,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Groups"
   congrp1 <- ifelse(contrast<0,0,contrast)
-  resgrp1 <- ciContrast(sumstats,contrast=congrp1,...)
+  resgrp1 <- ciContrast(SumStats,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
-  resgrp2 <- ciContrast(sumstats,contrast=congrp2,...)
+  resgrp2 <- ciContrast(SumStats,contrast=congrp2,...)
   Groups <- rbind(resgrp1,resgrp2)
   Groups <- Groups[2:1,c(1,4,5)]
-  Diff <- ciContrast(sumstats,contrast=contrast,...)[c(1,4,5)]
+  Diff <- ciContrast(SumStats,contrast=contrast,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
   cipDifference(results,main,ylab,xlab,rope)

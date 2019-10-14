@@ -8,12 +8,12 @@
 smdPairwise <- function(...) 
   UseMethod("smdPairwise")
 
-smdPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
-  N <- sumstats[,"N"]
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
-  rn <- rownames(sumstats)
-  nr <- nrow(sumstats)
+smdPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
+  rn <- rownames(SumStats)
+  nr <- nrow(SumStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results)<- c("Est","SE","LL","UL")
@@ -21,7 +21,7 @@ smdPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    R <- corrstats[rn[1],rn[2]]  
+    R <- CorrStats[rn[1],rn[2]]  
     ns <- N[rn[c(i,j)]]
 	  mns <- M[rn[c(i,j)]]
 	  sds <- SD[rn[c(i,j)]]
@@ -42,12 +42,12 @@ smdPairwise.wss <- function(sumstats,corrstats,conf.level=.95,...){
   return(round(results,3))
 }
 
-smdPairwise.bss <- function(sumstats,conf.level=.95,...){
-  N <- sumstats[,"N"]
-  M <- sumstats[,"M"]
-  SD <- sumstats[,"SD"]
-  rn <- rownames(sumstats)
-  nr <- nrow(sumstats)
+smdPairwise.bss <- function(SumStats,conf.level=.95,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
+  rn <- rownames(SumStats)
+  nr <- nrow(SumStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results)<- c("Est","SE","LL","UL")
@@ -74,21 +74,19 @@ smdPairwise.bss <- function(sumstats,conf.level=.95,...){
 }
 
 smdPairwise.default <- function(...,conf.level=.95){
-  sumstats <- describeLevels(...)
-  class(sumstats) <- "wss"
-  corrstats <- correlateLevels(...)
-  results <- smdPairwise(sumstats,corrstats,conf.level=conf.level)
+  SumStats <- descLevels(...)
+  class(SumStats) <- "wss"
+  CorrStats <- corLevels(...)
+  results <- smdPairwise(SumStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 smdPairwise.formula <- function(formula,conf.level=.95,...){
-  sumstats <- describeLevels(formula)
-  class(sumstats) <- "bss"
-  results <- smdPairwise(sumstats,conf.level=conf.level)
+  SumStats <- descLevels(formula)
+  class(SumStats) <- "bss"
+  results <- smdPairwise(SumStats,conf.level=conf.level)
   return(results)
 }
-
-### Wrappers for SMD Functions
 
 standardizePairwise <- function(...) {
   cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS\n\n")
