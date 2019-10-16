@@ -26,6 +26,7 @@ The following files analyze the example using raw data input:
 - [**_Paired-Figure1.jpg_**](./Paired-Figure1.jpg)
 - [**_Paired-Figure2.jpg_**](./Paired-Figure2.jpg)
 - [**_Paired-Figure3.jpg_**](./Paired-Figure3.jpg) 
+- [**_Paired-Figure4.jpg_**](./Paired-Figure4.jpg) 
 
 The following files analyze the example using summary statistics input:
 
@@ -34,6 +35,7 @@ The following files analyze the example using summary statistics input:
 - [**_Paired-Figure1.jpg_**](./Paired-Figure1.jpg)
 - [**_Paired-Figure2.jpg_**](./Paired-Figure2.jpg)
 - [**_Paired-Figure3.jpg_**](./Paired-Figure3.jpg) 
+- [**_Paired-Figure4.jpg_**](./Paired-Figure4.jpg) 
 
 ## References
 

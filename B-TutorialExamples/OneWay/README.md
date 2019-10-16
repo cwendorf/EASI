@@ -28,6 +28,8 @@ The following files analyze the example using raw data input:
 - [**_OneWay-Figure2.jpg_**](./OneWay-Figure2.jpg)
 - [**_OneWay-Figure3.jpg_**](./OneWay-Figure3.jpg) 
 - [**_OneWay-Figure4.jpg_**](./OneWay-Figure4.jpg)
+- [**_OneWay-Figure5.jpg_**](./OneWay-Figure5.jpg) 
+- [**_OneWay-Figure6.jpg_**](./OneWay-Figure6.jpg)
 
 The following files analyze the example using summary statistics input:
 
@@ -37,6 +39,8 @@ The following files analyze the example using summary statistics input:
 - [**_OneWay-Figure2.jpg_**](./OneWay-Figure2.jpg)
 - [**_OneWay-Figure3.jpg_**](./OneWay-Figure3.jpg) 
 - [**_OneWay-Figure4.jpg_**](./OneWay-Figure4.jpg)
+- [**_OneWay-Figure5.jpg_**](./OneWay-Figure5.jpg) 
+- [**_OneWay-Figure6.jpg_**](./OneWay-Figure6.jpg)
 
 ## References
 
