@@ -22,7 +22,7 @@ EASI can be used to calculate and plot confidence intervals for the means of gro
 
 EASI can be used to calculate and plot confidence intervals of mean differences and mean contrasts for independent groups (between-subjects design) or paired means (within-subjects designs). Additional functions can show the standardized effect sizes and statistical significance tests for the designated comparison. 
 
-![Screenshot2](easiDifferences.jpg)
+![Screenshot2](easiDifference.jpg)
 
 ## Materials Available on this Site
 
