@@ -12,9 +12,8 @@
 
 ### Installation of the Functions
 
-[**_ALL-EASI-FUNCTIONS.R_**](./ALL-EASI-FUNCTIONS) incorporates all of the functions that constitute the original vision of EASI. The EASI functions were written to represent five basic categories of analyses:
+[**_ALL-EASI-FUNCTIONS.R_**](./ALL-EASI-FUNCTIONS) incorporates all of the functions that constitute the original vision of EASI. The EASI functions were written to represent four basic categories of analyses:
 
-- _describe_ (`describeLevels` and `correlateLevels` functions that help calculate basic descriptive statistics and matrices)
 - _estimate_ (`estimateMeans`,`estimateDifference`, and `estimateContrast` functions that estimate confidence intervals for means and mean differences)
 - _plot_ (`plotMeans`, `plotDifference`, and `plotContrast` functions that plot confidence intervals for means and mean differences)
 - _test_ (`testMeans`, `testDifference`, and `testContrast` functions that calculate NHST for means and mean differences)
