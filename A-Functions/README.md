@@ -12,7 +12,7 @@
 
 ### Installation of the Functions
 
-[**_ALL-EASI-FUNCTIONS.R_**](./ALL-EASI-FUNCTIONS) incorporates all of the functions that constitute the original vision of EASI. The EASI functions were written to represent four basic categories of analyses:
+[**_ALL-EASI-FUNCTIONS.R_**](./ALL-EASI-FUNCTIONS.R) incorporates all of the functions that constitute the original vision of EASI. The EASI functions were written to represent four basic categories of analyses:
 
 - _estimate_ (`estimateMeans`,`estimateDifference`, and `estimateContrast` functions that estimate confidence intervals for means and mean differences)
 - _plot_ (`plotMeans`, `plotDifference`, and `plotContrast` functions that plot confidence intervals for means and mean differences)
