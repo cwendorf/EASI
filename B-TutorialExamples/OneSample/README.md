@@ -8,24 +8,29 @@
 
 ---
 
-## One Sample Example
+## One Sample Tutorial
 
 ### Overview of this Example
 
-The **OneSample** documents and files analyze an example of a one-sample design.
-
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
-
-### Details of this Example
-
-The [**ONESAMPLE-DATA-EXAMPLE.md**](./ONESAMPLE-DATA-EXAMPLE.md) file uses raw data input.  
-The [**ONESAMPLE-SUMMARY-EXAMPLE.md**](./ONESAMPLE-SUMMARY-EXAMPLE.md) file uses summary statistics input.
-
-These analyses include the following:
+The **OneSample** documents and files analyze an example of a one-sample design. These analyses include the following:
 
 - Analysis of the Group (equivalent to one-sample analysis for the variable)
+
+### Files for this Example
+
+The following files analyze the example using raw data input:
+
+- [**_OneSample-Data-Syntax.R_**](./OneSample-Data-Syntax.R)
+- [**_OneSample-Data-Output.R_**](./OneSample-Data-Output.R)
+- [**_OneSample-Figure1.jpg_**](./OneSample-Figure1.jpg)
+- [**_OneSample-Figure2.jpg_**](./OneSample-Figure2.jpg)
+
+The following files analyze the example using summary statistics input:
+
+- [**_OneSample-Summary-Syntax.R_**](./OneSample-Summary-Syntax.R)
+- [**_OneSample-Summary-Output.R_**](./OneSample-Summary-Output.R)
+- [**_OneSample-Figure1.jpg_**](./OneSample-Figure1.jpg)
+- [**_OneSample-Figure2.jpg_**](./OneSample-Figure2.jpg)
 
 ## References
 

@@ -1,5 +1,5 @@
 > # Estimation Approach to Statistical Inference (EASI)
-> ## Independent Groups Example with Tutorial Summary Statistics
+> ## Independent Groups Tutorial with Summary Statistics
 > 
 > ### Source the EASI Functions
 > 
@@ -7,14 +7,14 @@
 > 
 > ### Enter Summary Statistics
 > 
-> Group1 <- c(N=3,M=2.000,SD=2.449)
-> Group2 <- c(N=3,M=6.000,SD=2.449)
-> BetweenSummary <- rbind(Group1,Group2)
+> Level1 <- c(N=4,M=2.000,SD=2.449)
+> Level2 <- c(N=4,M=6.000,SD=2.449)
+> BetweenSummary <- rbind(Level1,Level2)
 > class(BetweenSummary) <- "bss"
 > BetweenSummary
        N M    SD
-Group1 3 2 2.449
-Group2 3 6 2.449
+Level1 4 2 2.449
+Level2 4 6 2.449
 attr(,"class")
 [1] "bss"
 > 
@@ -27,17 +27,17 @@ attr(,"class")
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
-           N     M    SD    SE     LL     UL
-Group1 3.000 2.000 2.449 1.414 -4.084  8.084
-Group2 3.000 6.000 2.449 1.414 -0.084 12.084
+           N     M    SD    SE     LL    UL
+Level1 4.000 2.000 2.449 1.224 -1.897 5.897
+Level2 4.000 6.000 2.449 1.224  2.103 9.897
 
 > estimateMeans(BetweenSummary,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
-           N     M    SD    SE      LL     UL
-Group1 3.000 2.000 2.449 1.414 -12.033 16.033
-Group2 3.000 6.000 2.449 1.414  -8.033 20.033
+           N     M    SD    SE     LL     UL
+Level1 4.000 2.000 2.449 1.224 -5.152  9.152
+Level2 4.000 6.000 2.449 1.224 -1.152 13.152
 
 > 
 > #### Plot of the Confidence Intervals for the Means
@@ -52,16 +52,16 @@ Group2 3.000 6.000 2.449 1.414  -8.033 20.033
 HYPOTHESIS TESTS FOR THE MEANS
 
         Diff    SE     t    df     p
-Group1 2.000 1.414 1.414 2.000 0.293
-Group2 6.000 1.414 4.243 2.000 0.051
+Level1 2.000 1.224 1.633 3.000 0.201
+Level2 6.000 1.224 4.900 3.000 0.016
 
 > testMeans(BetweenSummary,mu=5)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
          Diff    SE      t    df     p
-Group1 -3.000 1.414 -2.122 2.000 0.168
-Group2  1.000 1.414  0.707 2.000 0.553
+Level1 -3.000 1.224 -2.450 3.000 0.092
+Level2  1.000 1.224  0.817 3.000 0.474
 
 > 
 > #### Effect Size for the Means
@@ -71,16 +71,16 @@ Group2  1.000 1.414  0.707 2.000 0.553
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
            d d(unb)    SE     LL    UL
-Group1 0.817  0.467 0.727 -0.595 2.110
-Group2 2.450  1.400 1.093 -0.045 4.925
+Level1 0.817  0.594 0.616 -0.387 1.934
+Level2 2.450  1.782 0.955  0.325 4.532
 
 > standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
             d d(unb)    SE     LL    UL
-Group1 -1.225 -0.700 0.795 -3.336 0.834
-Group2  0.408  0.233 0.682 -1.192 1.938
+Level1 -1.225 -0.891 0.680 -3.011 0.547
+Level2  0.408  0.297 0.574 -0.968 1.734
 
 > 
 > ### Analyses of a Group Comparison
@@ -93,14 +93,14 @@ Group2  0.408  0.233 0.682 -1.192 1.938
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df     LL    UL
-Comparison -4.000 2.000 4.000 -9.552 1.552
+Comparison -4.000 1.732 6.000 -8.237 0.237
 
 > estimateDifference(BetweenSummary,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df      LL    UL
-Comparison -4.000 2.000 4.000 -13.206 5.206
+Comparison -4.000 1.732 6.000 -10.420 2.420
 
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
@@ -115,14 +115,14 @@ Comparison -4.000 2.000 4.000 -13.206 5.206
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -4.000 2.000 -2.000 4.000 0.116
+Comparison -4.000 1.732 -2.310 6.000 0.060
 
 > testDifference(BetweenSummary,mu=2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -6.000 2.000 -3.001 4.000 0.040
+Comparison -6.000 1.732 -3.465 6.000 0.013
 
 > 
 > #### Effect Size for the Mean Difference
@@ -132,13 +132,13 @@ Comparison -6.000 2.000 -3.001 4.000 0.040
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL    UL
-Comparison -1.633 1.155 -3.897 0.630
+Comparison -1.633 0.943 -3.481 0.215
 
 > standardizeDifference(BetweenSummary,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL    UL
-Comparison -1.633 1.155 -4.608 1.341
+Comparison -1.633 0.943 -4.062 0.795
 
 > 

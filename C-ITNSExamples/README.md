@@ -30,7 +30,8 @@ The following are examples for single-factor designs (see _[ITNS](https://thenew
 
 The following are examples for two-factor designs (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 15).
 
-- The [**Frenda**](./Frenda/) documents and files analyze an example of a two-factor between-subjects design  
+- The [**Frenda**](./Frenda/) documents and files analyze an example of a two-factor between-subjects design
+- The [**Holzel**](./Holzel/) documents and files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)  
 
 ## References
 

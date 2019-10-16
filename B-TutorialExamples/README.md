@@ -34,8 +34,9 @@ The following are examples for single-factor designs.
 - The [**Repeated**](./Repeated/) documents and files analyze an example of a single-factor within-subjects design
 
 The following are examples for two-factor designs.
+
 - The [**Factorial**](./Factorial/) documents and files analyze an example of a two-factor between-subjects design
-- The [**Mixed**](./Mixed) documents and files analyze an example of a mixed design (one between-subjects and one within-subjects factor)
+- The [**Mixed**](./Mixed) documents and files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)
 
 ## References
 

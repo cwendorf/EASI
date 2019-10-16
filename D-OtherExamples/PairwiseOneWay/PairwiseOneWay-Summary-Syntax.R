@@ -1,21 +1,21 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Pairwise Comparisons Between-Subjects Summary Example
+## Pairwise Comparisons Between-Subjects Summary Statistics Example
 
 ### Source the EASI Functions and Extensions
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-EXTENSIONS.R")
 
-### Three Group Example Summary Statistics
+### Enter Summary Statistics
 
-Group1 <- c(N=3,M=4,SD=1)
-Group2 <- c(N=3,M=8,SD=1)
-Group3 <- c(N=3,M=9,SD=1)
+Group1 <- c(N=3,M=2.000,SD=2.449)
+Group2 <- c(N=3,M=6.000,SD=2.449)
+Group3 <- c(N=3,M=7.000,SD=2.449)
 BetweenSummary <- rbind(Group1,Group2,Group3)
 class(BetweenSummary) <- "bss"
 BetweenSummary
 
-### Analyses of Pairwise Group Comparisons
+### Analyses of Pairwise Comparisons
 ### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons

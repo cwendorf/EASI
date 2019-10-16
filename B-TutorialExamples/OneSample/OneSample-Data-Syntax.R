@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## One Sample Example with Tutorial Data
+## One Sample Tutorial with Data
 
 ### Source the EASI Functions
 

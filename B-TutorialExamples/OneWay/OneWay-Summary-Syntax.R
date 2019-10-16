@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## OneWay (Between-Subjects) Example with Tutorial Summary Statistics
+## OneWay (Between-Subjects) Tutorial with Summary Statistics
 
 ### Source the EASI Functions
 
@@ -7,10 +7,10 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Enter Summary Statistics
 
-Group1 <- c(N=3,M=2.000,SD=2.449)
-Group2 <- c(N=3,M=6.000,SD=2.449)
-Group3 <- c(N=3,M=7.000,SD=2.449)
-BetweenSummary <- rbind(Group1,Group2,Group3)
+Level1 <- c(N=4,M=2.000,SD=2.449)
+Level2 <- c(N=4,M=6.000,SD=2.449)
+Level3 <- c(N=4,M=7.000,SD=2.449)
+BetweenSummary <- rbind(Level1,Level2,Level3)
 class(BetweenSummary) <- "bss"
 BetweenSummary
 
@@ -42,17 +42,17 @@ standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
 
 #### Confidence Interval for a Mean Difference
 
-CompSummary <- BetweenSummary[c("Group1","Group2"),]
+CompSummary <- BetweenSummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
 estimateDifference(CompSummary)
 estimateDifference(CompSummary,conf.level=.99)
-CompSummary <- BetweenSummary[c("Group3","Group1"),]
+CompSummary <- BetweenSummary[c("Level3","Level1"),]
 class(CompSummary) <- "bss"
 estimateDifference(CompSummary)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-CompSummary <- BetweenSummary[c("Group1","Group2"),]
+CompSummary <- BetweenSummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
 plotDifference(CompSummary)
 plotDifference(CompSummary,conf.level=.99)
@@ -72,29 +72,29 @@ standardizeDifference(CompSummary,conf.level=.99)
 
 #### Confidence Intervals for Combined Levels
 
-G1 <- c(1,0,0)
-estimateContrast(BetweenSummary,contrast=G1)
-G2nG3 <- c(0,.5,.5)
-estimateContrast(BetweenSummary,contrast=G2nG3)
+L1 <- c(1,0,0)
+estimateContrast(BetweenSummary,contrast=L1)
+L2nL3 <- c(0,.5,.5)
+estimateContrast(BetweenSummary,contrast=L2nL3)
 
 #### Confidence Interval for a Contrast
 
-G1vsOthers <- c(-1,.5,.5)
-estimateContrast(BetweenSummary,contrast=G1vsOthers)
-estimateContrast(BetweenSummary,contrast=G1vsOthers,conf.level=.99)
+L1vsOthers <- c(-1,.5,.5)
+estimateContrast(BetweenSummary,contrast=L1vsOthers)
+estimateContrast(BetweenSummary,contrast=L1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-G1vsOthers <- c(-1,.5,.5)
-plotContrast(BetweenSummary,contrast=G1vsOthers)
-plotContrast(BetweenSummary,contrast=G1vsOthers,conf.level=.99)
+L1vsOthers <- c(-1,.5,.5)
+plotContrast(BetweenSummary,contrast=L1vsOthers)
+plotContrast(BetweenSummary,contrast=L1vsOthers,conf.level=.99)
 
 #### Significance Test for a Contrast
 
-testContrast(BetweenSummary,contrast=G1vsOthers)
-testContrast(BetweenSummary,contrast=G1vsOthers,mu=4)
+testContrast(BetweenSummary,contrast=L1vsOthers)
+testContrast(BetweenSummary,contrast=L1vsOthers,mu=4)
 
 #### Effect Size for a Contrast
 
-standardizeContrast(BetweenSummary,contrast=G1vsOthers)
-standardizeContrast(BetweenSummary,contrast=G1vsOthers,conf.level=.99)
+standardizeContrast(BetweenSummary,contrast=L1vsOthers)
+standardizeContrast(BetweenSummary,contrast=L1vsOthers,conf.level=.99)

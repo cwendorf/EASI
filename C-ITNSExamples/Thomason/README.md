@@ -12,21 +12,28 @@
 
 ### Overview of this Example
 
-The **Thomason** documents and files analyze an example of a within-subjects design for two time points (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 8).  
-
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
-
-### Details of this Example
-
-The [**THOMASON-DATA-EXAMPLE.md**](./THOMASON-DATA-EXAMPLE.md) file uses raw data input.  
-The [**THOMASON-SUMMARY-EXAMPLE.md**](./THOMASON-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
-
-These analyses include the following:
+The **Thomason** documents and files analyze an example of a within-subjects design for two time points (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 8). These analyses include the following:
 
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of Multiple Studies (examples from three different replication studies)
+
+### Files for this Example
+
+The following files analyze the example using raw data input:
+
+- [**_Thomason-Data-Syntax.R_**](./Thomason-Data-Syntax.R)
+- [**_Thomason-Data-Output.R_**](./Thomason-Data-Output.R)
+- [**_Thomason-Figure1.jpg_**](./Thomason-Figure1.jpg)
+- [**_Thomason-Figure2.jpg_**](./Thomason-Figure2.jpg)
+- [**_Thomason-Figure3.jpg_**](./Thomason-Figure3.jpg) 
+
+The following files analyze the example using summary statistics input:
+
+- [**_Thomason-Summary-Syntax.R_**](./Thomason-Summary-Syntax.R)
+- [**_Thomason-Summary-Output.R_**](./Thomason-Summary-Output.R)
+- [**_Thomason-Figure1.jpg_**](./Thomason-Figure1.jpg)
+- [**_Thomason-Figure2.jpg_**](./Thomason-Figure2.jpg)
+- [**_Thomason-Figure3.jpg_**](./Thomason-Figure3.jpg) 
 
 > **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
 

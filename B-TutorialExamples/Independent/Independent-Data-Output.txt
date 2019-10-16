@@ -1,5 +1,5 @@
 > # Estimation Approach to Statistical Inference (EASI)
-> ## Independent Groups Example with Tutorial Data
+> ## Independent Groups Tutorial with Data
 > 
 > ### Source the EASI Functions
 > 
@@ -7,100 +7,100 @@
 > 
 > ### Enter Data
 > 
-> Group <- c(rep(1,4),rep(2,4))
+> Factor <- c(rep(1,4),rep(2,4))
 > Outcome <- c(0,0,3,5,4,7,4,9)
-> Group <- factor(Group,levels=c(1,2),labels=c("Group1","Group2"))
+> Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 > 
-> BetweenData <- data.frame(Group,Outcome)
+> BetweenData <- data.frame(Factor,Outcome)
 > BetweenData
-   Group Outcome
-1 Group1       0
-2 Group1       0
-3 Group1       3
-4 Group1       5
-5 Group2       4
-6 Group2       7
-7 Group2       4
-8 Group2       9
+  Factor Outcome
+1 Level1       0
+2 Level1       0
+3 Level1       3
+4 Level1       5
+5 Level2       4
+6 Level2       7
+7 Level2       4
+8 Level2       9
 > 
 > ### Analyses of Multiple Groups
 > ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > #### Confidence Intervals for the Means
 > 
-> estimateMeans(Outcome~Group)
+> estimateMeans(Outcome~Factor)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
            N     M    SD    SE     LL    UL
-Group1 4.000 2.000 2.449 1.224 -1.897 5.897
-Group2 4.000 6.000 2.449 1.224  2.103 9.897
+Level1 4.000 2.000 2.449 1.224 -1.897 5.897
+Level2 4.000 6.000 2.449 1.224  2.103 9.897
 
-> estimateMeans(Outcome~Group,conf.level=.99)
+> estimateMeans(Outcome~Factor,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
            N     M    SD    SE     LL     UL
-Group1 4.000 2.000 2.449 1.224 -5.152  9.152
-Group2 4.000 6.000 2.449 1.224 -1.152 13.152
+Level1 4.000 2.000 2.449 1.224 -5.152  9.152
+Level2 4.000 6.000 2.449 1.224 -1.152 13.152
 
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> plotMeans(Outcome~Group)
-> plotMeans(Outcome~Group,conf.level=.99,mu=5)
+> plotMeans(Outcome~Factor)
+> plotMeans(Outcome~Factor,conf.level=.99,mu=5)
 > 
 > #### Significance Tests for the Means
 > 
-> testMeans(Outcome~Group)
+> testMeans(Outcome~Factor)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
         Diff    SE     t    df     p
-Group1 2.000 1.224 1.633 3.000 0.201
-Group2 6.000 1.224 4.900 3.000 0.016
+Level1 2.000 1.224 1.633 3.000 0.201
+Level2 6.000 1.224 4.900 3.000 0.016
 
-> testMeans(Outcome~Group,mu=5)
+> testMeans(Outcome~Factor,mu=5)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
          Diff    SE      t    df     p
-Group1 -3.000 1.224 -2.450 3.000 0.092
-Group2  1.000 1.224  0.817 3.000 0.474
+Level1 -3.000 1.224 -2.450 3.000 0.092
+Level2  1.000 1.224  0.817 3.000 0.474
 
 > 
 > #### Effect Size for the Means
 > 
-> standardizeMeans(Outcome~Group)
+> standardizeMeans(Outcome~Factor)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
            d d(unb)    SE     LL    UL
-Group1 0.817  0.594 0.616 -0.387 1.934
-Group2 2.450  1.782 0.955  0.325 4.532
+Level1 0.817  0.594 0.616 -0.387 1.934
+Level2 2.450  1.782 0.955  0.325 4.532
 
-> standardizeMeans(Outcome~Group,mu=5,conf.level=.99)
+> standardizeMeans(Outcome~Factor,mu=5,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
             d d(unb)    SE     LL    UL
-Group1 -1.225 -0.891 0.680 -3.011 0.547
-Group2  0.408  0.297 0.574 -0.968 1.734
+Level1 -1.225 -0.891 0.680 -3.011 0.547
+Level2  0.408  0.297 0.574 -0.968 1.734
 
 > 
-> ### Analyses of a Group Comparison
+> ### Analyses of a Factor Comparison
 > ### (equivalent to analyses for two levels of a factor)
 > 
 > #### Confidence Interval for a Mean Difference
 > 
-> estimateDifference(Outcome~Group)
+> estimateDifference(Outcome~Factor)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df     LL    UL
 Comparison -4.000 1.732 6.000 -8.237 0.237
 
-> estimateDifference(Outcome~Group,conf.level=.99)
+> estimateDifference(Outcome~Factor,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
@@ -110,19 +110,19 @@ Comparison -4.000 1.732 6.000 -10.420 2.420
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
-> plotDifference(Outcome~Group)
-> plotDifference(Outcome~Group,conf.level=.99)
+> plotDifference(Outcome~Factor)
+> plotDifference(Outcome~Factor,conf.level=.99)
 > 
 > #### Significance Test of the Mean Difference
 > 
-> testDifference(Outcome~Group)
+> testDifference(Outcome~Factor)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
 Comparison -4.000 1.732 -2.310 6.000 0.060
 
-> testDifference(Outcome~Group,mu=2)
+> testDifference(Outcome~Factor,mu=2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
@@ -132,14 +132,14 @@ Comparison -6.000 1.732 -3.465 6.000 0.013
 > 
 > #### Effect Size for the Mean Difference
 > 
-> standardizeDifference(Outcome~Group)
+> standardizeDifference(Outcome~Factor)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL    UL
 Comparison -1.633 0.943 -3.481 0.215
 
-> standardizeDifference(Outcome~Group,conf.level=.99)
+> standardizeDifference(Outcome~Factor,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 

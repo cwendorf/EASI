@@ -8,26 +8,35 @@
 
 ---
 
-## OneWay (Single-Factor Between-Subjects) Example
+## OneWay (Single-Factor Between-Subjects) Tutorial
 
 ### Overview of this Example
 
-The **OneWay** documents and files analyze an example of a single-factor between-subjects design.
-
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
-
-### Details of this Example
-
-The [**ONEWAY-DATA-EXAMPLE.md**](./ONEWAY-DATA-EXAMPLE.md) file uses raw data input.  
-The [**ONEWAY-SUMMARY-EXAMPLE.md**](./ONEWAY-SUMMARY-EXAMPLE.md) file uses summary statistics input.
-
-These analyses include the following:
+The **OneWay** documents and files analyze an example of a single-factor between-subjects design. These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 - Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor)
+
+### Files for this Example
+
+The following files analyze the example using raw data input:
+
+- [**_OneWay-Data-Syntax.R_**](./OneWay-Data-Syntax.R)
+- [**_OneWay-Data-Output.R_**](./OneWay-Data-Output.R)
+- [**_OneWay-Figure1.jpg_**](./OneWay-Figure1.jpg)
+- [**_OneWay-Figure2.jpg_**](./OneWay-Figure2.jpg)
+- [**_OneWay-Figure3.jpg_**](./OneWay-Figure3.jpg) 
+- [**_OneWay-Figure4.jpg_**](./OneWay-Figure4.jpg)
+
+The following files analyze the example using summary statistics input:
+
+- [**_OneWay-Summary-Syntax.R_**](./OneWay-Summary-Syntax.R)
+- [**_OneWay-Summary-Output.R_**](./OneWay-Summary-Output.R)
+- [**_OneWay-Figure1.jpg_**](./OneWay-Figure1.jpg)
+- [**_OneWay-Figure2.jpg_**](./OneWay-Figure2.jpg)
+- [**_OneWay-Figure3.jpg_**](./OneWay-Figure3.jpg) 
+- [**_OneWay-Figure4.jpg_**](./OneWay-Figure4.jpg)
 
 ## References
 

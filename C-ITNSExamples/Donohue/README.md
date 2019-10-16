@@ -8,26 +8,33 @@
 
 ---
 
-## Within-Subjects Example with Donohue Data
+## Repeated Measures (Single-Factor Within-Subjects) Example with Donohue Data
 
 ### Overview of this Example
 
-The **Donohue** documents and files analyze an example of a single-factor within-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14).  
-
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
-
-### Details of this Example
-
-The [**DONOHUE-DATA-EXAMPLE.md**](./DONOHUE-DATA-EXAMPLE.md) file uses raw data input.  
-The [**DONOHUE-SUMMARY-EXAMPLE.md**](./DONOHUE-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
-
-These analyses include the following:
+The **Donohue** documents and files analyze an example of a single-factor within-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14). These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
+
+### Files for this Example
+
+The following files analyze the example using raw data input:
+
+- [**_Donohue-Data-Syntax.R_**](./Donohue-Data-Syntax.R)
+- [**_Donohue-Data-Output.R_**](./Donohue-Data-Output.R)
+- [**_Donohue-Figure1.jpg_**](./Donohue-Figure1.jpg)
+- [**_Donohue-Figure2.jpg_**](./Donohue-Figure2.jpg)
+- [**_Donohue-Figure3.jpg_**](./Donohue-Figure3.jpg) 
+
+The following files analyze the example using summary statistics input:
+
+- [**_Donohue-Summary-Syntax.R_**](./Donohue-Summary-Syntax.R)
+- [**_Donohue-Summary-Output.R_**](./Donohue-Summary-Output.R)
+- [**_Donohue-Figure1.jpg_**](./Donohue-Figure1.jpg)
+- [**_Donohue-Figure2.jpg_**](./Donohue-Figure2.jpg)
+- [**_Donohue-Figure3.jpg_**](./Donohue-Figure3.jpg) 
 
 > **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
 

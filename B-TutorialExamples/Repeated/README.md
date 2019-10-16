@@ -8,26 +8,35 @@
 
 ---
 
-## Repeated Measures (Single Within-Subjects) Example
+## Repeated Measures (Single-Factor Within-Subjects) Tutorial
 
 ### Overview of this Example
 
-The **Repeated** documents and files analyze an example of a single-factor within-subjects design. 
-
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
-
-### Details of this Example
-  
-The [**REPEATED-DATA-EXAMPLE.md**](./REPEATED-DATA-EXAMPLE.md) file uses raw data input.  
-The [**REPEATED-SUMMARY-EXAMPLE.md**](./REPEATED-SUMMARY-EXAMPLE.md) file uses summary statistics input.
-
-These analyses include the following:
+The **Repeated** documents and files analyze an example of a single-factor within-subjects design. These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
+
+### Files for this Example
+  
+The following files analyze the example using raw data input:
+
+- [**_Repeated-Data-Syntax.R_**](./Repeated-Data-Syntax.R)
+- [**_Repeated-Data-Output.R_**](./Repeated-Data-Output.R)
+- [**_Repeated-Figure1.jpg_**](./Repeated-Figure1.jpg)
+- [**_Repeated-Figure2.jpg_**](./Repeated-Figure2.jpg)
+- [**_Repeated-Figure3.jpg_**](./Repeated-Figure3.jpg) 
+- [**_Repeated-Figure4.jpg_**](./Repeated-Figure4.jpg) 
+
+The following files analyze the example using summary statistics input:
+
+- [**_Repeated-Summary-Syntax.R_**](./Repeated-Summary-Syntax.R)
+- [**_Repeated-Summary-Output.R_**](./Repeated-Summary-Output.R)
+- [**_Repeated-Figure1.jpg_**](./Repeated-Figure1.jpg)
+- [**_Repeated-Figure2.jpg_**](./Repeated-Figure2.jpg)
+- [**_Repeated-Figure3.jpg_**](./Repeated-Figure3.jpg) 
+- [**_Repeated-Figure4.jpg_**](./Repeated-Figure4.jpg) 
 
 ## References
 

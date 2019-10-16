@@ -8,25 +8,32 @@
 
 ---
 
-## Paired Samples Example
+## Paired Samples Tutorial
 
 ### Overview of this Example
 
-The **Paired** documents and files analyze an example of a paired samples design. 
-
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
-
-### Details of this Example
-  
-The [**PAIRED-DATA-EXAMPLE.md**](./PAIRED-DATA-EXAMPLE.md) file uses raw data input.  
-The [**PAIRED-SUMMARY-EXAMPLE.md**](./PAIRED-SUMMARY-EXAMPLE.md) file uses summary statistics input.
-
-These analyses include the following:
+The **Paired** documents and files analyze examples of a within-subjects design for two time points (paired samples). These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
+
+### Files this Example
+  
+The following files analyze the example using raw data input:
+
+- [**_Paired-Data-Syntax.R_**](./Paired-Data-Syntax.R)
+- [**_Paired-Data-Output.R_**](./Paired-Data-Output.R)
+- [**_Paired-Figure1.jpg_**](./Paired-Figure1.jpg)
+- [**_Paired-Figure2.jpg_**](./Paired-Figure2.jpg)
+- [**_Paired-Figure3.jpg_**](./Paired-Figure3.jpg) 
+
+The following files analyze the example using summary statistics input:
+
+- [**_Paired-Summary-Syntax.R_**](./Paired-Summary-Syntax.R)
+- [**_Paired-Summary-Output.R_**](./Paired-Summary-Output.R)
+- [**_Paired-Figure1.jpg_**](./Paired-Figure1.jpg)
+- [**_Paired-Figure2.jpg_**](./Paired-Figure2.jpg)
+- [**_Paired-Figure3.jpg_**](./Paired-Figure3.jpg) 
 
 ## References
 

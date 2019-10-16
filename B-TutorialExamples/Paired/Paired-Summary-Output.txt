@@ -1,5 +1,5 @@
 > # Estimation Approach to Statistical Inference (EASI)
-> ## Paired Samples Example with Tutorial Summary Statistics
+> ## Paired Samples Tutorial with Summary Statistics
 > 
 > ### Source the EASI Functions
 > 

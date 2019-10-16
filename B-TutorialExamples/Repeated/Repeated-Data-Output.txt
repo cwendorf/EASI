@@ -1,5 +1,5 @@
 > # Estimation Approach to Statistical Inference (EASI)
-> ## Repeated (Within-Subjects) Example with Tutorial Data
+> ## Repeated (Within-Subjects) Tutorial with Data
 > 
 > ### Source the EASI Functions
 > 

@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Mixed Design Example with Tutorial Data
+## Mixed Design Tutorial with Data
 
 ### Source the EASI Functions
 

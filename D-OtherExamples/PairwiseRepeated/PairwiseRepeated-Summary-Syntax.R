@@ -4,21 +4,21 @@
 ### Source the EASI Functions and Extensions
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-EXTENSIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/pairwiseExtension.R")
 
-### Three Time Period Example Summary Statistics
+### Enter Summary Statistics
 
-Time1 <- c(N=5,M=6.4,SD=1.14)
-Time2 <- c(N=5,M=7.8,SD=.837)
-Time3 <- c(N=5,M=8.6,SD=.548)
-WithinSummary <- rbind(Time1,Time2,Time3)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+WithinSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(WithinSummary) <- "wss"
 WithinSummary
 
-WithinCorr <- declareCorrMatrix("Time1","Time2","Time3")
-WithinCorr["Time1","Time2"] <- .891
-WithinCorr["Time1","Time3"] <- .721
-WithinCorr["Time2","Time3"] <- .873
+WithinCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorr["Outcome1","Outcome2"] <- .500
+WithinCorr["Outcome1","Outcome3"] <- .056
+WithinCorr["Outcome2","Outcome3"] <- .389
 WithinCorr <- fillCorrMatrix(WithinCorr)
 WithinCorr
 

@@ -4,36 +4,36 @@
 ### Source the EASI Functions and Extensions
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-EXTENSIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/pairwiseExtension.R")
 
-### Three Group Example Data
+### Enter Data
 
-Group <- c(rep("Group1",3),rep("Group2",3),rep("Group3",3))
-Outcome <- c(3,4,5,7,8,9,8,9,10)
-Group <- factor(Group)
+Factor <- c(rep(1,4),rep(2,4),rep(3,4))
+Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
+Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
 
-BetweenData <- data.frame(Group,Outcome)
+BetweenData <- data.frame(Factor,Outcome)
 BetweenData
 
-### Analyses of Pairwise Group Comparisons
+### Analyses of Pairwise Comparisons
 ### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons
 
-estimatePairwise(Outcome~Group)
-estimatePairwise(Outcome~Group,conf.level=.99)
+estimatePairwise(Outcome~Factor)
+estimatePairwise(Outcome~Factor,conf.level=.99)
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
-plotPairwise(Outcome~Group)
-plotPairwise(Outcome~Group,mu=-2,conf.level=.99)
+plotPairwise(Outcome~Factor)
+plotPairwise(Outcome~Factor,mu=-2,conf.level=.99)
 
 #### Significance Tests of the Pairwise Comparisons
 
-testPairwise(Outcome~Group)
-testPairwise(Outcome~Group,mu=-2)
+testPairwise(Outcome~Factor)
+testPairwise(Outcome~Factor,mu=-2)
 
 #### Effect Sizes for the Pairwise Comparisons
 
-standardizePairwise(Outcome~Group)
-standardizePairwise(Outcome~Group,conf.level=.99)
+standardizePairwise(Outcome~Factor)
+standardizePairwise(Outcome~Factor,conf.level=.99)

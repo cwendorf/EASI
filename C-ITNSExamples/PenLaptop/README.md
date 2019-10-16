@@ -8,25 +8,32 @@
 
 ---
 
-## Between-Subjects Example with PenLaptop Data
+## Independent Groups Example with PenLaptop Data
 
 ### Overview of this Example
 
-The **PenLaptop** documents and files analyze an example of a two-group between-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 7).
-
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
-
-### Details of this Example
-
-The [**PENLAPTOP-DATA-EXAMPLE.md**](./PENLAPTOP-DATA-EXAMPLE.md) file uses raw data input.  
-The [**PENLAPTOP-SUMMARY-EXAMPLE.md**](./PENLAPTOP-SUMMARY-EXAMPLE.md) file uses summary statistics input.  
-
-These analyses include the following:
+The **PenLaptop** documents and files analyze an example of a two-group between-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 7). These analyses include the following:
 
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 - Analyses of Multiple Studies (examples from three different replication studies)
+
+### Files for this Example
+
+The following files analyze the example using raw data input:
+
+- [**_PenLaptop-Data-Syntax.R_**](./PenLaptop-Data-Syntax.R)
+- [**_PenLaptop-Data-Output.R_**](./PenLaptop-Data-Output.R)
+- [**_PenLaptop-Figure1.jpg_**](./PenLaptop-Figure1.jpg)
+- [**_PenLaptop-Figure2.jpg_**](./PenLaptop-Figure2.jpg)
+- [**_PenLaptop-Figure3.jpg_**](./PenLaptop-Figure3.jpg) 
+
+The following files analyze the example using summary statistics input:
+
+- [**_PenLaptop-Summary-Syntax.R_**](./PenLaptop-Summary-Syntax.R)
+- [**_PenLaptop-Summary-Output.R_**](./PenLaptop-Summary-Output.R)
+- [**_PenLaptop-Figure1.jpg_**](./PenLaptop-Figure1.jpg)
+- [**_PenLaptop-Figure2.jpg_**](./PenLaptop-Figure2.jpg)
+- [**_PenLaptop-Figure3.jpg_**](./PenLaptop-Figure3.jpg) 
 
 > **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
 

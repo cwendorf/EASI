@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Independent Groups Example with Tutorial Data
+## Independent Groups Tutorial with Data
 
 ### Source the EASI Functions
 
@@ -7,11 +7,11 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Enter Data
 
-Group <- c(rep(1,4),rep(2,4))
+Factor <- c(rep(1,4),rep(2,4))
 Outcome <- c(0,0,3,5,4,7,4,9)
-Group <- factor(Group,levels=c(1,2),labels=c("Group1","Group2"))
+Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 
-BetweenData <- data.frame(Group,Outcome)
+BetweenData <- data.frame(Factor,Outcome)
 BetweenData
 
 ### Analyses of Multiple Groups
@@ -19,43 +19,43 @@ BetweenData
 
 #### Confidence Intervals for the Means
 
-estimateMeans(Outcome~Group)
-estimateMeans(Outcome~Group,conf.level=.99)
+estimateMeans(Outcome~Factor)
+estimateMeans(Outcome~Factor,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeans(Outcome~Group)
-plotMeans(Outcome~Group,conf.level=.99,mu=5)
+plotMeans(Outcome~Factor)
+plotMeans(Outcome~Factor,conf.level=.99,mu=5)
 
 #### Significance Tests for the Means
 
-testMeans(Outcome~Group)
-testMeans(Outcome~Group,mu=5)
+testMeans(Outcome~Factor)
+testMeans(Outcome~Factor,mu=5)
 
 #### Effect Size for the Means
 
-standardizeMeans(Outcome~Group)
-standardizeMeans(Outcome~Group,mu=5,conf.level=.99)
+standardizeMeans(Outcome~Factor)
+standardizeMeans(Outcome~Factor,mu=5,conf.level=.99)
 
-### Analyses of a Group Comparison
+### Analyses of a Factor Comparison
 ### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for a Mean Difference
 
-estimateDifference(Outcome~Group)
-estimateDifference(Outcome~Group,conf.level=.99)
+estimateDifference(Outcome~Factor)
+estimateDifference(Outcome~Factor,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-plotDifference(Outcome~Group)
-plotDifference(Outcome~Group,conf.level=.99)
+plotDifference(Outcome~Factor)
+plotDifference(Outcome~Factor,conf.level=.99)
 
 #### Significance Test of the Mean Difference
 
-testDifference(Outcome~Group)
-testDifference(Outcome~Group,mu=2)
+testDifference(Outcome~Factor)
+testDifference(Outcome~Factor,mu=2)
 
 #### Effect Size for the Mean Difference
 
-standardizeDifference(Outcome~Group)
-standardizeDifference(Outcome~Group,conf.level=.99)
+standardizeDifference(Outcome~Factor)
+standardizeDifference(Outcome~Factor,conf.level=.99)
