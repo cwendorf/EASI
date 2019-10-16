@@ -12,34 +12,34 @@
 
 ### Installation of the Functions
 
-EASI is not currently on CRAN or compiled as a package, but you can install the complete and current version of it by pasting the following line into R. The functions will automatically be available for use in analyses.
+[**_ALL-EASI-FUNCTIONS.R_**](./ALL-EASI-FUNCTIONS) incorporates all of the functions that constitute the original vision of EASI. The EASI functions were written to represent five basic categories of analyses:
+
+- _describe_ (`describeLevels` and `correlateLevels` functions that help calculate basic descriptive statistics and matrices)
+- _estimate_ (`estimateMeans`,`estimateDifference`, and `estimateContrast` functions that estimate confidence intervals for means and mean differences)
+- _plot_ (`plotMeans`, `plotDifference`, and `plotContrast` functions that plot confidence intervals for means and mean differences)
+- _test_ (`testMeans`, `testDifference`, and `testContrast` functions that calculate NHST for means and mean differences)
+- _standardize_ (`standardizeMeans`, `standardizeDifference`, and `standardizeContrast` functions that calculate confidence intervals for standardized effect sizes)
+
+These functions are not currently on CRAN or compiled as a package, but you can install the complete and current version of it by pasting the following line into R. The functions will automatically be available for use in analyses.
+
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
-Similarly, you can install the set of extensions by pasting the following line into R.
+
+
+### Installation of Available Extensions
+
+EASI extentions are files that extend the functions beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
+
+[**_pairwiseExtension.R_**](./pairwiseExtension.R) (`estimatePairwise`, `plotPairwise`, `testPairwise`, and `standardizePairwise` functions that produce unadjusted paiwise comparisons for single-factor between- and within-subjects designs)
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-EXTENSIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/pairwiseExtension.R")
 ```
 
-Alternatively, you can paste the contents of the [**ALL-EASI-FUNCTIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL-EASI-FUNCTIONS.R) and [**ALL-EASI-EXTENSIONS.R**](https://github.com/cwendorf/EASI/raw/master/A-Functions/ALL-EASI-EXTENSIONS.R) files directly into R. 
-
-### Summary of the Functions and Extensions
-
-The EASI functions were written in six basic categories of analyses:
-
-- **describeFunctions.R** (functions that help calculate basic descriptive statistics and matrices)
-- **estimateFunctions.R** (functions that estimate confidence intervals for means and mean differences)
-- **plotFunctions.R** (functions that plot confidence intervals for means and mean differences)
-- **testFunctions.R** (functions that calculate NHST for means and mean differences)
-- **standardizeFunctions.R** (functions that calculate confidence intervals for standardized effect sizes)
-- **analyzeFunctions.R** (functions that serve as meta-wrappers for all other functions)
-
-EASI extentions are functions that go beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
-
-- **estimateExtensions.R** (functions that estimate confidence intervals for pairwise comparisons)
-- **plotExtensions.R** (functions that plot onfidence intervals for pairwise comparisons)
-- **testExtensions.R** (functions that calculate NHST for pairwise comparisons)
-- **standardizeExtensions.R** (functions that calculate confidence intervals for pairwise comparison effect sizes)
+[**_analyzeExtension.R_**](./analyzeExtension.R) (`analyzeMeans`, `analyzeDifference`, and `analyzeContrast` wrappers that combine the estimate, plot, test, and standardize functions for single-factor between- and within-subjects designs)
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/analyzeExtension.R")
+```
 
 ## Technical Details
 
