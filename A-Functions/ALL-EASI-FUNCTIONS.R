@@ -258,7 +258,7 @@ estimateContrast<-function(...) {
 #### Basic Plot Functions
 
 cipMeans <- function(results,main,ylab,xlab,mu,rope){
-  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
+  plot(results[,1],xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=c(floor(min(results[,2])/2)*2,ceiling(max(results[,3])/2)*2),xlab="",cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
   results <- format(as.data.frame(results),trim=T,nsmall=3)
   for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
@@ -274,7 +274,7 @@ cipDifference <- function(results,main,ylab,xlab,rope){
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
   par(mar=c(5,5,5,5))  
-  plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,2])/2)*2,ceiling(max(graph[,3])/2)*2),pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
+  plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,2])/2)*2,ceiling(max(graph[,3])/2)*2),pch=c(15,15,17),cex=1.5,xlab="",ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
   axis(1,at=c(1,2,3),labels=rownames(graph))
   results <- format(as.data.frame(results),trim=T,nsmall=3)
   for (i in 1:3) lines(x=c(i,i), y=c(graph[,2][i],graph[,3][i]),lwd=2)
@@ -393,7 +393,7 @@ plotContrast <- function(...)
 plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
-  xlab="Variable"
+  xlab="Variables"
   convar1 <- ifelse(contrast<0,0,contrast)
   resvar1 <- ciContrast(...,contrast=convar1)
   convar2 <- ifelse(contrast>0,0,abs(contrast))
@@ -409,7 +409,7 @@ plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL){
 plotContrast.bss <- function(SumStats,contrast,rope=NULL,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
-  xlab="Group"
+  xlab="Groups"
   congrp1 <- ifelse(contrast<0,0,contrast)
   resgrp1 <- ciContrast(SumStats,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
@@ -425,7 +425,7 @@ plotContrast.bss <- function(SumStats,contrast,rope=NULL,labels=NULL,...){
 plotContrast.default <- function(...,contrast,rope=NULL,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
-  xlab="Variable"
+  xlab="Variables"
   convar1 <- ifelse(contrast<0,0,contrast)
   resvar1 <- ciContrast(...,contrast=convar1)
   convar2 <- ifelse(contrast>0,0,abs(contrast))
@@ -441,7 +441,7 @@ plotContrast.default <- function(...,contrast,rope=NULL,labels=NULL){
 plotContrast.formula <- function(formula,contrast,rope=NULL,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab=all.vars(formula)[1]
-  xlab="Group"
+  xlab=all.vars(formula)[2]
   congrp1 <- ifelse(contrast<0,0,contrast)
   resgrp1 <- ciContrast(formula,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
