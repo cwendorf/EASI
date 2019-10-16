@@ -393,7 +393,7 @@ plotContrast <- function(...)
 plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
-  xlab="Variables"
+  xlab="Variable"
   convar1 <- ifelse(contrast<0,0,contrast)
   resvar1 <- ciContrast(...,contrast=convar1)
   convar2 <- ifelse(contrast>0,0,abs(contrast))
@@ -409,7 +409,7 @@ plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL){
 plotContrast.bss <- function(SumStats,contrast,rope=NULL,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
-  xlab="Groups"
+  xlab="Group"
   congrp1 <- ifelse(contrast<0,0,contrast)
   resgrp1 <- ciContrast(SumStats,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
@@ -425,7 +425,7 @@ plotContrast.bss <- function(SumStats,contrast,rope=NULL,labels=NULL,...){
 plotContrast.default <- function(...,contrast,rope=NULL,labels=NULL){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
-  xlab="Variables"
+  xlab="Variable"
   convar1 <- ifelse(contrast<0,0,contrast)
   resvar1 <- ciContrast(...,contrast=convar1)
   convar2 <- ifelse(contrast>0,0,abs(contrast))
@@ -441,7 +441,7 @@ plotContrast.default <- function(...,contrast,rope=NULL,labels=NULL){
 plotContrast.formula <- function(formula,contrast,rope=NULL,labels=NULL,...){
   main="Confidence Intervals for the Contrast"
   ylab=all.vars(formula)[1]
-  xlab=all.vars(formula)[2]
+  xlab="Group"
   congrp1 <- ifelse(contrast<0,0,contrast)
   resgrp1 <- ciContrast(formula,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
