@@ -31,8 +31,8 @@ estimateMeans(WithinSummary,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(WithinSummary)
-plotMeans(WithinSummary,conf.level=.99,mu=6)
+plotMeans(WithinSummary) # Repeated-Figure1.jpeg
+plotMeans(WithinSummary,conf.level=.99,mu=6) # Repeated-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -53,15 +53,13 @@ CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 estimateDifference(CompSummary,WithinCorr)
 estimateDifference(CompSummary,WithinCorr,conf.level=.99)
-CompSummary <- WithinSummary[c("Outcome3","Outcome1"),]
-class(CompSummary) <- "wss"
 
 #### Plots of Confidence Intervals for the Mean Difference
 
 CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
-plotDifference(CompSummary,WithinCorr)
-plotDifference(CompSummary,WithinCorr,conf.level=.99)
+plotDifference(CompSummary,WithinCorr) # Repeated-Figure3.jpg
+plotDifference(CompSummary,WithinCorr,conf.level=.99) # Repeated-Figure4.jpeg
 
 #### Significance Test for the Mean Difference
 
@@ -92,8 +90,8 @@ estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
 #### Plots of Confidence Intervals for a Contrast
 
 O1vsOthers <- c(-1,.5,.5)
-plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
-plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
+plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers) # Repeated-Figure5.jpeg
+plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
 
 #### Significance Test for the Contrast
 

@@ -23,18 +23,18 @@ The following files analyze the example using raw data input:
 
 - [**_Independent-Data-Syntax.R_**](./Independent-Data-Syntax.R)
 - [**_Independent-Data-Output.R_**](./Independent-Data-Output.R)
-- [**_Independent-Figure1.jpg_**](./Independent-Figure1.jpg)
-- [**_Independent-Figure2.jpg_**](./Independent-Figure2.jpg)
-- [**_Independent-Figure3.jpg_**](./Independent-Figure3.jpg) 
-- [**_Independent-Figure4.jpg_**](./Independent-Figure4.jpg)
+- [**_Independent-Figure1.jpeg_**](./Independent-Figure1.jpeg)
+- [**_Independent-Figure2.jpeg_**](./Independent-Figure2.jpeg)
+- [**_Independent-Figure3.jpeg_**](./Independent-Figure3.jpeg) 
+- [**_Independent-Figure4.jpeg_**](./Independent-Figure4.jpeg)
 
 The following files analyze the example using summary statistics input:
 
 - [**_Independent-Summary-Syntax.R_**](./Independent-Summary-Syntax.R)
 - [**_Independent-Summary-Output.R_**](./Independent-Summary-Output.R)
-- [**_Independent-Figure1.jpg_**](./Independent-Figure1.jpg)
-- [**_Independent-Figure2.jpg_**](./Independent-Figure2.jpg)
-- [**_Independent-Figure4.jpg_**](./Independent-Figure4.jpg) 
+- [**_Independent-Figure1.jpeg_**](./Independent-Figure1.jpeg)
+- [**_Independent-Figure2.jpeg_**](./Independent-Figure2.jpeg)
+- [**_Independent-Figure4.jpeg_**](./Independent-Figure4.jpeg) 
 
 ## References
 

@@ -24,17 +24,17 @@ The following files analyze the example using raw data input:
 
 - [**_Rattan-Data-Syntax.R_**](./Rattan-Data-Syntax.R)
 - [**_Rattan-Data-Output.R_**](./Rattan-Data-Output.R)
-- [**_Rattan-Figure1.jpg_**](./Rattan-Figure1.jpg)
-- [**_Rattan-Figure2.jpg_**](./Rattan-Figure2.jpg)
-- [**_Rattan-Figure3.jpg_**](./Rattan-Figure3.jpg) 
+- [**_Rattan-Figure1.jpeg_**](./Rattan-Figure1.jpeg)
+- [**_Rattan-Figure2.jpeg_**](./Rattan-Figure2.jpeg)
+- [**_Rattan-Figure3.jpeg_**](./Rattan-Figure3.jpeg) 
 
 The following files analyze the example using summary statistics input:
 
 - [**_Rattan-Summary-Syntax.R_**](./Rattan-Summary-Syntax.R)
 - [**_Rattan-Summary-Output.R_**](./Rattan-Summary-Output.R)
-- [**_Rattan-Figure1.jpg_**](./Rattan-Figure1.jpg)
-- [**_Rattan-Figure2.jpg_**](./Rattan-Figure2.jpg)
-- [**_Rattan-Figure3.jpg_**](./Rattan-Figure3.jpg) 
+- [**_Rattan-Figure1.jpeg_**](./Rattan-Figure1.jpeg)
+- [**_Rattan-Figure2.jpeg_**](./Rattan-Figure2.jpeg)
+- [**_Rattan-Figure3.jpeg_**](./Rattan-Figure3.jpeg) 
 
 > **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
 

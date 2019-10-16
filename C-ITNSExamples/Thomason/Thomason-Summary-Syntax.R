@@ -14,7 +14,7 @@ class(Thomason1Summary) <- "wss"
 Thomason1Corr <- data.frame()
 Thomason1Corr["Pretest","Posttest"] <- .892
 
-plotDifference(Thomason1Summary,Thomason1Corr)
+plotDifference(Thomason1Summary,Thomason1Corr) # Thomason-Figure1.jpeg
 standardizeDifference(Thomason1Summary,Thomason1Corr)
 
 ### Thomason2 Example
@@ -26,7 +26,7 @@ class(Thomason2Summary) <- "wss"
 Thomason2Corr <- data.frame()
 Thomason2Corr["Pretest","Posttest"] <- .871
 
-plotDifference(Thomason2Summary,Thomason2Corr)
+plotDifference(Thomason2Summary,Thomason2Corr) # Thomason-Figure2.jpeg
 standardizeDifference(Thomason2Summary,Thomason2Corr)
 
 ### Thomason3 Example
@@ -38,5 +38,5 @@ class(Thomason3Summary) <- "wss"
 Thomason3Corr <- data.frame()
 Thomason3Corr["Pretest","Posttest"] <- .601
 
-plotDifference(Thomason3Summary,Thomason3Corr)
+plotDifference(Thomason3Summary,Thomason3Corr) # Thomason-Figure3.jpeg
 standardizeDifference(Thomason3Summary,Thomason3Corr)

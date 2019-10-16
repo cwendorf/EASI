@@ -24,23 +24,23 @@ The following files analyze the example using raw data input:
 
 - [**_OneWay-Data-Syntax.R_**](./OneWay-Data-Syntax.R)
 - [**_OneWay-Data-Output.R_**](./OneWay-Data-Output.R)
-- [**_OneWay-Figure1.jpg_**](./OneWay-Figure1.jpg)
-- [**_OneWay-Figure2.jpg_**](./OneWay-Figure2.jpg)
-- [**_OneWay-Figure3.jpg_**](./OneWay-Figure3.jpg) 
-- [**_OneWay-Figure4.jpg_**](./OneWay-Figure4.jpg)
-- [**_OneWay-Figure5.jpg_**](./OneWay-Figure5.jpg) 
-- [**_OneWay-Figure6.jpg_**](./OneWay-Figure6.jpg)
+- [**_OneWay-Figure1.jpeg_**](./OneWay-Figure1.jpeg)
+- [**_OneWay-Figure2.jpeg_**](./OneWay-Figure2.jpeg)
+- [**_OneWay-Figure3.jpeg_**](./OneWay-Figure3.jpeg) 
+- [**_OneWay-Figure4.jpeg_**](./OneWay-Figure4.jpeg)
+- [**_OneWay-Figure5.jpeg_**](./OneWay-Figure5.jpeg) 
+- [**_OneWay-Figure6.jpeg_**](./OneWay-Figure6.jpeg)
 
 The following files analyze the example using summary statistics input:
 
 - [**_OneWay-Summary-Syntax.R_**](./OneWay-Summary-Syntax.R)
 - [**_OneWay-Summary-Output.R_**](./OneWay-Summary-Output.R)
-- [**_OneWay-Figure1.jpg_**](./OneWay-Figure1.jpg)
-- [**_OneWay-Figure2.jpg_**](./OneWay-Figure2.jpg)
-- [**_OneWay-Figure3.jpg_**](./OneWay-Figure3.jpg) 
-- [**_OneWay-Figure4.jpg_**](./OneWay-Figure4.jpg)
-- [**_OneWay-Figure5.jpg_**](./OneWay-Figure5.jpg) 
-- [**_OneWay-Figure6.jpg_**](./OneWay-Figure6.jpg)
+- [**_OneWay-Figure1.jpeg_**](./OneWay-Figure1.jpeg)
+- [**_OneWay-Figure2.jpeg_**](./OneWay-Figure2.jpeg)
+- [**_OneWay-Figure3.jpeg_**](./OneWay-Figure3.jpeg) 
+- [**_OneWay-Figure4.jpeg_**](./OneWay-Figure4.jpeg)
+- [**_OneWay-Figure5.jpeg_**](./OneWay-Figure5.jpeg) 
+- [**_OneWay-Figure6.jpeg_**](./OneWay-Figure6.jpeg)
 
 ## References
 

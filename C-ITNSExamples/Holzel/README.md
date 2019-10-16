@@ -25,19 +25,19 @@ The following files analyze the example using raw data input:
 
 - [**_Holzel-Data-Syntax.R_**](./Holzel-Data-Syntax.R)
 - [**_Holzel-Data-Output.R_**](./Holzel-Data-Output.R)
-- [**_Holzel-Figure1.jpg_**](./Holzel-Figure1.jpg)
-- [**_Holzel-Figure2.jpg_**](./Holzel-Figure2.jpg)
-- [**_Holzel-Figure3.jpg_**](./Holzel-Figure3.jpg) 
-- [**_Holzel-Figure4.jpg_**](./Holzel-Figure4.jpg)
+- [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
+- [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
+- [**_Holzel-Figure3.jpeg_**](./Holzel-Figure3.jpeg) 
+- [**_Holzel-Figure4.jpeg_**](./Holzel-Figure4.jpeg)
 
 The following files analyze the example using summary statistics input:
 
 - [**_Holzel-Summary-Syntax.R_**](./Holzel-Summary-Syntax.R)
 - [**_Holzel-Summary-Output.R_**](./Holzel-Summary-Output.R)
-- [**_Holzel-Figure1.jpg_**](./Holzel-Figure1.jpg)
-- [**_Holzel-Figure2.jpg_**](./Holzel-Figure2.jpg)
-- [**_Holzel-Figure3.jpg_**](./Holzel-Figure3.jpg)  
-- [**_Holzel-Figure4.jpg_**](./Holzel-Figure4.jpg)
+- [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
+- [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
+- [**_Holzel-Figure3.jpeg_**](./Holzel-Figure3.jpeg)  
+- [**_Holzel-Figure4.jpeg_**](./Holzel-Figure4.jpeg)
 
 > **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
 

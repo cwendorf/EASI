@@ -53,8 +53,8 @@ Level3 4.000 7.000 2.449 1.224 -0.152 14.152
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> plotMeans(Outcome~Factor)
-> plotMeans(Outcome~Factor,conf.level=.99,mu=5)
+> plotMeans(Outcome~Factor) # OneWay-Figure1.jpeg
+> plotMeans(Outcome~Factor,conf.level=.99,mu=5) # OneWay-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -118,18 +118,12 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
              Diff    SE    df      LL    UL
 Comparison -4.000 1.732 6.000 -10.420 2.420
 
-> Comparison=factor(Factor,c("Level3","Level"))
-> estimateDifference(Outcome~Comparison)
-
-CONFIDENCE INTERVAL FOR THE COMPARISON
-
-Error in CompStats[1:2, ] : subscript out of bounds
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
 > Comparison=factor(Factor,c("Level1","Level2"))
-> plotDifference(Outcome~Comparison)
-> plotDifference(Outcome~Comparison,conf.level=.99)
+> plotDifference(Outcome~Comparison) # OneWay-Figure3.jpeg
+> plotDifference(Outcome~Comparison,conf.level=.99) # OneWay-Figure4.jpeg
 > 
 > #### Significance Test of the Mean Difference
 > 
@@ -208,8 +202,8 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > L1vsOthers <- c(-1,.5,.5)
-> plotContrast(Outcome~Factor,contrast=L1vsOthers)
-> plotContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
+> plotContrast(Outcome~Factor,contrast=L1vsOthers) # OneWay-Figure5.jpeg
+> plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
 > 
 > #### Significance Test for a Contrast
 > 

@@ -17,20 +17,20 @@ RattanSummary
 ### Analyses of the Different Groups
 
 estimateMeans(RattanSummary)
-plotMeans(RattanSummary)
+plotMeans(RattanSummary) # Rattan-Figure1.jpeg
 
 ### Analysis of a Group Comparison
 
 ComfortvsChallenge <- rbind(Comfort,Challenge)
 class(ComfortvsChallenge) <- "bss"
 estimateDifference(ComfortvsChallenge)
-plotDifference(ComfortvsChallenge)
+plotDifference(ComfortvsChallenge) # Rattan-Figure2.jpeg
 standardizeDifference(ComfortvsChallenge)
 
 ### Analyses of a Group Contrast
 
 ComfortvsOthers <- c(-1,.5,.5)
 estimateContrast(RattanSummary,contrast=ComfortvsOthers)
-plotContrast(RattanSummary,contrast=ComfortvsOthers)
+plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others")) # Rattan-Figure3.jpeg
 testContrast(RattanSummary,contrast=ComfortvsOthers)
 standardizeContrast(RattanSummary,contrast=ComfortvsOthers)

@@ -24,20 +24,20 @@ DonohueCorr
 ### Analyses of the Different Variables
 
 estimateMeans(DonohueSummary)
-plotMeans(DonohueSummary)
+plotMeans(DonohueSummary) # Donohue-Figure1.jpeg
 
 ### Analysis of a Variable Difference
 
 PostvsFollowup <- DonohueSummary[c(2,3),]
 class(PostvsFollowup) <- "wss"
 estimateDifference(PostvsFollowup,DonohueCorr)
-plotDifference(PostvsFollowup,DonohueCorr)
+plotDifference(PostvsFollowup,DonohueCorr) # Donohue-Figure2.jpeg
 standardizeDifference(PostvsFollowup,DonohueCorr)
 
 ### Analysis of a Variable Contrast
 
 PrevsPostFollow <- c(-1,.5,.5)
 estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
-plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
+plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow")) # Donohue-Figure3.jpeg
 testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 standardizeContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)

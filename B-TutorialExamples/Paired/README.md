@@ -23,19 +23,19 @@ The following files analyze the example using raw data input:
 
 - [**_Paired-Data-Syntax.R_**](./Paired-Data-Syntax.R)
 - [**_Paired-Data-Output.R_**](./Paired-Data-Output.R)
-- [**_Paired-Figure1.jpg_**](./Paired-Figure1.jpg)
-- [**_Paired-Figure2.jpg_**](./Paired-Figure2.jpg)
-- [**_Paired-Figure3.jpg_**](./Paired-Figure3.jpg) 
-- [**_Paired-Figure4.jpg_**](./Paired-Figure4.jpg) 
+- [**_Paired-Figure1.jpeg_**](./Paired-Figure1.jpeg)
+- [**_Paired-Figure2.jpeg_**](./Paired-Figure2.jpeg)
+- [**_Paired-Figure3.jpeg_**](./Paired-Figure3.jpeg) 
+- [**_Paired-Figure4.jpeg_**](./Paired-Figure4.jpeg) 
 
 The following files analyze the example using summary statistics input:
 
 - [**_Paired-Summary-Syntax.R_**](./Paired-Summary-Syntax.R)
 - [**_Paired-Summary-Output.R_**](./Paired-Summary-Output.R)
-- [**_Paired-Figure1.jpg_**](./Paired-Figure1.jpg)
-- [**_Paired-Figure2.jpg_**](./Paired-Figure2.jpg)
-- [**_Paired-Figure3.jpg_**](./Paired-Figure3.jpg) 
-- [**_Paired-Figure4.jpg_**](./Paired-Figure4.jpg) 
+- [**_Paired-Figure1.jpeg_**](./Paired-Figure1.jpeg)
+- [**_Paired-Figure2.jpeg_**](./Paired-Figure2.jpeg)
+- [**_Paired-Figure3.jpeg_**](./Paired-Figure3.jpeg) 
+- [**_Paired-Figure4.jpeg_**](./Paired-Figure4.jpeg) 
 
 ## References
 

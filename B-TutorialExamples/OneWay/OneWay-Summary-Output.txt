@@ -46,8 +46,8 @@ Level3 4.000 7.000 2.449 1.224 -0.152 14.152
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> plotMeans(BetweenSummary)
-> plotMeans(BetweenSummary,conf.level=.99,mu=5)
+> plotMeans(BetweenSummary) # OneWay-Figure1.jpeg
+> plotMeans(BetweenSummary,conf.level=.99,mu=5) # OneWay-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -112,22 +112,13 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
              Diff    SE    df      LL    UL
 Comparison -4.000 1.732 6.000 -10.420 2.420
 
-> CompSummary <- BetweenSummary[c("Level3","Level1"),]
-> class(CompSummary) <- "bss"
-> estimateDifference(CompSummary)
-
-CONFIDENCE INTERVAL FOR THE COMPARISON
-
-            Diff    SE    df    LL    UL
-Comparison 5.000 1.732 6.000 0.763 9.237
-
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
 > CompSummary <- BetweenSummary[c("Level1","Level2"),]
 > class(CompSummary) <- "bss"
-> plotDifference(CompSummary)
-> plotDifference(CompSummary,conf.level=.99)
+> plotDifference(CompSummary) # OneWay-Figure3.jpeg
+> plotDifference(CompSummary,conf.level=.99) # OneWay-Figure4.jpeg
 > 
 > #### Significance Test of the Mean Difference
 > 
@@ -206,8 +197,8 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > L1vsOthers <- c(-1,.5,.5)
-> plotContrast(BetweenSummary,contrast=L1vsOthers)
-> plotContrast(BetweenSummary,contrast=L1vsOthers,conf.level=.99)
+> plotContrast(BetweenSummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
+> plotContrast(BetweenSummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
 > 
 > #### Significance Test for a Contrast
 > 

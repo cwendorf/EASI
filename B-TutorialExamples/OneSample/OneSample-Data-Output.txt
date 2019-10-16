@@ -42,8 +42,8 @@ Outcome 8.000 4.000 3.117 1.102 0.143 7.857
 > 
 > #### Plot of the Confidence Intervals for the Mean
 > 
-> plotMeans(Outcome)
-> plotMeans(Outcome,conf.level=.99,mu=5)
+> plotMeans(Outcome) # OneSample-Figure1,jpeg
+> plotMeans(Outcome,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
 > 
 > #### Significance Tests for the Mean
 > 

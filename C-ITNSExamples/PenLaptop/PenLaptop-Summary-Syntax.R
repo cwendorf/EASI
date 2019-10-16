@@ -12,7 +12,7 @@ Laptop <- c(N=31,M=14.519,SD=7.286)
 PenLaptop1Summary <- rbind(Pen,Laptop)
 class(PenLaptop1Summary) <- "bss"
 
-plotDifference(PenLaptop1Summary)
+plotDifference(PenLaptop1Summary) # PenLaptop-Figure1.jpeg
 standardizeDifference(PenLaptop1Summary)
 
 ### PenLaptop2 Example
@@ -22,7 +22,7 @@ Laptop <- c(N=103,M=12.088,SD=5.525)
 PenLaptop2Summary <- rbind(Pen,Laptop)
 class(PenLaptop2Summary) <- "bss"
 
-plotDifference(PenLaptop2Summary)
+plotDifference(PenLaptop2Summary) # PenLaptop-Figure2.jpeg
 standardizeDifference(PenLaptop2Summary)
 
 ### PenLaptop3 Example
@@ -32,5 +32,5 @@ Laptop <- c(N=55,M=11.622,SD=5.681)
 PenLaptop3Summary <- rbind(Pen,Laptop)
 class(PenLaptop3Summary) <- "bss"
 
-plotDifference(PenLaptop3Summary)
+plotDifference(PenLaptop3Summary) # PenLaptop-Figure3.jpeg
 standardizeDifference(PenLaptop3Summary)

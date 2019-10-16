@@ -16,19 +16,19 @@ RattanData
 ### Analyses of the Different Groups
 
 estimateMeans(Motivation~Feedback)
-plotMeans(Motivation~Feedback)
+plotMeans(Motivation~Feedback) # Rattan-Figure1.jpeg
 
 ### Analysis of a Group Comparison
 
 Comparison <- factor(Feedback,c("Comfort","Challenge"))
 estimateDifference(Motivation~Comparison)
-plotDifference(Motivation~Comparison)
+plotDifference(Motivation~Comparison) # Rattan-Figure2.jpeg
 standardizeDifference(Motivation~Comparison)
 
 ### Analyses of a Group Contrast
 
 ComfortvsOthers <- c(-1,.5,.5)
 estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
-plotContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+plotContrast(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others")) # Rattan-Figure3.jpeg
 testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 standardizeContrast(Motivation~Feedback,contrast=ComfortvsOthers)

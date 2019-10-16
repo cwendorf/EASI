@@ -24,17 +24,17 @@ The following files analyze the example using raw data input:
 
 - [**_Donohue-Data-Syntax.R_**](./Donohue-Data-Syntax.R)
 - [**_Donohue-Data-Output.R_**](./Donohue-Data-Output.R)
-- [**_Donohue-Figure1.jpg_**](./Donohue-Figure1.jpg)
-- [**_Donohue-Figure2.jpg_**](./Donohue-Figure2.jpg)
-- [**_Donohue-Figure3.jpg_**](./Donohue-Figure3.jpg) 
+- [**_Donohue-Figure1.jpeg_**](./Donohue-Figure1.jpeg)
+- [**_Donohue-Figure2.jpeg_**](./Donohue-Figure2.jpeg)
+- [**_Donohue-Figure3.jpeg_**](./Donohue-Figure3.jpeg) 
 
 The following files analyze the example using summary statistics input:
 
 - [**_Donohue-Summary-Syntax.R_**](./Donohue-Summary-Syntax.R)
 - [**_Donohue-Summary-Output.R_**](./Donohue-Summary-Output.R)
-- [**_Donohue-Figure1.jpg_**](./Donohue-Figure1.jpg)
-- [**_Donohue-Figure2.jpg_**](./Donohue-Figure2.jpg)
-- [**_Donohue-Figure3.jpg_**](./Donohue-Figure3.jpg) 
+- [**_Donohue-Figure1.jpeg_**](./Donohue-Figure1.jpeg)
+- [**_Donohue-Figure2.jpeg_**](./Donohue-Figure2.jpeg)
+- [**_Donohue-Figure3.jpeg_**](./Donohue-Figure3.jpeg) 
 
 > **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
 

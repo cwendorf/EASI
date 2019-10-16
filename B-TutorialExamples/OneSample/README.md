@@ -22,15 +22,15 @@ The following files analyze the example using raw data input:
 
 - [**_OneSample-Data-Syntax.R_**](./OneSample-Data-Syntax.R)
 - [**_OneSample-Data-Output.R_**](./OneSample-Data-Output.R)
-- [**_OneSample-Figure1.jpg_**](./OneSample-Figure1.jpg)
-- [**_OneSample-Figure2.jpg_**](./OneSample-Figure2.jpg)
+- [**_OneSample-Figure1.jpeg_**](./OneSample-Figure1.jpeg)
+- [**_OneSample-Figure2.jpeg_**](./OneSample-Figure2.jpeg)
 
 The following files analyze the example using summary statistics input:
 
 - [**_OneSample-Summary-Syntax.R_**](./OneSample-Summary-Syntax.R)
 - [**_OneSample-Summary-Output.R_**](./OneSample-Summary-Output.R)
-- [**_OneSample-Figure1.jpg_**](./OneSample-Figure1.jpg)
-- [**_OneSample-Figure2.jpg_**](./OneSample-Figure2.jpg)
+- [**_OneSample-Figure1.jpeg_**](./OneSample-Figure1.jpeg)
+- [**_OneSample-Figure2.jpeg_**](./OneSample-Figure2.jpeg)
 
 ## References
 

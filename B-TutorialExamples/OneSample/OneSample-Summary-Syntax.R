@@ -21,8 +21,8 @@ estimateMeans(WithinSummary,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Mean
 
-plotMeans(WithinSummary)
-plotMeans(WithinSummary,conf.level=.99,mu=5)
+plotMeans(WithinSummary) # OneSample-Figure1.jpeg
+plotMeans(WithinSummary,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
 
 #### Significance Tests for the Mean
 

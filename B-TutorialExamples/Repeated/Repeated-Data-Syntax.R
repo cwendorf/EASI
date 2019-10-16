@@ -24,8 +24,8 @@ estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(Outcome1,Outcome2,Outcome3)
-plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=6)
+plotMeans(Outcome1,Outcome2,Outcome3) # Repeated-Figure1.jpeg
+plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=6) # Repeated-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -44,12 +44,11 @@ standardizeMeans(Outcome1,Outcome2,Outcome3,mu=6,conf.level=.99)
 
 estimateDifference(Outcome1,Outcome2)
 estimateDifference(Outcome1,Outcome2,conf.level=.99)
-estimateDifference(Outcome3,Outcome1)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(Outcome1,Outcome2)
-plotDifference(Outcome1,Outcome2,conf.level=.99)
+plotDifference(Outcome1,Outcome2) # Repeated-Figure3.jpeg
+plotDifference(Outcome1,Outcome2,conf.level=.99) # Repeated-Figure4.jpeg
 
 #### Significance Test for the Mean Difference
 
@@ -80,8 +79,8 @@ estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
 #### Plots of Confidence Intervals for a Contrast
 
 O1vsOthers <- c(-1,.5,.5)
-plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
-plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
+plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Repeated-Figure5.jpeg
+plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
 
 #### Significance Test for the Contrast
 

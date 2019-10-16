@@ -28,8 +28,8 @@ plotMeans(BetweenSummary,conf.level=.99,mu=5)
 
 #### Significance Tests for the Means
 
-testMeans(BetweenSummary)
-testMeans(BetweenSummary,mu=5)
+testMeans(BetweenSummary) # Independent-Figure1.jpeg
+testMeans(BetweenSummary,mu=5) # Independent-Figure2.jpeg
 
 #### Effect Size for the Means
 
@@ -46,8 +46,8 @@ estimateDifference(BetweenSummary,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-plotDifference(BetweenSummary)
-plotDifference(BetweenSummary,conf.level=.99)
+plotDifference(BetweenSummary) # Independent-Figure3.jpeg
+plotDifference(BetweenSummary,conf.level=.99) # Independent-Figure4.jpeg
 
 #### Significance Test of the Mean Difference
 
