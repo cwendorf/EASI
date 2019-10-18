@@ -40,6 +40,11 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/pairwi
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/analyzeExtension.R")
 ```
 
+[**_byExtension.R_**](./byExtension.R) (`estimateMeansBy`, `estimateDifferenceBy`, `estimateContrastBy`, `plotMeansBy`, `plotDifferenceBy`, `plotContrastBy`, `testMeansBy`, `testDifferenceBy`, `testContrastBy`, `standardizeMeansBy`, `standardizeDifferenceBy`, and `standardizeContrastBy` function that apply the estimate, plot, test, and standardize function across levels of the second factor in a two-factor between-subjects or a mixed factorial design -- available only for data input and not summary statistics input)
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/byExtension.R")
+```
+
 ## Technical Details
 
 ### For Means, Mean Differences, and Contrasts

@@ -1,5 +1,7 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Basic Functions for Means and Mean Differences
+## Extended Functions for Consolidating Analyses
+### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R
+### ALL BASIC FUNCTIONS FOR EASI SHOULD BE INSTALLED TOO
 
 ### Meta-Wrappers for All Functions
 
