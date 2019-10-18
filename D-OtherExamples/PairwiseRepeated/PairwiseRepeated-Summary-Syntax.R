@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference (EASI)
 ## Pairwise Comparisons Within-Subjects Example with Summary Statistics
 
-### Source the EASI Functions and Extensions
+### Source the EASI Functions and the Extension
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/pairwiseExtension.R")
