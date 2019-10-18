@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Pairwise Comparisons Within-Subjects Summary Statistics Example
+## Pairwise Comparisons Within-Subjects Example with Summary Statistics
 
 ### Source the EASI Functions and Extensions
 
@@ -32,8 +32,8 @@ estimatePairwise(WithinSummary,WithinCorr,conf.level=.99)
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
-plotPairwise(WithinSummary,WithinCorr)
-plotPairwise(WithinSummary,WithinCorr,mu=-2,conf.level=.99)
+plotPairwise(WithinSummary,WithinCorr) # PairwiseRepeated-Figure1.jpeg
+plotPairwise(WithinSummary,WithinCorr,mu=-2,conf.level=.99) # PairwiseRepeated-Figure2.jpeg
 
 #### Significance Tests of the Pairwise Comparisons
 

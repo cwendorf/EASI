@@ -18,10 +18,20 @@
 
 ### Included Examples
 
-**Pairwise Comparisons**: The following are examples for single-factor designs.
+**Pairwise Extension**: These examples analyze unadjusted paiwise comparisons for single-factor designs.
 
 - The [**PairwiseOneWay**](./PairwiseOneWay/) documents and files analyze an example of a single-factor between-subjects design 
 - The [**PairwiseRepeated**](./PairwiseRepeated/) documents and files analyze an example of a single-factor within-subjects design  
+
+**Analyze Extension**: These examples combine the estimate, plot, test, and standardize functions for single-factor designs.
+
+- The [**AnalyzeOneWay**](./AnalyzeOneWay/) documents and files analyze an example of a single-factor between-subjects design 
+- The [**AnalyzeRepeated**](./AnalyzeRepeated/) documents and files analyze an example of a single-factor within-subjects design
+
+**By Extension**: These examples apply the estimate, plot, test, and standardize function across levels of the second factor in a two-factor design.
+
+- The [**FactorialBy**](./FactorialBy/) documents and files analyze an example of a two-factor between-subjects design 
+- The [**MixedBy**](./MixedBy/) documents and files analyze an example of a mixed factorial design
 
 ## References
 

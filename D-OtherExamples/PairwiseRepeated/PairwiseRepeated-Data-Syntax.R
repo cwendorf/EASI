@@ -1,18 +1,18 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Pairwise Comparisons Within-Subjects Data Example
+## Pairwise Comparisons Within-Subjects Example with Data
 
-### Source the EASI Functions and Extensions
+### Source the EASI Functions and the Extension
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-EXTENSIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/pairwiseExtension.R")
 
 ### Three Time Period Example Data
 
-Time1 <- c(5,6,6,7,8)
-Time2 <- c(7,7,8,8,9)
-Time3 <- c(8,8,9,9,9)
+Outcome1 <- c(0,0,3,5)
+Outcome2 <- c(4,7,4,9)
+Outcome3 <- c(9,6,4,9)
 
-WithinData <- data.frame(Time1,Time2,Time3)
+WithinData <- data.frame(Outcome1,Outcome2,Outcome3)
 WithinData
 
 ### Analyses of Pairwise Variable Comparisons
@@ -20,20 +20,20 @@ WithinData
 
 #### Confidence Intervals for the Pairwise Comparisons
 
-estimatePairwise(Time1,Time2,Time3)
-estimatePairwise(Time1,Time2,Time3,conf.level=.99)
+estimatePairwise(Outcome1,Outcome2,Outcome3)
+estimatePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
-plotPairwise(Time1,Time2,Time3)
-plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99)
+plotPairwise(Outcome1,Outcome2,Outcome3) # PairwiseRepeated-Figure1.jpeg
+plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99) # PairwiseRepeated-Figure2.jpeg
 
 #### Significance Tests of the Pairwise Comparisons
 
-testPairwise(Time1,Time2,Time3)
-testPairwise(Time1,Time2,Time3,mu=-2)
+testPairwise(Outcome1,Outcome2,Outcome3)
+testPairwise(Outcome1,Outcome2,Outcome3,mu=-2)
 
 #### Effect Sizes for the Pairwise Comparisons
 
-standardizePairwise(Time1,Time2,Time3)
-standardizePairwise(Time1,Time2,Time3,conf.level=.99)
+standardizePairwise(Outcome1,Outcome2,Outcome3)
+standardizePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)

@@ -12,20 +12,25 @@
 
 ### Overview of this Example
 
-The **PairwiseOneWay** documents and files analyze an example of a single-factor between-subjects design.
+The **PairwiseOneWay** documents and files analyze an example of a single-factor between-subjects design. These analyses include the following:
 
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
+- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
 
 ### Details of this Example
  
-The [**PAIRWISEONEWAY-DATA-EXAMPLE.md**](./PAIRWISEONEWAY-DATA-EXAMPLE.md) file uses raw data input.  
-The [**PARIWISEONEWAY-SUMMARY-EXAMPLE.md**](./PAIRWISEONEWAY-SUMMARY-EXAMPLE.md) file uses summary statistics input.
+The following files analyze the example using raw data input:
 
-These analyses include the following:
+- [**_PairwiseOneWay-Data-Syntax.R_**](./PairwiseOneWay-Data-Syntax.R)
+- [**_PairwiseOneWay-Data-Output.R_**](./PairwiseOneWay-Data-Output.R)
+- [**_PairwiseOneWay-Figure1.jpeg_**](./PairwiseOneWay-Figure1.jpeg)
+- [**_PairwiseOneWay-Figure2.jpeg_**](./PairwiseOneWay-Figure2.jpeg)
 
-- Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
+The following files analyze the example using summary statistics input:
+
+- [**_PairwiseOneWay-Summary-Syntax.R_**](./PairwiseOneWay-Summary-Syntax.R)
+- [**_PairwiseOneWay-Summary-Output.R_**](./PairwiseOneWay-Summary-Output.R)
+- [**_PairwiseOneWay-Figure1.jpeg_**](./PairwiseOneWay-Figure1.jpeg)
+- [**_PairwiseOneWay-Figure2.jpeg_**](./PairwiseOneWay-Figure2.jpeg)
 
 ## References
 

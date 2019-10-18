@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Pairwise Comparisons Between-Subjects Data Example
+## Pairwise Comparisons Between-Subjects Example with Data
 
-### Source the EASI Functions and Extensions
+### Source the EASI Functions and the Extension
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/pairwiseExtension.R")
@@ -25,8 +25,8 @@ estimatePairwise(Outcome~Factor,conf.level=.99)
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
-plotPairwise(Outcome~Factor)
-plotPairwise(Outcome~Factor,mu=-2,conf.level=.99)
+plotPairwise(Outcome~Factor) # PairwiseOneWay-Figure1.jpeg
+plotPairwise(Outcome~Factor,mu=-2,conf.level=.99) # PairwiseOneWay-Figure2.jpeg
 
 #### Significance Tests of the Pairwise Comparisons
 

@@ -12,20 +12,25 @@
 
 ### Overview of this Example
 
-The **PairwiseRepeated** documents and files analyze an example of a single-factor within-subjects design. 
-
-- The example is duplicated both using raw data input and summary statistics input
-- The example includes estimation, plots, significance tests, and effect sizes
-- The example contains a data file, a syntax file, a text output file, and graphs
-
-### Details of this Example
- 
-The [**PAIRWISEREPEATED-DATA-EXAMPLE.md**](./PAIRWISEREPEATED-DATA-EXAMPLE.md) file uses raw data input.  
-The [**PARIWISEREPEATED-SUMMARY-EXAMPLE.md**](./PAIRWISEREPEATED-SUMMARY-EXAMPLE.md) file uses summary statistics input.
-
-These analyses include the following:
+The **PairwiseRepeated** documents and files analyze an example of a single-factor within-subjects design. These analyses include the following:
 
 - Analyses of Pairwise Comparisons (equivalent to unadjusted t tests among of all instances of a variable)
+
+### Details of this Example
+
+The following files analyze the example using raw data input:
+
+- [**_PairwiseRepeated-Data-Syntax.R_**](./PairwiseRepeated-Data-Syntax.R)
+- [**_PairwiseRepeated-Data-Output.R_**](./PairwiseRepeated-Data-Output.R)
+- [**_PairwiseRepeated-Figure1.jpeg_**](./PairwiseRepeated-Figure1.jpeg)
+- [**_PairwiseRepeated-Figure2.jpeg_**](./PairwiseRepeated-Figure2.jpeg)
+
+The following files analyze the example using summary statistics input:
+
+- [**_PairwiseRepeated-Summary-Syntax.R_**](./PairwiseRepeated-Summary-Syntax.R)
+- [**_PairwiseRepeated-Summary-Output.R_**](./PairwiseRepeated-Summary-Output.R)
+- [**_PairwiseRepeated-Figure1.jpeg_**](./PairwiseRepeated-Figure1.jpeg)
+- [**_PairwiseRepeated-Figure2.jpeg_**](./PairwiseRepeated-Figure2.jpeg)
 
 ## References
 
