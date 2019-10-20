@@ -6,7 +6,7 @@
 #### Plot Functions for Boxes and Data
 
 boxplotData <- function(...) 
-  UseMethod("plotData")
+  UseMethod("boxplotData")
 
 boxplotData.default <- function(...,method="jitter",col="gray60") {
   main="Boxplots and Data for the Levels"
