@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **PenLaptop** documents and files analyze an example of a two-group between-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 7). These analyses include the following:
+The **PenLaptop** files analyze an example of a two-group between-subjects design (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 7). These analyses include the following:
 
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 - Analyses of Multiple Studies (examples from three different replication studies)

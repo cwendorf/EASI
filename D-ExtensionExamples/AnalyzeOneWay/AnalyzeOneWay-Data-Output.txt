@@ -28,7 +28,7 @@
 11 Level3       4
 12 Level3       9
 > 
-> ### Analyses of Multiple Variables
+> ### Analyses of Multiple Groups
 > ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > analyzeMeans(Outcome~Factor) # Includes AnalyzeOneWay-Figure1.jpeg
@@ -76,7 +76,7 @@ Level2  0.000  0.000 0.559 -1.288 1.288
 Level3  0.408  0.297 0.574 -0.968 1.734
 
 > 
-> ### Analyses of a Variable Comparison
+> ### Analyses of a Group Comparison
 > ### (equivalent to analyses for two levels of a factor)
 > 
 > Comparison=factor(Factor,c("Level1","Level2"))
@@ -113,7 +113,7 @@ $standardizeDifference
 Comparison -1.633 0.943 -4.062 0.795
 
 > 
-> ### Analyses of a Variable Contrast
+> ### Analyses of a Group Contrast
 > ### (equivalent to analyses for multiple levels of a factor)
 > 
 > L1vsOthers <- c(-1,.5,.5)

@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **Holzel** documents and files analyze and example of a two-factor mixed design, one between-subjects and one within-subjects factor (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 15). These analyses include the following:
+The **Holzel** files analyze and example of a two-factor mixed design, one between-subjects and one within-subjects factor (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 15). These analyses include the following:
 
 - Analyses of Multiple Groups (equivalent to one-sample analyses of each level of the design)
 - Analyses of Marginal Means (equivalent to one-sample analyses of the marginal means)

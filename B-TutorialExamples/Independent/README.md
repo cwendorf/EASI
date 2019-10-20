@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **Independent** documents and files analyze examples of a two-group between-subjects design (independent-groups). These analyses include the following:
+The **Independent** files analyze examples of a two-group between-subjects design (independent-groups). These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)

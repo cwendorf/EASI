@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -21,22 +21,22 @@
 
 The following is an example for a one-sample design.
 
-- The [**OneSample**](./OneSample/) documents and files analyze an example of a single-group design.
+- The [**OneSample**](./OneSample/) files analyze an example of a single-group design.
 
 The following are examples for two-group and paired-samples designs.
 
-- The [**Independent**](./Independent/) documents and files analyze examples of a two-group between-subjects design (independent-groups)
-- The [**Paired**](./Paired/) documents and files analyze examples of a within-subjects design for two time points (paired samples)
+- The [**Independent**](./Independent/) files analyze examples of a two-group between-subjects design (independent-groups)
+- The [**Paired**](./Paired/) files analyze examples of a within-subjects design for two time points (paired samples)
 
 The following are examples for single-factor designs.
 
-- The [**OneWay**](./OneWay/) documents and files analyze an example of a single-factor between-subjects design
-- The [**Repeated**](./Repeated/) documents and files analyze an example of a single-factor within-subjects design
+- The [**OneWay**](./OneWay/) files analyze an example of a single-factor between-subjects design
+- The [**Repeated**](./Repeated/) files analyze an example of a single-factor within-subjects design
 
 The following are examples for two-factor designs.
 
-- The [**Factorial**](./Factorial/) documents and files analyze an example of a two-factor between-subjects design
-- The [**Mixed**](./Mixed) documents and files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)
+- The [**Factorial**](./Factorial/) files analyze an example of a two-factor between-subjects design
+- The [**Mixed**](./Mixed) files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)
 
 ## References
 

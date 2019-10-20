@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -31,7 +31,7 @@ This site includes the basic functions and extensions of EASI, along with numero
 - [**Functions**](./A-Functions): Contains the basic functions and extensions that can be "installed" in R in order to run the analyses
 - [**Tutorial Examples**](./B-TutorialExamples): Contains between-subjects and within-subjects examples that highlight the functions and examples
 - [**ITNS Examples**](./C-ITNSExamples): Contains between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
-- [**Other Examples**](./D-OtherExamples): Contains advanced applications and additional examples of the functions and extensions
+- [**Extension Examples**](./D-ExtensionExamples): Contains advanced applications and additional examples of the functions and extensions
 
 ## How to Cite EASI
 

@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **Repeated** documents and files analyze an example of a single-factor within-subjects design. These analyses include the following:
+The **Repeated** files analyze an example of a single-factor within-subjects design. These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)

@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -20,18 +20,18 @@
 
 The following are examples for two-group and paired-samples designs (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 7-8).
 
-- The [**PenLaptop**](./PenLaptop/) documents and files analyze examples of a two-group between-subjects design (independent-groups)
-- The [**Thomason**](./Thomason/) documents and files analyze examples of a within-subjects design for two time points (paired samples)
+- The [**PenLaptop**](./PenLaptop/) files analyze examples of a two-group between-subjects design (independent-groups)
+- The [**Thomason**](./Thomason/) files analyze examples of a within-subjects design for two time points (paired samples)
 
 The following are examples for single-factor designs (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14).
 
-- The [**Rattan**](./Rattan/) documents and files analyze an example of a single-factor between-subjects design 
-- The [**Donohue**](./Donohue/) documents and files analyze an example of a single-factor within-subjects design  
+- The [**Rattan**](./Rattan/) files analyze an example of a single-factor between-subjects design 
+- The [**Donohue**](./Donohue/) files analyze an example of a single-factor within-subjects design  
 
 The following are examples for two-factor designs (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 15).
 
-- The [**Frenda**](./Frenda/) documents and files analyze an example of a two-factor between-subjects design
-- The [**Holzel**](./Holzel/) documents and files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)  
+- The [**Frenda**](./Frenda/) files analyze an example of a two-factor between-subjects design
+- The [**Holzel**](./Holzel/) files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)  
 
 ## References
 

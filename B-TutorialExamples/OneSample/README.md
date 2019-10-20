@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **OneSample** documents and files analyze an example of a one-sample design. These analyses include the following:
+The **OneSample** files analyze an example of a one-sample design. These analyses include the following:
 
 - Analysis of the Group (equivalent to one-sample analysis for the variable)
 

@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples) 
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples) 
 
 ---
 
@@ -12,7 +12,7 @@
 
 ### Overview of this Example
 
-The **Thomason** documents and files analyze an example of a within-subjects design for two time points (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 8). These analyses include the following:
+The **Thomason** files analyze an example of a within-subjects design for two time points (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 8). These analyses include the following:
 
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of Multiple Studies (examples from three different replication studies)

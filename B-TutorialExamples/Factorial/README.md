@@ -4,7 +4,7 @@
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
-[**Other Examples**](https://github.com/cwendorf/EASI/tree/master/D-OtherExamples)
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
 
 ---
 
@@ -12,7 +12,7 @@
 
 ### Overview of the Examples
 
-The **Factorial** documents and files analyze an example of a two-factor between-subjects design. These analyses include the following:
+The **Factorial** files analyze an example of a two-factor between-subjects design. These analyses include the following:
 
 - Analyses of Multiple Groups (equivalent to one-sample analyses of each level of the design)
 - Analyses of Marginal Means (equivalent to one-sample analyses of the marginal means)
