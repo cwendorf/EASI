@@ -18,10 +18,10 @@
 
 ### Included Examples
 
-**Boxplot Extension**: These examples provide boxplots and data plots for single-factor designs.
+**Summary Extension**: These examples provide summary statistics, boxplots, and data plots for single-factor designs.
 
-- The [**BoxplotOneWay**](./BoxplotOneWay/) files analyze an example of a single-factor between-subjects design 
-- The [**BoxplotRepeated**](./BoxplotRepeated/) files analyze an example of a single-factor within-subjects design 
+- The [**SummaryOneWay**](./SummaryOneWay/) files analyze an example of a single-factor between-subjects design 
+- The [**SummaryRepeated**](./SummaryRepeated/) files analyze an example of a single-factor within-subjects design 
 
 **Pairwise Extension**: These examples analyze unadjusted paiwise comparisons for single-factor designs.
 

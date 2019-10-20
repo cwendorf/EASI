@@ -8,11 +8,11 @@
 
 ---
 
-## Boxplots for a OneWay (Single-Factor Between-Subjects) Example
+## Summaries for a OneWay (Single-Factor Between-Subjects) Example
 
 ### Overview of this Example
 
-The **BoxplotOneWay** files provide boxplots and data plots for single-factor designs. These analyses include the following:
+The **SummaryOneWay** files provide summary statistcs, boxplots, and data plots for single-factor designs. These analyses include the following:
 
 - Boxplots for Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 
@@ -20,10 +20,10 @@ The **BoxplotOneWay** files provide boxplots and data plots for single-factor de
  
 The following files analyze the example using raw data input:
 
-- [**_BoxplotOneWay-Data-Syntax.R_**](./BoxplotOneWay-Data-Syntax.R)
-- [**_BoxplotOneWay-Data-Output.R_**](./BoxplotOneWay-Data-Output.R)
-- [**_BoxplotOneWay-Figure1.jpeg_**](./BoxplotOneWay-Figure1.jpeg)
-- [**_BoxplotOneWay-Figure2.jpeg_**](./BoxplotOneWay-Figure2.jpeg)
+- [**_SummaryOneWay-Data-Syntax.R_**](./SummaryOneWay-Data-Syntax.R)
+- [**_SummaryOneWay-Data-Output.R_**](./SummaryOneWay-Data-Output.R)
+- [**_SummaryOneWay-Figure1.jpeg_**](./SummaryOneWay-Figure1.jpeg)
+- [**_SummaryOneWay-Figure2.jpeg_**](./SummaryOneWay-Figure2.jpeg)
 
 ## References
 

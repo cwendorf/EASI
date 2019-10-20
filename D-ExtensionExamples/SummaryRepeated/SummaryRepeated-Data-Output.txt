@@ -1,0 +1,39 @@
+> # Estimation Approach to Statistical Inference (EASI)
+> ## Summaries for the Repeated (Within-Subjects) Tutorial with Data
+> 
+> ### Source the EASI Functions and the Extension
+> 
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/summaryExtension.R")
+> 
+> ### Enter Data
+> 
+> Outcome1 <- c(0,0,3,5)
+> Outcome2 <- c(4,7,4,9)
+> Outcome3 <- c(9,6,4,9)
+> 
+> WithinData <- data.frame(Outcome1,Outcome2,Outcome3)
+> WithinData
+  Outcome1 Outcome2 Outcome3
+1        0        4        9
+2        0        7        6
+3        3        4        4
+4        5        9        9
+> 
+> ### Summaries of Multiple Variables
+> 
+> summarizeData(Outcome1,Outcome2,Outcome3)
+
+SUMMARY STATISTICS FOR THE DATA
+
+         Lower Whisker Lower Hinge Median Upper Hinge Upper Whisker
+Outcome1             0           0    1.5           4             5
+Outcome2             4           4    5.5           8             9
+Outcome3             4           5    7.5           9             9
+
+> 
+> ### Boxplots of Multiple Variables
+> 
+> plotData(Outcome1,Outcome2,Outcome3) # SummaryRepeated-Figure1.jpeg
+> plotData(Outcome1,Outcome2,Outcome3,method="stack",col="black") # SummaryRepeated-Figure2.jpeg
+> 
