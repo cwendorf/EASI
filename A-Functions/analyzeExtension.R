@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Extended Functions for Consolidating Analyses
+## Extension for Consolidating Analyses
 ### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R
 ### ALL BASIC FUNCTIONS FOR EASI SHOULD BE INSTALLED TOO
 

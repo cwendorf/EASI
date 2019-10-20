@@ -3,14 +3,14 @@
 ### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
 
-### Describe Functions
+### Data Functions
 
 #### Describe Function for Mutiple Groups and Variables
 
-descLevels <- function(...) 
-  UseMethod("descLevels")
+descData <- function(...) 
+  UseMethod("descData")
 
-descLevels.default <- function(...) {
+descData.default <- function(...) {
   data <- data.frame(...)
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
@@ -19,8 +19,8 @@ descLevels.default <- function(...) {
   return(results)
 }
 
-descLevels.formula <- function(formula,...) {
-  results <- aggregate(formula,FUN=descLevels,...)
+descData.formula <- function(formula,...) {
+  results <- aggregate(formula,FUN=descData,...)
   rn <- results[,1]
   results <- results[[2]]
   rownames(results) <- rn
@@ -28,26 +28,26 @@ descLevels.formula <- function(formula,...) {
   return(results)
 }
 
-describeLevels <- function(...) {
-  cat("\nDESCRIPTIVE STATISTICS FOR THE LEVELS\n\n")
-   print(descLevels(...))
+describeData <- function(...) {
+  cat("\nDESCRIPTIVE STATISTICS FOR THE DATA\n\n")
+   print(descData(...))
   cat("\n")
 }
 
 #### Correlate/Covary Function for Mutiple Variables
 
-corLevels <- function(...) 
-  UseMethod("corLevels")
+corrData <- function(...) 
+  UseMethod("corrData")
 
-corLevels.default <- function(...,mu=0,conf.level=.95) {
+corrData.default <- function(...,mu=0,conf.level=.95) {
   data <- data.frame(...)
   results <- cor(data)
   return(results)
 }
 
-correlateLevels <- function(...) {
-  cat("\nCORRELATION MATRIX FOR THE LEVELS\n\n")
-   print(corLevels(...))
+correlateData <- function(...) {
+  cat("\nCORRELATION MATRIX FOR THE DATA\n\n")
+   print(corrData(...))
   cat("\n")
 }
 
@@ -57,7 +57,7 @@ cor2cov <- function(CorrStats,SD) {
   return(covstats)
 }
 
-### Declare and Fill Blanks in Matrix
+#### Declare and Fill Blanks in Matrix
 
 declareCorrMatrix <- function(...) {
   clist=c(...)
@@ -93,35 +93,35 @@ fillCorrMatrix <- function(mat) {
 
 ### Confidence Interval Functions
 
-#### CI Function for Means of Levels
+#### CI Function for Means
 
 ciMeans <- function(...) 
   UseMethod("ciMeans")
 
-ciMeans.wss <- ciMeans.bss <- function(SumStats,conf.level=.95,...) {
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+ciMeans.wss <- ciMeans.bss <- function(DescStats,conf.level=.95,...) {
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
   tcrit <- qt((1-conf.level)/2,N-1,lower.tail=FALSE)
   LL <- M-tcrit*SE
   UL <- M+tcrit*SE
   results <- as.data.frame(round(cbind(N=N,M=M,SD=SD,SE=SE,LL=LL,UL=UL),3))
-  rownames(results) <- rownames(SumStats)
+  rownames(results) <- rownames(DescStats)
   return(results)
 }
 
 ciMeans.default <- function(...,conf.level=.95) {
-  SumStats <- descLevels(...)
-  class(SumStats) <- "wss"
-  results <- ciMeans(SumStats,conf.level=conf.level)
+  DescStats <- descData(...)
+  class(DescStats) <- "wss"
+  results <- ciMeans(DescStats,conf.level=conf.level)
   return(results)
 }
 
 ciMeans.formula <- function(formula,conf.level=.95,...) {
-  SumStats <- descLevels(formula)
-  class(SumStats) <- "bss"
-  results <- ciMeans(SumStats,conf.level=conf.level)
+  DescStats <- descData(formula)
+  class(DescStats) <- "bss"
+  results <- ciMeans(DescStats,conf.level=conf.level)
   return(results)
 }
 
@@ -131,7 +131,7 @@ estimateMeans <- function(...) {
   cat("\n")
 }
 
-#### CI Function for Mean Differences/Comparison of Levels 
+#### CI Function for Mean Differences/Comparisons
 
 ciDifference <- function(...) 
   UseMethod("ciDifference")
@@ -172,15 +172,15 @@ ciDifference.bss <- function(CompStats,conf.level=.95,...) {
 }
 
 ciDifference.default <- function(...,conf.level=.95) {
-  CompStats <- descLevels(...)
+  CompStats <- descData(...)
   class(CompStats) <- "wss"
-  CorrStats <- corLevels(...)
+  CorrStats <- corrData(...)
   results <- ciDifference(CompStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 ciDifference.formula <- function(formula,conf.level=.95,...) {
-  CompStats <- descLevels(formula)
+  CompStats <- descData(formula)
   class(CompStats) <- "bss"
   results <- ciDifference(CompStats,conf.level=conf.level)
   return(results)
@@ -192,15 +192,15 @@ estimateDifference<-function(...) {
   cat("\n")  
 }
 
-#### CI Function for a Mean Contrast of Levels
+#### CI Function for Mean Contrasts
 
 ciContrast <- function(...) 
   UseMethod("ciContrast")
 
-ciContrast.wss <- function(SumStats,CorrStats,contrast,conf.level=.95) {
-  N <- min(SumStats[,"N"])
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+ciContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95) {
+  N <- min(DescStats[,"N"])
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   df <- N-1
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
   covstats <- cor2cov(CorrStats,SD)
@@ -214,10 +214,10 @@ ciContrast.wss <- function(SumStats,CorrStats,contrast,conf.level=.95) {
   return(round(results,3))
 }
 
-ciContrast.bss <- function(SumStats,contrast,conf.level=.95,...) {
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+ciContrast.bss <- function(DescStats,contrast,conf.level=.95,...) {
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   Est <- t(contrast)%*%M
   k <- length(M)
   v <- diag(SD^2)%*%(solve(diag(N)))
@@ -233,17 +233,17 @@ ciContrast.bss <- function(SumStats,contrast,conf.level=.95,...) {
 }
 
 ciContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
-  SumStats <- descLevels(...)
-  class(SumStats) <- "wss"
-  CorrStats <- corLevels(...)
-  results <- ciContrast(SumStats,CorrStats,contrast,conf.level=conf.level)
+  DescStats <- descData(...)
+  class(DescStats) <- "wss"
+  CorrStats <- corrData(...)
+  results <- ciContrast(DescStats,CorrStats,contrast,conf.level=conf.level)
   return(results)
 }
 
 ciContrast.formula <- function(formula,contrast,conf.level=.95,...) {
-  SumStats <- descLevels(formula)
-  class(SumStats) <- "bss"
-  results <- ciContrast(SumStats,contrast,conf.level=conf.level)
+  DescStats <- descData(formula)
+  class(DescStats) <- "bss"
+  results <- ciContrast(DescStats,contrast,conf.level=conf.level)
   return(results)
 }
 
@@ -295,24 +295,24 @@ cipDifference <- function(results,main,ylab,xlab,rope) {
   if(!is.null(rope)) {rect(2.5,graphrope[1],4.5,graphrope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
 }
 
-#### Plot Function for Confidence Intervals for the Means of Levels
+#### Plot Function for Confidence Intervals of the Means
 
 plotMeans <- function(...) 
   UseMethod("plotMeans")
 
-plotMeans.wss <- function(SumStats,mu=NULL,rope=NULL,...) {
+plotMeans.wss <- function(DescStats,mu=NULL,rope=NULL,...) {
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Variables"
-  results <- ciMeans(SumStats,...)[,c(2,5,6)]
+  results <- ciMeans(DescStats,...)[,c(2,5,6)]
   cipMeans(results,main,ylab,xlab,mu,rope)
 }
 
-plotMeans.bss <- function(SumStats,mu=NULL,rope=NULL,...) {
+plotMeans.bss <- function(DescStats,mu=NULL,rope=NULL,...) {
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Groups"
-  results <- ciMeans(SumStats,...)[,c(2,5,6)]
+  results <- ciMeans(DescStats,...)[,c(2,5,6)]
   cipMeans(results,main,ylab,xlab,mu,rope)
 }
 
@@ -335,7 +335,7 @@ plotMeans.formula <- function(formula,mu=NULL,rope=NULL,...) {
   cipMeans(results,main,ylab,xlab,mu,rope)
 }
 
-#### Plot Function for Confidence Intervals of a Mean Difference/Comparison of Levels
+#### Plot Function for Confidence Intervals of Mean Differences/Comparisons
 
 plotDifference <- function(...) 
   UseMethod("plotDifference")
@@ -406,17 +406,17 @@ plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL) {
   cipDifference(results,main,ylab,xlab,rope)  
 }
 
-plotContrast.bss <- function(SumStats,contrast,rope=NULL,labels=NULL,...) {
+plotContrast.bss <- function(DescStats,contrast,rope=NULL,labels=NULL,...) {
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Groups"
   congrp1 <- ifelse(contrast<0,0,contrast)
-  resgrp1 <- ciContrast(SumStats,contrast=congrp1,...)
+  resgrp1 <- ciContrast(DescStats,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
-  resgrp2 <- ciContrast(SumStats,contrast=congrp2,...)
+  resgrp2 <- ciContrast(DescStats,contrast=congrp2,...)
   Groups <- rbind(resgrp1,resgrp2)
   Groups <- Groups[2:1,c(1,4,5)]
-  Diff <- ciContrast(SumStats,contrast=contrast,...)[c(1,4,5)]
+  Diff <- ciContrast(DescStats,contrast=contrast,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
   cipDifference(results,main,ylab,xlab,rope)
@@ -456,15 +456,15 @@ plotContrast.formula <- function(formula,contrast,rope=NULL,labels=NULL,...) {
 
 ### Standardized Mean Difference Functions
 
-#### SMD Function for Means of Levels
+#### SMD Function for Means
 
 smdMeans <- function(...) 
   UseMethod("smdMeans")
   
-smdMeans.wss <- smdMeans.bss <- function(SumStats,mu=0,conf.level=.95,...) {
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+smdMeans.wss <- smdMeans.bss <- function(DescStats,mu=0,conf.level=.95,...) {
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)  
   Diff <- M-mu
   t <- Diff/SE
@@ -493,21 +493,21 @@ smdMeans.wss <- smdMeans.bss <- function(SumStats,mu=0,conf.level=.95,...) {
   LL <- ifelse(skew<.001,ll1*sqrt(1/N),ll2*sqrt(1/N))
   UL <- ifelse(skew<.001,ul1*sqrt(1/N),ul2*sqrt(1/N))
   results <- round(cbind(d=CD,"d(unb)"=CDU,SE=SE,LL=LL,UL=UL),3)
-  rownames(results) <- rownames(SumStats)
+  rownames(results) <- rownames(DescStats)
   return(results)
 }
 
 smdMeans.default <- function(...,mu=0,conf.level=.95) {
-  SumStats <- descLevels(...)
-  class(SumStats) <- "wss"
-  results <- smdMeans(SumStats,mu=mu,conf.level=conf.level)
+  DescStats <- descData(...)
+  class(DescStats) <- "wss"
+  results <- smdMeans(DescStats,mu=mu,conf.level=conf.level)
   return(results)
 }
 
 smdMeans.formula <- function(formula,mu=0,conf.level=.95,...) {
-  SumStats <- descLevels(formula)
-  class(SumStats) <- "bss"
-  results <- smdMeans(SumStats,mu=mu,conf.level=conf.level)
+  DescStats <- descData(formula)
+  class(DescStats) <- "bss"
+  results <- smdMeans(DescStats,mu=mu,conf.level=conf.level)
   return(results)
 }
 
@@ -517,13 +517,13 @@ standardizeMeans <- function(...){
   cat("\n")
 }
 
-#### SMD Function for Mean Differences/Comparison of Levels
+#### SMD Function for Mean Differences/Comparisons
 
 smdDifference <- function(...) 
   UseMethod("smdDifference")
 
-smdDifference.wss <- function(SumStats,CorrStats,conf.level=.95,...) {
-  CompStats <- SumStats[1:2,]
+smdDifference.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
+  CompStats <- DescStats[1:2,]
   N <- min(CompStats[1:2,"N"])
   M <- CompStats[1:2,"M"]
   SD <- CompStats[1:2,"SD"]
@@ -545,8 +545,8 @@ smdDifference.wss <- function(SumStats,CorrStats,conf.level=.95,...) {
   return(round(results,3))
 }
 
-smdDifference.bss <- function(SumStats,contrast,conf.level=.95,...) {
-  CompStats <- SumStats[1:2,]
+smdDifference.bss <- function(DescStats,contrast,conf.level=.95,...) {
+  CompStats <- DescStats[1:2,]
   N <- CompStats[1:2,"N"]
   M <- CompStats[1:2,"M"]
   SD <- CompStats[1:2,"SD"]
@@ -565,17 +565,17 @@ smdDifference.bss <- function(SumStats,contrast,conf.level=.95,...) {
 }
 
 smdDifference.default <- function(...,conf.level=.95) {
-  CompStats <- descLevels(...)
+  CompStats <- descData(...)
   class(CompStats) <- "wss"
-  CorrStats <- corLevels(...)
+  CorrStats <- corrData(...)
   results <- smdDifference(CompStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 smdDifference.formula <- function(formula,contrast,conf.level=.95,...) {
-  SumStats <- descLevels(formula)
-  class(SumStats) <- "bss"
-  results <- smdDifference(SumStats,contrast,conf.level=conf.level)
+  DescStats <- descData(formula)
+  class(DescStats) <- "bss"
+  results <- smdDifference(DescStats,contrast,conf.level=conf.level)
   return(results)
 }
 
@@ -585,15 +585,15 @@ standardizeDifference <- function(...) {
   cat("\n")  
 }
 
-#### SMD Function for a Mean Contrast of Levels
+#### SMD Function for Mean Contrasts
 
 smdContrast <- function(...) 
   UseMethod("smdContrast")
 
-smdContrast.wss <- function(SumStats,CorrStats,contrast,conf.level=.95,...) {
-  N <- min(SumStats[,"N"])
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+smdContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,...) {
+  N <- min(DescStats[,"N"])
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   R <- mean(CorrStats[upper.tri(CorrStats)])
   df <- N-1
   z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
@@ -614,10 +614,10 @@ smdContrast.wss <- function(SumStats,CorrStats,contrast,conf.level=.95,...) {
   return(round(results,3))
 }
 
-smdContrast.bss <- function(SumStats,contrast,conf.level=.95,...) {
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+smdContrast.bss <- function(DescStats,contrast,conf.level=.95,...) {
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   z <- qnorm((1-conf.level)/2,lower.tail=FALSE)
   v <- SD^2
   a <- length(M)
@@ -636,17 +636,17 @@ smdContrast.bss <- function(SumStats,contrast,conf.level=.95,...) {
 }
 
 smdContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
-  SumStats <- descLevels(...)
-  class(SumStats) <- "wss"
-  CorrStats <- corLevels(...)
-  results <- smdContrast(SumStats,CorrStats,contrast,conf.level=conf.level)
+  DescStats <- descData(...)
+  class(DescStats) <- "wss"
+  CorrStats <- corrData(...)
+  results <- smdContrast(DescStats,CorrStats,contrast,conf.level=conf.level)
   return(results)
 }
 
 smdContrast.formula <- function(formula,contrast,conf.level=.95,...) {
-  SumStats <- descLevels(formula)
-  class(SumStats) <- "bss"
-  results <- smdContrast(SumStats,contrast,conf.level=conf.level)
+  DescStats <- descData(formula)
+  class(DescStats) <- "bss"
+  results <- smdContrast(DescStats,contrast,conf.level=conf.level)
   return(results)
 }
 
@@ -658,35 +658,35 @@ standardizeContrast <- function(...) {
 
 ### Null Hypothesis Significance Test Functions
 
-#### NHST Function for Means of Levels
+#### NHST Function for Means
 
 nhstMeans <- function(...) 
   UseMethod("nhstMeans")
   
-nhstMeans.wss <- nhstMeans.bss <- function(SumStats,mu=0,...) {
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SE <- SumStats[,"SD"]/sqrt(N)
+nhstMeans.wss <- nhstMeans.bss <- function(DescStats,mu=0,...) {
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SE <- DescStats[,"SD"]/sqrt(N)
   Diff <- M-mu
   t <- Diff/SE
   df <- N-1
   p <- 2*(1 - pt(abs(t),df))
   results <- round(cbind(Diff=Diff,SE=SE,t=t,df=df,p=p),3)
-  rownames(results) <- rownames(SumStats)  
+  rownames(results) <- rownames(DescStats)  
   return(results)
 }
 
 nhstMeans.default <- function(...,mu=0) {
-  SumStats <- descLevels(...)
-  class(SumStats) <- "wss"
-  results <- nhstMeans(SumStats,mu=mu)
+  DescStats <- descData(...)
+  class(DescStats) <- "wss"
+  results <- nhstMeans(DescStats,mu=mu)
   return(results)
 }
 
 nhstMeans.formula <- function(formula,mu=0,...) {
-  SumStats <- descLevels(formula)
-  class(SumStats) <- "bss"
-  results <- nhstMeans(SumStats,mu=mu)
+  DescStats <- descData(formula)
+  class(DescStats) <- "bss"
+  results <- nhstMeans(DescStats,mu=mu)
   return(results)
 }
 
@@ -696,7 +696,7 @@ testMeans <- function(...) {
   cat("\n")
 }
 
-##### NHST Function for Mean Differences/Comparison of Levels
+##### NHST Function for Mean Differences/Comparisons
 
 nhstDifference <- function(...) 
   UseMethod("nhstDifference")
@@ -735,15 +735,15 @@ nhstDifference.bss <- function(CompStats,mu=0,...) {
 }
 
 nhstDifference.default <- function(...,mu=0) {
-  CompStats <- descLevels(...)
+  CompStats <- descData(...)
   class(CompStats) <- "wss"
-  CorrStats <- corLevels(...)
+  CorrStats <- corrData(...)
   results <- nhstDifference(CompStats,CorrStats,mu=mu)
   return(results)
 }
 
 nhstDifference.formula <- function(formula,mu=0,...) {
-  CompStats <- descLevels(formula)
+  CompStats <- descData(formula)
   class(CompStats) <- "bss"
   results <- nhstDifference(CompStats,mu=mu)
   return(results)
@@ -755,15 +755,15 @@ testDifference <- function(...) {
   cat("\n")
 }
 
-#### NHST Function for a Mean Contrast of Levels
+#### NHST Function for Mean Contrasts
 
 nhstContrast <- function(...) 
   UseMethod("nhstContrast")
   
-nhstContrast.bss <- function(SumStats,contrast,mu=0,...) {
-  N=SumStats[,"N"]
-  M=SumStats[,"M"]
-  SD=SumStats[,"SD"]
+nhstContrast.bss <- function(DescStats,contrast,mu=0,...) {
+  N=DescStats[,"N"]
+  M=DescStats[,"M"]
+  SD=DescStats[,"SD"]
   Est <- (t(contrast)%*%M)-mu
   k <- length(M)
   v <- diag(SD^2)%*%(solve(diag(N)))
@@ -777,10 +777,10 @@ nhstContrast.bss <- function(SumStats,contrast,mu=0,...) {
   return(round(results,3))
 }
 
-nhstContrast.wss <- function(SumStats,CorrStats,contrast,mu=0,conf.level=.95,...) {
-  N <- min(SumStats[,"N"])
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+nhstContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,...) {
+  N <- min(DescStats[,"N"])
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   Est <- (t(contrast)%*%M)
   covstats <- cor2cov(CorrStats,SD)
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
@@ -794,17 +794,17 @@ nhstContrast.wss <- function(SumStats,CorrStats,contrast,mu=0,conf.level=.95,...
 }
 
 nhstContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
-  SumStats <- descLevels(...)
-  class(SumStats) <- "wss"
-  CorrStats <- corLevels(...)
-  results <- nhstContrast(SumStats,CorrStats,contrast,mu=mu)
+  DescStats <- descData(...)
+  class(DescStats) <- "wss"
+  CorrStats <- corrData(...)
+  results <- nhstContrast(DescStats,CorrStats,contrast,mu=mu)
   return(results)
 }
 
 nhstContrast.formula <- function(formula,contrast,mu=0,...) {
-  SumStats <- descLevels(formula)
-  class(SumStats) <- "bss"
-  results <- nhstContrast(SumStats,contrast,mu=mu)
+  DescStats <- descData(formula)
+  class(DescStats) <- "bss"
+  results <- nhstContrast(DescStats,contrast,mu=mu)
   return(results)
 }
 
