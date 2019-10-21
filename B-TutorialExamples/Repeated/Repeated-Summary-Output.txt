@@ -168,28 +168,10 @@ Comparison -1.633 0.782 -3.647 0.380
 > ### Analyses of a Variable Contrast
 > ### (equivalent to analyses for multiple levels of a factor)
 > 
-> #### Confidence Intervals for Combined Levels
-> 
-> O1 <- c(1,0,0)
-> estimateContrast(WithinSummary,WithinCorr,contrast=O1)
-
-CONFIDENCE INTERVAL FOR THE CONTRAST
-
-           Est    SE    df     LL    UL
-Contrast 2.000 1.224 3.000 -1.897 5.897
-
-> O2nO3 <- c(0,.5,.5)
-> estimateContrast(WithinSummary,WithinCorr,contrast=O2nO3)
-
-CONFIDENCE INTERVAL FOR THE CONTRAST
-
-           Est    SE    df    LL    UL
-Contrast 6.500 1.020 3.000 3.252 9.748
-
+> O1vsOthers <- c(-1,.5,.5)
 > 
 > #### Confidence Interval for the Contrast
 > 
-> O1vsOthers <- c(-1,.5,.5)
 > estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -203,3 +185,44 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 
            Est    SE    df     LL     UL
 Contrast 4.500 1.307 3.000 -3.131 12.131
+
+> 
+> #### Plots of Confidence Intervals for a Contrast
+> 
+> plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers) # Repeated-Figure5.jpeg
+> plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
+> 
+> #### Significance Test for the Contrast
+> 
+> testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
+
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 4.500 1.307 3.444 3.000 0.041
+
+> testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,mu=-1)
+
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 4.500 1.307 3.444 3.000 0.041
+
+> 
+> #### Significance Test for the Contrast
+> 
+> standardizeContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE    LL    UL
+Contrast 1.837 0.741 0.386 3.289
+
+> standardizeContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
+
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE     LL    UL
+Contrast 1.837 0.741 -0.071 3.745
+
+> 

@@ -40,19 +40,19 @@ standardizeMeans(Outcome~Factor,mu=5,conf.level=.99)
 ### Analyses of a Group Comparison
 ### (equivalent to analyses for two levels of a factor)
 
+Comparison=factor(Factor,c("Level1","Level2"))
+
 #### Confidence Interval for a Mean Difference
 
-Comparison=factor(Factor,c("Level1","Level2"))
 estimateDifference(Outcome~Comparison)
 estimateDifference(Outcome~Comparison,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-Comparison=factor(Factor,c("Level1","Level2"))
 plotDifference(Outcome~Comparison) # OneWay-Figure3.jpeg
 plotDifference(Outcome~Comparison,conf.level=.99) # OneWay-Figure4.jpeg
 
-#### Significance Test of the Mean Difference
+#### Significance Test for the Mean Difference
 
 testDifference(Outcome~Comparison)
 testDifference(Outcome~Comparison,mu=2)
@@ -62,25 +62,18 @@ testDifference(Outcome~Comparison,mu=2)
 standardizeDifference(Outcome~Comparison)
 standardizeDifference(Outcome~Comparison,conf.level=.99)
 
-### Analyses of a Factor Contrast
+### Analyses of a Group Contrast
 ### (equivalent to analyses for multiple levels of a factor)
 
-#### Confidence Intervals for Combined Levels
-
-L1 <- c(1,0,0)
-estimateContrast(Outcome~Factor,contrast=L1)
-L2nL3 <- c(0,.5,.5)
-estimateContrast(Outcome~Factor,contrast=L2nL3)
+L1vsOthers <- c(-1,.5,.5)
 
 #### Confidence Interval for a Contrast
 
-L1vsOthers <- c(-1,.5,.5)
 estimateContrast(Outcome~Factor,contrast=L1vsOthers)
 estimateContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-L1vsOthers <- c(-1,.5,.5)
 plotContrast(Outcome~Factor,contrast=L1vsOthers) # OneWay-Figure5.jpeg
 plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
 

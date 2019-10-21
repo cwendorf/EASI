@@ -101,9 +101,10 @@ Level3  0.817  0.594 0.616 -0.732 2.320
 > ### Analyses of a Group Comparison
 > ### (equivalent to analyses for two levels of a factor)
 > 
+> Comparison=factor(Factor,c("Level1","Level2"))
+> 
 > #### Confidence Interval for a Mean Difference
 > 
-> Comparison=factor(Factor,c("Level1","Level2"))
 > estimateDifference(Outcome~Comparison)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -121,11 +122,10 @@ Comparison -4.000 1.732 6.000 -10.420 2.420
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
-> Comparison=factor(Factor,c("Level1","Level2"))
 > plotDifference(Outcome~Comparison) # OneWay-Figure3.jpeg
 > plotDifference(Outcome~Comparison,conf.level=.99) # OneWay-Figure4.jpeg
 > 
-> #### Significance Test of the Mean Difference
+> #### Significance Test for the Mean Difference
 > 
 > testDifference(Outcome~Comparison)
 
@@ -159,31 +159,13 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 Comparison -1.633 0.943 -4.062 0.795
 
 > 
-> ### Analyses of a Factor Contrast
+> ### Analyses of a Group Contrast
 > ### (equivalent to analyses for multiple levels of a factor)
 > 
-> #### Confidence Intervals for Combined Levels
-> 
-> L1 <- c(1,0,0)
-> estimateContrast(Outcome~Factor,contrast=L1)
-
-CONFIDENCE INTERVAL FOR THE CONTRAST
-
-           Est    SE    df     LL    UL
-Contrast 2.000 1.224 3.000 -1.897 5.897
-
-> L2nL3 <- c(0,.5,.5)
-> estimateContrast(Outcome~Factor,contrast=L2nL3)
-
-CONFIDENCE INTERVAL FOR THE CONTRAST
-
-           Est    SE    df    LL    UL
-Contrast 6.500 0.866 6.000 4.381 8.619
-
+> L1vsOthers <- c(-1,.5,.5)
 > 
 > #### Confidence Interval for a Contrast
 > 
-> L1vsOthers <- c(-1,.5,.5)
 > estimateContrast(Outcome~Factor,contrast=L1vsOthers)
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -201,7 +183,6 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 > 
 > #### Plots of Confidence Intervals for a Contrast
 > 
-> L1vsOthers <- c(-1,.5,.5)
 > plotContrast(Outcome~Factor,contrast=L1vsOthers) # OneWay-Figure5.jpeg
 > plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
 > 
@@ -238,4 +219,5 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
            Est    SE     LL    UL
 Contrast 1.837 0.829 -0.298 3.973
 
+> 
 > 

@@ -74,22 +74,15 @@ standardizeDifference(CompSummary,WithinCorr,conf.level=.99)
 ### Analyses of a Variable Contrast
 ### (equivalent to analyses for multiple levels of a factor)
 
-#### Confidence Intervals for Combined Levels
-
-O1 <- c(1,0,0)
-estimateContrast(WithinSummary,WithinCorr,contrast=O1)
-O2nO3 <- c(0,.5,.5)
-estimateContrast(WithinSummary,WithinCorr,contrast=O2nO3)
+O1vsOthers <- c(-1,.5,.5)
 
 #### Confidence Interval for the Contrast
 
-O1vsOthers <- c(-1,.5,.5)
 estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
 estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-O1vsOthers <- c(-1,.5,.5)
 plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers) # Repeated-Figure5.jpeg
 plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
 
