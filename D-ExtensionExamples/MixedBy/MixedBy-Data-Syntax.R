@@ -1,60 +1,87 @@
-### Source the EASI Functions
+# Estimation Approach to Statistical Inference (EASI)
+## Mixed Design Factorial Tutorial with Data
+
+### Source the EASI Functions and the Extension
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/byExtension.R")
 
 ### Enter Data
 
 Factor <- c(1,1,1,1,2,2,2,2)
-Outcome1 <- c(0,0,3,5,4,7,4,9)
-Outcome2 <- c(4,7,4,9,9,6,4,9)
-Outcome3 <- c(4,5,6,5,4,6,8,7)
-
-Factor <- factor(Factor,levels=c(1,2),labels=c("Level 1","Level 2"))
+Outcome1 <- c(0,0,3,5,1,3,6,6)
+Outcome2 <- c(4,7,4,9,3,1,6,6)
+Outcome3 <- c(4,9,6,9,3,3,6,8)
+Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 MixedData
 
-### Examples
+### Analyses of Multiple Variables
+### (equivalent to one-sample analyses for each level of a factor)
 
-describeLevelsBy(Outcome1,Outcome2,by=Factor)
+#### Confidence Intervals for the Means
 
-correlateLevelsBy(Outcome1,Outcome2,by=Factor)
-correlateLevelsBy(Outcome1,Outcome2,Outcome3,by=Factor)
-
-estimateMeansBy(Outcome1,Outcome2,by=Factor)
 estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99)
 
-estimateDifferenceBy(Outcome2,Outcome1,by=Factor)
-estimateDifferenceBy(Outcome2,Outcome1,by=Factor,conf.level=.99)
+#### Plots of Confidence Intervals for the Means
 
-T1vsOthers <- c(-1,.5,.5)
-estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=T1vsOthers)
-estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=T1vsOthers,conf.level=.99)
+plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor) # Includes MixedBy-Figure1.jpeg and MixedBy-Figure2.jpeg
+plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=6) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
 
-testMeansBy(Outcome1,Outcome2,by=Factor,mu=5)
-testDifferenceBy(Outcome,Outcome2,by=Factor,mu=5)
-T1vsOthers <- c(-1,.5,.5)
-testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=T1vsOthers)
-testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=T1vsOthers,conf.level=.99)
+#### Significance Tests for the Means
 
-standardizeMeansBy(Outcome1,Outcome2,by=Factor)
-standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5,conf.level=.99)
+testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
+testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=6)
 
-standardizeDifferenceBy(Outcome2,Outcome1,by=Factor)
-standardizeDifferenceBy(Outcome2,Outcome1,by=Factor,mu=5,conf.level=.99)
+#### Effect Size for the Means
 
-T1vsOthers <- c(-1,.5,.5)
-standardizeContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=T1vsOthers)
-standardizeContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=T1vsOthers,conf.level=.99)
+standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
+standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=6,conf.level=.99)
 
-plotMeansBy(Outcome1,Outcome2,by=Factor)
-plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
-plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=5,rope=c(4,6))
+### Analyses of a Variable Comparison
+### (equivalent to analyses for two levels of a factor)
 
-plotDifferenceBy(Outcome2,Outcome1,by=Factor)
-plotDifferenceBy(Outcome2,Outcome1,by=Factor,conf.level=.99)
+#### Confidence Interval for the Mean Difference
 
-T1vsOthers <- c(-1,.5,.5)
-plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=T1vsOthers)
-plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=T1vsOthers,conf.level=.99)
+estimateDifferenceBy(Outcome1,Outcome2,by=Factor)
+estimateDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
 
+#### Plots of Confidence Intervals for the Mean Difference
+
+plotDifferenceBy(Outcome1,Outcome2,by=Factor) # Includes MixedBy-Figure5.jpeg and MixedBy-Figure6.jpeg
+plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
+
+#### Significance Test for the Mean Difference
+
+testDifferenceBy(Outcome1,Outcome2,by=Factor)
+testDifferenceBy(Outcome1,Outcome2,by=Factor,mu=-2)
+
+#### Effect Size for the Mean Difference
+
+standardizeDifferenceBy(Outcome1,Outcome2,by=Factor)
+standardizeDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
+
+### Analyses of a Variable Contrast
+### (equivalent to analyses for multiple levels of a factor)
+
+#### Confidence Interval for the Contrast
+
+O1vsOthers <- c(-1,.5,.5)
+estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
+estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf.level=.99)
+
+#### Plots of Confidence Intervals for a Contrast
+
+plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers) # Includes MixedBy-Figure9.jpeg and MixedBy-Figure10.jpeg
+plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
+
+#### Significance Test for the Contrast
+
+testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
+testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,mu=-1)
+
+#### Effect Size for the Contrast
+
+standardizeContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
+standardizeContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf.level=.99)

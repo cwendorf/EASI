@@ -33,7 +33,7 @@
 - The [**AnalyzeOneWay**](./AnalyzeOneWay/) files analyze an example of a single-factor between-subjects design 
 - The [**AnalyzeRepeated**](./AnalyzeRepeated/) files analyze an example of a single-factor within-subjects design
 
-**By Extension**: These examples apply the estimate, plot, test, and standardize function across levels of the second factor in a two-factor design.
+**By Extension**: These examples apply the estimate, plot, test, and standardize functions separately at levels of the second factor in a two-factor design.
 
 - The [**FactorialBy**](./FactorialBy/) files analyze an example of a two-factor between-subjects design 
 - The [**MixedBy**](./MixedBy/) files analyze an example of a mixed factorial design
