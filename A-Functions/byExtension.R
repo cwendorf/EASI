@@ -297,7 +297,6 @@ plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95) {
     Diff <- ciDifferenceBy(...,by=by,conf.level=conf.level)[[i]][c(1,4,5)]
     results <- rbind(Vars,Diff)
     rownames(results)[3]="Comparison"
-    print(results)
     cipDifference(results,main,ylab,xlab,rope)
     par(ask=TRUE)
   }
@@ -358,5 +357,3 @@ plotContrastBy.formula <- function(formula,by,contrast,rope=NULL,labels=NULL,...
     par(ask=TRUE)     
   }
 }
-
-
