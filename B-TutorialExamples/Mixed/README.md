@@ -8,16 +8,15 @@
 
 ---
 
-## Mixed Design Tutorial
+## Mixed Design (Between-Subjects and Within-Subjects) Tutorial
 
-### Overview of the Examples
+### Overview of this Example
 
-The **Mixed** files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor). These analyses include the following:
+The **Mixed** files analyze an example of a a mixed (between-subjects and within-subjects) design by applying the estimate, plot, test, and standardize functions for a within-subjects factor separately at levels of the between-subjects factor. These analyses include the following:
 
-- Analyses of Multiple Groups (equivalent to one-sample analyses of each level of the design)
-- Analyses of Marginal Means (equivalent to one-sample analyses of the marginal means)
-- Analyses of Main Effects (equivalent to a comparison analysis of marginal means for each factor in the design)
-- Analyses of the Interaction (equivalent to comparisons analysis of the simple effects)
+- Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable, seaprately at levels of the between-subjects factor)
+- Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable, seaprately at levels of the between-subjects factor)
+- Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable, seaprately at levels of the between-subjects factor)
 
 ### Files for this Example
 
@@ -29,14 +28,13 @@ The following files analyze the example using raw data input:
 - [**_Mixed-Figure2.jpg_**](./Mixed-Figure2.jpg)
 - [**_Mixed-Figure3.jpg_**](./Mixed-Figure3.jpg) 
 - [**_Mixed-Figure4.jpg_**](./Mixed-Figure4.jpg)
-
-The following files analyze the example using summary statistics input:
-
-- [**_Mixed-Summary-Syntax.R_**](./Mixed-Summary-Syntax.R)
-- [**_Mixed-Summary-Output.R_**](./Mixed-Summary-Output.R)
-- [**_Mixed-Figure1.jpg_**](./Mixed-Figure1.jpg)
-- [**_Mixed-Figure2.jpg_**](./Mixed-Figure2.jpg)
-- [**_Mixed-Figure3.jpg_**](./Mixed-Figure3.jpg)  
-- [**_Mixed-Figure4.jpg_**](./Mixed-Figure4.jpg)
+- [**_Mixed-Figure5.jpg_**](./Mixed-Figure5.jpg)
+- [**_Mixed-Figure6.jpg_**](./Mixed-Figure6.jpg)
+- [**_Mixed-Figure7.jpg_**](./Mixed-Figure7.jpg) 
+- [**_Mixed-Figure8.jpg_**](./Mixed-Figure8.jpg)
+- [**_Mixed-Figure9.jpg_**](./Mixed-Figure9.jpg)
+- [**_Mixed-Figure10.jpg_**](./Mixed-Figure10.jpg)
+- [**_Mixed-Figure11.jpg_**](./Mixed-Figure11.jpg) 
+- [**_Mixed-Figure12.jpg_**](./Mixed-Figure12.jpg)
 
 ## References
