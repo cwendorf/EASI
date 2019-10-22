@@ -37,6 +37,23 @@ The following files analyze the example using raw data input:
 - [**_Factorial-Figure11.jpg_**](./Factorial-Figure11.jpg) 
 - [**_Factorial-Figure12.jpg_**](./Factorial-Figure12.jpg)
 
+The following files analyze the example using summary statistics input:
+
+- [**_Factorial-Summary-Syntax.R_**](./Factorial-Summary-Syntax.R)
+- [**_Factorial-Summary-Output.R_**](./Factorial-Summary-Output.R)
+- [**_Factorial-Figure1.jpg_**](./Factorial-Figure1.jpg)
+- [**_Factorial-Figure2.jpg_**](./Factorial-Figure2.jpg)
+- [**_Factorial-Figure3.jpg_**](./Factorial-Figure3.jpg) 
+- [**_Factorial-Figure4.jpg_**](./Factorial-Figure4.jpg)
+- [**_Factorial-Figure5.jpg_**](./Factorial-Figure5.jpg)
+- [**_Factorial-Figure6.jpg_**](./Factorial-Figure6.jpg)
+- [**_Factorial-Figure7.jpg_**](./Factorial-Figure7.jpg) 
+- [**_Factorial-Figure8.jpg_**](./Factorial-Figure8.jpg)
+- [**_Factorial-Figure9.jpg_**](./Factorial-Figure9.jpg)
+- [**_Factorial-Figure10.jpg_**](./Factorial-Figure10.jpg)
+- [**_Factorial-Figure11.jpg_**](./Factorial-Figure11.jpg) 
+- [**_Factorial-Figure12.jpg_**](./Factorial-Figure12.jpg)
+
 ## References
 
 Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)

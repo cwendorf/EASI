@@ -1,0 +1,134 @@
+# Estimation Approach to Statistical Inference (EASI)
+## Mixed Design Tutorial with Summary Statistics
+
+### Source the EASI Functions
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+
+### Enter Summary Statistics
+
+Outcome1L1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2L1 <- c(N=4,M=6.000,SD=2.449)
+Outcome3L1 <- c(N=4,M=7.000,SD=2.449)
+WithinSummaryL1 <- rbind(Outcome1L1,Outcome2L1,Outcome3L1)
+class(WithinSummaryL1) <- "wss"
+WithinSummaryL1
+
+WithinCorrL1 <- declareCorrMatrix("Outcome1L1","Outcome2L1","Outcome3L1")
+WithinCorrL1["Outcome1L1",] <- c(1.000,.500,.389)
+WithinCorrL1["Outcome2L1",] <- c(.500,1.000,.889)
+WithinCorrL1["Outcome3L1",] <- c(.389,.889,1.000)
+WithinCorrL1
+
+Outcome1L2 <- c(N=4,M=2.000,SD=2.449)
+Outcome2L2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3L2 <- c(N=4,M=7.000,SD=2.449)
+WithinSummaryL2 <- rbind(Outcome1L2,Outcome2L2,Outcome3L2)
+class(WithinSummaryL2) <- "wss"
+WithinSummaryL2
+
+WithinCorrL2 <- declareCorrMatrix("Outcome1L2","Outcome2L2","Outcome3L2")
+WithinCorrL2["Outcome1L2",] <- c(1.000,.889,.778)
+WithinCorrL2["Outcome2L2",] <- c(.889,1.000,.889)
+WithinCorrL2["Outcome3L2",] <- c(.778,.889,1.000)
+WithinCorrL2
+
+### Analyses of Multiple Variables
+### (equivalent to one-sample analyses for each level of a factor)
+
+#### Confidence Intervals for the Means
+
+estimateMeans(WithinSummaryL1)
+estimateMeans(WithinSummaryL2)
+estimateMeans(WithinSummaryL1,conf.level=.99)
+estimateMeans(WithinSummaryL2,conf.level=.99)
+
+#### Plots of Confidence Intervals for the Means
+
+plotMeans(WithinSummaryL1) # Within-Figure1.jpeg
+plotMeans(WithinSummaryL2) # Within-Figure2.jpeg
+plotMeans(WithinSummaryL1,conf.level=.99,mu=6) # Within-Figure3.jpeg
+plotMeans(WithinSummaryL2,conf.level=.99,mu=6) # Within-Figure4.jpeg
+
+#### Significance Tests for the Means
+
+testMeans(WithinSummaryL1)
+testMeans(WithinSummaryL2)
+testMeans(WithinSummaryL1,mu=6)
+testMeans(WithinSummaryL2,mu=6)
+
+#### Effect Size for the Means
+
+standardizeMeans(WithinSummaryL1)
+standardizeMeans(WithinSummaryL2)
+standardizeMeans(WithinSummaryL1,mu=6,conf.level=.99)
+standardizeMeans(WithinSummaryL2,mu=6,conf.level=.99)
+
+### Analyses of a Variable Comparison
+### (equivalent to analyses for two levels of a factor)
+
+CompSummaryL1 <- WithinSummaryL1[c("Outcome1L1","Outcome2L1"),]
+class(CompSummaryL1) <- "wss"
+CompSummaryL2 <- WithinSummaryL2[c("Outcome1L2","Outcome2L2"),]
+class(CompSummaryL2) <- "wss"
+
+#### Confidence Interval for the Mean Difference
+
+estimateDifference(CompSummaryL1,WithinCorrL1)
+estimateDifference(CompSummaryL2,WithinCorrL2)
+estimateDifference(CompSummaryL1,WithinCorrL1,conf.level=.99)
+estimateDifference(CompSummaryL2,WithinCorrL2,conf.level=.99)
+
+#### Plots of Confidence Intervals for the Mean Difference
+
+plotDifference(CompSummaryL1,WithinCorrL1) # Within-Figure5.jpg
+plotDifference(CompSummaryL2,WithinCorrL2) # Within-Figure6.jpg
+plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99) # Within-Figure7.jpeg
+plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99) # Within-Figure8.jpeg
+
+#### Significance Test for the Mean Difference
+
+testDifference(CompSummaryL1,WithinCorrL1)
+testDifference(CompSummaryL2,WithinCorrL2)
+testDifference(CompSummaryL1,WithinCorrL1,mu=-2)
+testDifference(CompSummaryL2,WithinCorrL2,mu=-2)
+
+#### Effect Size for the Mean Difference
+
+standardizeDifference(CompSummaryL1,WithinCorrL1)
+standardizeDifference(CompSummaryL2,WithinCorrL2)
+standardizeDifference(CompSummaryL1,WithinCorrL1,conf.level=.99)
+standardizeDifference(CompSummaryL2,WithinCorrL2,conf.level=.99)
+
+### Analyses of a Variable Contrast
+### (equivalent to analyses for multiple levels of a factor)
+
+O1vsOthers <- c(-1,.5,.5)
+
+#### Confidence Interval for the Contrast
+
+estimateContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers)
+estimateContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
+estimateContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,conf.level=.99)
+estimateContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,conf.level=.99)
+
+#### Plots of Confidence Intervals for a Contrast
+
+plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers) # Within-Figure9.jpeg
+plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers) # Within-Figure10.jpeg
+plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Within-Figure11.jpeg
+plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Within-Figure12.jpeg
+
+#### Significance Test for the Contrast
+
+testContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers)
+testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
+testContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,mu=-1)
+testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,mu=-1)
+
+#### Significance Test for the Contrast
+
+standardizeContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers)
+standardizeContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
+standardizeContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,conf.level=.99)
+standardizeContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,conf.level=.99)

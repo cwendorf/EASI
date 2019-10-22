@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Between-Subjects Factorial Tutorial with Summary Statistics
+## Factorial (Between-Subjects) Tutorial with Summary Statistics
 
 ### Source the EASI Functions
 
@@ -9,48 +9,114 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 A1B1 <- c(N=4,M=2.000,SD=2.449)
 A2B1 <- c(N=4,M=6.000,SD=2.449)
-A1B2 <- c(N=4,M=7.000,SD=2.449)
-A2B2 <- c(N=4,M=5.000,SD=2.449)
-FactorialSummary <- rbind(A1B1,A2B1,A1B2,A2B2)
-class(FactorialSummary) <- "bss"
-FactorialSummary
+A3B1 <- c(N=4,M=7.000,SD=2.449)
+BetweenSummaryB1 <- rbind(A1B1,A2B1,A3B1)
+class(BetweenSummaryB1) <- "bss"
+BetweenSummaryB1
 
-### Analyses of the Different Groups
+A1B2 <- c(N=4,M=4.000,SD=2.449)
+A2B2 <- c(N=4,M=4.000,SD=2.449)
+A3B2 <- c(N=4,M=5.000,SD=2.449)
+BetweenSummaryB2 <- rbind(A1B2,A2B2,A3B2)
+class(BetweenSummaryB2) <- "bss"
+BetweenSummaryB2
 
-estimateMeans(FactorialSummary)
-plotMeans(FactorialSummary)
+### Analyses of Multiple Groups
+### (equivalent to one-sample analyses for each level of a factor)
 
-### Analyses of the Marginal Means
+#### Confidence Intervals for the Means
 
-A1 <- c(.5,0,.5,0)
-estimateContrast(FactorialSummary,contrast=A1)
-A2 <- c(0,.5,0,.5)
-estimateContrast(FactorialSummary,contrast=A2)
-B1 <- c(.5,.5,0,0)
-estimateContrast(FactorialSummary,contrast=B1)
-B2 <- c(0,0,.5,.5)
-estimateContrast(FactorialSummary,contrast=B2)
+estimateMeans(BetweenSummaryB1)
+estimateMeans(BetweenSummaryB2)
+estimateMeans(BetweenSummaryB1,conf.level=.99)
+estimateMeans(BetweenSummaryB2,conf.level=.99)
 
-### Analyses of the Factor A Main Effect
+#### Plot of the Confidence Intervals for the Means
 
-mainFactorA <- c(.5,-.5,.5,-.5)
-estimateContrast(FactorialSummary,contrast=mainFactorA)
-plotContrast(FactorialSummary,contrast=mainFactorA)
-testContrast(FactorialSummary,contrast=mainFactorA)
-standardizeContrast(FactorialSummary,contrast=mainFactorA)
+plotMeans(BetweenSummaryB1) # Factorial-Figure1.jpeg
+plotMeans(BetweenSummaryB2) # Factorial-Figure2.jpeg
+plotMeans(BetweenSummaryB1,conf.level=.99,mu=5) # Factorial-Figure3.jpeg
+plotMeans(BetweenSummaryB2,conf.level=.99,mu=5) # Factorial-Figure4.jpeg
 
-### Analyses of the Factor B Main Effect
+#### Significance Tests for the Means
 
-mainFactorB <- c(-.5,-.5,.5,.5)
-estimateContrast(FactorialSummary,contrast=mainFactorB)
-plotContrast(FactorialSummary,contrast=mainFactorB)
-testContrast(FactorialSummary,contrast=mainFactorB)
-standardizeContrast(FactorialSummary,contrast=mainFactorB)
+testMeans(BetweenSummaryB1)
+testMeans(BetweenSummaryB2)
+testMeans(BetweenSummaryB1,mu=5)
+testMeans(BetweenSummaryB2,mu=5)
 
-### Analyses of the Factor A x B Interaction
+#### Effect Size for the Means
 
-Interaction <- c(.5,-.5,-.5,.5)
-estimateContrast(FactorialSummary,contrast=Interaction)
-plotContrast(FactorialSummary,contrast=Interaction)
-testContrast(FactorialSummary,contrast=Interaction)
-standardizeContrast(FactorialSummary,contrast=Interaction)
+standardizeMeans(BetweenSummaryB1)
+standardizeMeans(BetweenSummaryB2)
+standardizeMeans(BetweenSummaryB1,mu=5,conf.level=.99)
+standardizeMeans(BetweenSummaryB2,mu=5,conf.level=.99)
+
+### Analyses of a Group Comparison
+### (equivalent to analyses for two levels of a factor)
+
+CompSummaryB1 <- BetweenSummaryB1[c("A1B1","A2B1"),]
+class(CompSummaryB1) <- "bss"
+CompSummaryB2 <- BetweenSummaryB2[c("A1B2","A2B2"),]
+class(CompSummaryB2) <- "bss"
+
+#### Confidence Interval for a Mean Difference
+
+estimateDifference(CompSummaryB1)
+estimateDifference(CompSummaryB2)
+estimateDifference(CompSummaryB1,conf.level=.99)
+estimateDifference(CompSummaryB2,conf.level=.99)
+
+#### Plot of the Confidence Interval for the Mean Difference
+
+plotDifference(CompSummaryB1) # Factorial-Figure5.jpeg
+plotDifference(CompSummaryB2) # Factorial-Figure6.jpeg
+plotDifference(CompSummaryB1,conf.level=.99) # Factorial-Figure7.jpeg
+plotDifference(CompSummaryB2,conf.level=.99) # Factorial-Figure8.jpeg
+
+#### Significance Test of the Mean Difference
+
+testDifference(CompSummaryB1)
+testDifference(CompSummaryB2)
+testDifference(CompSummaryB1,mu=2)
+testDifference(CompSummaryB2,mu=2)
+
+#### Effect Size for the Mean Difference
+
+standardizeDifference(CompSummaryB1)
+standardizeDifference(CompSummaryB2)
+standardizeDifference(CompSummaryB1,conf.level=.99)
+standardizeDifference(CompSummaryB2,conf.level=.99)
+
+### Analyses of a Group Contrast
+### (equivalent to analyses for multiple levels of a factor)
+
+L1vsOthers <- c(-1,.5,.5)
+
+#### Confidence Interval for a Contrast
+
+estimateContrast(BetweenSummaryB1,contrast=L1vsOthers)
+estimateContrast(BetweenSummaryB2,contrast=L1vsOthers)
+estimateContrast(BetweenSummaryB1,contrast=L1vsOthers,conf.level=.99)
+estimateContrast(BetweenSummaryB2,contrast=L1vsOthers,conf.level=.99)
+
+#### Plots of Confidence Intervals for a Contrast
+
+plotContrast(BetweenSummaryB1,contrast=L1vsOthers) # Factorial-Figure9.jpeg
+plotContrast(BetweenSummaryB2,contrast=L1vsOthers) # Factorial-Figure10.jpeg
+plotContrast(BetweenSummaryB1,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # Factorial-Figure11.jpeg
+plotContrast(BetweenSummaryB2,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # Factorial-Figure12.jpeg
+
+#### Significance Test for a Contrast
+
+testContrast(BetweenSummaryB1,contrast=L1vsOthers)
+testContrast(BetweenSummaryB2,contrast=L1vsOthers)
+testContrast(BetweenSummaryB1,contrast=L1vsOthers,mu=4)
+testContrast(BetweenSummaryB2,contrast=L1vsOthers,mu=4)
+
+#### Effect Size for a Contrast
+
+standardizeContrast(BetweenSummaryB1,contrast=L1vsOthers)
+standardizeContrast(BetweenSummaryB2,contrast=L1vsOthers)
+standardizeContrast(BetweenSummaryB1,contrast=L1vsOthers,conf.level=.99)
+standardizeContrast(BetweenSummaryB2,contrast=L1vsOthers,conf.level=.99)

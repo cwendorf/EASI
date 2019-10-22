@@ -37,4 +37,23 @@ The following files analyze the example using raw data input:
 - [**_Mixed-Figure11.jpg_**](./Mixed-Figure11.jpg) 
 - [**_Mixed-Figure12.jpg_**](./Mixed-Figure12.jpg)
 
+The following files analyze the example using summary statistics input:
+
+- [**_Mixed-Summary-Syntax.R_**](./Mixed-Summary-Syntax.R)
+- [**_Mixed-Summary-Output.R_**](./Mixed-Summary-Output.R)
+- [**_Mixed-Figure1.jpg_**](./Mixed-Figure1.jpg)
+- [**_Mixed-Figure2.jpg_**](./Mixed-Figure2.jpg)
+- [**_Mixed-Figure3.jpg_**](./Mixed-Figure3.jpg) 
+- [**_Mixed-Figure4.jpg_**](./Mixed-Figure4.jpg)
+- [**_Mixed-Figure5.jpg_**](./Mixed-Figure5.jpg)
+- [**_Mixed-Figure6.jpg_**](./Mixed-Figure6.jpg)
+- [**_Mixed-Figure7.jpg_**](./Mixed-Figure7.jpg) 
+- [**_Mixed-Figure8.jpg_**](./Mixed-Figure8.jpg)
+- [**_Mixed-Figure9.jpg_**](./Mixed-Figure9.jpg)
+- [**_Mixed-Figure10.jpg_**](./Mixed-Figure10.jpg)
+- [**_Mixed-Figure11.jpg_**](./Mixed-Figure11.jpg) 
+- [**_Mixed-Figure12.jpg_**](./Mixed-Figure12.jpg)
+
 ## References
+
+Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
