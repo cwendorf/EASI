@@ -40,17 +40,16 @@ standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
 ### Analyses of a Group Comparison
 ### (equivalent to analyses for two levels of a factor)
 
-#### Confidence Interval for a Mean Difference
-
 CompSummary <- BetweenSummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
+
+#### Confidence Interval for a Mean Difference
+
 estimateDifference(CompSummary)
 estimateDifference(CompSummary,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-CompSummary <- BetweenSummary[c("Level1","Level2"),]
-class(CompSummary) <- "bss"
 plotDifference(CompSummary) # OneWay-Figure3.jpeg
 plotDifference(CompSummary,conf.level=.99) # OneWay-Figure4.jpeg
 
@@ -67,22 +66,15 @@ standardizeDifference(CompSummary,conf.level=.99)
 ### Analyses of a Group Contrast
 ### (equivalent to analyses for multiple levels of a factor)
 
-#### Confidence Intervals for Combined Levels
-
-L1 <- c(1,0,0)
-estimateContrast(BetweenSummary,contrast=L1)
-L2nL3 <- c(0,.5,.5)
-estimateContrast(BetweenSummary,contrast=L2nL3)
+L1vsOthers <- c(-1,.5,.5)
 
 #### Confidence Interval for a Contrast
 
-L1vsOthers <- c(-1,.5,.5)
 estimateContrast(BetweenSummary,contrast=L1vsOthers)
 estimateContrast(BetweenSummary,contrast=L1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-L1vsOthers <- c(-1,.5,.5)
 plotContrast(BetweenSummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
 plotContrast(BetweenSummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
 

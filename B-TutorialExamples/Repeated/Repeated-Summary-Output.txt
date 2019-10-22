@@ -105,10 +105,11 @@ Outcome3  0.408  0.297 0.574 -0.968 1.734
 > ### Analyses of a Variable Comparison
 > ### (equivalent to analyses for two levels of a factor)
 > 
-> #### Confidence Interval for the Mean Difference
-> 
 > CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
 > class(CompSummary) <- "wss"
+> 
+> #### Confidence Interval for the Mean Difference
+> 
 > estimateDifference(CompSummary,WithinCorr)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -126,8 +127,6 @@ Comparison -4.000 1.224 3.000 -11.152 3.152
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
-> CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
-> class(CompSummary) <- "wss"
 > plotDifference(CompSummary,WithinCorr) # Repeated-Figure3.jpg
 > plotDifference(CompSummary,WithinCorr,conf.level=.99) # Repeated-Figure4.jpeg
 > 

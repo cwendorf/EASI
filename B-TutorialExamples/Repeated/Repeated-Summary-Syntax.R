@@ -47,17 +47,16 @@ standardizeMeans(WithinSummary,mu=6,conf.level=.99)
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
 
-#### Confidence Interval for the Mean Difference
-
 CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
+
+#### Confidence Interval for the Mean Difference
+
 estimateDifference(CompSummary,WithinCorr)
 estimateDifference(CompSummary,WithinCorr,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
-class(CompSummary) <- "wss"
 plotDifference(CompSummary,WithinCorr) # Repeated-Figure3.jpg
 plotDifference(CompSummary,WithinCorr,conf.level=.99) # Repeated-Figure4.jpeg
 
