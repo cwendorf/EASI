@@ -8,8 +8,8 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 ### Enter Data
 
 Group <- c("Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation")
-Pretest <- c(0.48261,0.42745,0.46222,0.46889,0.43752,0.36928,0.52026,0.39739,0.45503,0.45386,0.44745,0.31725,0.40562,0.39216,0.46771,0.48314,0.46065,0.43072,0.41922,0.48366,0.49725,0.40013,0.39673,0.38405,0.5251,0.41281,0.42157,0.41281,0.57843,0.41935,0.45281,0.29673,0.46144)
-Posttest <- c(0.50026,0.41137,0.45542,0.48261,0.45242,0.33621,0.53634,0.40275,0.43595,0.46235,0.45621,0.32092,0.40588,0.39987,0.4719,0.47137,0.46654,0.42549,0.41974,0.49882,0.50967,0.41059,0.41569,0.40418,0.54078,0.43046,0.43333,0.41333,0.58,0.42471,0.4583,0.31137,0.47007)
+Pretest <- c(48.261,42.745,46.222,46.889,43.752,36.928,52.026,39.739,45.503,45.386,44.745,31.725,40.562,39.216,46.771,48.314,46.065,43.072,41.922,48.366,49.725,40.013,39.673,38.405,52.51,41.281,42.157,41.281,57.843,41.935,45.281,29.673,46.144)
+Posttest <- c(50.026,41.137,45.542,48.261,45.242,33.621,53.634,40.275,43.595,46.235,45.621,32.092,40.588,39.987,47.19,47.137,46.654,42.549,41.974,49.882,50.967,41.059,41.569,40.418,54.078,43.046,43.333,41.333,58,42.471,45.83,31.137,47.007)
 HolzelData <- data.frame(Group,Pretest,Posttest)
 HolzelData
 
@@ -18,7 +18,8 @@ HolzelSubsetLMeditation <- subset(HolzelData,Group=="Meditation")
 
 #### Confidence Intervals for the Means
 
-with(HolzelSubsetControl,estimateMeans(Pretest,Posttest))
-with(HolzelSubsetLMeditation,estimateMeans(Pretest,Posttest))
-with(HolzelSubsetControl,plotMeans(Pretest,Posttest)) # Holzel-Figure1.jpeg
-with(HolzelSubsetLMeditation,plotMeans(Pretest,Posttest)) # Holzel-Figure2.jpeg
+with(HolzelSubsetControl,plotDifference(Pretest,Posttest)) # Holzel-Figure1.jpeg
+with(HolzelSubsetLMeditation,plotDifference(Pretest,Posttest)) # Holzel-Figure2.jpeg
+
+with(HolzelSubsetControl,standardizeDifference(Pretest,Posttest))
+with(HolzelSubsetLMeditation,standardizeDifference(Pretest,Posttest))

@@ -14,10 +14,7 @@
 
 The **Holzel** files analyze and example of a two-factor mixed design, one between-subjects and one within-subjects factor (from _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 15). These analyses include the following:
 
-- Analyses of Multiple Groups (equivalent to one-sample analyses of each level of the design)
-- Analyses of Marginal Means (equivalent to one-sample analyses of the marginal means)
-- Analyses of Main Effects (equivalent to a comparison analysis of marginal means for each factor in the design)
-- Analyses of the Interaction (equivalent to comparisons analysis of the simple effects)
+- Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable, seaprately at levels of the between-subjects factor)
 
 ### Details of this Example
 
@@ -27,8 +24,6 @@ The following files analyze the example using raw data input:
 - [**_Holzel-Data-Output.R_**](./Holzel-Data-Output.R)
 - [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
 - [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
-- [**_Holzel-Figure3.jpeg_**](./Holzel-Figure3.jpeg) 
-- [**_Holzel-Figure4.jpeg_**](./Holzel-Figure4.jpeg)
 
 The following files analyze the example using summary statistics input:
 
@@ -36,8 +31,6 @@ The following files analyze the example using summary statistics input:
 - [**_Holzel-Summary-Output.R_**](./Holzel-Summary-Output.R)
 - [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
 - [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
-- [**_Holzel-Figure3.jpeg_**](./Holzel-Figure3.jpeg)  
-- [**_Holzel-Figure4.jpeg_**](./Holzel-Figure4.jpeg)
 
 > **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
 
