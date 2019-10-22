@@ -45,10 +45,10 @@ estimateMeans(WithinSummaryL2,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(WithinSummaryL1) # Within-Figure1.jpeg
-plotMeans(WithinSummaryL2) # Within-Figure2.jpeg
-plotMeans(WithinSummaryL1,conf.level=.99,mu=6) # Within-Figure3.jpeg
-plotMeans(WithinSummaryL2,conf.level=.99,mu=6) # Within-Figure4.jpeg
+plotMeans(WithinSummaryL1) # Mixed-Figure1.jpeg
+plotMeans(WithinSummaryL2) # Mixed-Figure2.jpeg
+plotMeans(WithinSummaryL1,conf.level=.99,mu=6) # Mixed-Figure3.jpeg
+plotMeans(WithinSummaryL2,conf.level=.99,mu=6) # Mixed-Figure4.jpeg
 
 #### Significance Tests for the Means
 
@@ -81,10 +81,10 @@ estimateDifference(CompSummaryL2,WithinCorrL2,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(CompSummaryL1,WithinCorrL1) # Within-Figure5.jpg
-plotDifference(CompSummaryL2,WithinCorrL2) # Within-Figure6.jpg
-plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99) # Within-Figure7.jpeg
-plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99) # Within-Figure8.jpeg
+plotDifference(CompSummaryL1,WithinCorrL1) # Mixed-Figure5.jpg
+plotDifference(CompSummaryL2,WithinCorrL2) # Mixed-Figure6.jpg
+plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99) # Mixed-Figure7.jpeg
+plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99) # Mixed-Figure8.jpeg
 
 #### Significance Test for the Mean Difference
 
@@ -114,10 +114,10 @@ estimateContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,conf.level=.99
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers) # Within-Figure9.jpeg
-plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers) # Within-Figure10.jpeg
-plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Within-Figure11.jpeg
-plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Within-Figure12.jpeg
+plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers) # Mixed-Figure9.jpeg
+plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers) # Mixed-Figure10.jpeg
+plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Mixed-Figure11.jpeg
+plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Mixed-Figure12.jpeg
 
 #### Significance Test for the Contrast
 

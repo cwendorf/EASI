@@ -28,3 +28,10 @@ HolzelCorrMeditation <- declareCorrMatrix("PretestMeditation","PosttestMeditatio
 HolzelCorrMeditation["PretestMeditation","PosttestMeditation"] <- .993
 HolzelCorrMeditation <- fillCorrMatrix(HolzelCorrMeditation)
 HolzelCorrMeditation
+
+#### Confidence Intervals for the Means
+
+estimateMeans(HolzelSummaryControl)
+estimateMeans(HolzelSummaryMeditation)
+plotMeans(HolzelSummaryControl) # Holzel-Figure1.jpeg
+plotMeans(HolzelSummaryMeditation) # Holzel-Figure2.jpeg

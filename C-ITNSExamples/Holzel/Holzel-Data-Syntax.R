@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference (EASI)
-## Between-Subjects Factorial Example with Holzel Data
+## Mixed Design Example with Holzel Data
 
 ### Source the EASI Functions
 
@@ -13,4 +13,12 @@ Posttest <- c(0.50026,0.41137,0.45542,0.48261,0.45242,0.33621,0.53634,0.40275,0.
 HolzelData <- data.frame(Group,Pretest,Posttest)
 HolzelData
 
+HolzelSubsetControl <- subset(HolzelData,Group=="Control")
+HolzelSubsetLMeditation <- subset(HolzelData,Group=="Meditation")
 
+#### Confidence Intervals for the Means
+
+with(HolzelSubsetControl,estimateMeans(Pretest,Posttest))
+with(HolzelSubsetLMeditation,estimateMeans(Pretest,Posttest))
+with(HolzelSubsetControl,plotMeans(Pretest,Posttest)) # Holzel-Figure1.jpeg
+with(HolzelSubsetLMeditation,plotMeans(Pretest,Posttest)) # Holzel-Figure2.jpeg
