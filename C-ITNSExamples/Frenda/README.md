@@ -21,25 +21,15 @@ The **Frenda** files analyze and example of a two-factor between-subjects design
 
 ### Files this Example
 
-The following files analyze the example using raw data input:
-
-- [**_Frenda-Data-Syntax.R_**](./Frenda-Data-Syntax.R)
-- [**_Frenda-Data-Output.R_**](./Frenda-Data-Output.R)
-- [**_Frenda-Figure1.jpg_**](./Frenda-Figure1.jpg)
-- [**_Frenda-Figure2.jpg_**](./Frenda-Figure2.jpg)
-- [**_Frenda-Figure3.jpg_**](./Frenda-Figure3.jpg) 
-- [**_Frenda-Figure4.jpg_**](./Frenda-Figure4.jpg)
-- [**_Frenda-Figure5.jpg_**](./Frenda-Figure5.jpg)
-
 The following files analyze the example using summary statistics input:
 
 - [**_Frenda-Summary-Syntax.R_**](./Frenda-Summary-Syntax.R)
 - [**_Frenda-Summary-Output.R_**](./Frenda-Summary-Output.R)
-- [**_Frenda-Figure1.jpg_**](./Frenda-Figure1.jpg)
-- [**_Frenda-Figure2.jpg_**](./Frenda-Figure2.jpg)
-- [**_Frenda-Figure3.jpg_**](./Frenda-Figure3.jpg)  
-- [**_Frenda-Figure4.jpg_**](./Frenda-Figure4.jpg)
-- [**_Frenda-Figure5.jpg_**](./Frenda-Figure5.jpg)
+- [**_Frenda-Figure1.jpeg_**](./Frenda-Figure1.jpeg)
+- [**_Frenda-Figure2.jpeg_**](./Frenda-Figure2.jpeg)
+- [**_Frenda-Figure3.jpeg_**](./Frenda-Figure3.jpeg)  
+- [**_Frenda-Figure4.jpeg_**](./Frenda-Figure4.jpeg)
+- [**_Frenda-Figure5.jpeg_**](./Frenda-Figure5.jpeg)
 
 > **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
 

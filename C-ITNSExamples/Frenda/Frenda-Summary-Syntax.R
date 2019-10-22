@@ -52,20 +52,19 @@ standardizeContrast(FrendaSummary,contrast=mainFactorB)
 Interaction <- c(1,-1,-1,1)
 estimateContrast(FrendaSummary,contrast=Interaction)
 testContrast(FrendaSummary,contrast=Interaction)
-standardizeContrast(FrendaSummary,contrast=Interaction)
 
-### Analyses of the Factor A at Sleep Simple Effect
+### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
 
-simpleAatSleep <- c(-1,1,0,0)
-estimateContrast(FrendaSummary,contrast=simpleAatSleep)
-plotContrast(FrendaSummary,contrast=simpleAatSleep,labels=c("Evening","Morning")) # Frenda-Figure4.jpeg
-testContrast(FrendaSummary,contrast=simpleAatSleep)
-standardizeContrast(FrendaSummary,contrast=simpleAatSleep)
+simpleBatEvening <- c(-1,1,0,0)
+estimateContrast(FrendaSummary,contrast=simpleBatEvening)
+plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep")) # Frenda-Figure4.jpeg
+testContrast(FrendaSummary,contrast=simpleBatEvening)
+standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
 
-### Analyses of the Factor A at Nosleep Simple Effect
+### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning)  Simple Effect
 
-simpleAatNosleep <- c(0,0,-1,1)
-estimateContrast(FrendaSummary,contrast=simpleAatNosleep)
-plotContrast(FrendaSummary,contrast=simpleAatNosleep,labels=c("Evening","Morning")) # Frenda-Figure5.jpeg
-testContrast(FrendaSummary,contrast=simpleAatNosleep)
-standardizeContrast(FrendaSummary,contrast=simpleAatNosleep)
+simpleBatMorning <- c(0,0,-1,1)
+estimateContrast(FrendaSummary,contrast=simpleBatMorning)
+plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep")) # Frenda-Figure5.jpeg
+testContrast(FrendaSummary,contrast=simpleBatMorning)
+standardizeContrast(FrendaSummary,contrast=simpleBatMorning)
