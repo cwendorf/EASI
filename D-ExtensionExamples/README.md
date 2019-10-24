@@ -28,6 +28,11 @@
 - The [**PairwiseOneWay**](./PairwiseOneWay/) files analyze an example of a single-factor between-subjects design 
 - The [**PairwiseRepeated**](./PairwiseRepeated/) files analyze an example of a single-factor within-subjects design 
 
+**Relational Extension**: These examples provide arelational (standard) and relational (comparative) intervals for single-factor desgins.
+
+- The [**RelationalOneWay**](./RelationalOneWay/) files analyze an example of a single-factor between-subjects design 
+- The [**RelationalRepeated**](./RelationalRepeated/) files analyze an example of a single-factor within-subjects design
+
 **Analyze Extension**: These examples combine the estimate, plot, test, and standardize functions for single-factor designs.
 
 - The [**AnalyzeOneWay**](./AnalyzeOneWay/) files analyze an example of a single-factor between-subjects design 
@@ -37,6 +42,7 @@
 
 - The [**FactorialBy**](./FactorialBy/) files analyze an example of a two-factor between-subjects design 
 - The [**MixedBy**](./MixedBy/) files analyze an example of a mixed factorial design
+
 
 ## References
 
