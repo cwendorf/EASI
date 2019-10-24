@@ -51,6 +51,16 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/analyz
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/byExtension.R")
 ```
 
+[**_omnibusExtension.R_**](./omnibusExtension.R) (`describeOmnibus` functions that provide analysis of variance source tables for single-factor between- and within-subjects designs)
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/omnibusExtension.R")
+```
+
+[**_relationalExtension.R_**](./relationalExtension.R) (`estimateRelational` and `plotRelational` functions that produce functions that provide arelational (standard) and relational (comparative) intervals for single-factor between- and within-subjects designs)
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/relationalExtension.R")
+```
+
 ## Technical Details
 
 ### For Means, Mean Differences, and Contrasts
