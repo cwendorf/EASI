@@ -68,7 +68,7 @@ ciPairwise.bss <- function(SumStats,conf.level=.95,...){
 ciPairwise.default <- function(...,conf.level=.95){
   SumStats <- descData(...)
   class(SumStats) <- "wss"
-  CorrStats <- corLevels(...)
+  CorrStats <- corrData(...)
   results <- ciPairwise(SumStats,CorrStats,conf.level=conf.level)
   return(results)
 }
@@ -184,7 +184,7 @@ smdPairwise.bss <- function(SumStats,conf.level=.95,...){
 smdPairwise.default <- function(...,conf.level=.95){
   SumStats <- descData(...)
   class(SumStats) <- "wss"
-  CorrStats <- corLevels(...)
+  CorrStats <- corrData(...)
   results <- smdPairwise(SumStats,CorrStats,conf.level=conf.level)
   return(results)
 }
@@ -264,7 +264,7 @@ nhstPairwise.bss <- function(SumStats,mu=0,...){
 nhstPairwise.default <- function(...,mu=0){
   SumStats <- descData(...)
   class(SumStats) <- "wss"
-  CorrStats <- corLevels(...)
+  CorrStats <- corrData(...)
   results <- nhstPairwise(SumStats,CorrStats,mu=mu)
   return(results)
 }
