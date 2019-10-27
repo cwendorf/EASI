@@ -72,13 +72,13 @@ Level3 4.000 7.000 2.449 1.224 -0.152 14.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(BetweenSummary)
+plotMeans(BetweenSummary) # OneWay-Figure1.jpeg
 ```
 <kbd><img src="OneWay-Figure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(BetweenSummary,conf.level=.99,mu=5)
+plotMeans(BetweenSummary,conf.level=.99,mu=5) # OneWay-Figure2.jpeg
 ```
 <kbd><img src="OneWay-Figure2.jpeg"></kbd>
 
@@ -177,13 +177,13 @@ Comparison -4.000 1.732 6.000 -10.420 2.420
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
 ```r
-plotDifference(CompSummary)
+plotDifference(CompSummary)# OneWay-Figure3.jpeg
 ```
 <kbd><img src="OneWay-Figure3.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
-plotDifference(CompSummary,conf.level=.99)
+plotDifference(CompSummary,conf.level=.99) # OneWay-Figure4.jpeg
 ```
 <kbd><img src="OneWay-Figure4.jpeg"></kbd>
 
@@ -272,13 +272,13 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-plotContrast(BetweenSummary,contrast=L1vsOthers)
+plotContrast(BetweenSummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
 ````
 <kbd><img src="OneWay-Figure5.jpeg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
-plotContrast(BetweenSummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99)
+plotContrast(BetweenSummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
 ```
 <kbd><img src="OneWay-Figure6.jpeg"></kbd>
 

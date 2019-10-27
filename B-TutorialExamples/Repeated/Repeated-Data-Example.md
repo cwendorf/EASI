@@ -70,13 +70,13 @@ Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(Outcome1,Outcome2,Outcome3)
+plotMeans(Outcome1,Outcome2,Outcome3) # Repeated-Figure1.jpeg
 ```
 <kbd><img src="Repeated-Figure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)
+plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5) # Repeated-Figure2.jpeg
 ```
 <kbd><img src="Repeated-Figure2.jpeg"></kbd>
 
@@ -168,13 +168,13 @@ Comparison -4.000 1.224 3.000 -11.152 3.152
 
 This code obtains and plots the confidence intervals for the levels and the mean difference in the identified comparison.
 ```r
-plotDifference(Outcome1,Outcome2)
+plotDifference(Outcome1,Outcome2) # Repeated-Figure3.jpeg
 ```
 <kbd><img src="Repeated-Figure3.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
-plotDifference(Outcome1,Outcome2,conf.level=.99)
+plotDifference(Outcome1,Outcome2,conf.level=.99) # Repeated-Figure4.jpeg
 ```
 <kbd><img src="Repeated-Figure4.jpeg"></kbd>
 
@@ -263,13 +263,13 @@ Contrast 4.500 1.307 3.000 -3.133 12.133
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Repeated-Figure5.jpeg
 ````
 <kbd><img src="Repeated-Figure5.jpeg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
-plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99)
+plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
 ```
 <kbd><img src="Repeated-Figure6.jpeg"></kbd>
 

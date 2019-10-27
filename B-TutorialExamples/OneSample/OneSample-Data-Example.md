@@ -69,13 +69,13 @@ Outcome 8.000 4.000 3.117 1.102 0.143 7.857
 
 This code will produce a graph of the confidence interval for the variable.
 ```r
-plotMeans(Outcome)
+plotMeans(Outcome) # OneSample-Figure1.jpeg
 ```
 <kbd><img src="OneSample-Figure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(Outcome,conf.level=.99,mu=5)
+plotMeans(Outcome,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
 ```
 <kbd><img src="OneSample-Figure2.jpeg"></kbd>
 

@@ -1,0 +1,494 @@
+# Estimation Approach to Statistical Inference (EASI)
+## Factorial (Between-Subjects) Tutorial with Summary Statistics
+
+### Source the EASI Functions
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+```
+
+### Enter Summary Statistics
+
+```r
+A1B1 <- c(N=4,M=2.000,SD=2.449)
+A2B1 <- c(N=4,M=6.000,SD=2.449)
+A3B1 <- c(N=4,M=7.000,SD=2.449)
+BetweenSummaryB1 <- rbind(A1B1,A2B1,A3B1)
+class(BetweenSummaryB1) <- "bss"
+BetweenSummaryB1
+```
+```
+     N M    SD
+A1B1 4 2 2.449
+A2B1 4 6 2.449
+A3B1 4 7 2.449
+attr(,"class")
+[1] "bss"
+```
+```r
+A1B2 <- c(N=4,M=4.000,SD=2.449)
+A2B2 <- c(N=4,M=4.000,SD=2.449)
+A3B2 <- c(N=4,M=5.000,SD=2.449)
+BetweenSummaryB2 <- rbind(A1B2,A2B2,A3B2)
+class(BetweenSummaryB2) <- "bss"
+BetweenSummaryB2
+```
+```
+     N M    SD
+A1B2 4 4 2.449
+A2B2 4 4 2.449
+A3B2 4 5 2.449
+attr(,"class")
+[1] "bss"
+```
+
+### Analyses of Multiple Groups
+### (equivalent to one-sample analyses for each level of a factor)
+
+#### Confidence Intervals for the Means
+
+```r
+estimateMeans(BetweenSummaryB1)
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+         N     M    SD    SE     LL     UL
+A1B1 4.000 2.000 2.449 1.224 -1.897  5.897
+A2B1 4.000 6.000 2.449 1.224  2.103  9.897
+A3B1 4.000 7.000 2.449 1.224  3.103 10.897
+```
+```r
+estimateMeans(BetweenSummaryB2)
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+         N     M    SD    SE    LL    UL
+A1B2 4.000 4.000 2.449 1.224 0.103 7.897
+A2B2 4.000 4.000 2.449 1.224 0.103 7.897
+A3B2 4.000 5.000 2.449 1.224 1.103 8.897
+```
+```r
+estimateMeans(BetweenSummaryB1,conf.level=.99)
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+         N     M    SD    SE     LL     UL
+A1B1 4.000 2.000 2.449 1.224 -5.152  9.152
+A2B1 4.000 6.000 2.449 1.224 -1.152 13.152
+A3B1 4.000 7.000 2.449 1.224 -0.152 14.152
+```
+```r
+estimateMeans(BetweenSummaryB2,conf.level=.99)
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+         N     M    SD    SE     LL     UL
+A1B2 4.000 4.000 2.449 1.224 -3.152 11.152
+A2B2 4.000 4.000 2.449 1.224 -3.152 11.152
+A3B2 4.000 5.000 2.449 1.224 -2.152 12.152
+```
+
+#### Plot of the Confidence Intervals for the Means
+
+```r
+plotMeans(BetweenSummaryB1) # Factorial-Figure1.jpeg
+```
+<kbd><img src="Factorial-Figure1.jpeg"></kbd>
+```r
+plotMeans(BetweenSummaryB2) # Factorial-Figure2.jpeg
+```
+<kbd><img src="Factorial-Figure2.jpeg"></kbd>
+```r
+plotMeans(BetweenSummaryB1,conf.level=.99,mu=5) # Factorial-Figure3.jpeg
+```
+<kbd><img src="Factorial-Figure3.jpeg"></kbd>
+```r
+plotMeans(BetweenSummaryB2,conf.level=.99,mu=5) # Factorial-Figure4.jpeg
+```
+<kbd><img src="Factorial-Figure4.jpeg"></kbd>
+
+#### Significance Tests for the Means
+
+```r
+testMeans(BetweenSummaryB1)
+```
+```
+HYPOTHESIS TESTS FOR THE MEANS
+
+      Diff    SE     t    df     p
+A1B1 2.000 1.224 1.633 3.000 0.201
+A2B1 6.000 1.224 4.900 3.000 0.016
+A3B1 7.000 1.224 5.717 3.000 0.011
+```
+```r
+testMeans(BetweenSummaryB2)
+```
+```
+HYPOTHESIS TESTS FOR THE MEANS
+
+      Diff    SE     t    df     p
+A1B2 4.000 1.224 3.267 3.000 0.047
+A2B2 4.000 1.224 3.267 3.000 0.047
+A3B2 5.000 1.224 4.083 3.000 0.027
+```
+```r
+testMeans(BetweenSummaryB1,mu=5)
+```
+```
+HYPOTHESIS TESTS FOR THE MEANS
+
+       Diff    SE      t    df     p
+A1B1 -3.000 1.224 -2.450 3.000 0.092
+A2B1  1.000 1.224  0.817 3.000 0.474
+A3B1  2.000 1.224  1.633 3.000 0.201
+```
+```r
+testMeans(BetweenSummaryB2,mu=5)
+```
+```
+HYPOTHESIS TESTS FOR THE MEANS
+
+       Diff    SE      t    df     p
+A1B2 -1.000 1.224 -0.817 3.000 0.474
+A2B2 -1.000 1.224 -0.817 3.000 0.474
+A3B2  0.000 1.224  0.000 3.000 1.000
+```
+
+#### Effect Size for the Means
+
+```r
+standardizeMeans(BetweenSummaryB1)
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+         d d(unb)    SE     LL    UL
+A1B1 0.817  0.594 0.616 -0.387 1.934
+A2B1 2.450  1.782 0.955  0.325 4.532
+A3B1 2.858  2.079 1.063  0.464 5.227
+```
+```r
+standardizeMeans(BetweenSummaryB2)
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+         d d(unb)    SE    LL    UL
+A1B2 1.633  1.188 0.761 0.013 3.177
+A2B2 1.633  1.188 0.761 0.013 3.177
+A3B2 2.042  1.485 0.854 0.176 3.847
+```
+```r
+standardizeMeans(BetweenSummaryB1,mu=5,conf.level=.99)
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+          d d(unb)    SE     LL    UL
+A1B1 -1.225 -0.891 0.680 -3.011 0.547
+A2B1  0.408  0.297 0.574 -0.968 1.734
+A3B1  0.817  0.594 0.616 -0.732 2.320
+```
+```r
+standardizeMeans(BetweenSummaryB2,mu=5,conf.level=.99)
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+          d d(unb)    SE     LL    UL
+A1B2 -0.408 -0.297 0.574 -1.734 0.968
+A2B2 -0.408 -0.297 0.574 -1.734 0.968
+A3B2  0.000  0.000 0.559 -1.288 1.288
+```
+
+### Analyses of a Group Comparison
+### (equivalent to analyses for two levels of a factor)
+
+```r
+CompSummaryB1 <- BetweenSummaryB1[c("A1B1","A2B1"),]
+class(CompSummaryB1) <- "bss"
+CompSummaryB2 <- BetweenSummaryB2[c("A1B2","A2B2"),]
+class(CompSummaryB2) <- "bss"
+```
+
+#### Confidence Interval for a Mean Difference
+
+```r
+estimateDifference(CompSummaryB1)
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+             Diff    SE    df     LL    UL
+Comparison -4.000 1.732 6.000 -8.237 0.237
+```
+```r
+estimateDifference(CompSummaryB2)
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+            Diff    SE    df     LL    UL
+Comparison 0.000 1.732 6.000 -4.237 4.237
+```
+```r
+estimateDifference(CompSummaryB1,conf.level=.99)
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+             Diff    SE    df      LL    UL
+Comparison -4.000 1.732 6.000 -10.420 2.420
+```
+```r
+estimateDifference(CompSummaryB2,conf.level=.99)
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+            Diff    SE    df     LL    UL
+Comparison 0.000 1.732 6.000 -6.420 6.420
+```
+
+#### Plot of the Confidence Interval for the Mean Difference
+
+```r
+plotDifference(CompSummaryB1) # Factorial-Figure5.jpeg
+```
+<kbd><img src="Factorial-Figure5.jpeg"></kbd>
+```r
+plotDifference(CompSummaryB2) # Factorial-Figure6.jpeg
+```
+<kbd><img src="Factorial-Figure6.jpeg"></kbd>
+```r
+plotDifference(CompSummaryB1,conf.level=.99) # Factorial-Figure7.jpeg
+```
+<kbd><img src="Factorial-Figure7.jpeg"></kbd>
+```r
+plotDifference(CompSummaryB2,conf.level=.99) # Factorial-Figure8.jpeg
+```
+<kbd><img src="Factorial-Figure8.jpeg"></kbd>
+
+#### Significance Test of the Mean Difference
+
+```r
+testDifference(CompSummaryB1)
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+             Diff    SE      t    df     p
+Comparison -4.000 1.732 -2.310 6.000 0.060
+```
+```r
+testDifference(CompSummaryB2)
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+            Diff    SE     t    df     p
+Comparison 0.000 1.732 0.000 6.000 1.000
+```
+```r
+testDifference(CompSummaryB1,mu=-2)
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+             Diff    SE      t    df     p
+Comparison -2.000 1.732 -1.155 6.000 0.292
+```
+```r
+testDifference(CompSummaryB2,mu=-2)
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+            Diff    SE     t    df     p
+Comparison 2.000 1.732 1.155 6.000 0.292
+```
+
+#### Effect Size for the Mean Difference
+
+```r
+standardizeDifference(CompSummaryB1)
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+              Est    SE     LL    UL
+Comparison -1.633 0.943 -3.481 0.215
+```
+```r
+standardizeDifference(CompSummaryB2)
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+             Est    SE     LL    UL
+Comparison 0.000 0.816 -1.600 1.600
+```
+```r
+standardizeDifference(CompSummaryB1,conf.level=.99)
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+              Est    SE     LL    UL
+Comparison -1.633 0.943 -4.062 0.795
+```
+```r
+standardizeDifference(CompSummaryB2,conf.level=.99)
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+             Est    SE     LL    UL
+Comparison 0.000 0.816 -2.103 2.103
+```
+
+### Analyses of a Group Contrast
+### (equivalent to analyses for multiple levels of a factor)
+
+```r
+L1vsOthers <- c(-1,.5,.5)
+```
+
+#### Confidence Interval for a Contrast
+
+```r
+estimateContrast(BetweenSummaryB1,contrast=L1vsOthers)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df    LL    UL
+Contrast 4.500 1.500 6.000 0.830 8.170
+```
+```r
+estimateContrast(BetweenSummaryB2,contrast=L1vsOthers)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df     LL    UL
+Contrast 0.500 1.500 6.000 -3.170 4.170
+```
+```r
+estimateContrast(BetweenSummaryB1,contrast=L1vsOthers,conf.level=.99)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df     LL     UL
+Contrast 4.500 1.500 6.000 -1.060 10.060
+```
+```r
+estimateContrast(BetweenSummaryB2,contrast=L1vsOthers,conf.level=.99)
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df     LL    UL
+Contrast 0.500 1.500 6.000 -5.060 6.060
+```
+
+#### Plots of Confidence Intervals for a Contrast
+
+```r
+plotContrast(BetweenSummaryB1,contrast=L1vsOthers) # Factorial-Figure9.jpeg
+```
+<kbd><img src="Factorial-Figure9.jpeg"></kbd>
+```r
+plotContrast(BetweenSummaryB2,contrast=L1vsOthers) # Factorial-Figure10.jpeg
+```
+<kbd><img src="Factorial-Figure10.jpeg"></kbd>
+```r
+plotContrast(BetweenSummaryB1,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # Factorial-Figure11.jpeg
+```
+<kbd><img src="Factorial-Figure11.jpeg"></kbd>
+```r
+plotContrast(BetweenSummaryB2,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # Factorial-Figure12.jpeg
+```
+<kbd><img src="Factorial-Figure12.jpeg"></kbd>
+
+#### Significance Test for a Contrast
+
+```r
+testContrast(BetweenSummaryB1,contrast=L1vsOthers)
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 4.500 1.500 3.001 6.000 0.024
+```
+```r
+testContrast(BetweenSummaryB2,contrast=L1vsOthers)
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 0.500 1.500 0.333 6.000 0.750
+```
+```r
+testContrast(BetweenSummaryB1,contrast=L1vsOthers,mu=4)
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 0.500 1.500 0.333 6.000 0.750
+```
+```r
+testContrast(BetweenSummaryB2,contrast=L1vsOthers,mu=4)
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+            Est    SE      t    df     p
+Contrast -3.500 1.500 -2.334 6.000 0.058
+```
+
+#### Effect Size for a Contrast
+
+```r
+standardizeContrast(BetweenSummaryB1,contrast=L1vsOthers)
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE    LL    UL
+Contrast 1.837 0.829 0.212 3.463
+```
+```r
+standardizeContrast(BetweenSummaryB2,contrast=L1vsOthers)
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE     LL    UL
+Contrast 0.204 0.709 -1.185 1.593
+```
+```r
+standardizeContrast(BetweenSummaryB1,contrast=L1vsOthers,conf.level=.99)
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE     LL    UL
+Contrast 1.837 0.829 -0.298 3.973
+```
+```r
+standardizeContrast(BetweenSummaryB2,contrast=L1vsOthers,conf.level=.99)
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE     LL    UL
+Contrast 0.204 0.709 -1.621 2.030
+```

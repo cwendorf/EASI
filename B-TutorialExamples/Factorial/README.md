@@ -20,7 +20,7 @@ The **Factorial** files analyze an example of a a factorial (between-subjects) d
 
 ### Files for this Example
 
-The following files analyze the example using raw data input:
+[**_Factorial-Data-Example.md_**](./Factorial-Data-Example.md) describes the analyses using raw data input:
 
 - [**_Factorial-Data-Syntax.R_**](./Factorial-Data-Syntax.R)
 - [**_Factorial-Data-Output.R_**](./Factorial-Data-Output.R)
@@ -37,7 +37,7 @@ The following files analyze the example using raw data input:
 - [**_Factorial-Figure11.jpeg_**](./Factorial-Figure11.jpeg) 
 - [**_Factorial-Figure12.jpeg_**](./Factorial-Figure12.jpeg)
 
-The following files analyze the example using summary statistics input:
+[**_Factorial-Data-Example.md_**](./Factorial-Data-Example.md) describes the analyses using summary statistics input:
 
 - [**_Factorial-Summary-Syntax.R_**](./Factorial-Summary-Syntax.R)
 - [**_Factorial-Summary-Output.R_**](./Factorial-Summary-Output.R)

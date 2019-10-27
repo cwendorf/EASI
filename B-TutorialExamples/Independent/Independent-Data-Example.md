@@ -72,13 +72,13 @@ Level2 4.000 6.000 2.449 1.224 -1.152 13.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(Outcome~Factor)
+plotMeans(Outcome~Factor) # Independent-Figure1.jpeg
 ```
 <kbd><img src="Independent-Figure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(Outcome~Factor,conf.level=.99,mu=5)
+plotMeans(Outcome~Factor,conf.level=.99,mu=5) # Independent-Figure2.jpeg
 ```
 <kbd><img src="Independent-Figure2.jpeg"></kbd>
 
@@ -167,13 +167,13 @@ Comparison -4.000 1.732 6.000 -10.420 2.420
 
 This code obtains and plots the confidence intervals for the groups and the mean difference.
 ```r
-plotDifference(Outcome~Factor)
+plotDifference(Outcome~Factor) # Independent-Figure3.jpeg
 ```
 <kbd><img src="Independent-Figure3.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
-plotDifference(Outcome~Factor,conf.level=.99)
+plotDifference(Outcome~Factor,conf.level=.99) # Independent-Figure4.jpeg
 ```
 <kbd><img src="Independent-Figure4.jpeg"></kbd>
 

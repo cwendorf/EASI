@@ -20,7 +20,7 @@ The **Mixed** files analyze an example of a a mixed (between-subjects and within
 
 ### Files for this Example
 
-The following files analyze the example using raw data input:
+[**_Mixed-Data-Example.md_**](./Mixed-Data-Example.md) describes the analyses using raw data input:
 
 - [**_Mixed-Data-Syntax.R_**](./Mixed-Data-Syntax.R)
 - [**_Mixed-Data-Output.R_**](./Mixed-Data-Output.R)
@@ -37,7 +37,7 @@ The following files analyze the example using raw data input:
 - [**_Mixed-Figure11.jpeg_**](./Mixed-Figure11.jpeg) 
 - [**_Mixed-Figure12.jpeg_**](./Mixed-Figure12.jpeg)
 
-The following files analyze the example using summary statistics input:
+[**_Mixed-Data-Example.md_**](./Mixed-Data-Example.md) describes the analyses using summary statistics input:
 
 - [**_Mixed-Summary-Syntax.R_**](./Mixed-Summary-Syntax.R)
 - [**_Mixed-Summary-Output.R_**](./Mixed-Summary-Output.R)

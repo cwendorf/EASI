@@ -1,0 +1,525 @@
+# Estimation Approach to Statistical Inference (EASI)
+## Mixed Design Tutorial with Data
+
+### Source the EASI Functions
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+```
+
+### Enter Data
+
+```
+Factor <- c(1,1,1,1,2,2,2,2)
+Outcome1 <- c(0,0,3,5,3,1,6,6)
+Outcome2 <- c(4,7,4,9,2,2,5,7)
+Outcome3 <- c(4,9,6,9,2,4,7,7)
+Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
+MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
+MixedData
+```
+```
+  Factor Outcome1 Outcome2 Outcome3
+1 Level1        0        4        4
+2 Level1        0        7        9
+3 Level1        3        4        6
+4 Level1        5        9        9
+5 Level2        3        2        2
+6 Level2        1        2        4
+7 Level2        6        5        7
+8 Level2        6        7        7
+```
+```r
+DataSubsetL1 <- subset(MixedData,Factor=="Level1")
+DataSubsetL2 <- subset(MixedData,Factor=="Level2")
+```
+
+### Analyses of Multiple Variables
+### (equivalent to one-sample analyses for each level of a factor)
+
+#### Confidence Intervals for the Means
+
+```r
+with(DataSubsetL1,estimateMeans(Outcome1,Outcome2,Outcome3))
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
+Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
+Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
+```
+```r
+with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3))
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+             N     M    SD    SE    LL    UL
+Outcome1 4.000 4.000 2.449 1.224 0.103 7.897
+Outcome2 4.000 4.000 2.449 1.224 0.103 7.897
+Outcome3 4.000 5.000 2.449 1.224 1.103 8.897
+```
+```r
+with(DataSubsetL1,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
+Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
+Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
+```
+```r
+with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 4.000 2.449 1.224 -3.152 11.152
+Outcome2 4.000 4.000 2.449 1.224 -3.152 11.152
+Outcome3 4.000 5.000 2.449 1.224 -2.152 12.152
+```
+
+#### Confidence Intervals for the Means
+
+```r
+with(DataSubsetL1,estimateMeans(Outcome1,Outcome2,Outcome3))
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
+Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
+Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
+```
+```r
+with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3))
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+             N     M    SD    SE    LL    UL
+Outcome1 4.000 4.000 2.449 1.224 0.103 7.897
+Outcome2 4.000 4.000 2.449 1.224 0.103 7.897
+Outcome3 4.000 5.000 2.449 1.224 1.103 8.897
+```
+```r
+with(DataSubsetL1,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
+Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
+Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
+```
+```r
+with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
+```
+```
+CONFIDENCE INTERVALS FOR THE MEANS
+
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 4.000 2.449 1.224 -3.152 11.152
+Outcome2 4.000 4.000 2.449 1.224 -3.152 11.152
+Outcome3 4.000 5.000 2.449 1.224 -2.152 12.152
+```
+
+#### Plots of Confidence Intervals for the Means
+
+```r
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure1.jpeg
+```
+<kbd><img src="Mixed-Figure1.jpeg"></kbd>
+```r
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure2.jpeg
+```
+<kbd><img src="Mixed-Figure2.jpeg"></kbd>
+```r
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,
+```
+<kbd><img src="Mixed-Figure3.jpeg"></kbd>
+```rconf.level=.99,mu=5)) # Mixed-Figure3.jpeg
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)) # Mixed-Figure4.jpeg
+```
+<kbd><img src="Mixed-Figure4.jpeg"></kbd>
+
+#### Significance Tests for the Means
+
+```r
+with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3))
+```
+```
+HYPOTHESIS TESTS FOR THE MEANS
+
+          Diff    SE     t    df     p
+Outcome1 2.000 1.224 1.633 3.000 0.201
+Outcome2 6.000 1.224 4.900 3.000 0.016
+Outcome3 7.000 1.224 5.717 3.000 0.011
+```
+```r
+with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3))
+```
+```
+HYPOTHESIS TESTS FOR THE MEANS
+
+          Diff    SE     t    df     p
+Outcome1 4.000 1.224 3.267 3.000 0.047
+Outcome2 4.000 1.224 3.267 3.000 0.047
+Outcome3 5.000 1.224 4.083 3.000 0.027
+```
+```r
+with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
+```
+```
+HYPOTHESIS TESTS FOR THE MEANS
+
+           Diff    SE      t    df     p
+Outcome1 -3.000 1.224 -2.450 3.000 0.092
+Outcome2  1.000 1.224  0.817 3.000 0.474
+Outcome3  2.000 1.224  1.633 3.000 0.201
+```
+```r
+with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
+```
+```
+HYPOTHESIS TESTS FOR THE MEANS
+
+           Diff    SE      t    df     p
+Outcome1 -1.000 1.224 -0.817 3.000 0.474
+Outcome2 -1.000 1.224 -0.817 3.000 0.474
+Outcome3  0.000 1.224  0.000 3.000 1.000
+```
+
+#### Effect Size for the Means
+
+```r
+with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3))
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+             d d(unb)    SE     LL    UL
+Outcome1 0.817  0.594 0.616 -0.387 1.934
+Outcome2 2.450  1.782 0.955  0.325 4.532
+Outcome3 2.858  2.079 1.063  0.464 5.227
+```
+```r
+with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3))
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+             d d(unb)    SE    LL    UL
+Outcome1 1.633  1.188 0.761 0.013 3.177
+Outcome2 1.633  1.188 0.761 0.013 3.177
+Outcome3 2.042  1.485 0.854 0.176 3.847
+```
+```r
+with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+              d d(unb)    SE     LL    UL
+Outcome1 -1.225 -0.891 0.680 -3.011 0.547
+Outcome2  0.408  0.297 0.574 -0.968 1.734
+Outcome3  0.817  0.594 0.616 -0.732 2.320
+```
+```r
+with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
+```
+```
+CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
+
+              d d(unb)    SE     LL    UL
+Outcome1 -0.408 -0.297 0.574 -1.734 0.968
+Outcome2 -0.408 -0.297 0.574 -1.734 0.968
+Outcome3  0.000  0.000 0.559 -1.288 1.288
+```
+
+### Analyses of a Variable Comparison
+### (equivalent to analyses for two levels of a factor)
+
+#### Confidence Interval for the Mean Difference
+
+```r
+with(DataSubsetL1,estimateDifference(Outcome1,Outcome2))
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+             Diff    SE    df     LL     UL
+Comparison -4.000 1.224 3.000 -7.897 -0.103
+```
+```r
+with(DataSubsetL2,estimateDifference(Outcome1,Outcome2))
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+            Diff    SE    df     LL    UL
+Comparison 0.000 0.577 3.000 -1.837 1.837
+```
+```r
+with(DataSubsetL1,estimateDifference(Outcome1,Outcome2,conf.level=.99))
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+             Diff    SE    df      LL    UL
+Comparison -4.000 1.224 3.000 -11.152 3.152
+```
+```r
+with(DataSubsetL2,estimateDifference(Outcome1,Outcome2,conf.level=.99))
+```
+```
+CONFIDENCE INTERVAL FOR THE COMPARISON
+
+            Diff    SE    df     LL    UL
+Comparison 0.000 0.577 3.000 -3.372 3.372
+```
+
+#### Plots of Confidence Intervals for the Mean Difference
+
+```r
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2)) # Mixed-Figure5.jpeg
+```
+<kbd><img src="Mixed-Figure5.jpeg"></kbd>
+```r
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2)) # Mixed-Figure6.jpeg
+```
+<kbd><img src="Mixed-Figure6.jpeg"></kbd>
+```r
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2,conf.level=.99)) # Mixed-Figure7.jpeg
+```
+<kbd><img src="Mixed-Figure7.jpeg"></kbd>
+```r
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2,conf.level=.99)) # Mixed-Figure8.jpeg
+```
+<kbd><img src="Mixed-Figure8.jpeg"></kbd>
+
+#### Significance Test for the Mean Difference
+
+```r
+with(DataSubsetL1,testDifference(Outcome1,Outcome2))
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+             Diff    SE      t    df     p
+Comparison -4.000 1.224 -3.267 3.000 0.047
+```
+```r
+with(DataSubsetL2,testDifference(Outcome1,Outcome2))
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+            Diff    SE     t    df     p
+Comparison 0.000 0.577 0.000 3.000 1.000
+```
+```r
+with(DataSubsetL1,testDifference(Outcome1,Outcome2,mu=-2))
+```
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+             Diff    SE      t    df     p
+Comparison -2.000 1.224 -1.633 3.000 0.201
+```
+```r
+with(DataSubsetL2,testDifference(Outcome1,Outcome2,mu=-2))
+```
+HYPOTHESIS TEST FOR THE COMPARISON
+
+            Diff    SE     t    df     p
+Comparison 2.000 0.577 3.465 3.000 0.040
+```
+
+#### Effect Size for the Mean Difference
+
+```r
+with(DataSubsetL1,standardizeDifference(Outcome1,Outcome2))
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+              Est    SE     LL     UL
+Comparison -1.633 0.782 -3.166 -0.101
+```
+```r
+with(DataSubsetL2,standardizeDifference(Outcome1,Outcome2))
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+             Est    SE     LL    UL
+Comparison 0.000 0.272 -0.533 0.533
+```
+```r
+with(DataSubsetL1,standardizeDifference(Outcome1,Outcome2,conf.level=.99))
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+              Est    SE     LL    UL
+Comparison -1.633 0.782 -3.647 0.380
+```
+```r
+with(DataSubsetL2,standardizeDifference(Outcome1,Outcome2,conf.level=.99))
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+
+             Est    SE     LL    UL
+Comparison 0.000 0.272 -0.701 0.701
+```
+
+### Analyses of a Variable Contrast
+### (equivalent to analyses for multiple levels of a factor)
+
+```r
+O1vsOthers <- c(-1,.5,.5)
+```
+
+#### Confidence Interval for the Contrast
+
+```r
+with(DataSubsetL1,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df    LL    UL
+Contrast 4.500 1.258 3.000 0.496 8.504
+```
+```r
+with(DataSubsetL2,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df     LL    UL
+Contrast 0.500 0.645 3.000 -1.554 2.554
+```
+```r
+with(DataSubsetL1,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df     LL     UL
+Contrast 4.500 1.258 3.000 -2.848 11.848
+```
+```r
+with(DataSubsetL2,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
+```
+```
+CONFIDENCE INTERVAL FOR THE CONTRAST
+
+           Est    SE    df     LL    UL
+Contrast 0.500 0.645 3.000 -3.270 4.270
+```
+
+#### Plots of Confidence Intervals for a Contrast
+
+```r
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)) # Mixed-Figure9.jpeg
+```
+<kbd><img src="Mixed-Figure9.jpeg"></kbd>
+```r
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)) # Mixed-Figure10.jpeg
+```
+<kbd><img src="Mixed-Figure10.jpeg"></kbd>
+```r
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99)) # Mixed-Figure11.jpeg
+```
+<kbd><img src="Mixed-Figure11.jpeg"></kbd>
+```r
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99)) # Mixed-Figure12.jpeg
+```
+<kbd><img src="Mixed-Figure12.jpeg"></kbd>
+
+#### Significance Test for the Contrast
+
+```r
+with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 4.500 1.258 3.577 3.000 0.037
+```
+```r
+with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 0.500 0.645 0.775 3.000 0.495
+```
+```r
+with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+           Est    SE     t    df     p
+Contrast 0.500 1.258 0.397 3.000 0.718
+```
+```r
+with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
+```
+```
+HYPOTHESIS TEST FOR THE CONTRAST
+
+            Est    SE      t    df     p
+Contrast -3.500 0.645 -5.423 3.000 0.012
+```
+
+#### Effect Size for the Contrast
+
+```r
+with(DataSubsetL1,standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE    LL    UL
+Contrast 1.837 0.676 0.512 3.163
+```
+```r
+with(DataSubsetL2,standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE     LL    UL
+Contrast 0.204 0.279 -0.343 0.752
+```
+```r
+with(DataSubsetL1,standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE    LL    UL
+Contrast 1.837 0.676 0.096 3.579
+```
+```r
+with(DataSubsetL2,standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
+```
+```
+CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
+
+           Est    SE     LL    UL
+Contrast 0.204 0.279 -0.516 0.924
+```
