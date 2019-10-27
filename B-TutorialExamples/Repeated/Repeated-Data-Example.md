@@ -76,7 +76,7 @@ plotMeans(Outcome1,Outcome2,Outcome3)
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=6)
+plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)
 ```
 <kbd><img src="Repeated-Figure2.jpeg"></kbd>
 
@@ -97,15 +97,15 @@ Outcome3 7.000 1.224 5.717 3.000 0.011
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
-testMeans(Outcome1,Outcome2,Outcome3,mu=6)
+testMeans(Outcome1,Outcome2,Outcome3,mu=5)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
            Diff    SE      t    df     p
-Outcome1 -4.000 1.224 -3.267 3.000 0.047
-Outcome2  0.000 1.224  0.000 3.000 1.000
-Outcome3  1.000 1.224  0.817 3.000 0.474
+Outcome1 -3.000 1.224 -2.450 3.000 0.092
+Outcome2  1.000 1.224  0.817 3.000 0.474
+Outcome3  2.000 1.224  1.633 3.000 0.201
 ```
 
 #### Effect Sizes for the Means
@@ -125,15 +125,15 @@ Outcome3 2.858  2.079 1.063  0.464 5.227
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```r
-standardizeMeans(Outcome1,Outcome2,Outcome3,mu=6,conf.level=.99)
+standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
               d d(unb)    SE     LL    UL
-Outcome1 -1.633 -1.188 0.761 -3.765 0.398
-Outcome2  0.000  0.000 0.559 -1.288 1.288
-Outcome3  0.408  0.297 0.574 -0.968 1.734
+Outcome1 -1.225 -0.891 0.680 -3.011 0.547
+Outcome2  0.408  0.297 0.574 -0.968 1.734
+Outcome3  0.817  0.594 0.616 -0.732 2.320
 ```
 
 ### Analyses of a Variable Comparison
@@ -193,13 +193,13 @@ Comparison -4.000 1.224 -3.267 3.000 0.047
 
 If the default value of zero is not plausible, it too can be changed.
 ```r
-testDifference(Outcome1,Outcome2,mu=-2)
+testDifference(Outcome1,Outcome2,mu=2)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -2.000 1.224 -1.633 3.000 0.201
+Comparison -6.000 1.224 -4.900 3.000 0.016
 ```
 
 #### Effect Size for the Mean Difference
@@ -288,13 +288,13 @@ Contrast 4.500 1.307 3.444 3.000 0.041
 
 If desired, the contrast can be tested against other values if needed.
 ```r
-testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=-1)
+testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
-Contrast 4.500 1.307 3.444 3.000 0.041
+Contrast 0.500 1.307 0.383 3.000 0.727
 ```
 
 #### Effect Size for a Contrast
