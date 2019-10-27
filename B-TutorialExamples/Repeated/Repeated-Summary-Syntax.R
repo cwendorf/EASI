@@ -32,17 +32,17 @@ estimateMeans(WithinSummary,conf.level=.99)
 #### Plots of Confidence Intervals for the Means
 
 plotMeans(WithinSummary) # Repeated-Figure1.jpeg
-plotMeans(WithinSummary,conf.level=.99,mu=6) # Repeated-Figure2.jpeg
+plotMeans(WithinSummary,conf.level=.99,mu=5) # Repeated-Figure2.jpeg
 
 #### Significance Tests for the Means
 
 testMeans(WithinSummary)
-testMeans(WithinSummary,mu=6)
+testMeans(WithinSummary,mu=5)
 
 #### Effect Size for the Means
 
 standardizeMeans(WithinSummary)
-standardizeMeans(WithinSummary,mu=6,conf.level=.99)
+standardizeMeans(WithinSummary,mu=5,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
@@ -63,7 +63,7 @@ plotDifference(CompSummary,WithinCorr,conf.level=.99) # Repeated-Figure4.jpeg
 #### Significance Test for the Mean Difference
 
 testDifference(CompSummary,WithinCorr)
-testDifference(CompSummary,WithinCorr,mu=-2)
+testDifference(CompSummary,WithinCorr,mu=2)
 
 #### Effect Size for the Mean Difference
 
@@ -88,7 +88,7 @@ plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,labels=c("Outcome1","O
 #### Significance Test for the Contrast
 
 testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
-testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,mu=-1)
+testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,mu=4)
 
 #### Significance Test for the Contrast
 
