@@ -19,7 +19,7 @@ The **Paired** files analyze examples of a within-subjects design for two time p
 
 ### Files this Example
   
-The following files analyze the example using raw data input:
+[**_Paired-Data-Example.md_**](./Paired-Data-Example.md) describes the analyses using raw data input:
 
 - [**_Paired-Data-Syntax.R_**](./Paired-Data-Syntax.R)
 - [**_Paired-Data-Output.R_**](./Paired-Data-Output.R)
@@ -28,7 +28,7 @@ The following files analyze the example using raw data input:
 - [**_Paired-Figure3.jpeg_**](./Paired-Figure3.jpeg) 
 - [**_Paired-Figure4.jpeg_**](./Paired-Figure4.jpeg) 
 
-The following files analyze the example using summary statistics input:
+[**_Paired-Summary-Example.md_**](./Paired-Summary-Example.md) describes the analyses using summary statistics input:
 
 - [**_Paired-Summary-Syntax.R_**](./Paired-Summary-Syntax.R)
 - [**_Paired-Summary-Output.R_**](./Paired-Summary-Output.R)

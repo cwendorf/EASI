@@ -105,19 +105,19 @@ Comparison -4.000 1.224 3.000 -11.152 3.152
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
-> plotDifference(Outcome1,Outcome2)
-> plotDifference(Outcome1,Outcome2,conf.level=.99)
+> plotDifference(Outcome1,Outcome2) # Paired-Figure3.jpeg
+> plotDifference(Outcome1,Outcome2,conf.level=.99) # Paired-Figure4.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
-> testDifference(Outcome1,Outcome2) # Paired-Figure3.jpeg
+> testDifference(Outcome1,Outcome2) 
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
 Comparison -4.000 1.224 -3.267 3.000 0.047
 
-> testDifference(Outcome1,Outcome2,mu=-2) # Paired-Figure4.jpeg
+> testDifference(Outcome1,Outcome2,mu=-2) 
 
 HYPOTHESIS TEST FOR THE COMPARISON
 

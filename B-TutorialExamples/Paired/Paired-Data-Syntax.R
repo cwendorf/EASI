@@ -46,13 +46,13 @@ estimateDifference(Outcome1,Outcome2,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(Outcome1,Outcome2)
-plotDifference(Outcome1,Outcome2,conf.level=.99)
+plotDifference(Outcome1,Outcome2) # Paired-Figure3.jpeg
+plotDifference(Outcome1,Outcome2,conf.level=.99) # Paired-Figure4.jpeg
 
 #### Significance Test for the Mean Difference
 
-testDifference(Outcome1,Outcome2) # Paired-Figure3.jpeg
-testDifference(Outcome1,Outcome2,mu=-2) # Paired-Figure4.jpeg
+testDifference(Outcome1,Outcome2) 
+testDifference(Outcome1,Outcome2,mu=-2) 
 
 #### Effect Size for the Mean Difference
 

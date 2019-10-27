@@ -42,12 +42,12 @@ Level2 4.000 6.000 2.449 1.224 -1.152 13.152
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> plotMeans(BetweenSummary)
-> plotMeans(BetweenSummary,conf.level=.99,mu=5)
+> plotMeans(BetweenSummary) # Independent-Figure1.jpeg
+> plotMeans(BetweenSummary,conf.level=.99,mu=5) # Independent-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
-> testMeans(BetweenSummary) # Independent-Figure1.jpeg
+> testMeans(BetweenSummary) 
 
 HYPOTHESIS TESTS FOR THE MEANS
 
@@ -55,7 +55,7 @@ HYPOTHESIS TESTS FOR THE MEANS
 Level1 2.000 1.224 1.633 3.000 0.201
 Level2 6.000 1.224 4.900 3.000 0.016
 
-> testMeans(BetweenSummary,mu=5) # Independent-Figure2.jpeg
+> testMeans(BetweenSummary,mu=5) 
 
 HYPOTHESIS TESTS FOR THE MEANS
 

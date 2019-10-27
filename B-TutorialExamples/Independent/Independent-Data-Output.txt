@@ -88,7 +88,7 @@ Level1 -1.225 -0.891 0.680 -3.011 0.547
 Level2  0.408  0.297 0.574 -0.968 1.734
 
 > 
-> ### Analyses of a Factor Comparison
+> ### Analyses of a Group Comparison
 > ### (equivalent to analyses for two levels of a factor)
 > 
 > #### Confidence Interval for a Mean Difference

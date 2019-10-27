@@ -12,14 +12,14 @@
 
 ### Overview of this Example
 
-The **Independent** files analyze examples of a two-group between-subjects design (independent-groups). These analyses include the following:
+The **Independent** files analyze an example of a two-group between-subjects design (independent-groups). These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 
 ### Files for this Example
 
-The following files analyze the example using raw data input:
+[**_Independent-Data-Example.md_**](./Independent-Data-Example.md) describes the analyses using raw data input:
 
 - [**_Independent-Data-Syntax.R_**](./Independent-Data-Syntax.R)
 - [**_Independent-Data-Output.R_**](./Independent-Data-Output.R)
@@ -28,12 +28,13 @@ The following files analyze the example using raw data input:
 - [**_Independent-Figure3.jpeg_**](./Independent-Figure3.jpeg) 
 - [**_Independent-Figure4.jpeg_**](./Independent-Figure4.jpeg)
 
-The following files analyze the example using summary statistics input:
+[**_Independent-Summary-Example.md_**](./Independent-Summary-Example.md) describes the analyses using summary statistics input:
 
 - [**_Independent-Summary-Syntax.R_**](./Independent-Summary-Syntax.R)
 - [**_Independent-Summary-Output.R_**](./Independent-Summary-Output.R)
 - [**_Independent-Figure1.jpeg_**](./Independent-Figure1.jpeg)
 - [**_Independent-Figure2.jpeg_**](./Independent-Figure2.jpeg)
+- [**_Independent-Figure3.jpeg_**](./Independent-Figure3.jpeg)
 - [**_Independent-Figure4.jpeg_**](./Independent-Figure4.jpeg) 
 
 ## References

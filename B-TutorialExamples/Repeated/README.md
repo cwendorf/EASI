@@ -20,7 +20,7 @@ The **Repeated** files analyze an example of a single-factor within-subjects des
 
 ### Files for this Example
   
-The following files analyze the example using raw data input:
+[**_Repeated-Data-Example.md_**](./Repeated-Data-Example.md) describes the analyses using raw data input:
 
 - [**_Repeated-Data-Syntax.R_**](./Repeated-Data-Syntax.R)
 - [**_Repeated-Data-Output.R_**](./Repeated-Data-Output.R)
@@ -31,7 +31,7 @@ The following files analyze the example using raw data input:
 - [**_Repeated-Figure5.jpeg_**](./Repeated-Figure5.jpeg) 
 - [**_Repeated-Figure6.jpeg_**](./Repeated-Figure6.jpeg) 
 
-The following files analyze the example using summary statistics input:
+[**_Repeated-Summary-Example.md_**](./Repeated-Summary-Example.md) describes the analyses using summary statistics input:
 
 - [**_Repeated-Summary-Syntax.R_**](./Repeated-Summary-Syntax.R)
 - [**_Repeated-Summary-Output.R_**](./Repeated-Summary-Output.R)

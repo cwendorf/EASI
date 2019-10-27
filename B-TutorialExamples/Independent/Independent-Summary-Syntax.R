@@ -23,13 +23,13 @@ estimateMeans(BetweenSummary,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeans(BetweenSummary)
-plotMeans(BetweenSummary,conf.level=.99,mu=5)
+plotMeans(BetweenSummary) # Independent-Figure1.jpeg
+plotMeans(BetweenSummary,conf.level=.99,mu=5) # Independent-Figure2.jpeg
 
 #### Significance Tests for the Means
 
-testMeans(BetweenSummary) # Independent-Figure1.jpeg
-testMeans(BetweenSummary,mu=5) # Independent-Figure2.jpeg
+testMeans(BetweenSummary) 
+testMeans(BetweenSummary,mu=5) 
 
 #### Effect Size for the Means
 
