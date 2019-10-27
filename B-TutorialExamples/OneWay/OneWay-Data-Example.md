@@ -300,7 +300,7 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 4.500 1.500 3.001 6.000 0.024
 ```
 
-If desired, the contrast can be tested against other values if needed.
+If desired, the contrast can be tested against other values.
 ```r
 testContrast(Outcome~Factor,contrast=L1vsOthers,mu=4)
 ```

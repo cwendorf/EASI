@@ -126,7 +126,7 @@ testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
 testContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,mu=4)
 testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,mu=4)
 
-#### Significance Test for the Contrast
+#### Efect Size for the Contrast
 
 standardizeContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers)
 standardizeContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)

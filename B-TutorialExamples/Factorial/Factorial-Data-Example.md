@@ -1,4 +1,13 @@
 # Estimation Approach to Statistical Inference (EASI)
+
+[**Home**](https://github.com/cwendorf/EASI/) | 
+[**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
+[**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
+[**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
+[**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
+
+---
+
 ## Factorial (Bewteen-Subjects) Tutorial with Data
 
 ### Source the EASI Functions
@@ -9,6 +18,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 
 ### Enter Data
 
+This code inputs the variable names and creates a viewable data frame.
 ```r
 FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)
 FactorB <- c(1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2)
@@ -45,16 +55,20 @@ FactorialData
 23      A3      B2       7
 24      A3      B2       7
 ```
+
+This code subsets the data into two different data frames (for simple effects analysis).
 ```r
 DataSubsetB1 <- subset(FactorialData,FactorB=="B1")
 DataSubsetB2 <- subset(FactorialData,FactorB=="B2")
 ```
 
 ### Analyses of Multiple Groups
-### (equivalent to one-sample analyses for each level of a factor)
+
+This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
+This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```r
 with(DataSubsetB1,estimateMeans(Outcome~FactorA))
 ```
@@ -66,6 +80,8 @@ A1 4.000 2.000 2.449 1.224 -1.897  5.897
 A2 4.000 6.000 2.449 1.224  2.103  9.897
 A3 4.000 7.000 2.449 1.224  3.103 10.897
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,estimateMeans(Outcome~FactorA))
 ```
@@ -77,6 +93,8 @@ A1 4.000 4.000 2.449 1.224 0.103 7.897
 A2 4.000 4.000 2.449 1.224 0.103 7.897
 A3 4.000 5.000 2.449 1.224 1.103 8.897
 ```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
 with(DataSubsetB1,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
@@ -87,6 +105,8 @@ A1 4.000 2.000 2.449 1.224 -5.152  9.152
 A2 4.000 6.000 2.449 1.224 -1.152 13.152
 A3 4.000 7.000 2.449 1.224 -0.152 14.152
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
@@ -101,18 +121,25 @@ A3 4.000 5.000 2.449 1.224 -2.152 12.152
 
 #### Plot of the Confidence Intervals for the Means
 
+This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
 with(DataSubsetB1,plotMeans(Outcome~FactorA)) # Factorial-Figure1.jpeg
 ```
 <kbd><img src="Factorial-Figure1.jpeg"></kbd>
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,plotMeans(Outcome~FactorA)) # Factorial-Figure2.jpeg
 ```
 <kbd><img src="Factorial-Figure2.jpeg"></kbd>
+
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
 with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Figure3.jpeg
 ```
 <kbd><img src="Factorial-Figure3.jpeg"></kbd>
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Figure4.jpeg
 ```
@@ -121,6 +148,7 @@ with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Fi
 
 #### Significance Tests for the Means
 
+This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```r
 with(DataSubsetB1,testMeans(Outcome~FactorA))
 ```
@@ -132,6 +160,8 @@ A1 2.000 1.224 1.633 3.000 0.201
 A2 6.000 1.224 4.900 3.000 0.016
 A3 7.000 1.224 5.717 3.000 0.011
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,testMeans(Outcome~FactorA))
 ```
@@ -143,6 +173,8 @@ A1 4.000 1.224 3.267 3.000 0.047
 A2 4.000 1.224 3.267 3.000 0.047
 A3 5.000 1.224 4.083 3.000 0.027
 ```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
 with(DataSubsetB1,testMeans(Outcome~FactorA,mu=5))
 ```
@@ -154,6 +186,8 @@ A1 -3.000 1.224 -2.450 3.000 0.092
 A2  1.000 1.224  0.817 3.000 0.474
 A3  2.000 1.224  1.633 3.000 0.201
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,testMeans(Outcome~FactorA,mu=5))
 ```
@@ -168,6 +202,7 @@ A3  0.000 1.224  0.000 3.000 1.000
 
 #### Effect Size for the Means
 
+This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```r
 with(DataSubsetB1,standardizeMeans(Outcome~FactorA))
 ```
@@ -179,6 +214,8 @@ A1 0.817  0.594 0.616 -0.387 1.934
 A2 2.450  1.782 0.955  0.325 4.532
 A3 2.858  2.079 1.063  0.464 5.227
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,standardizeMeans(Outcome~FactorA))
 ```
@@ -190,6 +227,8 @@ A1 1.633  1.188 0.761 0.013 3.177
 A2 1.633  1.188 0.761 0.013 3.177
 A3 2.042  1.485 0.854 0.176 3.847
 ```
+
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```r
 with(DataSubsetB1,standardizeMeans(Outcome~FactorA,mu=5,conf.level=.99))
 ```
@@ -201,6 +240,8 @@ A1 -1.225 -0.891 0.680 -3.011 0.547
 A2  0.408  0.297 0.574 -0.968 1.734
 A3  0.817  0.594 0.616 -0.732 2.320
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB1,standardizeMeans(Outcome~FactorA,mu=5,conf.level=.99))
 ```
@@ -214,8 +255,10 @@ A3  0.817  0.594 0.616 -0.732 2.320
 ```
 
 ### Analyses of a Group Comparison
-### (equivalent to analyses for two levels of a factor)
 
+This section produces analyses that are equivalent to comparisons of two levels of a factor.
+
+This code creates a new factor that identifies the two levels for comparison.
 ```r
 Comparison <- with(DataSubsetB1,factor(FactorA,c("A1","A2")))
 Comparison <- with(DataSubsetB2,factor(FactorA,c("A1","A2")))
@@ -223,6 +266,7 @@ Comparison <- with(DataSubsetB2,factor(FactorA,c("A1","A2")))
 
 #### Confidence Interval for a Mean Difference
 
+This code estimates the confidence interval of the difference.
 ```r
 with(DataSubsetB1,estimateMeans(Outcome~Comparison))
 ```
@@ -233,6 +277,8 @@ CONFIDENCE INTERVALS FOR THE MEANS
 A1 4.000 2.000 2.449 1.224 -1.897 5.897
 A2 4.000 6.000 2.449 1.224  2.103 9.897
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,estimateMeans(Outcome~Comparison))
 ```
@@ -243,6 +289,8 @@ CONFIDENCE INTERVALS FOR THE MEANS
 A1 4.000 4.000 2.449 1.224 0.103 7.897
 A2 4.000 4.000 2.449 1.224 0.103 7.897
 ```
+
+Of course, you can change the confidence level from the default 95% if desired.
 ```r
 with(DataSubsetB1,estimateDifference(Outcome~Comparison,conf.level=.99))
 ```
@@ -252,6 +300,8 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
              Diff    SE    df      LL    UL
 Comparison -4.000 1.732 6.000 -10.420 2.420
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,estimateDifference(Outcome~Comparison,conf.level=.99))
 ```
@@ -264,18 +314,25 @@ Comparison 0.000 1.732 6.000 -6.420 6.420
 
 #### Plot of the Confidence Interval for the Mean Difference
 
+This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
 ```r
 with(DataSubsetB1,plotDifference(Outcome~Comparison)) # Factorial-Figure5.jpeg
 ```
 <kbd><img src="Factorial-Figure5.jpeg"></kbd>
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,plotDifference(Outcome~Comparison)) # Factorial-Figure6.jpeg
 ```
 <kbd><img src="Factorial-Figure6.jpeg"></kbd>
+
+Once again, the confidence levels can be changed away from the default if desired.
 ```r
 with(DataSubsetB1,plotDifference(Outcome~Comparison,conf.level=.99)) # Factorial-Figure7.jpeg
 ```
 <kbd><img src="Factorial-Figure7.jpeg"></kbd>
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,plotDifference(Outcome~Comparison,conf.level=.99)) # Factorial-Figure8.jpeg
 ```
@@ -283,6 +340,7 @@ with(DataSubsetB2,plotDifference(Outcome~Comparison,conf.level=.99)) # Factorial
 
 #### Significance Test for the Mean Difference
 
+This code produces NHST for the identified comparison (using a default test value of zero).
 ```r
 with(DataSubsetB1,testDifference(Outcome~Comparison))
 ```
@@ -292,6 +350,8 @@ HYPOTHESIS TEST FOR THE COMPARISON
              Diff    SE      t    df     p
 Comparison -4.000 1.732 -2.310 6.000 0.060
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,testDifference(Outcome~Comparison))
 ```
@@ -301,6 +361,8 @@ HYPOTHESIS TEST FOR THE COMPARISON
             Diff    SE     t    df     p
 Comparison 0.000 1.732 0.000 6.000 1.000
 ```
+
+If the default value of zero is not plausible, it too can be changed.
 ```r
 with(DataSubsetB1,testDifference(Outcome~Comparison,mu=-2))
 ```
@@ -310,6 +372,8 @@ HYPOTHESIS TEST FOR THE COMPARISON
              Diff    SE      t    df     p
 Comparison -2.000 1.732 -1.155 6.000 0.292
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,testDifference(Outcome~Comparison,mu=-2))
 ```
@@ -322,6 +386,7 @@ Comparison 2.000 1.732 1.155 6.000 0.292
 
 #### Effect Size for the Mean Difference
 
+This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```r
 with(DataSubsetB1,standardizeDifference(Outcome~Comparison))
 ```
@@ -331,6 +396,8 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
               Est    SE     LL    UL
 Comparison -1.633 0.943 -3.481 0.215
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,standardizeDifference(Outcome~Comparison))
 ```
@@ -340,6 +407,8 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
              Est    SE     LL    UL
 Comparison 0.000 0.816 -1.600 1.600
 ```
+
+The width of the confidence interval for the effect size can be altered if desired.
 ```r
 with(DataSubsetB1,standardizeDifference(Outcome~Comparison,conf.level=.99))
 ```
@@ -349,6 +418,8 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
               Est    SE     LL    UL
 Comparison -1.633 0.943 -4.062 0.795
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,standardizeDifference(Outcome~Comparison,conf.level=.99))
 ```
@@ -360,13 +431,17 @@ Comparison 0.000 0.816 -2.103 2.103
 ```
 
 ### Analyses of a Group Contrast
-### (equivalent to analyses for multiple levels of a factor)
 
+This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
+
+This code identifies a contrast among the groups.
 ```r
 A1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for a Contrast
+
+This code produces a confidence interval for that contrast.
 ```r
 with(DataSubsetB1,estimateContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
@@ -376,6 +451,8 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
            Est    SE    df    LL    UL
 Contrast 4.500 1.500 6.000 0.830 8.170
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,estimateContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
@@ -385,6 +462,8 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
            Est    SE    df     LL    UL
 Contrast 0.500 1.500 6.000 -3.170 4.170
 ```
+
+As in all other cases, the default value of the confidence interval can be changed.
 ```r
 with(DataSubsetB1,estimateContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
 ```
@@ -394,6 +473,8 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
            Est    SE    df     LL     UL
 Contrast 4.500 1.500 6.000 -1.060 10.060
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,estimateContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
 ```
@@ -406,18 +487,25 @@ Contrast 0.500 1.500 6.000 -5.060 6.060
 
 #### Plots of Confidence Intervals for a Contrast
 
+This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
 with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers)) # Factorial-Figure9.jpeg
 ```
 <kbd><img src="Factorial-Figure9.jpeg"></kbd>
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers)) # Factorial-Figure10.jpeg
 ```
 <kbd><img src="Factorial-Figure10.jpeg"></kbd>
+
+The width of the confidence interval for the contrast can be altered if desired.
 ```r
 with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99)) # Factorial-Figure11.jpeg
 ```
 <kbd><img src="Factorial-Figure11.jpeg"></kbd>
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99)) # Factorial-Figure12.jpeg
 ```
@@ -425,6 +513,7 @@ with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1"
 
 #### Significance Test for a Contrast
 
+This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```r
 with(DataSubsetB1,testContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
@@ -434,6 +523,8 @@ HYPOTHESIS TEST FOR THE CONTRAST
            Est    SE     t    df     p
 Contrast 4.500 1.500 3.001 6.000 0.024
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,testContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
@@ -443,6 +534,8 @@ HYPOTHESIS TEST FOR THE CONTRAST
            Est    SE     t    df     p
 Contrast 0.500 1.500 0.333 6.000 0.750
 ```
+
+If desired, the contrast can be tested against other values.
 ```r
 with(DataSubsetB1,testContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
 ```
@@ -452,6 +545,8 @@ HYPOTHESIS TEST FOR THE CONTRAST
            Est    SE     t    df     p
 Contrast 0.500 1.500 0.333 6.000 0.750
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,testContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
 ```
@@ -464,6 +559,7 @@ Contrast -3.500 1.500 -2.334 6.000 0.058
 
 #### Effect Size for a Contrast
 
+This code calculates a standardized contrast and its confidence interval.
 ```r
 with(DataSubsetB1,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
@@ -473,6 +569,8 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
            Est    SE    LL    UL
 Contrast 1.837 0.829 0.212 3.463
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
@@ -482,6 +580,8 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
            Est    SE     LL    UL
 Contrast 0.204 0.709 -1.185 1.593
 ```
+
+The width of the confidence interval for the effect size can be altered if desired.
 ```r
 with(DataSubsetB1,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
 ```
@@ -491,6 +591,8 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
            Est    SE     LL    UL
 Contrast 1.837 0.829 -0.298 3.973
 ```
+
+And repeat the analysis for the second subset.
 ```r
 with(DataSubsetB2,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
 ```
