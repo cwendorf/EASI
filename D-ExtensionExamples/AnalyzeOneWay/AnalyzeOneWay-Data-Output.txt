@@ -11,7 +11,6 @@
 > Factor <- c(rep(1,4),rep(2,4),rep(3,4))
 > Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
 > Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
-> 
 > BetweenData <- data.frame(Factor,Outcome)
 > BetweenData
    Factor Outcome
@@ -53,7 +52,7 @@ Level1 0.817  0.594 0.616 -0.387 1.934
 Level2 2.450  1.782 0.955  0.325 4.532
 Level3 2.858  2.079 1.063  0.464 5.227
 
-> analyzeMeans(Outcome~Factor,mu=6,conf.level=.99) # Includes AnalyzeOneWay-Figure2.jpeg
+> analyzeMeans(Outcome~Factor,mu=5,conf.level=.99) # Includes AnalyzeOneWay-Figure2.jpeg
 $title
 [1] "ANALYSIS OF MEANS"
 
@@ -65,15 +64,15 @@ Level3 4.000 7.000 2.449 1.224 -0.152 14.152
 
 $testMeans
          Diff    SE      t    df     p
-Level1 -4.000 1.224 -3.267 3.000 0.047
-Level2  0.000 1.224  0.000 3.000 1.000
-Level3  1.000 1.224  0.817 3.000 0.474
+Level1 -3.000 1.224 -2.450 3.000 0.092
+Level2  1.000 1.224  0.817 3.000 0.474
+Level3  2.000 1.224  1.633 3.000 0.201
 
 $standardizeMeans
             d d(unb)    SE     LL    UL
-Level1 -1.633 -1.188 0.761 -3.765 0.398
-Level2  0.000  0.000 0.559 -1.288 1.288
-Level3  0.408  0.297 0.574 -0.968 1.734
+Level1 -1.225 -0.891 0.680 -3.011 0.547
+Level2  0.408  0.297 0.574 -0.968 1.734
+Level3  0.817  0.594 0.616 -0.732 2.320
 
 > 
 > ### Analyses of a Group Comparison
@@ -96,7 +95,7 @@ $standardizeDifference
               Est    SE     LL    UL
 Comparison -1.633 0.943 -3.481 0.215
 
-> analyzeDifference(Outcome~Comparison,mu=2,conf.level=.99) # Includes AnalyzeOneWay-Figure4.jpeg
+> analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99) # Includes AnalyzeOneWay-Figure4.jpeg
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
@@ -106,7 +105,7 @@ Comparison -4.000 1.732 6.000 -10.420 2.420
 
 $testDifference
              Diff    SE      t    df     p
-Comparison -6.000 1.732 -3.465 6.000 0.013
+Comparison -2.000 1.732 -1.155 6.000 0.292
 
 $standardizeDifference
               Est    SE     LL    UL
@@ -133,7 +132,7 @@ $standardizeContrast
            Est    SE    LL    UL
 Contrast 1.837 0.829 0.212 3.463
 
-> analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=0,conf.level=.99) # Includes AnalyzeOneWay-Figure6.jpeg
+> analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99) # Includes AnalyzeOneWay-Figure6.jpeg
 $title
 [1] "ANALYSIS OF A CONTRAST"
 
@@ -143,7 +142,7 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 
 $testContrast
            Est    SE     t    df     p
-Contrast 4.500 1.500 3.001 6.000 0.024
+Contrast 0.500 1.500 0.333 6.000 0.750
 
 $standardizeContrast
            Est    SE     LL    UL

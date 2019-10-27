@@ -11,7 +11,6 @@
 > Outcome1 <- c(0,0,3,5)
 > Outcome2 <- c(4,7,4,9)
 > Outcome3 <- c(9,6,4,9)
-> 
 > WithinData <- data.frame(Outcome1,Outcome2,Outcome3)
 > WithinData
   Outcome1 Outcome2 Outcome3
@@ -28,14 +27,10 @@ $title
 [1] "ANALYSIS OF MEANS"
 
 $estimateMeans
-             N     M    SD    SE     LL
-Outcome1 4.000 2.000 2.449 1.224 -1.897
-Outcome2 4.000 6.000 2.449 1.224  2.103
-Outcome3 4.000 7.000 2.449 1.224  3.103
-             UL
-Outcome1  5.897
-Outcome2  9.897
-Outcome3 10.897
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
+Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
+Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
 
 $testMeans
           Diff    SE     t    df     p
@@ -49,34 +44,29 @@ Outcome1 0.817  0.594 0.616 -0.387 1.934
 Outcome2 2.450  1.782 0.955  0.325 4.532
 Outcome3 2.858  2.079 1.063  0.464 5.227
 
-> analyzeMeans(Outcome1,Outcome2,Outcome3,mu=6,conf.level=.99) # Includes AnalyzeRepeated-Figure1.jpeg
+> analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99) # Includes AnalyzeRepeated-Figure1.jpeg
 $title
 [1] "ANALYSIS OF MEANS"
 
 $estimateMeans
-             N     M    SD    SE     LL
-Outcome1 4.000 2.000 2.449 1.224 -5.152
-Outcome2 4.000 6.000 2.449 1.224 -1.152
-Outcome3 4.000 7.000 2.449 1.224 -0.152
-mu       4.000 6.000 0.000 0.000  6.000
-             UL
-Outcome1  9.152
-Outcome2 13.152
-Outcome3 14.152
-mu        6.000
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
+Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
+Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
+mu       4.000 5.000 0.000 0.000  5.000  5.000
 
 $testMeans
              Diff    SE      t    df     p
-Outcome1   -4.000 1.224 -3.267 3.000 0.047
-Outcome2    0.000 1.224  0.000 3.000 1.000
-Outcome3    1.000 1.224  0.817 3.000 0.474
-conf.level -5.010 0.000   -Inf 3.000 0.000
+Outcome1   -3.000 1.224 -2.450 3.000 0.092
+Outcome2    1.000 1.224  0.817 3.000 0.474
+Outcome3    2.000 1.224  1.633 3.000 0.201
+conf.level -4.010 0.000   -Inf 3.000 0.000
 
 $standardizeMeans
               d d(unb)    SE     LL    UL
-Outcome1 -1.633 -1.188 0.761 -3.765 0.398
-Outcome2  0.000  0.000 0.559 -1.288 1.288
-Outcome3  0.408  0.297 0.574 -0.968 1.734
+Outcome1 -1.225 -0.891 0.680 -3.011 0.547
+Outcome2  0.408  0.297 0.574 -0.968 1.734
+Outcome3  0.817  0.594 0.616 -0.732 2.320
 
 > 
 > ### Analyses of a Variable Comparison
@@ -135,7 +125,7 @@ $standardizeContrast
            Est    SE    LL    UL
 Contrast 1.837 0.741 0.386 3.289
 
-> analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=0,conf.level=.99) # Includes AnalyzeRepeated-Figure1.jpeg
+> analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99) # Includes AnalyzeRepeated-Figure1.jpeg
 $title
 [1] "ANALYSIS OF A CONTRAST"
 
@@ -145,7 +135,7 @@ Contrast 4.500 1.307 3.000 -3.133 12.133
 
 $testContrast
            Est    SE     t    df     p
-Contrast 4.500 1.307 3.444 3.000 0.041
+Contrast 0.500 1.307 0.383 3.000 0.727
 
 $standardizeContrast
            Est    SE     LL    UL

@@ -89,10 +89,8 @@ A3 4.000 5.000 2.449 1.224 -2.152 12.152
 > 
 > with(DataSubsetB1,plotMeans(Outcome~FactorA)) # Factorial-Figure1.jpeg
 > with(DataSubsetB2,plotMeans(Outcome~FactorA)) # Factorial-Figure2.jpeg
-> with(DataSubsetB1,plotMeans(Outcome~Factor,conf.level=.99,mu=5)) # Factorial-Figure3.jpeg
-Error in eval(predvars, data, env) : object 'Factor' not found
-> with(DataSubsetB2,plotMeans(Outcome~Factor,conf.level=.99,mu=5)) # Factorial-Figure4.jpeg
-Error in eval(predvars, data, env) : object 'Factor' not found
+> with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Figure3.jpeg
+> with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Figure4.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -234,19 +232,19 @@ HYPOTHESIS TEST FOR THE COMPARISON
             Diff    SE     t    df     p
 Comparison 0.000 1.732 0.000 6.000 1.000
 
-> with(DataSubsetB1,testDifference(Outcome~Comparison,mu=2))
-
-HYPOTHESIS TEST FOR THE COMPARISON
-
-             Diff    SE      t    df     p
-Comparison -6.000 1.732 -3.465 6.000 0.013
-
-> with(DataSubsetB2,testDifference(Outcome~Comparison,mu=2))
+> with(DataSubsetB1,testDifference(Outcome~Comparison,mu=-2))
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
 Comparison -2.000 1.732 -1.155 6.000 0.292
+
+> with(DataSubsetB2,testDifference(Outcome~Comparison,mu=-2))
+
+HYPOTHESIS TEST FOR THE COMPARISON
+
+            Diff    SE     t    df     p
+Comparison 2.000 1.732 1.155 6.000 0.292
 
 > 
 > #### Effect Size for the Mean Difference

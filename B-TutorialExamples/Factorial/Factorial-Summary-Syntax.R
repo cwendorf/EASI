@@ -78,8 +78,8 @@ plotDifference(CompSummaryB2,conf.level=.99) # Factorial-Figure8.jpeg
 
 testDifference(CompSummaryB1)
 testDifference(CompSummaryB2)
-testDifference(CompSummaryB1,mu=2)
-testDifference(CompSummaryB2,mu=2)
+testDifference(CompSummaryB1,mu=-2)
+testDifference(CompSummaryB2,mu=-2)
 
 #### Effect Size for the Mean Difference
 

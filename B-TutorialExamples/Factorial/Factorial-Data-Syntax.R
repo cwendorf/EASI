@@ -32,8 +32,8 @@ with(DataSubsetB2,estimateMeans(Outcome~FactorA,conf.level=.99))
 
 with(DataSubsetB1,plotMeans(Outcome~FactorA)) # Factorial-Figure1.jpeg
 with(DataSubsetB2,plotMeans(Outcome~FactorA)) # Factorial-Figure2.jpeg
-with(DataSubsetB1,plotMeans(Outcome~Factor,conf.level=.99,mu=5)) # Factorial-Figure3.jpeg
-with(DataSubsetB2,plotMeans(Outcome~Factor,conf.level=.99,mu=5)) # Factorial-Figure4.jpeg
+with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Figure3.jpeg
+with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Figure4.jpeg
 
 #### Significance Tests for the Means
 
@@ -73,8 +73,8 @@ with(DataSubsetB2,plotDifference(Outcome~Comparison,conf.level=.99)) # Factorial
 
 with(DataSubsetB1,testDifference(Outcome~Comparison))
 with(DataSubsetB2,testDifference(Outcome~Comparison))
-with(DataSubsetB1,testDifference(Outcome~Comparison,mu=2))
-with(DataSubsetB2,testDifference(Outcome~Comparison,mu=2))
+with(DataSubsetB1,testDifference(Outcome~Comparison,mu=-2))
+with(DataSubsetB2,testDifference(Outcome~Comparison,mu=-2))
 
 #### Effect Size for the Mean Difference
 

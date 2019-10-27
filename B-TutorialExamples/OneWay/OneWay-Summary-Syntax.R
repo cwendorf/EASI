@@ -56,7 +56,7 @@ plotDifference(CompSummary,conf.level=.99) # OneWay-Figure4.jpeg
 #### Significance Test of the Mean Difference
 
 testDifference(CompSummary)
-testDifference(CompSummary,mu=2)
+testDifference(CompSummary,mu=-2)
 
 #### Effect Size for the Mean Difference
 

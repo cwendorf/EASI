@@ -52,7 +52,7 @@ plotDifference(Outcome1,Outcome2,conf.level=.99) # Repeated-Figure4.jpeg
 #### Significance Test for the Mean Difference
 
 testDifference(Outcome1,Outcome2)
-testDifference(Outcome1,Outcome2,mu=2)
+testDifference(Outcome1,Outcome2,mu=-2)
 
 #### Effect Size for the Mean Difference
 

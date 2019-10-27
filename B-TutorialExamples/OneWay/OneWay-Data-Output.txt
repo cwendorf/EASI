@@ -10,7 +10,6 @@
 > Factor <- c(rep(1,4),rep(2,4),rep(3,4))
 > Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
 > Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
-> 
 > BetweenData <- data.frame(Factor,Outcome)
 > BetweenData
    Factor Outcome
@@ -134,12 +133,12 @@ HYPOTHESIS TEST FOR THE COMPARISON
              Diff    SE      t    df     p
 Comparison -4.000 1.732 -2.310 6.000 0.060
 
-> testDifference(Outcome~Comparison,mu=2)
+> testDifference(Outcome~Comparison,mu=-2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -6.000 1.732 -3.465 6.000 0.013
+Comparison -2.000 1.732 -1.155 6.000 0.292
 
 > 
 > #### Effect Size for the Mean Difference

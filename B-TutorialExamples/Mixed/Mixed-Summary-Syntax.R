@@ -47,22 +47,22 @@ estimateMeans(WithinSummaryL2,conf.level=.99)
 
 plotMeans(WithinSummaryL1) # Mixed-Figure1.jpeg
 plotMeans(WithinSummaryL2) # Mixed-Figure2.jpeg
-plotMeans(WithinSummaryL1,conf.level=.99,mu=6) # Mixed-Figure3.jpeg
-plotMeans(WithinSummaryL2,conf.level=.99,mu=6) # Mixed-Figure4.jpeg
+plotMeans(WithinSummaryL1,conf.level=.99,mu=5) # Mixed-Figure3.jpeg
+plotMeans(WithinSummaryL2,conf.level=.99,mu=5) # Mixed-Figure4.jpeg
 
 #### Significance Tests for the Means
 
 testMeans(WithinSummaryL1)
 testMeans(WithinSummaryL2)
-testMeans(WithinSummaryL1,mu=6)
-testMeans(WithinSummaryL2,mu=6)
+testMeans(WithinSummaryL1,mu=5)
+testMeans(WithinSummaryL2,mu=5)
 
 #### Effect Size for the Means
 
 standardizeMeans(WithinSummaryL1)
 standardizeMeans(WithinSummaryL2)
-standardizeMeans(WithinSummaryL1,mu=6,conf.level=.99)
-standardizeMeans(WithinSummaryL2,mu=6,conf.level=.99)
+standardizeMeans(WithinSummaryL1,mu=5,conf.level=.99)
+standardizeMeans(WithinSummaryL2,mu=5,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
@@ -123,8 +123,8 @@ plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1
 
 testContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers)
 testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
-testContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,mu=-1)
-testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,mu=-1)
+testContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,mu=4)
+testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,mu=4)
 
 #### Significance Test for the Contrast
 

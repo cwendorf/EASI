@@ -112,8 +112,8 @@ Outcome3 4.000 5.000 2.449 1.224 -2.152 12.152
 > 
 > with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure1.jpeg
 > with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure2.jpeg
-> with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=6)) # Mixed-Figure3.jpeg
-> with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=6)) # Mixed-Figure4.jpeg
+> with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)) # Mixed-Figure3.jpeg
+> with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)) # Mixed-Figure4.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -135,23 +135,23 @@ Outcome1 4.000 1.224 3.267 3.000 0.047
 Outcome2 4.000 1.224 3.267 3.000 0.047
 Outcome3 5.000 1.224 4.083 3.000 0.027
 
-> with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3,mu=6))
+> with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
 
 HYPOTHESIS TESTS FOR THE MEANS
 
            Diff    SE      t    df     p
-Outcome1 -4.000 1.224 -3.267 3.000 0.047
-Outcome2  0.000 1.224  0.000 3.000 1.000
-Outcome3  1.000 1.224  0.817 3.000 0.474
+Outcome1 -3.000 1.224 -2.450 3.000 0.092
+Outcome2  1.000 1.224  0.817 3.000 0.474
+Outcome3  2.000 1.224  1.633 3.000 0.201
 
-> with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3,mu=6))
+> with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
 
 HYPOTHESIS TESTS FOR THE MEANS
 
            Diff    SE      t    df     p
-Outcome1 -2.000 1.224 -1.633 3.000 0.201
-Outcome2 -2.000 1.224 -1.633 3.000 0.201
-Outcome3 -1.000 1.224 -0.817 3.000 0.474
+Outcome1 -1.000 1.224 -0.817 3.000 0.474
+Outcome2 -1.000 1.224 -0.817 3.000 0.474
+Outcome3  0.000 1.224  0.000 3.000 1.000
 
 > 
 > #### Effect Size for the Means
@@ -174,23 +174,23 @@ Outcome1 1.633  1.188 0.761 0.013 3.177
 Outcome2 1.633  1.188 0.761 0.013 3.177
 Outcome3 2.042  1.485 0.854 0.176 3.847
 
-> with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=6,conf.level=.99))
+> with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
               d d(unb)    SE     LL    UL
-Outcome1 -1.633 -1.188 0.761 -3.765 0.398
-Outcome2  0.000  0.000 0.559 -1.288 1.288
-Outcome3  0.408  0.297 0.574 -0.968 1.734
+Outcome1 -1.225 -0.891 0.680 -3.011 0.547
+Outcome2  0.408  0.297 0.574 -0.968 1.734
+Outcome3  0.817  0.594 0.616 -0.732 2.320
 
-> with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=6,conf.level=.99))
+> with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
               d d(unb)    SE     LL    UL
-Outcome1 -0.817 -0.594 0.616 -2.320 0.732
-Outcome2 -0.817 -0.594 0.616 -2.320 0.732
-Outcome3 -0.408 -0.297 0.574 -1.734 0.968
+Outcome1 -0.408 -0.297 0.574 -1.734 0.968
+Outcome2 -0.408 -0.297 0.574 -1.734 0.968
+Outcome3  0.000  0.000 0.559 -1.288 1.288
 
 > 
 > ### Analyses of a Variable Comparison
@@ -355,19 +355,19 @@ HYPOTHESIS TEST FOR THE CONTRAST
            Est    SE     t    df     p
 Contrast 0.500 0.645 0.775 3.000 0.495
 
-> with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=-1))
+> with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
-Contrast 4.500 1.258 3.577 3.000 0.037
+Contrast 0.500 1.258 0.397 3.000 0.718
 
-> with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=-1))
+> with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
-           Est    SE     t    df     p
-Contrast 0.500 0.645 0.775 3.000 0.495
+            Est    SE      t    df     p
+Contrast -3.500 0.645 -5.423 3.000 0.012
 
 > 
 > #### Effect Size for the Contrast

@@ -63,7 +63,7 @@ plotDifference(CompSummary,WithinCorr,conf.level=.99) # Repeated-Figure4.jpeg
 #### Significance Test for the Mean Difference
 
 testDifference(CompSummary,WithinCorr)
-testDifference(CompSummary,WithinCorr,mu=2)
+testDifference(CompSummary,WithinCorr,mu=-2)
 
 #### Effect Size for the Mean Difference
 

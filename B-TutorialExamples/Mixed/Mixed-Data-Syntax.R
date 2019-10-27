@@ -39,22 +39,22 @@ with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
 
 with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure1.jpeg
 with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure2.jpeg
-with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=6)) # Mixed-Figure3.jpeg
-with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=6)) # Mixed-Figure4.jpeg
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)) # Mixed-Figure3.jpeg
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)) # Mixed-Figure4.jpeg
 
 #### Significance Tests for the Means
 
 with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3))
 with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3))
-with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3,mu=6))
-with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3,mu=6))
+with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
+with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
 
 #### Effect Size for the Means
 
 with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3))
 with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3))
-with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=6,conf.level=.99))
-with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=6,conf.level=.99))
+with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
+with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
 
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
@@ -110,8 +110,8 @@ with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,la
 
 with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
 with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
-with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=-1))
-with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=-1))
+with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
+with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
 
 #### Effect Size for the Contrast
 

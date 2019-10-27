@@ -207,13 +207,13 @@ Comparison -4.000 1.732 -2.310 6.000 0.060
 
 If the default value of zero is not plausible, it too can be changed.
 ```r
-testDifference(Outcome~Comparison,mu=2)
+testDifference(Outcome~Comparison,mu=-2)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
-Comparison -6.000 1.732 -3.465 6.000 0.013
+Comparison -2.000 1.732 -1.155 6.000 0.292
 ```
 
 #### Effect Size for the Mean Difference

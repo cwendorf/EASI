@@ -222,19 +222,19 @@ HYPOTHESIS TEST FOR THE COMPARISON
             Diff    SE     t    df     p
 Comparison 0.000 1.732 0.000 6.000 1.000
 
-> testDifference(CompSummaryB1,mu=2)
-
-HYPOTHESIS TEST FOR THE COMPARISON
-
-             Diff    SE      t    df     p
-Comparison -6.000 1.732 -3.465 6.000 0.013
-
-> testDifference(CompSummaryB2,mu=2)
+> testDifference(CompSummaryB1,mu=-2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
 Comparison -2.000 1.732 -1.155 6.000 0.292
+
+> testDifference(CompSummaryB2,mu=-2)
+
+HYPOTHESIS TEST FOR THE COMPARISON
+
+            Diff    SE     t    df     p
+Comparison 2.000 1.732 1.155 6.000 0.292
 
 > 
 > #### Effect Size for the Mean Difference
