@@ -781,7 +781,7 @@ nhstContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,..
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
-  Est <- (t(contrast)%*%M)
+  Est <- (t(contrast)%*%M)-mu
   covstats <- cor2cov(CorrStats,SD)
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
   t <- Est/SE
