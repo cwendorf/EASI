@@ -37,7 +37,7 @@ The **Mixed** files analyze an example of a a mixed (between-subjects and within
 - [**_Mixed-Figure11.jpeg_**](./Mixed-Figure11.jpeg) 
 - [**_Mixed-Figure12.jpeg_**](./Mixed-Figure12.jpeg)
 
-[**_Mixed-Data-Example.md_**](./Mixed-Data-Example.md) describes the analyses using summary statistics input:
+[**_Mixed-Summary-Example.md_**](./Mixed-Summary-Example.md) describes the analyses using summary statistics input:
 
 - [**_Mixed-Summary-Syntax.R_**](./Mixed-Summary-Syntax.R)
 - [**_Mixed-Summary-Output.R_**](./Mixed-Summary-Output.R)
