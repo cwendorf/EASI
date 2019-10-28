@@ -57,12 +57,12 @@ with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99)) # 
 #### Significance Test for the Mean Difference
 
 with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB))
-with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB,mu=2))
+with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB,mu=-2))
 
 #### Effect Size for the Mean Difference
 
 with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB))
-with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,mu=2))
+with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,mu=-2))
 
 ### Analyses of a Factor Contrast
 ### (equivalent to analyses for multiple levels of a factor)

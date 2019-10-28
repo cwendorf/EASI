@@ -218,6 +218,7 @@ If the default value of zero is not plausible, it too can be changed.
 ```r
 testDifference(CompSummary,WithinCorr,mu=-2)
 ```
+```
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
