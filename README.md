@@ -1,4 +1,4 @@
-# Estimation Approach to Statistical Inference (EASI)
+![EASI Logo](easiLogo.jpg)
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
@@ -16,13 +16,13 @@ EASI is a set of fast and simple functions for R that implement basic features o
 
 EASI can be used to calculate and plot confidence intervals for the means of groups (in a between-subjects design) or instances of a variable (in a within-subjects design). Additional functions can show the standardized effect sizes and statistical significance tests associated with the groups and variables.
 
-![Screenshot1](easiMeans.jpg)
+![EASI Means Screenshot](easiMeans.jpg)
 
 ### EASI for Group and Variable Comparisons
 
 EASI can be used to calculate and plot confidence intervals of mean differences and mean contrasts for independent groups (between-subjects design) or paired means (within-subjects designs). Additional functions can show the standardized effect sizes and statistical significance tests for the designated comparison. 
 
-![Screenshot2](easiDifference.jpg)
+![EASI Difference Screenshot](easiDifference.jpg)
 
 ## Materials Available on this Site
 
