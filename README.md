@@ -1,6 +1,4 @@
-![EASI Logo](easiLogo.jpg)
-
----
+# ![EASI Logo](easiLogo.jpg)
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
