@@ -1,5 +1,5 @@
-![Screenshot1](easiLogoMaker.png)
-![Screenshot1](easiLogo.png)
+![Screenshot1](easiLogo.jpg)
+![Screenshot1](Picture1.png)
 
 # Estimation Approach to Statistical Inference (EASI)
 
