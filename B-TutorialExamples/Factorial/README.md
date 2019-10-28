@@ -20,39 +20,39 @@ The **Factorial** files analyze an example of a a factorial (between-subjects) d
 
 ### Files for this Example
 
-[**_Factorial-Data-Example.md_**](./Factorial-Data-Example.md) describes the analyses using raw data input:
+[**_Factorial-Data-Example.md_**](./Factorial-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
-- [**_Factorial-Data-Syntax.R_**](./Factorial-Data-Syntax.R)
-- [**_Factorial-Data-Output.R_**](./Factorial-Data-Output.R)
-- [**_Factorial-Figure1.jpeg_**](./Factorial-Figure1.jpeg)
-- [**_Factorial-Figure2.jpeg_**](./Factorial-Figure2.jpeg)
-- [**_Factorial-Figure3.jpeg_**](./Factorial-Figure3.jpeg) 
-- [**_Factorial-Figure4.jpeg_**](./Factorial-Figure4.jpeg)
-- [**_Factorial-Figure5.jpeg_**](./Factorial-Figure5.jpeg)
-- [**_Factorial-Figure6.jpeg_**](./Factorial-Figure6.jpeg)
-- [**_Factorial-Figure7.jpeg_**](./Factorial-Figure7.jpeg) 
-- [**_Factorial-Figure8.jpeg_**](./Factorial-Figure8.jpeg)
-- [**_Factorial-Figure9.jpeg_**](./Factorial-Figure9.jpeg)
-- [**_Factorial-Figure10.jpeg_**](./Factorial-Figure10.jpeg)
-- [**_Factorial-Figure11.jpeg_**](./Factorial-Figure11.jpeg) 
-- [**_Factorial-Figure12.jpeg_**](./Factorial-Figure12.jpeg)
+- [_Factorial-Data-Syntax.R_](./Factorial-Data-Syntax.R)
+- [_Factorial-Data-Output.R_](./Factorial-Data-Output.R)
+- [_Factorial-Figure1.jpeg_](./Factorial-Figure1.jpeg)
+- [_Factorial-Figure2.jpeg_](./Factorial-Figure2.jpeg)
+- [_Factorial-Figure3.jpeg_](./Factorial-Figure3.jpeg) 
+- [_Factorial-Figure4.jpeg_](./Factorial-Figure4.jpeg)
+- [_Factorial-Figure5.jpeg_](./Factorial-Figure5.jpeg)
+- [_Factorial-Figure6.jpeg_](./Factorial-Figure6.jpeg)
+- [_Factorial-Figure7.jpeg_](./Factorial-Figure7.jpeg) 
+- [_Factorial-Figure8.jpeg_](./Factorial-Figure8.jpeg)
+- [_Factorial-Figure9.jpeg_](./Factorial-Figure9.jpeg)
+- [_Factorial-Figure10.jpeg_](./Factorial-Figure10.jpeg)
+- [_Factorial-Figure11.jpeg_](./Factorial-Figure11.jpeg) 
+- [_Factorial-Figure12.jpeg_](./Factorial-Figure12.jpeg)
 
-[**_Factorial-Summary-Example.md_**](./Factorial-Summary-Example.md) describes the analyses using summary statistics input:
+[**_Factorial-Summary-Example.md_**](./Factorial-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
-- [**_Factorial-Summary-Syntax.R_**](./Factorial-Summary-Syntax.R)
-- [**_Factorial-Summary-Output.R_**](./Factorial-Summary-Output.R)
-- [**_Factorial-Figure1.jpeg_**](./Factorial-Figure1.jpeg)
-- [**_Factorial-Figure2.jpeg_**](./Factorial-Figure2.jpeg)
-- [**_Factorial-Figure3.jpeg_**](./Factorial-Figure3.jpeg) 
-- [**_Factorial-Figure4.jpeg_**](./Factorial-Figure4.jpeg)
-- [**_Factorial-Figure5.jpeg_**](./Factorial-Figure5.jpeg)
-- [**_Factorial-Figure6.jpeg_**](./Factorial-Figure6.jpeg)
-- [**_Factorial-Figure7.jpeg_**](./Factorial-Figure7.jpeg) 
-- [**_Factorial-Figure8.jpeg_**](./Factorial-Figure8.jpeg)
-- [**_Factorial-Figure9.jpeg_**](./Factorial-Figure9.jpeg)
-- [**_Factorial-Figure10.jpeg_**](./Factorial-Figure10.jpeg)
-- [**_Factorial-Figure11.jpeg_**](./Factorial-Figure11.jpeg) 
-- [**_Factorial-Figure12.jpeg_**](./Factorial-Figure12.jpeg)
+- [_Factorial-Summary-Syntax.R_](./Factorial-Summary-Syntax.R)
+- [_Factorial-Summary-Output.R_](./Factorial-Summary-Output.R)
+- [_Factorial-Figure1.jpeg_](./Factorial-Figure1.jpeg)
+- [_Factorial-Figure2.jpeg_](./Factorial-Figure2.jpeg)
+- [_Factorial-Figure3.jpeg_](./Factorial-Figure3.jpeg) 
+- [_Factorial-Figure4.jpeg_](./Factorial-Figure4.jpeg)
+- [_Factorial-Figure5.jpeg_](./Factorial-Figure5.jpeg)
+- [_Factorial-Figure6.jpeg_](./Factorial-Figure6.jpeg)
+- [_Factorial-Figure7.jpeg_](./Factorial-Figure7.jpeg) 
+- [_Factorial-Figure8.jpeg_](./Factorial-Figure8.jpeg)
+- [_Factorial-Figure9.jpeg_](./Factorial-Figure9.jpeg)
+- [_Factorial-Figure10.jpeg_](./Factorial-Figure10.jpeg)
+- [_Factorial-Figure11.jpeg_](./Factorial-Figure11.jpeg) 
+- [_Factorial-Figure12.jpeg_](./Factorial-Figure12.jpeg)
 
 ## References
 

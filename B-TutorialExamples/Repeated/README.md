@@ -20,27 +20,27 @@ The **Repeated** files analyze an example of a single-factor within-subjects des
 
 ### Files for this Example
   
-[**_Repeated-Data-Example.md_**](./Repeated-Data-Example.md) describes the analyses using raw data input:
+[**_Repeated-Data-Example.md_**](./Repeated-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
-- [**_Repeated-Data-Syntax.R_**](./Repeated-Data-Syntax.R)
-- [**_Repeated-Data-Output.R_**](./Repeated-Data-Output.R)
-- [**_Repeated-Figure1.jpeg_**](./Repeated-Figure1.jpeg)
-- [**_Repeated-Figure2.jpeg_**](./Repeated-Figure2.jpeg)
-- [**_Repeated-Figure3.jpeg_**](./Repeated-Figure3.jpeg) 
-- [**_Repeated-Figure4.jpeg_**](./Repeated-Figure4.jpeg) 
-- [**_Repeated-Figure5.jpeg_**](./Repeated-Figure5.jpeg) 
-- [**_Repeated-Figure6.jpeg_**](./Repeated-Figure6.jpeg) 
+- [_Repeated-Data-Syntax.R_](./Repeated-Data-Syntax.R)
+- [_Repeated-Data-Output.R_](./Repeated-Data-Output.R)
+- [_Repeated-Figure1.jpeg_](./Repeated-Figure1.jpeg)
+- [_Repeated-Figure2.jpeg_](./Repeated-Figure2.jpeg)
+- [_Repeated-Figure3.jpeg_](./Repeated-Figure3.jpeg) 
+- [_Repeated-Figure4.jpeg_](./Repeated-Figure4.jpeg) 
+- [_Repeated-Figure5.jpeg_](./Repeated-Figure5.jpeg) 
+- [_Repeated-Figure6.jpeg_](./Repeated-Figure6.jpeg) 
 
-[**_Repeated-Summary-Example.md_**](./Repeated-Summary-Example.md) describes the analyses using summary statistics input:
+[**_Repeated-Summary-Example.md_**](./Repeated-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
-- [**_Repeated-Summary-Syntax.R_**](./Repeated-Summary-Syntax.R)
-- [**_Repeated-Summary-Output.R_**](./Repeated-Summary-Output.R)
-- [**_Repeated-Figure1.jpeg_**](./Repeated-Figure1.jpeg)
-- [**_Repeated-Figure2.jpeg_**](./Repeated-Figure2.jpeg)
-- [**_Repeated-Figure3.jpeg_**](./Repeated-Figure3.jpeg) 
-- [**_Repeated-Figure4.jpeg_**](./Repeated-Figure4.jpeg) 
-- [**_Repeated-Figure5.jpeg_**](./Repeated-Figure5.jpeg) 
-- [**_Repeated-Figure6.jpeg_**](./Repeated-Figure6.jpeg) 
+- [_Repeated-Summary-Syntax.R_](./Repeated-Summary-Syntax.R)
+- [_Repeated-Summary-Output.R_](./Repeated-Summary-Output.R)
+- [_Repeated-Figure1.jpeg_](./Repeated-Figure1.jpeg)
+- [_Repeated-Figure2.jpeg_](./Repeated-Figure2.jpeg)
+- [_Repeated-Figure3.jpeg_](./Repeated-Figure3.jpeg) 
+- [_Repeated-Figure4.jpeg_](./Repeated-Figure4.jpeg) 
+- [_Repeated-Figure5.jpeg_](./Repeated-Figure5.jpeg) 
+- [_Repeated-Figure6.jpeg_](./Repeated-Figure6.jpeg) 
 
 ## References
 

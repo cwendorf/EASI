@@ -19,23 +19,23 @@ The **Independent** files analyze an example of a two-group between-subjects des
 
 ### Files for this Example
 
-[**_Independent-Data-Example.md_**](./Independent-Data-Example.md) describes the analyses using raw data input:
+[**_Independent-Data-Example.md_**](./Independent-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
-- [**_Independent-Data-Syntax.R_**](./Independent-Data-Syntax.R)
-- [**_Independent-Data-Output.R_**](./Independent-Data-Output.R)
-- [**_Independent-Figure1.jpeg_**](./Independent-Figure1.jpeg)
-- [**_Independent-Figure2.jpeg_**](./Independent-Figure2.jpeg)
-- [**_Independent-Figure3.jpeg_**](./Independent-Figure3.jpeg) 
-- [**_Independent-Figure4.jpeg_**](./Independent-Figure4.jpeg)
+- [_Independent-Data-Syntax.R_](./Independent-Data-Syntax.R)
+- [_Independent-Data-Output.R_](./Independent-Data-Output.R)
+- [_Independent-Figure1.jpeg_](./Independent-Figure1.jpeg)
+- [_Independent-Figure2.jpeg_](./Independent-Figure2.jpeg)
+- [_Independent-Figure3.jpeg_](./Independent-Figure3.jpeg) 
+- [_Independent-Figure4.jpeg_](./Independent-Figure4.jpeg)
 
-[**_Independent-Summary-Example.md_**](./Independent-Summary-Example.md) describes the analyses using summary statistics input:
+[**_Independent-Summary-Example.md_**](./Independent-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
-- [**_Independent-Summary-Syntax.R_**](./Independent-Summary-Syntax.R)
-- [**_Independent-Summary-Output.R_**](./Independent-Summary-Output.R)
-- [**_Independent-Figure1.jpeg_**](./Independent-Figure1.jpeg)
-- [**_Independent-Figure2.jpeg_**](./Independent-Figure2.jpeg)
-- [**_Independent-Figure3.jpeg_**](./Independent-Figure3.jpeg)
-- [**_Independent-Figure4.jpeg_**](./Independent-Figure4.jpeg) 
+- [_Independent-Summary-Syntax.R_](./Independent-Summary-Syntax.R)
+- [_Independent-Summary-Output.R_](./Independent-Summary-Output.R)
+- [_Independent-Figure1.jpeg_](./Independent-Figure1.jpeg)
+- [_Independent-Figure2.jpeg_](./Independent-Figure2.jpeg)
+- [_Independent-Figure3.jpeg_](./Independent-Figure3.jpeg)
+- [_Independent-Figure4.jpeg_](./Independent-Figure4.jpeg) 
 
 ## References
 
