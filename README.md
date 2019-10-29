@@ -1,5 +1,5 @@
 <p align="center">
-<img src="easiLogo.jpg">
+<img src="easiLogo.jpg" style="margin:0;">
 </p>
 
 #
