@@ -1,4 +1,6 @@
-# ![EASI Logo](easiLogo.jpg)
+<p align="center">
+<img src="easiLogo.jpg">
+</p>
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
