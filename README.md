@@ -1,13 +1,17 @@
 <p align="center">
 <img src="easiLogo.jpg">
+  <a href="https://github.com/cwendorf/EASI/"><b>Home</b></a> | 
+  <a href="https://github.com/cwendorf/EASI/tree/master/A-Functions"><b>Functions</b></a> | 
+  <a href="https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples"><b>ITNS Examples</b></a> | 
+  <a href="https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples"><b>Extension Examples</b></a>  
+</p>
+---
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
 [**Extension Examples**](https://github.com/cwendorf/EASI/tree/master/D-ExtensionExamples)
-
-</p>
 
 ---
 
