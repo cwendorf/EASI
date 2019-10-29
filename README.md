@@ -1,5 +1,5 @@
 <p align="center">
-<img src="easiLogo.jpg">
+<img src="easiLogo.jpg"><br/>
   <a href="https://github.com/cwendorf/EASI/"><b>Home</b></a> | 
   <a href="https://github.com/cwendorf/EASI/tree/master/A-Functions"><b>Functions</b></a> | 
   <a href="https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples"><b>ITNS Examples</b></a> | 
