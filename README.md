@@ -1,8 +1,6 @@
 <p align="center">
-<img src="easiLogo.jpg" style="margin:0;">
+<img src="easiLogo.jpg">
 </p>
-
-#
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
