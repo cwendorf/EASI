@@ -1,4 +1,4 @@
-# Estimation Approach to Statistical Inference (EASI)
+# EASI: Estimation Approach to Statistical Inference
 ## Extension for Analyzing Factorial Designs
 ### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R
 ### ALL BASIC FUNCTIONS FOR EASI SHOULD BE INSTALLED TOO

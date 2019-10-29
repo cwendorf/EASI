@@ -1,4 +1,4 @@
-# Estimation Approach to Statistical Inference (EASI)
+# EASI: Estimation Approach to Statistical Inference
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 

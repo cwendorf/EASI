@@ -1,4 +1,4 @@
-# Estimation Approach to Statistical Inference (EASI)
+# EASI: Estimation Approach to Statistical Inference
 ## Factorial (Bewteen-Subjects) Tutorial with Data
 
 ### Source the EASI Functions

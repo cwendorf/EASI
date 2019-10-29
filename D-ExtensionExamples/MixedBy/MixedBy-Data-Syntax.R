@@ -1,4 +1,4 @@
-# Estimation Approach to Statistical Inference (EASI)
+# EASI: Estimation Approach to Statistical Inference
 ## Mixed Design Factorial Tutorial with Data
 
 ### Source the EASI Functions and the Extension

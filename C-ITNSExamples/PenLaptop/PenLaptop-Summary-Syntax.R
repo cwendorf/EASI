@@ -1,4 +1,4 @@
-# Estimation Approach to Statistical Inference (EASI)
+# EASI: Estimation Approach to Statistical Inference
 ## Indendent Groups Example with PenLaptop Summary Statistics
 
 ### Source the EASI Functions

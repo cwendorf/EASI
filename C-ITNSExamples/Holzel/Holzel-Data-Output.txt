@@ -1,4 +1,4 @@
-> # Estimation Approach to Statistical Inference (EASI)
+> # EASI: Estimation Approach to Statistical Inference
 > ## Mixed Design Example with Holzel Data
 > 
 > ### Source the EASI Functions

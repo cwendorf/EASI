@@ -1,4 +1,4 @@
-> # Estimation Approach to Statistical Inference (EASI)
+> # EASI: Estimation Approach to Statistical Inference
 > ## Pairwise Comparisons Within-Subjects Data Example
 > 
 > ### Source the EASI Functions and Extensions
