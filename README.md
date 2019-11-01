@@ -36,4 +36,4 @@ This site includes the basic functions and extensions of EASI, along with numero
 
 ## How to Cite
 
-Wendorf, C.A. (2019). _EASI: Estimation Approach to Statistical Inference._ Software available via GitHub at https://github.com/cwendorf/EASI.
+Wendorf, C.A. (2019). EASI: Estimation Approach to Statistical Inference [R Source Code]. Retrieved from https://github.com/cwendorf/EASI.
