@@ -11,7 +11,7 @@
 
 ## Overview of EASI
 
-EASI is a set of fast and simple functions for R that implement basic features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Stats on Wikipedia"). These functions calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. Functions and examples are available for different single-factor designs (between-subjects vs. within-subjects) and can take either raw data or summary statistics as input.
+EASI is a set of fast and flexible scripts for R that implement features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Stats on Wikipedia"). These functions calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. Functions and extensions are available for different single-factor between- and within-subjects single-factor, factorial, and mixed designs and can take either raw data or summary statistics as input. Numerous tutorial examples (from my online textbook above) and examples from other textbooks are available.
 
 ### EASI for Individual Groups and Variables
 
@@ -34,6 +34,6 @@ This site includes the basic functions and extensions of EASI, along with numero
 - [**ITNS Examples**](./C-ITNSExamples): Contains between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
 - [**Extension Examples**](./D-ExtensionExamples): Contains advanced applications and additional examples of the functions and extensions
 
-## How to Cite EASI
+## How to Cite
 
 Wendorf, C.A. (2019). _EASI: Estimation Approach to Statistical Inference._ Software available via GitHub at https://github.com/cwendorf/EASI.
