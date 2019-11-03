@@ -1,5 +1,5 @@
 ![EASI Logo](easiLogo.jpg)
-# EASI: Estimation Approach to Statistical Inference
+# Estimation Approach to Statistical Inference
 
 [**Home**](https://github.com/cwendorf/EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
