@@ -31,7 +31,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 EASI extentions are files that extend the functions beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
 
 
-[**_summaryExtension.R_**](./boxplotExtension.R) (`summarizeData` and `plotData` functions for summary statistics, boxplots, and data plots for single-factor between- and within-subjects designs)
+[**_summaryExtension.R_**](./summaryExtension.R) (`summarizeData` and `plotData` functions for summary statistics, boxplots, and data plots for single-factor between- and within-subjects designs)
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/summaryExtension.R")
 ```
