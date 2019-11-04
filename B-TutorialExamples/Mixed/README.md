@@ -56,4 +56,4 @@ The **Mixed** files analyze an example of a a mixed (between-subjects and within
 
 ## References
 
-Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
+Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)

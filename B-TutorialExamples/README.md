@@ -12,6 +12,7 @@
 
 ### Overview of the Examples
 
+- Examples are from the Wendorf (2009)
 - Examples for a variety of research designs are included
 - Examples show both the default output and the available options
 - Examples include estimation, plots, significance tests, and effect sizes
@@ -40,4 +41,4 @@ The following are examples for two-factor designs.
 
 ## References
 
-Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
+Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
