@@ -8,7 +8,7 @@
 
 ---
 
-## Mixed Design Example with Holzel Statistics
+## Mixed Design Example with Holzel Data
 
 ### Overview of this Example
 
@@ -18,14 +18,14 @@ The **Holzel** files analyze and example of a two-factor mixed design, one betwe
 
 ### Details of this Example
 
-The following files analyze the example using raw data input:
+[**_Holzel-Data-Example.md_**](./Holzel-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [**_Holzel-Data-Syntax.R_**](./Holzel-Data-Syntax.R)
 - [**_Holzel-Data-Output.R_**](./Holzel-Data-Output.R)
 - [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
 - [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
 
-The following files analyze the example using summary statistics input:
+[**_Holzel-Summary-Example.md_**](./Holzel-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [**_Holzel-Summary-Syntax.R_**](./Holzel-Summary-Syntax.R)
 - [**_Holzel-Summary-Output.R_**](./Holzel-Summary-Output.R)
