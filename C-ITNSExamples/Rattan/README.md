@@ -20,7 +20,7 @@ The **Rattan** files analyze an example of a single-factor between-subjects desi
 
 ### Files for this Example
 
-The following files analyze the example using raw data input:
+[**_Rattan-Data-Example.md_**](./Rattan-Summary-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [**_Rattan-Data-Syntax.R_**](./Rattan-Data-Syntax.R)
 - [**_Rattan-Data-Output.R_**](./Rattan-Data-Output.R)
@@ -28,7 +28,7 @@ The following files analyze the example using raw data input:
 - [**_Rattan-Figure2.jpeg_**](./Rattan-Figure2.jpeg)
 - [**_Rattan-Figure3.jpeg_**](./Rattan-Figure3.jpeg) 
 
-The following files analyze the example using summary statistics input:
+[**_Rattan-Summary-Example.md_**](./Rattan-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [**_Rattan-Summary-Syntax.R_**](./Rattan-Summary-Syntax.R)
 - [**_Rattan-Summary-Output.R_**](./Rattan-Summary-Output.R)

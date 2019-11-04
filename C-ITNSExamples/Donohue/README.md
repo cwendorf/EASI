@@ -20,7 +20,7 @@ The **Donohue** files analyze an example of a single-factor within-subjects desi
 
 ### Files for this Example
 
-The following files analyze the example using raw data input:
+[**_Donohue-Data-Example.md_**](./Donohue-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [**_Donohue-Data-Syntax.R_**](./Donohue-Data-Syntax.R)
 - [**_Donohue-Data-Output.R_**](./Donohue-Data-Output.R)
@@ -28,7 +28,7 @@ The following files analyze the example using raw data input:
 - [**_Donohue-Figure2.jpeg_**](./Donohue-Figure2.jpeg)
 - [**_Donohue-Figure3.jpeg_**](./Donohue-Figure3.jpeg) 
 
-The following files analyze the example using summary statistics input:
+[**_Donohue-Summary-Example.md_**](./Donohue-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [**_Donohue-Summary-Syntax.R_**](./Donohue-Summary-Syntax.R)
 - [**_Donohue-Summary-Output.R_**](./Donohue-Summary-Output.R)
