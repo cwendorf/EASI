@@ -21,7 +21,7 @@ The **Frenda** files analyze and example of a two-factor between-subjects design
 
 ### Files this Example
 
-> _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ does not provide raw data for the Frenda example. Therefore, the relevant files are not presented here.
+> _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ does not provide raw data for the Frenda example. Therefore, an analysis using raw data is not presented here.
 
 [**_Frenda-Summary-Example.md_**](./Frenda-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 

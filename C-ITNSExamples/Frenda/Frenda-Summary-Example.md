@@ -52,9 +52,9 @@ A2B1 25.000 1.380 1.500 0.300 0.761 1.999
 A2B2 26.000 2.220 1.680 0.329 1.541 2.899
 ```
 ```r
-plotMeans(FrendaSummary) # Frenda-Figure1.jpg
+plotMeans(FrendaSummary) # Frenda-Figure1.jpeg
 ```
-<kbd><img src="Frenda-Figure1.jpg"></kbd>
+<kbd><img src="Frenda-Figure1.jpeg"></kbd>
 
 ### Analyses of the Marginal Means
 
@@ -112,9 +112,9 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.480 0.277 87.919 -0.071 1.031
 ```
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorA) # Frenda-Figure2.jpg
+plotContrast(FrendaSummary,contrast=mainFactorA) # Frenda-Figure2.jpeg
 ```
-<kbd><img src="Frenda-Figure2.jpg"></kbd>
+<kbd><img src="Frenda-Figure2.jpeg"></kbd>
 ```r
 testContrast(FrendaSummary,contrast=mainFactorA)
 ```
@@ -147,9 +147,9 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.240 0.277 87.919 -0.311 0.791
 ```
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorB) # Frenda-Figure3.jpg
+plotContrast(FrendaSummary,contrast=mainFactorB) # Frenda-Figure3.jpeg
 ```
-<kbd><img src="Frenda-Figure3.jpg"></kbd>
+<kbd><img src="Frenda-Figure3.jpeg"></kbd>
 ```r
 testContrast(FrendaSummary,contrast=mainFactorB)
 ```
@@ -214,9 +214,9 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast -0.360 0.330 44.605 -1.024 0.304
 ```
 ```r
-plotContrast(FrendaSummary,contrast=simpleAatB1) # Frenda-Figure4.jpg
+plotContrast(FrendaSummary,contrast=simpleAatB1) # Frenda-Figure4.jpeg
 ```
-<kbd><img src="Frenda-Figure4.jpg"></kbd>
+<kbd><img src="Frenda-Figure4.jpeg"></kbd>
 ```r
 testContrast(FrendaSummary,contrast=simpleAatB1)
 ```
@@ -249,9 +249,9 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.840 0.446 48.740 -0.056 1.736
 ```
 ```r
-plotContrast(FrendaSummary,contrast=simpleAatB2) # Frenda-Figure5.jpg
+plotContrast(FrendaSummary,contrast=simpleAatB2) # Frenda-Figure5.jpeg
 ```
-<kbd><img src="Frenda-Figure5.jpg"></kbd>
+<kbd><img src="Frenda-Figure5.jpeg"></kbd>
 ```r
 testContrast(FrendaSummary,contrast=simpleAatB2)
 ```
