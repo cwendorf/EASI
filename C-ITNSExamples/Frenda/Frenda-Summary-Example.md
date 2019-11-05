@@ -19,20 +19,20 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 ### Enter Summary Statistics
 
 ```r
-A1B1 <- c(N=26,M=1.50,SD=1.38)
-A1B2 <- c(N=26,M=1.14,SD=0.96)
-A2B1 <- c(N=25,M=1.38,SD=1.50)
-A2B2 <- c(N=26,M=2.22,SD=1.68)
-FrendaSummary <- rbind(A1B1,A1B2,A2B1,A2B2)
+EveningSleep <- c(N=26,M=1.50,SD=1.38)
+EveningNosleep <- c(N=26,M=1.14,SD=0.96)
+MorningSleep <- c(N=25,M=1.38,SD=1.50)
+MorningNosleep <- c(N=26,M=2.22,SD=1.68)
+FrendaSummary <- rbind(EveningSleep,EveningNosleep,MorningSleep,MorningNosleep)
 class(FrendaSummary) <- "bss"
 FrendaSummary
 ```
 ```
-      N    M   SD
-A1B1 26 1.50 1.38
-A1B2 26 1.14 0.96
-A2B1 25 1.38 1.50
-A2B2 26 2.22 1.68
+                N    M   SD
+EveningSleep   26 1.50 1.38
+EveningNosleep 26 1.14 0.96
+MorningSleep   25 1.38 1.50
+MorningNosleep 26 2.22 1.68
 attr(,"class")
 [1] "bss"
 ```
@@ -45,11 +45,11 @@ estimateMeans(FrendaSummary)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-          N     M    SD    SE    LL    UL
-A1B1 26.000 1.500 1.380 0.271 0.943 2.057
-A1B2 26.000 1.140 0.960 0.188 0.752 1.528
-A2B1 25.000 1.380 1.500 0.300 0.761 1.999
-A2B2 26.000 2.220 1.680 0.329 1.541 2.899
+                    N     M    SD    SE    LL    UL
+EveningSleep   26.000 1.500 1.380 0.271 0.943 2.057
+EveningNosleep 26.000 1.140 0.960 0.188 0.752 1.528
+MorningSleep   25.000 1.380 1.500 0.300 0.761 1.999
+MorningNosleep 26.000 2.220 1.680 0.329 1.541 2.899
 ```
 ```r
 plotMeans(FrendaSummary) # Frenda-Figure1.jpeg
@@ -112,7 +112,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.480 0.277 87.919 -0.071 1.031
 ```
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorA) # Frenda-Figure2.jpeg
+plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning")) # Frenda-Figure2.jpeg
 ```
 <kbd><img src="Frenda-Figure2.jpeg"></kbd>
 ```r
@@ -147,7 +147,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.240 0.277 87.919 -0.311 0.791
 ```
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorB) # Frenda-Figure3.jpeg
+plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep")) # Frenda-Figure3.jpeg
 ```
 <kbd><img src="Frenda-Figure3.jpeg"></kbd>
 ```r
@@ -190,22 +190,12 @@ HYPOTHESIS TEST FOR THE CONTRAST
            Est    SE     t     df     p
 Contrast 1.200 0.554 2.165 87.919 0.033
 ```
-```r
-standardizeContrast(FrendaSummary,contrast=Interaction)
-```
-```
-CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Est    SE    LL    UL
-Contrast 0.854 0.407 0.055 1.653
-```
-
-
-### Analyses of the Factor B at A1 Simple Effect
+### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
 
 ```r
-simpleAatB1 <- c(-1,1,0,0)
-estimateContrast(FrendaSummary,contrast=simpleAatB1)
+simpleBatEvening <- c(-1,1,0,0)
+estimateContrast(FrendaSummary,contrast=simpleBatEvening)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -214,11 +204,11 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast -0.360 0.330 44.605 -1.024 0.304
 ```
 ```r
-plotContrast(FrendaSummary,contrast=simpleAatB1) # Frenda-Figure4.jpeg
+plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep")) # Frenda-Figure4.jpeg
 ```
 <kbd><img src="Frenda-Figure4.jpeg"></kbd>
 ```r
-testContrast(FrendaSummary,contrast=simpleAatB1)
+testContrast(FrendaSummary,contrast=simpleBatEvening)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -227,7 +217,7 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast -0.360 0.330 -1.092 44.605 0.281
 ```
 ```r
-standardizeContrast(FrendaSummary,contrast=simpleAatB1)
+standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
@@ -236,11 +226,11 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 Contrast -0.256 0.240 -0.727 0.214
 ```
 
-### Analyses of the Factor B at A2 Simple Effect
+### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect
 
 ```r
-simpleAatB2 <- c(0,0,-1,1)
-estimateContrast(FrendaSummary,contrast=simpleAatB2)
+simpleBatMorning <- c(0,0,-1,1)
+estimateContrast(FrendaSummary,contrast=simpleBatMorning)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -249,11 +239,11 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.840 0.446 48.740 -0.056 1.736
 ```
 ```r
-plotContrast(FrendaSummary,contrast=simpleAatB2) # Frenda-Figure5.jpeg
+plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep")) # Frenda-Figure5.jpeg
 ```
 <kbd><img src="Frenda-Figure5.jpeg"></kbd>
 ```r
-testContrast(FrendaSummary,contrast=simpleAatB2)
+testContrast(FrendaSummary,contrast=simpleBatMorning)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -262,7 +252,7 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 0.840 0.446 1.885 48.740 0.065
 ```
 ```r
-standardizeContrast(FrendaSummary,contrast=simpleAatB2)
+standardizeContrast(FrendaSummary,contrast=simpleBatMorning)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
