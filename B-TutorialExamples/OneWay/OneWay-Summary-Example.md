@@ -23,9 +23,9 @@ This code inputs the variable summaries and creates a single summary table.
 Level1 <- c(N=4,M=2.000,SD=2.449)
 Level2 <- c(N=4,M=6.000,SD=2.449)
 Level3 <- c(N=4,M=7.000,SD=2.449)
-BetweenSummary <- rbind(Level1,Level2,Level3)
-class(BetweenSummary) <- "bss"
-BetweenSummary
+OneWaySummary <- rbind(Level1,Level2,Level3)
+class(OneWaySummary) <- "bss"
+OneWaySummary
 ```
 ```
        N M    SD
@@ -44,7 +44,7 @@ This section produces analyses that are equivalent to one-sample analyses separa
 
 This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```r
-estimateMeans(BetweenSummary)
+estimateMeans(OneWaySummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -57,7 +57,7 @@ Level3 4.000 7.000 2.449 1.224  3.103 10.897
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
-estimateMeans(BetweenSummary,conf.level=.99)
+estimateMeans(OneWaySummary,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -72,13 +72,13 @@ Level3 4.000 7.000 2.449 1.224 -0.152 14.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(BetweenSummary) # OneWay-Figure1.jpeg
+plotMeans(OneWaySummary) # OneWay-Figure1.jpeg
 ```
 <kbd><img src="OneWay-Figure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(BetweenSummary,conf.level=.99,mu=5) # OneWay-Figure2.jpeg
+plotMeans(OneWaySummary,conf.level=.99,mu=5) # OneWay-Figure2.jpeg
 ```
 <kbd><img src="OneWay-Figure2.jpeg"></kbd>
 
@@ -87,7 +87,7 @@ plotMeans(BetweenSummary,conf.level=.99,mu=5) # OneWay-Figure2.jpeg
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```r
-testMeans(BetweenSummary)
+testMeans(OneWaySummary)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
@@ -100,7 +100,7 @@ Level3 7.000 1.224 5.717 3.000 0.011
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
-testMeans(BetweenSummary,mu=5)
+testMeans(OneWaySummary,mu=5)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
@@ -115,7 +115,7 @@ Level3  2.000 1.224  1.633 3.000 0.201
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```r
-standardizeMeans(BetweenSummary)
+standardizeMeans(OneWaySummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
@@ -128,7 +128,7 @@ Level3 2.858  2.079 1.063  0.464 5.227
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```r
-standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
+standardizeMeans(OneWaySummary,mu=5,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
@@ -145,7 +145,7 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code creates a new table that identifies the two levels for comparison.
 ```r
-CompSummary <- BetweenSummary[c("Level1","Level2"),]
+CompSummary <- OneWaySummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
 ```
 
@@ -248,7 +248,7 @@ L1vsOthers <- c(-1,.5,.5)
 
 This code produces a confidence interval for that contrast.
 ```r
-estimateContrast(BetweenSummary,contrast=L1vsOthers)
+estimateContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -259,7 +259,7 @@ Contrast 4.500 1.500 6.000 0.830 8.170
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```r
-estimateContrast(BetweenSummary,contrast=L1vsOthers,conf.level=.99)
+estimateContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
@@ -272,13 +272,13 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-plotContrast(BetweenSummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
+plotContrast(OneWaySummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
 ````
 <kbd><img src="OneWay-Figure5.jpeg"></kbd>
 
 The width of the confidence interval for the contrast can be altered if desired.
 ```r
-plotContrast(BetweenSummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
+plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
 ```
 <kbd><img src="OneWay-Figure6.jpeg"></kbd>
 
@@ -286,7 +286,7 @@ plotContrast(BetweenSummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```r
-testContrast(BetweenSummary,contrast=L1vsOthers)
+testContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -297,7 +297,7 @@ Contrast 4.500 1.500 3.001 6.000 0.024
 
 If desired, the contrast can be tested against other values.
 ```r
-testContrast(BetweenSummary,contrast=L1vsOthers,mu=4)
+testContrast(OneWaySummary,contrast=L1vsOthers,mu=4)
 ```
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
@@ -310,7 +310,7 @@ Contrast 0.500 1.500 0.333 6.000 0.750
 
 This code calculates a standardized contrast and its confidence interval.
 ```r
-standardizeContrast(BetweenSummary,contrast=L1vsOthers)
+standardizeContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
@@ -321,7 +321,7 @@ Contrast 1.837 0.829 0.212 3.463
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeContrast(BetweenSummary,contrast=L1vsOthers,conf.level=.99)
+standardizeContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST

@@ -9,18 +9,18 @@
 > 
 > Outcome1 <- c(N=4,M=2.000,SD=2.449)
 > Outcome2 <- c(N=4,M=6.000,SD=2.449)
-> WithinSummary <- rbind(Outcome1,Outcome2)
-> class(WithinSummary) <- "wss"
-> WithinSummary
+> PairedSummary <- rbind(Outcome1,Outcome2)
+> class(PairedSummary) <- "wss"
+> PairedSummary
          N M    SD
 Outcome1 4 2 2.449
 Outcome2 4 6 2.449
 attr(,"class")
 [1] "wss"
 > 
-> WithinCorr <- declareCorrMatrix("Outcome1","Outcome2")
-> WithinCorr["Outcome1","Outcome2"] <- .500
-> WithinCorr
+> PairedCorr <- declareCorrMatrix("Outcome1","Outcome2")
+> PairedCorr["Outcome1","Outcome2"] <- .500
+> PairedCorr
          Outcome1 Outcome2
 Outcome1       NA      0.5
 Outcome2       NA       NA
@@ -30,7 +30,7 @@ Outcome2       NA       NA
 > 
 > #### Confidence Intervals for the Means
 > 
-> estimateMeans(WithinSummary)
+> estimateMeans(PairedSummary)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
@@ -38,7 +38,7 @@ CONFIDENCE INTERVALS FOR THE MEANS
 Outcome1 4.000 2.000 2.449 1.224 -1.897 5.897
 Outcome2 4.000 6.000 2.449 1.224  2.103 9.897
 
-> estimateMeans(WithinSummary,conf.level=.99)
+> estimateMeans(PairedSummary,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
@@ -49,12 +49,12 @@ Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
 > 
 > #### Plots of Confidence Intervals for the Means
 > 
-> plotMeans(WithinSummary) # Paired-Figure1.jpeg
-> plotMeans(WithinSummary,conf.level=.99,mu=6) # Paired-Figure2.jpeg
+> plotMeans(PairedSummary) # Paired-Figure1.jpeg
+> plotMeans(PairedSummary,conf.level=.99,mu=6) # Paired-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
-> testMeans(WithinSummary)
+> testMeans(PairedSummary)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
@@ -62,7 +62,7 @@ HYPOTHESIS TESTS FOR THE MEANS
 Outcome1 2.000 1.224 1.633 3.000 0.201
 Outcome2 6.000 1.224 4.900 3.000 0.016
 
-> testMeans(WithinSummary,mu=6)
+> testMeans(PairedSummary,mu=6)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
@@ -73,7 +73,7 @@ Outcome2  0.000 1.224  0.000 3.000 1.000
 > 
 > #### Effect Size for the Means
 > 
-> standardizeMeans(WithinSummary)
+> standardizeMeans(PairedSummary)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
@@ -81,7 +81,7 @@ CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 Outcome1 0.817  0.594 0.616 -0.387 1.934
 Outcome2 2.450  1.782 0.955  0.325 4.532
 
-> standardizeMeans(WithinSummary,mu=6,conf.level=.99)
+> standardizeMeans(PairedSummary,mu=6,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
@@ -95,14 +95,14 @@ Outcome2  0.000  0.000 0.559 -1.288 1.288
 > 
 > #### Confidence Interval for the Mean Difference
 > 
-> estimateDifference(WithinSummary,WithinCorr)
+> estimateDifference(PairedSummary,PairedCorr)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
              Diff    SE    df     LL     UL
 Comparison -4.000 1.224 3.000 -7.897 -0.103
 
-> estimateDifference(WithinSummary,WithinCorr,conf.level=.99)
+> estimateDifference(PairedSummary,PairedCorr,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
@@ -112,19 +112,19 @@ Comparison -4.000 1.224 3.000 -11.152 3.152
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
-> plotDifference(WithinSummary,WithinCorr) # Paired-Figure3.jpeg
-> plotDifference(WithinSummary,WithinCorr,conf.level=.99) # Paired-Figure4.jpeg
+> plotDifference(PairedSummary,PairedCorr) # Paired-Figure3.jpeg
+> plotDifference(PairedSummary,PairedCorr,conf.level=.99) # Paired-Figure4.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
-> testDifference(WithinSummary,WithinCorr)
+> testDifference(PairedSummary,PairedCorr)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
              Diff    SE      t    df     p
 Comparison -4.000 1.224 -3.267 3.000 0.047
 
-> testDifference(WithinSummary,WithinCorr,mu=-2)
+> testDifference(PairedSummary,PairedCorr,mu=-2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
@@ -134,14 +134,14 @@ Comparison -2.000 1.224 -1.633 3.000 0.201
 > 
 > #### Effect Size for the Mean Difference
 > 
-> standardizeDifference(WithinSummary,WithinCorr)
+> standardizeDifference(PairedSummary,PairedCorr)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
               Est    SE     LL     UL
 Comparison -1.633 0.782 -3.166 -0.101
 
-> standardizeDifference(WithinSummary,WithinCorr,conf.level=.99)
+> standardizeDifference(PairedSummary,PairedCorr,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 

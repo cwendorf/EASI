@@ -21,9 +21,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 This code inputs the variable and creates a single summary table.
 ```r
 Outcome <- c(N=8,M=4.000,SD=3.117)
-WithinSummary <- rbind(Outcome)
-class(WithinSummary) <- "wss"
-WithinSummary
+OneSampleSummary <- rbind(Outcome)
+class(OneSampleSummary) <- "wss"
+OneSampleSummary
 ```
 ```
         N M    SD
@@ -40,7 +40,7 @@ This section produces analyses that are equivalent to one-sample analyses for th
 
 This code will provide a table of descriptive statistics and confidence intervals for the variable.
 ```r
-estimateMeans(WithinSummary)
+estimateMeans(OneSampleSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -51,7 +51,7 @@ Outcome 8.000 4.000 3.117 1.102 1.394 6.606
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
-estimateMeans(WithinSummary,conf.level=.99)
+estimateMeans(OneSampleSummary,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -64,13 +64,13 @@ Outcome 8.000 4.000 3.117 1.102 0.143 7.857
 
 This code will produce a graph of the confidence interval for the variable.
 ```r
-plotMeans(WithinSummary) # OneSample-Figure1.jpeg
+plotMeans(OneSampleSummary) # OneSample-Figure1.jpeg
 ```
 <kbd><img src="OneSample-Figure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(WithinSummary,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
+plotMeans(OneSampleSummary,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
 ```
 <kbd><img src="OneSample-Figure2.jpeg"></kbd>
 
@@ -79,7 +79,7 @@ plotMeans(WithinSummary,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
 
 This code will produce a table of NHST sfor the variable. In this case, the mean is tested against a value of zero.
 ```r
-testMeans(WithinSummary)
+testMeans(OneSampleSummary)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
@@ -90,7 +90,7 @@ Outcome 4.000 1.102 3.630 7.000 0.008
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
-testMeans(WithinSummary,mu=5)
+testMeans(OneSampleSummary,mu=5)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
@@ -103,7 +103,7 @@ Outcome -1.000 1.102 -0.907 7.000 0.394
 
 This code will produce a table of standardized mean difference for the variable. In this case, the mean is compared to zero to form the effect size.
 ```r
-standardizeMeans(WithinSummary)
+standardizeMeans(OneSampleSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
@@ -114,7 +114,7 @@ Outcome 1.283  1.141 0.482 0.304 2.217
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```r
-standardizeMeans(WithinSummary,mu=5,conf.level=.99)
+standardizeMeans(OneSampleSummary,mu=5,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS

@@ -22,9 +22,9 @@ This code inputs the variable summaries and creates a summary table.
 ```r
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
 Outcome2 <- c(N=4,M=6.000,SD=2.449)
-WithinSummary <- rbind(Outcome1,Outcome2)
-class(WithinSummary) <- "wss"
-WithinSummary
+PairedSummary <- rbind(Outcome1,Outcome2)
+class(PairedSummary) <- "wss"
+PairedSummary
 ```
 ```
          N M    SD
@@ -35,9 +35,9 @@ attr(,"class")
 ```
 This code creates a correlation matrix and enters single correlation.
 ```r
-WithinCorr <- declareCorrMatrix("Outcome1","Outcome2")
-WithinCorr["Outcome1","Outcome2"] <- .500
-WithinCorr
+PairedCorr <- declareCorrMatrix("Outcome1","Outcome2")
+PairedCorr["Outcome1","Outcome2"] <- .500
+PairedCorr
 ```
 ```
          Outcome1 Outcome2
@@ -53,7 +53,7 @@ This section produces analyses that are equivalent to one-sample analyses separa
 
 This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```r
-estimateMeans(WithinSummary)
+estimateMeans(PairedSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -65,7 +65,7 @@ Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
-estimateMeans(WithinSummary,conf.level=.99)
+estimateMeans(PairedSummary,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -79,13 +79,13 @@ Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(WithinSummary) # Paired-Figure1.jpeg
+plotMeans(PairedSummary) # Paired-Figure1.jpeg
 ```
 <kbd><img src="Paired-Figure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
 ```r
-plotMeans(WithinSummary,conf.level=.99,mu=6) # Paired-Figure2.jpeg
+plotMeans(PairedSummary,conf.level=.99,mu=6) # Paired-Figure2.jpeg
 ```
 <kbd><img src="Paired-Figure2.jpeg"></kbd>
 
@@ -93,7 +93,7 @@ plotMeans(WithinSummary,conf.level=.99,mu=6) # Paired-Figure2.jpeg
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```r
-testMeans(WithinSummary)
+testMeans(PairedSummary)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
@@ -105,7 +105,7 @@ Outcome2 6.000 1.224 4.900 3.000 0.016
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
-testMeans(WithinSummary,mu=6)
+testMeans(PairedSummary,mu=6)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
@@ -119,7 +119,7 @@ Outcome2  0.000 1.224  0.000 3.000 1.000
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```r
-standardizeMeans(WithinSummary)
+standardizeMeans(PairedSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
@@ -131,7 +131,7 @@ Outcome2 2.450  1.782 0.955  0.325 4.532
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```r
-standardizeMeans(WithinSummary,mu=6,conf.level=.99)
+standardizeMeans(PairedSummary,mu=6,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
@@ -149,7 +149,7 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code estimates the confidence interval of the difference.
 ```r
-estimateDifference(WithinSummary,WithinCorr)
+estimateDifference(PairedSummary,PairedCorr)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -160,7 +160,7 @@ Comparison -4.000 1.224 3.000 -7.897 -0.103
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```r
-estimateDifference(WithinSummary,WithinCorr,conf.level=.99)
+estimateDifference(PairedSummary,PairedCorr,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -173,13 +173,13 @@ Comparison -4.000 1.224 3.000 -11.152 3.152
 
 This code obtains and plots the confidence intervals for the levels and the mean difference.
 ```r
-plotDifference(WithinSummary,WithinCorr) # Paired-Figur3.jpeg
+plotDifference(PairedSummary,PairedCorr) # Paired-Figur3.jpeg
 ```
 <kbd><img src="Paired-Figure3.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default if desired.
 ```r
-plotDifference(WithinSummary,WithinCorr,conf.level=.99) # Paired-Figure4.jpeg
+plotDifference(PairedSummary,PairedCorr,conf.level=.99) # Paired-Figure4.jpeg
 ```
 <kbd><img src="Paired-Figure4.jpeg"></kbd>
 
@@ -187,7 +187,7 @@ plotDifference(WithinSummary,WithinCorr,conf.level=.99) # Paired-Figure4.jpeg
 
 This code produces NHST for the mean difference (using a default test value of zero).
 ```r
-testDifference(WithinSummary,WithinCorr)
+testDifference(PairedSummary,PairedCorr)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -198,7 +198,7 @@ Comparison -4.000 1.224 -3.267 3.000 0.047
 
 If the default value of zero is not plausible, it too can be changed.
 ```r
-testDifference(WithinSummary,WithinCorr,mu=-2)
+testDifference(PairedSummary,PairedCorr,mu=-2)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -211,7 +211,7 @@ Comparison -2.000 1.224 -1.633 3.000 0.201
 
 This code calculates a standardized mean difference and its confidence interval.
 ```r
-standardizeDifference(WithinSummary,WithinCorr)
+standardizeDifference(PairedSummary,PairedCorr)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -222,7 +222,7 @@ Comparison -1.633 0.782 -3.166 -0.101
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeDifference(WithinSummary,WithinCorr,conf.level=.99)
+standardizeDifference(PairedSummary,PairedCorr,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON

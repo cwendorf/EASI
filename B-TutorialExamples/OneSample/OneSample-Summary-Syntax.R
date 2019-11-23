@@ -8,28 +8,28 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 ### Enter Summary Statistics
 
 Outcome <- c(N=8,M=4.000,SD=3.117)
-WithinSummary <- rbind(Outcome)
-class(WithinSummary) <- "wss"
-WithinSummary
+OneSampleSummary <- rbind(Outcome)
+class(OneSampleSummary) <- "wss"
+OneSampleSummary
 
 ### Analyses of the Group
 
 #### Confidence Intervals for the Mean
 
-estimateMeans(WithinSummary)
-estimateMeans(WithinSummary,conf.level=.99)
+estimateMeans(OneSampleSummary)
+estimateMeans(OneSampleSummary,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Mean
 
-plotMeans(WithinSummary) # OneSample-Figure1.jpeg
-plotMeans(WithinSummary,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
+plotMeans(OneSampleSummary) # OneSample-Figure1.jpeg
+plotMeans(OneSampleSummary,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
 
 #### Significance Tests for the Mean
 
-testMeans(WithinSummary)
-testMeans(WithinSummary,mu=5)
+testMeans(OneSampleSummary)
+testMeans(OneSampleSummary,mu=5)
 
 #### Effect Size for the Mean
 
-standardizeMeans(WithinSummary)
-standardizeMeans(WithinSummary,mu=5,conf.level=.99)
+standardizeMeans(OneSampleSummary)
+standardizeMeans(OneSampleSummary,mu=5,conf.level=.99)

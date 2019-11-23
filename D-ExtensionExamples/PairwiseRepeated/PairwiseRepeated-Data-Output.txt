@@ -12,8 +12,8 @@
 > Time2 <- c(7,7,8,8,9)
 > Time3 <- c(8,8,9,9,9)
 > 
-> WithinData <- data.frame(Time1,Time2,Time3)
-> WithinData
+> PairwiseRepeatedData <- data.frame(Time1,Time2,Time3)
+> PairwiseRepeatedData
   Time1 Time2 Time3
 1     5     7     8
 2     6     7     8

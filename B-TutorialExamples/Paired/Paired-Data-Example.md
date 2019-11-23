@@ -23,8 +23,8 @@ This code inputs the variable names and creates a viewable data frame.
 Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)
 
-WithinData <- data.frame(Outcome1,Outcome2)
-WithinData
+PairedData <- data.frame(Outcome1,Outcome2)
+PairedData
 ```
 ```
   Outcome1 Outcome2

@@ -10,65 +10,65 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
 Outcome2 <- c(N=4,M=6.000,SD=2.449)
 Outcome3 <- c(N=4,M=7.000,SD=2.449)
-WithinSummary <- rbind(Outcome1,Outcome2,Outcome3)
-class(WithinSummary) <- "wss"
-WithinSummary
+RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
+class(RepeatedSummary) <- "wss"
+RepeatedSummary
 
-WithinCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
-WithinCorr["Outcome1","Outcome2"] <- .500
-WithinCorr["Outcome1","Outcome3"] <- .056
-WithinCorr["Outcome2","Outcome3"] <- .389
-WithinCorr <- fillCorrMatrix(WithinCorr)
-WithinCorr
+RepeatedCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+RepeatedCorr["Outcome1","Outcome2"] <- .500
+RepeatedCorr["Outcome1","Outcome3"] <- .056
+RepeatedCorr["Outcome2","Outcome3"] <- .389
+RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
+RepeatedCorr
 
 ### Analyses of Multiple Variables
 ### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
-estimateMeans(WithinSummary)
-estimateMeans(WithinSummary,conf.level=.99)
+estimateMeans(RepeatedSummary)
+estimateMeans(RepeatedSummary,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(WithinSummary) # Repeated-Figure1.jpeg
-plotMeans(WithinSummary,conf.level=.99,mu=5) # Repeated-Figure2.jpeg
+plotMeans(RepeatedSummary) # Repeated-Figure1.jpeg
+plotMeans(RepeatedSummary,conf.level=.99,mu=5) # Repeated-Figure2.jpeg
 
 #### Significance Tests for the Means
 
-testMeans(WithinSummary)
-testMeans(WithinSummary,mu=5)
+testMeans(RepeatedSummary)
+testMeans(RepeatedSummary,mu=5)
 
 #### Effect Size for the Means
 
-standardizeMeans(WithinSummary)
-standardizeMeans(WithinSummary,mu=5,conf.level=.99)
+standardizeMeans(RepeatedSummary)
+standardizeMeans(RepeatedSummary,mu=5,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 ### (equivalent to analyses for two levels of a factor)
 
-CompSummary <- WithinSummary[c("Outcome1","Outcome2"),]
+CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 
 #### Confidence Interval for the Mean Difference
 
-estimateDifference(CompSummary,WithinCorr)
-estimateDifference(CompSummary,WithinCorr,conf.level=.99)
+estimateDifference(CompSummary,RepeatedCorr)
+estimateDifference(CompSummary,RepeatedCorr,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(CompSummary,WithinCorr) # Repeated-Figure3.jpg
-plotDifference(CompSummary,WithinCorr,conf.level=.99) # Repeated-Figure4.jpeg
+plotDifference(CompSummary,RepeatedCorr) # Repeated-Figure3.jpg
+plotDifference(CompSummary,RepeatedCorr,conf.level=.99) # Repeated-Figure4.jpeg
 
 #### Significance Test for the Mean Difference
 
-testDifference(CompSummary,WithinCorr)
-testDifference(CompSummary,WithinCorr,mu=-2)
+testDifference(CompSummary,RepeatedCorr)
+testDifference(CompSummary,RepeatedCorr,mu=-2)
 
 #### Effect Size for the Mean Difference
 
-standardizeDifference(CompSummary,WithinCorr)
-standardizeDifference(CompSummary,WithinCorr,conf.level=.99)
+standardizeDifference(CompSummary,RepeatedCorr)
+standardizeDifference(CompSummary,RepeatedCorr,conf.level=.99)
 
 ### Analyses of a Variable Contrast
 ### (equivalent to analyses for multiple levels of a factor)
@@ -77,20 +77,20 @@ O1vsOthers <- c(-1,.5,.5)
 
 #### Confidence Interval for the Contrast
 
-estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
-estimateContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
+estimateContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
+estimateContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers) # Repeated-Figure5.jpeg
-plotContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
+plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) # Repeated-Figure5.jpeg
+plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
 
 #### Significance Test for the Contrast
 
-testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
-testContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,mu=4)
+testContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
+testContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4)
 
 #### Significance Test for the Contrast
 
-standardizeContrast(WithinSummary,WithinCorr,contrast=O1vsOthers)
-standardizeContrast(WithinSummary,WithinCorr,contrast=O1vsOthers,conf.level=.99)
+standardizeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
+standardizeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99)

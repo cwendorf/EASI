@@ -8,8 +8,8 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 ### Enter Data
 
 Outcome <- c(0,0,3,5,4,7,4,9)
-WithinData <- data.frame(Outcome)
-WithinData
+OneSampleData <- data.frame(Outcome)
+OneSampleData
 
 ### Analyses of the Group
 

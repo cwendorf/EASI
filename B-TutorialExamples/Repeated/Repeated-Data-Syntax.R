@@ -10,8 +10,8 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)
 Outcome3 <- c(9,6,4,9)
-WithinData <- data.frame(Outcome1,Outcome2,Outcome3)
-WithinData
+RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+RepeatedData
 
 ### Analyses of Multiple Variables
 ### (equivalent to one-sample analyses for each level of a factor)
