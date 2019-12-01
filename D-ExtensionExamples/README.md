@@ -18,10 +18,10 @@
 
 ### Included Examples
 
-**Summary Extension**: These examples provide summary statistics, boxplots, and data plots for single-factor designs.
+**Summarize Extension**: These examples provide summary statistics, boxplots, and data plots for single-factor designs.
 
-- The [**SummaryOneWay**](./SummaryOneWay/) files analyze an example of a single-factor between-subjects design 
-- The [**SummaryRepeated**](./SummaryRepeated/) files analyze an example of a single-factor within-subjects design 
+- The [**SummarizeOneWay**](./SummarizeOneWay/) files analyze an example of a single-factor between-subjects design 
+- The [**SummarizeRepeated**](./SummarizeRepeated/) files analyze an example of a single-factor within-subjects design 
 
 **Pairwise Extension**: These examples analyze unadjusted paiwise comparisons for single-factor designs.
 
@@ -46,4 +46,4 @@
 
 ## References
 
-Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
+Wendorf, C. A. (2019). _Statistics for social science: A sourcebook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm**](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

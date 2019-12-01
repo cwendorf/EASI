@@ -41,4 +41,4 @@ The following are examples for two-factor designs.
 
 ## References
 
-Wendorf, C. A. (2009). _Statistics for Psychologists: An online textbook._ [**https://www4.uwsp.edu/psych/cw/statistics/textbook.htm**](https://www4.uwsp.edu/psych/cw/statistics/textbook.htm)
+Wendorf, C. A. (2019). _Statistics for social science: A sourcebook._ Available at [**https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm**](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
