@@ -20,10 +20,10 @@ The **PairwiseRepeated** files analyze an example of a single-factor within-subj
 
 The following files analyze the example using raw data input:
 
-- [**_PairwiseRepeated-Data-Syntax.R_**](./PairwiseRepeated-Data-Syntax.R)
-- [**_PairwiseRepeated-Data-Output.R_**](./PairwiseRepeated-Data-Output.R)
-- [**_PairwiseRepeated-Figure1.jpeg_**](./PairwiseRepeated-Figure1.jpeg)
-- [**_PairwiseRepeated-Figure2.jpeg_**](./PairwiseRepeated-Figure2.jpeg)
+- [_PairwiseRepeated-Data-Syntax.R_](./PairwiseRepeated-Data-Syntax.R)
+- [_PairwiseRepeated-Data-Output.R_](./PairwiseRepeated-Data-Output.R)
+- [_PairwiseRepeated-Figure1.jpeg_](./PairwiseRepeated-Figure1.jpeg)
+- [_PairwiseRepeated-Figure2.jpeg_](./PairwiseRepeated-Figure2.jpeg)
 
 ## References
 

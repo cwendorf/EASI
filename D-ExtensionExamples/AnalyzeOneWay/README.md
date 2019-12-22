@@ -22,14 +22,14 @@ The **AnalyzeOneWay** files analyze an example of a single-factor between-subjec
  
 The following files analyze the example using raw data input:
 
-- [**_AnalyzeOneWay-Data-Syntax.R_**](./AnalyzeOneWay-Data-Syntax.R)
-- [**_AnalyzeOneWay-Data-Output.R_**](./AnalyzeOneWay-Data-Output.R)
-- [**_AnalyzeOneWay-Figure1.jpeg_**](./AnalyzeOneWay-Figure1.jpeg)
-- [**_AnalyzeOneWay-Figure2.jpeg_**](./AnalyzeOneWay-Figure2.jpeg)
-- [**_AnalyzeOneWay-Figure3.jpeg_**](./AnalyzeOneWay-Figure3.jpeg)
-- [**_AnalyzeOneWay-Figure4.jpeg_**](./AnalyzeOneWay-Figure4.jpeg)
-- [**_AnalyzeOneWay-Figure5.jpeg_**](./AnalyzeOneWay-Figure5.jpeg)
-- [**_AnalyzeOneWay-Figure6.jpeg_**](./AnalyzeOneWay-Figure6.jpeg)
+- [_AnalyzeOneWay-Data-Syntax.R_](./AnalyzeOneWay-Data-Syntax.R)
+- [_AnalyzeOneWay-Data-Output.R_](./AnalyzeOneWay-Data-Output.R)
+- [_AnalyzeOneWay-Figure1.jpeg_](./AnalyzeOneWay-Figure1.jpeg)
+- [_AnalyzeOneWay-Figure2.jpeg_](./AnalyzeOneWay-Figure2.jpeg)
+- [_AnalyzeOneWay-Figure3.jpeg_](./AnalyzeOneWay-Figure3.jpeg)
+- [_AnalyzeOneWay-Figure4.jpeg_](./AnalyzeOneWay-Figure4.jpeg)
+- [_AnalyzeOneWay-Figure5.jpeg_](./AnalyzeOneWay-Figure5.jpeg)
+- [_AnalyzeOneWay-Figure6.jpeg_](./AnalyzeOneWay-Figure6.jpeg)
 
 ## References
 

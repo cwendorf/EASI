@@ -21,10 +21,10 @@ The **SummarizeRepeated** files provide boxplots and data plots for single-facto
  
 The following files analyze the example using raw data input:
 
-- [**_SummarizeRepeated-Data-Syntax.R_**](./SummarizeRepeated-Data-Syntax.R)
-- [**_SummarizeRepeated-Data-Output.R_**](./SummarizeRepeated-Data-Output.R)
-- [**_SummarizeRepeated-Figure1.jpeg_**](./SummarizeRepeated-Figure1.jpeg)
-- [**_SummarizeRepeated-Figure2.jpeg_**](./SummarizeRepeated-Figure2.jpeg)
+- [_SummarizeRepeated-Data-Syntax.R_](./SummarizeRepeated-Data-Syntax.R)
+- [_SummarizeRepeated-Data-Output.R_](./SummarizeRepeated-Data-Output.R)
+- [_SummarizeRepeated-Figure1.jpeg_](./SummarizeRepeated-Figure1.jpeg)
+- [_SummarizeRepeated-Figure2.jpeg_](./SummarizeRepeated-Figure2.jpeg)
 
 ## References
 

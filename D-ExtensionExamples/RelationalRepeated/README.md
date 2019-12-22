@@ -23,23 +23,23 @@ The **RelationalRepeated** files analyze an example of relational intervals for 
  
 The following files analyze the example using raw data input:
 
-- [**_RelationalRepeated-Data-Syntax.R_**](./RelationalRepeated-Data-Syntax.R)
-- [**_RelationalRepeated-Data-Output.R_**](./RelationalRepeated-Data-Output.R)
-- [**_RelationalRepeated-Figure1.jpeg_**](./RelationalRepeated-Figure1.jpeg)
-- [**_RelationalRepeated-Figure2.jpeg_**](./RelationalRepeated-Figure2.jpeg)
-- [**_RelationalRepeated-Figure3.jpeg_**](./RelationalRepeated-Figure3.jpeg)
-- [**_RelationalRepeated-Figure4.jpeg_**](./RelationalRepeated-Figure4.jpeg)
-- [**_RelationalRepeated-Figure5.jpeg_**](./RelationalRepeated-Figure5.jpeg)
-- [**_RelationalRepeated-Figure6.jpeg_**](./RelationalRepeated-Figure6.jpeg)
+- [_RelationalRepeated-Data-Syntax.R_](./RelationalRepeated-Data-Syntax.R)
+- [_RelationalRepeated-Data-Output.R_](./RelationalRepeated-Data-Output.R)
+- [_RelationalRepeated-Figure1.jpeg_](./RelationalRepeated-Figure1.jpeg)
+- [_RelationalRepeated-Figure2.jpeg_](./RelationalRepeated-Figure2.jpeg)
+- [_RelationalRepeated-Figure3.jpeg_](./RelationalRepeated-Figure3.jpeg)
+- [_RelationalRepeated-Figure4.jpeg_](./RelationalRepeated-Figure4.jpeg)
+- [_RelationalRepeated-Figure5.jpeg_](./RelationalRepeated-Figure5.jpeg)
+- [_RelationalRepeated-Figure6.jpeg_](./RelationalRepeated-Figure6.jpeg)
 
 The following files analyze the example using summary statistics input:
 
-- [**_RelationalRepeated-Summary-Syntax.R_**](./RelationalRepeated-Summary-Syntax.R)
-- [**_RelationalRepeated-Summary-Output.R_**](./RelationalRepeated-Summary-Output.R)
-- [**_RelationalRepeated-Figure1.jpeg_**](./RelationalRepeated-Figure1.jpeg)
-- [**_RelationalRepeated-Figure2.jpeg_**](./RelationalRepeated-Figure2.jpeg)
-- [**_RelationalRepeated-Figure4.jpeg_**](./RelationalRepeated-Figure4.jpeg)
-- [**_RelationalRepeated-Figure5.jpeg_**](./RelationalRepeated-Figure5.jpeg)
+- [_RelationalRepeated-Summary-Syntax.R_](./RelationalRepeated-Summary-Syntax.R)
+- [_RelationalRepeated-Summary-Output.R_](./RelationalRepeated-Summary-Output.R)
+- [_RelationalRepeated-Figure1.jpeg_](./RelationalRepeated-Figure1.jpeg)
+- [_RelationalRepeated-Figure2.jpeg_](./RelationalRepeated-Figure2.jpeg)
+- [_RelationalRepeated-Figure4.jpeg_](./RelationalRepeated-Figure4.jpeg)
+- [_RelationalRepeated-Figure5.jpeg_](./RelationalRepeated-Figure5.jpeg)
 
 ## References
 

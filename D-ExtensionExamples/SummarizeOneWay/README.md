@@ -21,10 +21,10 @@ The **SummarizeOneWay** files provide summary statistcs, boxplots, and data plot
  
 The following files analyze the example using raw data input:
 
-- [**_SummarizeOneWay-Data-Syntax.R_**](./SummarizeOneWay-Data-Syntax.R)
-- [**_SummarizeOneWay-Data-Output.R_**](./SummarizeOneWay-Data-Output.R)
-- [**_SummarizeOneWay-Figure1.jpeg_**](./SummarizeOneWay-Figure1.jpeg)
-- [**_SummarizeOneWay-Figure2.jpeg_**](./SummarizeOneWay-Figure2.jpeg)
+- [_SummarizeOneWay-Data-Syntax.R_](./SummarizeOneWay-Data-Syntax.R)
+- [_SummarizeOneWay-Data-Output.R_](./SummarizeOneWay-Data-Output.R)
+- [_SummarizeOneWay-Figure1.jpeg_](./SummarizeOneWay-Figure1.jpeg)
+- [_SummarizeOneWay-Figure2.jpeg_](./SummarizeOneWay-Figure2.jpeg)
 
 ## References
 

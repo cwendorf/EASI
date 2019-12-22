@@ -22,20 +22,20 @@ The **MixedBy** files analyze an example of a a mixed (between-subjects and with
  
 The following files analyze the example using raw data input:
 
-- [**_MixedBy-Data-Syntax.R_**](./MixedBy-Data-Syntax.R)
-- [**_MixedBy-Data-Output.R_**](./MixedBy-Data-Output.R)
-- [**_MixedBy-Figure1.jpeg_**](./MixedBy-Figure1.jpeg)
-- [**_MixedBy-Figure2.jpeg_**](./MixedBy-Figure2.jpeg)
-- [**_MixedBy-Figure3.jpeg_**](./MixedBy-Figure3.jpeg)
-- [**_MixedBy-Figure4.jpeg_**](./MixedBy-Figure4.jpeg)
-- [**_MixedBy-Figure5.jpeg_**](./MixedBy-Figure5.jpeg)
-- [**_MixedBy-Figure6.jpeg_**](./MixedBy-Figure6.jpeg)
-- [**_MixedBy-Figure7.jpeg_**](./MixedBy-Figure7.jpeg)
-- [**_MixedBy-Figure8.jpeg_**](./MixedBy-Figure8.jpeg)
-- [**_MixedBy-Figure9.jpeg_**](./MixedBy-Figure9.jpeg)
-- [**_MixedBy-Figure10.jpeg_**](./MixedBy-Figure10.jpeg)
-- [**_MixedBy-Figure11.jpeg_**](./MixedBy-Figure11.jpeg)
-- [**_MixedBy-Figure12.jpeg_**](./MixedBy-Figure12.jpeg)
+- [_MixedBy-Data-Syntax.R_](./MixedBy-Data-Syntax.R)
+- [_MixedBy-Data-Output.R_](./MixedBy-Data-Output.R)
+- [_MixedBy-Figure1.jpeg_](./MixedBy-Figure1.jpeg)
+- [_MixedBy-Figure2.jpeg_](./MixedBy-Figure2.jpeg)
+- [_MixedBy-Figure3.jpeg_](./MixedBy-Figure3.jpeg)
+- [_MixedBy-Figure4.jpeg_](./MixedBy-Figure4.jpeg)
+- [_MixedBy-Figure5.jpeg_](./MixedBy-Figure5.jpeg)
+- [_MixedBy-Figure6.jpeg_](./MixedBy-Figure6.jpeg)
+- [_MixedBy-Figure7.jpeg_](./MixedBy-Figure7.jpeg)
+- [_MixedBy-Figure8.jpeg_](./MixedBy-Figure8.jpeg)
+- [_MixedBy-Figure9.jpeg_](./MixedBy-Figure9.jpeg)
+- [_MixedBy-Figure10.jpeg_](./MixedBy-Figure10.jpeg)
+- [_MixedBy-Figure11.jpeg_](./MixedBy-Figure11.jpeg)
+- [_MixedBy-Figure12.jpeg_](./MixedBy-Figure12.jpeg)
 
 ## References
 
