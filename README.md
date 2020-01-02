@@ -1,5 +1,6 @@
 # Estimation Approach to Stastical Inference
 
+[**Home**](EASI/) | 
 [**Functions**](./A-Functions) | 
 [**Tutorials**](./B-Tutorials) | 
 [**Examples**](./C-Examples) | 
