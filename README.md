@@ -1,6 +1,5 @@
-# Estimation Approach to Stastical Inference
+# Estimation Approach to Statistical Inference
 
-[**Home**](../EASI) | 
 [**Functions**](./A-Functions) | 
 [**Tutorials**](./B-Tutorials) | 
 [**Examples**](./C-Examples) | 
