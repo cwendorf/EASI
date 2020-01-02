@@ -1,6 +1,6 @@
 # EASI: Estimation Approach to Statistical Inference
 
-[**Home**](../EASI/) | 
+[**Home**](../../EASI/) | 
 [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) | 
 [**Tutorial Examples**](https://github.com/cwendorf/EASI/tree/master/B-TutorialExamples) | 
 [**ITNS Examples**](https://github.com/cwendorf/EASI/tree/master/C-ITNSExamples) | 
