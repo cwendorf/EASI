@@ -38,4 +38,4 @@ The **PenLaptop** files analyze an example of a two-group between-subjects desig
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
+Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

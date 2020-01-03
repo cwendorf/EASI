@@ -35,4 +35,4 @@ The **Holzel** files analyze and example of a two-factor mixed design, one betwe
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
+Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

@@ -34,4 +34,4 @@ The following are examples for two-factor designs (see _[ITNS](https://thenewsta
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
+Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

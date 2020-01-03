@@ -36,4 +36,4 @@ The **Frenda** files analyze and example of a two-factor between-subjects design
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
+Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

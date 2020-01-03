@@ -39,4 +39,4 @@ The **Donohue** files analyze an example of a single-factor within-subjects desi
 
 ## References
 
-Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ New York: Routledge.
+Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

@@ -55,4 +55,4 @@ The **Mixed** files analyze an example of a a mixed (between-subjects and within
 
 ## References
 
-Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [**https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm**](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
+Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
