@@ -30,9 +30,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EA
 EASI extentions are files that extend the functions beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
 
 
-[**_summaryExtension.R_**](./summaryExtension.R) (`summarizeData` and `plotData` functions for summary statistics, boxplots, and data plots for single-factor between- and within-subjects designs)
+[**_summarizeExtension.R_**](./summarizeExtension.R) (`summarizeData` and `plotData` functions for summary statistics, boxplots, and data plots for single-factor between- and within-subjects designs)
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/summaryExtension.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/summarizeExtension.R")
 ```
 
 [**_omnibusExtension.R_**](./omnibusExtension.R) (`describeOmnibus` functions that provide analysis of variance source tables for single-factor between- and within-subjects designs)
@@ -77,4 +77,4 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/byExte
 
 Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. _Psychological Methods_, _13_(2), 99-109.
 
-Keppel, G., & Wickens, T. D. (2004). _Design and analysis: A researcher's handbook._ Upper Saddle River, NJ: Pearson Education.
+Keppel, G., & Wickens, T. D. (2004). _Design and analysis: A researcher's handbook._ Pearson Education.
