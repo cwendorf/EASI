@@ -7,7 +7,7 @@
 
 ---
 
-## Extension Examples and Advanced Applications
+## Advanced Applications
 
 ### Overview of the Examples
 
