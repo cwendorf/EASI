@@ -11,12 +11,13 @@
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       {% if site.title and site.title != page.title %}
-        <a href="{{ "/" | absolute_url }}"><img src="https://www.github.com/cwendorf/easiLogo.jpg" style="float: left;"></a> 
-      <h1 style="float: right;">
+        <a href="{{ "/" | absolute_url }}"><img src="easiLogo.jpg" style="float: left;"></a> 
+      <div style="float: right;">
         <a href="{{ "/" | absolute_url }}">{{ "Home Page" }}</a> | 
         <a href="https://cwendorf.github.io">{{ "View on Github" }}</a>
-      </h1>
+      </div>
       {% endif %}
+      <div style="clear: both;"></div>
 
       {{ content }}
 
