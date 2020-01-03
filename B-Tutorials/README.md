@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-s
+
 [**Functions**](../A-Functions) | 
 [**Tutorials**](../B-Tutorials) | 
 [**Examples**](../C-Examples) | 
@@ -7,11 +7,11 @@ s
 
 ---
 
-## Tutorial Examples with Simple Fictional Data
+## Tutorials with Simple Fictional Data
 
 ### Overview of the Examples
 
-- Examples are from the Wendorf (2009)
+- Examples are from Wendorf (2019)
 - Examples for a variety of research designs are included
 - Examples show both the default output and the available options
 - Examples include estimation, plots, significance tests, and effect sizes
