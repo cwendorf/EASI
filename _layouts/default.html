@@ -7,7 +7,17 @@
 
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <style>
+      h1 {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #441a77;
+      }
+    </style>
+    
   </head>
+  
   <body>
     <div class="container-lg px-3 my-5 markdown-body">
       {% if site.title and site.title != page.title %}
