@@ -17,8 +17,10 @@
   
   <body>
 
-    <div class="container-lg px-3 my-5 markdown-body" style="background: #eee; padding: 10px 0px;">
-            
+    <div class="container-lg px-3 my-5 markdown-body" style="background: #eee; padding: 10px 0px; font-weight: bold;">
+      
+      <img src="{{ "easiLogo.jpg" | prepend: site.baseurl }}" alt="{{ site.title }}">
+      
       {% if site.title and site.title != page.title %}
         <a href="{{ "/" | absolute_url }}">EASI Main Page</a> | 
       {% endif %}
