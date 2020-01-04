@@ -10,7 +10,6 @@
     <style>
       h1 {
         color: #441a77;
-        border-bottom: 0px;
       }
     </style>
     
@@ -18,10 +17,10 @@
   
   <body>
     
-    <div class="container-lg px-3 my-5 markdown-body">
+    <div class="container-lg px-3 my-5 markdown-body" style="align: right;">
       
       {% if site.title and site.title != page.title %}
-        <a href="{{ "/" | absolute_url }}">{{ "Home Page" }}</a>
+        <a href="{{ "/" | absolute_url }}">{{ "Home Page" }}</a> | 
       {% endif %}
 
       {% if site.github.is_project_page %}
