@@ -16,9 +16,8 @@
   </head>
   
   <body>
-    
-    <div style="background: #eee; height: 50px; padding: 10px 0px;">
-    <div class="container-lg px-3 my-5 markdown-body">
+
+    <div class="container-lg px-3 my-5 markdown-body" style="background: #eee; height: 50px; padding: 10px 0px;">
             
       {% if site.title and site.title != page.title %}
         <a href="{{ "/" | absolute_url }}">{{ "Home Page" }}</a> | 
@@ -27,8 +26,7 @@
       {% if site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}">View on GitHub</a>
       {% endif %}
-    
-    </div>
+
     </div>
     
    <div class="container-lg px-3 my-5 markdown-body" >
@@ -42,17 +40,14 @@
       {% endif %}
       
     </div>
-    
-    <div style="background: #eee; height: 50px; padding: 10px 0px;">
-    <div class="container-lg px-3 my-5 markdown-body">
+
+    <div class="container-lg px-3 my-5 markdown-body" style="background: #eee; height: 50px; padding: 10px 0px;">
 
       Email: <a href="mailto:cwendorf@uwsp.edu">cwendorf@uwsp.edu</a> | 
       Site: <a href="https://www4.uwsp.edu/psych/cw/">https://www4.uwsp.edu/psych/cw/</a>
     
     </div>
-    </div>
-    
-    
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
     <script>anchors.add();</script>
     {% if site.google_analytics %}
