@@ -15,13 +15,13 @@ EASI is a set of fast and flexible scripts for R that implement features of [est
 
 EASI can be used to calculate and plot confidence intervals for the means of groups (in a between-subjects design) or instances of a variable (in a within-subjects design). Additional functions can show the standardized effect sizes and statistical significance tests associated with the groups and variables.
 
-![EASI Means Screenshot](easiMeans.jpg)
+<p align="center"><kbd><img src="easiMeans.jpg"></kbd></p>
 
 ### EASI for Group and Variable Comparisons
 
 EASI can be used to calculate and plot confidence intervals of mean differences and mean contrasts for independent groups (between-subjects design) or paired means (within-subjects designs). Additional functions can show the standardized effect sizes and statistical significance tests for the designated comparison. 
 
-![EASI Difference Screenshot](easiDifference.jpg)
+<p align="center"><kbd><img src="easiDifference.jpg"></kbd></p>
 
 ## Materials Available on this Site
 
