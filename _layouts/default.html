@@ -12,14 +12,16 @@
       div.custom {background: #cecee1; padding: 10px 0px;}
       div.custom a {color: #441a77;}
       div.custom a:hover {color: #63449b;}
-      div#header {font-weight: bold; font-size: 1.25em;}
+      div#header {font-weight: bold; font-size: 1.25em; margin: 0px 0px 20px 0px;}
+      div#footer {margin: 20px 0px 0px 0px;}
     </style>
     
   </head>
   
   <body>
 
-    <div id=header class="container-lg px-3 my-5 markdown-body custom">
+    <div class="custom">
+    <div id=header class="container-lg px-3 markdown-body">
       
       <div style="float:left;">
         {{ site.title }}
@@ -35,6 +37,7 @@
       </div>
         
     </div>
+    </div>
     
    <div class="container-lg px-3 my-5 markdown-body" >
            
@@ -47,13 +50,14 @@
       {% endif %}
       
     </div>
-
-    <div id=footer class="container-lg px-3 my-5 markdown-body custom">
+    <div class="custom">
+    <div id=footer class="container-lg px-3 markdown-body">
 
       &#169; Craig A. Wendorf | 
       <a href="mailto:cwendorf@uwsp.edu">cwendorf@uwsp.edu</a> | 
       <a href="https://www4.uwsp.edu/psych/cw/">https://www4.uwsp.edu/psych/cw/</a>
     
+    </div>
     </div>
    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
