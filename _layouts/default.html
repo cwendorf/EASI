@@ -13,7 +13,7 @@
       div#header {font-weight: bold; font-size: 1.20em; padding: 15px 0px 5px 0px;}
       div#footer {padding: 15px 0px;}
       div#nav {float: right; }
-      div#nav a {padding: 20px 5px; background: none;}
+      div#nav a {padding: 25px 5px; background: none;}
       div#nav a:hover {background: #ccc; text-decoration: none;}
       #logo {background: none; height: 50px;}
     </style>
@@ -31,7 +31,7 @@
       
       <div id=nav>
       {% if site.title and site.title != page.title %}
-        <a href="{{ "/" | absolute_url }}">Home Page</a> | 
+        <a href="{{ "/" | absolute_url }}">Home Page</a>  
       {% endif %}
       {% if site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}">Repository</a>
