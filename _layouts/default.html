@@ -12,7 +12,10 @@
       div.custom {background: #ddd; width: 100%;}
       div#header {font-weight: bold; font-size: 1.20em; padding: 15px 0px 5px 0px;}
       div#footer {padding: 15px 0px;}
-      #logo {background: none; height: 40px;}
+      #nav {float: right;}
+      #nav a {padding: 20px 5px; background: none;}
+      #nav a:hover (background: #eee; text-decoration: none;}
+      #logo {background: none; height: 50px;}
     </style>
     
   </head>
@@ -26,7 +29,7 @@
         <img id=logo src="{{ "/logo.png" | prepend: site.baseurl }}" alt="{{ site.title }}">
       </div>
       
-      <div style="float: right;">
+      <div id=nav>
       {% if site.title and site.title != page.title %}
         <a href="{{ "/" | absolute_url }}">Home Page</a> | 
       {% endif %}
