@@ -11,6 +11,7 @@
 
 ### Source the EASI Functions
 
+This code imports all of the EASI functions, making them available for analyses.
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
 ```
