@@ -54,10 +54,12 @@
       {% endif %}
       
     </div>
+    
     <div class="custom">
     <div id=footer class="container-lg px-3 markdown-body">
-
-      &#169; Craig A. Wendorf | 
+      {% if site.github.is_project_page %}
+      Maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a> | 
+      {% endif %}
       <a href="mailto:cwendorf@uwsp.edu">cwendorf@uwsp.edu</a>    
     </div>
     </div>
