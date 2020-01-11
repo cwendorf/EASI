@@ -22,7 +22,7 @@ The **AnalyzeRepeated** files analyze an example of a single-factor within-subje
 The following files analyze the example using raw data input:
 
 - [_AnalyzeRepeated-Data-Syntax.R_](./AnalyzeRepeated-Data-Syntax.R)
-- [_AnalyzeRepeated-Data-Output.R_](./AnalyzeRepeated-Data-Output.R)
+- [_AnalyzeRepeated-Data-Output.txt_](./AnalyzeRepeated-Data-Output.txt)
 - [_AnalyzeRepeated-Figure1.jpeg_](./AnalyzeRepeated-Figure1.jpeg)
 - [_AnalyzeRepeated-Figure2.jpeg_](./AnalyzeRepeated-Figure2.jpeg)
 - [_AnalyzeRepeated-Figure3.jpeg_](./AnalyzeRepeated-Figure3.jpeg) 

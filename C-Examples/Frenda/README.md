@@ -25,7 +25,7 @@ The **Frenda** files analyze and example of a two-factor between-subjects design
 [**_Frenda-Summary-Example.md_**](./Frenda-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [**_Frenda-Summary-Syntax.R_**](./Frenda-Summary-Syntax.R)
-- [**_Frenda-Summary-Output.R_**](./Frenda-Summary-Output.R)
+- [**_Frenda-Summary-Output.txt_**](./Frenda-Summary-Output.txt)
 - [**_Frenda-Figure1.jpeg_**](./Frenda-Figure1.jpeg)
 - [**_Frenda-Figure2.jpeg_**](./Frenda-Figure2.jpeg)
 - [**_Frenda-Figure3.jpeg_**](./Frenda-Figure3.jpeg)  

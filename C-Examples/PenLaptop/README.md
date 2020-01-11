@@ -21,7 +21,7 @@ The **PenLaptop** files analyze an example of a two-group between-subjects desig
 [**_PenLaptop-Data-Example.md_**](./PenLaptop-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [**_PenLaptop-Data-Syntax.R_**](./PenLaptop-Data-Syntax.R)
-- [**_PenLaptop-Data-Output.R_**](./PenLaptop-Data-Output.R)
+- [**_PenLaptop-Data-Output.txt_**](./PenLaptop-Data-Output.txt)
 - [**_PenLaptop-Figure1.jpeg_**](./PenLaptop-Figure1.jpeg)
 - [**_PenLaptop-Figure2.jpeg_**](./PenLaptop-Figure2.jpeg)
 - [**_PenLaptop-Figure3.jpeg_**](./PenLaptop-Figure3.jpeg) 
@@ -29,7 +29,7 @@ The **PenLaptop** files analyze an example of a two-group between-subjects desig
 [**_PenLaptop-Summary-Example.md_**](./PenLaptop-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [**_PenLaptop-Summary-Syntax.R_**](./PenLaptop-Summary-Syntax.R)
-- [**_PenLaptop-Summary-Output.R_**](./PenLaptop-Summary-Output.R)
+- [**_PenLaptop-Summary-Output.txt_**](./PenLaptop-Summary-Output.txt)
 - [**_PenLaptop-Figure1.jpeg_**](./PenLaptop-Figure1.jpeg)
 - [**_PenLaptop-Figure2.jpeg_**](./PenLaptop-Figure2.jpeg)
 - [**_PenLaptop-Figure3.jpeg_**](./PenLaptop-Figure3.jpeg) 

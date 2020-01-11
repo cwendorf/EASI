@@ -21,7 +21,7 @@ The **Paired** files analyze examples of a within-subjects design for two time p
 [**_Paired-Data-Example.md_**](./Paired-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_Paired-Data-Syntax.R_](./Paired-Data-Syntax.R)
-- [_Paired-Data-Output.R_](./Paired-Data-Output.R)
+- [_Paired-Data-Output.txt_](./Paired-Data-Output.txt)
 - [_Paired-Figure1.jpeg_](./Paired-Figure1.jpeg)
 - [_Paired-Figure2.jpeg_](./Paired-Figure2.jpeg)
 - [_Paired-Figure3.jpeg_](./Paired-Figure3.jpeg) 
@@ -30,7 +30,7 @@ The **Paired** files analyze examples of a within-subjects design for two time p
 [**_Paired-Summary-Example.md_**](./Paired-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [_Paired-Summary-Syntax.R_](./Paired-Summary-Syntax.R)
-- [_Paired-Summary-Output.R_](./Paired-Summary-Output.R)
+- [_Paired-Summary-Output.txt_](./Paired-Summary-Output.txt)
 - [_Paired-Figure1.jpeg_](./Paired-Figure1.jpeg)
 - [_Paired-Figure2.jpeg_](./Paired-Figure2.jpeg)
 - [_Paired-Figure3.jpeg_](./Paired-Figure3.jpeg) 

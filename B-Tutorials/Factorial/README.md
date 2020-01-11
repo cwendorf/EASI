@@ -22,7 +22,7 @@ The **Factorial** files analyze an example of a a factorial (between-subjects) d
 [**_Factorial-Data-Example.md_**](./Factorial-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_Factorial-Data-Syntax.R_](./Factorial-Data-Syntax.R)
-- [_Factorial-Data-Output.R_](./Factorial-Data-Output.R)
+- [_Factorial-Data-Output.txt_](./Factorial-Data-Output.txt)
 - [_Factorial-Figure1.jpeg_](./Factorial-Figure1.jpeg)
 - [_Factorial-Figure2.jpeg_](./Factorial-Figure2.jpeg)
 - [_Factorial-Figure3.jpeg_](./Factorial-Figure3.jpeg) 
@@ -39,7 +39,7 @@ The **Factorial** files analyze an example of a a factorial (between-subjects) d
 [**_Factorial-Summary-Example.md_**](./Factorial-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [_Factorial-Summary-Syntax.R_](./Factorial-Summary-Syntax.R)
-- [_Factorial-Summary-Output.R_](./Factorial-Summary-Output.R)
+- [_Factorial-Summary-Output.txt_](./Factorial-Summary-Output.txt)
 - [_Factorial-Figure1.jpeg_](./Factorial-Figure1.jpeg)
 - [_Factorial-Figure2.jpeg_](./Factorial-Figure2.jpeg)
 - [_Factorial-Figure3.jpeg_](./Factorial-Figure3.jpeg) 

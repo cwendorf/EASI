@@ -22,7 +22,7 @@ The **RelationalOneWay** files analyze an example of relational intervals for a 
 The following files analyze the example using raw data input:
 
 - [_RelationalOneWay-Data-Syntax.R_](./RelationalOneWay-Data-Syntax.R)
-- [_RelationalOneWay-Data-Output.R_](./RelationalOneWay-Data-Output.R)
+- [_RelationalOneWay-Data-Output.txt_](./RelationalOneWay-Data-Output.txt)
 - [_RelationalOneWay-Figure1.jpeg_](./RelationalOneWay-Figure1.jpeg)
 - [_RelationalOneWay-Figure2.jpeg_](./RelationalOneWay-Figure2.jpeg)
 - [_RelationalOneWay-Figure3.jpeg_](./RelationalOneWay-Figure3.jpeg)
@@ -33,7 +33,7 @@ The following files analyze the example using raw data input:
 The following files analyze the example using summary statistics input:
 
 - [_RelationalOneWay-Summary-Syntax.R_](./RelationalOneWay-Summary-Syntax.R)
-- [_RelationalOneWay-Summary-Output.R_](./RelationalOneWay-Summary-Output.R)
+- [_RelationalOneWay-Summary-Output.txt_](./RelationalOneWay-Summary-Output.txt)
 - [_RelationalOneWay-Figure1.jpeg_](./RelationalOneWay-Figure1.jpeg)
 - [_RelationalOneWay-Figure2.jpeg_](./RelationalOneWay-Figure2.jpeg)
 - [_RelationalOneWay-Figure4.jpeg_](./RelationalOneWay-Figure4.jpeg)

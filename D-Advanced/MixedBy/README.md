@@ -22,7 +22,7 @@ The **MixedBy** files analyze an example of a a mixed (between-subjects and with
 The following files analyze the example using raw data input:
 
 - [_MixedBy-Data-Syntax.R_](./MixedBy-Data-Syntax.R)
-- [_MixedBy-Data-Output.R_](./MixedBy-Data-Output.R)
+- [_MixedBy-Data-Output.txt_](./MixedBy-Data-Output.txt)
 - [_MixedBy-Figure1.jpeg_](./MixedBy-Figure1.jpeg)
 - [_MixedBy-Figure2.jpeg_](./MixedBy-Figure2.jpeg)
 - [_MixedBy-Figure3.jpeg_](./MixedBy-Figure3.jpeg)

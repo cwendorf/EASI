@@ -22,7 +22,7 @@ The **OneWay** files analyze an example of a single-factor between-subjects desi
 [**_OneWay-Data-Example.md_**](./OneWay-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_OneWay-Data-Syntax.R_](./OneWay-Data-Syntax.R)
-- [_OneWay-Data-Output.R_](./OneWay-Data-Output.R)
+- [_OneWay-Data-Output.txt_](./OneWay-Data-Output.txt)
 - [_OneWay-Figure1.jpeg_](./OneWay-Figure1.jpeg)
 - [_OneWay-Figure2.jpeg_](./OneWay-Figure2.jpeg)
 - [_OneWay-Figure3.jpeg_](./OneWay-Figure3.jpeg) 
@@ -33,7 +33,7 @@ The **OneWay** files analyze an example of a single-factor between-subjects desi
 [**_OneWay-Summary-Example.md_**](./OneWay-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [_OneWay-Summary-Syntax.R_](./OneWay-Summary-Syntax.R)
-- [_OneWay-Summary-Output.R_](./OneWay-Summary-Output.R)
+- [_OneWay-Summary-Output.txt_](./OneWay-Summary-Output.txt)
 - [_OneWay-Figure1.jpeg_](./OneWay-Figure1.jpeg)
 - [_OneWay-Figure2.jpeg_](./OneWay-Figure2.jpeg)
 - [_OneWay-Figure3.jpeg_](./OneWay-Figure3.jpeg) 

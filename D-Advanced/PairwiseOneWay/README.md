@@ -20,7 +20,7 @@ The **PairwiseOneWay** files analyze an example of a single-factor between-subje
 The following files analyze the example using raw data input:
 
 - [_PairwiseOneWay-Data-Syntax.R_](./PairwiseOneWay-Data-Syntax.R)
-- [_PairwiseOneWay-Data-Output.R_](./PairwiseOneWay-Data-Output.R)
+- [_PairwiseOneWay-Data-Output.txt_](./PairwiseOneWay-Data-Output.txt)
 - [_PairwiseOneWay-Figure1.jpeg_](./PairwiseOneWay-Figure1.jpeg)
 - [_PairwiseOneWay-Figure2.jpeg_](./PairwiseOneWay-Figure2.jpeg)
 

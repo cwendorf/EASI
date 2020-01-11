@@ -22,7 +22,7 @@ The **FactorialBy** files analyze an example of a a factorial (between-subjects)
 The following files analyze the example using raw data input:
 
 - [_FactorialBy-Data-Syntax.R_](./FactorialBy-Data-Syntax.R)
-- [_FactorialBy-Data-Output.R_](./FactorialBy-Data-Output.R)
+- [_FactorialBy-Data-Output.txt_](./FactorialBy-Data-Output.txt)
 - [_FactorialBy-Figure1.jpeg_](./FactorialBy-Figure1.jpeg)
 - [_FactorialBy-Figure2.jpeg_](./FactorialBy-Figure2.jpeg)
 - [_FactorialBy-Figure3.jpeg_](./FactorialBy-Figure3.jpeg)

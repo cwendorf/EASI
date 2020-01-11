@@ -20,14 +20,14 @@ The **Holzel** files analyze and example of a two-factor mixed design, one betwe
 [**_Holzel-Data-Example.md_**](./Holzel-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [**_Holzel-Data-Syntax.R_**](./Holzel-Data-Syntax.R)
-- [**_Holzel-Data-Output.R_**](./Holzel-Data-Output.R)
+- [**_Holzel-Data-Output.txt_**](./Holzel-Data-Output.txt)
 - [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
 - [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
 
 [**_Holzel-Summary-Example.md_**](./Holzel-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [**_Holzel-Summary-Syntax.R_**](./Holzel-Summary-Syntax.R)
-- [**_Holzel-Summary-Output.R_**](./Holzel-Summary-Output.R)
+- [**_Holzel-Summary-Output.txt_**](./Holzel-Summary-Output.txt)
 - [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
 - [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
 

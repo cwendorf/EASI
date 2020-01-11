@@ -22,7 +22,7 @@ The **AnalyzeOneWay** files analyze an example of a single-factor between-subjec
 The following files analyze the example using raw data input:
 
 - [_AnalyzeOneWay-Data-Syntax.R_](./AnalyzeOneWay-Data-Syntax.R)
-- [_AnalyzeOneWay-Data-Output.R_](./AnalyzeOneWay-Data-Output.R)
+- [_AnalyzeOneWay-Data-Output.txt_](./AnalyzeOneWay-Data-Output.txt)
 - [_AnalyzeOneWay-Figure1.jpeg_](./AnalyzeOneWay-Figure1.jpeg)
 - [_AnalyzeOneWay-Figure2.jpeg_](./AnalyzeOneWay-Figure2.jpeg)
 - [_AnalyzeOneWay-Figure3.jpeg_](./AnalyzeOneWay-Figure3.jpeg)
