@@ -1,5 +1,5 @@
-# EASI: Estimation Approach to Statistical Inference
-## OneWay (Between-Subjects) Tutorial with Data
+# Estimation Approach to Statistical Inference
+## Analyze OneWay (Single-Factor Between-Subjects) Example
 
 ### Source the EASI Functions and the Extension
 

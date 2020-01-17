@@ -1,28 +1,44 @@
-> # Estimation Approach to Statistical Inference
-> ## Analyze Repeated (Single-Factor Within-Subjects) Example
-> 
-> ### Source the EASI Functions and the Extension
-> 
-> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
-> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/analyzeExtension.R")
-> 
-> ### Enter Data
-> 
-> Outcome1 <- c(0,0,3,5)
-> Outcome2 <- c(4,7,4,9)
-> Outcome3 <- c(9,6,4,9)
-> RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
-> RepeatedData
+# Estimation Approach to Statistical Inference
+
+[**Functions**](../../A-Functions) | 
+[**Tutorials**](../../B-Tutorials) | 
+[**Examples**](../../C-Examples) | 
+[**Advanced**](../../D-Advanced)
+
+---
+
+## Analyze Repeated (Single-Factor Within-Subjects) Example
+
+### Source the EASI Functions and the Extension
+
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/analyzeExtension.R")
+```
+
+### Enter Data
+
+```r
+Outcome1 <- c(0,0,3,5)
+Outcome2 <- c(4,7,4,9)
+Outcome3 <- c(9,6,4,9)
+RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+RepeatedData
+```
+```
   Outcome1 Outcome2 Outcome3
 1        0        4        9
 2        0        7        6
 3        3        4        4
 4        5        9        9
-> 
-> ### Analyses of Multiple Variables
-> ### (equivalent to one-sample analyses for each level of a factor)
-> 
-> analyzeMeans(Outcome1,Outcome2,Outcome3) # Includes AnalyzeRepeated-Figure1.jpeg
+```
+
+### Analyses of Multiple Variables
+
+```r
+analyzeMeans(Outcome1,Outcome2,Outcome3) # Includes AnalyzeRepeated-Figure1.jpeg
+```
+```
 $title
 [1] "ANALYSIS OF MEANS"
 
@@ -43,8 +59,13 @@ $standardizeMeans
 Outcome1 0.817  0.594 0.616 -0.387 1.934
 Outcome2 2.450  1.782 0.955  0.325 4.532
 Outcome3 2.858  2.079 1.063  0.464 5.227
+```
+<kbd><img src="AnalyzeRepeated-Figure1.jpeg"></kbd>
 
-> analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99) # Includes AnalyzeRepeated-Figure2.jpeg
+```r
+analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99) # Includes AnalyzeRepeated-Figure2.jpeg
+```
+```
 $title
 [1] "ANALYSIS OF MEANS"
 
@@ -67,12 +88,15 @@ $standardizeMeans
 Outcome1 -1.225 -0.891 0.680 -3.011 0.547
 Outcome2  0.408  0.297 0.574 -0.968 1.734
 Outcome3  0.817  0.594 0.616 -0.732 2.320
+```
+<kbd><img src="AnalyzeRepeated-Figure2.jpeg"></kbd>
 
-> 
-> ### Analyses of a Variable Comparison
-> ### (equivalent to analyses for two levels of a factor)
-> 
-> analyzeDifference(Outcome1,Outcome2) # Includes AnalyzeRepeated-Figure3.jpeg
+### Analyses of a Variable Comparison
+
+```r
+analyzeDifference(Outcome1,Outcome2) # Includes AnalyzeRepeated-Figure3.jpeg
+```
+```
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
@@ -87,8 +111,13 @@ Comparison -4.000 1.224 -3.267 3.000 0.047
 $standardizeDifference
               Est    SE     LL     UL
 Comparison -1.633 0.782 -3.166 -0.101
+```
+<kbd><img src="AnalyzeRepeated-Figure3.jpeg"></kbd>
 
-> analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99) # Includes AnalyzeRepeated-Figure4.jpeg
+```r
+analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99) # Includes AnalyzeRepeated-Figure4.jpeg
+```
+```
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
@@ -103,13 +132,16 @@ Comparison -2.000 1.224 -1.633 3.000 0.201
 $standardizeDifference
               Est    SE     LL    UL
 Comparison -1.633 0.782 -3.647 0.380
+```
+<kbd><img src="AnalyzeRepeated-Figure4.jpeg"></kbd>
 
-> 
-> ### Analyses of a Variable Contrast
-> ### (equivalent to analyses for multiple levels of a factor)
-> 
-> O1vsOthers <- c(-1,.5,.5)
-> analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg
+### Analyses of a Variable Contrast
+
+```r
+O1vsOthers <- c(-1,.5,.5)
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg
+```
+```
 $title
 [1] "ANALYSIS OF A CONTRAST"
 
@@ -124,8 +156,13 @@ Contrast 4.500 1.307 3.444 3.000 0.041
 $standardizeContrast
            Est    SE    LL    UL
 Contrast 1.837 0.741 0.386 3.289
+```
+<kbd><img src="AnalyzeRepeated-Figure5.jpeg"></kbd>
 
-> analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99) # Includes AnalyzeRepeated-Figure6.jpeg
+```r
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99) # Includes AnalyzeRepeated-Figure6.jpeg
+```
+```
 $title
 [1] "ANALYSIS OF A CONTRAST"
 
@@ -140,5 +177,5 @@ Contrast 0.500 1.307 0.383 3.000 0.727
 $standardizeContrast
            Est    SE     LL    UL
 Contrast 1.837 0.741 -0.071 3.746
-
-> 
+```
+<kbd><img src="AnalyzeRepeated-Figure6.jpeg"></kbd>
