@@ -1,5 +1,5 @@
-# EASI: Estimation Approach to Statistical Inference
-## Factorial (Between-Subjects) Tutorial with Data
+# Estimation Approach to Statistical Inference
+## FactorialBy - Factorial (Between-Subjects) Tutorial with Data
 
 ### Source the EASI Functions and the Extension
 

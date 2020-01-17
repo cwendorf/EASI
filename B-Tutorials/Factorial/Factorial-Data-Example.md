@@ -7,7 +7,7 @@
 
 ---
 
-## Factorial (Bewteen-Subjects) Tutorial with Data
+## Factorial (Between-Subjects) Tutorial with Data
 
 ### Source the EASI Functions
 
