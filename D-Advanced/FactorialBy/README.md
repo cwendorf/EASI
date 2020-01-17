@@ -19,7 +19,7 @@ The **FactorialBy** files analyze an example of a a factorial (between-subjects)
 
 ### Details of this Example
  
-[_FactorialBy-Data-Example.md_](./FactorialBy-Data-Example.md) combines the following files to describe the analyses using raw data input:
+[_**FactorialBy-Data-Example.md**_](./FactorialBy-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_FactorialBy-Data-Syntax.R_](./FactorialBy-Data-Syntax.R)
 - [_FactorialBy-Data-Output.txt_](./FactorialBy-Data-Output.txt)

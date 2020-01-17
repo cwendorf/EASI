@@ -19,7 +19,7 @@ The **AnalyzeRepeated** files analyze an example of a single-factor within-subje
 
 ### Files for this Example
 
-[_AnalyzeRepeated-Data-Example.md_](./AnalyzeRepeated-Data-Example.md) combines the following files to describe the analyses using raw data input:
+[_**AnalyzeRepeated-Data-Example.md**_](./AnalyzeRepeated-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_AnalyzeRepeated-Data-Syntax.R_](./AnalyzeRepeated-Data-Syntax.R)
 - [_AnalyzeRepeated-Data-Output.txt_](./AnalyzeRepeated-Data-Output.txt)

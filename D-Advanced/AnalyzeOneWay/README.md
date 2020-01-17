@@ -19,7 +19,7 @@ The **AnalyzeOneWay** files analyze an example of a single-factor between-subjec
 
 ### Details of this Example
  
-[_AnalyzeOneWay-Data-Example.md_](./AnalyzeOneWay-Data-Example.md) combines the following files to describe the analyses using raw data input:
+[_**AnalyzeOneWay-Data-Example.md**_](./AnalyzeOneWay-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_AnalyzeOneWay-Data-Syntax.R_](./AnalyzeOneWay-Data-Syntax.R)
 - [_AnalyzeOneWay-Data-Output.txt_](./AnalyzeOneWay-Data-Output.txt)

@@ -7,7 +7,7 @@
 
 ---
 
-## Mixed Design (Between-Subjects and Within-Subjects) Example
+## MixedBy - Mixed Design (Between-Subjects and Within-Subjects) Tutorial with Data
 
 ### Overview of this Example
 
@@ -19,7 +19,7 @@ The **MixedBy** files analyze an example of a a mixed (between-subjects and with
 
 ### Details of this Example
  
-The following files analyze the example using raw data input:
+[_**MixedBy-Data-Example.md**_](./MixedBy-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_MixedBy-Data-Syntax.R_](./MixedBy-Data-Syntax.R)
 - [_MixedBy-Data-Output.txt_](./MixedBy-Data-Output.txt)

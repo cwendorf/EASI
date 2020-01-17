@@ -1,5 +1,5 @@
-# EASI: Estimation Approach to Statistical Inference
-## Mixed Design Factorial Tutorial with Data
+# Estimation Approach to Statistical Inference
+## MixedBy - Mixed Design (Between-Subjects and Within-Subjects) Tutorial with Data
 
 ### Source the EASI Functions and the Extension
 
