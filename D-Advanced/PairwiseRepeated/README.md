@@ -7,7 +7,7 @@
 
 ---
 
-## Pairwise Repeated (Single-Factor Within-Subjects) Example
+## Pairwise Comparisons - Repeated (Within-Subjects) Tutorial
 
 ### Overview of this Example
 
@@ -17,7 +17,7 @@ The **PairwiseRepeated** files analyze an example of a single-factor within-subj
 
 ### Files for this Example
 
-The following files analyze the example using raw data input:
+[_**PairwiseRepeated-Data-Example.md**_](./PairwiseRepeated-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_PairwiseRepeated-Data-Syntax.R_](./PairwiseRepeated-Data-Syntax.R)
 - [_PairwiseRepeated-Data-Output.txt_](./PairwiseRepeated-Data-Output.txt)

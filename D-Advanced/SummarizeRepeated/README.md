@@ -7,7 +7,7 @@
 
 ---
 
-## Summaries for a Repeated Measures (Single-Factor Within-Subjects) Example
+## Summarize - Repeated (Within-Subjects) Tutorial
 
 ### Overview of this Example
 
@@ -18,7 +18,7 @@ The **SummarizeRepeated** files provide boxplots and data plots for single-facto
 
 ### Details of this Example
  
-The following files analyze the example using raw data input:
+[_**SummarizeRepeated-Data-Example.md**_](./SummarizeRepeated-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_SummarizeRepeated-Data-Syntax.R_](./SummarizeRepeated-Data-Syntax.R)
 - [_SummarizeRepeated-Data-Output.txt_](./SummarizeRepeated-Data-Output.txt)

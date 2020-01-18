@@ -1,4 +1,12 @@
 # Estimation Approach to Statistical Inference
+
+[**Functions**](../../A-Functions) | 
+[**Tutorials**](../../B-Tutorials) | 
+[**Examples**](../../C-Examples) | 
+[**Advanced**](../../D-Advanced)
+
+---
+
 ## MixedBy - Mixed Design (Between-Subjects and Within-Subjects) Tutorial with Data
 
 ### Source the EASI Functions and the Extension

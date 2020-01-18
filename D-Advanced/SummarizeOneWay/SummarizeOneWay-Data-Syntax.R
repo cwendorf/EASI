@@ -1,5 +1,5 @@
-# EASI: Estimation Approach to Statistical Inference
-## Summaries for the OneWay (Between-Subjects) Tutorial with Data
+# Estimation Approach to Statistical Inference
+## Summarize - OneWay (Between-Subjects) Tutorial with Data
 
 ### Source the EASI Functions and the Extension
 
@@ -21,5 +21,5 @@ summarizeData(Outcome~Factor)
 
 ### Boxplots of Multiple Groups
 
-plotData(Outcome~Factor) # SummaryOneWay-Figure1.jpeg
-plotData(Outcome~Factor,method="stack",col="black") # SummaryOneWay-Figure2.jpeg
+plotData(Outcome~Factor) # SummarizeOneWay-Figure1.jpeg
+plotData(Outcome~Factor,method="stack",col="black") # SummarizeOneWay-Figure2.jpeg

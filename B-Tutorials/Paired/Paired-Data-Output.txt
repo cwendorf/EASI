@@ -1,4 +1,4 @@
-> # EASI: Estimation Approach to Statistical Inference
+> # Estimation Approach to Statistical Inference
 > ## Paired Samples Tutorial with Data
 > 
 > ### Source the EASI Functions

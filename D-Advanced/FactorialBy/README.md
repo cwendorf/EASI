@@ -7,7 +7,7 @@
 
 ---
 
-## FactorialBy - Factorial (Between-Subjects) Tutorial with Data
+## FactorialBy - Factorial (Between-Subjects) Tutorial
 
 ### Overview of this Example
 

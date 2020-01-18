@@ -1,4 +1,4 @@
-# EASI: Estimation Approach to Statistical Inference
+# Estimation Approach to Statistical Inference
 ## Paired Samples Example with Thomason Data
 
 ### Source the EASI Functions

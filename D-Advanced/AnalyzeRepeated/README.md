@@ -7,7 +7,7 @@
 
 ---
 
-## Analyze Repeated (Single-Factor Within-Subjects) Example
+## Analyze - Repeated (Within-Subjects) Tutorial
 
 ### Overview of this Example
 

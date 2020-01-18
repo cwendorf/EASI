@@ -7,7 +7,7 @@
 
 ---
 
-## Pairwise OneWay (Single-Factor Between-Subjects) Example
+## Pairwise Comparisons - OneWay (Between-Subjects) Tutorial
 
 ### Overview of this Example
 
@@ -17,7 +17,7 @@ The **PairwiseOneWay** files analyze an example of a single-factor between-subje
 
 ### Details of this Example
  
-The following files analyze the example using raw data input:
+[_**PairwiseOneWay-Data-Example.md**_](./PairwiseOneWay-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_PairwiseOneWay-Data-Syntax.R_](./PairwiseOneWay-Data-Syntax.R)
 - [_PairwiseOneWay-Data-Output.txt_](./PairwiseOneWay-Data-Output.txt)

@@ -1,5 +1,5 @@
-> # EASI: Estimation Approach to Statistical Inference
-> ## Summaries for the Repeated (Within-Subjects) Tutorial with Data
+> # Estimation Approach to Statistical Inference
+> ## Summarize - Repeated (Within-Subjects) Tutorial with Data
 > 
 > ### Source the EASI Functions and the Extension
 > 
@@ -34,6 +34,6 @@ Outcome3             4           5    7.5           9             9
 > 
 > ### Boxplots of Multiple Variables
 > 
-> plotData(Outcome1,Outcome2,Outcome3) # SummaryRepeated-Figure1.jpeg
-> plotData(Outcome1,Outcome2,Outcome3,method="stack",col="black") # SummaryRepeated-Figure2.jpeg
+> plotData(Outcome1,Outcome2,Outcome3) # SummarizeRepeated-Figure1.jpeg
+> plotData(Outcome1,Outcome2,Outcome3,method="stack",col="black") # SummarizeRepeated-Figure2.jpeg
 > 

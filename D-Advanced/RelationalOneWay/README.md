@@ -7,7 +7,7 @@
 
 ---
 
-## Relational Intervals for a Single-Factor Between-Subjects Example
+## Relational Intervals - OneWay (Between-Subjects) Example
 
 ### Overview of this Example
 
@@ -19,7 +19,7 @@ The **RelationalOneWay** files analyze an example of relational intervals for a 
 
 ### Details of this Example
  
-The following files analyze the example using raw data input:
+[_**RelationalOneWay-Data-Example.md**_](./RelationalOneWay-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_RelationalOneWay-Data-Syntax.R_](./RelationalOneWay-Data-Syntax.R)
 - [_RelationalOneWay-Data-Output.txt_](./RelationalOneWay-Data-Output.txt)
@@ -30,7 +30,7 @@ The following files analyze the example using raw data input:
 - [_RelationalOneWay-Figure5.jpeg_](./RelationalOneWay-Figure5.jpeg)
 - [_RelationalOneWay-Figure6.jpeg_](./RelationalOneWay-Figure6.jpeg)
 
-The following files analyze the example using summary statistics input:
+[**_RelationalOneWay-Summary-Example.md_**](./RelationalOneWay-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
 - [_RelationalOneWay-Summary-Syntax.R_](./RelationalOneWay-Summary-Syntax.R)
 - [_RelationalOneWay-Summary-Output.txt_](./RelationalOneWay-Summary-Output.txt)

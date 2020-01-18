@@ -1,5 +1,5 @@
-> # EASI: Estimation Approach to Statistical Inference
-> ## Pairwise Comparisons Within-Subjects Data Example
+> # Estimation Approach to Statistical Inference
+> ## Pairwise Comparisons - Repeated (Within-Subjects) Tutorial with Data
 > 
 > ### Source the EASI Functions and Extensions
 > 
@@ -47,8 +47,8 @@ Time2 v Time3 -0.800 0.200 4.000 -1.721  0.121
 > 
 > #### Plots of the Confidence Intervals for the Pairwise Comparisons
 > 
-> plotPairwise(Time1,Time2,Time3)
-> plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99)
+> plotPairwise(Time1,Time2,Time3) # PairwiseRepeated-Figure1.jpeg
+> plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99) # PairwiseRepeated-Figure2.jpeg
 > 
 > #### Significance Tests of the Pairwise Comparisons
 > 

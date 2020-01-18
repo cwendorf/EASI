@@ -1,4 +1,4 @@
-# EASI: Estimation Approach to Statistical Inference
+# Estimation Approach to Statistical Inference
 ## Between-Subjects Factorial Example with Frenda Summary Statistics
 
 ### Source the EASI Functions

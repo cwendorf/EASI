@@ -7,7 +7,7 @@
 
 ---
 
-## Analyze OneWay (Single-Factor Between-Subjects) Example
+## Analyze - OneWay (Between-Subjects) Tutorial
 
 ### Overview of this Example
 

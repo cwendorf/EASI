@@ -1,4 +1,4 @@
-# EASI: Estimation Approach to Statistical Inference
+# Estimation Approach to Statistical Inference
 ## Repeated (Within-Subjects) Tutorial with Data
 
 ### Source the EASI Functions

@@ -1,5 +1,5 @@
-# EASI: Estimation Approach to Statistical Inference
-## Pairwise Comparisons Between-Subjects Example with Data
+# Estimation Approach to Statistical Inference
+## Pairwise Comparisons - OneWay (Between-Subjects) Tutorial with Data
 
 ### Source the EASI Functions and the Extension
 

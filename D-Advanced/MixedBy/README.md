@@ -7,7 +7,7 @@
 
 ---
 
-## MixedBy - Mixed Design (Between-Subjects and Within-Subjects) Tutorial with Data
+## MixedBy - Mixed Design (Between-Subjects and Within-Subjects) Tutorial
 
 ### Overview of this Example
 

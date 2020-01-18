@@ -7,7 +7,7 @@
 
 ---
 
-## Summaries for a OneWay (Single-Factor Between-Subjects) Example
+## Summarize - OneWay (Between-Subjects) Tutorial
 
 ### Overview of this Example
 
@@ -18,7 +18,7 @@ The **SummarizeOneWay** files provide summary statistcs, boxplots, and data plot
 
 ### Details of this Example
  
-The following files analyze the example using raw data input:
+[_**SummarizeOneWay-Data-Example.md**_](./SummarizeOneWay-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
 - [_SummarizeOneWay-Data-Syntax.R_](./SummarizeOneWay-Data-Syntax.R)
 - [_SummarizeOneWay-Data-Output.txt_](./SummarizeOneWay-Data-Output.txt)
