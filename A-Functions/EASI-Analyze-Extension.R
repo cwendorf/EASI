@@ -2,7 +2,7 @@
 ## Extension for Consolidating Analyses
 
 ### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF ALL-EASI-FUNCTIONS INTO R
+### ALSO: PASTE CONTENTS OF EASI-FUNCTIONS INTO R
 
 ### Meta-Wrappers for All Functions
 

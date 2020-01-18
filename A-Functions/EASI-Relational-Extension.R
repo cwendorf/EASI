@@ -2,7 +2,7 @@
 ## Extension for Arelational and Relational Intervals
 
 ### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF ALL-EASI-FUNCTIONS INTO R
+### ALSO: PASTE CONTENTS OF EASI-FUNCTIONS INTO R
 
 ### Relational Interval Function
 
