@@ -3,7 +3,7 @@
 
 ### Source the EASI Functions
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
 
 ### Enter Summary Statistics
 

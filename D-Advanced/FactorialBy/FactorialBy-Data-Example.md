@@ -12,8 +12,8 @@
 ### Source the EASI Functions and the Extension
 
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/ALL-EASI-FUNCTIONS.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/byExtension.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-By-Extension.R")
 ```
 
 ### Enter Data
