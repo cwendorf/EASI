@@ -1,5 +1,8 @@
-# EASI: Estimation Approach to Statistical Inference
-## Omnibus (Analysis of Variance) Extension
+# Estimation Approach to Statistical Inference
+## Extension for Conducting Omnibus (Analysis of Variance) Analyses
+
+### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
+### ALSO: PASTE CONTENTS OF ALL-EASI-FUNCTIONS INTO R
 
 ### Omnibus Function
 

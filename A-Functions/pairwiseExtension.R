@@ -1,8 +1,8 @@
-# EASI: Estimation Approach to Statistical Inference
+# Estimation Approach to Statistical Inference
 ## Extension for Pairwise Comparisons
-### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R
-### ALL BASIC FUNCTIONS FOR EASI SHOULD BE INSTALLED TOO
 
+### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
+### ALSO: PASTE CONTENTS OF ALL-EASI-FUNCTIONS INTO R
 
 ### Confidence Interval Functions
 

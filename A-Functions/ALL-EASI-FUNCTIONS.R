@@ -1,7 +1,7 @@
-# EASI: Estimation Approach to Statistical Inference
+# Estimation Approach to Statistical Inference
 ## Basic Functions for Means and Mean Differences
-### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
+### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 
 ### Data Functions
 

@@ -1,7 +1,8 @@
-# EASI: Estimation Approach to Statistical Inference
-## Extension for Data and Plots
-### TO INSTALL, SIMPLY COPY AND PASTE CONTENTS OF THIS ENTIRE FILE INTO R
-### ALL BASIC FUNCTIONS FOR EASI SHOULD BE INSTALLED TOO
+# Estimation Approach to Statistical Inference
+## Extension for Data Summaries and Plots
+
+### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
+### ALSO: PASTE CONTENTS OF ALL-EASI-FUNCTIONS INTO R
 
 ### Data Functions
 
