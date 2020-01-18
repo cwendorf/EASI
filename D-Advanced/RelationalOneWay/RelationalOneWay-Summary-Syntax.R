@@ -1,6 +1,5 @@
 # Estimation Approach to Statistical Inference
 ## Relational Intervals - OneWay (Between-Subjects) Example with Wendorf Summary Statistics
-## From Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. Methodology, 8(4), 125-133.
 
 ### Source the EASI Functions
 
@@ -8,7 +7,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-F
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Omnibus-Extension.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Relational-Extension.R")
 
-### Enter Summary Statistics (from Wendorf, 2012)
+### Enter Summary Statistics
 
 L1 <- c(N=10,M=67.000,SD=4.295)
 L2 <- c(N=10,M=71.000,SD=5.375)
