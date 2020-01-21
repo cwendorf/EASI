@@ -24,6 +24,13 @@ The **PairwiseRepeated** files analyze an example of a single-factor within-subj
 - [_PairwiseRepeated-Figure1.jpeg_](./PairwiseRepeated-Figure1.jpeg)
 - [_PairwiseRepeated-Figure2.jpeg_](./PairwiseRepeated-Figure2.jpeg)
 
+[_**PairwiseRepeated-Summary-Example.md**_](./PairwiseRepeated-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
+
+- [_PairwiseRepeated-Summary-Syntax.R_](./PairwiseRepeated-Summary-Syntax.R)
+- [_PairwiseRepeated-Summary-Output.txt_](./PairwiseRepeated-Summary-Output.txt)
+- [_PairwiseRepeated-Figure1.jpeg_](./PairwiseRepeated-Figure1.jpeg)
+- [_PairwiseRepeated-Figure2.jpeg_](./PairwiseRepeated-Figure2.jpeg)
+
 ## References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

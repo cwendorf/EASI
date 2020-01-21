@@ -6,7 +6,7 @@
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Pairwise-Extension.R")
 
-### Three Time Period Example Data
+### Enter Data
 
 Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)
