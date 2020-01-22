@@ -30,6 +30,17 @@ The **AnalyzeRepeated** files analyze an example of a single-factor within-subje
 - [_AnalyzeRepeated-Figure5.jpeg_](./AnalyzeRepeated-Figure5.jpeg) 
 - [_AnalyzeRepeated-Figure6.jpeg_](./AnalyzeRepeated-Figure6.jpeg)
 
+[_**AnalyzeRepeated-Summary-Example.md**_](./AnalyzeRepeated-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
+
+- [_AnalyzeRepeated-Summary-Syntax.R_](./AnalyzeRepeated-Summary-Syntax.R)
+- [_AnalyzeRepeated-Summary-Output.txt_](./AnalyzeRepeated-Summary-Output.txt)
+- [_AnalyzeRepeated-Figure1.jpeg_](./AnalyzeRepeated-Figure1.jpeg)
+- [_AnalyzeRepeated-Figure2.jpeg_](./AnalyzeRepeated-Figure2.jpeg)
+- [_AnalyzeRepeated-Figure3.jpeg_](./AnalyzeRepeated-Figure3.jpeg) 
+- [_AnalyzeRepeated-Figure4.jpeg_](./AnalyzeRepeated-Figure4.jpeg)
+- [_AnalyzeRepeated-Figure5.jpeg_](./AnalyzeRepeated-Figure5.jpeg) 
+- [_AnalyzeRepeated-Figure6.jpeg_](./AnalyzeRepeated-Figure6.jpeg)
+
 ## References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
