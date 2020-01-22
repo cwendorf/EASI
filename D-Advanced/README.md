@@ -18,6 +18,11 @@
 
 ### Included Examples
 
+**Analyze Extension**: These examples combine the estimate, plot, test, and standardize functions for single-factor designs.
+
+- The [**AnalyzeOneWay**](./AnalyzeOneWay/) files analyze an example of a single-factor between-subjects design 
+- The [**AnalyzeRepeated**](./AnalyzeRepeated/) files analyze an example of a single-factor within-subjects design
+
 **Summarize Extension**: These examples provide summary statistics, boxplots, and data plots for single-factor designs.
 
 - The [**SummarizeOneWay**](./SummarizeOneWay/) files analyze an example of a single-factor between-subjects design 
@@ -33,17 +38,12 @@
 - The [**RelationalOneWay**](./RelationalOneWay/) files analyze an example of a single-factor between-subjects design 
 - The [**RelationalRepeated**](./RelationalRepeated/) files analyze an example of a single-factor within-subjects design
 
-**Analyze Extension**: These examples combine the estimate, plot, test, and standardize functions for single-factor designs.
-
-- The [**AnalyzeOneWay**](./AnalyzeOneWay/) files analyze an example of a single-factor between-subjects design 
-- The [**AnalyzeRepeated**](./AnalyzeRepeated/) files analyze an example of a single-factor within-subjects design
-
 **By Extension**: These examples apply the estimate, plot, test, and standardize functions separately at levels of the second factor (i.e., simple effects) in a two-factor design.
 
 - The [**FactorialBy**](./FactorialBy/) files analyze an example of a two-factor between-subjects design 
 - The [**MixedBy**](./MixedBy/) files analyze an example of a mixed factorial design
 
-## References
+### References
 
 Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. _Methodology, 8_(4), 125-133.
 

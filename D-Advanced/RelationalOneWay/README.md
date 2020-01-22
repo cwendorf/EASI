@@ -39,6 +39,6 @@ The **RelationalOneWay** files analyze an example of relational intervals for a 
 - [_RelationalOneWay-Figure4.jpeg_](./RelationalOneWay-Figure4.jpeg)
 - [_RelationalOneWay-Figure5.jpeg_](./RelationalOneWay-Figure5.jpeg)
 
-## References
+### References
 
 Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. _Methodology, 8_(4), 125-133.

@@ -36,6 +36,6 @@ The **Paired** files analyze examples of a within-subjects design for two time p
 - [_Paired-Figure3.jpeg_](./Paired-Figure3.jpeg) 
 - [_Paired-Figure4.jpeg_](./Paired-Figure4.jpeg) 
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

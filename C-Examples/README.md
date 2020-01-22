@@ -32,6 +32,6 @@ The following are examples for two-factor designs (see _[ITNS](https://thenewsta
 - The [**Frenda**](./Frenda/) files analyze an example of a two-factor between-subjects design
 - The [**Holzel**](./Holzel/) files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)  
 
-## References
+### References
 
 Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

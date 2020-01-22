@@ -31,6 +31,6 @@ The **PairwiseOneWay** files analyze an example of a single-factor between-subje
 - [_PairwiseOneWay-Figure1.jpeg_](./PairwiseOneWay-Figure1.jpeg)
 - [_PairwiseOneWay-Figure2.jpeg_](./PairwiseOneWay-Figure2.jpeg)
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

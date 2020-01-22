@@ -20,22 +20,22 @@ The **PenLaptop** files analyze an example of a two-group between-subjects desig
 
 [**_PenLaptop-Data-Example.md_**](./PenLaptop-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
-- [**_PenLaptop-Data-Syntax.R_**](./PenLaptop-Data-Syntax.R)
-- [**_PenLaptop-Data-Output.txt_**](./PenLaptop-Data-Output.txt)
-- [**_PenLaptop-Figure1.jpeg_**](./PenLaptop-Figure1.jpeg)
-- [**_PenLaptop-Figure2.jpeg_**](./PenLaptop-Figure2.jpeg)
-- [**_PenLaptop-Figure3.jpeg_**](./PenLaptop-Figure3.jpeg) 
+- [_PenLaptop-Data-Syntax.R_](./PenLaptop-Data-Syntax.R)
+- [_PenLaptop-Data-Output.txt_](./PenLaptop-Data-Output.txt)
+- [_PenLaptop-Figure1.jpeg_](./PenLaptop-Figure1.jpeg)
+- [_PenLaptop-Figure2.jpeg_](./PenLaptop-Figure2.jpeg)
+- [_PenLaptop-Figure3.jpeg_](./PenLaptop-Figure3.jpeg) 
 
 [**_PenLaptop-Summary-Example.md_**](./PenLaptop-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
-- [**_PenLaptop-Summary-Syntax.R_**](./PenLaptop-Summary-Syntax.R)
-- [**_PenLaptop-Summary-Output.txt_**](./PenLaptop-Summary-Output.txt)
-- [**_PenLaptop-Figure1.jpeg_**](./PenLaptop-Figure1.jpeg)
-- [**_PenLaptop-Figure2.jpeg_**](./PenLaptop-Figure2.jpeg)
-- [**_PenLaptop-Figure3.jpeg_**](./PenLaptop-Figure3.jpeg) 
+- [_PenLaptop-Summary-Syntax.R_](./PenLaptop-Summary-Syntax.R)
+- [_PenLaptop-Summary-Output.txt_](./PenLaptop-Summary-Output.txt)
+- [_PenLaptop-Figure1.jpeg_](./PenLaptop-Figure1.jpeg)
+- [_PenLaptop-Figure2.jpeg_](./PenLaptop-Figure2.jpeg)
+- [_PenLaptop-Figure3.jpeg_](./PenLaptop-Figure3.jpeg) 
 
-> **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
+> Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](../../A-Functions) page for more details.
 
-## References
+### References
 
 Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

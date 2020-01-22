@@ -31,6 +31,6 @@ The **OneSample** files analyze an example of a one-sample design. These analyse
 - [_OneSample-Figure1.jpeg_](./OneSample-Figure1.jpeg)
 - [_OneSample-Figure2.jpeg_](./OneSample-Figure2.jpeg)
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

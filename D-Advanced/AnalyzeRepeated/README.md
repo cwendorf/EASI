@@ -41,6 +41,6 @@ The **AnalyzeRepeated** files analyze an example of a single-factor within-subje
 - [_AnalyzeRepeated-Figure5.jpeg_](./AnalyzeRepeated-Figure5.jpeg) 
 - [_AnalyzeRepeated-Figure6.jpeg_](./AnalyzeRepeated-Figure6.jpeg)
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

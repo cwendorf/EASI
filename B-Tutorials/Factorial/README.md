@@ -53,6 +53,6 @@ The **Factorial** files analyze an example of a a factorial (between-subjects) d
 - [_Factorial-Figure11.jpeg_](./Factorial-Figure11.jpeg) 
 - [_Factorial-Figure12.jpeg_](./Factorial-Figure12.jpeg)
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

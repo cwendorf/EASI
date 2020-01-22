@@ -38,6 +38,6 @@ The following are examples for two-factor designs.
 - The [**Factorial**](./Factorial/) files analyze an example of a two-factor between-subjects design
 - The [**Mixed**](./Mixed) files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

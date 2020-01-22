@@ -21,22 +21,22 @@ The **Rattan** files analyze an example of a single-factor between-subjects desi
 
 [**_Rattan-Data-Example.md_**](./Rattan-Summary-Example.md) combines the following files to describe the analyses using raw data input:
 
-- [**_Rattan-Data-Syntax.R_**](./Rattan-Data-Syntax.R)
-- [**_Rattan-Data-Output.txt_**](./Rattan-Data-Output.txt)
-- [**_Rattan-Figure1.jpeg_**](./Rattan-Figure1.jpeg)
-- [**_Rattan-Figure2.jpeg_**](./Rattan-Figure2.jpeg)
-- [**_Rattan-Figure3.jpeg_**](./Rattan-Figure3.jpeg) 
+- [_Rattan-Data-Syntax.R_](./Rattan-Data-Syntax.R)
+- [_Rattan-Data-Output.txt_](./Rattan-Data-Output.txt)
+- [_Rattan-Figure1.jpeg_](./Rattan-Figure1.jpeg)
+- [_Rattan-Figure2.jpeg_](./Rattan-Figure2.jpeg)
+- [_Rattan-Figure3.jpeg_](./Rattan-Figure3.jpeg) 
 
 [**_Rattan-Summary-Example.md_**](./Rattan-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
-- [**_Rattan-Summary-Syntax.R_**](./Rattan-Summary-Syntax.R)
-- [**_Rattan-Summary-Output.txt_**](./Rattan-Summary-Output.txt)
-- [**_Rattan-Figure1.jpeg_**](./Rattan-Figure1.jpeg)
-- [**_Rattan-Figure2.jpeg_**](./Rattan-Figure2.jpeg)
-- [**_Rattan-Figure3.jpeg_**](./Rattan-Figure3.jpeg) 
+- [_Rattan-Summary-Syntax.R_](./Rattan-Summary-Syntax.R)
+- [_Rattan-Summary-Output.txt_](./Rattan-Summary-Output.txt)
+- [_Rattan-Figure1.jpeg_](./Rattan-Figure1.jpeg)
+- [_Rattan-Figure2.jpeg_](./Rattan-Figure2.jpeg)
+- [_Rattan-Figure3.jpeg_](./Rattan-Figure3.jpeg) 
 
-> **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
+> Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](../../A-Functions) page for more details.
 
-## References
+### References
 
 Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

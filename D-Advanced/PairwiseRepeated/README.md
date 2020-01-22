@@ -31,6 +31,6 @@ The **PairwiseRepeated** files analyze an example of a single-factor within-subj
 - [_PairwiseRepeated-Figure1.jpeg_](./PairwiseRepeated-Figure1.jpeg)
 - [_PairwiseRepeated-Figure2.jpeg_](./PairwiseRepeated-Figure2.jpeg)
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

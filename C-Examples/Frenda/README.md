@@ -20,20 +20,20 @@ The **Frenda** files analyze and example of a two-factor between-subjects design
 
 ### Files this Example
 
-> _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ does not provide raw data for the Frenda example. Therefore, an analysis using raw data is not presented here.
+> Note: _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ does not provide raw data for the Frenda example. Therefore, an analysis using raw data is not presented here.
 
 [**_Frenda-Summary-Example.md_**](./Frenda-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
-- [**_Frenda-Summary-Syntax.R_**](./Frenda-Summary-Syntax.R)
-- [**_Frenda-Summary-Output.txt_**](./Frenda-Summary-Output.txt)
-- [**_Frenda-Figure1.jpeg_**](./Frenda-Figure1.jpeg)
-- [**_Frenda-Figure2.jpeg_**](./Frenda-Figure2.jpeg)
-- [**_Frenda-Figure3.jpeg_**](./Frenda-Figure3.jpeg)  
-- [**_Frenda-Figure4.jpeg_**](./Frenda-Figure4.jpeg)
-- [**_Frenda-Figure5.jpeg_**](./Frenda-Figure5.jpeg)
+- [_Frenda-Summary-Syntax.R_](./Frenda-Summary-Syntax.R)
+- [_Frenda-Summary-Output.txt_](./Frenda-Summary-Output.txt)
+- [_Frenda-Figure1.jpeg_](./Frenda-Figure1.jpeg)
+- [_Frenda-Figure2.jpeg_](./Frenda-Figure2.jpeg)
+- [_Frenda-Figure3.jpeg_](./Frenda-Figure3.jpeg)  
+- [_Frenda-Figure4.jpeg_](./Frenda-Figure4.jpeg)
+- [_Frenda-Figure5.jpeg_](./Frenda-Figure5.jpeg)
 
-> **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
+> Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](../../A-Functions) page for more details.
 
-## References
+### References
 
 Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

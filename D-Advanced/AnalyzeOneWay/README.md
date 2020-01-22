@@ -41,6 +41,6 @@ The **AnalyzeOneWay** files analyze an example of a single-factor between-subjec
 - [_AnalyzeOneWay-Figure5.jpeg_](./AnalyzeOneWay-Figure5.jpeg)
 - [_AnalyzeOneWay-Figure6.jpeg_](./AnalyzeOneWay-Figure6.jpeg)
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

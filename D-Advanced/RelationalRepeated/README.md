@@ -39,6 +39,6 @@ The **RelationalRepeated** files analyze an example of relational intervals for 
 - [_RelationalRepeated-Figure4.jpeg_](./RelationalRepeated-Figure4.jpeg)
 - [_RelationalRepeated-Figure5.jpeg_](./RelationalRepeated-Figure5.jpeg)
 
-## References
+### References
 
 Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. _Methodology, 8_(4), 125-133.

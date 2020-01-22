@@ -25,8 +25,8 @@ The **SummarizeOneWay** files provide summary statistcs, boxplots, and data plot
 - [_SummarizeOneWay-Figure1.jpeg_](./SummarizeOneWay-Figure1.jpeg)
 - [_SummarizeOneWay-Figure2.jpeg_](./SummarizeOneWay-Figure2.jpeg)
 
-> Because the Summarize Extension by defintion provides displays of data distributions, analyses using summary statistics input are not available for this extension.
+> Note: Because the Summarize Extension by defintion provides displays of data distributions, analyses using summary statistics input are not available for this extension.
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

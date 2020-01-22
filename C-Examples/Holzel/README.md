@@ -19,20 +19,20 @@ The **Holzel** files analyze and example of a two-factor mixed design, one betwe
 
 [**_Holzel-Data-Example.md_**](./Holzel-Data-Example.md) combines the following files to describe the analyses using raw data input:
 
-- [**_Holzel-Data-Syntax.R_**](./Holzel-Data-Syntax.R)
-- [**_Holzel-Data-Output.txt_**](./Holzel-Data-Output.txt)
-- [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
-- [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
+- [_Holzel-Data-Syntax.R_](./Holzel-Data-Syntax.R)
+- [_Holzel-Data-Output.txt_](./Holzel-Data-Output.txt)
+- [_Holzel-Figure1.jpeg_](./Holzel-Figure1.jpeg)
+- [_Holzel-Figure2.jpeg_](./Holzel-Figure2.jpeg)
 
 [**_Holzel-Summary-Example.md_**](./Holzel-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
 
-- [**_Holzel-Summary-Syntax.R_**](./Holzel-Summary-Syntax.R)
-- [**_Holzel-Summary-Output.txt_**](./Holzel-Summary-Output.txt)
-- [**_Holzel-Figure1.jpeg_**](./Holzel-Figure1.jpeg)
-- [**_Holzel-Figure2.jpeg_**](./Holzel-Figure2.jpeg)
+- [_Holzel-Summary-Syntax.R_](./Holzel-Summary-Syntax.R)
+- [_Holzel-Summary-Output.txt_](./Holzel-Summary-Output.txt)
+- [_Holzel-Figure1.jpeg_](./Holzel-Figure1.jpeg)
+- [_Holzel-Figure2.jpeg_](./Holzel-Figure2.jpeg)
 
-> **Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](https://github.com/cwendorf/EASI/tree/master/A-Functions) page for more details.**
+> Note: Results of these analyses will differ slightly from those in _ITNS_. This is because ESCI and EASI make different statistical assumptions about the data. See the [**Functions**](../../A-Functions) page for more details.
 
-## References
+### References
 
 Cumming, G., & Calin-Jageman, R. (2017). _Introduction to the new statistics._ Routledge.

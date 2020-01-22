@@ -36,6 +36,6 @@ The **Independent** files analyze an example of a two-group between-subjects des
 - [_Independent-Figure3.jpeg_](./Independent-Figure3.jpeg)
 - [_Independent-Figure4.jpeg_](./Independent-Figure4.jpeg) 
 
-## References
+### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
