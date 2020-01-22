@@ -11,7 +11,7 @@
 
 ### Overview of the Examples
 
-- Examples are from Wendorf's (2019) [_Statistics for social science: A sourcebook of basic statistical methods_](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
+- Examples are from [_Statistics for Social Science: A Sourcebook of Basic Statistical Methods_](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm) (Wendorf, 2019)
 - Examples show both the default output and the available options
 - Examples include estimation, plots, significance tests, and effect sizes where relevant
 - Each example provides a syntax file, a text output file, and graphs
