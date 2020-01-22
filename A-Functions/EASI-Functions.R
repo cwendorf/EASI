@@ -197,7 +197,7 @@ estimateDifference<-function(...) {
 ciContrast <- function(...) 
   UseMethod("ciContrast")
 
-ciContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95) {
+ciContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,...) {
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
