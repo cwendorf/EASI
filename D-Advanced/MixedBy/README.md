@@ -36,6 +36,8 @@ The **MixedBy** files analyze an example of a a mixed (between-subjects and with
 - [_MixedBy-Figure11.jpeg_](./MixedBy-Figure11.jpeg)
 - [_MixedBy-Figure12.jpeg_](./MixedBy-Figure12.jpeg)
 
+> Because the By Extension relies on internal R functions that split the raw data, analyses using summary statistics input are not available for this extension.
+
 ## References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

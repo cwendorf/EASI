@@ -36,6 +36,8 @@ The **FactorialBy** files analyze an example of a a factorial (between-subjects)
 - [_FactorialBy-Figure11.jpeg_](./FactorialBy-Figure11.jpeg)
 - [_FactorialBy-Figure12.jpeg_](./FactorialBy-Figure12.jpeg)
 
+> Because the By Extension relies on internal R functions that split the raw data, analyses using summary statistics input are not available for this extension.
+
 ## References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)

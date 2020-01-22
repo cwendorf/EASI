@@ -25,6 +25,8 @@ The **SummarizeRepeated** files provide boxplots and data plots for single-facto
 - [_SummarizeRepeated-Figure1.jpeg_](./SummarizeRepeated-Figure1.jpeg)
 - [_SummarizeRepeated-Figure2.jpeg_](./SummarizeRepeated-Figure2.jpeg)
 
+> Because the Summarize Extension by defintion provides displays of data distributions, analyses using summary statistics input are not available for this extension.
+
 ## References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
