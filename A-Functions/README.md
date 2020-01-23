@@ -60,4 +60,4 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-B
 
 ### Futher Reading
 
-> [Technical Details](./TechnicalDetails.md) of the calculations used in EASI are available.
+> [Technical Details](./Technical-Details.md) of the calculations used in EASI are available.
