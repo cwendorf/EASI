@@ -9,7 +9,7 @@
 
 ## About the EASI Functions
 
-### Installation of the Functions
+### Installation of Basic Functions
 
 [**_EASI-Functions.R_**](./EASI-Functions.R) incorporates all of the functions that constitute the original vision of EASI. The EASI functions were written to represent four basic categories of analyses:
 
@@ -57,3 +57,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-R
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-By-Extension.R")
 ```
+
+### Futher Reading
+
+> [Technical Details](./TechnicalDetails.md) of the calculations used in EASI are available.
