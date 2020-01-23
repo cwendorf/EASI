@@ -11,7 +11,7 @@
 
 ### Overview of this Example
 
-The **OneSample** files analyze an example of a one-sample design. These analyses include the following:
+The **OneSample** files analyze an example of a one-sample design (from Wendorf, 2019). These analyses include the following:
 
 - Analysis of the Group (equivalent to one-sample analysis for the variable)
 

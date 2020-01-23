@@ -7,7 +7,7 @@
 
 ---
 
-## One Sample Tutorial Data with Data
+## One Sample Tutorial with Data
 
 ### Source the EASI Functions
 

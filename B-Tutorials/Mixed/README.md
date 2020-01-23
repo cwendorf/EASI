@@ -11,7 +11,7 @@
 
 ### Overview of this Example
 
-The **Mixed** files analyze an example of a a mixed (between-subjects and within-subjects) design by applying the estimate, plot, test, and standardize functions for a within-subjects factor separately at levels of the between-subjects factor. These analyses include the following:
+The **Mixed** files analyze an example of a a mixed (between-subjects and within-subjects) design  (from Wendorf, 2019) by applying the estimate, plot, test, and standardize functions for a within-subjects factor separately at levels of the between-subjects factor. These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable, seaprately at levels of the between-subjects factor)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable, seaprately at levels of the between-subjects factor)

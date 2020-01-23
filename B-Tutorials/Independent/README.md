@@ -11,7 +11,7 @@
 
 ### Overview of this Example
 
-The **Independent** files analyze an example of a two-group between-subjects design (independent-groups). These analyses include the following:
+The **Independent** files analyze an example of a two-group between-subjects (independent-groups) design (from Wendorf, 2019). These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)

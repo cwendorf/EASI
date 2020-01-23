@@ -11,7 +11,7 @@
 
 ### Overview of the Examples
 
-The **Factorial** files analyze an example of a a factorial (between-subjects) design by applying the estimate, plot, test, and standardize functions for a factor separately at levels of the second factor in a two-factor design. These analyses include the following:
+The **Factorial** files analyze an example of a a factorial (between-subjects) design  (from Wendorf, 2019) by applying the estimate, plot, test, and standardize functions for a factor separately at levels of the second factor in a two-factor design. These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor, separately at levels of the second factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor, separately at levels of the second factor)

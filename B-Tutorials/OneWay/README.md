@@ -11,7 +11,7 @@
 
 ### Overview of this Example
 
-The **OneWay** files analyze an example of a single-factor between-subjects design. These analyses include the following:
+The **OneWay** files analyze an example of a single-factor between-subjects design (from Wendorf, 2019). These analyses include the following:
 
 - Analyses of Mutiple Groups (equivalent to one-sample analyses for each level of a factor)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)

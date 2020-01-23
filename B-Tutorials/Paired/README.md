@@ -11,7 +11,7 @@
 
 ### Overview of this Example
 
-The **Paired** files analyze examples of a within-subjects design for two time points (paired samples). These analyses include the following:
+The **Paired** files analyze examples of a within-subjects design for two time points (paired samples) (from Wendorf, 2019). These analyses include the following:
 
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
