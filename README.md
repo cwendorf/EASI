@@ -11,11 +11,11 @@
 
 ### Basic Features of EASI
 
-EASI is a set of fast and flexible scripts for R that implement features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Statistics on Wikipedia") or the ["new statistics"](https://thenewstatistics.com/itns/ "Introduction to the New Statistics"). These functions calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. Functions and extensions are available for between- and within-subjects single-factor, factorial, and mixed designs and can take either raw data or summary statistics as input. Numerous tutorials and other examples from textbooks are available.
+EASI is a set of fast and flexible scripts for R that implement features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Statistics on Wikipedia") (or the ["new statistics"](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")). These functions calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. Functions and extensions are available for between- and within-subjects single-factor, factorial, and mixed designs and can take either raw data or summary statistics as input. Numerous tutorials and other examples from textbooks are available.
 
 ### Uses of EASI
 
-First, EASI can be used to calculate and plot confidence intervals for the means of groups (in a between-subjects design) or instances of a variable (in a within-subjects design). 
+First, EASI can be used to calculate and plot confidence intervals for the means of groups (in a between-subjects design) or instances of a variable (in a within-subjects design).
 
 <p align="center"><kbd><img src="easiMeans.jpg"></kbd></p>
 
