@@ -15,7 +15,6 @@ class(OneWaySummary) <- "bss"
 OneWaySummary
 
 ### Analyses of Multiple Groups
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -25,7 +24,7 @@ estimateMeans(OneWaySummary,conf.level=.99)
 #### Plot of the Confidence Intervals for the Means
 
 plotMeans(OneWaySummary) # OneWay-Figure1.jpeg
-plotMeans(OneWaySummary,conf.level=.99,mu=5) # OneWay-Figure2.jpeg
+plotMeans(OneWaySummary,conf.level=.99,mu=5,rope=c(3,7)) # OneWay-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -38,7 +37,6 @@ standardizeMeans(OneWaySummary)
 standardizeMeans(OneWaySummary,mu=5,conf.level=.99)
 
 ### Analyses of a Group Comparison
-### (equivalent to analyses for two levels of a factor)
 
 CompSummary <- OneWaySummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
@@ -51,7 +49,7 @@ estimateDifference(CompSummary,conf.level=.99)
 #### Plot of the Confidence Interval for the Mean Difference
 
 plotDifference(CompSummary) # OneWay-Figure3.jpeg
-plotDifference(CompSummary,conf.level=.99) # OneWay-Figure4.jpeg
+plotDifference(CompSummary,conf.level=.99,rope=c(-2,2)) # OneWay-Figure4.jpeg
 
 #### Significance Test of the Mean Difference
 
@@ -64,7 +62,6 @@ standardizeDifference(CompSummary)
 standardizeDifference(CompSummary,conf.level=.99)
 
 ### Analyses of a Group Contrast
-### (equivalent to analyses for multiple levels of a factor)
 
 L1vsOthers <- c(-1,.5,.5)
 
@@ -76,7 +73,7 @@ estimateContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 #### Plots of Confidence Intervals for a Contrast
 
 plotContrast(OneWaySummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
-plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
+plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # OneWay-Figure6.jpeg
 
 #### Significance Test for a Contrast
 

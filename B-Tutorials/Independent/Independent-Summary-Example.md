@@ -72,9 +72,9 @@ plotMeans(BetweenSummary)# Independent-Figure1.jpeg
 ```
 <kbd><img src="Independent-Figure1.jpeg"></kbd>
 
-Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence can be added.
 ```r
-plotMeans(BetweenSummary,conf.level=.99,mu=5)# Independent-Figure2.jpeg
+plotMeans(BetweenSummary,conf.level=.99,mu=5,rope=c(3,7))# Independent-Figure2.jpeg
 ```
 <kbd><img src="independent-Figure2.jpeg"></kbd>
 
@@ -167,9 +167,9 @@ plotDifference(BetweenSummary) # Independent-Figure3.jpeg
 ```
 <kbd><img src="Independent-Figure3.jpeg"></kbd>
 
-Once again, the confidence levels can be changed away from the default if desired.
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(BetweenSummary,conf.level=.99) # Independent-Figure4.jpeg
+plotDifference(BetweenSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
 ```
 <kbd><img src="Independent-Figure4.jpeg"></kbd>
 

@@ -54,7 +54,6 @@ Outcome2L2      0.889      1.000      0.889
 Outcome3L2      0.778      0.889      1.000
 > 
 > ### Analyses of Multiple Variables
-> ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > #### Confidence Intervals for the Means
 > 
@@ -99,8 +98,8 @@ Outcome3L2 4.000 7.000 2.449 1.224 -0.152 14.152
 > 
 > plotMeans(WithinSummaryL1) # Mixed-Figure1.jpeg
 > plotMeans(WithinSummaryL2) # Mixed-Figure2.jpeg
-> plotMeans(WithinSummaryL1,conf.level=.99,mu=5) # Mixed-Figure3.jpeg
-> plotMeans(WithinSummaryL2,conf.level=.99,mu=5) # Mixed-Figure4.jpeg
+> plotMeans(WithinSummaryL1,conf.level=.99,mu=5,rope=c(3,7)) # Mixed-Figure3.jpeg
+> plotMeans(WithinSummaryL2,conf.level=.99,mu=5,rope=c(3,7)) # Mixed-Figure4.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -181,7 +180,6 @@ Outcome3L2  0.817  0.594 0.616 -0.732 2.320
 
 > 
 > ### Analyses of a Variable Comparison
-> ### (equivalent to analyses for two levels of a factor)
 > 
 > CompSummaryL1 <- WithinSummaryL1[c("Outcome1L1","Outcome2L1"),]
 > class(CompSummaryL1) <- "wss"
@@ -223,8 +221,8 @@ Comparison -4.000 0.577 3.000 -7.370 -0.630
 > 
 > plotDifference(CompSummaryL1,WithinCorrL1) # Mixed-Figure5.jpg
 > plotDifference(CompSummaryL2,WithinCorrL2) # Mixed-Figure6.jpg
-> plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99) # Mixed-Figure7.jpeg
-> plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99) # Mixed-Figure8.jpeg
+> plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99,rope=c(-2,2)) # Mixed-Figure7.jpeg
+> plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99,rope=c(-2,2)) # Mixed-Figure8.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
@@ -289,7 +287,6 @@ Comparison -1.633 0.687 -3.403 0.136
 
 > 
 > ### Analyses of a Variable Contrast
-> ### (equivalent to analyses for multiple levels of a factor)
 > 
 > O1vsOthers <- c(-1,.5,.5)
 > 
@@ -328,8 +325,8 @@ Contrast 4.500 0.645 3.000 0.732 8.268
 > 
 > plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers) # Mixed-Figure9.jpeg
 > plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers) # Mixed-Figure10.jpeg
-> plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Mixed-Figure11.jpeg
-> plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Mixed-Figure12.jpeg
+> plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Mixed-Figure11.jpeg
+> plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Mixed-Figure12.jpeg
 > 
 > #### Significance Test for the Contrast
 > 
@@ -362,7 +359,7 @@ HYPOTHESIS TEST FOR THE CONTRAST
 Contrast 0.500 0.645 0.775 3.000 0.495
 
 > 
-> #### Effect Size for the Contrast
+> #### Efect Size for the Contrast
 > 
 > standardizeContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers)
 

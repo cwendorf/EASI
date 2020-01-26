@@ -18,7 +18,6 @@ PairedCorr["Outcome1","Outcome2"] <- .500
 PairedCorr
 
 ### Analyses of Multiple Variables
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -28,7 +27,7 @@ estimateMeans(PairedSummary,conf.level=.99)
 #### Plots of Confidence Intervals for the Means
 
 plotMeans(PairedSummary) # Paired-Figure1.jpeg
-plotMeans(PairedSummary,conf.level=.99,mu=6) # Paired-Figure2.jpeg
+plotMeans(PairedSummary,conf.level=.99,mu=6,rope=c(4,8)) # Paired-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -41,7 +40,6 @@ standardizeMeans(PairedSummary)
 standardizeMeans(PairedSummary,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
-### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for the Mean Difference
 
@@ -51,7 +49,7 @@ estimateDifference(PairedSummary,PairedCorr,conf.level=.99)
 #### Plots of Confidence Intervals for the Mean Difference
 
 plotDifference(PairedSummary,PairedCorr) # Paired-Figure3.jpeg
-plotDifference(PairedSummary,PairedCorr,conf.level=.99) # Paired-Figure4.jpeg
+plotDifference(PairedSummary,PairedCorr,conf.level=.99,rope=c(-2,2)) # Paired-Figure4.jpeg
 
 #### Significance Test for the Mean Difference
 

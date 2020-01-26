@@ -68,9 +68,9 @@ plotMeans(OneSampleSummary) # OneSample-Figure1.jpeg
 ```
 <kbd><img src="OneSample-Figure1.jpeg"></kbd>
 
-Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalece.
 ```r
-plotMeans(OneSampleSummary,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
+plotMeans(OneSampleSummary,conf.level=.99,mu=5,rope=c(3,7)) # OneSample-Figure2.jpeg
 ```
 <kbd><img src="OneSample-Figure2.jpeg"></kbd>
 

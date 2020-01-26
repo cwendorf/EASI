@@ -19,7 +19,6 @@ DataSubsetL1 <- subset(MixedData,Factor=="Level1")
 DataSubsetL2 <- subset(MixedData,Factor=="Level2")
 
 ### Analyses of Multiple Variables
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -39,8 +38,8 @@ with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
 
 with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure1.jpeg
 with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure2.jpeg
-with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)) # Mixed-Figure3.jpeg
-with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)) # Mixed-Figure4.jpeg
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7))) # Mixed-Figure3.jpeg
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7))) # Mixed-Figure4.jpeg
 
 #### Significance Tests for the Means
 
@@ -57,7 +56,6 @@ with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.9
 with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
 
 ### Analyses of a Variable Comparison
-### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for the Mean Difference
 
@@ -70,8 +68,8 @@ with(DataSubsetL2,estimateDifference(Outcome1,Outcome2,conf.level=.99))
 
 with(DataSubsetL1,plotDifference(Outcome1,Outcome2)) # Mixed-Figure5.jpeg
 with(DataSubsetL2,plotDifference(Outcome1,Outcome2)) # Mixed-Figure6.jpeg
-with(DataSubsetL1,plotDifference(Outcome1,Outcome2,conf.level=.99)) # Mixed-Figure7.jpeg
-with(DataSubsetL2,plotDifference(Outcome1,Outcome2,conf.level=.99)) # Mixed-Figure8.jpeg
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))) # Mixed-Figure7.jpeg
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))) # Mixed-Figure8.jpeg
 
 #### Significance Test for the Mean Difference
 
@@ -88,7 +86,6 @@ with(DataSubsetL1,standardizeDifference(Outcome1,Outcome2,conf.level=.99))
 with(DataSubsetL2,standardizeDifference(Outcome1,Outcome2,conf.level=.99))
 
 ### Analyses of a Variable Contrast
-### (equivalent to analyses for multiple levels of a factor)
 
 O1vsOthers <- c(-1,.5,.5)
 
@@ -103,8 +100,8 @@ with(DataSubsetL2,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOther
 
 with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)) # Mixed-Figure9.jpeg
 with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)) # Mixed-Figure10.jpeg
-with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99)) # Mixed-Figure11.jpeg
-with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99)) # Mixed-Figure12.jpeg
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))) # Mixed-Figure11.jpeg
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))) # Mixed-Figure12.jpeg
 
 #### Significance Test for the Contrast
 

@@ -32,7 +32,6 @@ Outcome2    0.500    1.000    0.389
 Outcome3    0.056    0.389    1.000
 > 
 > ### Analyses of Multiple Variables
-> ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > #### Confidence Intervals for the Means
 > 
@@ -58,7 +57,7 @@ Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
 > #### Plots of Confidence Intervals for the Means
 > 
 > plotMeans(RepeatedSummary) # Repeated-Figure1.jpeg
-> plotMeans(RepeatedSummary,conf.level=.99,mu=5) # Repeated-Figure2.jpeg
+> plotMeans(RepeatedSummary,conf.level=.99,mu=5,rope=c(3,7)) # Repeated-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -103,7 +102,6 @@ Outcome3  0.817  0.594 0.616 -0.732 2.320
 
 > 
 > ### Analyses of a Variable Comparison
-> ### (equivalent to analyses for two levels of a factor)
 > 
 > CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 > class(CompSummary) <- "wss"
@@ -128,7 +126,7 @@ Comparison -4.000 1.224 3.000 -11.152 3.152
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
 > plotDifference(CompSummary,RepeatedCorr) # Repeated-Figure3.jpg
-> plotDifference(CompSummary,RepeatedCorr,conf.level=.99) # Repeated-Figure4.jpeg
+> plotDifference(CompSummary,RepeatedCorr,conf.level=.99,rope=c(-2,2)) # Repeated-Figure4.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
@@ -165,7 +163,6 @@ Comparison -1.633 0.782 -3.647 0.380
 
 > 
 > ### Analyses of a Variable Contrast
-> ### (equivalent to analyses for multiple levels of a factor)
 > 
 > O1vsOthers <- c(-1,.5,.5)
 > 
@@ -189,7 +186,7 @@ Contrast 4.500 1.307 3.000 -3.131 12.131
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) # Repeated-Figure5.jpeg
-> plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
+> plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Repeated-Figure6.jpeg
 > 
 > #### Significance Test for the Contrast
 > 

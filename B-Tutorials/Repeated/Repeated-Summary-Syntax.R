@@ -22,7 +22,6 @@ RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
 RepeatedCorr
 
 ### Analyses of Multiple Variables
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -32,7 +31,7 @@ estimateMeans(RepeatedSummary,conf.level=.99)
 #### Plots of Confidence Intervals for the Means
 
 plotMeans(RepeatedSummary) # Repeated-Figure1.jpeg
-plotMeans(RepeatedSummary,conf.level=.99,mu=5) # Repeated-Figure2.jpeg
+plotMeans(RepeatedSummary,conf.level=.99,mu=5,rope=c(3,7)) # Repeated-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -45,7 +44,6 @@ standardizeMeans(RepeatedSummary)
 standardizeMeans(RepeatedSummary,mu=5,conf.level=.99)
 
 ### Analyses of a Variable Comparison
-### (equivalent to analyses for two levels of a factor)
 
 CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
@@ -58,7 +56,7 @@ estimateDifference(CompSummary,RepeatedCorr,conf.level=.99)
 #### Plots of Confidence Intervals for the Mean Difference
 
 plotDifference(CompSummary,RepeatedCorr) # Repeated-Figure3.jpg
-plotDifference(CompSummary,RepeatedCorr,conf.level=.99) # Repeated-Figure4.jpeg
+plotDifference(CompSummary,RepeatedCorr,conf.level=.99,rope=c(-2,2)) # Repeated-Figure4.jpeg
 
 #### Significance Test for the Mean Difference
 
@@ -71,7 +69,6 @@ standardizeDifference(CompSummary,RepeatedCorr)
 standardizeDifference(CompSummary,RepeatedCorr,conf.level=.99)
 
 ### Analyses of a Variable Contrast
-### (equivalent to analyses for multiple levels of a factor)
 
 O1vsOthers <- c(-1,.5,.5)
 
@@ -83,7 +80,7 @@ estimateContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99
 #### Plots of Confidence Intervals for a Contrast
 
 plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) # Repeated-Figure5.jpeg
-plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
+plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Repeated-Figure6.jpeg
 
 #### Significance Test for the Contrast
 

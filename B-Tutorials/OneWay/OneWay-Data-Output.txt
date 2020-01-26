@@ -27,7 +27,6 @@
 12 Level3       9
 > 
 > ### Analyses of Multiple Groups
-> ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > #### Confidence Intervals for the Means
 > 
@@ -53,7 +52,7 @@ Level3 4.000 7.000 2.449 1.224 -0.152 14.152
 > #### Plot of the Confidence Intervals for the Means
 > 
 > plotMeans(Outcome~Factor) # OneWay-Figure1.jpeg
-> plotMeans(Outcome~Factor,conf.level=.99,mu=5) # OneWay-Figure2.jpeg
+> plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7)) # OneWay-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -98,7 +97,6 @@ Level3  0.817  0.594 0.616 -0.732 2.320
 
 > 
 > ### Analyses of a Group Comparison
-> ### (equivalent to analyses for two levels of a factor)
 > 
 > Comparison=factor(Factor,c("Level1","Level2"))
 > 
@@ -122,7 +120,7 @@ Comparison -4.000 1.732 6.000 -10.420 2.420
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
 > plotDifference(Outcome~Comparison) # OneWay-Figure3.jpeg
-> plotDifference(Outcome~Comparison,conf.level=.99) # OneWay-Figure4.jpeg
+> plotDifference(Outcome~Comparison,conf.level=.99,rope=c(-2,2)) # OneWay-Figure4.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
@@ -159,7 +157,6 @@ Comparison -1.633 0.943 -4.062 0.795
 
 > 
 > ### Analyses of a Group Contrast
-> ### (equivalent to analyses for multiple levels of a factor)
 > 
 > L1vsOthers <- c(-1,.5,.5)
 > 
@@ -183,7 +180,7 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > plotContrast(Outcome~Factor,contrast=L1vsOthers) # OneWay-Figure5.jpeg
-> plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # OneWay-Figure6.jpeg
+> plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # OneWay-Figure6.jpeg
 > 
 > #### Significance Test for a Contrast
 > 
@@ -218,5 +215,4 @@ CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
            Est    SE     LL    UL
 Contrast 1.837 0.829 -0.298 3.973
 
-> 
 > 

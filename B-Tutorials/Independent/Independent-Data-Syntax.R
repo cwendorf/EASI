@@ -14,7 +14,6 @@ BetweenData <- data.frame(Factor,Outcome)
 BetweenData
 
 ### Analyses of Multiple Groups
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -24,7 +23,7 @@ estimateMeans(Outcome~Factor,conf.level=.99)
 #### Plot of the Confidence Intervals for the Means
 
 plotMeans(Outcome~Factor) # Independent-Figure1.jpeg
-plotMeans(Outcome~Factor,conf.level=.99,mu=5)# Independent-Figure2.jpeg
+plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7))# Independent-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -37,7 +36,6 @@ standardizeMeans(Outcome~Factor)
 standardizeMeans(Outcome~Factor,mu=5,conf.level=.99)
 
 ### Analyses of a Factor Comparison
-### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for a Mean Difference
 
@@ -47,7 +45,7 @@ estimateDifference(Outcome~Factor,conf.level=.99)
 #### Plot of the Confidence Interval for the Mean Difference
 
 plotDifference(Outcome~Factor) # Independent-Figure3.jpeg
-plotDifference(Outcome~Factor,conf.level=.99) # Independent-Figure4.jpeg
+plotDifference(Outcome~Factor,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
 
 #### Significance Test of the Mean Difference
 

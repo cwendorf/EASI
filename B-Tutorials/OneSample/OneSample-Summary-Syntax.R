@@ -22,7 +22,7 @@ estimateMeans(OneSampleSummary,conf.level=.99)
 #### Plot of the Confidence Intervals for the Mean
 
 plotMeans(OneSampleSummary) # OneSample-Figure1.jpeg
-plotMeans(OneSampleSummary,conf.level=.99,mu=5) # OneSample-Figure2.jpeg
+plotMeans(OneSampleSummary,conf.level=.99,mu=5,rope=c(3,7)) # OneSample-Figure2.jpeg
 
 #### Significance Tests for the Mean
 

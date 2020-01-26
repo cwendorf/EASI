@@ -156,15 +156,15 @@ plotMeans(WithinSummaryL2) # Mixed-Figure2.jpeg
 ```
 <kbd><img src="Mixed-Figure2.jpeg"></kbd>
 
-Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```r
-plotMeans(WithinSummaryL1,conf.level=.99,mu=5) # Mixed-Figure3.jpeg
+plotMeans(WithinSummaryL1,conf.level=.99,mu=5,rope=c(3,7)) # Mixed-Figure3.jpeg
 ```
 <kbd><img src="Mixed-Figure3.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotMeans(WithinSummaryL2,conf.level=.99,mu=5) # Mixed-Figure4.jpeg
+plotMeans(WithinSummaryL2,conf.level=.99,mu=5,rope=c(3,7)) # Mixed-Figure4.jpeg
 ```
 <kbd><img src="Mixed-Figure4.jpeg"></kbd>
 
@@ -348,15 +348,15 @@ plotDifference(CompSummaryL2,WithinCorrL2) # Mixed-Figure6.jpg
 ```
 <kbd><img src="Mixed-Figure6.jpeg"></kbd>
 
-Once again, the confidence levels can be changed away from the default if desired.
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99) # Mixed-Figure7.jpeg
+plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99,rope=c(-2,2)) # Mixed-Figure7.jpeg
 ```
 <kbd><img src="Mixed-Figure7.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99) # Mixed-Figure8.jpeg
+plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99,rope=c(-2,2)) # Mixed-Figure8.jpeg
 ```
 <kbd><img src="Mixed-Figure8.jpeg"></kbd>
 
@@ -521,15 +521,15 @@ plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers) # Mixed-Figure10.
 ```
 <kbd><img src="Mixed-Figure10.jpeg"></kbd>
 
-The width of the confidence interval for the contrast can be altered if desired.
+The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```r
-plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Mixed-Figure11.jpeg
+plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Mixed-Figure11.jpeg
 ```
 <kbd><img src="Mixed-Figure11.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Mixed-Figure12.jpeg
+plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Mixed-Figure12.jpeg
 ```
 <kbd><img src="Mixed-Figure12.jpeg"></kbd>
 

@@ -91,9 +91,9 @@ plotMeans(RepeatedSummary) # Repeated-Figure1.jpeg
 ```
 <kbd><img src="Repeated-Figure1.jpeg"></kbd>
 
-Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```r
-plotMeans(RepeatedSummary,conf.level=.99,mu=5) # Repeated-Figure2.jpeg
+plotMeans(RepeatedSummary,conf.level=.99,mu=5,rope=c(3,7)) # Repeated-Figure2.jpeg
 ```
 <kbd><img src="Repeated-Figure2.jpeg"></kbd>
 
@@ -195,9 +195,9 @@ plotDifference(CompSummary,RepeatedCorr) # Repeated-Figure3.jpeg
 ```
 <kbd><img src="Repeated-Figure3.jpeg"></kbd>
 
-Once again, the confidence levels can be changed away from the default if desired.
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(CompSummary,RepeatedCorr,conf.level=.99) # Repeated-Figure4.jpeg
+plotDifference(CompSummary,RepeatedCorr,conf.level=.99,rope=c(-2,2)) # Repeated-Figure4.jpeg
 ```
 <kbd><img src="Repeated-Figure4.jpeg"></kbd>
 
@@ -291,9 +291,9 @@ plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) # Repeated-Figure
 ````
 <kbd><img src="Repeated-Figure5.jpeg"></kbd>
 
-The width of the confidence interval for the contrast can be altered if desired.
+The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```r
-plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Repeated-Figure6.jpeg
+plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Repeated-Figure6.jpeg
 ```
 <kbd><img src="Repeated-Figure6.jpeg"></kbd>
 

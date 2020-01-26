@@ -14,7 +14,6 @@ class(BetweenSummary) <- "bss"
 BetweenSummary
 
 ### Analyses of Multiple Groups
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -24,7 +23,7 @@ estimateMeans(BetweenSummary,conf.level=.99)
 #### Plot of the Confidence Intervals for the Means
 
 plotMeans(BetweenSummary) # Independent-Figure1.jpeg
-plotMeans(BetweenSummary,conf.level=.99,mu=5) # Independent-Figure2.jpeg
+plotMeans(BetweenSummary,conf.level=.99,mu=5,rope=c(3,7)) # Independent-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -37,7 +36,6 @@ standardizeMeans(BetweenSummary)
 standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
 
 ### Analyses of a Group Comparison
-### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for a Mean Difference
 
@@ -47,7 +45,7 @@ estimateDifference(BetweenSummary,conf.level=.99)
 #### Plot of the Confidence Interval for the Mean Difference
 
 plotDifference(BetweenSummary) # Independent-Figure3.jpeg
-plotDifference(BetweenSummary,conf.level=.99) # Independent-Figure4.jpeg
+plotDifference(BetweenSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
 
 #### Significance Test of the Mean Difference
 

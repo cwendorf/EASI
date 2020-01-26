@@ -72,9 +72,9 @@ plotMeans(Outcome1,Outcome2) # Paired-Figure1.jpeg
 ```
 <kbd><img src="Paired-Figure1.jpeg"></kbd>
 
-Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```r
-plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6) # Paired-Figure2.jpeg
+plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6,rope=c(4,8)) # Paired-Figure2.jpeg
 ```
 <kbd><img src="Paired-Figure2.jpeg"></kbd>
 
@@ -166,9 +166,9 @@ plotDifference(Outcome1,Outcome2) # Paired-Figure3.jpeg
 ```
 <kbd><img src="Paired-Figure3.jpeg"></kbd>
 
-Once again, the confidence levels can be changed away from the default if desired.
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(Outcome1,Outcome2,conf.level=.99) # Paired-Figure4.jpeg
+plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)) # Paired-Figure4.jpeg
 ```
 <kbd><img src="Paired-Figure4.jpeg"></kbd>
 

@@ -13,7 +13,6 @@ PairedData <- data.frame(Outcome1,Outcome2)
 PairedData
 
 ### Analyses of Multiple Variables
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -23,7 +22,7 @@ estimateMeans(Outcome1,Outcome2,conf.level=.99)
 #### Plots of Confidence Intervals for the Means
 
 plotMeans(Outcome1,Outcome2) # Paired-Figure1.jpeg
-plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6) # Paired-Figure2.jpeg
+plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6,rope=c(4,8)) # Paired-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -36,7 +35,6 @@ standardizeMeans(Outcome1,Outcome2)
 standardizeMeans(Outcome1,Outcome2,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
-### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for the Mean Difference
 
@@ -46,7 +44,7 @@ estimateDifference(Outcome1,Outcome2,conf.level=.99)
 #### Plots of Confidence Intervals for the Mean Difference
 
 plotDifference(Outcome1,Outcome2) # Paired-Figure3.jpeg
-plotDifference(Outcome1,Outcome2,conf.level=.99) # Paired-Figure4.jpeg
+plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)) # Paired-Figure4.jpeg
 
 #### Significance Test for the Mean Difference
 
