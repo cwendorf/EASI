@@ -258,7 +258,7 @@ estimateContrast<-function(...) {
 #### Basic Plot Functions
 
 cipMeans <- function(results,main,ylab,xlab,mu,rope) {
-  ylimrange <- range(pretty(c(floor(min(results[,2]-1)),ceiling(max(results[,3])+1))))
+  ylimrange <- range(pretty(c(floor(min(results[,2]-2)),ceiling(max(results[,3])+2))))
   plot(results[,1],,xaxs="i",yaxs="i",xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab="",cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
   results <- format(as.data.frame(results),trim=T,nsmall=3)
@@ -274,7 +274,7 @@ cipDifference <- function(results,main,ylab,xlab,rope) {
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
-  ylimrange <- range(pretty(c(floor(min(graph[,2]-1)),ceiling(max(graph[,3])+1))))
+  ylimrange <- range(pretty(c(floor(min(graph[,2]-2)),ceiling(max(graph[,3])+2))))
   par(mar=c(5,5,5,5))  
   plot(c(1,2,3),graph[,1],axes=FALSE,xaxs="i",yaxs="i",xaxt="n",xlim=c(.4,3.6),ylim=ylimrange,pch=c(15,15,17),cex=1.5,xlab="",ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
   axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
