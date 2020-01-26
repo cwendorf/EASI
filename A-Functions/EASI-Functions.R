@@ -273,9 +273,14 @@ cipDifference <- function(results,main,ylab,xlab,rope) {
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
+  ylimrange <- range(pretty(c(floor(min(graph[,2]-1)),ceiling(max(graph[,3])+1))))
   par(mar=c(5,5,5,5))  
-  plot(c(1,2,3),graph[,1],xaxt="n",xlim=c(.4,3.6),ylim=c(floor(min(graph[,2])/2)*2,ceiling(max(graph[,3])/2)*2),pch=c(15,15,17),cex=1.5,xlab="",ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
-  axis(1,at=c(1,2,3),labels=rownames(graph))
+  plot(c(1,2,3),graph[,1],axes=FALSE,xaxs="i",yaxs="i",xaxt="n",xlim=c(.4,3.6),ylim=ylimrange,pch=c(15,15,17),cex=1.5,xlab="",ylab=ylab,main=main,las=1,cex.lab=1.3,bty="l")
+  axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
+  axis(1,2.6:3.6,labels=FALSE,lwd.tick=0)
+  axis(1,at=c(1,2),labels=rownames(graph)[1:2])
+  axis(1,at=3,labels=rownames(graph)[3])
+  axis(2)
   results <- format(as.data.frame(results),trim=T,nsmall=3)
   for (i in 1:3) lines(x=c(i,i), y=c(graph[,2][i],graph[,3][i]),lwd=2)
   for (i in 1:2) text(i,graph[,1][i],results[,1][i],cex=.8,pos=2,offset=.5,font=2)
