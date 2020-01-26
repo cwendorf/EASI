@@ -295,6 +295,7 @@ cipDifference <- function(results,main,ylab,xlab,rope) {
   if(!is.null(rope)) {rect(2.5,graphrope[1],4.5,graphrope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
 }
 
+
 #### Plot Function for Confidence Intervals of the Means
 
 plotMeans <- function(...) 
