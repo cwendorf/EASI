@@ -133,15 +133,15 @@ with(DataSubsetB2,plotMeans(Outcome~FactorA)) # Factorial-Figure2.jpeg
 ```
 <kbd><img src="Factorial-Figure2.jpeg"></kbd>
 
-Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and to add a region of practical equivalence.
 ```r
-with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Figure3.jpeg
+with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7))) # Factorial-Figure3.jpeg
 ```
 <kbd><img src="Factorial-Figure3.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5)) # Factorial-Figure4.jpeg
+with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7))) # Factorial-Figure4.jpeg
 ```
 <kbd><img src="Factorial-Figure4.jpeg"></kbd>
 
@@ -260,15 +260,15 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code creates a new factor that identifies the two levels for comparison.
 ```r
-Comparison <- with(DataSubsetB1,factor(FactorA,c("A1","A2")))
-Comparison <- with(DataSubsetB2,factor(FactorA,c("A1","A2")))
+ComparisonB1 <- with(DataSubsetB1,factor(FactorA,c("A1","A2")))
+ComparisonB2 <- with(DataSubsetB2,factor(FactorA,c("A1","A2")))
 ```
 
 #### Confidence Interval for a Mean Difference
 
 This code estimates the confidence interval of the difference.
 ```r
-with(DataSubsetB1,estimateMeans(Outcome~Comparison))
+with(DataSubsetB1,estimateMeans(Outcome~ComparisonB1))
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -280,7 +280,7 @@ A2 4.000 6.000 2.449 1.224  2.103 9.897
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,estimateMeans(Outcome~Comparison))
+with(DataSubsetB2,estimateMeans(Outcome~ComparisonB2))
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -292,7 +292,7 @@ A2 4.000 4.000 2.449 1.224 0.103 7.897
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```r
-with(DataSubsetB1,estimateDifference(Outcome~Comparison,conf.level=.99))
+with(DataSubsetB1,estimateDifference(Outcome~ComparisonB1,conf.level=.99))
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -303,7 +303,7 @@ Comparison -4.000 1.732 6.000 -10.420 2.420
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,estimateDifference(Outcome~Comparison,conf.level=.99))
+with(DataSubsetB2,estimateDifference(Outcome~ComparisonB2,conf.level=.99))
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -316,25 +316,25 @@ Comparison 0.000 1.732 6.000 -6.420 6.420
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
 ```r
-with(DataSubsetB1,plotDifference(Outcome~Comparison)) # Factorial-Figure5.jpeg
+with(DataSubsetB1,plotDifference(Outcome~ComparisonB1)) # Factorial-Figure5.jpeg
 ```
 <kbd><img src="Factorial-Figure5.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,plotDifference(Outcome~Comparison)) # Factorial-Figure6.jpeg
+with(DataSubsetB2,plotDifference(Outcome~ComparisonB2)) # Factorial-Figure6.jpeg
 ```
 <kbd><img src="Factorial-Figure6.jpeg"></kbd>
 
-Once again, the confidence levels can be changed away from the default if desired.
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-with(DataSubsetB1,plotDifference(Outcome~Comparison,conf.level=.99)) # Factorial-Figure7.jpeg
+with(DataSubsetB1,plotDifference(Outcome~ComparisonB1,conf.level=.99,rope=c(-2,2))) # Factorial-Figure7.jpeg
 ```
 <kbd><img src="Factorial-Figure7.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,plotDifference(Outcome~Comparison,conf.level=.99)) # Factorial-Figure8.jpeg
+with(DataSubsetB2,plotDifference(Outcome~ComparisonB2,conf.level=.99,rope=c(-2,2))) # Factorial-Figure8.jpeg
 ```
 <kbd><img src="Factorial-Figure8.jpeg"></kbd>
 
@@ -342,7 +342,7 @@ with(DataSubsetB2,plotDifference(Outcome~Comparison,conf.level=.99)) # Factorial
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```r
-with(DataSubsetB1,testDifference(Outcome~Comparison))
+with(DataSubsetB1,testDifference(Outcome~ComparisonB1))
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -353,7 +353,7 @@ Comparison -4.000 1.732 -2.310 6.000 0.060
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,testDifference(Outcome~Comparison))
+with(DataSubsetB2,testDifference(Outcome~ComparisonB2))
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -364,7 +364,7 @@ Comparison 0.000 1.732 0.000 6.000 1.000
 
 If the default value of zero is not plausible, it too can be changed.
 ```r
-with(DataSubsetB1,testDifference(Outcome~Comparison,mu=-2))
+with(DataSubsetB1,testDifference(Outcome~ComparisonB1,mu=-2))
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -375,7 +375,7 @@ Comparison -2.000 1.732 -1.155 6.000 0.292
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,testDifference(Outcome~Comparison,mu=-2))
+with(DataSubsetB2,testDifference(Outcome~ComparisonB2,mu=-2))
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -388,7 +388,7 @@ Comparison 2.000 1.732 1.155 6.000 0.292
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```r
-with(DataSubsetB1,standardizeDifference(Outcome~Comparison))
+with(DataSubsetB1,standardizeDifference(Outcome~ComparisonB1))
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -399,7 +399,7 @@ Comparison -1.633 0.943 -3.481 0.215
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,standardizeDifference(Outcome~Comparison))
+with(DataSubsetB2,standardizeDifference(Outcome~ComparisonB2))
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -410,7 +410,7 @@ Comparison 0.000 0.816 -1.600 1.600
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-with(DataSubsetB1,standardizeDifference(Outcome~Comparison,conf.level=.99))
+with(DataSubsetB1,standardizeDifference(Outcome~ComparisonB1,conf.level=.99))
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -421,7 +421,7 @@ Comparison -1.633 0.943 -4.062 0.795
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,standardizeDifference(Outcome~Comparison,conf.level=.99))
+with(DataSubsetB2,standardizeDifference(Outcome~ComparisonB2,conf.level=.99))
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -499,15 +499,15 @@ with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers)) # Factorial
 ```
 <kbd><img src="Factorial-Figure10.jpeg"></kbd>
 
-The width of the confidence interval for the contrast can be altered if desired.
+The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```r
-with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99)) # Factorial-Figure11.jpeg
+with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))) # Factorial-Figure11.jpeg
 ```
 <kbd><img src="Factorial-Figure11.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99)) # Factorial-Figure12.jpeg
+with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))) # Factorial-Figure12.jpeg
 ```
 <kbd><img src="Factorial-Figure12.jpeg"></kbd>
 

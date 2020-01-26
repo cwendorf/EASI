@@ -125,15 +125,15 @@ plotMeans(BetweenSummaryB2) # Factorial-Figure2.jpeg
 ```
 <kbd><img src="Factorial-Figure2.jpeg"></kbd>
 
-Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value.
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```r
-plotMeans(BetweenSummaryB1,conf.level=.99,mu=5) # Factorial-Figure3.jpeg
+plotMeans(BetweenSummaryB1,conf.level=.99,mu=5,rope=c(3,7)) # Factorial-Figure3.jpeg
 ```
 <kbd><img src="Factorial-Figure3.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotMeans(BetweenSummaryB2,conf.level=.99,mu=5) # Factorial-Figure4.jpeg
+plotMeans(BetweenSummaryB2,conf.level=.99,mu=5,rope=c(3,7)) # Factorial-Figure4.jpeg
 ```
 <kbd><img src="Factorial-Figure4.jpeg"></kbd>
 
@@ -317,15 +317,15 @@ plotDifference(CompSummaryB2) # Factorial-Figure6.jpeg
 ```
 <kbd><img src="Factorial-Figure6.jpeg"></kbd>
 
-Once again, the confidence levels can be changed away from the default if desired.
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(CompSummaryB1,conf.level=.99) # Factorial-Figure7.jpeg
+plotDifference(CompSummaryB1,conf.level=.99,rope=c(-2,2)) # Factorial-Figure7.jpeg
 ```
 <kbd><img src="Factorial-Figure7.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotDifference(CompSummaryB2,conf.level=.99) # Factorial-Figure8.jpeg
+plotDifference(CompSummaryB2,conf.level=.99,rope=c(-2,2)) # Factorial-Figure8.jpeg
 ```
 <kbd><img src="Factorial-Figure8.jpeg"></kbd>
 
@@ -490,15 +490,15 @@ plotContrast(BetweenSummaryB2,contrast=L1vsOthers) # Factorial-Figure10.jpeg
 ```
 <kbd><img src="Factorial-Figure10.jpeg"></kbd>
 
-The width of the confidence interval for the contrast can be altered if desired.
+The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```r
-plotContrast(BetweenSummaryB1,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # Factorial-Figure11.jpeg
+plotContrast(BetweenSummaryB1,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure11.jpeg
 ```
 <kbd><img src="Factorial-Figure11.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotContrast(BetweenSummaryB2,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # Factorial-Figure12.jpeg
+plotContrast(BetweenSummaryB2,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure12.jpeg
 ```
 <kbd><img src="Factorial-Figure12.jpeg"></kbd>
 

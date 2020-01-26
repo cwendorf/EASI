@@ -22,7 +22,6 @@ class(BetweenSummaryB2) <- "bss"
 BetweenSummaryB2
 
 ### Analyses of Multiple Groups
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -35,8 +34,8 @@ estimateMeans(BetweenSummaryB2,conf.level=.99)
 
 plotMeans(BetweenSummaryB1) # Factorial-Figure1.jpeg
 plotMeans(BetweenSummaryB2) # Factorial-Figure2.jpeg
-plotMeans(BetweenSummaryB1,conf.level=.99,mu=5) # Factorial-Figure3.jpeg
-plotMeans(BetweenSummaryB2,conf.level=.99,mu=5) # Factorial-Figure4.jpeg
+plotMeans(BetweenSummaryB1,conf.level=.99,mu=5,rope=c(3,7)) # Factorial-Figure3.jpeg
+plotMeans(BetweenSummaryB2,conf.level=.99,mu=5,rope=c(3,7)) # Factorial-Figure4.jpeg
 
 #### Significance Tests for the Means
 
@@ -53,7 +52,6 @@ standardizeMeans(BetweenSummaryB1,mu=5,conf.level=.99)
 standardizeMeans(BetweenSummaryB2,mu=5,conf.level=.99)
 
 ### Analyses of a Group Comparison
-### (equivalent to analyses for two levels of a factor)
 
 CompSummaryB1 <- BetweenSummaryB1[c("A1B1","A2B1"),]
 class(CompSummaryB1) <- "bss"
@@ -71,8 +69,8 @@ estimateDifference(CompSummaryB2,conf.level=.99)
 
 plotDifference(CompSummaryB1) # Factorial-Figure5.jpeg
 plotDifference(CompSummaryB2) # Factorial-Figure6.jpeg
-plotDifference(CompSummaryB1,conf.level=.99) # Factorial-Figure7.jpeg
-plotDifference(CompSummaryB2,conf.level=.99) # Factorial-Figure8.jpeg
+plotDifference(CompSummaryB1,conf.level=.99,rope=c(-2,2)) # Factorial-Figure7.jpeg
+plotDifference(CompSummaryB2,conf.level=.99,rope=c(-2,2)) # Factorial-Figure8.jpeg
 
 #### Significance Test of the Mean Difference
 
@@ -89,7 +87,6 @@ standardizeDifference(CompSummaryB1,conf.level=.99)
 standardizeDifference(CompSummaryB2,conf.level=.99)
 
 ### Analyses of a Group Contrast
-### (equivalent to analyses for multiple levels of a factor)
 
 L1vsOthers <- c(-1,.5,.5)
 
@@ -104,8 +101,8 @@ estimateContrast(BetweenSummaryB2,contrast=L1vsOthers,conf.level=.99)
 
 plotContrast(BetweenSummaryB1,contrast=L1vsOthers) # Factorial-Figure9.jpeg
 plotContrast(BetweenSummaryB2,contrast=L1vsOthers) # Factorial-Figure10.jpeg
-plotContrast(BetweenSummaryB1,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # Factorial-Figure11.jpeg
-plotContrast(BetweenSummaryB2,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99) # Factorial-Figure12.jpeg
+plotContrast(BetweenSummaryB1,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure11.jpeg
+plotContrast(BetweenSummaryB2,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure12.jpeg
 
 #### Significance Test for a Contrast
 
