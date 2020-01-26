@@ -15,20 +15,17 @@ OneWayData <- data.frame(Factor,Outcome)
 OneWayData
 
 ### Analyses of Multiple Groups
-### (equivalent to one-sample analyses for each level of a factor)
 
 analyzeMeans(Outcome~Factor) # Includes AnalyzeOneWay-Figure1.jpeg
 analyzeMeans(Outcome~Factor,mu=5,conf.level=.99) # Includes AnalyzeOneWay-Figure2.jpeg
 
 ### Analyses of a Group Comparison
-### (equivalent to analyses for two levels of a factor)
 
 Comparison=factor(Factor,c("Level1","Level2"))
 analyzeDifference(Outcome~Comparison) # Includes AnalyzeOneWay-Figure3.jpeg
 analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99) # Includes AnalyzeOneWay-Figure4.jpeg
 
 ### Analyses of a Group Contrast
-### (equivalent to analyses for multiple levels of a factor)
 
 L1vsOthers <- c(-1,.5,.5)
 analyzeContrast(Outcome~Factor,contrast=L1vsOthers) # Includes AnalyzeOneWay-Figure5.jpeg

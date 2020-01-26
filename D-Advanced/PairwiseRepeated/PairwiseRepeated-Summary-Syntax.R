@@ -23,7 +23,6 @@ RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
 RepeatedCorr
 
 ### Analyses of Pairwise Variable Comparisons
-### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons
 

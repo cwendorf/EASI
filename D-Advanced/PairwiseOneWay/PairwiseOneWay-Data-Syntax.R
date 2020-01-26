@@ -16,7 +16,6 @@ PairwiseOneWayData <- data.frame(Factor,Outcome)
 PairwiseOneWayData
 
 ### Analyses of Pairwise Comparisons
-### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons
 

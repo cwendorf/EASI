@@ -17,7 +17,6 @@ MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 MixedData
 
 ### Analyses of Multiple Variables
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -40,7 +39,6 @@ standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=6,conf.level=.99)
 
 ### Analyses of a Variable Comparison
-### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for the Mean Difference
 
@@ -63,11 +61,11 @@ standardizeDifferenceBy(Outcome1,Outcome2,by=Factor)
 standardizeDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
 
 ### Analyses of a Variable Contrast
-### (equivalent to analyses for multiple levels of a factor)
+
+O1vsOthers <- c(-1,.5,.5)
 
 #### Confidence Interval for the Contrast
 
-O1vsOthers <- c(-1,.5,.5)
 estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf.level=.99)
 

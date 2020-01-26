@@ -46,3 +46,4 @@ L5 65.5 61.943 69.057 63.125 67.875
 > plotRelational(WendorfSummary) # RelationalOneWay-Figure4.jpeg
 > plotRelational(WendorfSummary,conf.level=.99,mu=70) # RelationalOneWay-Figure5.jpeg
 > 
+> 

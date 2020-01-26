@@ -26,7 +26,6 @@
 8 Level2        6        6        8
 > 
 > ### Analyses of Multiple Variables
-> ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > #### Confidence Intervals for the Means
 > 
@@ -68,10 +67,7 @@ Outcome3 4 5 2.449 1.224 -2.152 12.152
 > #### Plots of Confidence Intervals for the Means
 > 
 > plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor) # Includes MixedBy-Figure1.jpeg and MixedBy-Figure2.jpeg
-Waiting to confirm page change...
-> plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=6) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
-Waiting to confirm page change...
-Waiting to confirm page change...
+Hit <Return> to see next plot: plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=6) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -148,7 +144,6 @@ Outcome3 -0.408 -0.297 0.574 -1.734 0.968
 
 > 
 > ### Analyses of a Variable Comparison
-> ### (equivalent to analyses for two levels of a factor)
 > 
 > #### Confidence Interval for the Mean Difference
 > 
@@ -182,12 +177,8 @@ Comparison    0 0.816  3 -4.768 4.768
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
 > plotDifferenceBy(Outcome1,Outcome2,by=Factor) # Includes MixedBy-Figure5.jpeg and MixedBy-Figure6.jpeg
-Waiting to confirm page change...
-Waiting to confirm page change...
-> plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
-Waiting to confirm page change...
-Waiting to confirm page change...
-> 
+Hit <Return> to see next plot: plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
+Hit <Return> to see next plot: 
 > #### Significance Test for the Mean Difference
 > 
 > testDifferenceBy(Outcome1,Outcome2,by=Factor)
@@ -247,11 +238,11 @@ Comparison   0 0.385 -0.991 0.991
 
 > 
 > ### Analyses of a Variable Contrast
-> ### (equivalent to analyses for multiple levels of a factor)
+> 
+> O1vsOthers <- c(-1,.5,.5)
 > 
 > #### Confidence Interval for the Contrast
 > 
-> O1vsOthers <- c(-1,.5,.5)
 > estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 
 CONFIDENCE INTERVALS FOR THE CONTRASTS
@@ -282,12 +273,8 @@ Contrast 0.5 0.645  3 -3.27 4.27
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers) # Includes MixedBy-Figure9.jpeg and MixedBy-Figure10.jpeg
-Waiting to confirm page change...
-Waiting to confirm page change...
-> plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
-Waiting to confirm page change...
-Waiting to confirm page change...
-> 
+Hit <Return> to see next plot: plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
+Hit <Return> to see next plot: 
 > #### Significance Test for the Contrast
 > 
 > testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
@@ -309,11 +296,11 @@ HYPOTHESIS TESTS FOR THE CONTRASTS
 
 $Level1
          Est    SE     t df     p
-Contrast 4.5 1.258 3.577  3 0.037
+Contrast 5.5 1.258 4.372  3 0.022
 
 $Level2
          Est    SE     t df     p
-Contrast 0.5 0.645 0.775  3 0.495
+Contrast 1.5 0.645 2.324  3 0.103
 
 
 > 

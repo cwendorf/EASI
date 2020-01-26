@@ -29,7 +29,6 @@
 12 Level3       9
 > 
 > ### Analyses of Pairwise Comparisons
-> ### (equivalent to unadjusted t tests)
 > 
 > #### Confidence Intervals for the Pairwise Comparisons
 > 

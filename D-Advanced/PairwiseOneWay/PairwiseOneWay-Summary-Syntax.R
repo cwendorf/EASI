@@ -16,7 +16,6 @@ class(OneWaySummary) <- "bss"
 OneWaySummary
 
 ### Analyses of Pairwise Comparisons
-### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons
 

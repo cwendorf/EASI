@@ -33,7 +33,6 @@ Outcome2    0.500    1.000    0.389
 Outcome3    0.056    0.389    1.000
 > 
 > ### Analyses of Multiple Variables
-> ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > analyzeMeans(RepeatedSummary) # Includes AnalyzeRepeated-Figure1.jpeg
 $title
@@ -81,7 +80,6 @@ Outcome3  0.817  0.594 0.616 -0.732 2.320
 
 > 
 > ### Analyses of a Variable Comparison
-> ### (equivalent to analyses for two levels of a factor)
 > 
 > CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 > class(CompSummary) <- "wss"
@@ -120,7 +118,6 @@ Comparison -1.633 0.782 -3.647 0.380
 
 > 
 > ### Analyses of a Variable Contrast
-> ### (equivalent to analyses for multiple levels of a factor)
 > 
 > O1vsOthers <- c(-1,.5,.5)
 > analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg

@@ -23,13 +23,11 @@ RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
 RepeatedCorr
 
 ### Analyses of Multiple Variables
-### (equivalent to one-sample analyses for each level of a factor)
 
 analyzeMeans(RepeatedSummary) # Includes AnalyzeRepeated-Figure1.jpeg
 analyzeMeans(RepeatedSummary,mu=5,conf.level=.99) # Includes AnalyzeRepeated-Figure2.jpeg
 
 ### Analyses of a Variable Comparison
-### (equivalent to analyses for two levels of a factor)
 
 CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
@@ -38,7 +36,6 @@ analyzeDifference(CompSummary,RepeatedCorr) # Includes AnalyzeRepeated-Figure3.j
 analyzeDifference(CompSummary,RepeatedCorr,mu=-2,conf.level=.99) # Includes AnalyzeRepeated-Figure4.jpeg
 
 ### Analyses of a Variable Contrast
-### (equivalent to analyses for multiple levels of a factor)
 
 O1vsOthers <- c(-1,.5,.5)
 analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg

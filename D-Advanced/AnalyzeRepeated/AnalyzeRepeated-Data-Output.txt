@@ -20,7 +20,6 @@
 4        5        9        9
 > 
 > ### Analyses of Multiple Variables
-> ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > analyzeMeans(Outcome1,Outcome2,Outcome3) # Includes AnalyzeRepeated-Figure1.jpeg
 $title
@@ -70,7 +69,6 @@ Outcome3  0.817  0.594 0.616 -0.732 2.320
 
 > 
 > ### Analyses of a Variable Comparison
-> ### (equivalent to analyses for two levels of a factor)
 > 
 > analyzeDifference(Outcome1,Outcome2) # Includes AnalyzeRepeated-Figure3.jpeg
 $title
@@ -106,7 +104,6 @@ Comparison -1.633 0.782 -3.647 0.380
 
 > 
 > ### Analyses of a Variable Contrast
-> ### (equivalent to analyses for multiple levels of a factor)
 > 
 > O1vsOthers <- c(-1,.5,.5)
 > analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg

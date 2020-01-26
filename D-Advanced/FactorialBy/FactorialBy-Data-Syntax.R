@@ -17,7 +17,6 @@ FactorialData <- data.frame(FactorA,FactorB,Outcome)
 FactorialData
 
 ### Analyses of Multiple Groups
-### (equivalent to one-sample analyses for each level of a factor)
 
 #### Confidence Intervals for the Means
 
@@ -40,7 +39,6 @@ standardizeMeansBy(Outcome~FactorA,by=FactorB)
 standardizeMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5)
 
 ### Analyses of a Group Comparison
-### (equivalent to analyses for two levels of a factor)
 
 #### Confidence Interval for a Mean Difference
 
@@ -65,11 +63,11 @@ with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB))
 with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,mu=-2))
 
 ### Analyses of a Factor Contrast
-### (equivalent to analyses for multiple levels of a factor)
+
+A1vsOthers <- c(-1,.5,.5)
 
 #### Confidence Interval for a Contrast
 
-A1vsOthers <- c(-1,.5,.5)
 estimateContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
 estimateContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,conf.level=.99)
 

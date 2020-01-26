@@ -1,94 +1,92 @@
 > # Estimation Approach to Statistical Inference
 > ## Pairwise Comparisons - Repeated (Within-Subjects) Tutorial with Data
 > 
-> ### Source the EASI Functions and Extensions
+> ### Source the EASI Functions and the Extension
 > 
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
 > source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Pairwise-Extension.R")
 > 
 > ### Enter Data
 > 
-> Time1 <- c(5,6,6,7,8)
-> Time2 <- c(7,7,8,8,9)
-> Time3 <- c(8,8,9,9,9)
+> Outcome1 <- c(0,0,3,5)
+> Outcome2 <- c(4,7,4,9)
+> Outcome3 <- c(9,6,4,9)
 > 
-> PairwiseRepeatedData <- data.frame(Time1,Time2,Time3)
+> PairwiseRepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 > PairwiseRepeatedData
-  Time1 Time2 Time3
-1     5     7     8
-2     6     7     8
-3     6     8     9
-4     7     8     9
-5     8     9     9
+  Outcome1 Outcome2 Outcome3
+1        0        4        9
+2        0        7        6
+3        3        4        4
+4        5        9        9
 > 
 > ### Analyses of Pairwise Variable Comparisons
-> ### (equivalent to unadjusted t tests)
 > 
 > #### Confidence Intervals for the Pairwise Comparisons
 > 
-> estimatePairwise(Time1,Time2,Time3)
+> estimatePairwise(Outcome1,Outcome2,Outcome3)
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-                Diff    SE    df     LL     UL
-Time1 v Time2 -1.400 0.245 4.000 -2.080 -0.720
-Time1 v Time3 -2.200 0.374 4.000 -3.239 -1.161
-Time2 v Time3 -0.800 0.200 4.000 -1.355 -0.245
+                      Diff    SE    df      LL     UL
+Outcome1 v Outcome2 -4.000 1.224 3.000  -7.897 -0.103
+Outcome1 v Outcome3 -5.000 1.683 3.000 -10.356  0.356
+Outcome2 v Outcome3 -1.000 1.354 3.000  -5.308  3.308
 
-> estimatePairwise(Time1,Time2,Time3,conf.level=.99)
+> estimatePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-                Diff    SE    df     LL     UL
-Time1 v Time2 -1.400 0.245 4.000 -2.527 -0.273
-Time1 v Time3 -2.200 0.374 4.000 -3.922 -0.478
-Time2 v Time3 -0.800 0.200 4.000 -1.721  0.121
+                      Diff    SE    df      LL    UL
+Outcome1 v Outcome2 -4.000 1.224 3.000 -11.152 3.152
+Outcome1 v Outcome3 -5.000 1.683 3.000 -14.830 4.830
+Outcome2 v Outcome3 -1.000 1.354 3.000  -8.907 6.907
 
 > 
 > #### Plots of the Confidence Intervals for the Pairwise Comparisons
 > 
-> plotPairwise(Time1,Time2,Time3) # PairwiseRepeated-Figure1.jpeg
-> plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99) # PairwiseRepeated-Figure2.jpeg
+> plotPairwise(Outcome1,Outcome2,Outcome3) # PairwiseRepeated-Figure1.jpeg
+> plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99) # PairwiseRepeated-Figure2.jpeg
 > 
 > #### Significance Tests of the Pairwise Comparisons
 > 
-> testPairwise(Time1,Time2,Time3)
+> testPairwise(Outcome1,Outcome2,Outcome3)
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-                Diff    SE      t    df     p
-Time1 v Time2 -1.400 0.245 -5.718 4.000 0.005
-Time1 v Time3 -2.200 0.374 -5.881 4.000 0.004
-Time2 v Time3 -0.800 0.200 -3.999 4.000 0.016
+                      Diff    SE      t    df     p
+Outcome1 v Outcome2 -4.000 1.224 -3.267 3.000 0.047
+Outcome1 v Outcome3 -5.000 1.683 -2.971 3.000 0.059
+Outcome2 v Outcome3 -1.000 1.354 -0.739 3.000 0.514
 
-> testPairwise(Time1,Time2,Time3,mu=-2)
+> testPairwise(Outcome1,Outcome2,Outcome3,mu=-2)
 
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-                Diff    SE      t    df     p
-Time1 v Time2  0.600 0.245  2.451 4.000 0.070
-Time1 v Time3 -0.200 0.374 -0.535 4.000 0.621
-Time2 v Time3  1.200 0.200  5.998 4.000 0.004
+                      Diff    SE      t    df     p
+Outcome1 v Outcome2 -2.000 1.224 -1.633 3.000 0.201
+Outcome1 v Outcome3 -3.000 1.683 -1.783 3.000 0.173
+Outcome2 v Outcome3  1.000 1.354  0.739 3.000 0.514
 
 > 
 > #### Effect Sizes for the Pairwise Comparisons
 > 
-> standardizePairwise(Time1,Time2,Time3)
+> standardizePairwise(Outcome1,Outcome2,Outcome3)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                 Est    SE     LL     UL
-Time1 v Time2 -1.400 0.545 -2.468 -0.332
-Time1 v Time3 -2.460 0.928 -4.278 -0.641
-Time2 v Time3 -1.131 0.488 -2.086 -0.175
+                       Est    SE     LL     UL
+Outcome1 v Outcome2 -1.633 0.782 -3.166 -0.101
+Outcome1 v Outcome3 -2.042 0.876 -3.759 -0.325
+Outcome2 v Outcome3 -0.408 0.592 -1.569  0.752
 
-> standardizePairwise(Time1,Time2,Time3,conf.level=.99)
+> standardizePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                 Est    SE     LL     UL
-Time1 v Time2 -1.400 0.545 -2.804  0.004
-Time1 v Time3 -2.460 0.928 -4.850 -0.070
-Time2 v Time3 -1.131 0.488 -2.387  0.125
+                       Est    SE     LL    UL
+Outcome1 v Outcome2 -1.633 0.782 -3.647 0.380
+Outcome1 v Outcome3 -2.042 0.876 -4.298 0.215
+Outcome2 v Outcome3 -0.408 0.592 -1.934 1.117
 
 > 

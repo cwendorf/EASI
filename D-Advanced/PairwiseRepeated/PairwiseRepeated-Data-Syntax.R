@@ -16,7 +16,6 @@ PairwiseRepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 PairwiseRepeatedData
 
 ### Analyses of Pairwise Variable Comparisons
-### (equivalent to unadjusted t tests)
 
 #### Confidence Intervals for the Pairwise Comparisons
 

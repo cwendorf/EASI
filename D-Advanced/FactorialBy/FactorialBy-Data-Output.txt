@@ -42,7 +42,6 @@
 24      A3      B2       7
 > 
 > ### Analyses of Multiple Groups
-> ### (equivalent to one-sample analyses for each level of a factor)
 > 
 > #### Confidence Intervals for the Means
 > 
@@ -84,7 +83,6 @@ A3 4 5 2.449 1.224 -2.152 12.152
 > #### Plot of the Confidence Intervals for the Means
 > 
 > plotMeansBy(Outcome~FactorA,by=FactorB) # Includes FactorialBy-Figure1.jpeg and FactorialBy-Figure2.jpeg
-Waiting to confirm page change...
 Waiting to confirm page change...
 > plotMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5) # Includes FactorialBy-Figure3.jpeg and FactorialBy-Figure4.jpeg
 Waiting to confirm page change...
@@ -165,7 +163,6 @@ A3  0.000  0.000 0.559 -1.288 1.288
 
 > 
 > ### Analyses of a Group Comparison
-> ### (equivalent to analyses for two levels of a factor)
 > 
 > #### Confidence Interval for a Mean Difference
 > 
@@ -222,17 +219,17 @@ $B2
 Comparison    0 1.732 0  6 1
 
 
-> with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB,mu=2))
+> with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB,mu=-2))
 
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $B1
            Diff    SE      t df     p
-Comparison   -6 1.732 -3.465  6 0.013
+Comparison   -2 1.732 -1.155  6 0.292
 
 $B2
-           Diff    SE      t df     p
-Comparison   -2 1.732 -1.155  6 0.292
+           Diff    SE     t df     p
+Comparison    2 1.732 1.155  6 0.292
 
 
 > 
@@ -251,7 +248,7 @@ $B2
 Comparison   0 0.816 -1.6 1.6
 
 
-> with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,mu=2))
+> with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,mu=-2))
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS
 
@@ -266,11 +263,11 @@ Comparison   0 0.816 -2.103 2.103
 
 > 
 > ### Analyses of a Factor Contrast
-> ### (equivalent to analyses for multiple levels of a factor)
+> 
+> A1vsOthers <- c(-1,.5,.5)
 > 
 > #### Confidence Interval for a Contrast
 > 
-> A1vsOthers <- c(-1,.5,.5)
 > estimateContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
 
 CONFIDENCE INTERVALS FOR THE CONTRASTS
