@@ -255,12 +255,12 @@ estimateContrast<-function(...) {
 
 ### Confidence Interval Plot Functions
 
-#### Plot Data or Add Data
+#### Plot Data
 
 plotData <- function(...)
   UseMethod("plotData")
 
-plotData.default <- function(...,add=FALSE,method="jitter",col="gray60") {
+plotData.default <- function(...,add=FALSE,method="jitter",col="gray60",pch=16) {
   data <- data.frame(...)
   ylimrange <- range(pretty(c(floor(min(data-2)),ceiling(max(data)+2))))
   xlimrange <- c(.5,ncol(data)+.5)
@@ -269,10 +269,10 @@ plotData.default <- function(...,add=FALSE,method="jitter",col="gray60") {
   par(bty="l",xaxs="i",yaxs="i")
   main="Data for the Variables"  
   ylab="Outcome"
-  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,jitter=0.08,pch=16,col=col,cex.lab=1.3)
+  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,jitter=0.08,col=col,pch=pch,cex.lab=1.3,...)
 } 
 
-plotData.formula <- function(formula,add=FALSE,method="jitter",col="gray60",...) {
+plotData.formula <- function(formula,add=FALSE,method="jitter",col="gray60",pch=16,...) {
   x <- eval(formula[[3]])
   adjustX <- as.numeric(x)+.15
   mn <- min(adjustX,na.rm=TRUE)
@@ -282,7 +282,7 @@ plotData.formula <- function(formula,add=FALSE,method="jitter",col="gray60",...)
   xlimrange <- c(.5,nlevels(x)+.5)
   par(bty="l",xaxs="i",yaxs="i")
   main="Data for the Groups"  
-  stripchart(formula,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,jitter=0.08,pch=16,col=col,cex.lab=1.3)
+  stripchart(formula,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,jitter=0.08,col=col,pch=pch,cex.lab=1.3,...)
 }
 
 ### Add Data to Plot
