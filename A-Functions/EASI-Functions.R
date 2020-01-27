@@ -1,4 +1,4 @@
-# Estimation Approach to Statistical Inference
+.5)# Estimation Approach to Statistical Inference
 ## Basic Functions for Means and Mean Differences
 
 ### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
@@ -283,6 +283,26 @@ plotData.formula <- function(formula,add=FALSE,method="jitter",col="gray60",...)
   par(bty="l",xaxs="i",yaxs="i")
   main="Data for the Groups"  
   stripchart(formula,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,jitter=0.08,pch=16,col=col,cex.lab=1.3)
+}
+
+### Add Data to Plot
+
+addData <- function(...) 
+  UseMethod("addData")
+
+addData.default <- function(...,method="jitter",col="gray60",pch=16) {
+  data <- data.frame(...)
+  mx <- ncol(data)+.15
+  mn <- 1+.15
+  stripchart(data,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=pch,col=col,...)
+}
+
+addData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
+  x <- eval(formula[[3]])
+  adjustX <- as.numeric(x)+.15
+  mn <- min(adjustX,na.rm=TRUE)
+  mx <- max(adjustX,na.rm=TRUE)
+  stripchart(formula,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=pch,col=col,...)
 }
 
 #### Basic Confidence Interval Plot Functions

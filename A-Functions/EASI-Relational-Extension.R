@@ -119,23 +119,3 @@ plotRelational.formula <- function(formula,conf.level=.95,mu=NULL,rope=NULL,...)
   cipMeans(results,main,ylab,xlab,mu,rope)
   addRelational(formula,conf.level,...)
 }
-
-### Add Data to Plot
-
-addData <- function(...) 
-  UseMethod("addData")
-
-addData.default <- function(...,method="jitter",col="gray60") {
-  data <- data.frame(...)
-  mx <- ncol(data)+.15
-  mn <- 1+.15
-  stripchart(data,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=16,col=col)
-}  
-
-addData.formula <- function(formula,method="jitter",col="gray60",...) {
-  x <- eval(formula[[3]])
-  adjustX <- as.numeric(x)+.15
-  mn <- min(adjustX,na.rm=TRUE)
-  mx <- max(adjustX,na.rm=TRUE)
-  stripchart(formula,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=16,col=col)
-}
