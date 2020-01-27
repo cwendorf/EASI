@@ -255,11 +255,41 @@ estimateContrast<-function(...) {
 
 ### Confidence Interval Plot Functions
 
-#### Basic Plot Functions
+#### Plot Data or Add Data
+
+plotData <- function(...)
+  UseMethod("plotData")
+
+plotData.default <- function(...,add=FALSE,method="jitter",col="gray60") {
+  data <- data.frame(...)
+  ylimrange <- range(pretty(c(floor(min(data-2)),ceiling(max(data)+2))))
+  xlimrange <- c(.5,ncol(data)+.5)
+  mx <- ncol(data)+.15
+  mn <- 1+.15
+  par(bty="l",xaxs="i",yaxs="i")
+  main="Data for the Variables"  
+  ylab="Outcome"
+  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,jitter=0.08,pch=16,col=col,cex.lab=1.3)
+} 
+
+plotData.formula <- function(formula,add=FALSE,method="jitter",col="gray60",...) {
+  x <- eval(formula[[3]])
+  adjustX <- as.numeric(x)+.15
+  mn <- min(adjustX,na.rm=TRUE)
+  mx <- max(adjustX,na.rm=TRUE)
+  y <- eval(formula[[2]])
+  ylimrange <- range(pretty(c(floor(min(y-2)),ceiling(max(y)+2))))
+  xlimrange <- c(.5,nlevels(x)+.5)
+  par(bty="l",xaxs="i",yaxs="i")
+  main="Data for the Groups"  
+  stripchart(formula,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,jitter=0.08,pch=16,col=col,cex.lab=1.3)
+}
+
+#### Basic Confidence Interval Plot Functions
 
 cipMeans <- function(results,main,ylab,xlab,mu,rope) {
   ylimrange <- range(pretty(c(floor(min(results[,2]-2)),ceiling(max(results[,3])+2))))
-  plot(results[,1],,xaxs="i",yaxs="i",xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab="",cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
+  plot(results[,1],xaxs="i",yaxs="i",xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab="",cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
   results <- format(as.data.frame(results),trim=T,nsmall=3)
   for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
