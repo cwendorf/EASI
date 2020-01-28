@@ -21,5 +21,5 @@ summarizeData(Outcome~Factor)
 
 ### Boxplots of Multiple Groups
 
-plotData(Outcome~Factor) # SummarizeOneWay-Figure1.jpeg
-plotData(Outcome~Factor,method="stack",col="black") # SummarizeOneWay-Figure2.jpeg
+plotBoxes(Outcome~Factor) # SummarizeOneWay-Figure1.jpeg
+addData(Outcome~Factor,method="stack") # SummarizeOneWay-Figure2.jpg

@@ -20,5 +20,5 @@ summarizeData(Outcome1,Outcome2,Outcome3)
 
 ### Boxplots of Multiple Variables
 
-plotData(Outcome1,Outcome2,Outcome3) # SummarizeRepeated-Figure1.jpeg
-plotData(Outcome1,Outcome2,Outcome3,method="stack",col="black") # SummarizeRepeated-Figure2.jpeg
+plotBoxes(Outcome1,Outcome2,Outcome3) # SummarizeRepeated-Figure1.jpeg
+addData(Outcome1,Outcome2,Outcome3,method="stack") # SummarizeRepeated-Figure2.jpeg

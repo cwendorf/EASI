@@ -57,10 +57,10 @@ Level3             4           5    7.5           9             9
 ### Boxplots of Multiple Groups
 
 ```r
-plotData(Outcome~Factor) # SummarizeOneWay-Figure1.jpeg
+plotBoxes(Outcome~Factor) # SummarizeOneWay-Figure1.jpeg
 ```
 <kbd><img src="SummarizeOneWay-Figure1.jpeg"></kbd>
 ```r
-plotData(Outcome~Factor,method="stack",col="black") # SummarizeOneWay-Figure2.jpeg
+addData(Outcome~Factor,method="stack") # SummarizeOneWay-Figure2.jpeg
 ```
 <kbd><img src="SummarizeOneWay-Figure2.jpeg"></kbd>

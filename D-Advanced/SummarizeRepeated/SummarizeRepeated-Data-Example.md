@@ -50,10 +50,10 @@ Outcome3             4           5    7.5           9             9
 ### Boxplots of Multiple Variables
 
 ```r
-plotData(Outcome1,Outcome2,Outcome3) # SummarizeRepeated-Figure1.jpeg
+plotBoxes(Outcome1,Outcome2,Outcome3) # SummarizeRepeated-Figure1.jpeg
 ```
 <kbd><img src="SummarizeRepeated-Figure1.jpeg"></kbd>
 ```r
-plotData(Outcome1,Outcome2,Outcome3,method="stack",col="black") # SummarizeRepeated-Figure2.jpeg
+addData(Outcome1,Outcome2,Outcome3,method="stack") # SummarizeRepeated-Figure2.jpeg
 ```
 <kbd><img src="SummarizeRepeated-Figure2.jpeg"></kbd>
