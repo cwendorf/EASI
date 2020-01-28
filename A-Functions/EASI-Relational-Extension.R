@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Extension for Arelational and Relational Intervals
+## Extension for Relational Intervals
 
 ### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 ### ALSO: PASTE CONTENTS OF EASI-FUNCTIONS INTO R
@@ -65,24 +65,24 @@ estimateRelational <- function(...){
 addRelational <- function(...) 
   UseMethod("addRelational")
 
-addRelational.wss <- function(DescStats,CorrStats,conf.level=.95,mu=NA,...) {
+addRelational.wss <- function(DescStats,CorrStats,conf.level=.95,mu=NA,col=rgb(.5,.5,.5,.4),...) {
   results <- ciRelational(DescStats,CorrStats,conf.level=conf.level,...)
-  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=rgb(.5,.5,.5,.4),border=NA)
+  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=NA)
 }
 
-addRelational.bss <- function(DescStats,conf.level=.95,mu=NA,...) {
+addRelational.bss <- function(DescStats,conf.level=.95,mu=NA,col=rgb(.5,.5,.5,.4),...) {
   results <- ciRelational(DescStats,conf.level=conf.level,...)
-  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=rgb(.5,.5,.5,.4),border=NA)
+  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=NA)
 }
 
-addRelational.default <- function(...,conf.level=.95,mu=NA){
+addRelational.default <- function(...,conf.level=.95,mu=NA,col=rgb(.5,.5,.5,.4)){
   results <- ciRelational(...,conf.level=conf.level)
-  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=rgb(.5,.5,.5,.4),border=NA)
+  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=NA)
 }
 
-addRelational.formula <- function(formula,conf.level=.95,mu=NA,...){
+addRelational.formula <- function(formula,conf.level=.95,mu=NA,col=rgb(.5,.5,.5,.4),...){
   results <- ciRelational(formula,conf.level=conf.level,...)
-  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=rgb(.5,.5,.5,.4),border=NA)
+  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=NA)
 }
 
 ### Plot Confidence and Relational Intervals
