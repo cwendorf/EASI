@@ -269,7 +269,7 @@ plotData.default <- function(...,add=FALSE,method="jitter",col="gray60",pch=16) 
   par(bty="l",xaxs="i",yaxs="i")
   main="Data for the Variables"  
   ylab="Outcome"
-  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,jitter=0.08,col=col,pch=pch,cex.lab=1.3,...)
+  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,jitter=0.08,col=col,pch=pch,cex.lab=1.3)
 } 
 
 plotData.formula <- function(formula,add=FALSE,method="jitter",col="gray60",pch=16,...) {
@@ -294,7 +294,7 @@ addData.default <- function(...,method="jitter",col="gray60",pch=16) {
   data <- data.frame(...)
   mx <- ncol(data)+.15
   mn <- 1+.15
-  stripchart(data,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=pch,col=col,...)
+  stripchart(data,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=pch,col=col)
 }
 
 addData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
