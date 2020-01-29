@@ -25,7 +25,7 @@ estimatePairwise(OneWaySummary,conf.level=.99)
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
 plotPairwise(OneWaySummary) # PairwiseOneWay-Figure1.jpeg
-plotPairwise(OneWaySummary,mu=-2,conf.level=.99) # PairwiseOneWay-Figure2.jpeg
+plotPairwise(OneWaySummary,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseOneWay-Figure2.jpeg
 
 #### Significance Tests of the Pairwise Comparisons
 

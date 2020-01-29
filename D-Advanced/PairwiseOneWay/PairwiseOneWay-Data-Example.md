@@ -76,7 +76,7 @@ plotPairwise(Outcome~Factor) # PairwiseOneWay-Figure1.jpeg
 ```
 <kbd><img src="PairwiseOneWay-Figure1.jpeg"></kbd>
 ```r
-plotPairwise(Outcome~Factor,mu=-2,conf.level=.99) # PairwiseOneWay-Figure2.jpeg
+plotPairwise(Outcome~Factor,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseOneWay-Figure2.jpeg
 ```
 <kbd><img src="PairwiseOneWay-Figure2.jpeg"></kbd>
 
