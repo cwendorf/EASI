@@ -348,7 +348,7 @@ cipDifference <- function(results,main,ylab,xlab,rope) {
   loc <- axTicks(4)+td  
   axis(4,at=loc,labels=val,las=1)
   mtext("Mean Difference",side=4,las=3,cex=1.3,line=3)
-  if(!is.null(rope)) {rect(2.5,graphrope[1],4.5,graphrope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
+  if(!is.null(rope)) {rect(2.6,graphrope[1],3.6,graphrope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
 }
 
 #### Plot Function for Confidence Intervals of the Means
