@@ -122,7 +122,7 @@ Comparison -1.633 0.943 -3.481 0.215
 <kbd><img src="AnalyzeOneWay-Figure3.jpeg"></kbd>
 
 ```r
-analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99) # Includes AnalyzeOneWay-Figure4.jpeg
+analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure4.jpeg
 ```
 ```
 $title
@@ -167,7 +167,7 @@ Contrast 1.837 0.829 0.212 3.463
 <kbd><img src="AnalyzeOneWay-Figure5.jpeg"></kbd>
 
 ```r
-analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99) # Includes AnalyzeOneWay-Figure6.jpeg
+analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure6.jpeg
 ```
 ```
 $title

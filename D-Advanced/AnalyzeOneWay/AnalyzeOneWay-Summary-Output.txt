@@ -45,7 +45,7 @@ Level1 0.817  0.594 0.616 -0.387 1.934
 Level2 2.450  1.782 0.955  0.325 4.532
 Level3 2.858  2.079 1.063  0.464 5.227
 
-> analyzeMeans(OneWaySummary,mu=5,conf.level=.99) # Includes AnalyzeOneWay-Figure2.jpeg
+> analyzeMeans(OneWaySummary,mu=5,conf.level=.99,rope=c(3,7)) # Includes AnalyzeOneWay-Figure2.jpeg
 $title
 [1] "ANALYSIS OF MEANS"
 
@@ -89,7 +89,7 @@ $standardizeDifference
               Est    SE     LL    UL
 Comparison -1.633 0.943 -3.481 0.215
 
-> analyzeDifference(CompSummary,mu=-2,conf.level=.99) # Includes AnalyzeOneWay-Figure4.jpeg
+> analyzeDifference(CompSummary,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure4.jpeg
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
@@ -125,7 +125,7 @@ $standardizeContrast
            Est    SE    LL    UL
 Contrast 1.837 0.829 0.212 3.463
 
-> analyzeContrast(OneWaySummary,contrast=L1vsOthers,mu=4,conf.level=.99) # Includes AnalyzeOneWay-Figure6.jpeg
+> analyzeContrast(OneWaySummary,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure6.jpeg
 $title
 [1] "ANALYSIS OF A CONTRAST"
 

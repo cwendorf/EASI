@@ -17,16 +17,16 @@ OneWayData
 ### Analyses of Multiple Groups
 
 analyzeMeans(Outcome~Factor) # Includes AnalyzeOneWay-Figure1.jpeg
-analyzeMeans(Outcome~Factor,mu=5,conf.level=.99) # Includes AnalyzeOneWay-Figure2.jpeg
+analyzeMeans(Outcome~Factor,mu=5,conf.level=.99,rope=c(3,7)) # Includes AnalyzeOneWay-Figure2.jpeg
 
 ### Analyses of a Group Comparison
 
 Comparison=factor(Factor,c("Level1","Level2"))
 analyzeDifference(Outcome~Comparison) # Includes AnalyzeOneWay-Figure3.jpeg
-analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99) # Includes AnalyzeOneWay-Figure4.jpeg
+analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure4.jpeg
 
 ### Analyses of a Group Contrast
 
 L1vsOthers <- c(-1,.5,.5)
 analyzeContrast(Outcome~Factor,contrast=L1vsOthers) # Includes AnalyzeOneWay-Figure5.jpeg
-analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99) # Includes AnalyzeOneWay-Figure6.jpeg
+analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure6.jpeg

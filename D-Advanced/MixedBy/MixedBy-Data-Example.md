@@ -89,7 +89,7 @@ plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor) # Includes MixedBy-Figure1.jpe
 <kbd><img src="MixedBy-Figure1.jpeg"></kbd>
 <kbd><img src="MixedBy-Figure2.jpeg"></kbd>
 ```r
-plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=6) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
+plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=5,rope=c(3,7)) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
 ```
 <kbd><img src="MixedBy-Figure3.jpeg"></kbd>
 <kbd><img src="MixedBy-Figure4.jpeg"></kbd>
@@ -116,22 +116,22 @@ Outcome3    5 1.224 4.083  3 0.027
 ```
 
 ```r
-testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=6)
+testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
 $Level1
          Diff    SE      t df     p
-Outcome1   -4 1.224 -3.267  3 0.047
-Outcome2    0 1.224  0.000  3 1.000
-Outcome3    1 1.224  0.817  3 0.474
+Outcome1   -3 1.224 -2.450  3 0.092
+Outcome2    1 1.224  0.817  3 0.474
+Outcome3    2 1.224  1.633  3 0.201
 
 $Level2
          Diff    SE      t df     p
-Outcome1   -2 1.224 -1.633  3 0.201
-Outcome2   -2 1.224 -1.633  3 0.201
-Outcome3   -1 1.224 -0.817  3 0.474
+Outcome1   -1 1.224 -0.817  3 0.474
+Outcome2   -1 1.224 -0.817  3 0.474
+Outcome3    0 1.224  0.000  3 1.000
 ```
 
 #### Effect Size for the Means
@@ -156,22 +156,22 @@ Outcome3 2.042  1.485 0.854 0.176 3.847
 ```
 
 ```r
-standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=6,conf.level=.99)
+standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
 $Level1
               d d(unb)    SE     LL    UL
-Outcome1 -1.633 -1.188 0.761 -3.765 0.398
-Outcome2  0.000  0.000 0.559 -1.288 1.288
-Outcome3  0.408  0.297 0.574 -0.968 1.734
+Outcome1 -1.225 -0.891 0.680 -3.011 0.547
+Outcome2  0.408  0.297 0.574 -0.968 1.734
+Outcome3  0.817  0.594 0.616 -0.732 2.320
 
 $Level2
               d d(unb)    SE     LL    UL
-Outcome1 -0.817 -0.594 0.616 -2.320 0.732
-Outcome2 -0.817 -0.594 0.616 -2.320 0.732
-Outcome3 -0.408 -0.297 0.574 -1.734 0.968
+Outcome1 -0.408 -0.297 0.574 -1.734 0.968
+Outcome2 -0.408 -0.297 0.574 -1.734 0.968
+Outcome3  0.000  0.000 0.559 -1.288 1.288
 ```
 
 ### Analyses of a Variable Comparison
@@ -216,7 +216,7 @@ plotDifferenceBy(Outcome1,Outcome2,by=Factor) # Includes MixedBy-Figure5.jpeg an
 <kbd><img src="MixedBy-Figure5.jpeg"></kbd>
 <kbd><img src="MixedBy-Figure6.jpeg"></kbd>
 ```r
-plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
+plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
 ```
 <kbd><img src="MixedBy-Figure7.jpeg"></kbd>
 <kbd><img src="MixedBy-Figure8.jpeg"></kbd>
@@ -287,10 +287,13 @@ Comparison   0 0.385 -0.991 0.991
 
 ### Analyses of a Variable Contrast
 
+```r
+O1vsOthers <- c(-1,.5,.5)
+```
+
 #### Confidence Interval for the Contrast
 
 ```r
-O1vsOthers <- c(-1,.5,.5)
 estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
 ```
@@ -328,7 +331,7 @@ plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers) # Inclu
 <kbd><img src="MixedBy-Figure9.jpeg"></kbd>
 <kbd><img src="MixedBy-Figure10.jpeg"></kbd>
 ```r
-plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
+plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
 ```
 <kbd><img src="MixedBy-Figure11.jpeg"></kbd>
 <kbd><img src="MixedBy-Figure12.jpeg"></kbd>
@@ -351,18 +354,18 @@ Contrast 0.5 0.645 0.775  3 0.495
 ```
 
 ```r
-testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,mu=-1)
+testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,mu=4)
 ```
 ```
 HYPOTHESIS TESTS FOR THE CONTRASTS
 
 $Level1
          Est    SE     t df     p
-Contrast 4.5 1.258 3.577  3 0.037
+Contrast 0.5 1.258 0.397  3 0.718
 
 $Level2
-         Est    SE     t df     p
-Contrast 0.5 0.645 0.775  3 0.495
+          Est    SE      t df     p
+Contrast -3.5 0.645 -5.423  3 0.012
 ```
 
 #### Effect Size for the Contrast

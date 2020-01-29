@@ -105,7 +105,7 @@ plotMeansBy(Outcome~FactorA,by=FactorB) # Includes FactorialBy-Figure1.jpeg and 
 <kbd><img src="FactorialBy-Figure1.jpeg"></kbd>
 <kbd><img src="FactorialBy-Figure2.jpeg"></kbd>
 ```r
-plotMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5) # Includes FactorialBy-Figure3.jpeg and FactorialBy-Figure4.jpeg
+plotMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5,rope=c(3,7)) # Includes FactorialBy-Figure3.jpeg and FactorialBy-Figure4.jpeg
 ```
 <kbd><img src="FactorialBy-Figure3.jpeg"></kbd>
 <kbd><img src="FactorialBy-Figure4.jpeg"></kbd>
@@ -235,7 +235,7 @@ with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB)) # Includes Factor
 <kbd><img src="FactorialBy-Figure6.jpeg"></kbd>
 
 ```r
-with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99)) # Includes FactorialBy-Figure7.jpeg and FactorialBy-Figure8.jpeg
+with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,rope=c(-2,2))) # Includes FactorialBy-Figure7.jpeg and FactorialBy-Figure8.jpeg
 ```
 <kbd><img src="FactorialBy-Figure7.jpeg"></kbd>
 <kbd><img src="FactorialBy-Figure8.jpeg"></kbd>
@@ -347,7 +347,7 @@ plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers) # Includes Factor
 <kbd><img src="FactorialBy-Figure9.jpeg"></kbd>
 <kbd><img src="FactorialBy-Figure10.jpeg"></kbd>
 ```r
-plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99) # Includes FactorialBy-Figure11.jpeg and FactorialBy-Figure12.jpeg
+plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Includes FactorialBy-Figure11.jpeg and FactorialBy-Figure12.jpeg
 ```
 <kbd><img src="FactorialBy-Figure11.jpeg"></kbd>
 <kbd><img src="FactorialBy-Figure12.jpeg"></kbd>
