@@ -1,5 +1,7 @@
 # Estimation Approach to Statistical Inference
 
+`r badge_devel("guangchuangyu/ggtree", "blue")`
+
 [**Functions**](./A-Functions) | 
 [**Tutorials**](./B-Tutorials) | 
 [**Examples**](./C-Examples) | 
