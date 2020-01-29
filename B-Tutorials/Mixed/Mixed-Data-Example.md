@@ -569,6 +569,7 @@ If desired, the contrast can be tested against other values.
 ```r
 with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
 ```
+```
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
