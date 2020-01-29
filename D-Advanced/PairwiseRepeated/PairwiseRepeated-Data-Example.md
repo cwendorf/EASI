@@ -69,7 +69,7 @@ plotPairwise(Time1,Time2,Time3) # PairwiseRepeated-Figure1.jpeg
 ```
 <kbd><img src="PairwiseRepeated-Figure1.jpeg"></kbd>
 ```r
-plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99) # PairwiseRepeated-Figure2.jpeg
+plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseRepeated-Figure2.jpeg
 ```
 <kbd><img src="PairwiseRepeated-Figure2.jpeg"></kbd>
 

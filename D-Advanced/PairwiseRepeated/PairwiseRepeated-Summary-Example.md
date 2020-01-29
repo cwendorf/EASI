@@ -84,7 +84,7 @@ plotPairwise(RepeatedSummary,RepeatedCorr) # PairwiseRepeated-Figure1.jpeg
 ```
 <kbd><img src="PairwiseRepeated-Figure1.jpeg"></kbd>
 ```r
-plotPairwise(RepeatedSummary,RepeatedCorr,mu=-2,conf.level=.99) # PairwiseRepeated-Figure2.jpeg
+plotPairwise(RepeatedSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseRepeated-Figure2.jpeg
 ```
 <kbd><img src="PairwiseRepeated-Figure2.jpeg"></kbd>
 
