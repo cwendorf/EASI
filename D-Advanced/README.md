@@ -23,11 +23,6 @@
 - The [**AnalyzeOneWay**](./AnalyzeOneWay/) files analyze an example of a single-factor between-subjects design 
 - The [**AnalyzeRepeated**](./AnalyzeRepeated/) files analyze an example of a single-factor within-subjects design
 
-**Summarize Extension**: These examples provide summary statistics, boxplots, and data plots for single-factor designs.
-
-- The [**SummarizeOneWay**](./SummarizeOneWay/) files analyze an example of a single-factor between-subjects design 
-- The [**SummarizeRepeated**](./SummarizeRepeated/) files analyze an example of a single-factor within-subjects design 
-
 **Pairwise Extension**: These examples analyze unadjusted paiwise comparisons for single-factor designs.
 
 - The [**PairwiseOneWay**](./PairwiseOneWay/) files analyze an example of a single-factor between-subjects design 
