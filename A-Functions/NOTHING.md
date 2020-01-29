@@ -13,9 +13,11 @@
 
 [**_EASI-Functions.R_**](./EASI-Functions.R) incorporates all of the functions that constitute the original vision of EASI. The EASI functions were written to represent four basic categories of analyses:
 
+<table style="width: 100%;">
 |             | Means | Difference | Contrast |
 | :--- | :---: | :---: |:---: |
 | estimate    |       |            |          |
 | plot        |       |            |          |
 | test        |       |            |          |
 | standardize |       |            |          |
+</table>
