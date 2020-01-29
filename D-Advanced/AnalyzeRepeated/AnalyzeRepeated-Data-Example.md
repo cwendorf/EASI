@@ -63,7 +63,7 @@ Outcome3 2.858  2.079 1.063  0.464 5.227
 <kbd><img src="AnalyzeRepeated-Figure1.jpeg"></kbd>
 
 ```r
-analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99) # Includes AnalyzeRepeated-Figure2.jpeg
+analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7)) # Includes AnalyzeRepeated-Figure2.jpeg
 ```
 ```
 $title
@@ -115,7 +115,7 @@ Comparison -1.633 0.782 -3.166 -0.101
 <kbd><img src="AnalyzeRepeated-Figure3.jpeg"></kbd>
 
 ```r
-analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99) # Includes AnalyzeRepeated-Figure4.jpeg
+analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure4.jpeg
 ```
 ```
 $title
@@ -160,7 +160,7 @@ Contrast 1.837 0.741 0.386 3.289
 <kbd><img src="AnalyzeRepeated-Figure5.jpeg"></kbd>
 
 ```r
-analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99) # Includes AnalyzeRepeated-Figure6.jpeg
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure6.jpeg
 ```
 ```
 $title
