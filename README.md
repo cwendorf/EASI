@@ -1,5 +1,7 @@
 # Estimation Approach to Statistical Inference
 
+[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg)](https://cran.r-project.org/) [![License](https://img.shields.io/badge/License-BSD%203--Clause--Clear-orange.svg)](https://spdx.org/licenses/BSD-3-Clause-Clear.html)
+
 [**Functions**](./A-Functions) | 
 [**Tutorials**](./B-Tutorials) | 
 [**Examples**](./C-Examples) | 
