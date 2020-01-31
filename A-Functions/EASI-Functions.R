@@ -362,6 +362,7 @@ plotMeans.wss <- function(DescStats,mu=NULL,rope=NULL,...) {
   xlab="Variables"
   results <- ciMeans(DescStats,...)[,c(2,5,6)]
   cipMeans(results,main,ylab,xlab,mu,rope)
+  for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1)  
 }
 
 plotMeans.bss <- function(DescStats,mu=NULL,rope=NULL,...) {
@@ -378,6 +379,7 @@ plotMeans.default <- function(...,mu=NULL,rope=NULL,conf.level=.95) {
   xlab="Variables"
   results <- ciMeans(...,conf.level=conf.level)[,c(2,5,6)]
   cipMeans(results,main,ylab,xlab,mu,rope)
+  for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1)
 }
 
 plotMeans.formula <- function(formula,mu=NULL,rope=NULL,...) {
@@ -405,6 +407,7 @@ plotDifference.wss <- function(CompStats,CorrStats,rope=NULL,...) {
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab,rope)
+  arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
 }
 
 plotDifference.bss <- function(CompStats,rope=NULL,...) {
@@ -427,6 +430,7 @@ plotDifference.default <- function(...,rope=NULL) {
   results <- rbind(Vars,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab,rope)
+  arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
 }
 
 plotDifference.formula <- function(formula,rope=NULL,...) {
@@ -459,7 +463,8 @@ plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL) {
   Diff <- ciContrast(...,contrast=contrast)[c(1,4,5)]
   results <- rbind(Vars,Diff)
   if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-  cipDifference(results,main,ylab,xlab,rope)  
+  cipDifference(results,main,ylab,xlab,rope)
+  arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
 }
 
 plotContrast.bss <- function(DescStats,contrast,rope=NULL,labels=NULL,...) {
@@ -491,7 +496,8 @@ plotContrast.default <- function(...,contrast,mu=0,rope=NULL,labels=NULL) {
   Diff <- ciContrast(...,contrast=contrast)[c(1,4,5)]
   results <- rbind(Vars,Diff)
   if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-  cipDifference(results,main,ylab,xlab,rope)  
+  cipDifference(results,main,ylab,xlab,rope)
+  arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
 }
 
 plotContrast.formula <- function(formula,contrast,rope=NULL,labels=NULL,...) {
