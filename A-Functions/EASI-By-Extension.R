@@ -264,24 +264,24 @@ standardizeContrastBy <- function(...) {
 plotMeansBy <- function(...) 
   UseMethod("plotMeansBy")
 
-plotMeansBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95){
+plotMeansBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Variables"
   for (i in 1:nlevels(by)) {
     results <- ciMeansBy(...,by=by,conf.level=conf.level)[[i]][,c(2,5,6)]
-    cipMeans(results,main,ylab,xlab,mu,rope)
+    cipMeans(results,main,ylab,xlab,mu,rope,values)
     par(ask=TRUE)
   }
 }
 
-plotMeansBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95){
+plotMeansBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Groups"
   for (i in 1:nlevels(by)) {
     results <- ciMeansBy(formula=formula,by=by,conf.level=conf.level)[[i]][,c(2,5,6)]
-    cipMeans(results,main,ylab,xlab,mu,rope)
+    cipMeans(results,main,ylab,xlab,mu,rope,values)
     par(ask=TRUE)
   }
 }
@@ -289,7 +289,7 @@ plotMeansBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95){
 plotDifferenceBy <- function(...) 
   UseMethod("plotDifferenceBy")
 
-plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95) {
+plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
   main="Confidence Intervals for the Comparisons"
   ylab="Outcome"
   xlab="Variables"
@@ -298,12 +298,12 @@ plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95) {
     Diff <- ciDifferenceBy(...,by=by,conf.level=conf.level)[[i]][c(1,4,5)]
     results <- rbind(Vars,Diff)
     rownames(results)[3]="Comparison"
-    cipDifference(results,main,ylab,xlab,rope)
+    cipDifference(results,main,ylab,xlab,rope,values)
     par(ask=TRUE)
   }
 }
 
-plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95){
+plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
   main="Confidence Intervals for the Comparisons"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
@@ -313,7 +313,7 @@ plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95
     Diff <- ciDifferenceBy(formula,by=by,conf.level=conf.level)[[i]][c(1,4,5)]
     results <- rbind(Groups,Diff)
     rownames(results)[3]="Comparison"
-    cipDifference(results,main,ylab,xlab,rope)
+    cipDifference(results,main,ylab,xlab,rope,values)
     par(ask=TRUE)  
   }
 }
@@ -321,7 +321,7 @@ plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95
 plotContrastBy <- function(...) 
   UseMethod("plotContrastBy")
 
-plotContrastBy.default <- function(...,by,contrast,rope=NULL,labels=NULL){
+plotContrastBy.default <- function(...,by,contrast,rope=NULL,labels=NULL,values=TRUE){
   main="Confidence Intervals for the Contrast"
   ylab="Outcome"
   xlab="Variables"
@@ -335,12 +335,12 @@ plotContrastBy.default <- function(...,by,contrast,rope=NULL,labels=NULL){
     Diff <- ciContrastBy(...,by=by,contrast=contrast)[[i]][c(1,4,5)]
     results <- rbind(Vars,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-    cipDifference(results,main,ylab,xlab,rope)
+    cipDifference(results,main,ylab,xlab,rope,values)
     par(ask=TRUE)     
   }
 }
 
-plotContrastBy.formula <- function(formula,by,contrast,rope=NULL,labels=NULL,...){
+plotContrastBy.formula <- function(formula,by,contrast,rope=NULL,labels=NULL,values=TRUE,...){
   main="Confidence Intervals for the Contrast"
   ylab=all.vars(formula)[1]
   xlab=all.vars(formula)[2]
@@ -354,7 +354,7 @@ plotContrastBy.formula <- function(formula,by,contrast,rope=NULL,labels=NULL,...
     Diff <- ciContrastBy(formula,by=by,contrast=contrast,...)[[i]][c(1,4,5)]
     results <- rbind(Groups,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-    cipDifference(results,main,ylab,xlab,rope)
+    cipDifference(results,main,ylab,xlab,rope,values)
     par(ask=TRUE)     
   }
 }
