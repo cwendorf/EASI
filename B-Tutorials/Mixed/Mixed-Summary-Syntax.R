@@ -7,30 +7,30 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-F
 
 ### Enter Summary Statistics
 
-Outcome1L1 <- c(N=4,M=2.000,SD=2.449)
-Outcome2L1 <- c(N=4,M=6.000,SD=2.449)
-Outcome3L1 <- c(N=4,M=7.000,SD=2.449)
-WithinSummaryL1 <- rbind(Outcome1L1,Outcome2L1,Outcome3L1)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+WithinSummaryL1 <- rbind(Outcome1,Outcome2,Outcome3)
 class(WithinSummaryL1) <- "wss"
 WithinSummaryL1
 
-WithinCorrL1 <- declareCorrMatrix("Outcome1L1","Outcome2L1","Outcome3L1")
-WithinCorrL1["Outcome1L1",] <- c(1.000,.500,.389)
-WithinCorrL1["Outcome2L1",] <- c(.500,1.000,.889)
-WithinCorrL1["Outcome3L1",] <- c(.389,.889,1.000)
+WithinCorrL1 <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorrL1["Outcome1",] <- c(1.000,.500,.389)
+WithinCorrL1["Outcome2",] <- c(.500,1.000,.889)
+WithinCorrL1["Outcome3",] <- c(.389,.889,1.000)
 WithinCorrL1
 
-Outcome1L2 <- c(N=4,M=2.000,SD=2.449)
-Outcome2L2 <- c(N=4,M=6.000,SD=2.449)
-Outcome3L2 <- c(N=4,M=7.000,SD=2.449)
-WithinSummaryL2 <- rbind(Outcome1L2,Outcome2L2,Outcome3L2)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+WithinSummaryL2 <- rbind(Outcome1,Outcome2,Outcome3)
 class(WithinSummaryL2) <- "wss"
 WithinSummaryL2
 
-WithinCorrL2 <- declareCorrMatrix("Outcome1L2","Outcome2L2","Outcome3L2")
-WithinCorrL2["Outcome1L2",] <- c(1.000,.889,.778)
-WithinCorrL2["Outcome2L2",] <- c(.889,1.000,.889)
-WithinCorrL2["Outcome3L2",] <- c(.778,.889,1.000)
+WithinCorrL2 <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorrL2["Outcome1",] <- c(1.000,.889,.778)
+WithinCorrL2["Outcome2",] <- c(.889,1.000,.889)
+WithinCorrL2["Outcome3",] <- c(.778,.889,1.000)
 WithinCorrL2
 
 ### Analyses of Multiple Variables
@@ -65,9 +65,9 @@ standardizeMeans(WithinSummaryL2,mu=5,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 
-CompSummaryL1 <- WithinSummaryL1[c("Outcome1L1","Outcome2L1"),]
+CompSummaryL1 <- WithinSummaryL1[c("Outcome1","Outcome2"),]
 class(CompSummaryL1) <- "wss"
-CompSummaryL2 <- WithinSummaryL2[c("Outcome1L2","Outcome2L2"),]
+CompSummaryL2 <- WithinSummaryL2[c("Outcome1","Outcome2"),]
 class(CompSummaryL2) <- "wss"
 
 #### Confidence Interval for the Mean Difference

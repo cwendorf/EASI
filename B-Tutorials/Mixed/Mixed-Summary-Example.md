@@ -20,68 +20,68 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-F
 
 This code inputs the variable summaries and creates a summary table.
 ```r
-Outcome1L1 <- c(N=4,M=2.000,SD=2.449)
-Outcome2L1 <- c(N=4,M=6.000,SD=2.449)
-Outcome3L1 <- c(N=4,M=7.000,SD=2.449)
-WithinSummaryL1 <- rbind(Outcome1L1,Outcome2L1,Outcome3L1)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+WithinSummaryL1 <- rbind(Outcome1,Outcome2,Outcome3)
 class(WithinSummaryL1) <- "wss"
 WithinSummaryL1
 ```
 ```
            N M    SD
-Outcome1L1 4 2 2.449
-Outcome2L1 4 6 2.449
-Outcome3L1 4 7 2.449
+Outcome1 4 2 2.449
+Outcome2 4 6 2.449
+Outcome3 4 7 2.449
 attr(,"class")
 [1] "wss"
 ```
 
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 ```r
-WithinCorrL1 <- declareCorrMatrix("Outcome1L1","Outcome2L1","Outcome3L1")
-WithinCorrL1["Outcome1L1",] <- c(1.000,.500,.389)
-WithinCorrL1["Outcome2L1",] <- c(.500,1.000,.889)
-WithinCorrL1["Outcome3L1",] <- c(.389,.889,1.000)
+WithinCorrL1 <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorrL1["Outcome1",] <- c(1.000,.500,.389)
+WithinCorrL1["Outcome2",] <- c(.500,1.000,.889)
+WithinCorrL1["Outcome3",] <- c(.389,.889,1.000)
 WithinCorrL1
 ```
 ```
-           Outcome1L1 Outcome2L1 Outcome3L1
-Outcome1L1      1.000      0.500      0.389
-Outcome2L1      0.500      1.000      0.889
-Outcome3L1      0.389      0.889      1.000
+           Outcome1 Outcome2 Outcome3
+Outcome1      1.000      0.500      0.389
+Outcome2      0.500      1.000      0.889
+Outcome3      0.389      0.889      1.000
 ```
 
 And repeat for the second subset.
 ```r
-Outcome1L2 <- c(N=4,M=2.000,SD=2.449)
-Outcome2L2 <- c(N=4,M=6.000,SD=2.449)
-Outcome3L2 <- c(N=4,M=7.000,SD=2.449)
-WithinSummaryL2 <- rbind(Outcome1L2,Outcome2L2,Outcome3L2)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+WithinSummaryL2 <- rbind(Outcome1,Outcome2,Outcome3)
 class(WithinSummaryL2) <- "wss"
 WithinSummaryL2
 ```
 ```
            N M    SD
-Outcome1L2 4 2 2.449
-Outcome2L2 4 6 2.449
-Outcome3L2 4 7 2.449
+Outcome1 4 2 2.449
+Outcome2 4 6 2.449
+Outcome3 4 7 2.449
 attr(,"class")
 [1] "wss"
 ```
 
 And for the correlation matrix of the second subset.
 ```r
-WithinCorrL2 <- declareCorrMatrix("Outcome1L2","Outcome2L2","Outcome3L2")
-WithinCorrL2["Outcome1L2",] <- c(1.000,.889,.778)
-WithinCorrL2["Outcome2L2",] <- c(.889,1.000,.889)
-WithinCorrL2["Outcome3L2",] <- c(.778,.889,1.000)
+WithinCorrL2 <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorrL2["Outcome1",] <- c(1.000,.889,.778)
+WithinCorrL2["Outcome2",] <- c(.889,1.000,.889)
+WithinCorrL2["Outcome3",] <- c(.778,.889,1.000)
 WithinCorrL2
 ```
 ```
-           Outcome1L2 Outcome2L2 Outcome3L2
-Outcome1L2      1.000      0.889      0.778
-Outcome2L2      0.889      1.000      0.889
-Outcome3L2      0.778      0.889      1.000
+           Outcome1 Outcome2 Outcome3
+Outcome1      1.000      0.889      0.778
+Outcome2      0.889      1.000      0.889
+Outcome3      0.778      0.889      1.000
 ```
 
 ### Analyses of Multiple Variables
@@ -98,9 +98,9 @@ estimateMeans(WithinSummaryL1)
 CONFIDENCE INTERVALS FOR THE MEANS
 
                N     M    SD    SE     LL     UL
-Outcome1L1 4.000 2.000 2.449 1.224 -1.897  5.897
-Outcome2L1 4.000 6.000 2.449 1.224  2.103  9.897
-Outcome3L1 4.000 7.000 2.449 1.224  3.103 10.897
+Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
+Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
+Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
 ```
 
 And repeat the analysis for the second subset.
@@ -111,9 +111,9 @@ estimateMeans(WithinSummaryL2)
 CONFIDENCE INTERVALS FOR THE MEANS
 
                N     M    SD    SE     LL     UL
-Outcome1L2 4.000 2.000 2.449 1.224 -1.897  5.897
-Outcome2L2 4.000 6.000 2.449 1.224  2.103  9.897
-Outcome3L2 4.000 7.000 2.449 1.224  3.103 10.897
+Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
+Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
+Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -124,9 +124,9 @@ estimateMeans(WithinSummaryL1,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE MEANS
 
                N     M    SD    SE     LL     UL
-Outcome1L1 4.000 2.000 2.449 1.224 -5.152  9.152
-Outcome2L1 4.000 6.000 2.449 1.224 -1.152 13.152
-Outcome3L1 4.000 7.000 2.449 1.224 -0.152 14.152
+Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
+Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
+Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
 ```
 
 And repeat the analysis for the second subset.
@@ -137,9 +137,9 @@ estimateMeans(WithinSummaryL2,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE MEANS
 
                N     M    SD    SE     LL     UL
-Outcome1L2 4.000 2.000 2.449 1.224 -5.152  9.152
-Outcome2L2 4.000 6.000 2.449 1.224 -1.152 13.152
-Outcome3L2 4.000 7.000 2.449 1.224 -0.152 14.152
+Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
+Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
+Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
 ```
 
 #### Plots of Confidence Intervals for the Means
@@ -178,9 +178,9 @@ testMeans(WithinSummaryL1)
 HYPOTHESIS TESTS FOR THE MEANS
 
             Diff    SE     t    df     p
-Outcome1L1 2.000 1.224 1.633 3.000 0.201
-Outcome2L1 6.000 1.224 4.900 3.000 0.016
-Outcome3L1 7.000 1.224 5.717 3.000 0.011
+Outcome1 2.000 1.224 1.633 3.000 0.201
+Outcome2 6.000 1.224 4.900 3.000 0.016
+Outcome3 7.000 1.224 5.717 3.000 0.011
 ```
 
 And repeat the analysis for the second subset.
@@ -191,9 +191,9 @@ testMeans(WithinSummaryL2)
 HYPOTHESIS TESTS FOR THE MEANS
 
             Diff    SE     t    df     p
-Outcome1L2 2.000 1.224 1.633 3.000 0.201
-Outcome2L2 6.000 1.224 4.900 3.000 0.016
-Outcome3L2 7.000 1.224 5.717 3.000 0.011
+Outcome1 2.000 1.224 1.633 3.000 0.201
+Outcome2 6.000 1.224 4.900 3.000 0.016
+Outcome3 7.000 1.224 5.717 3.000 0.011
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -204,9 +204,9 @@ testMeans(WithinSummaryL1,mu=5)
 HYPOTHESIS TESTS FOR THE MEANS
 
              Diff    SE      t    df     p
-Outcome1L1 -3.000 1.224 -2.450 3.000 0.092
-Outcome2L1  1.000 1.224  0.817 3.000 0.474
-Outcome3L1  2.000 1.224  1.633 3.000 0.201
+Outcome1 -3.000 1.224 -2.450 3.000 0.092
+Outcome2  1.000 1.224  0.817 3.000 0.474
+Outcome3  2.000 1.224  1.633 3.000 0.201
 ```
 
 And repeat the analysis for the second subset.
@@ -217,9 +217,9 @@ testMeans(WithinSummaryL2,mu=5)
 HYPOTHESIS TESTS FOR THE MEANS
 
              Diff    SE      t    df     p
-Outcome1L2 -3.000 1.224 -2.450 3.000 0.092
-Outcome2L2  1.000 1.224  0.817 3.000 0.474
-Outcome3L2  2.000 1.224  1.633 3.000 0.201
+Outcome1 -3.000 1.224 -2.450 3.000 0.092
+Outcome2  1.000 1.224  0.817 3.000 0.474
+Outcome3  2.000 1.224  1.633 3.000 0.201
 ```
 
 #### Effect Size for the Means
@@ -232,9 +232,9 @@ standardizeMeans(WithinSummaryL1)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
                d d(unb)    SE     LL    UL
-Outcome1L1 0.817  0.594 0.616 -0.387 1.934
-Outcome2L1 2.450  1.782 0.955  0.325 4.532
-Outcome3L1 2.858  2.079 1.063  0.464 5.227
+Outcome1 0.817  0.594 0.616 -0.387 1.934
+Outcome2 2.450  1.782 0.955  0.325 4.532
+Outcome3 2.858  2.079 1.063  0.464 5.227
 ```
 
 And repeat the analysis for the second subset.
@@ -245,9 +245,9 @@ standardizeMeans(WithinSummaryL2)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
                d d(unb)    SE     LL    UL
-Outcome1L2 0.817  0.594 0.616 -0.387 1.934
-Outcome2L2 2.450  1.782 0.955  0.325 4.532
-Outcome3L2 2.858  2.079 1.063  0.464 5.227
+Outcome1 0.817  0.594 0.616 -0.387 1.934
+Outcome2 2.450  1.782 0.955  0.325 4.532
+Outcome3 2.858  2.079 1.063  0.464 5.227
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -258,9 +258,9 @@ standardizeMeans(WithinSummaryL1,mu=5,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
                 d d(unb)    SE     LL    UL
-Outcome1L1 -1.225 -0.891 0.680 -3.011 0.547
-Outcome2L1  0.408  0.297 0.574 -0.968 1.734
-Outcome3L1  0.817  0.594 0.616 -0.732 2.320
+Outcome1 -1.225 -0.891 0.680 -3.011 0.547
+Outcome2  0.408  0.297 0.574 -0.968 1.734
+Outcome3  0.817  0.594 0.616 -0.732 2.320
 ```
 
 And repeat the analysis for the second subset.
@@ -271,9 +271,9 @@ standardizeMeans(WithinSummaryL2,mu=5,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
                 d d(unb)    SE     LL    UL
-Outcome1L2 -1.225 -0.891 0.680 -3.011 0.547
-Outcome2L2  0.408  0.297 0.574 -0.968 1.734
-Outcome3L2  0.817  0.594 0.616 -0.732 2.320
+Outcome1 -1.225 -0.891 0.680 -3.011 0.547
+Outcome2  0.408  0.297 0.574 -0.968 1.734
+Outcome3  0.817  0.594 0.616 -0.732 2.320
 ```
 
 ### Analyses of a Variable Comparison
@@ -282,9 +282,9 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code creates a new table that identifies the two levels for comparison and repeats for the second subset.
 ```r
-CompSummaryL1 <- WithinSummaryL1[c("Outcome1L1","Outcome2L1"),]
+CompSummaryL1 <- WithinSummaryL1[c("Outcome1","Outcome2"),]
 class(CompSummaryL1) <- "wss"
-CompSummaryL2 <- WithinSummaryL2[c("Outcome1L2","Outcome2L2"),]
+CompSummaryL2 <- WithinSummaryL2[c("Outcome1","Outcome2"),]
 class(CompSummaryL2) <- "wss"
 ```
 

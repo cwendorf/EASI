@@ -7,17 +7,17 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-F
 
 ### Enter Summary Statistics
 
-A1B1 <- c(N=4,M=2.000,SD=2.449)
-A2B1 <- c(N=4,M=6.000,SD=2.449)
-A3B1 <- c(N=4,M=7.000,SD=2.449)
-BetweenSummaryB1 <- rbind(A1B1,A2B1,A3B1)
+A1 <- c(N=4,M=2.000,SD=2.449)
+A2 <- c(N=4,M=6.000,SD=2.449)
+A3 <- c(N=4,M=7.000,SD=2.449)
+BetweenSummaryB1 <- rbind(A1,A2,A3)
 class(BetweenSummaryB1) <- "bss"
 BetweenSummaryB1
 
-A1B2 <- c(N=4,M=4.000,SD=2.449)
-A2B2 <- c(N=4,M=4.000,SD=2.449)
-A3B2 <- c(N=4,M=5.000,SD=2.449)
-BetweenSummaryB2 <- rbind(A1B2,A2B2,A3B2)
+A1 <- c(N=4,M=4.000,SD=2.449)
+A2 <- c(N=4,M=4.000,SD=2.449)
+A3 <- c(N=4,M=5.000,SD=2.449)
+BetweenSummaryB2 <- rbind(A1,A2,A3)
 class(BetweenSummaryB2) <- "bss"
 BetweenSummaryB2
 
@@ -53,9 +53,9 @@ standardizeMeans(BetweenSummaryB2,mu=5,conf.level=.99)
 
 ### Analyses of a Group Comparison
 
-CompSummaryB1 <- BetweenSummaryB1[c("A1B1","A2B1"),]
+CompSummaryB1 <- BetweenSummaryB1[c("A1","A2"),]
 class(CompSummaryB1) <- "bss"
-CompSummaryB2 <- BetweenSummaryB2[c("A1B2","A2B2"),]
+CompSummaryB2 <- BetweenSummaryB2[c("A1","A2"),]
 class(CompSummaryB2) <- "bss"
 
 #### Confidence Interval for a Mean Difference
@@ -88,32 +88,32 @@ standardizeDifference(CompSummaryB2,conf.level=.99)
 
 ### Analyses of a Group Contrast
 
-L1vsOthers <- c(-1,.5,.5)
+A1vsOthers <- c(-1,.5,.5)
 
 #### Confidence Interval for a Contrast
 
-estimateContrast(BetweenSummaryB1,contrast=L1vsOthers)
-estimateContrast(BetweenSummaryB2,contrast=L1vsOthers)
-estimateContrast(BetweenSummaryB1,contrast=L1vsOthers,conf.level=.99)
-estimateContrast(BetweenSummaryB2,contrast=L1vsOthers,conf.level=.99)
+estimateContrast(BetweenSummaryB1,contrast=A1vsOthers)
+estimateContrast(BetweenSummaryB2,contrast=A1vsOthers)
+estimateContrast(BetweenSummaryB1,contrast=A1vsOthers,conf.level=.99)
+estimateContrast(BetweenSummaryB2,contrast=A1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrast(BetweenSummaryB1,contrast=L1vsOthers) # Factorial-Figure9.jpeg
-plotContrast(BetweenSummaryB2,contrast=L1vsOthers) # Factorial-Figure10.jpeg
-plotContrast(BetweenSummaryB1,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure11.jpeg
-plotContrast(BetweenSummaryB2,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure12.jpeg
+plotContrast(BetweenSummaryB1,contrast=A1vsOthers) # Factorial-Figure9.jpeg
+plotContrast(BetweenSummaryB2,contrast=A1vsOthers) # Factorial-Figure10.jpeg
+plotContrast(BetweenSummaryB1,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure11.jpeg
+plotContrast(BetweenSummaryB2,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure12.jpeg
 
 #### Significance Test for a Contrast
 
-testContrast(BetweenSummaryB1,contrast=L1vsOthers)
-testContrast(BetweenSummaryB2,contrast=L1vsOthers)
-testContrast(BetweenSummaryB1,contrast=L1vsOthers,mu=4)
-testContrast(BetweenSummaryB2,contrast=L1vsOthers,mu=4)
+testContrast(BetweenSummaryB1,contrast=A1vsOthers)
+testContrast(BetweenSummaryB2,contrast=A1vsOthers)
+testContrast(BetweenSummaryB1,contrast=A1vsOthers,mu=4)
+testContrast(BetweenSummaryB2,contrast=A1vsOthers,mu=4)
 
 #### Effect Size for a Contrast
 
-standardizeContrast(BetweenSummaryB1,contrast=L1vsOthers)
-standardizeContrast(BetweenSummaryB2,contrast=L1vsOthers)
-standardizeContrast(BetweenSummaryB1,contrast=L1vsOthers,conf.level=.99)
-standardizeContrast(BetweenSummaryB2,contrast=L1vsOthers,conf.level=.99)
+standardizeContrast(BetweenSummaryB1,contrast=A1vsOthers)
+standardizeContrast(BetweenSummaryB2,contrast=A1vsOthers)
+standardizeContrast(BetweenSummaryB1,contrast=A1vsOthers,conf.level=.99)
+standardizeContrast(BetweenSummaryB2,contrast=A1vsOthers,conf.level=.99)
