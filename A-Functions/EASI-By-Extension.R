@@ -4,7 +4,7 @@
 ### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 ### ALSO: PASTE CONTENTS OF EASI-FUNCTIONS INTO R
 
-### Describe Functions
+### Data Functions
 
 descDataBy <- function(...) 
   UseMethod("descDataBy")
@@ -50,6 +50,26 @@ correlateLevelsBy <- function(...) {
 
 ciMeansBy <- function(...) 
   UseMethod("ciMeansBy")
+
+ciMeansBy.wss <- function(ListDescStats,conf.level=.95) {
+  for (i in 1:length(ListDescStats)) {
+    class(ListDescStats[[i]]) <- "wss"
+    results[[i]] <- ciMeans(ListDescStats[[i]],conf.level=conf.level)
+  }
+  names(results) <- names(ListDescStats)  
+  class(results) <- NULL
+  return(results)
+}
+
+ciMeansBy.bss <- function(ListDescStats,conf.level=.95) {
+  for (i in 1:length(ListDescStats)) {
+    class(ListDescStats[[i]]) <- "bss"
+    results[[i]] <- ciMeans(ListDescStats[[i]],conf.level=conf.level)
+  }
+  names(results) <- names(ListDescStats)
+  class(results) <- NULL
+  return(results)
+}
 
 ciMeansBy.default <- function(...,by,conf.level=.95) {
   MixedData <- data.frame(by,...)
@@ -122,6 +142,26 @@ estimateContrastBy <- function(...) {
 nhstMeansBy <- function(...) 
   UseMethod("nhstMeansBy")
 
+nhstMeansBy.wss <- function(ListDescStats,mu=0) {
+  for (i in 1:length(ListDescStats)) {
+    class(ListDescStats[[i]]) <- "wss"
+    results[[i]] <- nhstMeans(ListDescStats[[i]],mu=mu)
+  }
+  names(results) <- names(ListDescStats)  
+  class(results) <- NULL
+  return(results)
+}
+
+nhstMeansBy.bss <- function(ListDescStats,mu=0) {
+  for (i in 1:length(ListDescStats)) {
+    class(ListDescStats[[i]]) <- "bss"
+    results[[i]] <- nhstMeans(ListDescStats[[i]],mu=mu)
+  }
+  names(results) <- names(ListDescStats)
+  class(results) <- NULL
+  return(results)
+}
+
 nhstMeansBy.default <- function(...,by,mu=0) {
   MixedData <- data.frame(by,...)
   SplitData <- split(MixedData[-1],by)
@@ -192,6 +232,26 @@ testContrastBy <- function(...) {
 
 smdMeansBy <- function(...) 
   UseMethod("smdMeansBy")
+
+smdMeansBy.wss <- function(ListDescStats,conf.level=.95,mu=0) {
+  for (i in 1:length(ListDescStats)) {
+    class(ListDescStats[[i]]) <- "wss"
+    results[[i]] <- smdMeans(ListDescStats[[i]],conf.level=conf.level,mu=mu)
+  }
+  names(results) <- names(ListDescStats)  
+  class(results) <- NULL
+  return(results)
+}
+
+smdMeansBy.bss <- function(ListDescStats,conf.level=.95,mu=0) {
+  for (i in 1:length(ListDescStats)) {
+    class(ListDescStats[[i]]) <- "bss"
+    results[[i]] <- smdMeans(ListDescStats[[i]],conf.level=conf.level,mu=mu)
+  }
+  names(results) <- names(ListDescStats)
+  class(results) <- NULL
+  return(results)
+}
 
 smdMeansBy.default <- function(...,by,mu=0,conf.level=.95) {
   MixedData <- data.frame(by,...)
@@ -273,6 +333,7 @@ plotMeansBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,values=T
     cipMeans(results,main,ylab,xlab,mu,rope,values)
     par(ask=TRUE)
   }
+  par(ask=FALSE)  
 }
 
 plotMeansBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
@@ -284,6 +345,7 @@ plotMeansBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95,valu
     cipMeans(results,main,ylab,xlab,mu,rope,values)
     par(ask=TRUE)
   }
+  par(ask=FALSE)  
 }
 
 plotDifferenceBy <- function(...) 
@@ -301,6 +363,7 @@ plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,val
     cipDifference(results,main,ylab,xlab,rope,values)
     par(ask=TRUE)
   }
+  par(ask=FALSE)  
 }
 
 plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
@@ -316,6 +379,7 @@ plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95
     cipDifference(results,main,ylab,xlab,rope,values)
     par(ask=TRUE)  
   }
+  par(ask=FALSE)
 }
 
 plotContrastBy <- function(...) 
@@ -338,6 +402,7 @@ plotContrastBy.default <- function(...,by,contrast,rope=NULL,labels=NULL,values=
     cipDifference(results,main,ylab,xlab,rope,values)
     par(ask=TRUE)     
   }
+  par(ask=FALSE)  
 }
 
 plotContrastBy.formula <- function(formula,by,contrast,rope=NULL,labels=NULL,values=TRUE,...){
@@ -357,4 +422,57 @@ plotContrastBy.formula <- function(formula,by,contrast,rope=NULL,labels=NULL,val
     cipDifference(results,main,ylab,xlab,rope,values)
     par(ask=TRUE)     
   }
+  par(ask=FALSE)
 }
+
+cipMeansMulti <- function(results,main,ylab,xlab) {
+  ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x,x["LL"])))))-2
+  ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x,x["UL"])))))+2
+  ylimrange <- range(c(ylimmin,ylimmax))
+  xlimrange=c(.5,nrow(results[[1]])+.5)
+  plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=xlimrange,ylim=ylimrange,ylab=ylab,xlab="",main=main,bty="l")
+  axis(1, 1:nrow(results[[1]]), row.names(results[[1]])) 
+  for (i in 1:length(results)) {
+    points(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,2],cex=1.5,pch=15,bty="l")
+    for (j in 1:nrow(results[[i]])) {lines(x=c(j+(i-(length(results)+1)/2)*.15,j+(i-(length(results)+1)/2)*.15),y=c(results[[i]][,5][j],results[[i]][,6][j]),lwd=2)}
+    if(class(results)=="wss") lines(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,2],bty="l")
+  }
+}
+
+plotMeansMulti <- function(...) 
+  UseMethod("plotMeansMulti")
+
+plotMeansMulti.wss <- function(ListDescStats,...) {
+  main="Confidence Intervals for the Means"
+  ylab="Outcome"
+  xlab="Variables"
+  results <- ciMeansBy(ListDescStats,...)
+  cipMeansMulti(results,main,ylab,xlab)
+}
+
+plotMeansMulti.default <- function(...,by,conf.level=.95) {
+  main="Confidence Intervals for the Means"
+  ylab="Outcome"
+  xlab="Variables"
+  results <- ciMeansBy(...,by=by,conf.level=conf.level)
+  class(results) <- "wss"
+  cipMeansMulti(results,main,ylab,xlab)
+}
+
+plotMeansMulti.bss <- function(ListDescStats,...) {
+  main="Confidence Intervals for the Means"
+  ylab="Outcome"
+  xlab="Groups"
+  results <- ciMeansBy(ListDescStats,...)
+  cipMeansMulti(results,main,ylab,xlab)
+}
+
+plotMeansMulti.formula <- function(formula,by,...) {
+  main="Confidence Intervals for the Means"
+  ylab="Outcome"
+  xlab="Groups"
+  results <- ciMeansBy(formula,by=by,...)
+  class(results) <- "bss"
+  cipMeansMulti(results,main,ylab,xlab)
+}
+

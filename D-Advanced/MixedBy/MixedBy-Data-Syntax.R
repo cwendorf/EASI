@@ -25,6 +25,9 @@ estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
+plotMeansMulti(Outcome1,Outcome2,Outcome3,by=Factor)
+plotMeansMulti(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99)
+
 plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor) # Includes MixedBy-Figure1.jpeg and MixedBy-Figure2.jpeg
 plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=5,rope=c(3,7)) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
 
