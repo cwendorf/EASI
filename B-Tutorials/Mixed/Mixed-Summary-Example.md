@@ -62,9 +62,9 @@ WithinSummaryL2
 ```
 ```
          N M    SD
-Outcome1 4 2 2.449
-Outcome2 4 6 2.449
-Outcome3 4 7 2.449
+Outcome1 4 4 2.449
+Outcome2 4 4 2.449
+Outcome3 4 5 2.449
 attr(,"class")
 [1] "wss"
 ```
@@ -110,10 +110,10 @@ estimateMeans(WithinSummaryL2)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-             N     M    SD    SE     LL     UL
-Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
-Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
-Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
+             N     M    SD    SE    LL    UL
+Outcome1 4.000 4.000 2.449 1.224 0.103 7.897
+Outcome2 4.000 4.000 2.449 1.224 0.103 7.897
+Outcome3 4.000 5.000 2.449 1.224 1.103 8.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -137,9 +137,9 @@ estimateMeans(WithinSummaryL2,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE MEANS
 
              N     M    SD    SE     LL     UL
-Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
-Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
-Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
+Outcome1 4.000 4.000 2.449 1.224 -3.152 11.152
+Outcome2 4.000 4.000 2.449 1.224 -3.152 11.152
+Outcome3 4.000 5.000 2.449 1.224 -2.152 12.152
 ```
 
 #### Plots of Confidence Intervals for the Means
@@ -191,9 +191,9 @@ testMeans(WithinSummaryL2)
 HYPOTHESIS TESTS FOR THE MEANS
 
           Diff    SE     t    df     p
-Outcome1 2.000 1.224 1.633 3.000 0.201
-Outcome2 6.000 1.224 4.900 3.000 0.016
-Outcome3 7.000 1.224 5.717 3.000 0.011
+Outcome1 4.000 1.224 3.267 3.000 0.047
+Outcome2 4.000 1.224 3.267 3.000 0.047
+Outcome3 5.000 1.224 4.083 3.000 0.027
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -217,9 +217,9 @@ testMeans(WithinSummaryL2,mu=5)
 HYPOTHESIS TESTS FOR THE MEANS
 
            Diff    SE      t    df     p
-Outcome1 -3.000 1.224 -2.450 3.000 0.092
-Outcome2  1.000 1.224  0.817 3.000 0.474
-Outcome3  2.000 1.224  1.633 3.000 0.201
+Outcome1 -1.000 1.224 -0.817 3.000 0.474
+Outcome2 -1.000 1.224 -0.817 3.000 0.474
+Outcome3  0.000 1.224  0.000 3.000 1.000
 ```
 
 #### Effect Size for the Means
@@ -244,10 +244,10 @@ standardizeMeans(WithinSummaryL2)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-             d d(unb)    SE     LL    UL
-Outcome1 0.817  0.594 0.616 -0.387 1.934
-Outcome2 2.450  1.782 0.955  0.325 4.532
-Outcome3 2.858  2.079 1.063  0.464 5.227
+             d d(unb)    SE    LL    UL
+Outcome1 1.633  1.188 0.761 0.013 3.177
+Outcome2 1.633  1.188 0.761 0.013 3.177
+Outcome3 2.042  1.485 0.854 0.176 3.847
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -271,9 +271,9 @@ standardizeMeans(WithinSummaryL2,mu=5,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
               d d(unb)    SE     LL    UL
-Outcome1 -1.225 -0.891 0.680 -3.011 0.547
-Outcome2  0.408  0.297 0.574 -0.968 1.734
-Outcome3  0.817  0.594 0.616 -0.732 2.320
+Outcome1 -0.408 -0.297 0.574 -1.734 0.968
+Outcome2 -0.408 -0.297 0.574 -1.734 0.968
+Outcome3  0.000  0.000 0.559 -1.288 1.288
 ```
 
 ### Analyses of a Variable Comparison
@@ -308,8 +308,8 @@ estimateDifference(CompSummaryL2,WithinCorrL2)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df     LL     UL
-Comparison -4.000 0.577 3.000 -5.836 -2.164
+            Diff    SE    df     LL    UL
+Comparison 0.000 0.577 3.000 -1.836 1.836
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -330,8 +330,8 @@ estimateDifference(CompSummaryL2,WithinCorrL2,conf.level=.99)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df     LL     UL
-Comparison -4.000 0.577 3.000 -7.370 -0.630
+            Diff    SE    df     LL    UL
+Comparison 0.000 0.577 3.000 -3.370 3.370
 ```
 
 #### Plots of Confidence Intervals for the Mean Difference
@@ -380,8 +380,8 @@ testDifference(CompSummaryL2,WithinCorrL2)
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-             Diff    SE      t    df     p
-Comparison -4.000 0.577 -6.933 3.000 0.006
+            Diff    SE     t    df     p
+Comparison 0.000 0.577 0.000 3.000 1.000
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -402,8 +402,8 @@ testDifference(CompSummaryL2,WithinCorrL2,mu=-2)
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-             Diff    SE      t    df     p
-Comparison -2.000 0.577 -3.467 3.000 0.040
+            Diff    SE     t    df     p
+Comparison 2.000 0.577 3.467 3.000 0.040
 ```
 
 #### Effect Size for the Mean Difference
@@ -426,8 +426,8 @@ standardizeDifference(CompSummaryL2,WithinCorrL2)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -1.633 0.687 -2.980 -0.287
+             Est    SE     LL    UL
+Comparison 0.000 0.272 -0.533 0.533
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -448,8 +448,8 @@ standardizeDifference(CompSummaryL2,WithinCorrL2,conf.level=.99)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -1.633 0.687 -3.403 0.136
+             Est    SE     LL    UL
+Comparison 0.000 0.272 -0.701 0.701
 ```
 
 ### Analyses of a Variable Contrast
@@ -481,8 +481,8 @@ estimateContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-           Est    SE    df    LL    UL
-Contrast 4.500 0.645 3.000 2.447 6.553
+           Est    SE    df     LL    UL
+Contrast 0.500 0.645 3.000 -1.553 2.553
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
@@ -503,8 +503,8 @@ estimateContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,conf.level=.99
 ```
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-           Est    SE    df    LL    UL
-Contrast 4.500 0.645 3.000 0.732 8.268
+           Est    SE    df     LL    UL
+Contrast 0.500 0.645 3.000 -3.268 4.268
 ```
 
 #### Plots of Confidence Intervals for a Contrast
@@ -554,7 +554,7 @@ testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
 HYPOTHESIS TEST FOR THE CONTRAST
 
            Est    SE     t    df     p
-Contrast 4.500 0.645 6.976 3.000 0.006
+Contrast 0.500 0.645 0.775 3.000 0.495
 ```
 
 If desired, the contrast can be tested against other values.
@@ -575,8 +575,8 @@ testContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,mu=4)
 ```
 HYPOTHESIS TEST FOR THE CONTRAST
 
-           Est    SE     t    df     p
-Contrast 0.500 0.645 0.775 3.000 0.495
+            Est    SE      t    df     p
+Contrast -3.500 0.645 -5.426 3.000 0.012
 ```
 
 #### Effect Size for the Contrast
@@ -599,8 +599,8 @@ standardizeContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Est    SE    LL    UL
-Contrast 1.837 0.631 0.601 3.074
+           Est    SE     LL    UL
+Contrast 0.204 0.279 -0.343 0.752
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -621,6 +621,6 @@ standardizeContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,conf.level=
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Est    SE    LL    UL
-Contrast 1.837 0.631 0.213 3.462
+           Est    SE     LL    UL
+Contrast 0.204 0.279 -0.515 0.924
 ```

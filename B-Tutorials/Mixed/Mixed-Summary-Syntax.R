@@ -20,9 +20,9 @@ WithinCorrL1["Outcome2",] <- c(.500,1.000,.889)
 WithinCorrL1["Outcome3",] <- c(.389,.889,1.000)
 WithinCorrL1
 
-Outcome1 <- c(N=4,M=2.000,SD=2.449)
-Outcome2 <- c(N=4,M=6.000,SD=2.449)
-Outcome3 <- c(N=4,M=7.000,SD=2.449)
+Outcome1 <- c(N=4,M=4.000,SD=2.449)
+Outcome2 <- c(N=4,M=4.000,SD=2.449)
+Outcome3 <- c(N=4,M=5.000,SD=2.449)
 WithinSummaryL2 <- rbind(Outcome1,Outcome2,Outcome3)
 class(WithinSummaryL2) <- "wss"
 WithinSummaryL2
