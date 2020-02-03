@@ -28,7 +28,7 @@ class(WithinSummaryL1) <- "wss"
 WithinSummaryL1
 ```
 ```
-           N M    SD
+         N M    SD
 Outcome1 4 2 2.449
 Outcome2 4 6 2.449
 Outcome3 4 7 2.449
@@ -45,10 +45,10 @@ WithinCorrL1["Outcome3",] <- c(.389,.889,1.000)
 WithinCorrL1
 ```
 ```
-           Outcome1 Outcome2 Outcome3
-Outcome1      1.000      0.500      0.389
-Outcome2      0.500      1.000      0.889
-Outcome3      0.389      0.889      1.000
+         Outcome1 Outcome2 Outcome3
+Outcome1    1.000    0.500    0.389
+Outcome2    0.500    1.000    0.889
+Outcome3    0.389    0.889    1.000
 ```
 
 And repeat for the second subset.
@@ -61,7 +61,7 @@ class(WithinSummaryL2) <- "wss"
 WithinSummaryL2
 ```
 ```
-           N M    SD
+         N M    SD
 Outcome1 4 2 2.449
 Outcome2 4 6 2.449
 Outcome3 4 7 2.449
@@ -78,10 +78,10 @@ WithinCorrL2["Outcome3",] <- c(.778,.889,1.000)
 WithinCorrL2
 ```
 ```
-           Outcome1 Outcome2 Outcome3
-Outcome1      1.000      0.889      0.778
-Outcome2      0.889      1.000      0.889
-Outcome3      0.778      0.889      1.000
+         Outcome1 Outcome2 Outcome3
+Outcome1    1.000    0.889    0.778
+Outcome2    0.889    1.000    0.889
+Outcome3    0.778    0.889    1.000
 ```
 
 ### Analyses of Multiple Variables
@@ -97,7 +97,7 @@ estimateMeans(WithinSummaryL1)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-               N     M    SD    SE     LL     UL
+             N     M    SD    SE     LL     UL
 Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
 Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
 Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
@@ -110,7 +110,7 @@ estimateMeans(WithinSummaryL2)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-               N     M    SD    SE     LL     UL
+             N     M    SD    SE     LL     UL
 Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
 Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
 Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
@@ -123,7 +123,7 @@ estimateMeans(WithinSummaryL1,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-               N     M    SD    SE     LL     UL
+             N     M    SD    SE     LL     UL
 Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
 Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
 Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
@@ -136,7 +136,7 @@ estimateMeans(WithinSummaryL2,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
 
-               N     M    SD    SE     LL     UL
+             N     M    SD    SE     LL     UL
 Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
 Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
 Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
@@ -177,7 +177,7 @@ testMeans(WithinSummaryL1)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-            Diff    SE     t    df     p
+          Diff    SE     t    df     p
 Outcome1 2.000 1.224 1.633 3.000 0.201
 Outcome2 6.000 1.224 4.900 3.000 0.016
 Outcome3 7.000 1.224 5.717 3.000 0.011
@@ -190,7 +190,7 @@ testMeans(WithinSummaryL2)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-            Diff    SE     t    df     p
+          Diff    SE     t    df     p
 Outcome1 2.000 1.224 1.633 3.000 0.201
 Outcome2 6.000 1.224 4.900 3.000 0.016
 Outcome3 7.000 1.224 5.717 3.000 0.011
@@ -203,7 +203,7 @@ testMeans(WithinSummaryL1,mu=5)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Diff    SE      t    df     p
+           Diff    SE      t    df     p
 Outcome1 -3.000 1.224 -2.450 3.000 0.092
 Outcome2  1.000 1.224  0.817 3.000 0.474
 Outcome3  2.000 1.224  1.633 3.000 0.201
@@ -216,7 +216,7 @@ testMeans(WithinSummaryL2,mu=5)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Diff    SE      t    df     p
+           Diff    SE      t    df     p
 Outcome1 -3.000 1.224 -2.450 3.000 0.092
 Outcome2  1.000 1.224  0.817 3.000 0.474
 Outcome3  2.000 1.224  1.633 3.000 0.201
@@ -231,7 +231,7 @@ standardizeMeans(WithinSummaryL1)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-               d d(unb)    SE     LL    UL
+             d d(unb)    SE     LL    UL
 Outcome1 0.817  0.594 0.616 -0.387 1.934
 Outcome2 2.450  1.782 0.955  0.325 4.532
 Outcome3 2.858  2.079 1.063  0.464 5.227
@@ -244,7 +244,7 @@ standardizeMeans(WithinSummaryL2)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-               d d(unb)    SE     LL    UL
+             d d(unb)    SE     LL    UL
 Outcome1 0.817  0.594 0.616 -0.387 1.934
 Outcome2 2.450  1.782 0.955  0.325 4.532
 Outcome3 2.858  2.079 1.063  0.464 5.227
@@ -257,7 +257,7 @@ standardizeMeans(WithinSummaryL1,mu=5,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-                d d(unb)    SE     LL    UL
+              d d(unb)    SE     LL    UL
 Outcome1 -1.225 -0.891 0.680 -3.011 0.547
 Outcome2  0.408  0.297 0.574 -0.968 1.734
 Outcome3  0.817  0.594 0.616 -0.732 2.320
@@ -270,7 +270,7 @@ standardizeMeans(WithinSummaryL2,mu=5,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-                d d(unb)    SE     LL    UL
+              d d(unb)    SE     LL    UL
 Outcome1 -1.225 -0.891 0.680 -3.011 0.547
 Outcome2  0.408  0.297 0.574 -0.968 1.734
 Outcome3  0.817  0.594 0.616 -0.732 2.320

@@ -146,7 +146,7 @@ testMeans(BetweenSummaryB1)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-      Diff    SE     t    df     p
+    Diff    SE     t    df     p
 A1 2.000 1.224 1.633 3.000 0.201
 A2 6.000 1.224 4.900 3.000 0.016
 A3 7.000 1.224 5.717 3.000 0.011
@@ -159,7 +159,7 @@ testMeans(BetweenSummaryB2)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-      Diff    SE     t    df     p
+    Diff    SE     t    df     p
 A1 4.000 1.224 3.267 3.000 0.047
 A2 4.000 1.224 3.267 3.000 0.047
 A3 5.000 1.224 4.083 3.000 0.027
@@ -172,7 +172,7 @@ testMeans(BetweenSummaryB1,mu=5)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-       Diff    SE      t    df     p
+     Diff    SE      t    df     p
 A1 -3.000 1.224 -2.450 3.000 0.092
 A2  1.000 1.224  0.817 3.000 0.474
 A3  2.000 1.224  1.633 3.000 0.201
@@ -185,7 +185,7 @@ testMeans(BetweenSummaryB2,mu=5)
 ```
 HYPOTHESIS TESTS FOR THE MEANS
 
-       Diff    SE      t    df     p
+     Diff    SE      t    df     p
 A1 -1.000 1.224 -0.817 3.000 0.474
 A2 -1.000 1.224 -0.817 3.000 0.474
 A3  0.000 1.224  0.000 3.000 1.000
@@ -200,7 +200,7 @@ standardizeMeans(BetweenSummaryB1)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-         d d(unb)    SE     LL    UL
+       d d(unb)    SE     LL    UL
 A1 0.817  0.594 0.616 -0.387 1.934
 A2 2.450  1.782 0.955  0.325 4.532
 A3 2.858  2.079 1.063  0.464 5.227
@@ -213,7 +213,7 @@ standardizeMeans(BetweenSummaryB2)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-         d d(unb)    SE    LL    UL
+       d d(unb)    SE    LL    UL
 A1 1.633  1.188 0.761 0.013 3.177
 A2 1.633  1.188 0.761 0.013 3.177
 A3 2.042  1.485 0.854 0.176 3.847
@@ -226,7 +226,7 @@ standardizeMeans(BetweenSummaryB1,mu=5,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-          d d(unb)    SE     LL    UL
+        d d(unb)    SE     LL    UL
 A1 -1.225 -0.891 0.680 -3.011 0.547
 A2  0.408  0.297 0.574 -0.968 1.734
 A3  0.817  0.594 0.616 -0.732 2.320
@@ -239,7 +239,7 @@ standardizeMeans(BetweenSummaryB2,mu=5,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-          d d(unb)    SE     LL    UL
+        d d(unb)    SE     LL    UL
 A1 -0.408 -0.297 0.574 -1.734 0.968
 A2 -0.408 -0.297 0.574 -1.734 0.968
 A3  0.000  0.000 0.559 -1.288 1.288
