@@ -34,7 +34,7 @@ describeData <- function(...) {
   cat("\n")
 }
 
-#### Correlate/Covary Function for Mutiple Variables
+#### Correlate/Covary Functions for Mutiple Variables
 
 corrData <- function(...) 
   UseMethod("corrData")
@@ -308,15 +308,15 @@ addData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
 #### Basic Confidence Interval Plot Functions
 
 cipMeans <- function(results,main,ylab,xlab,mu,rope,values) {
-  ylimrange <- range(pretty(c(floor(min(results[,2]-2)),ceiling(max(results[,3])+2))))
-  plot(results[,1],xaxs="i",yaxs="i",xaxt='n',xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab="",cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
+  ylimrange <- range(pretty(c(floor(min(results[,"LL"]-2)),ceiling(max(results[,"UL"])+2))))
+  plot(results[,"M"],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab="",cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
   results <- format(as.data.frame(results),trim=T,nsmall=3)
-  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
+  for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,"LL"][i],results[,"UL"][i]),lwd=2)
   if(values) {
-  for (i in 1:nrow(results)) text(i,as.numeric(results[,1][i]),results[,1][i],cex=.8,pos=2,offset=.5,font=2)
-  for (i in 1:nrow(results)) text(i,as.numeric(results[,2][i]),results[,2][i],cex=.8,pos=2,offset=.5)  
-  for (i in 1:nrow(results)) text(i,as.numeric(results[,3][i]),results[,3][i],cex=.8,pos=2,offset=.5)}
+  for (i in 1:nrow(results)) text(i,as.numeric(results[,"M"][i]),results[,"M"][i],cex=.8,pos=2,offset=.5,font=2)
+  for (i in 1:nrow(results)) text(i,as.numeric(results[,"LL"][i]),results[,"LL"][i],cex=.8,pos=2,offset=.5)  
+  for (i in 1:nrow(results)) text(i,as.numeric(results[,"UL"][i]),results[,"UL"][i],cex=.8,pos=2,offset=.5)}
   if(!is.null(mu)) {abline(h=mu,lty=2)}
   if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=rgb(.5,.5,.5,.07),border=NA)}   
 }
@@ -362,16 +362,16 @@ plotMeans.wss <- function(DescStats,mu=NULL,rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Variables"
-  results <- ciMeans(DescStats,...)[,c(2,5,6)]
+  results <- ciMeans(DescStats,...)
   cipMeans(results,main,ylab,xlab,mu,rope,values)
-  for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1)  
+  for (i in 1:(nrow(results)-1)) arrows(i,results[i,"M"],i+1,results[i+1,"M"],code=3,length=0,lty=1)  
 }
 
 plotMeans.bss <- function(DescStats,mu=NULL,rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Means"
   ylab="Outcome"
   xlab="Groups"
-  results <- ciMeans(DescStats,...)[,c(2,5,6)]
+  results <- ciMeans(DescStats,...)
   cipMeans(results,main,ylab,xlab,mu,rope,values)
 }
 
