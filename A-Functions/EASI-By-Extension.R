@@ -525,6 +525,7 @@ plotMeansBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,values=T
   for (i in 1:nlevels(by)) {
     results <- ciMeansBy(...,by=by,conf.level=conf.level)[[i]][,c(2,5,6)]
     cipMeans(results,main,ylab,xlab,mu,rope,values)
+    for (j in 1:(nrow(results)-1)) arrows(j,results[j,"M"],j+1,results[j+1,"M"],code=3,length=0,lty=1)
     par(ask=TRUE)
   }
   par(ask=FALSE)  
@@ -590,6 +591,7 @@ plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,val
     results <- rbind(Vars,Diff)
     rownames(results)[3]="Comparison"
     cipDifference(results,main,ylab,xlab,rope,values)
+    arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
     par(ask=TRUE)
   }
   par(ask=FALSE)  
@@ -674,6 +676,7 @@ plotContrastBy.default <- function(...,by,contrast,rope=NULL,labels=NULL,values=
     results <- rbind(Vars,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
     cipDifference(results,main,ylab,xlab,rope,values)
+    arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
     par(ask=TRUE)     
   }
   par(ask=FALSE)  
