@@ -36,7 +36,22 @@ The **MixedBy** files analyze an example of a a mixed (between-subjects and with
 - [_MixedBy-Figure11.jpeg_](./MixedBy-Figure11.jpeg)
 - [_MixedBy-Figure12.jpeg_](./MixedBy-Figure12.jpeg)
 
-> Note: Because the By Extension relies on internal R functions that split the raw data, analyses using summary statistics input are not available for this extension.
+[_**MixedBy-Summary-Example.md**_](./MixedBy-Summary-Example.md) combines the following files to describe the analyses using summary statistics input:
+
+- [_MixedBy-Summary-Syntax.R_](./MixedBy-Summary-Syntax.R)
+- [_MixedBy-Summary-Output.txt_](./MixedBy-Summary-Output.txt)
+- [_MixedBy-Figure1.jpeg_](./MixedBy-Figure1.jpeg)
+- [_MixedBy-Figure2.jpeg_](./MixedBy-Figure2.jpeg)
+- [_MixedBy-Figure3.jpeg_](./MixedBy-Figure3.jpeg)
+- [_MixedBy-Figure4.jpeg_](./MixedBy-Figure4.jpeg)
+- [_MixedBy-Figure5.jpeg_](./MixedBy-Figure5.jpeg)
+- [_MixedBy-Figure6.jpeg_](./MixedBy-Figure6.jpeg)
+- [_MixedBy-Figure7.jpeg_](./MixedBy-Figure7.jpeg)
+- [_MixedBy-Figure8.jpeg_](./MixedBy-Figure8.jpeg)
+- [_MixedBy-Figure9.jpeg_](./MixedBy-Figure9.jpeg)
+- [_MixedBy-Figure10.jpeg_](./MixedBy-Figure10.jpeg)
+- [_MixedBy-Figure11.jpeg_](./MixedBy-Figure11.jpeg)
+- [_MixedBy-Figure12.jpeg_](./MixedBy-Figure12.jpeg)
 
 ### References
 
