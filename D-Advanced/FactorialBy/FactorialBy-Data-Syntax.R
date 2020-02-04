@@ -25,9 +25,6 @@ estimateMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeansMulti(Outcome~FactorA,by=FactorB)
-plotMeansMulti(Outcome~FactorA,by=FactorB,conf.level=.99)
-
 plotMeansBy(Outcome~FactorA,by=FactorB) # Includes FactorialBy-Figure1.jpeg and FactorialBy-Figure2.jpeg
 plotMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5,rope=c(3,7)) # Includes FactorialBy-Figure3.jpeg and FactorialBy-Figure4.jpeg
 
@@ -43,10 +40,11 @@ standardizeMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5)
 
 ### Analyses of a Group Comparison
 
-#### Confidence Interval for a Mean Difference
-
 Comparison=factor(FactorA,c("A1","A2"))
 CompData=na.omit(data.frame(Outcome,Comparison,FactorB))
+
+#### Confidence Interval for a Mean Difference
+
 with(CompData,estimateDifferenceBy(Outcome~Comparison,by=FactorB))
 with(CompData,estimateDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99))
 
