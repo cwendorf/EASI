@@ -61,16 +61,16 @@ estimateMeansBy(FactorialSummary)
 CONFIDENCE INTERVALS FOR THE MEANS
 
 $B1
-   N M    SD    SE     LL     UL
-A1 4 2 2.449 1.224 -1.897  5.897
-A2 4 6 2.449 1.224  2.103  9.897
-A3 4 7 2.449 1.224  3.103 10.897
+       N     M    SD    SE     LL     UL
+A1 4.000 2.000 2.449 1.224 -1.897  5.897
+A2 4.000 6.000 2.449 1.224  2.103  9.897
+A3 4.000 7.000 2.449 1.224  3.103 10.897
 
 $B2
-   N M    SD    SE    LL    UL
-A1 4 4 2.449 1.224 0.103 7.897
-A2 4 4 2.449 1.224 0.103 7.897
-A3 4 5 2.449 1.224 1.103 8.897
+       N     M    SD    SE    LL    UL
+A1 4.000 4.000 2.449 1.224 0.103 7.897
+A2 4.000 4.000 2.449 1.224 0.103 7.897
+A3 4.000 5.000 2.449 1.224 1.103 8.897
 ```
 
 ```r
@@ -80,16 +80,16 @@ estimateMeansBy(FactorialSummary,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE MEANS
 
 $B1
-   N M    SD    SE     LL     UL
-A1 4 2 2.449 1.224 -5.152  9.152
-A2 4 6 2.449 1.224 -1.152 13.152
-A3 4 7 2.449 1.224 -0.152 14.152
+       N     M    SD    SE     LL     UL
+A1 4.000 2.000 2.449 1.224 -5.152  9.152
+A2 4.000 6.000 2.449 1.224 -1.152 13.152
+A3 4.000 7.000 2.449 1.224 -0.152 14.152
 
 $B2
-   N M    SD    SE     LL     UL
-A1 4 4 2.449 1.224 -3.152 11.152
-A2 4 4 2.449 1.224 -3.152 11.152
-A3 4 5 2.449 1.224 -2.152 12.152
+       N     M    SD    SE     LL     UL
+A1 4.000 4.000 2.449 1.224 -3.152 11.152
+A2 4.000 4.000 2.449 1.224 -3.152 11.152
+A3 4.000 5.000 2.449 1.224 -2.152 12.152
 ```
 
 #### Plot of the Confidence Intervals for the Means
@@ -114,16 +114,16 @@ testMeansBy(FactorialSummary)
 HYPOTHESIS TESTS FOR THE MEANS
 
 $B1
-   Diff    SE     t df     p
-A1    2 1.224 1.633  3 0.201
-A2    6 1.224 4.900  3 0.016
-A3    7 1.224 5.717  3 0.011
+    Diff    SE     t    df     p
+A1 2.000 1.224 1.633 3.000 0.201
+A2 6.000 1.224 4.900 3.000 0.016
+A3 7.000 1.224 5.717 3.000 0.011
 
 $B2
-   Diff    SE     t df     p
-A1    4 1.224 3.267  3 0.047
-A2    4 1.224 3.267  3 0.047
-A3    5 1.224 4.083  3 0.027
+    Diff    SE     t    df     p
+A1 4.000 1.224 3.267 3.000 0.047
+A2 4.000 1.224 3.267 3.000 0.047
+A3 5.000 1.224 4.083 3.000 0.027
 ```
 
 ```r
@@ -133,16 +133,16 @@ testMeansBy(FactorialSummary,mu=5)
 HYPOTHESIS TESTS FOR THE MEANS
 
 $B1
-   Diff    SE      t df     p
-A1   -3 1.224 -2.450  3 0.092
-A2    1 1.224  0.817  3 0.474
-A3    2 1.224  1.633  3 0.201
+     Diff    SE      t    df     p
+A1 -3.000 1.224 -2.450 3.000 0.092
+A2  1.000 1.224  0.817 3.000 0.474
+A3  2.000 1.224  1.633 3.000 0.201
 
 $B2
-   Diff    SE      t df     p
-A1   -1 1.224 -0.817  3 0.474
-A2   -1 1.224 -0.817  3 0.474
-A3    0 1.224  0.000  3 1.000
+     Diff    SE      t    df     p
+A1 -1.000 1.224 -0.817 3.000 0.474
+A2 -1.000 1.224 -0.817 3.000 0.474
+A3  0.000 1.224  0.000 3.000 1.000
 ```
 
 #### Effect Size for the Means
@@ -218,12 +218,12 @@ estimateDifferenceBy(CompSummary)
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $B1
-           Diff    SE df     LL    UL
-Comparison   -4 1.732  6 -8.237 0.237
+             Diff    SE    df     LL    UL
+Comparison -4.000 1.732 6.000 -8.237 0.237
 
 $B2
-           Diff    SE df     LL    UL
-Comparison    0 1.732  6 -4.237 4.237
+            Diff    SE    df     LL    UL
+Comparison 0.000 1.732 6.000 -4.237 4.237
 ```
 
 ```r
@@ -233,12 +233,12 @@ estimateDifferenceBy(CompSummary,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $B1
-           Diff    SE df     LL   UL
-Comparison   -4 1.732  6 -10.42 2.42
+             Diff    SE    df      LL    UL
+Comparison -4.000 1.732 6.000 -10.420 2.420
 
 $B2
-           Diff    SE df    LL   UL
-Comparison    0 1.732  6 -6.42 6.42
+            Diff    SE    df     LL    UL
+Comparison 0.000 1.732 6.000 -6.420 6.420
 ```
 
 #### Plot of the Confidence Interval for the Mean Difference
@@ -263,12 +263,12 @@ testDifferenceBy(CompSummary)
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $B1
-           Diff    SE     t df    p
-Comparison   -4 1.732 -2.31  6 0.06
+             Diff    SE      t    df     p
+Comparison -4.000 1.732 -2.310 6.000 0.060
 
 $B2
-           Diff    SE t df p
-Comparison    0 1.732 0  6 1
+            Diff    SE     t    df     p
+Comparison 0.000 1.732 0.000 6.000 1.000
 ```
 
 ```r
@@ -278,12 +278,12 @@ testDifferenceBy(CompSummary,mu=-2)
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $B1
-           Diff    SE      t df     p
-Comparison   -2 1.732 -1.155  6 0.292
+             Diff    SE      t    df     p
+Comparison -2.000 1.732 -1.155 6.000 0.292
 
 $B2
-           Diff    SE     t df     p
-Comparison    2 1.732 1.155  6 0.292
+            Diff    SE     t    df     p
+Comparison 2.000 1.732 1.155 6.000 0.292
 ```
 
 #### Effect Size for the Mean Difference
@@ -299,8 +299,8 @@ $B1
 Comparison -1.633 0.943 -3.481 0.215
 
 $B2
-           Est    SE   LL  UL
-Comparison   0 0.816 -1.6 1.6
+             Est    SE     LL    UL
+Comparison 0.000 0.816 -1.600 1.600
 ```
 
 ```r
@@ -314,8 +314,8 @@ $B1
 Comparison -1.633 0.943 -4.062 0.795
 
 $B2
-           Est    SE     LL    UL
-Comparison   0 0.816 -2.103 2.103
+             Est    SE     LL    UL
+Comparison 0.000 0.816 -2.103 2.103
 ```
 
 ### Analyses of a Factor Contrast
@@ -333,12 +333,12 @@ estimateContrastBy(FactorialSummary,contrast=A1vsOthers)
 CONFIDENCE INTERVALS FOR THE CONTRASTS
 
 $B1
-         Est  SE df   LL   UL
-Contrast 4.5 1.5  6 0.83 8.17
+           Est    SE    df    LL    UL
+Contrast 4.500 1.500 6.000 0.830 8.170
 
 $B2
-         Est  SE df    LL   UL
-Contrast 0.5 1.5  6 -3.17 4.17
+           Est    SE    df     LL    UL
+Contrast 0.500 1.500 6.000 -3.170 4.170
 ```
 
 ```r
@@ -348,12 +348,12 @@ estimateContrastBy(FactorialSummary,contrast=A1vsOthers,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE CONTRASTS
 
 $B1
-         Est  SE df    LL    UL
-Contrast 4.5 1.5  6 -1.06 10.06
+           Est    SE    df     LL     UL
+Contrast 4.500 1.500 6.000 -1.060 10.060
 
 $B2
-         Est  SE df    LL   UL
-Contrast 0.5 1.5  6 -5.06 6.06
+           Est    SE    df     LL    UL
+Contrast 0.500 1.500 6.000 -5.060 6.060
 ```
 
 #### Plots of Confidence Intervals for a Contrast
@@ -378,12 +378,12 @@ testContrastBy(FactorialSummary,contrast=A1vsOthers)
 HYPOTHESIS TESTS FOR THE CONTRASTS
 
 $B1
-         Est  SE     t df     p
-Contrast 4.5 1.5 3.001  6 0.024
+           Est    SE     t    df     p
+Contrast 4.500 1.500 3.001 6.000 0.024
 
 $B2
-         Est  SE     t df    p
-Contrast 0.5 1.5 0.333  6 0.75
+           Est    SE     t    df     p
+Contrast 0.500 1.500 0.333 6.000 0.750
 ```
 
 ```r
@@ -393,12 +393,12 @@ testContrastBy(FactorialSummary,contrast=A1vsOthers,mu=4)
 HYPOTHESIS TESTS FOR THE CONTRASTS
 
 $B1
-         Est  SE     t df    p
-Contrast 0.5 1.5 0.333  6 0.75
+           Est    SE     t    df     p
+Contrast 0.500 1.500 0.333 6.000 0.750
 
 $B2
-          Est  SE      t df     p
-Contrast -3.5 1.5 -2.334  6 0.058
+            Est    SE      t    df     p
+Contrast -3.500 1.500 -2.334 6.000 0.058
 ```
 
 #### Effect Size for a Contrast
@@ -429,6 +429,6 @@ $B1
 Contrast 1.837 0.829 -0.298 3.973
 
 $B2
-           Est    SE     LL   UL
-Contrast 0.204 0.709 -1.621 2.03
+           Est    SE     LL    UL
+Contrast 0.204 0.709 -1.621 2.030
 ```

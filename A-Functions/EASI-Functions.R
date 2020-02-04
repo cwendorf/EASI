@@ -150,7 +150,7 @@ ciDifference.wss <- function(CompStats,CorrStats,conf.level=.95,...) {
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
   LL <- MD-tcrit*SE
   UL <- MD+tcrit*SE
-  results <- round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  results <- as.data.frame(round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3))
   rownames(results) <- c("Comparison")
   return(results)
 }
@@ -166,7 +166,7 @@ ciDifference.bss <- function(CompStats,conf.level=.95,...) {
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
   LL <- MD-tcrit*SE
   UL <- MD+tcrit*SE
-  results <- round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3)
+  results <- as.data.frame(round(cbind(Diff=MD,SE=SE,df=df,LL=LL,UL=UL),3))
   rownames(results) <- c("Comparison")
   return(results)
 }
@@ -208,7 +208,7 @@ ciContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,...) {
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
   LL <- Est-tcrit*SE
   UL <- Est+tcrit*SE
-  results <- t(c(Est,SE,df,LL,UL))
+  results <- as.data.frame(t(c(Est,SE,df,LL,UL)))
   colnames(results) <- c("Est","SE","df","LL","UL")
   rownames(results) <- c("Contrast")
   return(round(results,3))
@@ -226,7 +226,7 @@ ciContrast.bss <- function(DescStats,contrast,conf.level=.95,...) {
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
   LL <- Est-tcrit*SE
   UL <- Est+tcrit*SE
-  results <- t(c(Est,SE,df,LL,UL))
+  results <- as.data.frame(t(c(Est,SE,df,LL,UL)))
   colnames(results) <- c("Est","SE","df","LL","UL")
   rownames(results) <- c("Contrast")
   return(round(results,3))
@@ -396,9 +396,11 @@ plotDifference.wss <- function(CompStats,CorrStats,rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
-  Groups <- ciMeans(CompStats,...)[2:1,c(2,5,6)]
+  Vars <- ciMeans(CompStats,...)[2:1,c(2,5,6)]
+  colnames(Vars) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,CorrStats,...)[c(1,4,5)]
-  results <- rbind(Groups,Diff)
+  colnames(Diff) <- c("Est","LL","UL")
+  results <- rbind(Vars,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab,rope,values)
   arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
@@ -409,7 +411,9 @@ plotDifference.bss <- function(CompStats,rope=NULL,values=TRUE,...) {
   ylab="Outcome"
   xlab="Groups"
   Groups <- ciMeans(CompStats,...)[2:1,c(2,5,6)]
+  colnames(Groups) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,...)[c(1,4,5)]
+  colnames(Diff) <- c("Est","LL","UL")
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
   cipDifference(results,main,ylab,xlab,rope,values)
@@ -494,7 +498,7 @@ nhstMeans.wss <- nhstMeans.bss <- function(DescStats,mu=0,...) {
   t <- Diff/SE
   df <- N-1
   p <- 2*(1 - pt(abs(t),df))
-  results <- round(cbind(Diff=Diff,SE=SE,t=t,df=df,p=p),3)
+  results <- as.data.frame(round(cbind(Diff=Diff,SE=SE,t=t,df=df,p=p),3))
   rownames(results) <- rownames(DescStats)  
   return(results)
 }
@@ -537,7 +541,7 @@ nhstDifference.wss <- function(CompStats,CorrStats,mu=0,...) {
   df <- min(N)-1
   t <- MD/SE
   p <- 2*(1 - pt(abs(t),df))
-  results <- round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)  
+  results <- as.data.frame(round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3))
   rownames(results) <- c("Comparison")
   return(results)
 }
@@ -552,7 +556,7 @@ nhstDifference.bss <- function(CompStats,mu=0,...) {
   df <- ((SD[1]^2/N[1] + SD[2]^2/N[2])^2 )/( (SD[1]^2/N[1])^2/(N[1]-1) + (SD[2]^2/N[2])^2/(N[2]-1) )
   t <- MD/SE
   p <- 2*(1 - pt(abs(t),df))
-  results <- round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3)
+  results <- as.data.frame(round(cbind(Diff=MD,SE=SE,t=t,df=df,p=p),3))
   rownames(results) <- c("Comparison")
   return(results)
 }
@@ -594,7 +598,7 @@ nhstContrast.bss <- function(DescStats,contrast,mu=0,...) {
   df <- (SE^4)/sum(((contrast^4)*(SD^4)/(N^2*(N-1))))
   t <- Est/SE
   p <- 2*(1 - pt(abs(t),df))
-  results <- t(c(Est,SE,t,df,p))
+  results <- as.data.frame(t(c(Est,SE,t,df,p)))
   colnames(results) <- c("Est","SE","t","df","p")
   rownames(results) <- c("Contrast")
   return(round(results,3))
@@ -610,7 +614,7 @@ nhstContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,..
   t <- Est/SE
   df <- N-1
   p <- 2*(1 - pt(abs(t),df))
-  results <- t(c(Est,SE,t,df,p))
+  results <- as.data.frame(t(c(Est,SE,t,df,p)))
   colnames(results) <- c("Est","SE","t","df","p")
   rownames(results) <- c("Contrast")
   return(round(results,3))
@@ -675,7 +679,7 @@ smdMeans.wss <- smdMeans.bss <- function(DescStats,mu=0,conf.level=.95,...) {
   ul2 <- ifelse(t>0,a+c*ulp,a+c*llp)
   LL <- ifelse(skew<.001,ll1*sqrt(1/N),ll2*sqrt(1/N))
   UL <- ifelse(skew<.001,ul1*sqrt(1/N),ul2*sqrt(1/N))
-  results <- round(cbind(d=CD,"d(unb)"=CDU,SE=SE,LL=LL,UL=UL),3)
+  results <- as.data.frame(round(cbind(d=CD,"d(unb)"=CDU,SE=SE,LL=LL,UL=UL),3))
   rownames(results) <- rownames(DescStats)
   return(results)
 }
@@ -722,7 +726,7 @@ smdDifference.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
   SE <- sqrt(Est^2*(v1^2+v2^2+2*R^2*v1*v2)/(8*df*s^4)+vd/(df*s^2))
   LL <- Est-z*SE
   UL <- Est+z*SE
-  results <- t(c(Est,SE,LL,UL))
+  results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("Est","SE","LL","UL")
   rownames(results) <- c("Comparison")
   return(round(results,3))
@@ -741,7 +745,7 @@ smdDifference.bss <- function(DescStats,contrast,conf.level=.95,...) {
   SE <- sqrt(Est^2*(v1^2/(N[1]-1) + v2^2/(N[2]-1))/(8*s^4) + (v1/(N[1]-1) + v2/(N[2]-1))/s^2)
   LL <- Est-z*SE
   UL <- Est+z*SE
-  results <- t(c(Est,SE,LL,UL))
+  results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("Est","SE","LL","UL")
   rownames(results) <- c("Comparison")
   return(round(results,3))
@@ -791,7 +795,7 @@ smdContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,...) {
   SE <- sqrt(v1*(v2+v3)+(v4-v5)/(df*s^2))
   LL <- Est-z*SE
   UL <- Est+z*SE
-  results <- t(c(Est,SE,LL,UL))
+  results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("Est","SE","LL","UL")
   rownames(results) <- c("Contrast")
   return(round(results,3))
@@ -812,7 +816,7 @@ smdContrast.bss <- function(DescStats,contrast,conf.level=.95,...) {
   SE <- sqrt(a2+a3)
   LL <- Est-z*SE
   UL <- Est+z*SE
-  results <- t(c(Est,SE,LL,UL))
+  results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("Est","SE","LL","UL")
   rownames(results) <- c("Contrast")
   return(round(results,3))

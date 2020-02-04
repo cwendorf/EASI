@@ -93,16 +93,16 @@ estimateMeansBy(MixedSummary)
 CONFIDENCE INTERVALS FOR THE MEANS
 
 $Level1
-         N M    SD    SE     LL     UL
-Outcome1 4 2 2.449 1.224 -1.897  5.897
-Outcome2 4 6 2.449 1.224  2.103  9.897
-Outcome3 4 7 2.449 1.224  3.103 10.897
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -1.897  5.897
+Outcome2 4.000 6.000 2.449 1.224  2.103  9.897
+Outcome3 4.000 7.000 2.449 1.224  3.103 10.897
 
 $Level2
-         N M    SD    SE    LL    UL
-Outcome1 4 4 2.449 1.224 0.103 7.897
-Outcome2 4 4 2.449 1.224 0.103 7.897
-Outcome3 4 5 2.449 1.224 1.103 8.897
+             N     M    SD    SE    LL    UL
+Outcome1 4.000 4.000 2.449 1.224 0.103 7.897
+Outcome2 4.000 4.000 2.449 1.224 0.103 7.897
+Outcome3 4.000 5.000 2.449 1.224 1.103 8.897
 ```
 
 ```r
@@ -112,16 +112,16 @@ estimateMeansBy(MixedSummary,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE MEANS
 
 $Level1
-         N M    SD    SE     LL     UL
-Outcome1 4 2 2.449 1.224 -5.152  9.152
-Outcome2 4 6 2.449 1.224 -1.152 13.152
-Outcome3 4 7 2.449 1.224 -0.152 14.152
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
+Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
+Outcome3 4.000 7.000 2.449 1.224 -0.152 14.152
 
 $Level2
-         N M    SD    SE     LL     UL
-Outcome1 4 4 2.449 1.224 -3.152 11.152
-Outcome2 4 4 2.449 1.224 -3.152 11.152
-Outcome3 4 5 2.449 1.224 -2.152 12.152
+             N     M    SD    SE     LL     UL
+Outcome1 4.000 4.000 2.449 1.224 -3.152 11.152
+Outcome2 4.000 4.000 2.449 1.224 -3.152 11.152
+Outcome3 4.000 5.000 2.449 1.224 -2.152 12.152
 ```
 
 #### Plots of Confidence Intervals for the Means
@@ -146,16 +146,16 @@ testMeansBy(MixedSummary)
 HYPOTHESIS TESTS FOR THE MEANS
 
 $Level1
-         Diff    SE     t df     p
-Outcome1    2 1.224 1.633  3 0.201
-Outcome2    6 1.224 4.900  3 0.016
-Outcome3    7 1.224 5.717  3 0.011
+          Diff    SE     t    df     p
+Outcome1 2.000 1.224 1.633 3.000 0.201
+Outcome2 6.000 1.224 4.900 3.000 0.016
+Outcome3 7.000 1.224 5.717 3.000 0.011
 
 $Level2
-         Diff    SE     t df     p
-Outcome1    4 1.224 3.267  3 0.047
-Outcome2    4 1.224 3.267  3 0.047
-Outcome3    5 1.224 4.083  3 0.027
+          Diff    SE     t    df     p
+Outcome1 4.000 1.224 3.267 3.000 0.047
+Outcome2 4.000 1.224 3.267 3.000 0.047
+Outcome3 5.000 1.224 4.083 3.000 0.027
 ```
 
 ```r
@@ -165,16 +165,16 @@ testMeansBy(MixedSummary,mu=5)
 HYPOTHESIS TESTS FOR THE MEANS
 
 $Level1
-         Diff    SE      t df     p
-Outcome1   -3 1.224 -2.450  3 0.092
-Outcome2    1 1.224  0.817  3 0.474
-Outcome3    2 1.224  1.633  3 0.201
+           Diff    SE      t    df     p
+Outcome1 -3.000 1.224 -2.450 3.000 0.092
+Outcome2  1.000 1.224  0.817 3.000 0.474
+Outcome3  2.000 1.224  1.633 3.000 0.201
 
 $Level2
-         Diff    SE      t df     p
-Outcome1   -1 1.224 -0.817  3 0.474
-Outcome2   -1 1.224 -0.817  3 0.474
-Outcome3    0 1.224  0.000  3 1.000
+           Diff    SE      t    df     p
+Outcome1 -1.000 1.224 -0.817 3.000 0.474
+Outcome2 -1.000 1.224 -0.817 3.000 0.474
+Outcome3  0.000 1.224  0.000 3.000 1.000
 ```
 
 #### Effect Size for the Means
@@ -235,12 +235,12 @@ estimateDifferenceBy(CompSummary,MixedCorr)
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $Level1
-           Diff    SE df     LL     UL
-Comparison   -4 1.224  3 -7.897 -0.103
+             Diff    SE    df     LL     UL
+Comparison -4.000 1.224 3.000 -7.897 -0.103
 
 $Level2
-           Diff    SE df     LL    UL
-Comparison    0 0.577  3 -1.836 1.836
+            Diff    SE    df     LL    UL
+Comparison 0.000 0.577 3.000 -1.836 1.836
 ```
 
 ```r
@@ -250,12 +250,12 @@ estimateDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $Level1
-           Diff    SE df      LL    UL
-Comparison   -4 1.224  3 -11.152 3.152
+             Diff    SE    df      LL    UL
+Comparison -4.000 1.224 3.000 -11.152 3.152
 
 $Level2
-           Diff    SE df    LL   UL
-Comparison    0 0.577  3 -3.37 3.37
+            Diff    SE    df     LL    UL
+Comparison 0.000 0.577 3.000 -3.370 3.370
 ```
 
 #### Plots of Confidence Intervals for the Mean Difference
@@ -280,12 +280,12 @@ testDifferenceBy(CompSummary,MixedCorr)
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $Level1
-           Diff    SE      t df     p
-Comparison   -4 1.224 -3.267  3 0.047
+             Diff    SE      t    df     p
+Comparison -4.000 1.224 -3.267 3.000 0.047
 
 $Level2
-           Diff    SE t df p
-Comparison    0 0.577 0  3 1
+            Diff    SE     t    df     p
+Comparison 0.000 0.577 0.000 3.000 1.000
 ```
 
 ```r
@@ -295,12 +295,12 @@ testDifferenceBy(CompSummary,MixedCorr,mu=-2)
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $Level1
-           Diff    SE      t df     p
-Comparison   -2 1.224 -1.633  3 0.201
+             Diff    SE      t    df     p
+Comparison -2.000 1.224 -1.633 3.000 0.201
 
 $Level2
-           Diff    SE     t df    p
-Comparison    2 0.577 3.467  3 0.04
+            Diff    SE     t    df     p
+Comparison 2.000 0.577 3.467 3.000 0.040
 ```
 
 #### Effect Size for the Mean Difference
@@ -316,8 +316,8 @@ $Level1
 Comparison -1.633 0.782 -3.166 -0.101
 
 $Level2
-           Est    SE     LL    UL
-Comparison   0 0.272 -0.533 0.533
+             Est    SE     LL    UL
+Comparison 0.000 0.272 -0.533 0.533
 ```
 
 ```r
@@ -327,12 +327,12 @@ standardizeDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS
 
 $Level1
-              Est    SE     LL   UL
-Comparison -1.633 0.782 -3.647 0.38
+              Est    SE     LL    UL
+Comparison -1.633 0.782 -3.647 0.380
 
 $Level2
-           Est    SE     LL    UL
-Comparison   0 0.272 -0.701 0.701
+             Est    SE     LL    UL
+Comparison 0.000 0.272 -0.701 0.701
 ```
 
 ### Analyses of a Variable Contrast
@@ -350,12 +350,12 @@ estimateContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
 CONFIDENCE INTERVALS FOR THE CONTRASTS
 
 $Level1
-         Est    SE df    LL    UL
-Contrast 4.5 1.258  3 0.496 8.504
+           Est    SE    df    LL    UL
+Contrast 4.500 1.258 3.000 0.496 8.504
 
 $Level2
-         Est    SE df     LL    UL
-Contrast 0.5 0.645  3 -1.553 2.553
+           Est    SE    df     LL    UL
+Contrast 0.500 0.645 3.000 -1.553 2.553
 ```
 
 ```r
@@ -365,12 +365,12 @@ estimateContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE CONTRASTS
 
 $Level1
-         Est    SE df     LL     UL
-Contrast 4.5 1.258  3 -2.848 11.848
+           Est    SE    df     LL     UL
+Contrast 4.500 1.258 3.000 -2.848 11.848
 
 $Level2
-         Est    SE df     LL    UL
-Contrast 0.5 0.645  3 -3.268 4.268
+           Est    SE    df     LL    UL
+Contrast 0.500 0.645 3.000 -3.268 4.268
 ```
 
 #### Plots of Confidence Intervals for a Contrast
@@ -395,12 +395,12 @@ testContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
 HYPOTHESIS TESTS FOR THE CONTRASTS
 
 $Level1
-         Est    SE     t df     p
-Contrast 4.5 1.258 3.577  3 0.037
+           Est    SE     t    df     p
+Contrast 4.500 1.258 3.577 3.000 0.037
 
 $Level2
-         Est    SE     t df     p
-Contrast 0.5 0.645 0.775  3 0.495
+           Est    SE     t    df     p
+Contrast 0.500 0.645 0.775 3.000 0.495
 ```
 
 ```r
@@ -410,12 +410,12 @@ testContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,mu=4)
 HYPOTHESIS TESTS FOR THE CONTRASTS
 
 $Level1
-         Est    SE     t df     p
-Contrast 0.5 1.258 0.397  3 0.718
+           Est    SE     t    df     p
+Contrast 0.500 1.258 0.397 3.000 0.718
 
 $Level2
-          Est    SE      t df     p
-Contrast -3.5 0.645 -5.426  3 0.012
+            Est    SE      t    df     p
+Contrast -3.500 0.645 -5.426 3.000 0.012
 ```
 
 #### Effect Size for the Contrast
