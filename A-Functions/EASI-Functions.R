@@ -143,7 +143,7 @@ ciDifference.wss <- function(CompStats,CorrStats,conf.level=.95,...) {
   SD <- CompStats[,"SD"]
   rn <- rownames(CompStats)
   R <- CorrStats[rn[1],rn[2]]
-  MD <- M[1]-M[2]
+  MD <- M[2]-M[1]
   SE <- SD/sqrt(N)
   SE <- sqrt(SE[1]^2+SE[2]^2-2*R*SE[1]*SE[2])
   df <- min(N)-1
@@ -160,7 +160,7 @@ ciDifference.bss <- function(CompStats,conf.level=.95,...) {
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
   SD <- CompStats[,"SD"]
-  MD <- M[1]-M[2]
+  MD <- M[2]-M[1]
   SE <- sqrt( (SD[1]^2/N[1]) + (SD[2]^2/N[2]) )
   df <- ((SD[1]^2/N[1] + SD[2]^2/N[2])^2 )/( (SD[1]^2/N[1])^2/(N[1]-1) + (SD[2]^2/N[2])^2/(N[2]-1) )
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
@@ -397,7 +397,7 @@ plotDifference.wss <- function(CompStats,CorrStats,rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Variables"
-  Vars <- ciMeans(CompStats,...)[2:1,c(2,5,6)]
+  Vars <- ciMeans(CompStats,...)[1:2,c(2,5,6)]
   colnames(Vars) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,CorrStats,...)[c(1,4,5)]
   colnames(Diff) <- c("Est","LL","UL")
@@ -411,7 +411,7 @@ plotDifference.bss <- function(CompStats,rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Comparison"
   ylab="Outcome"
   xlab="Groups"
-  Groups <- ciMeans(CompStats,...)[2:1,c(2,5,6)]
+  Groups <- ciMeans(CompStats,...)[1:2,c(2,5,6)]
   colnames(Groups) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,...)[c(1,4,5)]
   colnames(Diff) <- c("Est","LL","UL")
@@ -536,7 +536,7 @@ nhstDifference.wss <- function(CompStats,CorrStats,mu=0,...) {
   SD <- CompStats[,"SD"]
   rn <- rownames(CompStats)
   R <- CorrStats[rn[1],rn[2]]
-  MD <- M[1]-M[2]-mu
+  MD <- M[2]-M[1]-mu
   SE <- SD/sqrt(N)
   SE <- sqrt(SE[1]^2+SE[2]^2-2*R*SE[1]*SE[2])
   df <- min(N)-1
@@ -552,7 +552,7 @@ nhstDifference.bss <- function(CompStats,mu=0,...) {
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
   SD <- CompStats[,"SD"]
-  MD <- M[1]-M[2]-mu
+  MD <- M[2]-M[1]-mu
   SE <- sqrt( (SD[1]^2/N[1]) + (SD[2]^2/N[2]) )
   df <- ((SD[1]^2/N[1] + SD[2]^2/N[2])^2 )/( (SD[1]^2/N[1])^2/(N[1]-1) + (SD[2]^2/N[2])^2/(N[2]-1) )
   t <- MD/SE
@@ -723,7 +723,7 @@ smdDifference.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
   v1 <- SD[1]^2
   v2 <- SD[2]^2
   vd <- v1+v2-2*R*SD[1]*SD[2]
-  Est <- (M[1]-M[2])/s
+  Est <- (M[2]-M[1])/s
   SE <- sqrt(Est^2*(v1^2+v2^2+2*R^2*v1*v2)/(8*df*s^4)+vd/(df*s^2))
   LL <- Est-z*SE
   UL <- Est+z*SE
@@ -742,7 +742,7 @@ smdDifference.bss <- function(DescStats,contrast,conf.level=.95,...) {
   v1 <- SD[1]^2
   v2 <- SD[2]^2
   s <- sqrt((v1+v2)/2)
-  Est <- (M[1]-M[2])/s
+  Est <- (M[2]-M[1])/s
   SE <- sqrt(Est^2*(v1^2/(N[1]-1) + v2^2/(N[2]-1))/(8*s^4) + (v1/(N[1]-1) + v2/(N[2]-1))/s^2)
   LL <- Est-z*SE
   UL <- Est+z*SE
