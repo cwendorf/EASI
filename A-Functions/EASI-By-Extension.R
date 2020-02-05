@@ -544,7 +544,7 @@ plotDifferenceBy.wss <- function(ListDescStats,ListCorrStats,mu=NULL,rope=NULL,c
   xlab="Variables"
   for (i in 1:length(ListDescStats)) {
     class(ListDescStats[[i]]) <- "wss"
-    Vars <- ciMeans(ListDescStats[[i]],conf.level=conf.level)[2:1,c(2,5,6)]
+    Vars <- ciMeans(ListDescStats[[i]],conf.level=conf.level)[1:2,c(2,5,6)]
     colnames(Vars) <- c("Est","LL","UL")
     Diff <- ciDifference(ListDescStats[[i]],ListCorrStats[[i]],conf.level=conf.level)[c(1,4,5)]
     colnames(Diff) <- c("Est","LL","UL")
@@ -563,7 +563,7 @@ plotDifferenceBy.bss <- function(ListDescStats,mu=NULL,rope=NULL,conf.level=.95,
   xlab="Groups"
   for (i in 1:length(ListDescStats)) {
     class(ListDescStats[[i]]) <- "bss"
-    Groups <- ciMeans(ListDescStats[[i]],conf.level=conf.level)[2:1,c(2,5,6)]
+    Groups <- ciMeans(ListDescStats[[i]],conf.level=conf.level)[1:2,c(2,5,6)]
     colnames(Groups) <- c("Est","LL","UL")
     Diff <- ciDifference(ListDescStats[[i]],conf.level=conf.level)[c(1,4,5)]
     colnames(Diff) <- c("Est","LL","UL")
@@ -580,7 +580,7 @@ plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,val
   ylab="Outcome"
   xlab="Variables"
   for (i in 1:nlevels(by)) {
-    Vars <- ciMeansBy(...,by=by,conf.level=conf.level)[[i]][2:1,c(2,5,6)]
+    Vars <- ciMeansBy(...,by=by,conf.level=conf.level)[[i]][1:2,c(2,5,6)]
     colnames(Vars) <- c("Est","LL","UL")
     Diff <- ciDifferenceBy(...,by=by,conf.level=conf.level)[[i]][c(1,4,5)]
     colnames(Diff) <- c("Est","LL","UL")    
@@ -599,7 +599,7 @@ plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95
   xlab=all.vars(formula)[2]
   for (i in 1:nlevels(by)) {
     Groups <- ciMeansBy(formula,by=by,conf.level=conf.level)[[i]]
-    Groups <- Groups[2:1,c(2,5,6)]
+    Groups <- Groups[1:2,c(2,5,6)]
     colnames(Groups) <- c("Est","LL","UL")
     Diff <- ciDifferenceBy(formula,by=by,conf.level=conf.level)[[i]][c(1,4,5)]
     colnames(Diff) <- c("Est","LL","UL")
@@ -627,7 +627,7 @@ plotContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,mu=NULL,rope
     congrp2 <- ifelse(contrast>0,0,abs(contrast))
     resgrp2 <- ciContrast(ListDescStats[[i]],ListCorrStats[[i]],contrast=congrp2,conf.level=conf.level)
     Groups <- rbind(resgrp1,resgrp2)
-    Groups <- Groups[2:1,c(1,4,5)]
+    Groups <- Groups[1:2,c(1,4,5)]
     Diff <- ciContrast(ListDescStats[[i]],ListCorrStats[[i]],contrast=contrast,conf.level=conf.level)[c(1,4,5)]
     results <- rbind(Groups,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
@@ -649,7 +649,7 @@ plotContrastBy.bss <- function(ListDescStats,contrast,mu=NULL,rope=NULL,conf.lev
     congrp2 <- ifelse(contrast>0,0,abs(contrast))
     resgrp2 <- ciContrast(ListDescStats[[i]],contrast=congrp2,conf.level=conf.level)
     Groups <- rbind(resgrp1,resgrp2)
-    Groups <- Groups[2:1,c(1,4,5)]
+    Groups <- Groups[1:2,c(1,4,5)]
     Diff <- ciContrast(ListDescStats[[i]],contrast=contrast,conf.level=conf.level)[c(1,4,5)]
     results <- rbind(Groups,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
@@ -669,7 +669,7 @@ plotContrastBy.default <- function(...,by,contrast,rope=NULL,labels=NULL,values=
     convar2 <- ifelse(contrast>0,0,abs(contrast))
     resvar2 <- ciContrastBy(...,by=by,contrast=convar2)[[i]]
     Vars <- rbind(resvar1,resvar2)
-    Vars <- Vars[2:1,c(1,4,5)]  
+    Vars <- Vars[1:2,c(1,4,5)]  
     Diff <- ciContrastBy(...,by=by,contrast=contrast)[[i]][c(1,4,5)]
     results <- rbind(Vars,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}

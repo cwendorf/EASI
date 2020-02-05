@@ -25,7 +25,7 @@ ciPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,...){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[i]]-M[rn[j]]
+    MD <- M[rn[j]]-M[rn[i]]
     SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
     df <- min(N)-1
     tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
@@ -52,7 +52,7 @@ ciPairwise.bss <- function(SumStats,conf.level=.95,...){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[i]]-M[rn[j]]
+    MD <- M[rn[j]]-M[rn[i]]
     SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
     df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
     tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
@@ -97,7 +97,8 @@ plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,mu=
   main="Confidence Intervals for the Pairwise Comparisons"
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
-  results <- ciPairwise(...)[,c(1,4,5)]
+  results <- ciPairwise(...)
+  colnames(results)[1] <- "M"  
   cipMeans(results,main,ylab,xlab,mu,rope,values) 
 }
 
@@ -105,7 +106,8 @@ plotPairwise.formula <- function(formula,conf.level=.95,mu=NA,rope=NULL,values=T
   main="Confidence Intervals for the Pairwise Comparisons"
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
-  results <- ciPairwise(formula,...)[,c(1,4,5)]
+  results <- ciPairwise(formula,...)
+  colnames(results)[1] <- "M"
   cipMeans(results,main,ylab,xlab,mu,rope,values) 
 }
 
@@ -139,7 +141,7 @@ smdPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,...){
     v1 <- sds[1]^2
     v2 <- sds[2]^2
     vd <- v1+v2-2*R*sds[1]*sds[2]
-    Est <- (mns[1]-mns[2])/s
+    Est <- (mns[2]-mns[1])/s
     SE <- sqrt(Est^2*(v1^2+v2^2+2*R^2*v1*v2)/(8*df*s^4)+vd/(df*s^2))
     LL <- Est-z*SE
     UL <- Est+z*SE
@@ -170,7 +172,7 @@ smdPairwise.bss <- function(SumStats,conf.level=.95,...){
     v1 <- sds[1]^2
     v2 <- sds[2]^2
     s <- sqrt((v1+v2)/2)
-    Est <- (mns[1]-mns[2])/s
+    Est <- (mns[2]-mns[1])/s
     SE <- sqrt(Est^2*(v1^2/(N[1]-1) + v2^2/(N[2]-1))/(8*s^4) + (v1/(N[1]-1) + v2/(N[2]-1))/s^2)
     LL <- Est-z*SE
     UL <- Est+z*SE  
@@ -223,7 +225,7 @@ nhstPairwise.wss <- function(SumStats,CorrStats,mu=0,...){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[i]]-M[rn[j]]-mu
+    MD <- M[rn[j]]-M[rn[i]]-mu
     SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
     df <- min(N)-1
     t <- MD/SEd
@@ -249,7 +251,7 @@ nhstPairwise.bss <- function(SumStats,mu=0,...){
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[i]]-M[rn[j]]-mu
+    MD <- M[rn[j]]-M[rn[i]]-mu
     SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
     df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
     t <- MD/SEd
