@@ -93,11 +93,11 @@ estimatePairwise <- function(...) {
 plotPairwise <- function(...) 
   UseMethod("plotPairwise")
 
-plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,mu=NULL,rope=NULL,values=TRUE) {
+plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,conf.level=.95,mu=NULL,rope=NULL,values=TRUE) {
   main="Confidence Intervals for the Pairwise Comparisons"
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
-  results <- ciPairwise(...)
+  results <- ciPairwise(...,conf.level=conf.level)
   colnames(results)[1] <- "M"  
   cipMeans(results,main,ylab,xlab,mu,rope,values) 
 }
@@ -106,7 +106,7 @@ plotPairwise.formula <- function(formula,conf.level=.95,mu=NA,rope=NULL,values=T
   main="Confidence Intervals for the Pairwise Comparisons"
   ylab="Mean Difference"
   xlab="Pairwise Comparisons"
-  results <- ciPairwise(formula,...)
+  results <- ciPairwise(formula,conf.level=conf.level,...)
   colnames(results)[1] <- "M"
   cipMeans(results,main,ylab,xlab,mu,rope,values) 
 }
