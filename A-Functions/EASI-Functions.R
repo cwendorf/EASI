@@ -308,7 +308,7 @@ addData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
 #### Basic Confidence Interval Plot Functions
 
 cipMeans <- function(results,main,ylab,xlab,mu,rope,values) {
-  ylimrange <- range(pretty(c(floor(min(results[,"LL"]-.25)),ceiling(max(results[,"UL"])+.25))))
+  ylimrange <- range(pretty(c(floor(min(results[,"LL"]-.4)),ceiling(max(results[,"UL"])+.4))))
   plot(results[,"M"],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab="",cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
   results <- format(as.data.frame(results),trim=T,nsmall=3)
@@ -325,7 +325,7 @@ cipDifference <- function(results,main,ylab,xlab,rope,values) {
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
-  ylimrange <- range(pretty(c(floor(min(graph[,2]-.25)),ceiling(max(graph[,3])+.25))))
+  ylimrange <- range(pretty(c(floor(min(graph[,2]-.4)),ceiling(max(graph[,3])+.4))))
   par(mar=c(5,5,5,5))  
   plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylimrange,pch=c(15,15,17),cex=1.5,xlab="",ylab=ylab,main=main,las=1,cex.lab=1.3,bty="n")
   axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
