@@ -98,6 +98,7 @@ The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
 with(DataSubsetB1,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
+```
 CONFIDENCE INTERVALS FOR THE MEANS
 
        N     M    SD    SE     LL     UL

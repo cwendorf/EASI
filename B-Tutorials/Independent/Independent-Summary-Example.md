@@ -76,7 +76,7 @@ Of course, it is possible to change from the default confidence level. Additiona
 ```r
 plotMeans(BetweenSummary,conf.level=.99,mu=5,rope=c(3,7))# Independent-Figure2.jpeg
 ```
-<kbd><img src="independent-Figure2.jpeg"></kbd>
+<kbd><img src="Independent-Figure2.jpeg"></kbd>
 
 
 #### Significance Tests for the Means
