@@ -32,8 +32,8 @@ standardizeDifference(Transcription~Group)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est   SE     LL     UL
-Comparison -0.928 0.27 -1.458 -0.398
+             Est    SE    LL    UL
+Comparison 0.928 0.270 0.398 1.458
 ```
 
 ### PenLaptop2 Example
@@ -53,8 +53,8 @@ standardizeDifference(Transcription~Group)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -1.059 0.179 -1.409 -0.709
+             Est    SE    LL    UL
+Comparison 1.059 0.179 0.709 1.409
 ```
 
 ### PenLaptop3 Example
@@ -74,6 +74,6 @@ standardizeDifference(Transcription~Group)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -1.691 0.237 -2.156 -1.226
+             Est    SE    LL    UL
+Comparison 1.691 0.237 1.226 2.156
 ```

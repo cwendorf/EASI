@@ -59,10 +59,10 @@ estimatePairwise(RepeatedSummary,RepeatedCorr)
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-                      Diff    SE    df      LL     UL
-Outcome1 v Outcome2 -4.000 1.224 3.000  -7.897 -0.103
-Outcome1 v Outcome3 -5.000 1.683 3.000 -10.355  0.355
-Outcome2 v Outcome3 -1.000 1.354 3.000  -5.308  3.308
+                     Diff    SE    df     LL     UL
+Outcome1 v Outcome2 4.000 1.224 3.000  0.103  7.897
+Outcome1 v Outcome3 5.000 1.683 3.000 -0.355 10.355
+Outcome2 v Outcome3 1.000 1.354 3.000 -3.308  5.308
 ```
 
 ```r
@@ -71,10 +71,10 @@ estimatePairwise(RepeatedSummary,RepeatedCorr,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-                      Diff    SE    df      LL    UL
-Outcome1 v Outcome2 -4.000 1.224 3.000 -11.152 3.152
-Outcome1 v Outcome3 -5.000 1.683 3.000 -14.827 4.827
-Outcome2 v Outcome3 -1.000 1.354 3.000  -8.906 6.906
+                     Diff    SE    df     LL     UL
+Outcome1 v Outcome2 4.000 1.224 3.000 -3.152 11.152
+Outcome1 v Outcome3 5.000 1.683 3.000 -4.827 14.827
+Outcome2 v Outcome3 1.000 1.354 3.000 -6.906  8.906
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
@@ -96,10 +96,10 @@ testPairwise(RepeatedSummary,RepeatedCorr)
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-                      Diff    SE      t    df     p
-Outcome1 v Outcome2 -4.000 1.224 -3.267 3.000 0.047
-Outcome1 v Outcome3 -5.000 1.683 -2.972 3.000 0.059
-Outcome2 v Outcome3 -1.000 1.354 -0.739 3.000 0.514
+                     Diff    SE     t    df     p
+Outcome1 v Outcome2 4.000 1.224 3.267 3.000 0.047
+Outcome1 v Outcome3 5.000 1.683 2.972 3.000 0.059
+Outcome2 v Outcome3 1.000 1.354 0.739 3.000 0.514
 ```
 
 ```r
@@ -108,10 +108,10 @@ testPairwise(RepeatedSummary,RepeatedCorr,mu=-2)
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-                      Diff    SE      t    df     p
-Outcome1 v Outcome2 -2.000 1.224 -1.633 3.000 0.201
-Outcome1 v Outcome3 -3.000 1.683 -1.783 3.000 0.173
-Outcome2 v Outcome3  1.000 1.354  0.739 3.000 0.514
+                     Diff    SE     t    df     p
+Outcome1 v Outcome2 6.000 1.224 4.900 3.000 0.016
+Outcome1 v Outcome3 7.000 1.683 4.160 3.000 0.025
+Outcome2 v Outcome3 3.000 1.354 2.216 3.000 0.113
 ```
 
 #### Effect Sizes for the Pairwise Comparisons
@@ -122,10 +122,10 @@ standardizePairwise(RepeatedSummary,RepeatedCorr)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                       Est    SE     LL     UL
-Outcome1 v Outcome2 -1.633 0.782 -3.166 -0.101
-Outcome1 v Outcome3 -2.042 0.876 -3.759 -0.325
-Outcome2 v Outcome3 -0.408 0.592 -1.569  0.752
+                      Est    SE     LL    UL
+Outcome1 v Outcome2 1.633 0.782  0.101 3.166
+Outcome1 v Outcome3 2.042 0.876  0.325 3.759
+Outcome2 v Outcome3 0.408 0.592 -0.752 1.569
 ```
 
 ```r
@@ -134,8 +134,8 @@ standardizePairwise(RepeatedSummary,RepeatedCorr,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                       Est    SE     LL    UL
-Outcome1 v Outcome2 -1.633 0.782 -3.647 0.380
-Outcome1 v Outcome3 -2.042 0.876 -4.298 0.215
-Outcome2 v Outcome3 -0.408 0.592 -1.934 1.117
+                      Est    SE     LL    UL
+Outcome1 v Outcome2 1.633 0.782 -0.380 3.647
+Outcome1 v Outcome3 2.042 0.876 -0.215 4.298
+Outcome2 v Outcome3 0.408 0.592 -1.117 1.934
 ```

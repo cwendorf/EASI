@@ -51,10 +51,10 @@ estimatePairwise(Outcome~Factor)
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-                  Diff    SE    df     LL     UL
-Level1 v Level2 -4.000 1.732 6.000 -8.237  0.237
-Level1 v Level3 -5.000 1.732 6.000 -9.237 -0.763
-Level2 v Level3 -1.000 1.732 6.000 -5.237  3.237
+                 Diff    SE    df     LL    UL
+Level1 v Level2 4.000 1.732 6.000 -0.237 8.237
+Level1 v Level3 5.000 1.732 6.000  0.763 9.237
+Level2 v Level3 1.000 1.732 6.000 -3.237 5.237
 ```
 
 ```r
@@ -63,10 +63,10 @@ estimatePairwise(Outcome~Factor,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS
 
-                  Diff    SE    df      LL    UL
-Level1 v Level2 -4.000 1.732 6.000 -10.420 2.420
-Level1 v Level3 -5.000 1.732 6.000 -11.420 1.420
-Level2 v Level3 -1.000 1.732 6.000  -7.420 5.420
+                 Diff    SE    df     LL     UL
+Level1 v Level2 4.000 1.732 6.000 -2.420 10.420
+Level1 v Level3 5.000 1.732 6.000 -1.420 11.420
+Level2 v Level3 1.000 1.732 6.000 -5.420  7.420
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
@@ -88,10 +88,10 @@ testPairwise(Outcome~Factor)
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-                  Diff    SE      t    df     p
-Level1 v Level2 -4.000 1.732 -2.310 6.000 0.060
-Level1 v Level3 -5.000 1.732 -2.887 6.000 0.028
-Level2 v Level3 -1.000 1.732 -0.577 6.000 0.585
+                 Diff    SE     t    df     p
+Level1 v Level2 4.000 1.732 2.310 6.000 0.060
+Level1 v Level3 5.000 1.732 2.887 6.000 0.028
+Level2 v Level3 1.000 1.732 0.577 6.000 0.585
 ```
 
 ```r
@@ -100,10 +100,10 @@ testPairwise(Outcome~Factor,mu=-2)
 ```
 HYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS
 
-                  Diff    SE      t    df     p
-Level1 v Level2 -2.000 1.732 -1.155 6.000 0.292
-Level1 v Level3 -3.000 1.732 -1.732 6.000 0.134
-Level2 v Level3  1.000 1.732  0.577 6.000 0.585
+                 Diff    SE     t    df     p
+Level1 v Level2 6.000 1.732 3.465 6.000 0.013
+Level1 v Level3 7.000 1.732 4.042 6.000 0.007
+Level2 v Level3 3.000 1.732 1.732 6.000 0.134
 ```
 
 #### Effect Sizes for the Pairwise Comparisons
@@ -114,10 +114,10 @@ standardizePairwise(Outcome~Factor)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                   Est    SE     LL     UL
-Level1 v Level2 -1.633 0.943 -3.481  0.215
-Level1 v Level3 -2.042 1.007 -4.015 -0.068
-Level2 v Level3 -0.408 0.825 -2.025  1.209
+                  Est    SE     LL    UL
+Level1 v Level2 1.633 0.943 -0.215 3.481
+Level1 v Level3 2.042 1.007  0.068 4.015
+Level2 v Level3 0.408 0.825 -1.209 2.025
 ```
 
 ```r
@@ -126,8 +126,8 @@ standardizePairwise(Outcome~Factor,conf.level=.99)
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS
 
-                   Est    SE     LL    UL
-Level1 v Level2 -1.633 0.943 -4.062 0.795
-Level1 v Level3 -2.042 1.007 -4.635 0.552
-Level2 v Level3 -0.408 0.825 -2.533 1.717
+                  Est    SE     LL    UL
+Level1 v Level2 1.633 0.943 -0.795 4.062
+Level1 v Level3 2.042 1.007 -0.552 4.635
+Level2 v Level3 0.408 0.825 -1.717 2.533
 ```

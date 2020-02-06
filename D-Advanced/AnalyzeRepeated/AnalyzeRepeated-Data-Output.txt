@@ -73,32 +73,32 @@ $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
 $estimateDifference
-             Diff    SE    df     LL     UL
-Comparison -4.000 1.224 3.000 -7.897 -0.103
+            Diff    SE    df    LL    UL
+Comparison 4.000 1.224 3.000 0.103 7.897
 
 $testDifference
-             Diff    SE      t    df     p
-Comparison -4.000 1.224 -3.267 3.000 0.047
+            Diff    SE     t    df     p
+Comparison 4.000 1.224 3.267 3.000 0.047
 
 $standardizeDifference
-              Est    SE     LL     UL
-Comparison -1.633 0.782 -3.166 -0.101
+             Est    SE    LL    UL
+Comparison 1.633 0.782 0.101 3.166
 
 > analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure4.jpeg
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
 $estimateDifference
-             Diff    SE    df      LL    UL
-Comparison -4.000 1.224 3.000 -11.152 3.152
+            Diff    SE    df     LL     UL
+Comparison 4.000 1.224 3.000 -3.152 11.152
 
 $testDifference
-             Diff    SE      t    df     p
-Comparison -2.000 1.224 -1.633 3.000 0.201
+            Diff    SE     t    df     p
+Comparison 6.000 1.224 4.900 3.000 0.016
 
 $standardizeDifference
-              Est    SE     LL    UL
-Comparison -1.633 0.782 -3.647 0.380
+             Est    SE     LL    UL
+Comparison 1.633 0.782 -0.380 3.647
 
 > 
 > ### Analyses of a Variable Contrast
@@ -135,5 +135,3 @@ Contrast 0.500 1.307 0.383 3.000 0.727
 $standardizeContrast
            Est    SE     LL    UL
 Contrast 1.837 0.741 -0.071 3.746
-
-> 

@@ -172,8 +172,8 @@ A3  0.000  0.000 0.559 -1.288 1.288
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df     LL    UL
-Comparison -4.000 1.732 6.000 -8.237 0.237
+            Diff    SE    df     LL    UL
+Comparison 4.000 1.732 6.000 -0.237 8.237
 
 > estimateDifference(CompSummaryB2)
 
@@ -186,8 +186,8 @@ Comparison 0.000 1.732 6.000 -4.237 4.237
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df      LL    UL
-Comparison -4.000 1.732 6.000 -10.420 2.420
+            Diff    SE    df     LL     UL
+Comparison 4.000 1.732 6.000 -2.420 10.420
 
 > estimateDifference(CompSummaryB2,conf.level=.99)
 
@@ -210,8 +210,8 @@ Comparison 0.000 1.732 6.000 -6.420 6.420
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
-             Diff    SE      t    df     p
-Comparison -4.000 1.732 -2.310 6.000 0.060
+            Diff    SE     t    df     p
+Comparison 4.000 1.732 2.310 6.000 0.060
 
 > testDifference(CompSummaryB2)
 
@@ -224,8 +224,8 @@ Comparison 0.000 1.732 0.000 6.000 1.000
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
-             Diff    SE      t    df     p
-Comparison -2.000 1.732 -1.155 6.000 0.292
+            Diff    SE     t    df     p
+Comparison 6.000 1.732 3.465 6.000 0.013
 
 > testDifference(CompSummaryB2,mu=-2)
 
@@ -241,8 +241,8 @@ Comparison 2.000 1.732 1.155 6.000 0.292
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -1.633 0.943 -3.481 0.215
+             Est    SE     LL    UL
+Comparison 1.633 0.943 -0.215 3.481
 
 > standardizeDifference(CompSummaryB2)
 
@@ -255,8 +255,8 @@ Comparison 0.000 0.816 -1.600 1.600
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -1.633 0.943 -4.062 0.795
+             Est    SE     LL    UL
+Comparison 1.633 0.943 -0.795 4.062
 
 > standardizeDifference(CompSummaryB2,conf.level=.99)
 

@@ -81,8 +81,8 @@ with(HolzelSubsetControl,standardizeDifference(Pretest,Posttest))
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -0.022 0.067 -0.155 0.110
+             Est    SE     LL    UL
+Comparison 0.022 0.067 -0.110 0.155
 ```
 ```r
 with(HolzelSubsetLMeditation,standardizeDifference(Pretest,Posttest))
@@ -90,6 +90,6 @@ with(HolzelSubsetLMeditation,standardizeDifference(Pretest,Posttest))
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -0.151 0.041 -0.232 -0.070
+             Est    SE    LL    UL
+Comparison 0.151 0.041 0.070 0.232
 ```

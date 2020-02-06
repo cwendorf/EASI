@@ -109,8 +109,8 @@ estimateDifference(Motivation~Comparison)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE     df     LL     UL
-Comparison -1.932 0.572 31.521 -3.098 -0.766
+            Diff    SE     df    LL    UL
+Comparison 1.932 0.572 31.521 0.766 3.098
 ```
 ```r
 plotDifference(Motivation~Comparison) # Rattan-Figure2.jpeg
@@ -122,8 +122,8 @@ standardizeDifference(Motivation~Comparison)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -1.137 0.376 -1.873 -0.401
+             Est    SE    LL    UL
+Comparison 1.137 0.376 0.401 1.873
 ```
 
 ### Analysis of a Group Contrast

@@ -32,7 +32,7 @@ estimateMeansBy(FactorialSummary,conf.level=.99)
 #### Plot of the Confidence Intervals for the Means
 
 plotMeansBy(FactorialSummary) # Includes FactorialBy-Figure1.jpeg and FactorialBy-Figure2.jpeg
-plotMeansBy(FactorialSummary,conf.level=.99,mu=5,rope=c(3,7)) # Includes FactorialBy-Figure3.jpeg and FactorialBy-Figure4.jpe
+plotMeansBy(FactorialSummary,conf.level=.99,mu=5,rope=c(3,7)) # Includes FactorialBy-Figure3.jpeg and FactorialBy-Figure4.jpeg
 
 #### Significance Tests for the Means
 

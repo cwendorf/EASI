@@ -203,8 +203,8 @@ with(CompData,estimateDifferenceBy(Outcome~Comparison,by=FactorB))
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $B1
-             Diff    SE    df     LL    UL
-Comparison -4.000 1.732 6.000 -8.237 0.237
+            Diff    SE    df     LL    UL
+Comparison 4.000 1.732 6.000 -0.237 8.237
 
 $B2
             Diff    SE    df     LL    UL
@@ -218,8 +218,8 @@ with(CompData,estimateDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $B1
-             Diff    SE    df      LL    UL
-Comparison -4.000 1.732 6.000 -10.420 2.420
+            Diff    SE    df     LL     UL
+Comparison 4.000 1.732 6.000 -2.420 10.420
 
 $B2
             Diff    SE    df     LL    UL
@@ -249,8 +249,8 @@ with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB))
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $B1
-             Diff    SE      t    df     p
-Comparison -4.000 1.732 -2.310 6.000 0.060
+            Diff    SE     t    df     p
+Comparison 4.000 1.732 2.310 6.000 0.060
 
 $B2
             Diff    SE     t    df     p
@@ -264,8 +264,8 @@ with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB,mu=2))
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $B1
-             Diff    SE      t    df     p
-Comparison -2.000 1.732 -1.155 6.000 0.292
+            Diff    SE     t    df     p
+Comparison 6.000 1.732 3.465 6.000 0.013
 
 $B2
             Diff    SE     t    df     p
@@ -281,8 +281,8 @@ with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB))
 CONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS
 
 $B1
-              Est    SE     LL    UL
-Comparison -1.633 0.943 -3.481 0.215
+             Est    SE     LL    UL
+Comparison 1.633 0.943 -0.215 3.481
 
 $B2
              Est    SE     LL    UL
@@ -296,8 +296,8 @@ with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.
 CONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS
 
 $B1
-              Est    SE     LL    UL
-Comparison -1.633 0.943 -4.062 0.795
+             Est    SE     LL    UL
+Comparison 1.633 0.943 -0.795 4.062
 
 $B2
              Est    SE     LL    UL

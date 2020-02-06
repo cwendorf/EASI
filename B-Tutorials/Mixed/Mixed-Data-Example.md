@@ -305,8 +305,8 @@ with(DataSubsetL1,estimateDifference(Outcome1,Outcome2))
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df     LL     UL
-Comparison -4.000 1.224 3.000 -7.897 -0.103
+            Diff    SE    df    LL    UL
+Comparison 4.000 1.224 3.000 0.103 7.897
 ```
 
 And repeat the analysis for the second subset.
@@ -327,8 +327,8 @@ with(DataSubsetL1,estimateDifference(Outcome1,Outcome2,conf.level=.99))
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df      LL    UL
-Comparison -4.000 1.224 3.000 -11.152 3.152
+            Diff    SE    df     LL     UL
+Comparison 4.000 1.224 3.000 -3.152 11.152
 ```
 
 And repeat the analysis for the second subset.
@@ -377,8 +377,8 @@ with(DataSubsetL1,testDifference(Outcome1,Outcome2))
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-             Diff    SE      t    df     p
-Comparison -4.000 1.224 -3.267 3.000 0.047
+            Diff    SE     t    df     p
+Comparison 4.000 1.224 3.267 3.000 0.047
 ```
 
 And repeat the analysis for the second subset.
@@ -399,8 +399,8 @@ with(DataSubsetL1,testDifference(Outcome1,Outcome2,mu=-2))
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-             Diff    SE      t    df     p
-Comparison -2.000 1.224 -1.633 3.000 0.201
+            Diff    SE     t    df     p
+Comparison 6.000 1.224 4.900 3.000 0.016
 ```
 
 And repeat the analysis for the second subset.
@@ -423,8 +423,8 @@ with(DataSubsetL1,standardizeDifference(Outcome1,Outcome2))
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -1.633 0.782 -3.166 -0.101
+             Est    SE    LL    UL
+Comparison 1.633 0.782 0.101 3.166
 ```
 
 And repeat the analysis for the second subset.
@@ -445,8 +445,8 @@ with(DataSubsetL1,standardizeDifference(Outcome1,Outcome2,conf.level=.99))
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -1.633 0.782 -3.647 0.380
+             Est    SE     LL    UL
+Comparison 1.633 0.782 -0.380 3.647
 ```
 
 And repeat the analysis for the second subset.

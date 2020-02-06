@@ -76,8 +76,8 @@ estimateDifference(PostvsFollowup,DonohueCorr)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-            Diff    SE     df     LL    UL
-Comparison 0.200 0.752 19.000 -1.375 1.775
+             Diff    SE     df     LL    UL
+Comparison -0.200 0.752 19.000 -1.775 1.375
 ```
 ```r
 plotDifference(PostvsFollowup,DonohueCorr) # Donohue-Figure2.jpeg
@@ -89,8 +89,8 @@ standardizeDifference(PostvsFollowup,DonohueCorr)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-             Est    SE     LL    UL
-Comparison 0.043 0.165 -0.280 0.365
+              Est    SE     LL    UL
+Comparison -0.043 0.165 -0.365 0.280
 ```
 
 ### Analysis of a Variable Contrast

@@ -84,8 +84,8 @@ standardizeDifference(HolzelSummaryControl,HolzelCorrControl)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -0.022 0.068 -0.155 0.110
+             Est    SE     LL    UL
+Comparison 0.022 0.068 -0.110 0.155
 ```
 ```r
 standardizeDifference(HolzelSummaryMeditation,HolzelCorrMeditation)
@@ -93,6 +93,6 @@ standardizeDifference(HolzelSummaryMeditation,HolzelCorrMeditation)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -0.151 0.041 -0.232 -0.070
+             Est    SE    LL    UL
+Comparison 0.151 0.041 0.070 0.232
 ```

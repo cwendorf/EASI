@@ -235,8 +235,8 @@ estimateDifferenceBy(CompSummary,MixedCorr)
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $Level1
-             Diff    SE    df     LL     UL
-Comparison -4.000 1.224 3.000 -7.897 -0.103
+            Diff    SE    df    LL    UL
+Comparison 4.000 1.224 3.000 0.103 7.897
 
 $Level2
             Diff    SE    df     LL    UL
@@ -250,8 +250,8 @@ estimateDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $Level1
-             Diff    SE    df      LL    UL
-Comparison -4.000 1.224 3.000 -11.152 3.152
+            Diff    SE    df     LL     UL
+Comparison 4.000 1.224 3.000 -3.152 11.152
 
 $Level2
             Diff    SE    df     LL    UL
@@ -280,8 +280,8 @@ testDifferenceBy(CompSummary,MixedCorr)
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $Level1
-             Diff    SE      t    df     p
-Comparison -4.000 1.224 -3.267 3.000 0.047
+            Diff    SE     t    df     p
+Comparison 4.000 1.224 3.267 3.000 0.047
 
 $Level2
             Diff    SE     t    df     p
@@ -295,8 +295,8 @@ testDifferenceBy(CompSummary,MixedCorr,mu=-2)
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $Level1
-             Diff    SE      t    df     p
-Comparison -2.000 1.224 -1.633 3.000 0.201
+            Diff    SE     t    df     p
+Comparison 6.000 1.224 4.900 3.000 0.016
 
 $Level2
             Diff    SE     t    df     p
@@ -312,8 +312,8 @@ standardizeDifferenceBy(CompSummary,MixedCorr)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS
 
 $Level1
-              Est    SE     LL     UL
-Comparison -1.633 0.782 -3.166 -0.101
+             Est    SE    LL    UL
+Comparison 1.633 0.782 0.101 3.166
 
 $Level2
              Est    SE     LL    UL
@@ -327,8 +327,8 @@ standardizeDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
 CONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS
 
 $Level1
-              Est    SE     LL    UL
-Comparison -1.633 0.782 -3.647 0.380
+             Est    SE     LL    UL
+Comparison 1.633 0.782 -0.380 3.647
 
 $Level2
              Est    SE     LL    UL

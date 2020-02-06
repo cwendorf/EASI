@@ -35,8 +35,8 @@ standardizeDifference(Thomason1Summary,Thomason1Corr)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -0.536 0.181 -0.891 -0.18
+             Est    SE    LL    UL
+Comparison 0.536 0.181 0.180 0.891
 ```
 
 ### Thomason2 Example
@@ -59,8 +59,8 @@ standardizeDifference(Thomason2Summary,Thomason2Corr)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -0.356 0.155 -0.659 -0.052
+             Est    SE    LL    UL
+Comparison 0.356 0.155 0.052 0.659
 ```
 
 ### Thomason3 Example
@@ -83,6 +83,6 @@ standardizeDifference(Thomason3Summary,Thomason3Corr)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -0.652 0.161 -0.967 -0.338
+             Est    SE    LL    UL
+Comparison 0.652 0.161 0.338 0.967
 ```

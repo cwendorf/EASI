@@ -104,9 +104,7 @@ Outcome3 4.000 5.000 2.449 1.224 -2.152 12.152
 > #### Plots of Confidence Intervals for the Means
 > 
 > plotMeansBy(MixedSummary) # Includes MixedBy-Figure1.jpeg and MixedBy-Figure2.jpeg
-Waiting to confirm page change...
-> plotMeansBy(MixedSummary,conf.level=.99,mu=5,rope=c(3,7)) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
-Waiting to confirm page change...
+Hit <Return> to see next plot: plotMeansBy(MixedSummary,conf.level=.99,mu=5,rope=c(3,7)) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -192,8 +190,8 @@ Outcome3  0.000  0.000 0.559 -1.288 1.288
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $Level1
-             Diff    SE    df     LL     UL
-Comparison -4.000 1.224 3.000 -7.897 -0.103
+            Diff    SE    df    LL    UL
+Comparison 4.000 1.224 3.000 0.103 7.897
 
 $Level2
             Diff    SE    df     LL    UL
@@ -204,8 +202,8 @@ Comparison 0.000 0.577 3.000 -1.836 1.836
 CONFIDENCE INTERVALS FOR THE COMPARISONS
 
 $Level1
-             Diff    SE    df      LL    UL
-Comparison -4.000 1.224 3.000 -11.152 3.152
+            Diff    SE    df     LL     UL
+Comparison 4.000 1.224 3.000 -3.152 11.152
 
 $Level2
             Diff    SE    df     LL    UL
@@ -215,9 +213,7 @@ Comparison 0.000 0.577 3.000 -3.370 3.370
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
 > plotDifferenceBy(CompSummary,MixedCorr) # Includes MixedBy-Figure5.jpeg and MixedBy-Figure6.jpeg
-Waiting to confirm page change...
-> plotDifferenceBy(CompSummary,MixedCorr,conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
-Waiting to confirm page change...
+Hit <Return> to see next plot: plotDifferenceBy(CompSummary,MixedCorr,conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
@@ -226,8 +222,8 @@ Waiting to confirm page change...
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $Level1
-             Diff    SE      t    df     p
-Comparison -4.000 1.224 -3.267 3.000 0.047
+            Diff    SE     t    df     p
+Comparison 4.000 1.224 3.267 3.000 0.047
 
 $Level2
             Diff    SE     t    df     p
@@ -238,8 +234,8 @@ Comparison 0.000 0.577 0.000 3.000 1.000
 HYPOTHESIS TESTS FOR THE COMPARISONS
 
 $Level1
-             Diff    SE      t    df     p
-Comparison -2.000 1.224 -1.633 3.000 0.201
+            Diff    SE     t    df     p
+Comparison 6.000 1.224 4.900 3.000 0.016
 
 $Level2
             Diff    SE     t    df     p
@@ -253,8 +249,8 @@ Comparison 2.000 0.577 3.467 3.000 0.040
 CONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS
 
 $Level1
-              Est    SE     LL     UL
-Comparison -1.633 0.782 -3.166 -0.101
+             Est    SE    LL    UL
+Comparison 1.633 0.782 0.101 3.166
 
 $Level2
              Est    SE     LL    UL
@@ -265,8 +261,8 @@ Comparison 0.000 0.272 -0.533 0.533
 CONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS
 
 $Level1
-              Est    SE     LL    UL
-Comparison -1.633 0.782 -3.647 0.380
+             Est    SE     LL    UL
+Comparison 1.633 0.782 -0.380 3.647
 
 $Level2
              Est    SE     LL    UL
@@ -307,9 +303,7 @@ Contrast 0.500 0.645 3.000 -3.268 4.268
 > #### Plots of Confidence Intervals for a Contrast
 > 
 > plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers) # Includes MixedBy-Figure9.jpeg and MixedBy-Figure10.jpeg
-Waiting to confirm page change...
-> plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
-Waiting to confirm page change...
+Hit <Return> to see next plot: plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
 > 
 > #### Significance Test for the Contrast
 > 

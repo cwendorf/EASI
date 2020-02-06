@@ -143,8 +143,8 @@ estimateDifference(Outcome1,Outcome2)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df     LL     UL
-Comparison -4.000 1.224 3.000 -7.897 -0.103
+            Diff    SE    df    LL    UL
+Comparison 4.000 1.224 3.000 0.103 7.897
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -154,8 +154,8 @@ estimateDifference(Outcome1,Outcome2,conf.level=.99)
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE    df      LL    UL
-Comparison -4.000 1.224 3.000 -11.152 3.152
+            Diff    SE    df     LL     UL
+Comparison 4.000 1.224 3.000 -3.152 11.152
 ```
 
 #### Plots of Confidence Intervals for the Mean Difference
@@ -181,8 +181,8 @@ testDifference(Outcome1,Outcome2)
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-             Diff    SE      t    df     p
-Comparison -4.000 1.224 -3.267 3.000 0.047
+            Diff    SE     t    df     p
+Comparison 4.000 1.224 3.267 3.000 0.047
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -192,8 +192,8 @@ testDifference(Outcome1,Outcome2,mu=-2)
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
 
-             Diff    SE      t    df     p
-Comparison -2.000 1.224 -1.633 3.000 0.201
+            Diff    SE     t    df     p
+Comparison 6.000 1.224 4.900 3.000 0.016
 ```
 
 #### Effect Size for the Mean Difference
@@ -205,8 +205,8 @@ standardizeDifference(Outcome1,Outcome2)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL     UL
-Comparison -1.633 0.782 -3.166 -0.101
+             Est    SE    LL    UL
+Comparison 1.633 0.782 0.101 3.166
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -216,6 +216,6 @@ standardizeDifference(Outcome1,Outcome2,conf.level=.99)
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -1.633 0.782 -3.647 0.380
+             Est    SE     LL    UL
+Comparison 1.633 0.782 -0.380 3.647
 ```
