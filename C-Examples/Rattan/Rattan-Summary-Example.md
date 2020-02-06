@@ -48,7 +48,7 @@ Challenge 17.000 5.265 1.448 0.351 4.521 6.009
 Control   19.000 4.447 1.433 0.329 3.756 5.138
 ```
 ```r
-plotMeans(RattanSummary) # Rattan-Figure1.jpeg
+plotMeans(RattanSummary,ylab="Motivation") # Rattan-Figure1.jpeg
 ```
 <kbd><img src="Rattan-Figure1.jpeg"></kbd>
 
@@ -66,7 +66,7 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 Comparison 1.932 0.572 31.521 0.766 3.098
 ```
 ```r
-plotDifference(cComfortvsChallenge) # Rattan-Figure2.jpeg
+plotDifference(cComfortvsChallenge,ylab="Motivation") # Rattan-Figure2.jpeg
 ```
 <kbd><img src="Rattan-Figure2.jpeg"></kbd>
 ```r
@@ -92,7 +92,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 1.523 0.512 26.903 0.473 2.573
 ```
 ```r
-plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others")) # Rattan-Figure3.jpeg
+plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),ylab="Motivation") # Rattan-Figure3.jpeg
 ```
 <kbd><img src="Rattan-Figure3.jpeg"></kbd>
 ```r

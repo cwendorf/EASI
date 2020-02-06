@@ -16,18 +16,18 @@ DonohueData
 ### Analyses of the Different Variables
 
 estimateMeans(Pretest,Posttest,Followup)
-plotMeans(Pretest,Posttest,Followup) # Donohue-Figure1.jpeg
+plotMeans(Pretest,Posttest,Followup,ylab="Critical Thinking") # Donohue-Figure1.jpeg
 
 ### Analysis of a Variable Difference
 
 estimateDifference(Posttest,Followup)
-plotDifference(Posttest,Followup) # Donohue-Figure2.jpeg
+plotDifference(Posttest,Followup,ylab="Critical Thinking") # Donohue-Figure2.jpeg
 standardizeDifference(Posttest,Followup)
 
 ### Analysis of a Variable Contrast
 
 PrevsPostFollow <- c(-1,.5,.5)
 estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
-plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow")) # Donohue-Figure3.jpeg
+plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),ylab="Critical Thinking") # Donohue-Figure3.jpeg
 testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)

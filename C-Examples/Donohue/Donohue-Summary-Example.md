@@ -62,7 +62,7 @@ Posttest 20.000 23.600 4.762 1.065 21.371 25.829
 Followup 20.000 23.400 4.616 1.032 21.240 25.560
 ```
 ```r
-plotMeans(DonohueSummary) # Donohue-Figure1.jpeg
+plotMeans(DonohueSummary,ylab="Critical Thinking") # Donohue-Figure1.jpeg
 ```
 <kbd><img src="Donohue-Figure1.jpeg"></kbd>
  
@@ -80,7 +80,7 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
 Comparison -0.200 0.752 19.000 -1.775 1.375
 ```
 ```r
-plotDifference(PostvsFollowup,DonohueCorr) # Donohue-Figure2.jpeg
+plotDifference(PostvsFollowup,DonohueCorr,ylab="Critical Thinking") # Donohue-Figure2.jpeg
 ```
 <kbd><img src="Donohue-Figure2.jpeg"></kbd>
 ```r
@@ -106,7 +106,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 4.200 1.130 19.000 1.834 6.566
 ```
 ```r
-plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow")) # Donohue-Figure3.jpeg
+plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),ylab="Critical Thinking") # Donohue-Figure3.jpeg
 ```
 <kbd><img src="Donohue-Figure3.jpeg"></kbd>
 ```r

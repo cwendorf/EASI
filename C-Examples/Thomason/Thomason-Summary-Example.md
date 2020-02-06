@@ -26,7 +26,7 @@ Thomason1Corr <- data.frame()
 Thomason1Corr["Pretest","Posttest"] <- .892
 ```
 ```r
-plotDifference(Thomason1Summary,Thomason1Corr) # Thomason-Figure1.jpeg
+plotDifference(Thomason1Summary,Thomason1Corr,ylab="LSAT") # Thomason-Figure1.jpeg
 ```
 <kbd><img src="Thomason-Figure1.jpeg"></kbd>
 ```r
@@ -50,7 +50,7 @@ Thomason2Corr <- data.frame()
 Thomason2Corr["Pretest","Posttest"] <- .871
 ```
 ```r
-plotDifference(Thomason2Summary,Thomason2Corr) # Thomason-Figure2.jpeg
+plotDifference(Thomason2Summary,Thomason2Corr,ylab="LSAT") # Thomason-Figure2.jpeg
 ```
 <kbd><img src="Thomason-Figure2.jpeg"></kbd>
 ```r
@@ -74,7 +74,7 @@ Thomason3Corr <- data.frame()
 Thomason3Corr["Pretest","Posttest"] <- .601
 ```
 ```r
-plotDifference(Thomason3Summary,Thomason3Corr) # Thomason-Figure3.jpeg
+plotDifference(Thomason3Summary,Thomason3Corr,ylab="LSAT") # Thomason-Figure3.jpeg
 ```
 <kbd><img src="Thomason-Figure3.jpeg"></kbd>
 ```r

@@ -23,7 +23,7 @@ Transcription <- c(12.1,6.5,8.1,7.6,12.2,10.8,1,2.9,14.4,8.4,17.7,20.1,2.1,11.1,
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```
 ```r
-plotDifference(Transcription~Group) # PenLaptop-Figure1.jpeg
+plotDifference(Transcription~Group,ylab="Transcription") # PenLaptop-Figure1.jpeg
 ```
 <kbd><img src="PenLaptop-Figure1.jpeg"></kbd>
 ```r
@@ -44,7 +44,7 @@ Transcription <- c(8.99,1.35,8.22,4.31,6.59,16,5.85,6.64,5.54,4.02,3.73,3.81,13.
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```
 ```r
-plotDifference(Transcription~Group) # PenLaptop-Figure2.jpeg
+plotDifference(Transcription~Group,ylab="Transcription") # PenLaptop-Figure2.jpeg
 ```
 <kbd><img src="PenLaptop-Figure2.jpeg"></kbd>
 ```r
@@ -65,7 +65,7 @@ Transcription <- c(5.13,0.5,1.37,1.37,5.82,5.24,3.97,2.14,4,4.36,8.61,1.26,4.95,
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```
 ```r
-plotDifference(Transcription~Group) # PenLaptop-Figure3.jpeg
+plotDifference(Transcription~Group,ylab="Transcription") # PenLaptop-Figure3.jpeg
 ```
 <kbd><img src="PenLaptop-Figure3.jpeg"></kbd>
 ```r

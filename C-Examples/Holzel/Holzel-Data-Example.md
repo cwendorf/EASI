@@ -68,11 +68,11 @@ HolzelSubsetLMeditation <- subset(HolzelData,Group=="Meditation")
 #### Confidence Intervals for the Means
 
 ```r
-with(HolzelSubsetControl,plotDifference(Pretest,Posttest)) # Holzel-Figure1.jpeg
+with(HolzelSubsetControl,plotDifference(Pretest,Posttest,ylab="Gray Matter")) # Holzel-Figure1.jpeg
 ```
 <kbd><img src="Holzel-Figure1.jpeg"></kbd>
 ```r
-with(HolzelSubsetLMeditation,plotDifference(Pretest,Posttest)) # Holzel-Figure2.jpeg
+with(HolzelSubsetLMeditation,plotDifference(Pretest,Posttest,ylab="Gray Matter")) # Holzel-Figure2.jpeg
 ```
 <kbd><img src="Holzel-Figure2.jpeg"></kbd>
 ```r

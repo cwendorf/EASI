@@ -22,7 +22,7 @@ Pretest <- c(13,12,12,9,14,17,14,9,6,7,11,15)
 Posttest <- c(14,13,16,12,15,18,13,10,10,8,14,16)
 ```
 ```r
-plotDifference(Pretest,Posttest) # Thomason-Figure1.jpeg
+plotDifference(Pretest,Posttest,ylab="LSAT") # Thomason-Figure1.jpeg
 ```
 <kbd><img src="Thomason-Figure1.jpeg"></kbd>
 ```r
@@ -42,7 +42,7 @@ Pretest <- c(10,14,7,12,11,11,15,14,9,16,10,11,13,19,19,15)
 Posttest <- c(12,19,6,9,15,13,17,14,10,17,9,14,15,22,18,18)
 ```
 ```r
-plotDifference(Pretest,Posttest) # Thomason-Figure2.jpeg
+plotDifference(Pretest,Posttest,ylab="LSAT") # Thomason-Figure2.jpeg
 ```
 <kbd><img src="Thomason-Figure2.jpeg"></kbd>
 ```r
@@ -62,7 +62,7 @@ Pretest <- c(41,50,71,70,74,75,64,72,77,53,60,73,72,62,68,63,69,71,70,70,75,71,7
 Posttest <- c(52,63,69,71,80,80,69,76,78,77,67,76,69,73,73,68,70,81,70,76,77,75,69,77,70,76,65,64,72,71,63,78,71,77,67,66,73,75,75)
 ```
 ```r
-plotDifference(Pretest,Posttest) # Thomason-Figure3.jpeg
+plotDifference(Pretest,Posttest,ylab="LSAT") # Thomason-Figure3.jpeg
 ```
 <kbd><img src="Thomason-Figure3.jpeg"></kbd>
 ```r

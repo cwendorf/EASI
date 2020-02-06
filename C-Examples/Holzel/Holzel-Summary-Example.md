@@ -71,11 +71,11 @@ PosttestMeditation             0.993              1.000
 #### Analyses of the Differences within Conditions
 
 ```r
-plotDifference(HolzelSummaryControl,HolzelCorrControl) # Holzel-Figure1.jpeg
+plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter") # Holzel-Figure1.jpeg
 ```
 <kbd><img src="Holzel-Figure1.jpeg"></kbd>
 ```r
-plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation) # Holzel-Figure2.jpeg
+plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,ylab="Gray Matter") # Holzel-Figure2.jpeg
 ```
 <kbd><img src="Holzel-Figure2.jpeg"></kbd>
 ```r

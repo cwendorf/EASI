@@ -12,7 +12,7 @@
 > PenLaptop1Summary <- rbind(Pen,Laptop)
 > class(PenLaptop1Summary) <- "bss"
 > 
-> plotDifference(PenLaptop1Summary) # PenLaptop-Figure1.jpeg
+> plotDifference(PenLaptop1Summary,ylab="Transcription") # PenLaptop-Figure1.jpeg
 > standardizeDifference(PenLaptop1Summary)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -28,7 +28,7 @@ Comparison 0.928 0.270 0.398 1.458
 > PenLaptop2Summary <- rbind(Pen,Laptop)
 > class(PenLaptop2Summary) <- "bss"
 > 
-> plotDifference(PenLaptop2Summary) # PenLaptop-Figure2.jpeg
+> plotDifference(PenLaptop2Summary,ylab="Transcription") # PenLaptop-Figure2.jpeg
 > standardizeDifference(PenLaptop2Summary)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -44,7 +44,7 @@ Comparison 1.059 0.179 0.709 1.409
 > PenLaptop3Summary <- rbind(Pen,Laptop)
 > class(PenLaptop3Summary) <- "bss"
 > 
-> plotDifference(PenLaptop3Summary) # PenLaptop-Figure3.jpeg
+> plotDifference(PenLaptop3Summary,ylab="Transcription") # PenLaptop-Figure3.jpeg
 > standardizeDifference(PenLaptop3Summary)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON

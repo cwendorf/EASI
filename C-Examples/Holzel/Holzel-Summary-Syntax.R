@@ -31,8 +31,8 @@ HolzelCorrMeditation
 
 #### Analyses of the Differences within Conditions
 
-plotDifference(HolzelSummaryControl,HolzelCorrControl) # Holzel-Figure1.jpeg
-plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation) # Holzel-Figure2.jpeg
+plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter") # Holzel-Figure1.jpeg
+plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,ylab="Gray Matter") # Holzel-Figure2.jpeg
 
 standardizeDifference(HolzelSummaryControl,HolzelCorrControl)
 standardizeDifference(HolzelSummaryMeditation,HolzelCorrMeditation)

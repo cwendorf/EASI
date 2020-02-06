@@ -42,7 +42,7 @@ Pretest  20.000 19.300 5.904 1.320 16.537 22.063
 Posttest 20.000 23.600 4.762 1.065 21.371 25.829
 Followup 20.000 23.400 4.616 1.032 21.240 25.560
 
-> plotMeans(DonohueSummary) # Donohue-Figure1.jpeg
+> plotMeans(DonohueSummary,ylab="Critical Thinking") # Donohue-Figure1.jpeg
 > 
 > ### Analysis of a Variable Difference
 > 
@@ -55,7 +55,7 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
              Diff    SE     df     LL    UL
 Comparison -0.200 0.752 19.000 -1.775 1.375
 
-> plotDifference(PostvsFollowup,DonohueCorr) # Donohue-Figure2.jpeg
+> plotDifference(PostvsFollowup,DonohueCorr,ylab="Critical Thinking") # Donohue-Figure2.jpeg
 > standardizeDifference(PostvsFollowup,DonohueCorr)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -74,7 +74,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
            Est    SE     df    LL    UL
 Contrast 4.200 1.130 19.000 1.834 6.566
 
-> plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow")) # Donohue-Figure3.jpeg
+> plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),ylab="Critical Thinking") # Donohue-Figure3.jpeg
 > testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 
 HYPOTHESIS TEST FOR THE CONTRAST

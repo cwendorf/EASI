@@ -18,8 +18,8 @@ HolzelSubsetLMeditation <- subset(HolzelData,Group=="Meditation")
 
 #### Confidence Intervals for the Means
 
-with(HolzelSubsetControl,plotDifference(Pretest,Posttest)) # Holzel-Figure1.jpeg
-with(HolzelSubsetLMeditation,plotDifference(Pretest,Posttest)) # Holzel-Figure2.jpeg
+with(HolzelSubsetControl,plotDifference(Pretest,Posttest,ylab="Gray Matter")) # Holzel-Figure1.jpeg
+with(HolzelSubsetLMeditation,plotDifference(Pretest,Posttest,ylab="Gray Matter")) # Holzel-Figure2.jpeg
 
 with(HolzelSubsetControl,standardizeDifference(Pretest,Posttest))
 with(HolzelSubsetLMeditation,standardizeDifference(Pretest,Posttest))

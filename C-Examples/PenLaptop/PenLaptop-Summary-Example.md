@@ -24,7 +24,7 @@ PenLaptop1Summary <- rbind(Pen,Laptop)
 class(PenLaptop1Summary) <- "bss"
 ```
 ```r
-plotDifference(PenLaptop1Summary) # PenLaptop-Figure1.jpeg
+plotDifference(PenLaptop1Summary,ylab="Transcription") # PenLaptop-Figure1.jpeg
 ```
 <kbd><img src="PenLaptop-Figure1.jpeg"></kbd>
 ```r
@@ -46,7 +46,7 @@ PenLaptop2Summary <- rbind(Pen,Laptop)
 class(PenLaptop2Summary) <- "bss"
 ```
 ```r
-plotDifference(PenLaptop2Summary) # PenLaptop-Figure2.jpeg
+plotDifference(PenLaptop2Summary,ylab="Transcription") # PenLaptop-Figure2.jpeg
 ```
 <kbd><img src="PenLaptop-Figure2.jpeg"></kbd>
 ```r
@@ -68,7 +68,7 @@ PenLaptop3Summary <- rbind(Pen,Laptop)
 class(PenLaptop3Summary) <- "bss"
 ```
 ```r
-plotDifference(PenLaptop3Summary) # PenLaptop-Figure3.jpeg
+plotDifference(PenLaptop3Summary,ylab="Transcription") # PenLaptop-Figure3.jpeg
 ```
 <kbd><img src="PenLaptop-Figure3.jpeg"></kbd>
 ```r

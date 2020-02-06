@@ -79,7 +79,7 @@ Comfort   18.000 3.333 1.917 0.452 2.380 4.286
 Challenge 17.000 5.265 1.448 0.351 4.521 6.009
 Control   19.000 4.447 1.433 0.329 3.756 5.138
 
-> plotMeans(Motivation~Feedback) # Rattan-Figure1.jpeg
+> plotMeans(Motivation~Feedback,ylab="Motivation") # Rattan-Figure1.jpeg
 > 
 > ### Analysis of a Group Comparison
 > 
@@ -91,7 +91,7 @@ CONFIDENCE INTERVAL FOR THE COMPARISON
             Diff    SE     df    LL    UL
 Comparison 1.932 0.572 31.521 0.766 3.098
 
-> plotDifference(Motivation~Comparison) # Rattan-Figure2.jpeg
+> plotDifference(Motivation~Comparison,ylab="Motivation") # Rattan-Figure2.jpeg
 > standardizeDifference(Motivation~Comparison)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -110,7 +110,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
            Est    SE     df    LL    UL
 Contrast 1.523 0.512 26.903 0.473 2.573
 
-> plotContrast(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others")) # Rattan-Figure3.jpeg
+> plotContrast(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),ylab="Motivation") # Rattan-Figure3.jpeg
 > testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 
 HYPOTHESIS TEST FOR THE CONTRAST
