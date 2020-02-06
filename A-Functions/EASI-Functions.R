@@ -309,7 +309,7 @@ addData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
 
 cipMeans <- function(results,main,ylab,xlab,mu,rope,values) {
   ylimrange <- range(pretty(c(floor(min(results[,"LL"]-.4)),ceiling(max(results[,"UL"])+.4))))
-  plot(results[,"M"],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab="",cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
+  plot(results[,"M"],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1, 1:nrow(results), row.names(results))
   results <- format(as.data.frame(results),trim=T,nsmall=3)
   for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,"LL"][i],results[,"UL"][i]),lwd=2)
@@ -327,7 +327,7 @@ cipDifference <- function(results,main,ylab,xlab,rope,values) {
   graphrope <- rope+as.vector(results[1,1])
   ylimrange <- range(pretty(c(floor(min(graph[,2]-.4)),ceiling(max(graph[,3])+.4))))
   par(mar=c(5,5,5,5))  
-  plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylimrange,pch=c(15,15,17),cex=1.5,xlab="",ylab=ylab,main=main,las=1,cex.lab=1.3,bty="n")
+  plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylimrange,pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="n")
   axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
   axis(1,2.6:3.6,labels=FALSE,lwd.tick=0)
   axis(1,at=c(1,2),labels=rownames(graph)[1:2])
@@ -359,33 +359,29 @@ cipDifference <- function(results,main,ylab,xlab,rope,values) {
 plotMeans <- function(...) 
   UseMethod("plotMeans")
 
-plotMeans.wss <- function(DescStats,mu=NULL,rope=NULL,values=TRUE,...) {
+plotMeans.wss <- function(DescStats,ylab="Outcome",xlab="",mu=NULL,rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Variables"
   results <- ciMeans(DescStats,...)
-  cipMeans(results,main,ylab,xlab,mu,rope,values)
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
   for (i in 1:(nrow(results)-1)) arrows(i,results[i,"M"],i+1,results[i+1,"M"],code=3,length=0,lty=1)  
 }
 
-plotMeans.bss <- function(DescStats,mu=NULL,rope=NULL,values=TRUE,...) {
+plotMeans.bss <- function(DescStats,ylab="Outcome",xlab="",mu=NULL,rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Groups"
   results <- ciMeans(DescStats,...)
-  cipMeans(results,main,ylab,xlab,mu,rope,values)
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
 }
 
-plotMeans.default <- function(...,mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+plotMeans.default <- function(...,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
-  plotMeans(DescStats,conf.level=conf.level,mu=mu,rope=rope,values=values)
+  plotMeans(DescStats,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values)
 }
 
-plotMeans.formula <- function(formula,mu=NULL,rope=NULL,conf.level=.95,values=TRUE,...) {
+plotMeans.formula <- function(formula,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
-  plotMeans(DescStats,conf.level=conf.level,mu=mu,rope=rope,values=values)
+  plotMeans(DescStats,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values)
 }
 
 #### Plot Function for Confidence Intervals of Mean Differences/Comparisons
@@ -393,44 +389,40 @@ plotMeans.formula <- function(formula,mu=NULL,rope=NULL,conf.level=.95,values=TR
 plotDifference <- function(...) 
   UseMethod("plotDifference")
   
-plotDifference.wss <- function(CompStats,CorrStats,rope=NULL,values=TRUE,...) {
+plotDifference.wss <- function(CompStats,CorrStats,ylab="Outcome",xlab="",rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Comparison"
-  ylab="Outcome"
-  xlab="Variables"
   Vars <- ciMeans(CompStats,...)[1:2,c(2,5,6)]
   colnames(Vars) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,CorrStats,...)[c(1,4,5)]
   colnames(Diff) <- c("Est","LL","UL")
   results <- rbind(Vars,Diff)
   rownames(results)[3]="Comparison"
-  cipDifference(results,main,ylab,xlab,rope,values)
+  cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
   arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
 }
 
-plotDifference.bss <- function(CompStats,rope=NULL,values=TRUE,...) {
+plotDifference.bss <- function(CompStats,ylab="Outcome",xlab="",rope=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Comparison"
-  ylab="Outcome"
-  xlab="Groups"
   Groups <- ciMeans(CompStats,...)[1:2,c(2,5,6)]
   colnames(Groups) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,...)[c(1,4,5)]
   colnames(Diff) <- c("Est","LL","UL")
   results <- rbind(Groups,Diff)
   rownames(results)[3]="Comparison"
-  cipDifference(results,main,ylab,xlab,rope,values)
+  cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
 }
 
-plotDifference.default <- function(...,conf.level=.95,rope=NULL,labels=NULL,values=TRUE) {
+plotDifference.default <- function(...,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE) {
   CompStats <- descData(...)
   class(CompStats) <- "wss"
   CorrStats <- corrData(...)
-  plotDifference(CompStats,CorrStats,conf.level=conf.level,rope=rope,labels=labels,values=values)
+  plotDifference(CompStats,CorrStats,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values)
 }
 
-plotDifference.formula <- function(formula,conf.level=.95,rope=NULL,lables=NULL,values=TRUE,...) {
+plotDifference.formula <- function(formula,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,lables=NULL,values=TRUE,...) {
   CompStats <- descData(formula)
   class(CompStats) <- "bss"
-  plotDifference(CompStats,conf.level=conf.level,rope=rope,labels=labels,values=values)
+  plotDifference(CompStats,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values)
 }
 
 #### Plot Function for Confidence Interval of a Mean Contrast of Levels
@@ -438,10 +430,8 @@ plotDifference.formula <- function(formula,conf.level=.95,rope=NULL,lables=NULL,
 plotContrast <- function(...) 
   UseMethod("plotContrast")
 
-plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL,values=TRUE) {
+plotContrast.wss <- function(...,contrast,ylab="Outcome",xlab="",rope=NULL,labels=NULL,values=TRUE) {
   main="Confidence Intervals for the Contrast"
-  ylab="Outcome"
-  xlab="Variables"
   convar1 <- ifelse(contrast<0,0,contrast)
   resvar1 <- ciContrast(...,contrast=convar1)
   convar2 <- ifelse(contrast>0,0,abs(contrast))
@@ -451,14 +441,12 @@ plotContrast.wss <- function(...,contrast,rope=NULL,labels=NULL,values=TRUE) {
   Diff <- ciContrast(...,contrast=contrast)[c(1,4,5)]
   results <- rbind(Vars,Diff)
   if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-  cipDifference(results,main,ylab,xlab,rope,values)
+  cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
   arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
 }
 
-plotContrast.bss <- function(DescStats,contrast,rope=NULL,labels=NULL,values=TRUE,...) {
+plotContrast.bss <- function(DescStats,contrast,ylab="Outcome",xlab="",rope=NULL,labels=NULL,values=TRUE,...) {
   main="Confidence Intervals for the Contrast"
-  ylab="Outcome"
-  xlab="Groups"
   congrp1 <- ifelse(contrast<0,0,contrast)
   resgrp1 <- ciContrast(DescStats,contrast=congrp1,...)
   congrp2 <- ifelse(contrast>0,0,abs(contrast))
@@ -468,20 +456,20 @@ plotContrast.bss <- function(DescStats,contrast,rope=NULL,labels=NULL,values=TRU
   Diff <- ciContrast(DescStats,contrast=contrast,...)[c(1,4,5)]
   results <- rbind(Groups,Diff)
   if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-  cipDifference(results,main,ylab,xlab,rope,values)
+  cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
 }
 
-plotContrast.default <- function(...,contrast,conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE) {
+plotContrast.default <- function(...,contrast,ylab="Outcome",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
   CorrStats <- corrData(...)
-  plotContrast(DescStats,CorrStats,contrast=contrast,conf.level=conf.level,rope=rope,labels=labels,values=values)
+  plotContrast(DescStats,CorrStats,contrast=contrast,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values)
 }
 
-plotContrast.formula <- function(formula,contrast,conf.level=.95,rope=NULL,labels=NULL,values=TRUE,...) {
+plotContrast.formula <- function(formula,contrast,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
-  plotContrast(DescStats,contrast=contrast,conf.level=conf.level,rope=rope,labels=labels,values=values)
+  plotContrast(DescStats,contrast=contrast,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values)
 }
 
 ### Null Hypothesis Significance Test Functions
