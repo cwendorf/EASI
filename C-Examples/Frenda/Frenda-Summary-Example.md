@@ -51,7 +51,7 @@ MorningSleep   25.000 1.380 1.500 0.300 0.761 1.999
 MorningNosleep 26.000 2.220 1.680 0.329 1.541 2.899
 ```
 ```r
-plotMeans(FrendaSummary) # Frenda-Figure1.jpeg
+plotMeans(FrendaSummary,ylab="False Memory") # Frenda-Figure1.jpeg
 ```
 <kbd><img src="Frenda-Figure1.jpeg"></kbd>
 
@@ -111,7 +111,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.480 0.277 87.919 -0.071 1.031
 ```
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning")) # Frenda-Figure2.jpeg
+plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),ylab="False Memory") # Frenda-Figure2.jpeg
 ```
 <kbd><img src="Frenda-Figure2.jpeg"></kbd>
 ```r
@@ -146,7 +146,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.240 0.277 87.919 -0.311 0.791
 ```
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep")) # Frenda-Figure3.jpeg
+plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),ylab="False Memory") # Frenda-Figure3.jpeg
 ```
 <kbd><img src="Frenda-Figure3.jpeg"></kbd>
 ```r
@@ -203,7 +203,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast -0.360 0.330 44.605 -1.024 0.304
 ```
 ```r
-plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep")) # Frenda-Figure4.jpeg
+plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),ylab="False Memory") # Frenda-Figure4.jpeg
 ```
 <kbd><img src="Frenda-Figure4.jpeg"></kbd>
 ```r
@@ -238,7 +238,7 @@ CONFIDENCE INTERVAL FOR THE CONTRAST
 Contrast 0.840 0.446 48.740 -0.056 1.736
 ```
 ```r
-plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep")) # Frenda-Figure5.jpeg
+plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),ylab="False Memory") # Frenda-Figure5.jpeg
 ```
 <kbd><img src="Frenda-Figure5.jpeg"></kbd>
 ```r

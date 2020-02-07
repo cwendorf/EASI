@@ -18,7 +18,7 @@ FrendaSummary
 ### Analyses of the Different Groups
 
 estimateMeans(FrendaSummary)
-plotMeans(FrendaSummary) # Frenda-Figure1.jpeg
+plotMeans(FrendaSummary,ylab="False Memory") # Frenda-Figure1.jpeg
 
 ### Analyses of the Marginal Means
 
@@ -35,7 +35,7 @@ estimateContrast(FrendaSummary,contrast=Nosleep)
 
 mainFactorA <- c(-.5,-.5,.5,.5)
 estimateContrast(FrendaSummary,contrast=mainFactorA)
-plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning")) # Frenda-Figure2.jpeg
+plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),ylab="False Memory") # Frenda-Figure2.jpeg
 testContrast(FrendaSummary,contrast=mainFactorA)
 standardizeContrast(FrendaSummary,contrast=mainFactorA)
 
@@ -43,7 +43,7 @@ standardizeContrast(FrendaSummary,contrast=mainFactorA)
 
 mainFactorB <- c(-.5,.5,-.5,.5)
 estimateContrast(FrendaSummary,contrast=mainFactorB)
-plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep")) # Frenda-Figure3.jpeg
+plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),ylab="False Memory") # Frenda-Figure3.jpeg
 testContrast(FrendaSummary,contrast=mainFactorB)
 standardizeContrast(FrendaSummary,contrast=mainFactorB)
 
@@ -57,7 +57,7 @@ testContrast(FrendaSummary,contrast=Interaction)
 
 simpleBatEvening <- c(-1,1,0,0)
 estimateContrast(FrendaSummary,contrast=simpleBatEvening)
-plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep")) # Frenda-Figure4.jpeg
+plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),ylab="False Memory") # Frenda-Figure4.jpeg
 testContrast(FrendaSummary,contrast=simpleBatEvening)
 standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
 
@@ -65,6 +65,6 @@ standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
 
 simpleBatMorning <- c(0,0,-1,1)
 estimateContrast(FrendaSummary,contrast=simpleBatMorning)
-plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep")) # Frenda-Figure5.jpeg
+plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),ylab="False Memory") # Frenda-Figure5.jpeg
 testContrast(FrendaSummary,contrast=simpleBatMorning)
 standardizeContrast(FrendaSummary,contrast=simpleBatMorning)
