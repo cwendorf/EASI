@@ -9,50 +9,50 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-F
 
 Level1 <- c(N=4,M=2.000,SD=2.449)
 Level2 <- c(N=4,M=6.000,SD=2.449)
-BetweenSummary <- rbind(Level1,Level2)
-class(BetweenSummary) <- "bss"
-BetweenSummary
+IndependentSummary <- rbind(Level1,Level2)
+class(IndependentSummary) <- "bss"
+IndependentSummary
 
 ### Analyses of Multiple Groups
 
 #### Confidence Intervals for the Means
 
-estimateMeans(BetweenSummary)
-estimateMeans(BetweenSummary,conf.level=.99)
+estimateMeans(IndependentSummary)
+estimateMeans(IndependentSummary,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeans(BetweenSummary) # Independent-Figure1.jpeg
-plotMeans(BetweenSummary,conf.level=.99,mu=5,rope=c(3,7)) # Independent-Figure2.jpeg
+plotMeans(IndependentSummary) # Independent-Figure1.jpeg
+plotMeans(IndependentSummary,conf.level=.99,mu=5,rope=c(3,7)) # Independent-Figure2.jpeg
 
 #### Significance Tests for the Means
 
-testMeans(BetweenSummary) 
-testMeans(BetweenSummary,mu=5) 
+testMeans(IndependentSummary) 
+testMeans(IndependentSummary,mu=5) 
 
 #### Effect Size for the Means
 
-standardizeMeans(BetweenSummary)
-standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
+standardizeMeans(IndependentSummary)
+standardizeMeans(IndependentSummary,mu=5,conf.level=.99)
 
 ### Analyses of a Group Comparison
 
 #### Confidence Interval for a Mean Difference
 
-estimateDifference(BetweenSummary)
-estimateDifference(BetweenSummary,conf.level=.99)
+estimateDifference(IndependentSummary)
+estimateDifference(IndependentSummary,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-plotDifference(BetweenSummary) # Independent-Figure3.jpeg
-plotDifference(BetweenSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
+plotDifference(IndependentSummary) # Independent-Figure3.jpeg
+plotDifference(IndependentSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
 
 #### Significance Test of the Mean Difference
 
-testDifference(BetweenSummary)
-testDifference(BetweenSummary,mu=2)
+testDifference(IndependentSummary)
+testDifference(IndependentSummary,mu=2)
 
 #### Effect Size for the Mean Difference
 
-standardizeDifference(BetweenSummary)
-standardizeDifference(BetweenSummary,conf.level=.99)
+standardizeDifference(IndependentSummary)
+standardizeDifference(IndependentSummary,conf.level=.99)

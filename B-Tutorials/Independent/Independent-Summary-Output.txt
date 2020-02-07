@@ -9,9 +9,9 @@
 > 
 > Level1 <- c(N=4,M=2.000,SD=2.449)
 > Level2 <- c(N=4,M=6.000,SD=2.449)
-> BetweenSummary <- rbind(Level1,Level2)
-> class(BetweenSummary) <- "bss"
-> BetweenSummary
+> IndependentSummary <- rbind(Level1,Level2)
+> class(IndependentSummary) <- "bss"
+> IndependentSummary
        N M    SD
 Level1 4 2 2.449
 Level2 4 6 2.449
@@ -22,7 +22,7 @@ attr(,"class")
 > 
 > #### Confidence Intervals for the Means
 > 
-> estimateMeans(BetweenSummary)
+> estimateMeans(IndependentSummary)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
@@ -30,7 +30,7 @@ CONFIDENCE INTERVALS FOR THE MEANS
 Level1 4.000 2.000 2.449 1.224 -1.897 5.897
 Level2 4.000 6.000 2.449 1.224  2.103 9.897
 
-> estimateMeans(BetweenSummary,conf.level=.99)
+> estimateMeans(IndependentSummary,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
@@ -41,12 +41,12 @@ Level2 4.000 6.000 2.449 1.224 -1.152 13.152
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> plotMeans(BetweenSummary) # Independent-Figure1.jpeg
-> plotMeans(BetweenSummary,conf.level=.99,mu=5,rope=c(3,7)) # Independent-Figure2.jpeg
+> plotMeans(IndependentSummary) # Independent-Figure1.jpeg
+> plotMeans(IndependentSummary,conf.level=.99,mu=5,rope=c(3,7)) # Independent-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
-> testMeans(BetweenSummary) 
+> testMeans(IndependentSummary) 
 
 HYPOTHESIS TESTS FOR THE MEANS
 
@@ -54,7 +54,7 @@ HYPOTHESIS TESTS FOR THE MEANS
 Level1 2.000 1.224 1.633 3.000 0.201
 Level2 6.000 1.224 4.900 3.000 0.016
 
-> testMeans(BetweenSummary,mu=5) 
+> testMeans(IndependentSummary,mu=5) 
 
 HYPOTHESIS TESTS FOR THE MEANS
 
@@ -65,7 +65,7 @@ Level2  1.000 1.224  0.817 3.000 0.474
 > 
 > #### Effect Size for the Means
 > 
-> standardizeMeans(BetweenSummary)
+> standardizeMeans(IndependentSummary)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
@@ -73,7 +73,7 @@ CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 Level1 0.817  0.594 0.616 -0.387 1.934
 Level2 2.450  1.782 0.955  0.325 4.532
 
-> standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
+> standardizeMeans(IndependentSummary,mu=5,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
@@ -86,14 +86,14 @@ Level2  0.408  0.297 0.574 -0.968 1.734
 > 
 > #### Confidence Interval for a Mean Difference
 > 
-> estimateDifference(BetweenSummary)
+> estimateDifference(IndependentSummary)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
             Diff    SE    df     LL    UL
 Comparison 4.000 1.732 6.000 -0.237 8.237
 
-> estimateDifference(BetweenSummary,conf.level=.99)
+> estimateDifference(IndependentSummary,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
@@ -103,19 +103,19 @@ Comparison 4.000 1.732 6.000 -2.420 10.420
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
-> plotDifference(BetweenSummary) # Independent-Figure3.jpeg
-> plotDifference(BetweenSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
+> plotDifference(IndependentSummary) # Independent-Figure3.jpeg
+> plotDifference(IndependentSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
 > 
 > #### Significance Test of the Mean Difference
 > 
-> testDifference(BetweenSummary)
+> testDifference(IndependentSummary)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
             Diff    SE     t    df     p
 Comparison 4.000 1.732 2.310 6.000 0.060
 
-> testDifference(BetweenSummary,mu=2)
+> testDifference(IndependentSummary,mu=2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
@@ -125,14 +125,14 @@ Comparison 2.000 1.732 1.155 6.000 0.292
 > 
 > #### Effect Size for the Mean Difference
 > 
-> standardizeDifference(BetweenSummary)
+> standardizeDifference(IndependentSummary)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
              Est    SE     LL    UL
 Comparison 1.633 0.943 -0.215 3.481
 
-> standardizeDifference(BetweenSummary,conf.level=.99)
+> standardizeDifference(IndependentSummary,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 

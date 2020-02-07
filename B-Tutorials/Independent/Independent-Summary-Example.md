@@ -22,9 +22,9 @@ This code inputs the variable summaries and creates a single summary table.
 ```r
 Level1 <- c(N=4,M=2.000,SD=2.449)
 Level2 <- c(N=4,M=6.000,SD=2.449)
-BetweenSummary <- rbind(Level1,Level2)
-class(BetweenSummary) <- "bss"
-BetweenSummary
+IndependentSummary <- rbind(Level1,Level2)
+class(IndependentSummary) <- "bss"
+IndependentSummary
 ```
 ```
        N M    SD
@@ -42,7 +42,7 @@ This section produces analyses that are equivalent to one-sample analyses separa
 
 This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```r
-estimateMeans(BetweenSummary)
+estimateMeans(IndependentSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -54,7 +54,7 @@ Level2 4.000 6.000 2.449 1.224  2.103 9.897
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```r
-estimateMeans(BetweenSummary,conf.level=.99)
+estimateMeans(IndependentSummary,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE MEANS
@@ -68,13 +68,13 @@ Level2 4.000 6.000 2.449 1.224 -1.152 13.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(BetweenSummary)# Independent-Figure1.jpeg
+plotMeans(IndependentSummary)# Independent-Figure1.jpeg
 ```
 <kbd><img src="Independent-Figure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence can be added.
 ```r
-plotMeans(BetweenSummary,conf.level=.99,mu=5,rope=c(3,7))# Independent-Figure2.jpeg
+plotMeans(IndependentSummary,conf.level=.99,mu=5,rope=c(3,7))# Independent-Figure2.jpeg
 ```
 <kbd><img src="Independent-Figure2.jpeg"></kbd>
 
@@ -83,7 +83,7 @@ plotMeans(BetweenSummary,conf.level=.99,mu=5,rope=c(3,7))# Independent-Figure2.j
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```r
-testMeans(BetweenSummary)
+testMeans(IndependentSummary)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
@@ -95,7 +95,7 @@ Level2 6.000 1.224 4.900 3.000 0.016
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```r
-testMeans(BetweenSummary,mu=5)
+testMeans(IndependentSummary,mu=5)
 ```
 ```
 HYPOTHESIS TESTS FOR THE MEANS
@@ -109,7 +109,7 @@ Level2  1.000 1.224  0.817 3.000 0.474
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```r
-standardizeMeans(BetweenSummary)
+standardizeMeans(IndependentSummary)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
@@ -121,7 +121,7 @@ Level2 2.450  1.782 0.955  0.325 4.532
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```r
-standardizeMeans(BetweenSummary,mu=5,conf.level=.99)
+standardizeMeans(IndependentSummary,mu=5,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
@@ -139,7 +139,7 @@ This section produces analyses that examine differences among the two levels of 
 
 This code estimates the confidence interval of the difference.
 ```r
-estimateDifference(BetweenSummary)
+estimateDifference(IndependentSummary)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -150,7 +150,7 @@ Comparison 4.000 1.732 6.000 -0.237 8.237
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```r
-estimateDifference(BetweenSummary,conf.level=.99)
+estimateDifference(IndependentSummary,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE COMPARISON
@@ -163,13 +163,13 @@ Comparison 4.000 1.732 6.000 -2.420 10.420
 
 This code obtains and plots the confidence intervals for the groups and the mean difference .
 ```r
-plotDifference(BetweenSummary) # Independent-Figure3.jpeg
+plotDifference(IndependentSummary) # Independent-Figure3.jpeg
 ```
 <kbd><img src="Independent-Figure3.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(BetweenSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
+plotDifference(IndependentSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
 ```
 <kbd><img src="Independent-Figure4.jpeg"></kbd>
 
@@ -177,7 +177,7 @@ plotDifference(BetweenSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4
 
 This code produces NHST for the mean difference (using a default test value of zero).
 ```r
-testDifference(BetweenSummary)
+testDifference(IndependentSummary)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -188,7 +188,7 @@ Comparison 4.000 1.732 2.310 6.000 0.060
 
 If the default value of zero is not plausible, it too can be changed.
 ```r
-testDifference(BetweenSummary,mu=2)
+testDifference(IndependentSummary,mu=2)
 ```
 ```
 HYPOTHESIS TEST FOR THE COMPARISON
@@ -201,7 +201,7 @@ Comparison 2.000 1.732 1.155 6.000 0.292
 
 This code calculates a standardized mean difference and its confidence interval.
 ```r
-standardizeDifference(BetweenSummary)
+standardizeDifference(IndependentSummary)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
@@ -212,7 +212,7 @@ Comparison 1.633 0.943 -0.215 3.481
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```r
-standardizeDifference(BetweenSummary,conf.level=.99)
+standardizeDifference(IndependentSummary,conf.level=.99)
 ```
 ```
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
