@@ -90,32 +90,33 @@ addRelational.formula <- function(formula,conf.level=.95,mu=NA,col=rgb(.5,.5,.5,
 plotRelational <- function(...) 
   UseMethod("plotRelational")
 
-plotRelational.bss <- function(DescStats,conf.level=.95,mu=NULL,rope=NULL,values=TRUE,...) {
+plotRelational.wss <- function(DescStats,CorrStats,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,...) {
   main="Confidence and Relational Intervals for the Means"
-  ylab="Outcome"
-  xlab="Groups"
   results <- ciMeans(DescStats,conf.level,...)[,c(2,5,6)]
-  cipMeans(results,main,ylab,xlab,mu,rope,values)
-  addRelational(DescStats,conf.level,...)
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
+  addRelational(DescStats,CorrStats,conf.level=conf.level,...)
 }
 
-plotRelational.default <- function(...,mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+plotRelational.bss <- function(DescStats,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,...) {
   main="Confidence and Relational Intervals for the Means"
-  ylab="Outcome"
-  xlab="Variables"
+  results <- ciMeans(DescStats,conf.level,...)[,c(2,5,6)]
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
+  addRelational(DescStats,conf.level=conf.level,...)
+}
+
+plotRelational.default <- function(...,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+  main="Confidence and Relational Intervals for the Means"
   results <- ciMeans(...,conf.level=conf.level)[,c(2,5,6)]
-  cipMeans(results,main,ylab,xlab,mu,rope,values)
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
   addRelational(...,conf.level=conf.level)
 }
 
-plotRelational.formula <- function(formula,conf.level=.95,mu=NULL,rope=NULL,values=TRUE,...) {
+plotRelational.formula <- function(formula,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,...) {
   main="Confidence and Relational Intervals for the Means"
-  ylab=all.vars(formula)[1]
-  xlab=all.vars(formula)[2]
   results <- ciMeans(formula,conf.level,...)[,c(2,5,6)]
   x <- eval(formula[[3]])
   y <- eval(formula[[2]])
   row.names(results) <- levels(x)
-  cipMeans(results,main,ylab,xlab,mu,rope,values)
-  addRelational(formula,conf.level,...)
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
+  addRelational(formula,conf.level=conf.level,...)
 }

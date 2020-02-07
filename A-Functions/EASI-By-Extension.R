@@ -480,54 +480,45 @@ standardizeContrastBy <- function(...) {
 plotMeansBy <- function(...) 
   UseMethod("plotMeansBy")
 
-plotMeansBy.wss <- function(ListDescStats,mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+plotMeansBy.wss <- function(ListDescStats,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Variables"
   for (i in 1:length(ListDescStats)) {
     class(ListDescStats[[i]]) <- "wss"
     results <- ciMeans(ListDescStats[[i]],conf.level=conf.level)
-    cipMeans(results,main,ylab,xlab,mu,rope,values)
+    cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
     for (j in 1:(nrow(results)-1)) arrows(j,results[j,"M"],j+1,results[j+1,"M"],code=3,length=0,lty=1)
     par(ask=TRUE)    
   }
   par(ask=FALSE)
 }
 
-plotMeansBy.bss <- function(ListDescStats,mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+plotMeansBy.bss <- function(ListDescStats,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Groups"
   for (i in 1:length(ListDescStats)) {
     class(ListDescStats[[i]]) <- "bss"
     results <- ciMeans(ListDescStats[[i]],conf.level=conf.level)
-    cipMeans(results,main,ylab,xlab,mu,rope,values)
+    cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
     par(ask=TRUE)    
   }
   par(ask=FALSE)
 }
 
-plotMeansBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
+plotMeansBy.default <- function(...,by,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Variables"
-  results <- NULL
   for (i in 1:nlevels(by)) {
     results <- ciMeansBy(...,by=by,conf.level=conf.level)[[i]][,c(2,5,6)]
-    cipMeans(results,main,ylab,xlab,mu,rope,values)
+    cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
     for (j in 1:(nrow(results)-1)) arrows(j,results[j,"M"],j+1,results[j+1,"M"],code=3,length=0,lty=1)
     par(ask=TRUE)
   }
   par(ask=FALSE)  
 }
 
-plotMeansBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
+plotMeansBy.formula <- function(formula,by,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Groups"
   for (i in 1:nlevels(by)) {
     results <- ciMeansBy(formula=formula,by=by,conf.level=conf.level)[[i]][,c(2,5,6)]
-    cipMeans(results,main,ylab,xlab,mu,rope,values)
+    cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
     par(ask=TRUE)
   }
   par(ask=FALSE)  
@@ -538,10 +529,8 @@ plotMeansBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95,valu
 plotDifferenceBy <- function(...) 
   UseMethod("plotDifferenceBy")
 
-plotDifferenceBy.wss <- function(ListDescStats,ListCorrStats,mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+plotDifferenceBy.wss <- function(ListDescStats,ListCorrStats,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
   main="Confidence Intervals for the Comparison"
-  ylab="Outcome"
-  xlab="Variables"
   for (i in 1:length(ListDescStats)) {
     class(ListDescStats[[i]]) <- "wss"
     Vars <- ciMeans(ListDescStats[[i]],conf.level=conf.level)[1:2,c(2,5,6)]
@@ -557,10 +546,8 @@ plotDifferenceBy.wss <- function(ListDescStats,ListCorrStats,mu=NULL,rope=NULL,c
   par(ask=FALSE)
 }
 
-plotDifferenceBy.bss <- function(ListDescStats,mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+plotDifferenceBy.bss <- function(ListDescStats,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
   main="Confidence Intervals for the Comparison"
-  ylab="Outcome"
-  xlab="Groups"
   for (i in 1:length(ListDescStats)) {
     class(ListDescStats[[i]]) <- "bss"
     Groups <- ciMeans(ListDescStats[[i]],conf.level=conf.level)[1:2,c(2,5,6)]
@@ -575,10 +562,8 @@ plotDifferenceBy.bss <- function(ListDescStats,mu=NULL,rope=NULL,conf.level=.95,
   par(ask=FALSE)
 }
 
-plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+plotDifferenceBy.default <- function(...,by,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
   main="Confidence Intervals for the Comparisons"
-  ylab="Outcome"
-  xlab="Variables"
   for (i in 1:nlevels(by)) {
     Vars <- ciMeansBy(...,by=by,conf.level=conf.level)[[i]][1:2,c(2,5,6)]
     colnames(Vars) <- c("Est","LL","UL")
@@ -586,17 +571,15 @@ plotDifferenceBy.default <- function(...,by,mu=NULL,rope=NULL,conf.level=.95,val
     colnames(Diff) <- c("Est","LL","UL")    
     results <- rbind(Vars,Diff)
     rownames(results)[3]="Comparison"
-    cipDifference(results,main,ylab,xlab,rope,values)
+    cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
     arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
     par(ask=TRUE)
   }
   par(ask=FALSE)  
 }
 
-plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
+plotDifferenceBy.formula <- function(formula,by,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE){
   main="Confidence Intervals for the Comparisons"
-  ylab=all.vars(formula)[1]
-  xlab=all.vars(formula)[2]
   for (i in 1:nlevels(by)) {
     Groups <- ciMeansBy(formula,by=by,conf.level=conf.level)[[i]]
     Groups <- Groups[1:2,c(2,5,6)]
@@ -605,7 +588,7 @@ plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95
     colnames(Diff) <- c("Est","LL","UL")
     results <- rbind(Groups,Diff)
     rownames(results)[3]="Comparison"
-    cipDifference(results,main,ylab,xlab,rope,values)
+    cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
     par(ask=TRUE)  
   }
   par(ask=FALSE)
@@ -616,10 +599,8 @@ plotDifferenceBy.formula <- function(formula,by,mu=NULL,rope=NULL,conf.level=.95
 plotContrastBy <- function(...) 
   UseMethod("plotContrastBy")
 
-plotContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,mu=NULL,rope=NULL,conf.level=.95,labels=NULL,values=TRUE) {
+plotContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,labels=NULL,values=TRUE) {
   main="Confidence Intervals for the Contrast"
-  ylab="Outcome"
-  xlab="Variables"
   for (i in 1:length(ListDescStats)) {
     class(ListDescStats[[i]]) <- "wss"
     congrp1 <- ifelse(contrast<0,0,contrast)
@@ -631,17 +612,15 @@ plotContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,mu=NULL,rope
     Diff <- ciContrast(ListDescStats[[i]],ListCorrStats[[i]],contrast=contrast,conf.level=conf.level)[c(1,4,5)]
     results <- rbind(Groups,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-    cipDifference(results,main,ylab,xlab,rope,values)
+    cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
     arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
     par(ask=TRUE)    
   }
   par(ask=FALSE)
 }
 
-plotContrastBy.bss <- function(ListDescStats,contrast,mu=NULL,rope=NULL,conf.level=.95,labels=NULL,values=TRUE) {
+plotContrastBy.bss <- function(ListDescStats,contrast,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,labels=NULL,values=TRUE) {
   main="Confidence Intervals for the Contrast"
-  ylab="Outcome"
-  xlab="Groups"
   for (i in 1:length(ListDescStats)) {
     class(ListDescStats[[i]]) <- "bss"
     congrp1 <- ifelse(contrast<0,0,contrast)
@@ -653,16 +632,14 @@ plotContrastBy.bss <- function(ListDescStats,contrast,mu=NULL,rope=NULL,conf.lev
     Diff <- ciContrast(ListDescStats[[i]],contrast=contrast,conf.level=conf.level)[c(1,4,5)]
     results <- rbind(Groups,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-    cipDifference(results,main,ylab,xlab,rope,values)
+    cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
     par(ask=TRUE)    
   }
   par(ask=FALSE)
 }
 
-plotContrastBy.default <- function(...,by,contrast,rope=NULL,labels=NULL,values=TRUE){
+plotContrastBy.default <- function(...,by,contrast,ylab="Outcome",xlab="",rope=NULL,labels=NULL,values=TRUE){
   main="Confidence Intervals for the Contrast"
-  ylab="Outcome"
-  xlab="Variables"
   for (i in 1:nlevels(by)) {  
     convar1 <- ifelse(contrast<0,0,contrast)
     resvar1 <- ciContrastBy(...,by=by,contrast=convar1)[[i]]
@@ -673,17 +650,15 @@ plotContrastBy.default <- function(...,by,contrast,rope=NULL,labels=NULL,values=
     Diff <- ciContrastBy(...,by=by,contrast=contrast)[[i]][c(1,4,5)]
     results <- rbind(Vars,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-    cipDifference(results,main,ylab,xlab,rope,values)
+    cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
     arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
     par(ask=TRUE)     
   }
   par(ask=FALSE)  
 }
 
-plotContrastBy.formula <- function(formula,by,contrast,rope=NULL,labels=NULL,values=TRUE,...){
+plotContrastBy.formula <- function(formula,by,contrast,ylab="Outcome",xlab="",rope=NULL,labels=NULL,values=TRUE,...){
   main="Confidence Intervals for the Contrast"
-  ylab=all.vars(formula)[1]
-  xlab=all.vars(formula)[2]
   for (i in 1:nlevels(by)) {  
     congrp1 <- ifelse(contrast<0,0,contrast)
     resgrp1 <- ciContrastBy(formula,by=by,contrast=congrp1,...)[[i]]
@@ -694,12 +669,11 @@ plotContrastBy.formula <- function(formula,by,contrast,rope=NULL,labels=NULL,val
     Diff <- ciContrastBy(formula,by=by,contrast=contrast,...)[[i]][c(1,4,5)]
     results <- rbind(Groups,Diff)
     if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted","Contrast")} else {rownames(results) <- c(labels,"Contrast")}
-    cipDifference(results,main,ylab,xlab,rope,values)
+    cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values)
     par(ask=TRUE)     
   }
   par(ask=FALSE)
 }
-
 
 ### New Plot for Entire Factorial/Mixed Design
 
@@ -724,37 +698,29 @@ cipMeansMulti <- function(results,main,ylab,xlab) {
 plotMeansMulti <- function(...) 
   UseMethod("plotMeansMulti")
 
-plotMeansMulti.wss <- function(ListDescStats,...) {
+plotMeansMulti.wss <- function(ListDescStats,ylab="Outcome",xlab="",...) {
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Variables"
   results <- ciMeansBy(ListDescStats,...)
-  cipMeansMulti(results,main,ylab,xlab)
+  cipMeansMulti(results,main,ylab=ylab,xlab=xlab)
 }
 
-plotMeansMulti.default <- function(...,by,conf.level=.95) {
+plotMeansMulti.default <- function(...,by,ylab="Outcome",xlab="",conf.level=.95) {
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Variables"
   results <- ciMeansBy(...,by=by,conf.level=conf.level)
   class(results) <- "wss"
-  cipMeansMulti(results,main,ylab,xlab)
+  cipMeansMulti(results,main,ylab=ylab,xlab=xlab)
 }
 
-plotMeansMulti.bss <- function(ListDescStats,...) {
+plotMeansMulti.bss <- function(ListDescStats,ylab="Outcome",xlab="",...) {
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Groups"
   results <- ciMeansBy(ListDescStats,...)
-  cipMeansMulti(results,main,ylab,xlab)
+  cipMeansMulti(results,main,ylab=ylab,xlab=xlab)
 }
 
-plotMeansMulti.formula <- function(formula,by,...) {
+plotMeansMulti.formula <- function(formula,by,ylab="Outcome",xlab="",...) {
   main="Confidence Intervals for the Means"
-  ylab="Outcome"
-  xlab="Groups"
   results <- ciMeansBy(formula,by=by,...)
   class(results) <- "bss"
-  cipMeansMulti(results,main,ylab,xlab)
+  cipMeansMulti(results,main,ylab=ylab,xlab=xlab)
 }
 
