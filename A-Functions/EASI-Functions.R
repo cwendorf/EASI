@@ -730,7 +730,7 @@ plotMeans.wss <- function(DescStats,ylab="Outcome",xlab="",conf.level=.95,mu=NUL
   main="Confidence Intervals for the Means"
   results <- ciMeans(DescStats,conf.level=conf.level)
   cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
-  for (i in 1:(nrow(results)-1)) arrows(i,results[i,"M"],i+1,results[i+1,"M"],code=3,length=0,lty=1)  
+  if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,"M"],i+1,results[i+1,"M"],code=3,length=0,lty=1)}
 }
 
 plotMeans.bss <- function(DescStats,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
