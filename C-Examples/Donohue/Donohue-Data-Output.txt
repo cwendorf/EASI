@@ -40,10 +40,10 @@
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
-              N      M    SD    SE     LL     UL
-Pretest  20.000 19.300 5.904 1.320 16.537 22.063
-Posttest 20.000 23.600 4.762 1.065 21.371 25.829
-Followup 20.000 23.400 4.616 1.032 21.240 25.560
+               N       M      SD      SE      LL      UL
+Pretest   20.000  19.300   5.904   1.320  16.537  22.063
+Posttest  20.000  23.600   4.762   1.065  21.371  25.829
+Followup  20.000  23.400   4.616   1.032  21.240  25.560
 
 > plotMeans(Pretest,Posttest,Followup,ylab="Critical Thinking") # Donohue-Figure1.jpeg
 > 
@@ -53,16 +53,16 @@ Followup 20.000 23.400 4.616 1.032 21.240 25.560
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-             Diff    SE     df     LL    UL
-Comparison -0.200 0.753 19.000 -1.775 1.375
+              Diff      SE      df      LL      UL
+Comparison  -0.200   0.753  19.000  -1.775   1.375
 
 > plotDifference(Posttest,Followup,ylab="Critical Thinking") # Donohue-Figure2.jpeg
 > standardizeDifference(Posttest,Followup)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-              Est    SE     LL    UL
-Comparison -0.043 0.165 -0.366 0.280
+               Est      SE      LL      UL
+Comparison  -0.043   0.165  -0.366   0.280
 
 > 
 > ### Analysis of a Variable Contrast
@@ -72,22 +72,22 @@ Comparison -0.043 0.165 -0.366 0.280
 
 CONFIDENCE INTERVAL FOR THE CONTRAST
 
-           Est    SE     df    LL    UL
-Contrast 4.200 1.130 19.000 1.835 6.565
+             Est      SE      df      LL      UL
+Contrast   4.200   1.130  19.000   1.835   6.565
 
 > plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),ylab="Critical Thinking") # Donohue-Figure3.jpeg
 > testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 
 HYPOTHESIS TEST FOR THE CONTRAST
 
-           Est    SE     t     df     p
-Contrast 4.200 1.130 3.717 19.000 0.001
+             Est      SE       t      df       p
+Contrast   4.200   1.130   3.717  19.000   0.001
 
 > standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST
 
-           Est    SE    LL    UL
-Contrast 0.819 0.214 0.399 1.239
+             Est      SE      LL      UL
+Contrast   0.819   0.214   0.399   1.239
 
 > 

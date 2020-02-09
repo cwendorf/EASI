@@ -33,17 +33,17 @@ Outcome2       NA       NA
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
-             N     M    SD    SE     LL    UL
-Outcome1 4.000 2.000 2.449 1.224 -1.897 5.897
-Outcome2 4.000 6.000 2.449 1.224  2.103 9.897
+               N       M      SD      SE      LL      UL
+Outcome1   4.000   2.000   2.449   1.224  -1.897   5.897
+Outcome2   4.000   6.000   2.449   1.224   2.103   9.897
 
 > estimateMeans(PairedSummary,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE MEANS
 
-             N     M    SD    SE     LL     UL
-Outcome1 4.000 2.000 2.449 1.224 -5.152  9.152
-Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
+               N       M      SD      SE      LL      UL
+Outcome1   4.000   2.000   2.449   1.224  -5.152   9.152
+Outcome2   4.000   6.000   2.449   1.224  -1.152  13.152
 
 > 
 > #### Plots of Confidence Intervals for the Means
@@ -57,17 +57,17 @@ Outcome2 4.000 6.000 2.449 1.224 -1.152 13.152
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-          Diff    SE     t    df     p
-Outcome1 2.000 1.224 1.633 3.000 0.201
-Outcome2 6.000 1.224 4.900 3.000 0.016
+            Diff      SE       t      df       p
+Outcome1   2.000   1.224   1.633   3.000   0.201
+Outcome2   6.000   1.224   4.900   3.000   0.016
 
 > testMeans(PairedSummary,mu=6)
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-           Diff    SE      t    df     p
-Outcome1 -4.000 1.224 -3.267 3.000 0.047
-Outcome2  0.000 1.224  0.000 3.000 1.000
+            Diff      SE       t      df       p
+Outcome1  -4.000   1.224  -3.267   3.000   0.047
+Outcome2   0.000   1.224   0.000   3.000   1.000
 
 > 
 > #### Effect Size for the Means
@@ -76,17 +76,17 @@ Outcome2  0.000 1.224  0.000 3.000 1.000
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-             d d(unb)    SE     LL    UL
-Outcome1 0.817  0.594 0.616 -0.387 1.934
-Outcome2 2.450  1.782 0.955  0.325 4.532
+               d  d.unb.      SE      LL      UL
+Outcome1   0.817   0.594   0.616  -0.387   1.934
+Outcome2   2.450   1.782   0.955   0.325   4.532
 
 > standardizeMeans(PairedSummary,mu=6,conf.level=.99)
 
 CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS
 
-              d d(unb)    SE     LL    UL
-Outcome1 -1.633 -1.188 0.761 -3.765 0.398
-Outcome2  0.000  0.000 0.559 -1.288 1.288
+               d  d.unb.      SE      LL      UL
+Outcome1  -1.633  -1.188   0.761  -3.765   0.398
+Outcome2   0.000   0.000   0.559  -1.288   1.288
 
 > 
 > ### Analyses of a Variable Comparison
@@ -97,15 +97,15 @@ Outcome2  0.000  0.000 0.559 -1.288 1.288
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-            Diff    SE    df    LL    UL
-Comparison 4.000 1.224 3.000 0.103 7.897
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.224   3.000   0.103   7.897
 
 > estimateDifference(PairedSummary,PairedCorr,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE COMPARISON
 
-            Diff    SE    df     LL     UL
-Comparison 4.000 1.224 3.000 -3.152 11.152
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.224   3.000  -3.152  11.152
 
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
@@ -119,15 +119,15 @@ Comparison 4.000 1.224 3.000 -3.152 11.152
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
-            Diff    SE     t    df     p
-Comparison 4.000 1.224 3.267 3.000 0.047
+              Diff      SE       t      df       p
+Comparison   4.000   1.224   3.267   3.000   0.047
 
 > testDifference(PairedSummary,PairedCorr,mu=-2)
 
 HYPOTHESIS TEST FOR THE COMPARISON
 
-            Diff    SE     t    df     p
-Comparison 6.000 1.224 4.900 3.000 0.016
+              Diff      SE       t      df       p
+Comparison   6.000   1.224   4.900   3.000   0.016
 
 > 
 > #### Effect Size for the Mean Difference
@@ -136,14 +136,14 @@ Comparison 6.000 1.224 4.900 3.000 0.016
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-             Est    SE    LL    UL
-Comparison 1.633 0.782 0.101 3.166
+               Est      SE      LL      UL
+Comparison   1.633   0.782   0.101   3.166
 
 > standardizeDifference(PairedSummary,PairedCorr,conf.level=.99)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-             Est    SE     LL    UL
-Comparison 1.633 0.782 -0.380 3.647
+               Est      SE      LL      UL
+Comparison   1.633   0.782  -0.380   3.647
 
 > 

@@ -54,14 +54,14 @@ PosttestMeditation             0.993              1.000
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-             Est    SE     LL    UL
-Comparison 0.022 0.068 -0.110 0.155
+               Est      SE      LL      UL
+Comparison   0.022   0.068  -0.110   0.155
 
 > standardizeDifference(HolzelSummaryMeditation,HolzelCorrMeditation)
 
 CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
-             Est    SE    LL    UL
-Comparison 0.151 0.041 0.070 0.232
+               Est      SE      LL      UL
+Comparison   0.151   0.041   0.070   0.232
 
 > 
