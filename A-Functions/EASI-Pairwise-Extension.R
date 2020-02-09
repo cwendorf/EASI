@@ -80,9 +80,9 @@ ciPairwise.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-estimatePairwise <- function(...) {
+estimatePairwise <- function(...,digits=3) {
   cat("\nCONFIDENCE INTERVALS FOR THE PAIRWISE COMPARISONS\n\n")
-  print(format(as.data.frame(ciPairwise(...)),trim=T,nsmall=3))
+  print(formatFrame(ciPairwise(...),digits=digits))
   cat("\n")  
 }
 
@@ -93,18 +93,18 @@ estimatePairwise <- function(...) {
 plotPairwise <- function(...) 
   UseMethod("plotPairwise")
 
-plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE) {
+plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
   main="Confidence Intervals for the Pairwise Comparisons"
   results <- ciPairwise(...,conf.level=conf.level)
   colnames(results)[1] <- "M"  
-  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values) 
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
 }
 
-plotPairwise.formula <- function(formula,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,...) {
+plotPairwise.formula <- function(formula,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,digits=3,...) {
   main="Confidence Intervals for the Pairwise Comparisons"
-  results <- ciPairwise(formula,conf.level=conf.level,...)
+  results <- ciPairwise(formula,conf.level=conf.level)
   colnames(results)[1] <- "M"
-  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values) 
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
 }
 
 ### Standardized Mean Difference Functions
@@ -194,9 +194,9 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-standardizePairwise <- function(...) {
+standardizePairwise <- function(...,digits=3) {
   cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED PAIRWISE COMPARISONS\n\n")
-  print(format(as.data.frame(smdPairwise(...)),trim=T,nsmall=3))
+  print(formatFrame(smdPairwise(...),digits=digits))
   cat("\n")  
 }
 
@@ -274,8 +274,8 @@ nhstPairwise.formula <- function(formula,mu=0,...){
   return(results)
 }
 
-testPairwise <- function(...) {
+testPairwise <- function(...,digits=3) {
   cat("\nHYPOTHESIS TESTS FOR THE PAIRWISE COMPARISONS\n\n")
-  print(format(as.data.frame(nhstPairwise(...)),trim=T,nsmall=3))
+  print(formatFrame(nhstPairwise(...),digits=digits))
   cat("\n")  
 }

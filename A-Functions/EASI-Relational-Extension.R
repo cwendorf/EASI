@@ -19,7 +19,7 @@ ciRelational.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
   a1 <- qt(1/2-conf.level/2,dfe,lower.tail=FALSE)
   rill <- results[,2]-a1*a2/2
   riul <- results[,2]+a1*a2/2
-  results <- round(cbind(results[,c(2,5,6)],rill,riul),3)
+  results <- data.frame(results[,c(2,5,6)],rill,riul)
   colnames(results) <- c("M","CI.LL","CI.UL","RI.LL","RI.UL")
   return(results)
 }
@@ -34,7 +34,7 @@ ciRelational.bss <- function(DescStats,conf.level=.95,...) {
   a1 <- qt(1/2-conf.level/2,dfe,lower.tail=FALSE)
   rill <- results[,2]-a1*a2/2
   riul <- results[,2]+a1*a2/2
-  results <- round(cbind(results[,c(2,5,6)],rill,riul),3)
+  results <- data.frame(results[,c(2,5,6)],rill,riul)
   colnames(results) <- c("M","CI.LL","CI.UL","RI.LL","RI.UL")
   return(results)
 }
@@ -54,9 +54,9 @@ ciRelational.formula <- function(formula,conf.level=.95,...) {
   return(results)
 }
 
-estimateRelational <- function(...){
+estimateRelational <- function(...,digits=3){
   cat("\nCONFIDENCE AND RELATIONAL INTERVALS FOR THE MEANS\n\n")
-  print(ciRelational(...))
+  print(formatFrame(ciRelational(...),digits=digits))
   cat("\n")
 }
 
@@ -90,33 +90,30 @@ addRelational.formula <- function(formula,conf.level=.95,mu=NA,col=rgb(.5,.5,.5,
 plotRelational <- function(...) 
   UseMethod("plotRelational")
 
-plotRelational.wss <- function(DescStats,CorrStats,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,...) {
+plotRelational.wss <- function(DescStats,CorrStats,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
   main="Confidence and Relational Intervals for the Means"
-  results <- ciMeans(DescStats,conf.level,...)[,c(2,5,6)]
-  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
+  results <- ciMeans(DescStats,conf.level=conf.level,...)[,c(2,5,6)]
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
   addRelational(DescStats,CorrStats,conf.level=conf.level,...)
 }
 
-plotRelational.bss <- function(DescStats,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,...) {
+plotRelational.bss <- function(DescStats,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
   main="Confidence and Relational Intervals for the Means"
-  results <- ciMeans(DescStats,conf.level,...)[,c(2,5,6)]
-  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
+  results <- ciMeans(DescStats,conf.level=conf.level,...)[,c(2,5,6)]
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
   addRelational(DescStats,conf.level=conf.level,...)
 }
 
-plotRelational.default <- function(...,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE) {
+plotRelational.default <- function(...,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
   main="Confidence and Relational Intervals for the Means"
   results <- ciMeans(...,conf.level=conf.level)[,c(2,5,6)]
-  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
   addRelational(...,conf.level=conf.level)
 }
 
-plotRelational.formula <- function(formula,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,...) {
+plotRelational.formula <- function(formula,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
   main="Confidence and Relational Intervals for the Means"
-  results <- ciMeans(formula,conf.level,...)[,c(2,5,6)]
-  x <- eval(formula[[3]])
-  y <- eval(formula[[2]])
-  row.names(results) <- levels(x)
-  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values)
+  results <- ciMeans(formula,conf.level=conf.level,...)[,c(2,5,6)]
+  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
   addRelational(formula,conf.level=conf.level,...)
 }

@@ -69,8 +69,8 @@ descOmnibus.formula <- function(formula,conf.level=.95,...) {
   return(results)
 }
 
-describeOmnibus <- function(...) {
+describeOmnibus <- function(...,digits=3) {
   cat("\nANALYSIS OF VARIANCE SOURCE TABLE\n\n")
-   print(format(as.data.frame(descOmnibus(...)),trim=T,nsmall=3))
+   print(formatFrame(descOmnibus(...),digits=digits))
   cat("\n")
 }
