@@ -45,7 +45,7 @@ describeData <- function(...,digits=3) {
 corrData <- function(...) 
   UseMethod("corrData")
 
-corrData.default <- function(...,mu=0,conf.level=.95) {
+corrData.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   data <- data.frame(...)
   results <- cor(data)
   return(results)
@@ -104,7 +104,7 @@ fillCorrMatrix <- function(mat) {
 ciMeans <- function(...) 
   UseMethod("ciMeans")
 
-ciMeans.wss <- ciMeans.bss <- function(DescStats,conf.level=.95,...) {
+ciMeans.wss <- ciMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -117,14 +117,14 @@ ciMeans.wss <- ciMeans.bss <- function(DescStats,conf.level=.95,...) {
   return(results)
 }
 
-ciMeans.default <- function(...,conf.level=.95) {
+ciMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
   results <- ciMeans(DescStats,conf.level=conf.level)
   return(results)
 }
 
-ciMeans.formula <- function(formula,conf.level=.95,...) {
+ciMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
   results <- ciMeans(DescStats,conf.level=conf.level)
@@ -142,7 +142,7 @@ estimateMeans <- function(...,digits=3) {
 ciDifference <- function(...) 
   UseMethod("ciDifference")
   
-ciDifference.wss <- function(CompStats,CorrStats,conf.level=.95,...) {
+ciDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -161,7 +161,7 @@ ciDifference.wss <- function(CompStats,CorrStats,conf.level=.95,...) {
   return(results)
 }
 
-ciDifference.bss <- function(CompStats,conf.level=.95,...) {
+ciDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -177,7 +177,7 @@ ciDifference.bss <- function(CompStats,conf.level=.95,...) {
   return(results)
 }
 
-ciDifference.default <- function(...,conf.level=.95) {
+ciDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   CompStats <- descData(...)
   class(CompStats) <- "wss"
   CorrStats <- corrData(...)
@@ -185,7 +185,7 @@ ciDifference.default <- function(...,conf.level=.95) {
   return(results)
 }
 
-ciDifference.formula <- function(formula,conf.level=.95,...) {
+ciDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   CompStats <- descData(formula)
   class(CompStats) <- "bss"
   results <- ciDifference(CompStats,conf.level=conf.level)
@@ -204,7 +204,7 @@ estimateDifference <- function(...,digits=3) {
 ciContrast <- function(...) 
   UseMethod("ciContrast")
 
-ciContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,...) {
+ciContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -221,7 +221,7 @@ ciContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,...) {
   return(results)
 }
 
-ciContrast.bss <- function(DescStats,contrast,conf.level=.95,...) {
+ciContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -239,7 +239,7 @@ ciContrast.bss <- function(DescStats,contrast,conf.level=.95,...) {
   return(results)
 }
 
-ciContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
+ciContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
   CorrStats <- corrData(...)
@@ -247,7 +247,7 @@ ciContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
   return(results)
 }
 
-ciContrast.formula <- function(formula,contrast,conf.level=.95,...) {
+ciContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
   results <- ciContrast(DescStats,contrast,conf.level=conf.level)
@@ -267,7 +267,7 @@ estimateContrast <- function(...,digits=3) {
 nhstMeans <- function(...) 
   UseMethod("nhstMeans")
   
-nhstMeans.wss <- nhstMeans.bss <- function(DescStats,mu=0,...) {
+nhstMeans.wss <- nhstMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SE <- DescStats[,"SD"]/sqrt(N)
@@ -280,14 +280,14 @@ nhstMeans.wss <- nhstMeans.bss <- function(DescStats,mu=0,...) {
   return(results)
 }
 
-nhstMeans.default <- function(...,mu=0) {
+nhstMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
   results <- nhstMeans(DescStats,mu=mu)
   return(results)
 }
 
-nhstMeans.formula <- function(formula,mu=0,...) {
+nhstMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
   results <- nhstMeans(DescStats,mu=mu)
@@ -305,7 +305,7 @@ testMeans <- function(...,digits=3) {
 nhstDifference <- function(...) 
   UseMethod("nhstDifference")
   
-nhstDifference.wss <- function(CompStats,CorrStats,mu=0,...) {
+nhstDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -323,7 +323,7 @@ nhstDifference.wss <- function(CompStats,CorrStats,mu=0,...) {
   return(results)
 }
 
-nhstDifference.bss <- function(CompStats,mu=0,...) {
+nhstDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -338,7 +338,7 @@ nhstDifference.bss <- function(CompStats,mu=0,...) {
   return(results)
 }
 
-nhstDifference.default <- function(...,mu=0) {
+nhstDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   CompStats <- descData(...)
   class(CompStats) <- "wss"
   CorrStats <- corrData(...)
@@ -346,7 +346,7 @@ nhstDifference.default <- function(...,mu=0) {
   return(results)
 }
 
-nhstDifference.formula <- function(formula,mu=0,...) {
+nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   CompStats <- descData(formula)
   class(CompStats) <- "bss"
   results <- nhstDifference(CompStats,mu=mu)
@@ -364,7 +364,7 @@ testDifference <- function(...,digits=3) {
 nhstContrast <- function(...) 
   UseMethod("nhstContrast")
   
-nhstContrast.bss <- function(DescStats,contrast,mu=0,...) {
+nhstContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   N=DescStats[,"N"]
   M=DescStats[,"M"]
   SD=DescStats[,"SD"]
@@ -381,7 +381,7 @@ nhstContrast.bss <- function(DescStats,contrast,mu=0,...) {
   return(results)
 }
 
-nhstContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,...) {
+nhstContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -397,7 +397,7 @@ nhstContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,..
   return(results)
 }
 
-nhstContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
+nhstContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
   CorrStats <- corrData(...)
@@ -405,7 +405,7 @@ nhstContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
   return(results)
 }
 
-nhstContrast.formula <- function(formula,contrast,mu=0,...) {
+nhstContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
   results <- nhstContrast(DescStats,contrast,mu=mu)
@@ -425,7 +425,7 @@ testContrast<-function(...,digits=3) {
 smdMeans <- function(...) 
   UseMethod("smdMeans")
   
-smdMeans.wss <- smdMeans.bss <- function(DescStats,mu=0,conf.level=.95,...) {
+smdMeans.wss <- smdMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -461,14 +461,14 @@ smdMeans.wss <- smdMeans.bss <- function(DescStats,mu=0,conf.level=.95,...) {
   return(results)
 }
 
-smdMeans.default <- function(...,mu=0,conf.level=.95) {
+smdMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
   results <- smdMeans(DescStats,mu=mu,conf.level=conf.level)
   return(results)
 }
 
-smdMeans.formula <- function(formula,mu=0,conf.level=.95,...) {
+smdMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
   results <- smdMeans(DescStats,mu=mu,conf.level=conf.level)
@@ -486,7 +486,7 @@ standardizeMeans <- function(...,digits=3){
 smdDifference <- function(...) 
   UseMethod("smdDifference")
 
-smdDifference.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
+smdDifference.wss <- function(DescStats,CorrStats,mu=0,conf.level=.95,rope=NULL,...) {
   CompStats <- DescStats[1:2,]
   N <- min(CompStats[1:2,"N"])
   M <- CompStats[1:2,"M"]
@@ -509,7 +509,7 @@ smdDifference.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
   return(results)
 }
 
-smdDifference.bss <- function(DescStats,contrast,conf.level=.95,...) {
+smdDifference.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   CompStats <- DescStats[1:2,]
   N <- CompStats[1:2,"N"]
   M <- CompStats[1:2,"M"]
@@ -528,7 +528,7 @@ smdDifference.bss <- function(DescStats,contrast,conf.level=.95,...) {
   return(results)
 }
 
-smdDifference.default <- function(...,conf.level=.95) {
+smdDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   CompStats <- descData(...)
   class(CompStats) <- "wss"
   CorrStats <- corrData(...)
@@ -536,7 +536,7 @@ smdDifference.default <- function(...,conf.level=.95) {
   return(results)
 }
 
-smdDifference.formula <- function(formula,contrast,conf.level=.95,...) {
+smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
   results <- smdDifference(DescStats,contrast,conf.level=conf.level)
@@ -554,7 +554,7 @@ standardizeDifference <- function(...,digits=3) {
 smdContrast <- function(...) 
   UseMethod("smdContrast")
 
-smdContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,...) {
+smdContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -578,7 +578,7 @@ smdContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,...) {
   return(results)
 }
 
-smdContrast.bss <- function(DescStats,contrast,conf.level=.95,...) {
+smdContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -599,7 +599,7 @@ smdContrast.bss <- function(DescStats,contrast,conf.level=.95,...) {
   return(results)
 }
 
-smdContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
+smdContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
   CorrStats <- corrData(...)
@@ -607,7 +607,7 @@ smdContrast.default <- function(...,contrast,mu=0,conf.level=.95) {
   return(results)
 }
 
-smdContrast.formula <- function(formula,contrast,conf.level=.95,...) {
+smdContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
   results <- smdContrast(DescStats,contrast,conf.level=conf.level)
