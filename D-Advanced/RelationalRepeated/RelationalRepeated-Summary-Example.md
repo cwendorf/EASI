@@ -25,9 +25,9 @@ L2 <- c(N=10,M=71.000,SD=5.375)
 L3 <- c(N=10,M=72.500,SD=4.859)
 L4 <- c(N=10,M=76.000,SD=6.583)
 L5 <- c(N=10,M=65.500,SD=4.972)
-WendorfSummary <- rbind(L1,L2,L3,L4,L5)
-class(WendorfSummary) <- "wss"
-WendorfSummary
+RelationalRepeatedSummary <- rbind(L1,L2,L3,L4,L5)
+class(RelationalRepeatedSummary) <- "wss"
+RelationalRepeatedSummary
 ```
 ```
     N    M    SD
@@ -41,13 +41,13 @@ attr(,"class")
 ```
 
 ```r
-WendorfCorr <- declareCorrMatrix("L1","L2","L3","L4","L5")
-WendorfCorr["L1",] <- c(1.000,0.362,-0.106,0.216,0.702)
-WendorfCorr["L2",] <- c(0.362,1.000,0.425,0.879,0.062)
-WendorfCorr["L3",] <- c(-0.106,0.425,1.000,0.521,-0.287)
-WendorfCorr["L4",] <- c(0.216,0.879,0.521,1.000,-0.102)
-WendorfCorr["L5",] <- c(0.702,0.062,-0.287,-0.102,1.000)
-WendorfCorr
+RelationalRepeatedCorr <- declareCorrMatrix("L1","L2","L3","L4","L5")
+RelationalRepeatedCorr["L1",] <- c(1.000,0.362,-0.106,0.216,0.702)
+RelationalRepeatedCorr["L2",] <- c(0.362,1.000,0.425,0.879,0.062)
+RelationalRepeatedCorr["L3",] <- c(-0.106,0.425,1.000,0.521,-0.287)
+RelationalRepeatedCorr["L4",] <- c(0.216,0.879,0.521,1.000,-0.102)
+RelationalRepeatedCorr["L5",] <- c(0.702,0.062,-0.287,-0.102,1.000)
+RelationalRepeatedCorr
 ```
 ```
        L1    L2     L3     L4     L5
@@ -61,7 +61,7 @@ L5  0.702 0.062 -0.287 -0.102  1.000
 ### Relational Intervals
 
 ```r
-estimateRelational(WendorfSummary,WendorfCorr)
+estimateRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
 ```
 ```
 CONFIDENCE AND RELATIONAL INTERVALS FOR THE MEANS
@@ -75,18 +75,18 @@ L5 65.5 61.943 69.057 63.469 67.531
 ```
 
 ```r
-plotMeans(WendorfSummary) # RelationalRepeated-Figure1.jpeg
+plotMeans(RelationalRepeatedSummary) # RelationalRepeated-Figure1.jpeg
 ```
 <kbd><img src="RelationalRepeated-Figure1.jpeg"></kbd>
 ```r
-addRelational(WendorfSummary,WendorfCorr)# RelationalRepeated-Figure2.jpeg
+addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)# RelationalRepeated-Figure2.jpeg
 ```
 <kbd><img src="RelationalRepeated-Figure2.jpeg"></kbd>
 ```r
-plotRelational(WendorfSummary,WendorfCorr) # RelationalRepeated-Figure4.jpeg
+plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr) # RelationalRepeated-Figure4.jpeg
 ```
 <kbd><img src="RelationalRepeated-Figure4.jpeg"></kbd>
 ```r
-plotRelational(WendorfSummary,WendorfCorr,conf.level=.99,mu=70) # RelationalRepeated-Figure5.jpeg
+plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70) # RelationalRepeated-Figure5.jpeg
 ```
 <kbd><img src="RelationalRepeated-Figure5.jpeg"></kbd>

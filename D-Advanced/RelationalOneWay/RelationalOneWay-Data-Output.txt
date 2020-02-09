@@ -12,8 +12,8 @@
 > Factor <- c(rep(1,10),rep(2,10),rep(3,10),rep(4,10),rep(5,10))
 > Outcome <- c(61,64,72,64,64,70,73,65,65,72,69,74,79,69,64,64,69,69,74,79,70,75,80,80,70,65,70,75,70,70,70,80,85,75,70,65,75,75,85,80,65,55,70,65,65,70,70,60,65,70)
 > Factor <- factor(Factor,levels=c(1,2,3,4,5),labels=c("L1","L2","L3","L4","L5"))
-> WendorfData <- data.frame(Factor,Outcome)
-> WendorfData
+> RelationalOneWayData <- data.frame(Factor,Outcome)
+> RelationalOneWayData
    Factor Outcome
 1      L1      61
 2      L1      64
@@ -72,12 +72,12 @@
 
 CONFIDENCE AND RELATIONAL INTERVALS FOR THE MEANS
 
-      M  CI.LL  CI.UL  RI.LL  RI.UL
-L1 67.0 63.928 70.072 64.625 69.375
-L2 71.0 67.155 74.845 68.625 73.375
-L3 72.5 69.024 75.976 70.125 74.875
-L4 76.0 71.291 80.709 73.625 78.375
-L5 65.5 61.943 69.057 63.125 67.875
+         M   CI.LL   CI.UL   RI.LL   RI.UL
+L1  67.000  63.928  70.072  64.625  69.375
+L2  71.000  67.155  74.845  68.625  73.375
+L3  72.500  69.024  75.976  70.125  74.875
+L4  76.000  71.291  80.709  73.625  78.375
+L5  65.500  61.943  69.057  63.125  67.875
 
 > 
 > plotMeans(Outcome~Factor) # RelationalOneWay-Figure1.jpeg

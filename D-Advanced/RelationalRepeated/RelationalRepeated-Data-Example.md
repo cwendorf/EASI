@@ -25,8 +25,8 @@ L2 <- c(69,74,79,69,64,64,69,69,74,79)
 L3 <- c(70,75,80,80,70,65,70,75,70,70)
 L4 <- c(70,80,85,75,70,65,75,75,85,80)
 L5 <- c(65,55,70,65,65,70,70,60,65,70)
-WendorfData <- data.frame(L1,L2,L3,L4,L5)
-WendorfData
+RelationalRepeatedData <- data.frame(L1,L2,L3,L4,L5)
+RelationalRepeatedData
 ```
 ```
    L1 L2 L3 L4 L5

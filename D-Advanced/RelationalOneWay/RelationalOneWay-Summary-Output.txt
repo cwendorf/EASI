@@ -14,9 +14,9 @@
 > L3 <- c(N=10,M=72.500,SD=4.859)
 > L4 <- c(N=10,M=76.000,SD=6.583)
 > L5 <- c(N=10,M=65.500,SD=4.972)
-> WendorfSummary <- rbind(L1,L2,L3,L4,L5)
-> class(WendorfSummary) <- "bss"
-> WendorfSummary
+> RelationalOneWaySummary <- rbind(L1,L2,L3,L4,L5)
+> class(RelationalOneWaySummary) <- "bss"
+> RelationalOneWaySummary
     N    M    SD
 L1 10 67.0 4.295
 L2 10 71.0 5.375
@@ -28,22 +28,21 @@ attr(,"class")
 > 
 > ### Relational Intervals
 > 
-> estimateRelational(WendorfSummary)
+> estimateRelational(RelationalOneWaySummary)
 
 CONFIDENCE AND RELATIONAL INTERVALS FOR THE MEANS
 
-      M  CI.LL  CI.UL  RI.LL  RI.UL
-L1 67.0 63.928 70.072 64.625 69.375
-L2 71.0 67.155 74.845 68.625 73.375
-L3 72.5 69.024 75.976 70.125 74.875
-L4 76.0 71.291 80.709 73.625 78.375
-L5 65.5 61.943 69.057 63.125 67.875
+         M   CI.LL   CI.UL   RI.LL   RI.UL
+L1  67.000  63.928  70.072  64.625  69.375
+L2  71.000  67.155  74.845  68.625  73.375
+L3  72.500  69.024  75.976  70.125  74.875
+L4  76.000  71.291  80.709  73.625  78.375
+L5  65.500  61.943  69.057  63.125  67.875
 
 > 
-> plotMeans(WendorfSummary) # RelationalOneWay-Figure1.jpeg
-> addRelational(WendorfSummary) # RelationalOneWay-Figure2.jpeg
+> plotMeans(RelationalOneWaySummary) # RelationalOneWay-Figure1.jpeg
+> addRelational(RelationalOneWaySummary) # RelationalOneWay-Figure2.jpeg
 > 
-> plotRelational(WendorfSummary) # RelationalOneWay-Figure4.jpeg
-> plotRelational(WendorfSummary,conf.level=.99,mu=70) # RelationalOneWay-Figure5.jpeg
-> 
+> plotRelational(RelationalOneWaySummary) # RelationalOneWay-Figure4.jpeg
+> plotRelational(RelationalOneWaySummary,conf.level=.99,mu=70) # RelationalOneWay-Figure5.jpeg
 > 
