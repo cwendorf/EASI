@@ -679,17 +679,18 @@ plotContrastBy.formula <- function(formula,by,contrast,ylab="Outcome",xlab="",ro
 
 #### Basic Confidence Interval Plot Functions
 
-cipMeansMulti <- function(results,main,ylab,xlab) {
+cipMeansMulti <- function(results,main,ylab,xlab,col) {
   ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x,x["LL"])))))-2
   ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x,x["UL"])))))+2
   ylimrange <- range(c(ylimmin,ylimmax))
-  xlimrange=c(.5,nrow(results[[1]])+.5)
-  plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=xlimrange,ylim=ylimrange,ylab=ylab,xlab="",main=main,bty="l")
+  xlimrange <- c(.5,nrow(results[[1]])+.5)
+  plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=xlimrange,ylim=ylimrange,ylab=ylab,xlab=xlab,cex.lab=1.3,main=main,bty="l")
   axis(1, 1:nrow(results[[1]]), row.names(results[[1]])) 
   for (i in 1:length(results)) {
-    points(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,2],cex=1.5,pch=15,bty="l")
-    for (j in 1:nrow(results[[i]])) {lines(x=c(j+(i-(length(results)+1)/2)*.15,j+(i-(length(results)+1)/2)*.15),y=c(results[[i]][,5][j],results[[i]][,6][j]),lwd=2)}
-    if(class(results)=="wss") lines(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,2],bty="l")
+    if(length(col)==1) {tempcol=col} else {tempcol=col[i]}
+    for (j in 1:nrow(results[[i]])) {lines(x=c(j+(i-(length(results)+1)/2)*.15,j+(i-(length(results)+1)/2)*.15),y=c(results[[i]][,5][j],results[[i]][,6][j]),lwd=2,col=tempcol)}
+    points(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,2],cex=1.5,pch=15,bty="l",col=tempcol)
+    if(class(results)=="wss") lines(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,2],bty="l",col=tempcol)
   }
 }
 
@@ -698,29 +699,29 @@ cipMeansMulti <- function(results,main,ylab,xlab) {
 plotMeansMulti <- function(...) 
   UseMethod("plotMeansMulti")
 
-plotMeansMulti.wss <- function(ListDescStats,ylab="Outcome",xlab="",...) {
+plotMeansMulti.wss <- function(ListDescStats,ylab="Outcome",xlab="",col="black") {
   main="Confidence Intervals for the Means"
-  results <- ciMeansBy(ListDescStats,...)
-  cipMeansMulti(results,main,ylab=ylab,xlab=xlab)
+  results <- ciMeansBy(ListDescStats)
+  cipMeansMulti(results,main,ylab=ylab,xlab=xlab,col=col)
 }
 
-plotMeansMulti.default <- function(...,by,ylab="Outcome",xlab="",conf.level=.95) {
+plotMeansMulti.bss <- function(ListDescStats,ylab="Outcome",xlab="",col="black") {
+  main="Confidence Intervals for the Means"
+  results <- ciMeansBy(ListDescStats)
+  cipMeansMulti(results,main,ylab=ylab,xlab=xlab,col=col)
+}
+
+plotMeansMulti.default <- function(...,by,ylab="Outcome",xlab="",conf.level=.95,col="black") {
   main="Confidence Intervals for the Means"
   results <- ciMeansBy(...,by=by,conf.level=conf.level)
   class(results) <- "wss"
-  cipMeansMulti(results,main,ylab=ylab,xlab=xlab)
+  cipMeansMulti(results,main,ylab=ylab,xlab=xlab,col=col)
 }
 
-plotMeansMulti.bss <- function(ListDescStats,ylab="Outcome",xlab="",...) {
+plotMeansMulti.formula <- function(formula,by,ylab="Outcome",xlab="",conf.level=.95,col="black") {
   main="Confidence Intervals for the Means"
-  results <- ciMeansBy(ListDescStats,...)
-  cipMeansMulti(results,main,ylab=ylab,xlab=xlab)
-}
-
-plotMeansMulti.formula <- function(formula,by,ylab="Outcome",xlab="",...) {
-  main="Confidence Intervals for the Means"
-  results <- ciMeansBy(formula,by=by,...)
+  results <- ciMeansBy(formula,by=by,conf.level=conf.level)
   class(results) <- "bss"
-  cipMeansMulti(results,main,ylab=ylab,xlab=xlab)
+  cipMeansMulti(results,main,ylab=ylab,xlab=xlab,col=col)
 }
 
