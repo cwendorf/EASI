@@ -680,8 +680,8 @@ plotContrastBy.formula <- function(formula,by,contrast,ylab="Outcome",xlab="",ro
 #### Basic Confidence Interval Plot Functions
 
 cipMeansMulti <- function(results,main,ylab,xlab,col) {
-  ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x,x["LL"])))))-2
-  ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x,x["UL"])))))+2
+  ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x["LL"])))))-1
+  ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x["UL"])))))+1
   ylimrange <- range(c(ylimmin,ylimmax))
   xlimrange <- c(.5,nrow(results[[1]])+.5)
   plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=xlimrange,ylim=ylimrange,ylab=ylab,xlab=xlab,cex.lab=1.3,main=main,bty="l")

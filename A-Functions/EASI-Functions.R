@@ -677,7 +677,7 @@ addData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
 cipMeans <- function(results,main,ylab,xlab,mu,rope,values,digits) {
   ylimrange <- range(pretty(c(floor(min(results[,"LL"]-.4)),ceiling(max(results[,"UL"])+.4))))
   plot(results[,"M"],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
-  axis(1, 1:nrow(results), row.names(results))
+  axis(1,1:nrow(results),row.names(results))
   results <- formatFrame(results,digits=digits)
   for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,"LL"][i],results[,"UL"][i]),lwd=2)
   if(values) {
