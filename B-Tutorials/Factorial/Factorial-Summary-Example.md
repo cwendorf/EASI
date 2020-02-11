@@ -35,7 +35,7 @@ A3 4 7 2.449
 attr(,"class")
 [1] "bss"
 ```
-And repeat the analysis for the second subset.
+And repeat the process to create the second subset.
 ```r
 A1 <- c(N=4,M=4.000,SD=2.449)
 A2 <- c(N=4,M=4.000,SD=2.449)

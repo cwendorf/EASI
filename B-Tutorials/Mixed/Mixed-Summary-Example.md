@@ -51,7 +51,7 @@ Outcome2    0.500    1.000    0.889
 Outcome3    0.389    0.889    1.000
 ```
 
-And repeat for the second subset.
+And repeat the process to create the second subset.
 ```r
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
 Outcome2 <- c(N=4,M=6.000,SD=2.449)
