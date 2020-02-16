@@ -1,39 +1,90 @@
-# Estimation Approach to Statistical Inference
+<img src="logo.png" height="60px;" align="left;">
 
-[**Functions**](./A-Functions) | 
-[**Tutorials**](./B-Tutorials) | 
-[**Examples**](./C-Examples) | 
-[**Advanced**](./D-Advanced)
+# Estimation Approach to Statistical Inference
+**The R Package Dev Version of EASI**
 
 ---
 
-## Overview of EASI
+### Overview
 
-### Basic Features of EASI
+The EASI functions were written to represent four basic categories of analyses:
 
-EASI is a set of fast and flexible scripts for R that implement features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Statistics on Wikipedia") (or the ["new statistics"](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")). These functions calculate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. Functions and extensions are available for between- and within-subjects single-factor, factorial, and mixed designs and can take either raw data or summary statistics as input. Numerous tutorials and other examples from textbooks are available.
+- _estimate_ (`estimateMeans`,`estimateDifference`, and `estimateContrast` functions that estimate confidence intervals for means, mean differences, and contrasts respectively)
+- _plot_ (`plotMeans`, `plotDifference`, and `plotContrast` functions that plot confidence intervals for means, mean differences, and contrasts respectively)
+- _test_ (`testMeans`, `testDifference`, and `testContrast` functions that calculate NHST for means, mean differences, and contrasts respectively)
+- _standardize_ (`standardizeMeans`, `standardizeDifference`, and `standardizeContrast` functions that calculate confidence intervals for standardized effect sizes for individual means, mean differences, and contrasts respectively)
 
-### Uses of EASI
+### Installation
 
-First, EASI can be used to calculate and plot confidence intervals for the means of groups (in a between-subjects design) or instances of a variable (in a within-subjects design).
+This package is not currently on CRAN, but can be installed directly from this repository.
 
-<p align="center"><kbd><img src="easiMeans.jpg"></kbd></p>
+``` r
+install.packages("devtools")
+devtools::install_github("cwendorf/EASI-R",build=FALSE)
+library(EASI)
+```
 
-Second, EASI can be used to calculate and plot confidence intervals of mean differences and mean contrasts for independent groups (between-subjects design) or paired means (within-subjects designs).  
+### Usage
 
-<p align="center"><kbd><img src="easiDifference.jpg"></kbd></p>
+For a simple two-group study, the four categories of functions can be called as follows:
 
-Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparions among the groups and variables. 
+```r
+# Load and Attach Independent Sample Data for Use
+data(IndependentData)
+attach(IndependentData)
+```
 
-### Materials Available on this Site
+```r
+# Estimate Means and Confidence Intervals for the Levels of the Factor
+estimateMeans(Outcome~Factor)
+#> 
+#> CONFIDENCE INTERVALS FOR THE MEANS
+#> 
+#>              N       M      SD      SE      LL      UL
+#> Level1   4.000   2.000   2.449   1.225  -1.898   5.898
+#> Level2   4.000   6.000   2.449   1.225   2.102   9.898
+#> 
+# Estimate the Mean Difference and Its Confidence Interval
+estimateDifference(Outcome~Factor)
+#> 
+#> CONFIDENCE INTERVAL FOR THE COMPARISON
+#> 
+#>               Diff      SE      df      LL      UL
+#> Comparison   4.000   1.732   6.000  -0.238   8.238
+#> 
+```
 
-This site includes the basic functions and extensions of EASI, along with numerous example showing how to use the functions.
+```r
+# Plot the Means, Mean Difference, and Associated Confidence Intervals
+plotDifference(Outcome~Factor)
+```
+<kbd><img src="vignettes/IndependentFigure3.jpeg"></kbd>
 
-- [**Functions**](./A-Functions): Contains the basic functions and extensions that can be "installed" (sourced) in R in order to run the analyses
-- [**Tutorials**](./B-Tutorials): Contains between-subjects and within-subjects tutorials that highlight the basic functions
-- [**Examples**](./C-Examples): Contains between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
-- [**Advanced**](./D-Advanced): Contains advanced applications and additional examples of the functions and extensions
+```r
+# Conduct NHST on the Mean Difference
+testDifference(Outcome~Factor)
+#> 
+#> HYPOTHESIS TEST FOR THE COMPARISON
+#> 
+#>               Diff      SE       t      df       p
+#> Comparison   4.000   1.732   2.309   6.000   0.060
+#> 
+```
 
-### How to Cite
+```r
+# Calculate Cohen's d and Its Confidence Interval
+standardizeDifference(Outcome~Factor)
+#> 
+#> CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+#> 
+#>                Est      SE      LL      UL
+#> Comparison   1.633   0.943  -0.215   3.481
+#> 
+```
 
-Wendorf, C.A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Code]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
+Complete examples of all functions are available here:  
+[https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
+
+### Getting Help
+
+If you have any issues, please post a minimal reproducible example here on [github](https://github.com/cwendorf/EASI-R/issues). For other correspondence, contact me at [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu).
