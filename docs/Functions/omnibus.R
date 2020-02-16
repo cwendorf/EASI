@@ -1,10 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Extension for Conducting Omnibus (Analysis of Variance) Analyses
 
-### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF EASI-FUNCTIONS INTO R
-
-### Omnibus Function
+### Omnibus Functions
 
 descOmnibus <- function(...) 
   UseMethod("descOmnibus")
