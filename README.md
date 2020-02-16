@@ -1,6 +1,6 @@
 # <img src="logo.png" height="60px;" align="left;">
 
-**Estimation Approach to Statistical Inference**
+## Estimation Approach to Statistical Inference
 
 ---
 
