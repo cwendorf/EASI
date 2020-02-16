@@ -20,7 +20,7 @@ This package is not currently on CRAN, but can be installed directly from this r
 
 ``` r
 install.packages("devtools")
-devtools::install_github("cwendorf/EASI-R",build=FALSE)
+devtools::install_github("cwendorf/EASI",build=FALSE)
 library(EASI)
 ```
 
