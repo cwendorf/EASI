@@ -1,10 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Paired Samples Tutorial with Data
 
-### Source the EASI Functions
-
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-
 ### Enter Data
 
 Outcome1 <- c(0,0,3,5)

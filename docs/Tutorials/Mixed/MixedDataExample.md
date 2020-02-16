@@ -9,13 +9,6 @@
 
 ## Mixed Design Tutorial with Data
 
-### Source the EASI Functions
-
-This code imports all of the EASI functions, making them available for analyses.
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-```
-
 ### Enter Data
 
 This code inputs the variable names and creates a viewable data frame.

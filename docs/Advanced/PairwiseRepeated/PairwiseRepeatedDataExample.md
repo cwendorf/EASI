@@ -9,13 +9,6 @@
 
 ## Pairwise Comparisons - Repeated (Within-Subjects) Tutorial with Data
 
-### Source the EASI Functions and Extensions
-
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Pairwise-Extension.R")
-```
-
 ### Enter Data
 
 ```r

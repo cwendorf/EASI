@@ -1,12 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Relational Intervals - OneWay (Between-Subjects) Example with Wendorf Data
 
-### Source the EASI Functions
-
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Omnibus-Extension.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Relational-Extension.R")
-
 ### Enter Data
 
 Factor <- c(rep(1,10),rep(2,10),rep(3,10),rep(4,10),rep(5,10))

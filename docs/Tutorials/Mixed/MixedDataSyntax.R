@@ -1,10 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Mixed Design Tutorial with Data
 
-### Source the EASI Functions
-
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-
 ### Enter Data
 
 Factor <- c(1,1,1,1,2,2,2,2)

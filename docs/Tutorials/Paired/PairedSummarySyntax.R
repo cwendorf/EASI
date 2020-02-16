@@ -1,10 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Paired Samples Tutorial with Summary Statistics
 
-### Source the EASI Functions
-
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-
 ### Enter Summary Statistics
 
 Outcome1 <- c(N=4,M=2.000,SD=2.449)

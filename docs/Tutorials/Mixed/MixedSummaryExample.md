@@ -9,13 +9,6 @@
 
 ## Mixed Design Tutorial with Summary Statistics
 
-### Source the EASI Functions
-
-This code imports all of the EASI functions, making them available for analyses.
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-```
-
 ### Enter Summary Statistics
 
 This code inputs the variable summaries and creates a summary table.

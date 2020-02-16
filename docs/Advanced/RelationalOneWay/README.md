@@ -17,6 +17,14 @@ The **RelationalOneWay** files analyze an example of relational intervals for a 
 - Addition of Relational Intervals for Comparisons (intervals suitable for making pairwise comparisons among levels of a factor)
 - Addition of Data to Plots (raw data plots next to confidence and relational intervals)
 
+### Source the Extensions
+
+If the EASI package is not installed, the necessary extensions can be sourced by pasting the following lines into R:
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/omnibusExtension.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/relationalExtension.R")
+```
+
 ### Details of this Example
  
 [_**RelationalOneWayDataExample.md**_](./RelationalOneWayDataExample.md) combines the following files to describe the analyses using raw data input:

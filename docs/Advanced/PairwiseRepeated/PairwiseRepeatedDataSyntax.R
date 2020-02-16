@@ -1,11 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Pairwise Comparisons - Repeated (Within-Subjects) Tutorial with Data
 
-### Source the EASI Functions and the Extension
-
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Pairwise-Extension.R")
-
 ### Enter Data
 
 Outcome1 <- c(0,0,3,5)

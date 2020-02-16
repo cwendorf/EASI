@@ -1,11 +1,6 @@
 > # Estimation Approach to Statistical Inference
 > ## FactorialBy - Factorial (Between-Subjects) Tutorial with Data
 > 
-> ### Source the EASI Functions and the Extension
-> 
-> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-By-Extension.R")
-> 
 > ### Enter Data
 > 
 > FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)

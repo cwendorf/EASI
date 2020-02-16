@@ -1,10 +1,6 @@
 > # Estimation Approach to Statistical Inference
 > ## One Sample Tutorial with Summary Statistics
 > 
-> ### Source the EASI Functions
-> 
-> source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-> 
 > ### Enter Summary Statistics
 > 
 > Outcome <- c(N=8,M=4.000,SD=3.117)

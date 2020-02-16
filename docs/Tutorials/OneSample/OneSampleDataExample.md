@@ -9,13 +9,6 @@
 
 ## One Sample Tutorial with Data
 
-### Source the EASI Functions
-
-This code imports all of the EASI functions, making them available for analyses.
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-```
-
 ### Enter Data
 
 This code inputs the variable name and creates a viewable data frame.

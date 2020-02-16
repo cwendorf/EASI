@@ -17,6 +17,13 @@ The **FactorialBy** files analyze an example of a a factorial (between-subjects)
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor, separately at levels of the second factor)
 - Analyses of a Group Contrast (equivalent to a contrast analysis of all levels of a factor, separately at levels of the second factor)
 
+### Source the Extension
+
+If the EASI package is not installed, the necessary extension can be sourced by pasting the following line into R:
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/byExtension.R")
+```
+
 ### Details of this Example
  
 [_**FactorialByDataExample.md**_](./FactorialByDataExample.md) combines the following files to describe the analyses using raw data input:

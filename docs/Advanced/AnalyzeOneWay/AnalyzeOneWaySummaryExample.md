@@ -9,13 +9,6 @@
 
 ## Analyze - OneWay (Between-Subjects) Tutorial with Summary Statistics
 
-### Source the EASI Functions and the Extension
-
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Analyze-Extension.R")
-```
-
 ### Enter Summary Statistics
 
 ```r

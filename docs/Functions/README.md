@@ -9,50 +9,47 @@
 
 ## About the EASI Functions
 
-### Installation of Basic Functions
+### Installation of Functions
 
-**_easiFunctions.R_** incorporates all of the functions that constitute the original vision of EASI. The EASI functions were written to represent four basic categories of analyses:
+This package is not currently on CRAN, but can be installed directly from this repository by pasting the following lines into R.
+
+``` r
+install.packages("devtools")
+devtools::install_github("cwendorf/EASI",build=FALSE)
+library(EASI)
+```
+
+Alternatively, pasting the following line into R will automatically make the most current versions of the basic functions available for use.
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
+```
+
+For some analyses, [extensions are needed](./Extensions.md).
+
+### Summary of the Functions
+
+The basic EASI functions represent four basic categories of analyses:
 
 - _estimate_ (`estimateMeans`,`estimateDifference`, and `estimateContrast` functions that estimate confidence intervals for means, mean differences, and contrasts respectively)
 - _plot_ (`plotMeans`, `plotDifference`, and `plotContrast` functions that plot confidence intervals for means, mean differences, and contrasts respectively)
 - _test_ (`testMeans`, `testDifference`, and `testContrast` functions that calculate NHST for means, mean differences, and contrasts respectively)
 - _standardize_ (`standardizeMeans`, `standardizeDifference`, and `standardizeContrast` functions that calculate confidence intervals for standardized effect sizes for individual means, mean differences, and contrasts respectively)
 
-These functions are not currently on CRAN or compiled as a package, but you can install the complete and current version of it by pasting the following line into R. The functions will automatically be available for use in analyses.
+### Technical Details
 
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
-```
+For means, mean Differences, and mean contrasts:
 
-### Installation of Available Extensions
+- Confidence intervals are calculated independent of each other (i.e., they are not simultaneous)
+- No alpha adjustments for multiple intervals have been made
+- All calculations assume heterogenity of variance (see Keppel & Wickens, 2004)
 
-EASI extentions are files that extend the functions beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
+For standardized effect sizes:
 
-**_analyzeExtension.R_** (`analyzeMeans`, `analyzeDifference`, and `analyzeContrast` wrappers that combine the estimate, plot, test, and standardize functions for single-factor between- and within-subjects designs)
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/analyzeExtension.R")
-```
+- All effect sizes are calculated as standardized comparisons (Cohen's d) or as standardized contrasts (see Bonett, 2008)
+- Confidence intervals for standardized comparisons and contrasts are based on Bonett (2008)
 
-**_omnibusExtension.R_** (`describeOmnibus` functions that provide analysis of variance source tables for single-factor between- and within-subjects designs)
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/omnibusExtension.R")
-```
+### References
 
-**_pairwiseExtension.R_** (`estimatePairwise`, `plotPairwise`, `testPairwise`, and `standardizePairwise` functions that produce unadjusted paiwise comparisons for single-factor between- and within-subjects designs)
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/pairwiseExtension.R")
-```
+Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. _Psychological Methods_, _13_(2), 99-109.
 
-**_relationalExtension.R_** (`estimateRelational` and `plotRelational` functions that produce functions that provide arelational (standard) and relational (comparative) intervals for single-factor between- and within-subjects designs)
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/relationalExtension.R")
-```
-
-**_byExtension.R_** (`estimateMeansBy`, `estimateDifferenceBy`, `estimateContrastBy`, `plotMeansBy`, `plotDifferenceBy`, `plotContrastBy`, `testMeansBy`, `testDifferenceBy`, `testContrastBy`, `standardizeMeansBy`, `standardizeDifferenceBy`, and `standardizeContrastBy` functions that apply the estimate, plot, test, and standardize function across levels of the second factor in a two-factor between-subjects or a mixed factorial design -- available only for data input and not summary statistics input)
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/byExtension.R")
-```
-
-### Futher Reading
-
-> [Technical Details](./TechnicalDetails.md) of the calculations used in EASI are available.
+Keppel, G., & Wickens, T. D. (2004). _Design and analysis: A researcher's handbook._ Pearson Education.

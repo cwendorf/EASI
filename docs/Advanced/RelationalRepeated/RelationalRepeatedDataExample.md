@@ -9,14 +9,6 @@
 
 ## Relational Intervals - Repeated (Within-Subjects) Example with Wendorf Data
 
-### Source the EASI Functions
-
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Omnibus-Extension.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Relational-Extension.R")
-```
-
 ### Enter Data
 
 ```r

@@ -1,10 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Independent Groups Tutorial with Data
 
-### Source the EASI Functions
-
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-
 ### Enter Data
 
 Factor <- c(rep(1,4),rep(2,4))
