@@ -1,19 +1,18 @@
-<img src="logo.png" height="60px;" align="left;">
+<img src="docs/logo.png" height="60px;" align="left;">
 
 # Estimation Approach to Statistical Inference
 
-[**https://cwendorf.github.io/EASI/**](https://cwendorf.github.io/EASI/)
+**Main Site: [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)**
 
 ---
 
 ### Overview
 
-The EASI functions were written to represent four basic categories of analyses:
+EASI is an R package that implements features of [estimation statistics](https://en.wikipedia.org/wiki/Estimation_statistics "Estimation Statistics on Wikipedia") (or the ["new statistics"](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")). Included functions calculate, test, and plot confidence intervals for means, mean differences, and mean contrasts for between- and within-subjects single-factor, factorial, and mixed designs and can take either raw data or summary statistics as input.
 
-- _estimate_ (`estimateMeans`,`estimateDifference`, and `estimateContrast` functions that estimate confidence intervals for means, mean differences, and contrasts respectively)
-- _plot_ (`plotMeans`, `plotDifference`, and `plotContrast` functions that plot confidence intervals for means, mean differences, and contrasts respectively)
-- _test_ (`testMeans`, `testDifference`, and `testContrast` functions that calculate NHST for means, mean differences, and contrasts respectively)
-- _standardize_ (`standardizeMeans`, `standardizeDifference`, and `standardizeContrast` functions that calculate confidence intervals for standardized effect sizes for individual means, mean differences, and contrasts respectively)
+<p align="center"><kbd><img src="docs/easiDifference.jpg"></kbd></p>
+
+Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparions among the groups and variables. 
 
 ### Installation
 
@@ -27,65 +26,9 @@ library(EASI)
 
 ### Usage
 
-For a simple two-group study, the four categories of functions can be called as follows:
-
-```r
-# Load and Attach Independent Sample Data for Use
-data(IndependentData)
-attach(IndependentData)
-```
-
-```r
-# Estimate Means and Confidence Intervals for the Levels of the Factor
-estimateMeans(Outcome~Factor)
-#> 
-#> CONFIDENCE INTERVALS FOR THE MEANS
-#> 
-#>              N       M      SD      SE      LL      UL
-#> Level1   4.000   2.000   2.449   1.225  -1.898   5.898
-#> Level2   4.000   6.000   2.449   1.225   2.102   9.898
-#> 
-# Estimate the Mean Difference and Its Confidence Interval
-estimateDifference(Outcome~Factor)
-#> 
-#> CONFIDENCE INTERVAL FOR THE COMPARISON
-#> 
-#>               Diff      SE      df      LL      UL
-#> Comparison   4.000   1.732   6.000  -0.238   8.238
-#> 
-```
-
-```r
-# Plot the Means, Mean Difference, and Associated Confidence Intervals
-plotDifference(Outcome~Factor)
-```
-<kbd><img src="vignettes/IndependentFigure3.jpeg"></kbd>
-
-```r
-# Conduct NHST on the Mean Difference
-testDifference(Outcome~Factor)
-#> 
-#> HYPOTHESIS TEST FOR THE COMPARISON
-#> 
-#>               Diff      SE       t      df       p
-#> Comparison   4.000   1.732   2.309   6.000   0.060
-#> 
-```
-
-```r
-# Calculate Cohen's d and Its Confidence Interval
-standardizeDifference(Outcome~Factor)
-#> 
-#> CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
-#> 
-#>                Est      SE      LL      UL
-#> Comparison   1.633   0.943  -0.215   3.481
-#> 
-```
-
 Complete examples of all functions are available here:  
 [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
 
 ### Getting Help
 
-If you have any issues, please post a minimal reproducible example here on [github](https://github.com/cwendorf/EASI-R/issues). For other correspondence, contact me at [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu).
+If you have any issues, please post a minimal reproducible example here on [github](https://github.com/cwendorf/EASI/issues). For other correspondence, contact me at [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu).
