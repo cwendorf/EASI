@@ -1,7 +1,6 @@
-<img src="logo.png" height="60px;" align="left;">
+# <img src="logo.png" height="60px;" align="left;">
 
-# Estimation Approach to Statistical Inference
-**The R Package Dev Version of EASI**
+**Estimation Approach to Statistical Inference**
 
 ---
 
