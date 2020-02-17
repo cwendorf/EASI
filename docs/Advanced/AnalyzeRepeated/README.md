@@ -17,10 +17,11 @@ The **AnalyzeRepeated** files analyze an example of a single-factor within-subje
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
 
-### Source the Extension
+### Source the Functions and Extension
 
-If the EASI package is not installed, the necessary extension can be sourced by pasting the following line into R:
+If the EASI package is not installed, the necessary functions and extension can be sourced by pasting the following lines into R:
 ```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/analyzeExtension.R")
 ```
 

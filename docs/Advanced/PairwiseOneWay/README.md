@@ -15,10 +15,11 @@ The **PairwiseOneWay** files analyze an example of a single-factor between-subje
 
 - Analyses of Pairwise Comparisons (equivalent to one-sample analyses for each level of a factor)
 
-### Source the Extension
+### Source the Functions and Extension
 
-If the EASI package is not installed, the necessary extension can be sourced by pasting the following line into R:
+If the EASI package is not installed, the necessary functions and extension can be sourced by pasting the following lines into R:
 ```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/pairwiseExtension.R")
 ```
 

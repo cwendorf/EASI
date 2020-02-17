@@ -16,6 +16,13 @@ The **PenLaptop** files analyze an example of a two-group between-subjects desig
 - Analyses of Group Differences (equivalent to a comparison analysis of two levels of a factor)
 - Analyses of Multiple Studies (examples from three different replication studies)
 
+### Source the Functions
+
+If the EASI package is not installed, the necessary functions can be sourced by pasting the following line into R:
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
+```
+
 ### Files for this Example
 
 [**_PenLaptopDataExample.md_**](./PenLaptopDataExample.md) combines the following files to describe the analyses using raw data input:

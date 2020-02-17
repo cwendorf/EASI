@@ -15,6 +15,13 @@ The **OneSample** files analyze an example of a one-sample design (from Wendorf,
 
 - Analysis of the Group (equivalent to one-sample analysis for the variable)
 
+### Source the Functions
+
+If the EASI package is not installed, the necessary functions can be sourced by pasting the following line into R:
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
+```
+
 ### Files for this Example
 
 [**_OneSampleDataExample.md_**](./OneSampleDataExample.md) combines the following files to describe the analyses using raw data input:

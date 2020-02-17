@@ -18,6 +18,13 @@ The **Frenda** files analyze and example of a two-factor between-subjects design
 - Analyses of Main Effects (equivalent to a comparison analysis of marginal means for each factor in the design)
 - Analyses of the Interaction (equivalent to comparisons analysis of the simple effects)
 
+### Source the Functions
+
+If the EASI package is not installed, the necessary functions can be sourced by pasting the following line into R:
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
+```
+
 ### Files this Example
 
 > Note: _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ does not provide raw data for the Frenda example. Therefore, an analysis using raw data is not presented here.

@@ -15,6 +15,13 @@ The **Holzel** files analyze and example of a two-factor mixed design, one betwe
 
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable, seaprately at levels of the between-subjects factor)
 
+### Source the Functions
+
+If the EASI package is not installed, the necessary functions can be sourced by pasting the following line into R:
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
+```
+
 ### Details of this Example
 
 [**_HolzelDataExample.md_**](./HolzelDataExample.md) combines the following files to describe the analyses using raw data input:

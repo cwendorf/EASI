@@ -17,6 +17,13 @@ The **Donohue** files analyze an example of a single-factor within-subjects desi
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable)
 
+### Source the Functions
+
+If the EASI package is not installed, the necessary functions can be sourced by pasting the following line into R:
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
+```
+
 ### Files for this Example
 
 [**_DonohueDataExample.md_**](./DonohueDataExample.md) combines the following files to describe the analyses using raw data input:

@@ -17,10 +17,11 @@ The **MixedBy** files analyze an example of a a mixed (between-subjects and with
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable, seaprately at levels of the between-subjects factor)
 - Analyses of a Variable Contrast (equivalent to a contrast analysis of all instances of a variable, seaprately at levels of the between-subjects factor)
 
-### Source the Extension
+### Source the Functions and Extension
 
-If the EASI package is not installed, the necessary extension can be sourced by pasting the following line into R:
+If the EASI package is not installed, the necessary fucntions and extension can be sourced by pasting the following lines into R:
 ```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/byExtension.R")
 ```
 

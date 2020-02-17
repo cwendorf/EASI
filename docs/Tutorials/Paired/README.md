@@ -16,6 +16,13 @@ The **Paired** files analyze examples of a within-subjects design for two time p
 - Analyses of Mutiple Variables (equivalent to one-sample analyses for each instance of a variable)
 - Analyses of Variable Differences (equivalent to a comparison analysis two instances of a variable)
 
+### Source the Functions
+
+If the EASI package is not installed, the necessary functions can be sourced by pasting the following line into R:
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
+```
+
 ### Files this Example
   
 [**_PairedDataExample.md_**](./PairedDataExample.md) combines the following files to describe the analyses using raw data input:

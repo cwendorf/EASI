@@ -17,10 +17,11 @@ The **RelationalRepeated** files analyze an example of relational intervals for 
 - Addition of Relational Intervals for Comparisons (intervals suitable for making pairwise comparisons among variables)
 - Addition of Data to Plots (raw data plots next to confidence and relational intervals)
 
-### Source the Extensions
+### Source the Functions and Extensions
 
-If the EASI package is not installed, the necessary extensions can be sourced by pasting the following lines into R:
+If the EASI package is not installed, the functions and extensions should be sourced by pasting the following lines into R:
 ```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/omnibusExtension.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/relationalExtension.R")
 ```
