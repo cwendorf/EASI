@@ -16,7 +16,7 @@
 - Examples include estimation, plots, significance tests, and effect sizes where relevant
 - Each example provides a syntax file, a text output file, and graphs
 
-> NOTE: All advanced examples depending on one or more [necessary extensions](../Functions/Extensions).
+> NOTE: All advanced examples depending on one or more [necessary extensions](../Functions/Extensions.md).
 
 ### Included Examples
 
