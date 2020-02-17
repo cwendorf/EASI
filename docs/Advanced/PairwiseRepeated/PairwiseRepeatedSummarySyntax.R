@@ -26,8 +26,8 @@ estimatePairwise(RepeatedSummary,RepeatedCorr,conf.level=.99)
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
-plotPairwise(RepeatedSummary,RepeatedCorr) # PairwiseRepeated-Figure1.jpeg
-plotPairwise(RepeatedSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseRepeated-Figure2.jpeg
+plotPairwise(RepeatedSummary,RepeatedCorr)
+plotPairwise(RepeatedSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-4,0))
 
 #### Significance Tests of the Pairwise Comparisons
 

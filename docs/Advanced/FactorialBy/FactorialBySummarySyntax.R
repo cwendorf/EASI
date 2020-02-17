@@ -26,8 +26,8 @@ estimateMeansBy(FactorialSummary,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeansBy(FactorialSummary) # Includes FactorialBy-Figure1.jpeg and FactorialBy-Figure2.jpeg
-plotMeansBy(FactorialSummary,conf.level=.99,mu=5,rope=c(3,7)) # Includes FactorialBy-Figure3.jpeg and FactorialBy-Figure4.jpeg
+plotMeansBy(FactorialSummary)
+plotMeansBy(FactorialSummary,conf.level=.99,mu=5,rope=c(3,7))
 
 #### Significance Tests for the Means
 
@@ -54,8 +54,8 @@ estimateDifferenceBy(CompSummary,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-plotDifferenceBy(CompSummary) # Includes FactorialBy-Figure5.jpeg and FactorialBy-Figure6.jpeg
-plotDifferenceBy(CompSummary,conf.level=.99,rope=c(-2,2)) # Includes FactorialBy-Figure7.jpeg and FactorialBy-Figure8.jpeg
+plotDifferenceBy(CompSummary)
+plotDifferenceBy(CompSummary,conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Mean Difference
 
@@ -78,8 +78,8 @@ estimateContrastBy(FactorialSummary,contrast=A1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrastBy(FactorialSummary,contrast=A1vsOthers) # Includes FactorialBy-Figure9.jpeg and FactorialBy-Figure10.jpeg
-plotContrastBy(FactorialSummary,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Includes FactorialBy-Figure11.jpeg and FactorialBy-Figure12.jpeg
+plotContrastBy(FactorialSummary,contrast=A1vsOthers)
+plotContrastBy(FactorialSummary,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for a Contrast
 

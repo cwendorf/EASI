@@ -57,13 +57,13 @@ Outcome2 v Outcome3 1.000 1.354 3.000 -6.907  8.907
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
 ```r
-plotPairwise(Outcome1,Outcome2,Outcome3) # PairwiseRepeated-Figure1.jpeg
+plotPairwise(Outcome1,Outcome2,Outcome3)
 ```
-<kbd><img src="PairwiseRepeated-Figure1.jpeg"></kbd>
+<kbd><img src="PairwiseRepeatedFigure1.jpeg"></kbd>
 ```r
-plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseRepeated-Figure2.jpeg
+plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0))
 ```
-<kbd><img src="PairwiseRepeated-Figure2.jpeg"></kbd>
+<kbd><img src="PairwiseRepeatedFigure2.jpeg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 

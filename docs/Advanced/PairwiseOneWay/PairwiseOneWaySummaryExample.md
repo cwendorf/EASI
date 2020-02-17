@@ -59,13 +59,13 @@ Level2 v Level3 1.000 1.732 6.000 -5.420  7.420
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
 ```r
-plotPairwise(OneWaySummary) # PairwiseOneWay-Figure1.jpeg
+plotPairwise(OneWaySummary)
 ```
-<kbd><img src="PairwiseOneWay-Figure1.jpeg"></kbd>
+<kbd><img src="PairwiseOneWayFigure1.jpeg"></kbd>
 ```r
-plotPairwise(OneWaySummary,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseOneWay-Figure2.jpeg
+plotPairwise(OneWaySummary,mu=-2,conf.level=.99,rope=c(-4,0))
 ```
-<kbd><img src="PairwiseOneWay-Figure2.jpeg"></kbd>
+<kbd><img src="PairwiseOneWayFigure2.jpeg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 

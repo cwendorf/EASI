@@ -51,18 +51,18 @@ L5 65.5 61.943 69.057 63.125 67.875
 ```
 
 ```r
-plotMeans(RelationalOneWaySummary) # RelationalOneWay-Figure1.jpeg
+plotMeans(RelationalOneWaySummary)
 ```
-<kbd><img src="RelationalOneWay-Figure1.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure1.jpeg"></kbd>
 ```r
-addRelational(RelationalOneWaySummary) # RelationalOneWay-Figure2.jpeg
+addRelational(RelationalOneWaySummary)
 ```
-<kbd><img src="RelationalOneWay-Figure2.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure2.jpeg"></kbd>
 ```r
-plotRelational(RelationalOneWaySummary) # RelationalOneWay-Figure4.jpeg
+plotRelational(RelationalOneWaySummary)
 ```
-<kbd><img src="RelationalOneWay-Figure4.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure4.jpeg"></kbd>
 ```r
-plotRelational(RelationalOneWaySummary,conf.level=.99,mu=70) # RelationalOneWay-Figure5.jpeg
+plotRelational(RelationalOneWaySummary,conf.level=.99,mu=70)
 ```
-<kbd><img src="RelationalOneWay-Figure5.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure5.jpeg"></kbd>

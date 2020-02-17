@@ -34,9 +34,9 @@ L4  76.000  71.291  80.709  73.625  78.375
 L5  65.500  61.943  69.057  63.125  67.875
 
 > 
-> plotMeans(RelationalOneWaySummary) # RelationalOneWay-Figure1.jpeg
-> addRelational(RelationalOneWaySummary) # RelationalOneWay-Figure2.jpeg
+> plotMeans(RelationalOneWaySummary)
+> addRelational(RelationalOneWaySummary)
 > 
-> plotRelational(RelationalOneWaySummary) # RelationalOneWay-Figure4.jpeg
-> plotRelational(RelationalOneWaySummary,conf.level=.99,mu=70) # RelationalOneWay-Figure5.jpeg
+> plotRelational(RelationalOneWaySummary)
+> plotRelational(RelationalOneWaySummary,conf.level=.99,mu=70)
 > 

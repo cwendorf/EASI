@@ -16,7 +16,7 @@
 > 
 > ### Analyses of Multiple Variables
 > 
-> analyzeMeans(Outcome1,Outcome2,Outcome3) # Includes AnalyzeRepeated-Figure1.jpeg
+> analyzeMeans(Outcome1,Outcome2,Outcome3)
 $title
 [1] "ANALYSIS OF MEANS"
 
@@ -38,7 +38,7 @@ Outcome1   0.816   0.594   0.616  -0.387   1.934
 Outcome2   2.449   1.781   0.955   0.325   4.531
 Outcome3   2.858   2.078   1.063   0.464   5.226
 
-> analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7)) # Includes AnalyzeRepeated-Figure2.jpeg
+> analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7))
 $title
 [1] "ANALYSIS OF MEANS"
 
@@ -63,7 +63,7 @@ Outcome3   0.816   0.594   0.616  -0.732   2.319
 > 
 > ### Analyses of a Variable Comparison
 > 
-> analyzeDifference(Outcome1,Outcome2) # Includes AnalyzeRepeated-Figure3.jpeg
+> analyzeDifference(Outcome1,Outcome2)
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
@@ -79,7 +79,7 @@ $standardizeDifference
                Est      SE      LL      UL
 Comparison   1.633   0.782   0.101   3.165
 
-> analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure4.jpeg
+> analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2))
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
@@ -99,7 +99,7 @@ Comparison   1.633   0.782  -0.381   3.647
 > ### Analyses of a Variable Contrast
 > 
 > O1vsOthers <- c(-1,.5,.5)
-> analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg
+> analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 $title
 [1] "ANALYSIS OF A CONTRAST"
 
@@ -115,7 +115,7 @@ $standardizeContrast
              Est      SE      LL      UL
 Contrast   1.837   0.741   0.385   3.289
 
-> analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure6.jpeg
+> analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 $title
 [1] "ANALYSIS OF A CONTRAST"
 

@@ -155,27 +155,27 @@ Outcome3 4.000 5.000 2.449 1.224 -2.152 12.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure1.jpeg
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3))
 ```
-<kbd><img src="Mixed-Figure1.jpeg"></kbd>
+<kbd><img src="MixedFigure1.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure2.jpeg
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3))
 ```
-<kbd><img src="Mixed-Figure2.jpeg"></kbd>
+<kbd><img src="MixedFigure2.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```r
-with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7))) # Mixed-Figure3.jpeg
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)))
 ```
-<kbd><img src="Mixed-Figure3.jpeg"></kbd>
+<kbd><img src="MixedFigure3.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7))) # Mixed-Figure4.jpeg
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)))
 ```
-<kbd><img src="Mixed-Figure4.jpeg"></kbd>
+<kbd><img src="MixedFigure4.jpeg"></kbd>
 
 #### Significance Tests for the Means
 
@@ -339,27 +339,27 @@ Comparison 0.000 0.577 3.000 -3.372 3.372
 
 This code obtains and plots the confidence intervals for the levels and the mean difference in the identified comparison.
 ```r
-with(DataSubsetL1,plotDifference(Outcome1,Outcome2)) # Mixed-Figure5.jpeg
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2))
 ```
-<kbd><img src="Mixed-Figure5.jpeg"></kbd>
+<kbd><img src="MixedFigure5.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetL2,plotDifference(Outcome1,Outcome2)) # Mixed-Figure6.jpeg
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2))
 ```
-<kbd><img src="Mixed-Figure6.jpeg"></kbd>
+<kbd><img src="MixedFigure6.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-with(DataSubsetL1,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))) # Mixed-Figure7.jpeg
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)))
 ```
-<kbd><img src="Mixed-Figure7.jpeg"></kbd>
+<kbd><img src="MixedFigure7.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetL2,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))) # Mixed-Figure8.jpeg
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)))
 ```
-<kbd><img src="Mixed-Figure8.jpeg"></kbd>
+<kbd><img src="MixedFigure8.jpeg"></kbd>
 
 #### Significance Test for the Mean Difference
 
@@ -512,27 +512,27 @@ Contrast 0.500 0.645 3.000 -3.270 4.270
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)) # Mixed-Figure9.jpeg
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
 ```
-<kbd><img src="Mixed-Figure9.jpeg"></kbd>
+<kbd><img src="MixedFigure9.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)) # Mixed-Figure10.jpeg
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
 ```
-<kbd><img src="Mixed-Figure10.jpeg"></kbd>
+<kbd><img src="MixedFigure10.jpeg"></kbd>
 
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```r
-with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))) # Mixed-Figure11.jpeg
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)))
 ```
-<kbd><img src="Mixed-Figure11.jpeg"></kbd>
+<kbd><img src="MixedFigure11.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))) # Mixed-Figure12.jpeg
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)))
 ```
-<kbd><img src="Mixed-Figure12.jpeg"></kbd>
+<kbd><img src="MixedFigure12.jpeg"></kbd>
 
 #### Significance Test for the Contrast
 

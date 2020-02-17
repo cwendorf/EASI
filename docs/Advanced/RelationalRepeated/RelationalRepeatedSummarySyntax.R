@@ -24,8 +24,8 @@ RelationalRepeatedCorr
 
 estimateRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
 
-plotMeans(RelationalRepeatedSummary) # RelationalRepeated-Figure1.jpeg
-addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)# RelationalRepeated-Figure2.jpeg
+plotMeans(RelationalRepeatedSummary)
+addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
 
-plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr) # RelationalRepeated-Figure4.jpeg
-plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70) # RelationalRepeated-Figure5.jpeg
+plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
+plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70)

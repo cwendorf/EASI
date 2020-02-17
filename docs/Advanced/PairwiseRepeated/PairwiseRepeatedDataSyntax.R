@@ -19,8 +19,8 @@ estimatePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
-plotPairwise(Outcome1,Outcome2,Outcome3) # PairwiseRepeated-Figure1.jpeg
-plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseRepeated-Figure2.jpeg
+plotPairwise(Outcome1,Outcome2,Outcome3)
+plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0))
 
 #### Significance Tests of the Pairwise Comparisons
 

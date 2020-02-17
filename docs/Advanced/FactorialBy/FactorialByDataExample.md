@@ -93,15 +93,15 @@ A3 4.000 5.000 2.449 1.224 -2.152 12.152
 #### Plot of the Confidence Intervals for the Means
 
 ```r
-plotMeansBy(Outcome~FactorA,by=FactorB) # Includes FactorialBy-Figure1.jpeg and FactorialBy-Figure2.jpeg
+plotMeansBy(Outcome~FactorA,by=FactorB)
 ```
-<kbd><img src="FactorialBy-Figure1.jpeg"></kbd>
-<kbd><img src="FactorialBy-Figure2.jpeg"></kbd>
+<kbd><img src="FactorialByFigure1.jpeg"></kbd>
+<kbd><img src="FactorialByFigure2.jpeg"></kbd>
 ```r
-plotMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5,rope=c(3,7)) # Includes FactorialBy-Figure3.jpeg and FactorialBy-Figure4.jpeg
+plotMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5,rope=c(3,7))
 ```
-<kbd><img src="FactorialBy-Figure3.jpeg"></kbd>
-<kbd><img src="FactorialBy-Figure4.jpeg"></kbd>
+<kbd><img src="FactorialByFigure3.jpeg"></kbd>
+<kbd><img src="FactorialByFigure4.jpeg"></kbd>
 
 #### Significance Tests for the Means
 
@@ -222,16 +222,16 @@ Comparison 0.000 1.732 6.000 -6.420 6.420
 #### Plot of the Confidence Interval for the Mean Difference
 
 ```r
-with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB)) # Includes FactorialBy-Figure5.jpeg and FactorialBy-Figure6.jpeg
+with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB))
 ```
-<kbd><img src="FactorialBy-Figure5.jpeg"></kbd>
-<kbd><img src="FactorialBy-Figure6.jpeg"></kbd>
+<kbd><img src="FactorialByFigure5.jpeg"></kbd>
+<kbd><img src="FactorialByFigure6.jpeg"></kbd>
 
 ```r
-with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,rope=c(-2,2))) # Includes FactorialBy-Figure7.jpeg and FactorialBy-Figure8.jpeg
+with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,rope=c(-2,2)))
 ```
-<kbd><img src="FactorialBy-Figure7.jpeg"></kbd>
-<kbd><img src="FactorialBy-Figure8.jpeg"></kbd>
+<kbd><img src="FactorialByFigure7.jpeg"></kbd>
+<kbd><img src="FactorialByFigure8.jpeg"></kbd>
 
 #### Significance Test for the Mean Difference
 
@@ -335,15 +335,15 @@ Contrast 0.500 1.500 6.000 -5.060 6.060
 #### Plots of Confidence Intervals for a Contrast
 
 ```r
-plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers) # Includes FactorialBy-Figure9.jpeg and FactorialBy-Figure10.jpeg
+plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
 ```
-<kbd><img src="FactorialBy-Figure9.jpeg"></kbd>
-<kbd><img src="FactorialBy-Figure10.jpeg"></kbd>
+<kbd><img src="FactorialByFigure9.jpeg"></kbd>
+<kbd><img src="FactorialByFigure10.jpeg"></kbd>
 ```r
-plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Includes FactorialBy-Figure11.jpeg and FactorialBy-Figure12.jpeg
+plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="FactorialBy-Figure11.jpeg"></kbd>
-<kbd><img src="FactorialBy-Figure12.jpeg"></kbd>
+<kbd><img src="FactorialByFigure11.jpeg"></kbd>
+<kbd><img src="FactorialByFigure12.jpeg"></kbd>
 
 #### Significance Test for a Contrast
 

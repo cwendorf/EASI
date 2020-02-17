@@ -29,7 +29,7 @@ RepeatedData
 ### Analyses of Multiple Variables
 
 ```r
-analyzeMeans(Outcome1,Outcome2,Outcome3) # Includes AnalyzeRepeated-Figure1.jpeg
+analyzeMeans(Outcome1,Outcome2,Outcome3)
 ```
 ```
 $title
@@ -53,10 +53,10 @@ Outcome1 0.817  0.594 0.616 -0.387 1.934
 Outcome2 2.450  1.782 0.955  0.325 4.532
 Outcome3 2.858  2.079 1.063  0.464 5.227
 ```
-<kbd><img src="AnalyzeRepeated-Figure1.jpeg"></kbd>
+<kbd><img src="AnalyzeRepeatedFigure1.jpeg"></kbd>
 
 ```r
-analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7)) # Includes AnalyzeRepeated-Figure2.jpeg
+analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7))
 ```
 ```
 $title
@@ -82,12 +82,12 @@ Outcome1 -1.225 -0.891 0.680 -3.011 0.547
 Outcome2  0.408  0.297 0.574 -0.968 1.734
 Outcome3  0.817  0.594 0.616 -0.732 2.320
 ```
-<kbd><img src="AnalyzeRepeated-Figure2.jpeg"></kbd>
+<kbd><img src="AnalyzeRepeatedFigure2.jpeg"></kbd>
 
 ### Analyses of a Variable Comparison
 
 ```r
-analyzeDifference(Outcome1,Outcome2) # Includes AnalyzeRepeated-Figure3.jpeg
+analyzeDifference(Outcome1,Outcome2)
 ```
 ```
 $title
@@ -105,10 +105,10 @@ $standardizeDifference
               Est    SE     LL     UL
 Comparison -1.633 0.782 -3.166 -0.101
 ```
-<kbd><img src="AnalyzeRepeated-Figure3.jpeg"></kbd>
+<kbd><img src="AnalyzeRepeatedFigure3.jpeg"></kbd>
 
 ```r
-analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure4.jpeg
+analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2))
 ```
 ```
 $title
@@ -126,13 +126,13 @@ $standardizeDifference
               Est    SE     LL    UL
 Comparison -1.633 0.782 -3.647 0.380
 ```
-<kbd><img src="AnalyzeRepeated-Figure4.jpeg"></kbd>
+<kbd><img src="AnalyzeRepeatedFigure4.jpeg"></kbd>
 
 ### Analyses of a Variable Contrast
 
 ```r
 O1vsOthers <- c(-1,.5,.5)
-analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 ```
 ```
 $title
@@ -150,10 +150,10 @@ $standardizeContrast
            Est    SE    LL    UL
 Contrast 1.837 0.741 0.386 3.289
 ```
-<kbd><img src="AnalyzeRepeated-Figure5.jpeg"></kbd>
+<kbd><img src="AnalyzeRepeatedFigure5.jpeg"></kbd>
 
 ```r
-analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure6.jpeg
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 ```
 ```
 $title
@@ -171,4 +171,4 @@ $standardizeContrast
            Est    SE     LL    UL
 Contrast 1.837 0.741 -0.071 3.746
 ```
-<kbd><img src="AnalyzeRepeated-Figure6.jpeg"></kbd>
+<kbd><img src="AnalyzeRepeatedFigure6.jpeg"></kbd>

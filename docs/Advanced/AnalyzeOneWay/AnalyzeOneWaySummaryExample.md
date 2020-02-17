@@ -31,7 +31,7 @@ attr(,"class")
 ### Analyses of Multiple Groups
 
 ```r
-analyzeMeans(OneWaySummary) # Includes AnalyzeOneWay-Figure1.jpeg
+analyzeMeans(OneWaySummary)
 ```
 ```
 $title
@@ -55,10 +55,10 @@ Level1 0.817  0.594 0.616 -0.387 1.934
 Level2 2.450  1.782 0.955  0.325 4.532
 Level3 2.858  2.079 1.063  0.464 5.227
 ```
-<kbd><img src="AnalyzeOneWay-Figure1.jpeg"></kbd>
+<kbd><img src="AnalyzeOneWayFigure1.jpeg"></kbd>
 
 ```r
-analyzeMeans(OneWaySummary,mu=5,conf.level=.99) # Includes AnalyzeOneWay-Figure2.jpeg
+analyzeMeans(OneWaySummary,mu=5,conf.level=.99)
 ```
 ```
 $title
@@ -82,7 +82,7 @@ Level1 -1.225 -0.891 0.680 -3.011 0.547
 Level2  0.408  0.297 0.574 -0.968 1.734
 Level3  0.817  0.594 0.616 -0.732 2.320
 ```
-<kbd><img src="AnalyzeOneWay-Figure2.jpeg"></kbd>
+<kbd><img src="AnalyzeOneWayFigure2.jpeg"></kbd>
 
 ### Analyses of a Group Comparison
 
@@ -91,7 +91,7 @@ CompSummary <- OneWaySummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
 ```
 ```r
-analyzeDifference(CompSummary) # Includes AnalyzeOneWay-Figure3.jpeg
+analyzeDifference(CompSummary)
 ```
 ```
 $title
@@ -109,10 +109,10 @@ $standardizeDifference
              Est    SE     LL    UL
 Comparison 1.633 0.943 -0.215 3.481
 ```
-<kbd><img src="AnalyzeOneWay-Figure3.jpeg"></kbd>
+<kbd><img src="AnalyzeOneWayFigure3.jpeg"></kbd>
 
 ```r
-analyzeDifference(CompSummary,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure4.jpeg
+analyzeDifference(CompSummary,mu=-2,conf.level=.99,rope=c(-2,2))
 ```
 ```
 $title
@@ -130,7 +130,7 @@ $standardizeDifference
              Est    SE     LL    UL
 Comparison 1.633 0.943 -0.795 4.062
 ```
-<kbd><img src="AnalyzeOneWay-Figure4.jpeg"></kbd>
+<kbd><img src="AnalyzeOneWayFigure4.jpeg"></kbd>
 
 ### Analyses of a Group Contrast
 
@@ -138,7 +138,7 @@ Comparison 1.633 0.943 -0.795 4.062
 L1vsOthers <- c(-1,.5,.5)
 ```
 ```r
-analyzeContrast(OneWaySummary,contrast=L1vsOthers) # Includes AnalyzeOneWay-Figure5.jpeg
+analyzeContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 ```
 $title
@@ -156,10 +156,10 @@ $standardizeContrast
            Est    SE    LL    UL
 Contrast 1.837 0.829 0.212 3.463
 ```
-<kbd><img src="AnalyzeOneWay-Figure5.jpeg"></kbd>
+<kbd><img src="AnalyzeOneWayFigure5.jpeg"></kbd>
 
 ```r
-analyzeContrast(OneWaySummary,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure6.jpeg
+analyzeContrast(OneWaySummary,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 ```
 ```
 $title
@@ -177,4 +177,4 @@ $standardizeContrast
            Est    SE     LL    UL
 Contrast 1.837 0.829 -0.298 3.973
 ```
-<kbd><img src="AnalyzeOneWay-Figure6.jpeg"></kbd>
+<kbd><img src="AnalyzeOneWayFigure6.jpeg"></kbd>

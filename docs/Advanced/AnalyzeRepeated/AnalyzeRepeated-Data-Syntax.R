@@ -11,16 +11,16 @@ RepeatedData
 
 ### Analyses of Multiple Variables
 
-analyzeMeans(Outcome1,Outcome2,Outcome3) # Includes AnalyzeRepeated-Figure1.jpeg
-analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7)) # Includes AnalyzeRepeated-Figure2.jpeg
+analyzeMeans(Outcome1,Outcome2,Outcome3)
+analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7))
 
 ### Analyses of a Variable Comparison
 
-analyzeDifference(Outcome1,Outcome2) # Includes AnalyzeRepeated-Figure3.jpeg
-analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure4.jpeg
+analyzeDifference(Outcome1,Outcome2)
+analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2))
 
 ### Analyses of a Variable Contrast
 
 O1vsOthers <- c(-1,.5,.5)
-analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg
-analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure6.jpeg
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))

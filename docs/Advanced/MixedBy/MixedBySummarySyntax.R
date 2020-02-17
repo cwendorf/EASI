@@ -40,8 +40,8 @@ estimateMeansBy(MixedSummary,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeansBy(MixedSummary) # Includes MixedBy-Figure1.jpeg and MixedBy-Figure2.jpeg
-plotMeansBy(MixedSummary,conf.level=.99,mu=5,rope=c(3,7)) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
+plotMeansBy(MixedSummary)
+plotMeansBy(MixedSummary,conf.level=.99,mu=5,rope=c(3,7))
 
 #### Significance Tests for the Means
 
@@ -67,8 +67,8 @@ estimateDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifferenceBy(CompSummary,MixedCorr) # Includes MixedBy-Figure5.jpeg and MixedBy-Figure6.jpeg
-plotDifferenceBy(CompSummary,MixedCorr,conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
+plotDifferenceBy(CompSummary,MixedCorr)
+plotDifferenceBy(CompSummary,MixedCorr,conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Mean Difference
 
@@ -91,8 +91,8 @@ estimateContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers) # Includes MixedBy-Figure9.jpeg and MixedBy-Figure10.jpeg
-plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
+plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Contrast
 

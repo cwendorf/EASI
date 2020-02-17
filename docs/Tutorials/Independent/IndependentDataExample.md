@@ -65,15 +65,15 @@ Level2 4.000 6.000 2.449 1.224 -1.152 13.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(Outcome~Factor) # Independent-Figure1.jpeg
+plotMeans(Outcome~Factor)
 ```
-<kbd><img src="Independent-Figure1.jpeg"></kbd>
+<kbd><img src="IndependentFigure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practice equivalence.
 ```r
-plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7)) # Independent-Figure2.jpeg
+plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7))
 ```
-<kbd><img src="Independent-Figure2.jpeg"></kbd>
+<kbd><img src="IndependentFigure2.jpeg"></kbd>
 
 
 #### Significance Tests for the Means
@@ -160,15 +160,15 @@ Comparison 4.000 1.732 6.000 -2.420 10.420
 
 This code obtains and plots the confidence intervals for the groups and the mean difference.
 ```r
-plotDifference(Outcome~Factor) # Independent-Figure3.jpeg
+plotDifference(Outcome~Factor)
 ```
-<kbd><img src="Independent-Figure3.jpeg"></kbd>
+<kbd><img src="IndependentFigure3.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(Outcome~Factor,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
+plotDifference(Outcome~Factor,conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="Independent-Figure4.jpeg"></kbd>
+<kbd><img src="IndependentFigure4.jpeg"></kbd>
 
 #### Significance Test for a Mean Difference
 

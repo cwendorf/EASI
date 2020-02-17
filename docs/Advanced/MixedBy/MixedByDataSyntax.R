@@ -20,8 +20,8 @@ estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor) # Includes MixedBy-Figure1.jpeg and MixedBy-Figure2.jpeg
-plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=5,rope=c(3,7)) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
+plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
+plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=5,rope=c(3,7))
 
 #### Significance Tests for the Means
 
@@ -42,8 +42,8 @@ estimateDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifferenceBy(Outcome1,Outcome2,by=Factor) # Includes MixedBy-Figure5.jpeg and MixedBy-Figure6.jpeg
-plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
+plotDifferenceBy(Outcome1,Outcome2,by=Factor)
+plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Mean Difference
 
@@ -66,8 +66,8 @@ estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers) # Includes MixedBy-Figure9.jpeg and MixedBy-Figure10.jpeg
-plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
+plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
+plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Contrast
 

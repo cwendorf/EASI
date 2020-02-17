@@ -16,8 +16,8 @@ RelationalOneWaySummary
 
 estimateRelational(RelationalOneWaySummary)
 
-plotMeans(RelationalOneWaySummary) # RelationalOneWay-Figure1.jpeg
-addRelational(RelationalOneWaySummary) # RelationalOneWay-Figure2.jpeg
+plotMeans(RelationalOneWaySummary)
+addRelational(RelationalOneWaySummary)
 
-plotRelational(RelationalOneWaySummary) # RelationalOneWay-Figure4.jpeg
-plotRelational(RelationalOneWaySummary,conf.level=.99,mu=70) # RelationalOneWay-Figure5.jpeg
+plotRelational(RelationalOneWaySummary)
+plotRelational(RelationalOneWaySummary,conf.level=.99,mu=70)

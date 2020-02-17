@@ -19,19 +19,19 @@ RepeatedCorr
 
 ### Analyses of Multiple Variables
 
-analyzeMeans(RepeatedSummary) # Includes AnalyzeRepeated-Figure1.jpeg
-analyzeMeans(RepeatedSummary,mu=5,conf.level=.99,rope=c(3,7)) # Includes AnalyzeRepeated-Figure2.jpeg
+analyzeMeans(RepeatedSummary)
+analyzeMeans(RepeatedSummary,mu=5,conf.level=.99,rope=c(3,7))
 
 ### Analyses of a Variable Comparison
 
 CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 
-analyzeDifference(CompSummary,RepeatedCorr) # Includes AnalyzeRepeated-Figure3.jpeg
-analyzeDifference(CompSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure4.jpeg
+analyzeDifference(CompSummary,RepeatedCorr)
+analyzeDifference(CompSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-2,2))
 
 ### Analyses of a Variable Contrast
 
 O1vsOthers <- c(-1,.5,.5)
-analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) # Includes AnalyzeRepeated-Figure5.jpeg
-analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeRepeated-Figure6.jpeg
+analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
+analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))

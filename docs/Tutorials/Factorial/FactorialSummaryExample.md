@@ -108,27 +108,27 @@ A3 4.000 5.000 2.449 1.224 -2.152 12.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(BetweenSummaryB1) # Factorial-Figure1.jpeg
+plotMeans(BetweenSummaryB1)
 ```
-<kbd><img src="Factorial-Figure1.jpeg"></kbd>
+<kbd><img src="FactorialFigure1.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotMeans(BetweenSummaryB2) # Factorial-Figure2.jpeg
+plotMeans(BetweenSummaryB2)
 ```
-<kbd><img src="Factorial-Figure2.jpeg"></kbd>
+<kbd><img src="FactorialFigure2.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```r
-plotMeans(BetweenSummaryB1,conf.level=.99,mu=5,rope=c(3,7)) # Factorial-Figure3.jpeg
+plotMeans(BetweenSummaryB1,conf.level=.99,mu=5,rope=c(3,7))
 ```
-<kbd><img src="Factorial-Figure3.jpeg"></kbd>
+<kbd><img src="FactorialFigure3.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotMeans(BetweenSummaryB2,conf.level=.99,mu=5,rope=c(3,7)) # Factorial-Figure4.jpeg
+plotMeans(BetweenSummaryB2,conf.level=.99,mu=5,rope=c(3,7))
 ```
-<kbd><img src="Factorial-Figure4.jpeg"></kbd>
+<kbd><img src="FactorialFigure4.jpeg"></kbd>
 
 #### Significance Tests for the Means
 
@@ -300,27 +300,27 @@ Comparison 0.000 1.732 6.000 -6.420 6.420
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
 ```r
-plotDifference(CompSummaryB1) # Factorial-Figure5.jpeg
+plotDifference(CompSummaryB1)
 ```
-<kbd><img src="Factorial-Figure5.jpeg"></kbd>
+<kbd><img src="FactorialFigure5.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotDifference(CompSummaryB2) # Factorial-Figure6.jpeg
+plotDifference(CompSummaryB2)
 ```
-<kbd><img src="Factorial-Figure6.jpeg"></kbd>
+<kbd><img src="FactorialFigure6.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(CompSummaryB1,conf.level=.99,rope=c(-2,2)) # Factorial-Figure7.jpeg
+plotDifference(CompSummaryB1,conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="Factorial-Figure7.jpeg"></kbd>
+<kbd><img src="FactorialFigure7.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotDifference(CompSummaryB2,conf.level=.99,rope=c(-2,2)) # Factorial-Figure8.jpeg
+plotDifference(CompSummaryB2,conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="Factorial-Figure8.jpeg"></kbd>
+<kbd><img src="FactorialFigure8.jpeg"></kbd>
 
 #### Significance Test of the Mean Difference
 
@@ -473,27 +473,27 @@ Contrast 0.500 1.500 6.000 -5.060 6.060
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-plotContrast(BetweenSummaryB1,contrast=A1vsOthers) # Factorial-Figure9.jpeg
+plotContrast(BetweenSummaryB1,contrast=A1vsOthers)
 ```
-<kbd><img src="Factorial-Figure9.jpeg"></kbd>
+<kbd><img src="FactorialFigure9.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotContrast(BetweenSummaryB2,contrast=A1vsOthers) # Factorial-Figure10.jpeg
+plotContrast(BetweenSummaryB2,contrast=A1vsOthers)
 ```
-<kbd><img src="Factorial-Figure10.jpeg"></kbd>
+<kbd><img src="FactorialFigure10.jpeg"></kbd>
 
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```r
-plotContrast(BetweenSummaryB1,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure11.jpeg
+plotContrast(BetweenSummaryB1,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="Factorial-Figure11.jpeg"></kbd>
+<kbd><img src="FactorialFigure11.jpeg"></kbd>
 
 And repeat the analysis for the second subset.
 ```r
-plotContrast(BetweenSummaryB2,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure12.jpeg
+plotContrast(BetweenSummaryB2,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="Factorial-Figure12.jpeg"></kbd>
+<kbd><img src="FactorialFigure12.jpeg"></kbd>
 
 #### Significance Test for a Contrast
 

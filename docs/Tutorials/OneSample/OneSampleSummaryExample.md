@@ -57,15 +57,15 @@ Outcome 8.000 4.000 3.117 1.102 0.143 7.857
 
 This code will produce a graph of the confidence interval for the variable.
 ```r
-plotMeans(OneSampleSummary) # OneSample-Figure1.jpeg
+plotMeans(OneSampleSummary)
 ```
-<kbd><img src="OneSample-Figure1.jpeg"></kbd>
+<kbd><img src="OneSampleFigure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalece.
 ```r
-plotMeans(OneSampleSummary,conf.level=.99,mu=5,rope=c(3,7)) # OneSample-Figure2.jpeg
+plotMeans(OneSampleSummary,conf.level=.99,mu=5,rope=c(3,7))
 ```
-<kbd><img src="OneSample-Figure2.jpeg"></kbd>
+<kbd><img src="OneSampleFigure2.jpeg"></kbd>
 
 
 #### Significance Tests for the Mean

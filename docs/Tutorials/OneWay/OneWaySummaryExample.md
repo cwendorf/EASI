@@ -65,15 +65,15 @@ Level3 4.000 7.000 2.449 1.224 -0.152 14.152
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```r
-plotMeans(OneWaySummary) # OneWay-Figure1.jpeg
+plotMeans(OneWaySummary)
 ```
-<kbd><img src="OneWay-Figure1.jpeg"></kbd>
+<kbd><img src="OneWayFigure1.jpeg"></kbd>
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```r
-plotMeans(OneWaySummary,conf.level=.99,mu=5,rope=c(3,7)) # OneWay-Figure2.jpeg
+plotMeans(OneWaySummary,conf.level=.99,mu=5,rope=c(3,7))
 ```
-<kbd><img src="OneWay-Figure2.jpeg"></kbd>
+<kbd><img src="OneWayFigure2.jpeg"></kbd>
 
 
 #### Significance Tests for the Means
@@ -170,15 +170,15 @@ Comparison 4.000 1.732 6.000 -2.420 10.420
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
 ```r
-plotDifference(CompSummary)# OneWay-Figure3.jpeg
+plotDifference(CompSummary)
 ```
-<kbd><img src="OneWay-Figure3.jpeg"></kbd>
+<kbd><img src="OneWayFigure3.jpeg"></kbd>
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```r
-plotDifference(CompSummary,conf.level=.99,rope=c(-2,2)) # OneWay-Figure4.jpeg
+plotDifference(CompSummary,conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="OneWay-Figure4.jpeg"></kbd>
+<kbd><img src="OneWayFigure4.jpeg"></kbd>
 
 #### Significance Test for a Mean Difference
 
@@ -265,15 +265,15 @@ Contrast 4.500 1.500 6.000 -1.060 10.060
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```r
-plotContrast(OneWaySummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
+plotContrast(OneWaySummary,contrast=L1vsOthers)
 ````
-<kbd><img src="OneWay-Figure5.jpeg"></kbd>
+<kbd><img src="OneWayFigure5.jpeg"></kbd>
 
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```r
-plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # OneWay-Figure6.jpeg
+plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="OneWay-Figure6.jpeg"></kbd>
+<kbd><img src="OneWayFigure6.jpeg"></kbd>
 
 #### Significance Test for a Contrast
 

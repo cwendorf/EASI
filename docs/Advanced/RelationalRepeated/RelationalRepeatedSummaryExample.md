@@ -67,18 +67,18 @@ L5 65.5 61.943 69.057 63.469 67.531
 ```
 
 ```r
-plotMeans(RelationalRepeatedSummary) # RelationalRepeated-Figure1.jpeg
+plotMeans(RelationalRepeatedSummary)
 ```
-<kbd><img src="RelationalRepeated-Figure1.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure1.jpeg"></kbd>
 ```r
-addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)# RelationalRepeated-Figure2.jpeg
+addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
 ```
-<kbd><img src="RelationalRepeated-Figure2.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure2.jpeg"></kbd>
 ```r
-plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr) # RelationalRepeated-Figure4.jpeg
+plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
 ```
-<kbd><img src="RelationalRepeated-Figure4.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure4.jpeg"></kbd>
 ```r
-plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70) # RelationalRepeated-Figure5.jpeg
+plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70)
 ```
-<kbd><img src="RelationalRepeated-Figure5.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure5.jpeg"></kbd>

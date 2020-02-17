@@ -15,10 +15,10 @@ RelationalRepeatedData
 
 estimateRelational(L1,L2,L3,L4,L5)
 
-plotMeans(L1,L2,L3,L4,L5) # RelationalRepeated-Figure1.jpeg
-addRelational(L1,L2,L3,L4,L5) # RelationalRepeated-Figure2.jpeg
-addData(L1,L2,L3,L4,L5) # RelationalRepeated-Figure3.jpeg
+plotMeans(L1,L2,L3,L4,L5)
+addRelational(L1,L2,L3,L4,L5)
+addData(L1,L2,L3,L4,L5)
 
-plotRelational(L1,L2,L3,L4,L5) # RelationalRepeated-Figure4.jpeg
-plotRelational(L1,L2,L3,L4,L5,conf.level=.99,mu=70) # RelationalRepeated-Figure5.jpeg
-addData(L1,L2,L3,L4,L5,method="stack",col="black") # RelationalRepeated-Figure6.jpeg
+plotRelational(L1,L2,L3,L4,L5)
+plotRelational(L1,L2,L3,L4,L5,conf.level=.99,mu=70)
+addData(L1,L2,L3,L4,L5,method="stack",col="black")

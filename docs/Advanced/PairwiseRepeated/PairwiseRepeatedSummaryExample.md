@@ -9,13 +9,6 @@
 
 ## Pairwise Comparisons - Repeated (Within-Subjects) Tutorial with Summary Statistics
 
-### Source the EASI Functions and the Extension
-
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Functions.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/A-Functions/EASI-Pairwise-Extension.R")
-```
-
 ### Enter Summary Statistics
 
 ```r
@@ -80,13 +73,13 @@ Outcome2 v Outcome3 1.000 1.354 3.000 -6.906  8.906
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
 ```r
-plotPairwise(RepeatedSummary,RepeatedCorr) # PairwiseRepeated-Figure1.jpeg
+plotPairwise(RepeatedSummary,RepeatedCorr)
 ```
-<kbd><img src="PairwiseRepeated-Figure1.jpeg"></kbd>
+<kbd><img src="PairwiseRepeatedFigure1.jpeg"></kbd>
 ```r
-plotPairwise(RepeatedSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-4,0)) # PairwiseRepeated-Figure2.jpeg
+plotPairwise(RepeatedSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-4,0))
 ```
-<kbd><img src="PairwiseRepeated-Figure2.jpeg"></kbd>
+<kbd><img src="PairwiseRepeatedFigure2.jpeg"></kbd>
 
 #### Significance Tests of the Pairwise Comparisons
 

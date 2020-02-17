@@ -24,7 +24,7 @@
 > 
 > ### Analyses of Multiple Groups
 > 
-> analyzeMeans(Outcome~Factor) # Includes AnalyzeOneWay-Figure1.jpeg
+> analyzeMeans(Outcome~Factor) 
 $title
 [1] "ANALYSIS OF MEANS"
 
@@ -46,7 +46,7 @@ Level1   0.816   0.594   0.616  -0.387   1.934
 Level2   2.449   1.781   0.955   0.325   4.531
 Level3   2.858   2.078   1.063   0.464   5.226
 
-> analyzeMeans(Outcome~Factor,mu=5,conf.level=.99,rope=c(3,7)) # Includes AnalyzeOneWay-Figure2.jpeg
+> analyzeMeans(Outcome~Factor,mu=5,conf.level=.99,rope=c(3,7))
 $title
 [1] "ANALYSIS OF MEANS"
 
@@ -72,7 +72,7 @@ Level3   0.816   0.594   0.616  -0.732   2.319
 > ### Analyses of a Group Comparison
 > 
 > Comparison=factor(Factor,c("Level1","Level2"))
-> analyzeDifference(Outcome~Comparison) # Includes AnalyzeOneWay-Figure3.jpeg
+> analyzeDifference(Outcome~Comparison)
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
@@ -88,7 +88,7 @@ $standardizeDifference
                Est      SE      LL      UL
 Comparison   1.633   0.943  -0.215   3.481
 
-> analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure4.jpeg
+> analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99,rope=c(-2,2))
 $title
 [1] "ANALYSIS OF A DIFFERENCE"
 
@@ -108,7 +108,7 @@ Comparison   1.633   0.943  -0.796   4.062
 > ### Analyses of a Group Contrast
 > 
 > L1vsOthers <- c(-1,.5,.5)
-> analyzeContrast(Outcome~Factor,contrast=L1vsOthers) # Includes AnalyzeOneWay-Figure5.jpeg
+> analyzeContrast(Outcome~Factor,contrast=L1vsOthers)
 $title
 [1] "ANALYSIS OF A CONTRAST"
 
@@ -124,7 +124,7 @@ $standardizeContrast
              Est      SE      LL      UL
 Contrast   1.837   0.829   0.212   3.462
 
-> analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2)) # Includes AnalyzeOneWay-Figure6.jpeg
+> analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 $title
 [1] "ANALYSIS OF A CONTRAST"
 

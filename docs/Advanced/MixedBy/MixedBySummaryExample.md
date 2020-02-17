@@ -120,15 +120,15 @@ Outcome3 4.000 5.000 2.449 1.224 -2.152 12.152
 #### Plots of Confidence Intervals for the Means
 
 ```r
-plotMeansBy(MixedSummary) # Includes MixedBy-Figure1.jpeg and MixedBy-Figure2.jpeg
+plotMeansBy(MixedSummary)
 ```
-<kbd><img src="MixedBy-Figure1.jpeg"></kbd>
-<kbd><img src="MixedBy-Figure2.jpeg"></kbd>
+<kbd><img src="MixedByFigure1.jpeg"></kbd>
+<kbd><img src="MixedByFigure2.jpeg"></kbd>
 ```r
-plotMeansBy(MixedSummary,conf.level=.99,mu=5,rope=c(3,7)) # Includes MixedBy-Figure3.jpeg and MixedBy-Figure4.jpeg
+plotMeansBy(MixedSummary,conf.level=.99,mu=5,rope=c(3,7))
 ```
-<kbd><img src="MixedBy-Figure3.jpeg"></kbd>
-<kbd><img src="MixedBy-Figure4.jpeg"></kbd>
+<kbd><img src="MixedByFigure3.jpeg"></kbd>
+<kbd><img src="MixedByFigure4.jpeg"></kbd>
 
 #### Significance Tests for the Means
 
@@ -254,15 +254,15 @@ Comparison 0.000 0.577 3.000 -3.370 3.370
 #### Plots of Confidence Intervals for the Mean Difference
 
 ```r
-plotDifferenceBy(CompSummary,MixedCorr) # Includes MixedBy-Figure5.jpeg and MixedBy-Figure6.jpeg
+plotDifferenceBy(CompSummary,MixedCorr)
 ```
-<kbd><img src="MixedBy-Figure5.jpeg"></kbd>
-<kbd><img src="MixedBy-Figure6.jpeg"></kbd>
+<kbd><img src="MixedByFigure5.jpeg"></kbd>
+<kbd><img src="MixedByFigure6.jpeg"></kbd>
 ```r
-plotDifferenceBy(CompSummary,MixedCorr,conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure7.jpeg and MixedBy-Figure8.jpeg
+plotDifferenceBy(CompSummary,MixedCorr,conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="MixedBy-Figure7.jpeg"></kbd>
-<kbd><img src="MixedBy-Figure8.jpeg"></kbd>
+<kbd><img src="MixedByFigure7.jpeg"></kbd>
+<kbd><img src="MixedByFigure8.jpeg"></kbd>
 
 #### Significance Test for the Mean Difference
 
@@ -369,15 +369,15 @@ Contrast 0.500 0.645 3.000 -3.268 4.268
 #### Plots of Confidence Intervals for a Contrast
 
 ```r
-plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers) # Includes MixedBy-Figure9.jpeg and MixedBy-Figure10.jpeg
+plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
 ```
-<kbd><img src="MixedBy-Figure9.jpeg"></kbd>
-<kbd><img src="MixedBy-Figure10.jpeg"></kbd>
+<kbd><img src="MixedByFigure9.jpeg"></kbd>
+<kbd><img src="MixedByFigure10.jpeg"></kbd>
 ```r
-plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Includes MixedBy-Figure11.jpeg and MixedBy-Figure12.jpeg
+plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 ```
-<kbd><img src="MixedBy-Figure11.jpeg"></kbd>
-<kbd><img src="MixedBy-Figure12.jpeg"></kbd>
+<kbd><img src="MixedByFigure11.jpeg"></kbd>
+<kbd><img src="MixedByFigure12.jpeg"></kbd>
 
 #### Significance Test for the Contrast
 

@@ -48,9 +48,9 @@ L4  76.000  71.291  80.709  73.969  78.031
 L5  65.500  61.943  69.057  63.469  67.531
 
 > 
-> plotMeans(RelationalRepeatedSummary) # RelationalRepeated-Figure1.jpeg
-> addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)# RelationalRepeated-Figure2.jpeg
+> plotMeans(RelationalRepeatedSummary)
+> addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
 > 
-> plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr) # RelationalRepeated-Figure4.jpeg
-> plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70) # RelationalRepeated-Figure5.jpeg
+> plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
+> plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70)
 > 

@@ -51,26 +51,26 @@ L5 65.5 61.943 69.057 63.469 67.531
 ```
 
 ```r
-plotMeans(L1,L2,L3,L4,L5) # RelationalRepeated-Figure1.jpeg
+plotMeans(L1,L2,L3,L4,L5)
 ```
-<kbd><img src="RelationalRepeated-Figure1.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure1.jpeg"></kbd>
 ```r
-addRelational(L1,L2,L3,L4,L5) # RelationalRepeated-Figure2.jpeg
+addRelational(L1,L2,L3,L4,L5)
 ```
-<kbd><img src="RelationalRepeated-Figure2.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure2.jpeg"></kbd>
 ```r
-addData(L1,L2,L3,L4,L5) # RelationalRepeated-Figure3.jpeg
+addData(L1,L2,L3,L4,L5) 
 ```
-<kbd><img src="RelationalRepeated-Figure3.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure3.jpeg"></kbd>
 ```r
-plotRelational(L1,L2,L3,L4,L5) # RelationalRepeated-Figure4.jpeg
+plotRelational(L1,L2,L3,L4,L5)
 ```
-<kbd><img src="RelationalRepeated-Figure4.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure4.jpeg"></kbd>
 ```r
-plotRelational(L1,L2,L3,L4,L5,conf.level=.99,mu=70) # RelationalRepeated-Figure5.jpeg
+plotRelational(L1,L2,L3,L4,L5,conf.level=.99,mu=70)
 ```
-<kbd><img src="RelationalRepeated-Figure5.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure5.jpeg"></kbd>
 ```r
-addData(L1,L2,L3,L4,L5,method="stack",col="black") # RelationalRepeated-Figure6.jpeg
+addData(L1,L2,L3,L4,L5,method="stack",col="black")
 ```
-<kbd><img src="RelationalRepeated-Figure6.jpeg"></kbd>
+<kbd><img src="RelationalRepeatedFigure6.jpeg"></kbd>

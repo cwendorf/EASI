@@ -13,10 +13,10 @@ RelationalOneWayData
 
 estimateRelational(Outcome~Factor)
 
-plotMeans(Outcome~Factor) # RelationalOneWay-Figure1.jpeg
-addRelational(Outcome~Factor) # RelationalOneWay-Figure2.jpeg
-addData(Outcome~Factor) # RelationalOneWay-Figure3.jpeg
+plotMeans(Outcome~Factor)
+addRelational(Outcome~Factor)
+addData(Outcome~Factor)
 
-plotRelational(Outcome~Factor) # RelationalOneWay-Figure4.jpeg
-plotRelational(Outcome~Factor,conf.level=.99,mu=70) # RelationalOneWay-Figure5.jpeg
-addData(Outcome~Factor,method="stack",col="black") # RelationalOneWay-Figure6.jpeg
+plotRelational(Outcome~Factor)
+plotRelational(Outcome~Factor,conf.level=.99,mu=70)
+addData(Outcome~Factor,method="stack",col="black")

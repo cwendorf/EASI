@@ -89,26 +89,26 @@ L5 65.5 61.943 69.057 63.125 67.875
 ```
 
 ```r
-plotMeans(Outcome~Factor) # RelationalOneWay-Figure1.jpeg
+plotMeans(Outcome~Factor)
 ```
-<kbd><img src="RelationalOneWay-Figure1.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure1.jpeg"></kbd>
 ```r
-addRelational(Outcome~Factor) # RelationalOneWay-Figure2.jpeg
+addRelational(Outcome~Factor)
 ```
-<kbd><img src="RelationalOneWay-Figure2.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure2.jpeg"></kbd>
 ```r
-addData(Outcome~Factor) # RelationalOneWay-Figure3.jpeg
+addData(Outcome~Factor)
 ```
-<kbd><img src="RelationalOneWay-Figure3.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure3.jpeg"></kbd>
 ```r
-plotRelational(Outcome~Factor) # RelationalOneWay-Figure4.jpeg
+plotRelational(Outcome~Factor)
 ```
-<kbd><img src="RelationalOneWay-Figure4.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure4.jpeg"></kbd>
 ```r
-plotRelational(Outcome~Factor,conf.level=.99,mu=70) # RelationalOneWay-Figure5.jpeg
+plotRelational(Outcome~Factor,conf.level=.99,mu=70)
 ```
-<kbd><img src="RelationalOneWay-Figure5.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure5.jpeg"></kbd>
 ```r
-addData(Outcome~Factor,method="stack",col="black") # RelationalOneWay-Figure6.jpeg
+addData(Outcome~Factor,method="stack",col="black")
 ```
-<kbd><img src="RelationalOneWay-Figure6.jpeg"></kbd>
+<kbd><img src="RelationalOneWayFigure6.jpeg"></kbd>
