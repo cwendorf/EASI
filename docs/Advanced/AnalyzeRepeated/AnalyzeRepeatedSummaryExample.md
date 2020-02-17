@@ -7,7 +7,7 @@
 
 ---
 
-## Analyze - Repeated (Within-Subjects) Tutorial with Summary Statistics
+## Analyze - Repeated Measures (Within-Subjects) Tutorial with Summary Statistics
 
 ### Enter Summary Statistics
 
