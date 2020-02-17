@@ -1,8 +1,8 @@
 Package: EASI
 Type: Package
 Title: Estimation Approach to Statistical Inference
-Description: A set of simple R functions to estimate, test, and plot confidence intervals for means, mean comparisons, and standardized effect sizes. 
-Version: 0.1.20200213
+Description: A set of simple R functions to estimate, test, and plot confidence intervals for means, mean comparisons, and mean contrasts. 
+Version: 1.0.0217
 Depends: R (>= 3.5.0)
 Author: Craig A Wendorf <cwendorf@uwsp.edu>
 Maintainer: Craig A Wendorf <cwendorf@uwsp.edu>
