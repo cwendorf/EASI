@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Between-Subjects Factorial Example with Frenda Summary Statistics
+## Factorial Between-Subjects Example with Frenda Summary Statistics
 
 ### Enter Summary Statistics
 

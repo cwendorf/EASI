@@ -7,7 +7,7 @@
 
 ---
 
-## Repeated Measures (Single-Factor Within-Subjects) Tutorial
+## Repeated Measures (Within-Subjects) Tutorial
 
 ### Overview of this Example
 

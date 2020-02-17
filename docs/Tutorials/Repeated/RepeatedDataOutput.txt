@@ -1,5 +1,5 @@
 > # Estimation Approach to Statistical Inference
-> ## Repeated (Within-Subjects) Tutorial with Data
+> ## Repeated Measures (Within-Subjects) Tutorial with Data
 > 
 > ### Enter Data
 > 
@@ -39,8 +39,8 @@ Outcome3   4.000   7.000   2.449   1.225  -0.154  14.154
 > 
 > #### Plots of Confidence Intervals for the Means
 > 
-> plotMeans(Outcome1,Outcome2,Outcome3) # Repeated-Figure1.jpeg
-> plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)) # Repeated-Figure2.jpeg
+> plotMeans(Outcome1,Outcome2,Outcome3)
+> plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7))
 > 
 > #### Significance Tests for the Means
 > 
@@ -105,8 +105,8 @@ Comparison   4.000   1.225   3.000  -3.154  11.154
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
-> plotDifference(Outcome1,Outcome2) # Repeated-Figure3.jpeg
-> plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)) # Repeated-Figure4.jpeg
+> plotDifference(Outcome1,Outcome2)
+> plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
 > 
 > #### Significance Test for the Mean Difference
 > 
@@ -165,8 +165,8 @@ Contrast   4.500   1.307   3.000  -3.134  12.134
 > 
 > #### Plots of Confidence Intervals for a Contrast
 > 
-> plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers) # Repeated-Figure5.jpeg
-> plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Repeated-Figure6.jpeg
+> plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+> plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 > 
 > #### Significance Test for the Contrast
 > 

@@ -7,7 +7,7 @@
 
 ---
 
-## Paired Samples Example with Thomason Data
+## Paired Samples Example with Thomason Information
 
 ### Overview of this Example
 

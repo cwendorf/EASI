@@ -7,7 +7,7 @@
 
 ---
 
-## OneWay (Single-Factor Between-Subjects) Example with Rattan Data
+## OneWay (Between-Subjects) Example with Rattan Information
 
 ### Overview of this Example
 

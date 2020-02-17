@@ -7,7 +7,7 @@
 
 ---
 
-## Factorial Between-Subjects Example with Frenda Data
+## Factorial Between-Subjects Example with Frenda Information
 
 ### Overview of this Example
 

@@ -7,7 +7,7 @@
 
 ---
 
-## Repeated (Within-Subjects) Example with Donohue Data
+## Repeated Measures (Within-Subjects) Example with Donohue Data
 
 ### Enter Data
 

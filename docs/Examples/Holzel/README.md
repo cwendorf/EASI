@@ -7,7 +7,7 @@
 
 ---
 
-## Mixed Design Example with Holzel Data
+## Mixed Design Example with Holzel Information
 
 ### Overview of this Example
 

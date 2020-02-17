@@ -7,7 +7,7 @@
 
 ---
 
-## Repeated Measures (Single-Factor Within-Subjects) Example with Donohue Data
+## Repeated Measures (Within-Subjects) Example with Donohue Information
 
 ### Overview of this Example
 

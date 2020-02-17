@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Repeated (Within-Subjects) Tutorial with Summary Statistics
+## Repeated Measures (Within-Subjects) Tutorial with Summary Statistics
 
 ### Enter Summary Statistics
 
@@ -26,8 +26,8 @@ estimateMeans(RepeatedSummary,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(RepeatedSummary) # Repeated-Figure1.jpeg
-plotMeans(RepeatedSummary,conf.level=.99,mu=5,rope=c(3,7)) # Repeated-Figure2.jpeg
+plotMeans(RepeatedSummary)
+plotMeans(RepeatedSummary,conf.level=.99,mu=5,rope=c(3,7))
 
 #### Significance Tests for the Means
 
@@ -51,8 +51,8 @@ estimateDifference(CompSummary,RepeatedCorr,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(CompSummary,RepeatedCorr) # Repeated-Figure3.jpg
-plotDifference(CompSummary,RepeatedCorr,conf.level=.99,rope=c(-2,2)) # Repeated-Figure4.jpeg
+plotDifference(CompSummary,RepeatedCorr)
+plotDifference(CompSummary,RepeatedCorr,conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Mean Difference
 
@@ -75,8 +75,8 @@ estimateContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) # Repeated-Figure5.jpeg
-plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Repeated-Figure6.jpeg
+plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
+plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Contrast
 

@@ -7,7 +7,7 @@
 
 ---
 
-## Repeated (Within-Subjects) Example with Donohue Summary Statistics
+## Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics
 
 ### Enter Summary Statistics
 

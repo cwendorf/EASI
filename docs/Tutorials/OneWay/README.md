@@ -7,7 +7,7 @@
 
 ---
 
-## OneWay (Single-Factor Between-Subjects) Tutorial
+## OneWay (Between-Subjects) Tutorial
 
 ### Overview of this Example
 

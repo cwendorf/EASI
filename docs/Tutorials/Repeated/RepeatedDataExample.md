@@ -7,7 +7,7 @@
 
 ---
 
-## Repeated (Within-Subjects) Tutorial with Data
+## Repeated Measures (Within-Subjects) Tutorial with Data
 
 ### Enter Data
 

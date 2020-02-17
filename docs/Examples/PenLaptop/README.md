@@ -7,7 +7,7 @@
 
 ---
 
-## Independent Groups Example with PenLaptop Data
+## Independent Groups Example with PenLaptop Information
 
 ### Overview of this Example
 
