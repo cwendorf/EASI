@@ -7,7 +7,7 @@
 
 ---
 
-## Pairwise Comparisons - Repeated (Within-Subjects) Tutorial with Summary Statistics
+## Pairwise Comparisons - Repeated Measures (Within-Subjects) Tutorial with Summary Statistics
 
 ### Enter Summary Statistics
 

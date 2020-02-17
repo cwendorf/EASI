@@ -7,7 +7,7 @@
 
 ---
 
-## Relational Intervals - Repeated (Within-Subjects) Example
+## Relational Intervals - Repeated Measures (Within-Subjects) Example
 
 ### Overview of this Example
 

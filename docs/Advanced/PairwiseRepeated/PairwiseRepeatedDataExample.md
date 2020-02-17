@@ -7,7 +7,7 @@
 
 ---
 
-## Pairwise Comparisons - Repeated (Within-Subjects) Tutorial with Data
+## Pairwise Comparisons - Repeated Measures (Within-Subjects) Tutorial with Data
 
 ### Enter Data
 

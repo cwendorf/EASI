@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Relational Intervals - Repeated (Within-Subjects) Example with Wendorf Data
+## Relational Intervals - Repeated Measures (Within-Subjects) Example with Wendorf Data
 
 ### Enter Data
 
