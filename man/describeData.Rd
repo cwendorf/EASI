@@ -12,9 +12,9 @@
 # describeData is a wrapper function. It will automatically call the appropriate method below given the class of the object.
 describeData(\dots,digits=3)
 
-\method{describeData}{default}(\dots)
+\method{descData}{default}(\dots)
 
-\method{describeData}{formula}(formula)
+\method{descData}{formula}(formula)
 }
 
 \arguments{
