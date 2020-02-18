@@ -17,6 +17,7 @@ correlateData(\dots,digits=3)
 
 \arguments{
   \item{\dots}{a set of (non-empty) numeric vectors of data values.}
+  \item{digits}{the specified number of decimal places.}
 }
 
 \examples{
