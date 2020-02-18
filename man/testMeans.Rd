@@ -31,6 +31,6 @@ testMeans(\dots,digits=3)
   \item{digits}{the specified number of decimal places.}
 }
 
-\examples{
-Tutorials and examples from published work are available at https://cwendorf.github.io/EASI
+\details{
+Tutorials and examples from published work are available at \url{https://cwendorf.github.io/EASI/}
 }
