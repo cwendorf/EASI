@@ -9,7 +9,6 @@
 \description{Provides a table of descriptive/summary statistics for a data set.}
 
 \usage{
-This is a general statement.
 
 # describeData is a wrapper function. It will automatically call the appropriate method below given the class of the object.
 describeData(\dots,digits=3)
@@ -24,4 +23,6 @@ describeData(\dots,digits=3)
   \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
 }
 
+examples{
 Tutorials and examples from published work are available at https://cwendorf.github.io/EASI
+}
