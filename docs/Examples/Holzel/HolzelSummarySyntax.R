@@ -25,7 +25,7 @@ HolzelCorrMeditation["PretestMeditation","PosttestMeditation"] <- .993
 HolzelCorrMeditation <- fillCorrMatrix(HolzelCorrMeditation)
 HolzelCorrMeditation
 
-#### Analyses of the Differences within Conditions
+### Analyses of the Differences within Conditions
 
 plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter")
 plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,ylab="Gray Matter")

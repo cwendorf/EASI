@@ -59,7 +59,7 @@ HolzelSubsetControl <- subset(HolzelData,Group=="Control")
 HolzelSubsetLMeditation <- subset(HolzelData,Group=="Meditation")
 ```
 
-#### Confidence Intervals for the Means
+### Analyses of the Differences within Conditions
 
 ```r
 with(HolzelSubsetControl,plotDifference(Pretest,Posttest,ylab="Gray Matter"))

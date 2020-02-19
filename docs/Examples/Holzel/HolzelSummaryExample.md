@@ -62,7 +62,7 @@ PretestMeditation              1.000              0.993
 PosttestMeditation             0.993              1.000
 ```
 
-#### Analyses of the Differences within Conditions
+### Analyses of the Differences within Conditions
 
 ```r
 plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter")
