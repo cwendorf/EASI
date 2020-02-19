@@ -37,10 +37,10 @@ The basic EASI functions represent four basic categories of analyses:
 
 ### Technical Details
 
-For means, mean Differences, and mean contrasts:
+For means, mean differences, and mean contrasts:
 
 - Confidence intervals are calculated independent of each other (i.e., they are not simultaneous)
-- No alpha adjustments for multiple intervals have been made
+- No corrections for multiple intervals/contrasts are made
 - All calculations assume heterogenity of variance (see Keppel & Wickens, 2004)
 
 For standardized effect sizes:
