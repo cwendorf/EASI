@@ -11,7 +11,7 @@
 
 ### Overview of the Examples
 
-- Examples are from the _[Introduction to the New Statistics ](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ (Cumming & Calin-Jageman, 2017)
+- Examples are from the _[Introduction to the New Statistics (ITNS)](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ (Cumming & Calin-Jageman, 2017)
 - The examples include estimation, plots, significance tests, and effect sizes
 - Each example provides a syntax file, a text output file, and graphs
 
