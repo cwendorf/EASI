@@ -45,7 +45,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/pairwiseExtensio
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/relationalExtension.R")
 ```
 
-**_byExtension_** (`estimateMeansBy`, `estimateDifferenceBy`, `estimateContrastBy`, `plotMeansBy`, `plotDifferenceBy`, `plotContrastBy`, `testMeansBy`, `testDifferenceBy`, `testContrastBy`, `standardizeMeansBy`, `standardizeDifferenceBy`, and `standardizeContrastBy` functions that apply the estimate, plot, test, and standardize function across levels of the second factor in a two-factor between-subjects or a mixed factorial design -- available only for data input and not summary statistics input)
+**_byExtension_** (`estimateMeansBy`, `estimateDifferenceBy`, `estimateContrastBy`, `plotMeansBy`, `plotDifferenceBy`, `plotContrastBy`, `testMeansBy`, `testDifferenceBy`, `testContrastBy`, `standardizeMeansBy`, `standardizeDifferenceBy`, and `standardizeContrastBy` functions that apply the estimate, plot, test, and standardize function across levels of the second factor in a two-factor between-subjects or a mixed factorial design)
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/byExtension.R")
 ```
