@@ -11,7 +11,7 @@
 
 ### Installation of the Extensions
 
-If the package is installed, then all extensions are already installed.
+If the package is installed using the following procedure, then all extensions are automatically installed.
 
 ``` r
 install.packages("devtools")
@@ -19,7 +19,7 @@ devtools::install_github("cwendorf/EASI",build=FALSE)
 library(EASI)
 ```
 
-If the entire package is not installed, the extensions can be individually installed by pasting the lines into R.
+If the entire package is not installed, the extensions can be individually installed by pasting the appropriate lines into R.
 
 ### Summary of the Available Extensions
 
