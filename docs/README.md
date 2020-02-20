@@ -15,7 +15,7 @@ EASI is an R package that implements features of [estimation statistics](https:/
 
 ### Materials Available on this Site
 
-This site includes the basic functions and extensions of EASI, along with numerous example showing how to use the functions.
+This site includes the primary functions and extensions of EASI, along with numerous example showing how to use the functions.
 
 - [**Functions**](./Functions): Contains descriptions of the primary functions and extensions that can be installed or sourced into R.
 - [**Tutorials**](./Tutorials): Contains between-subjects and within-subjects tutorials that highlight the primary functions
