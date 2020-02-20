@@ -28,9 +28,9 @@ For some analyses, [extensions are needed](./Extensions.md).
 
 ### Summary of the Functions
 
-The basic EASI functions represent four basic categories of analyses:
+The primary EASI functions represent four basic categories of analyses:
 
-- _estimate_ (`estimateMeans`,`estimateDifference`, and `estimateContrast` functions that estimate confidence intervals for means, mean differences, and contrasts respectively)
+- _estimate_ ([`estimateMeans`]("./estimateMeans.md"),`estimateDifference`, and `estimateContrast` functions that estimate confidence intervals for means, mean differences, and contrasts respectively)
 - _plot_ (`plotMeans`, `plotDifference`, and `plotContrast` functions that plot confidence intervals for means, mean differences, and contrasts respectively)
 - _test_ (`testMeans`, `testDifference`, and `testContrast` functions that calculate NHST for means, mean differences, and contrasts respectively)
 - _standardize_ (`standardizeMeans`, `standardizeDifference`, and `standardizeContrast` functions that calculate confidence intervals for standardized effect sizes for individual means, mean differences, and contrasts respectively)
