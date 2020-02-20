@@ -9,7 +9,7 @@
 
 ## About the EASI Functions
 
-### Installation of Functions
+### Installation of the Primary Functions
 
 This package is not currently on CRAN, but can be installed directly from this repository by pasting the following lines into R.
 
