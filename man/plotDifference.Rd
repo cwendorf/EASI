@@ -29,11 +29,11 @@ plotDifference(\dots,digits=3)
   \item{CompStats}{a matrix/frame of descriptive/summary statistics.}
   \item{CorrStats}{a matrix/frame of correlations among the measures.}
   \item{ylab}{a label for the y-axis.}
-  \item[xlab]{a label for the x-axis.}
+  \item{xlab}{a label for the x-axis.}
   \item{mu}{a number indicating the true/hypothesized value of the mean difference.}
   \item{conf.level}{confidence level of the interval.}
   \item{rope}{lower and upper values for a region of practical equivalence.}
-  \items{values}{whether the points should be labeled with their values.}
+  \item{values}{whether the points should be labeled with their values.}
   \item{digits}{the specified number of decimal places.}
 }
 

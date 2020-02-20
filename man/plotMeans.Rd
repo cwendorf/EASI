@@ -28,11 +28,11 @@ plotMeans(\dots,digits=3)
   \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
   \item{DescStats}{a matrix/frame of descriptive/summary statistics.}
   \item{ylab}{a label for the y-axis.}
-  \item[xlab]{a label for the x-axis.}
+  \item{xlab}{a label for the x-axis.}
   \item{mu}{a number indicating the true/hypothesized value of the mean.}
   \item{conf.level}{confidence level of the interval.}
   \item{rope}{lower and upper values for a region of practical equivalence.}
-  \items{values}{whether the points should be labeled with their values.}
+  \item{values}{whether the points should be labeled with their values.}
   \item{digits}{the specified number of decimal places.}
 }
 
