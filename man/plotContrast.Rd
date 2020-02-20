@@ -7,7 +7,7 @@
 \alias{plotContrast.formula}
 \alias{plotContrast.wss}
 \alias{plotContrast.bss}
-\title{plot Contrast}
+\title{Plot Contrast}
 \description{Provides the plot of the means, the mean contrast, and their confidence intervals given the input.}
 
 \usage{

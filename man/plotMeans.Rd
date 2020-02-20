@@ -7,7 +7,7 @@
 \alias{plotMeans.formula}
 \alias{plotMeans.wss}
 \alias{plotMeans.bss}
-\title{plot Means}
+\title{Plot Means}
 \description{Provides a plot of all means and their confidence intervals given the input.}
 
 \usage{

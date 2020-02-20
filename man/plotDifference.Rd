@@ -7,7 +7,7 @@
 \alias{plotDifference.formula}
 \alias{plotDifference.wss}
 \alias{plotDifference.bss}
-\title{plot Difference}
+\title{Plot Difference}
 \description{Provides a plot of the two means, the mean difference, and their confidence intervals given the input.}
 
 \usage{
