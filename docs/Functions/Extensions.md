@@ -9,9 +9,9 @@
 
 ## About the EASI Extensions
 
-### Installation of Available Extensions
+### Installation of the Available Extensions
 
-EASI extentions are files that extend the functions beyond the original vision for EASI. The EASI extensions parallel the basic categories of analyses but add the following:
+EASI extentions are files that extend the functions beyond the original vision for EASI. The EASI extensions parallel the primary categories of analyses but add the following:
 
 **_analyzeExtension.R_** (`analyzeMeans`, `analyzeDifference`, and `analyzeContrast` wrappers that combine the estimate, plot, test, and standardize functions for single-factor between- and within-subjects designs)
 ```r
