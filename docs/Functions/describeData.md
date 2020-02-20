@@ -1,10 +1,11 @@
-# `describeData`: Describe Data
+`describeData`
+# Describe Data
 
-## Description
+### Description
 
 Provides a table of descriptive/summary statistics for a data set.
 
-## Usage
+### Usage
 
 ```r
 # describeData is a wrapper function. It will automatically call the appropriate method below given the class of the object.
@@ -13,8 +14,7 @@ list(list("descData"), list("default"))(list())
 list(list("descData"), list("formula"))(formula)
 ```
 
-
-## Arguments
+### Arguments
 
 Argument      |Description
 ------------- |----------------
@@ -22,9 +22,8 @@ Argument      |Description
 ```formula```     |     a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```digits```     |     the specified number of decimal places.
 
-## Details
+### Details
 
-
- Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 
+Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 
 
 
