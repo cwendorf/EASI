@@ -1,4 +1,6 @@
-# `estimateDifference`: Estimate Difference
+`estimateDifference`{EASI}
+
+# Estimate Difference
 
 ## Description
 
