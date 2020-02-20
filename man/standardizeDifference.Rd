@@ -11,26 +11,20 @@
 \description{Provides the standardized effect size and its confidence interval for the difference given the input.}
 
 \usage{
-# standardizeDifference is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-standardizeDifference(\dots,digits=3)
-
-\method{smdDifference}{default}(\dots,mu=0,conf.level=.95)
-
-\method{smdDifference}{formula}(formula,mu=0,conf.level=.95)
-
-\method{smdDifference}{wss}(CompStats,CorrStats,mu=0,conf.level=.95)
-
-\method{smdDifference}{bss}(CompStats,mu=0,conf.level=.95)
+\method{standardizeDifference}{default}(\dots,mu=0,conf.level=.95,digits=3)
+\method{standardizeDifference}{formula}(formula,mu=0,conf.level=.95,digits=3)
+\method{standardizeDifference}{wss}(CompStats,CorrStats,mu=0,conf.level=.95,digits=3)
+\method{standardizeDifference}{bss}(CompStats,mu=0,conf.level=.95,digits=3)
 }
 
 \arguments{
-  \item{\dots}{a set of (non-empty) numeric vectors of data values.}
-  \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
-  \item{CompStats}{a matrix/frame of descriptive/summary statistics.}
-  \item{CorrStats}{a matrix/frame of correlations among the measures.}
-  \item{mu}{a number indicating the true/hypothesized value of the mean difference.}
-  \item{conf.level}{confidence level of the interval.}
-  \item{digits}{the specified number of decimal places.}
+\item{\dots}{a set of (non-empty) numeric vectors of data values.}
+\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
+\item{CompStats}{a matrix/frame of descriptive/summary statistics.}
+\item{CorrStats}{a matrix/frame of correlations among the measures.}
+\item{mu}{a number indicating the true/hypothesized value of the mean difference.}
+\item{conf.level}{confidence level of the interval.}
+\item{digits}{the specified number of decimal places.}
 }
 
 \details{

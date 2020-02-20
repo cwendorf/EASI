@@ -8,16 +8,12 @@
 \description{Provides a square matrix/frame of correlations for a data set.}
 
 \usage{
-# correlateData is a wrapper function. It will automatically call the method below.
-correlateData(\dots,digits=3)
-
-\method{corrData}{default}(\dots)
-
+\method{correlateData}{default,digits=3}(\dots)
 }
 
 \arguments{
-  \item{\dots}{a set of (non-empty) numeric vectors of data values.}
-  \item{digits}{the specified number of decimal places.}
+\item{\dots}{a set of (non-empty) numeric vectors of data values.}
+\item{digits}{the specified number of decimal places.}
 }
 
 \details{

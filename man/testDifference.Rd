@@ -11,25 +11,19 @@
 \description{Provides a statistical significance test of the mean difference given the input.}
 
 \usage{
-# testDifference is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-testDifference(\dots,digits=3)
-
-\method{nhstDifference}{default}(\dots,mu=0)
-
-\method{nhstDifference}{formula}(formula,mu=0)
-
-\method{nhstDifference}{wss}(CompStats,CorrStats,mu=0)
-
-\method{nhstDifference}{bss}(CompStats,mu=0)
+\method{testDifference}{default}(\dots,mu=0,digits=3)
+\method{testDifference}{formula}(formula,mu=0,digits=3)
+\method{testDifference}{wss}(CompStats,CorrStats,mu=0,digits=3)
+\method{testDifference}{bss}(CompStats,mu=0,digits=3)
 }
 
 \arguments{
-  \item{\dots}{a set of (non-empty) numeric vectors of data values.}
-  \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
-  \item{CompStats}{a matrix/frame of descriptive/summary statistics.}
-  \item{CorrStats}{a matrix/frame of correlations among the measures.}
-  \item{mu}{a number indicating the true/hypothesized value of the mean difference.}
-  \item{digits}{the specified number of decimal places.}
+\item{\dots}{a set of (non-empty) numeric vectors of data values.}
+\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
+\item{CompStats}{a matrix/frame of descriptive/summary statistics.}
+\item{CorrStats}{a matrix/frame of correlations among the measures.}
+\item{mu}{a number indicating the true/hypothesized value of the mean difference.}
+\item{digits}{the specified number of decimal places.}
 }
 
 \details{

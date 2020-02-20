@@ -21,11 +21,11 @@ descData(formula)
 
 ### Arguments
 
-Argument      |Description
-------------- |----------------
-```...```     |     a set of (non-empty) numeric vectors of data values.
-```formula```     |     a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
-```digits```     |     the specified number of decimal places.
+Argument | Description
+--- |---
+```...``` | a set of (non-empty) numeric vectors of data values.
+```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
+```digits``` | the specified number of decimal places.
 
 ### Details
 

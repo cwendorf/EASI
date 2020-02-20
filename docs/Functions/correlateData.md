@@ -1,28 +1,28 @@
-# `correlateData`: Correlate Data
+`correlateData` {EASI}
 
-## Description
+## Correlate Data
+
+### Description
 
 Provides a square matrix/frame of correlations for a data set.
 
-## Usage
+### Usage
 
 ```r
 # correlateData is a wrapper function. It will automatically call the method below.
-correlateData(list(),digits=3)
-list(list("corrData"), list("default"))(list())
+correlateData(...,digits=3)
+
+## Default S3 method
+corrData(...)
 ```
 
+### Arguments
 
-## Arguments
+Argument | Description
+--- |---
+```...``` | a set of (non-empty) numeric vectors of data values.
+```digits``` | the specified number of decimal places.
 
-Argument      |Description
-------------- |----------------
-```list()```     |     a set of (non-empty) numeric vectors of data values.
-```digits```     |     the specified number of decimal places.
+### Details
 
-## Details
-
-
- Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 
-
-
+Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

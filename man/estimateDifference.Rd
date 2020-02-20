@@ -11,25 +11,19 @@
 \description{Provides the mean difference, standard error, and confidence interval of the difference given the input.}
 
 \usage{
-# estimateDifference is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-estimateDifference(\dots,digits=3)
-
-\method{ciDifference}{default}(\dots,conf.level=.95)
-
-\method{ciDifference}{formula}(formula,conf.level=.95)
-
-\method{ciDifference}{wss}(CompStats,CorrStats,conf.level=.95)
-
-\method{ciDifference}{bss}(CompStats,conf.level=.95)
+\method{estimateDifference}{default}(\dots,conf.level=.95,digits=3)
+\method{estimateDifference}{formula}(formula,conf.level=.95,digits=3)
+\method{estimateDifference}{wss}(CompStats,CorrStats,conf.level=.95,digits=3)
+\method{estimateDifference}{bss}(CompStats,conf.level=.95,digits=3)
 }
 
 \arguments{
-  \item{\dots}{a set of (non-empty) numeric vectors of data values.}
-  \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
-  \item{CompStats}{a matrix/frame of descriptive/summary statistics.}
-  \item{CorrStats}{a matrix/frame of correlations among the measures.}
-  \item{conf.level}{confidence level of the interval.}
-  \item{digits}{the specified number of decimal places.}
+\item{\dots}{a set of (non-empty) numeric vectors of data values.}
+\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
+\item{CompStats}{a matrix/frame of descriptive/summary statistics.}
+\item{CorrStats}{a matrix/frame of correlations among the measures.}
+\item{conf.level}{confidence level of the interval.}
+\item{digits}{the specified number of decimal places.}
 }
 
 \details{
