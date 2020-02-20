@@ -12,8 +12,11 @@
 
 \usage{
 \method{standardizeDifference}{default}(\dots,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeDifference}{formula}(formula,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeDifference}{wss}(CompStats,CorrStats,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeDifference}{bss}(CompStats,mu=0,conf.level=.95,digits=3)
 }
 

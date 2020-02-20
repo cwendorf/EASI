@@ -12,8 +12,11 @@
 
 \usage{
 \method{estimateDifference}{default}(\dots,conf.level=.95,digits=3)
+
 \method{estimateDifference}{formula}(formula,conf.level=.95,digits=3)
+
 \method{estimateDifference}{wss}(CompStats,CorrStats,conf.level=.95,digits=3)
+
 \method{estimateDifference}{bss}(CompStats,conf.level=.95,digits=3)
 }
 

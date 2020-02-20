@@ -4,7 +4,7 @@
 
 ### Description
 
-`EASI` implements features of estimation statistics (or the "new statistics"). Included functions calculate, test, and plot confidence intervals for means, mean differences, and mean contrasts for between- and within-subjects single-factor, factorial, and mixed designs and can take either raw data or summary statistics as input. Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparions among the groups and variables.
+`EASI` implements features of estimation statistics (or the "new statistics"). Primary functions calculate, test, and plot confidence intervals for means, mean differences, and mean contrasts for between- and within-subjects single-factor, factorial, and mixed designs. They can take either raw data or summary statistics as input. Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparions among the groups and variables.
 
 ### Details
 

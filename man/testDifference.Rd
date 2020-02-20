@@ -12,8 +12,11 @@
 
 \usage{
 \method{testDifference}{default}(\dots,mu=0,digits=3)
+
 \method{testDifference}{formula}(formula,mu=0,digits=3)
+
 \method{testDifference}{wss}(CompStats,CorrStats,mu=0,digits=3)
+
 \method{testDifference}{bss}(CompStats,mu=0,digits=3)
 }
 

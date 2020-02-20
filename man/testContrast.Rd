@@ -12,8 +12,11 @@
 
 \usage{
 \method{testContrast}{default}(\dots,contrast,mu=0,digits=3)
+
 \method{testContrast}{formula}(formula,contrast,mu=0,digits=3)
+
 \method{testContrast}{wss}(DescStats,CorrStats,contrast,mu=0,digits=3)
+
 \method{testContrast}{bss}(DescStats,contrast,mu=0,digits=3)
 }
 

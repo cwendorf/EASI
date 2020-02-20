@@ -10,6 +10,7 @@
 
 \usage{
 \method{describeData}{default}(\dots,digits=3)
+
 \method{describeData}{formula}(formula,digits=3)
 }
 

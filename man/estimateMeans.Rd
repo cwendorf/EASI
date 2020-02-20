@@ -12,8 +12,11 @@
 
 \usage{
 \method{estimateMeans}{default}(\dots,conf.level=.95,digits=3)
+
 \method{estimateMeans}{formula}(formula,conf.level=.95,digits=3)
+
 \method{estimateMeans}{wss}(DescStats,conf.level=.95,digits=3)
+
 \method{estimateMeans}{bss}(DescStats,conf.level=.95,digits=3)
 }
 

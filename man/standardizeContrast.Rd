@@ -12,8 +12,11 @@
 
 \usage{
 \method{standardizeContrast}{default}(\dots,contrast,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeContrast}{formula}(formula,contrast,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeContrast}{wss}(DescStats,CorrStats,contrast,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeContrast}{bss}(DescStats,contrast,mu=0,conf.level=.95,digits=3)
 }
 

@@ -12,8 +12,11 @@
 
 \usage{
 \method{standardizeMeans}{default}(\dots,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeMeans}{formula}(formula,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeMeans}{wss}(DescStats,mu=0,conf.level=.95,digits=3)
+
 \method{standardizeMeans}{bss}(DescStats,mu=0,conf.level=.95,digits=3)
 }
 

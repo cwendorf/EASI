@@ -12,8 +12,11 @@
 
 \usage{
 \method{testMeans}{default}(\dots,mu=0,digits=3)
+
 \method{testMeans}{formula}(formula,mu=0,digits=3)
+
 \method{testMeans}{wss}(DescStats,mu=0,digits=3)
+
 \method{testMeans}{bss}(DescStats,mu=0,digits=3)
 }
 

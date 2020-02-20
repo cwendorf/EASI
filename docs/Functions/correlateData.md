@@ -9,11 +9,8 @@ Provides a square matrix/frame of correlations for a data set.
 ### Usage
 
 ```r
-# correlateData is a wrapper function. It will automatically call the method below.
-correlateData(...,digits=3)
-
 ## Default S3 method
-corrData(...)
+correlateData(...,digits=3)
 ```
 
 ### Arguments
