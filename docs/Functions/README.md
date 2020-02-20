@@ -19,7 +19,7 @@ devtools::install_github("cwendorf/EASI",build=FALSE)
 library(EASI)
 ```
 
-Alternatively, pasting the following line into R will automatically make the most current versions of the basic functions available for use.
+Alternatively, pasting the following line into R will automatically make the most current versions of the primary functions available for use.
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
 ```
