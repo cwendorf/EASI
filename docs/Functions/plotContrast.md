@@ -7,12 +7,17 @@ Provides the plot of the means, the mean contrast, and their confidence interval
 ## Usage
 
 ```r
-# plotContrast is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-plotContrast(list(),digits=3)
-list(list("plotContrast"), list("default"))(list(),contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotContrast"), list("formula"))(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotContrast"), list("wss"))(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotContrast"), list("bss"))(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
+## Default S3 method:
+plotContrast(...,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'formula'
+plotContrast(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'wss'
+plotContrast(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'bss'
+plotContrast(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 ```
 
 

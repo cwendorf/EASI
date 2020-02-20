@@ -7,12 +7,17 @@ Provides the mean difference, standard error, and confidence interval of the dif
 ## Usage
 
 ```r
-# estimateDifference is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-estimateDifference(list(),digits=3)
-list(list("ciDifference"), list("default"))(list(),conf.level=.95)
-list(list("ciDifference"), list("formula"))(formula,conf.level=.95)
-list(list("ciDifference"), list("wss"))(CompStats,CorrStats,conf.level=.95)
-list(list("ciDifference"), list("bss"))(CompStats,conf.level=.95)
+## Default S3 method:
+estimateDifference(...,conf.level=.95,digits=3)
+
+## S3 method for class 'formula'
+estimateDifference(formula,conf.level=.95,digits=3)
+
+## S3 method for class 'wss'
+estimateDifference(CompStats,CorrStats,conf.level=.95,digits=3)
+
+## S3 method for class 'bss'
+estimateDifference(CompStats,conf.level=.95,digits=3)
 ```
 
 

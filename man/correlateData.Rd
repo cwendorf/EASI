@@ -8,7 +8,7 @@
 \description{Provides a square matrix/frame of correlations for a data set.}
 
 \usage{
-\method{correlateData}{default,digits=3}(\dots)
+\method{correlateData}{default}(\dots,digits=3)
 }
 
 \arguments{

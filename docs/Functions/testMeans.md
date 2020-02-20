@@ -7,12 +7,17 @@ Provides a statistical significance test for each mean given the input.
 ## Usage
 
 ```r
-# testMeans is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-testMeans(list(),digits=3)
-list(list("nhstMeans"), list("default"))(list(),mu=0)
-list(list("nhstMeans"), list("formula"))(formula,mu=0)
-list(list("nhstMeans"), list("wss"))(DescStats,mu=0)
-list(list("nhstMeans"), list("bss"))(DescStats,mu=0)
+## Default S3 method:
+testMeans(...,mu=0,digits=3)
+
+## S3 method for class 'formula'
+testMeans(formula,mu=0,digits=3)
+
+## S3 method for class 'wss'
+testMeans(DescStats,mu=0,digits=3)
+
+## S3 method for class 'bss'
+testMeans(DescStats,mu=0,digits=3)
 ```
 
 

@@ -7,12 +7,17 @@ Provides the standardized effect size and its confidence interval for the contra
 ## Usage
 
 ```r
-# standardizeContrast is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-standardizeContrast(list(),digits=3)
-list(list("smdContrast"), list("default"))(list(),contrast,mu=0,conf.level=.95)
-list(list("smdContrast"), list("formula"))(formula,contrast,mu=0,conf.level=.95)
-list(list("smdContrast"), list("wss"))(DescStats,CorrStats,contrast,mu=0,conf.level=.95)
-list(list("smdContrast"), list("bss"))(DescStats,contrast,mu=0,conf.level=.95)
+## Default S3 method:
+standardizeContrast(...,contrast,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'formula'
+standardizeContrast(formula,contrast,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'wss'
+standardizeContrast(DescStats,CorrStats,contrast,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'bss'
+standardizeContrast(DescStats,contrast,mu=0,conf.level=.95,digits=3)
 ```
 
 

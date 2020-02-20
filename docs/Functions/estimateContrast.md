@@ -9,20 +9,17 @@ Provides the mean contrast, standard error, and confidence interval of the contr
 ### Usage
 
 ```r
-# estimateContrast is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-estimateContrast(...,digits=3)
-
 ## Default S3 method:
-ciContrast(...,contrast,conf.level=.95)
+estimateContrast(...,contrast,conf.level=.95,digits=3)
 
 ## S3 method for class 'formula'
-ciContrast(formula,contrast,conf.level=.95)
+estimateContrast(formula,contrast,conf.level=.95,digits=3)
 
 ## S3 method for class 'wss'
-ciContrast(DescStats,CorrStats,contrast,conf.level=.95)
+estimateContrast(DescStats,CorrStats,contrast,conf.level=.95,digits=3)
 
 ## S3 method for class 'bss'
-ciContrast(DescStats,contrast,conf.level=.95)
+estimateContrast(DescStats,contrast,conf.level=.95,digits=3)
 ```
 
 ### Arguments

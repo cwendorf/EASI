@@ -9,14 +9,11 @@ Provides a table of descriptive/summary statistics for a data set.
 ### Usage
 
 ```r
-# describeData is a wrapper function. It will automatically call the appropriate method below given the class of the object.
+## Default S3 method:
 describeData(...,digits=3)
 
-## Default S3 method
-descData(...)
-
 ## S3 method for class 'formula'
-descData(formula)
+describeData(formula,digits=3)
 ```
 
 ### Arguments

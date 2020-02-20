@@ -7,12 +7,17 @@ Provides the standardized effect size and its confidence interval for the differ
 ## Usage
 
 ```r
-# standardizeDifference is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-standardizeDifference(list(),digits=3)
-list(list("smdDifference"), list("default"))(list(),mu=0,conf.level=.95)
-list(list("smdDifference"), list("formula"))(formula,mu=0,conf.level=.95)
-list(list("smdDifference"), list("wss"))(CompStats,CorrStats,mu=0,conf.level=.95)
-list(list("smdDifference"), list("bss"))(CompStats,mu=0,conf.level=.95)
+## Default S3 method:
+standardizeDifference(...,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'formula'
+standardizeDifference(formula,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'wss'
+standardizeDifference(CompStats,CorrStats,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'bss'
+standardizeDifference(CompStats,mu=0,conf.level=.95,digits=3)
 ```
 
 

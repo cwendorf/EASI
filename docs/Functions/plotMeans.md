@@ -7,12 +7,17 @@ Provides a plot of all means and their confidence intervals given the input.
 ## Usage
 
 ```r
-# plotMeans is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-plotMeans(list(),digits=3)
-list(list("plotMeans"), list("default"))(list(),ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotMeans"), list("formula"))(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotMeans"), list("wss"))(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotMeans"), list("bss"))(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
+## Default S3 method:
+plotMeans(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'formula'
+plotMeans(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'wss'
+plotMeans(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'bss'
+plotMeans(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 ```
 
 

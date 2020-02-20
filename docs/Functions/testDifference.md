@@ -7,12 +7,17 @@ Provides a statistical significance test of the mean difference given the input.
 ## Usage
 
 ```r
-# testDifference is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-testDifference(list(),digits=3)
-list(list("nhstDifference"), list("default"))(list(),mu=0)
-list(list("nhstDifference"), list("formula"))(formula,mu=0)
-list(list("nhstDifference"), list("wss"))(CompStats,CorrStats,mu=0)
-list(list("nhstDifference"), list("bss"))(CompStats,mu=0)
+## Default S3 method:
+testDifference(...,mu=0,digits=3)
+
+## S3 method for class 'formula'
+testDifference(formula,mu=0,digits=3)
+
+## S3 method for class 'wss'
+testDifference(CompStats,CorrStats,mu=0,digits=3)
+
+## S3 method for class 'bss'
+testDifference(CompStats,mu=0,digits=3)
 ```
 
 

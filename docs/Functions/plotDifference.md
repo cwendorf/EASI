@@ -7,12 +7,17 @@ Provides a plot of the two means, the mean difference, and their confidence inte
 ## Usage
 
 ```r
-# plotDifference is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-plotDifference(list(),digits=3)
-list(list("plotDifference"), list("default"))(list(),ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotDifference"), list("formula"))(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotDifference"), list("wss"))(CompStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
-list(list("plotDifference"), list("bss"))(CompStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE)
+## Default S3 method:
+plotDifference(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'formula'
+plotDifference(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'wss'
+plotDifference(CompStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+
+## S3 method for class 'bss'
+plotDifference(CompStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 ```
 
 

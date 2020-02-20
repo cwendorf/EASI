@@ -7,12 +7,17 @@ Provides a standardized effect size and its confidence interval for each mean gi
 ## Usage
 
 ```r
-# standardizeMeans is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-standardizeMeans(list(),digits=3)
-list(list("smdMeans"), list("default"))(list(),mu=0,conf.level=.95)
-list(list("smdMeans"), list("formula"))(formula,mu=0,conf.level=.95)
-list(list("smdMeans"), list("wss"))(DescStats,mu=0,conf.level=.95)
-list(list("smdMeans"), list("bss"))(DescStats,mu=0,conf.level=.95)
+## Default S3 method:
+standardizeMeans(...,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'formula'
+standardizeMeans(formula,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'wss'
+standardizeMeans(DescStats,mu=0,conf.level=.95,digits=3)
+
+## S3 method for class 'bss'
+standardizeMeans(DescStats,mu=0,conf.level=.95,digits=3)
 ```
 
 

@@ -7,12 +7,17 @@ Provides a table of means, standard deviations, and confidence intervals for eac
 ## Usage
 
 ```r
-# estimateMeans is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-estimateMeans(list(),digits=3)
-list(list("ciMeans"), list("default"))(list(),conf.level=.95)
-list(list("ciMeans"), list("formula"))(formula,conf.level=.95)
-list(list("ciMeans"), list("wss"))(DescStats,conf.level=.95)
-list(list("ciMeans"), list("bss"))(DescStats,conf.level=.95)
+## Default S3 method:
+estimateMeans(...,conf.level=.95,digits=3)
+
+## S3 method for class 'formula'
+estimateMeans(formula,conf.level=.95,digits=3)
+
+## S3 method for class 'wss'
+estimateMeans(DescStats,conf.level=.95,digits=3)
+
+## S3 method for class 'bss'
+estimateMeans(DescStats,conf.level=.95,digits=3)
 ```
 
 

@@ -7,12 +7,17 @@ Provides a statistical significance test of the mean contrast given the input.
 ## Usage
 
 ```r
-# testContrast is a wrapper function. It will automatically call the appropriate method below given the class of the object.
-testContrast(list(),digits=3)
-list(list("nhstContrast"), list("default"))(list(),contrast,mu=0)
-list(list("nhstContrast"), list("formula"))(formula,contrast,mu=0)
-list(list("nhstContrast"), list("wss"))(DescStats,contrast,CorrStats,mu=0)
-list(list("ciContrast"), list("bss"))(DescStats,contrast,mu=0)
+## Default S3 method:
+testContrast(...,contrast,mu=0,digits=3)
+
+## S3 method for class 'formula'
+testContrast(formula,contrast,mu=0,digits=3)
+
+## S3 method for class 'wss'
+testContrast(DescStats,CorrStats,contrast,mu=0,digits=3)
+
+## S3 method for class 'bss'
+testContrast(DescStats,contrast,mu=0,digits=3)
 ```
 
 
