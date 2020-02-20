@@ -9,7 +9,7 @@ formatFrame <- function(results,digits=3) {
   return(format(as.data.frame(round(results,digits=digits)),width=7,trim=T,nsmall=digits))
 }
 
-### Data Functions
+### Descriptive Functions
 
 #### Describe Function for Mutiple Groups and Variables
 
@@ -364,9 +364,9 @@ nhstContrast <- function(...)
   UseMethod("nhstContrast")
   
 nhstContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,...) {
-  N=DescStats[,"N"]
-  M=DescStats[,"M"]
-  SD=DescStats[,"SD"]
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   Est <- (t(contrast)%*%M)-mu
   k <- length(M)
   v <- diag(SD^2)%*%(solve(diag(N)))

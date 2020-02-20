@@ -1,10 +1,10 @@
 # Estimation Approach to Statistical Inference
-## Extension for Conducting Omnibus (Analysis of Variance) Analyses
+## Extension for Omnibus (Analysis of Variance) Analyses
 
 ### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
 ### ALSO: PASTE CONTENTS OF EASI-FUNCTIONS INTO R
 
-### Omnibus Function
+### Descriptive Functions
 
 descOmnibus <- function(...) 
   UseMethod("descOmnibus")
@@ -71,6 +71,60 @@ descOmnibus.formula <- function(formula,conf.level=.95,...) {
 
 describeOmnibus <- function(...,digits=3) {
   cat("\nANALYSIS OF VARIANCE SOURCE TABLE\n\n")
-   print(formatFrame(descOmnibus(...),digits=digits))
+  print(formatFrame(descOmnibus(...),digits=digits))
+  cat("\n")
+}
+
+### Null Hypothesis Significance Test Functions
+
+nhstOmnibus <- function(...) 
+  UseMethod("nhstOmnibus")
+
+nhstOmnibus.wss <- function(DescStats,CorrStats) {
+  temptab <- descOmnibus(DescStats,CorrStats)
+  MSf <- temptab["Factor","MS"]
+  MSe <- temptab["Error","MS"]
+  dff <- temptab["Factor","df"]
+  dfe <- temptab["Error","df"]
+  F <- MSf/MSe
+  p <- 1-pf(F,dff,dfe)
+  results <- cbind(F,dff,dfe,p)
+  colnames(results) <- c("F","dff","dfe","p")
+  rownames(results) <- c("Omnibus")  
+  return(results)
+}
+
+nhstOmnibus.bss <- function(DescStats) {
+  temptab <- descOmnibus(DescStats)
+  MSb <- temptab["Between","MS"]
+  MSw <- temptab["Within","MS"]
+  dfb <- temptab["Between","df"]
+  dfw <- temptab["Within","df"]
+  F <- MSb/MSw
+  p <- 1-pf(F,dfb,dfw)
+  results <- cbind(F,dfb,dfw,p)
+  colnames(results) <- c("F","dfb","dfw","p")
+  rownames(results) <- c("Omnibus")  
+  return(results)
+}
+
+nhstOmnibus.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
+  DescStats <- descData(...)
+  class(DescStats) <- "wss"
+  CorrStats <- corrData(...)  
+  results <- nhstOmnibus(DescStats,CorrStats)
+  return(results)
+}
+
+nhstOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL) {
+  DescStats <- descData(formula)
+  class(DescStats) <- "bss"
+  results <- nhstOmnibus(DescStats)
+  return(results)
+}
+
+testOmnibus <- function(...,digits=3) {
+  cat("\nHYPOTHESIS TEST FOR THE OMNIBUS EFFECT\n\n")
+  print(formatFrame(nhstOmnibus(...),digits=digits))
   cat("\n")
 }
