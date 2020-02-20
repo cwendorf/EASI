@@ -9,7 +9,19 @@
 
 ## About the EASI Extensions
 
-### Installation of the Available Extensions
+### Installation of the Extensions
+
+If the package is installed, then all extensions are already installed.
+
+``` r
+install.packages("devtools")
+devtools::install_github("cwendorf/EASI",build=FALSE)
+library(EASI)
+```
+
+If the entire package is not installed, the extensions can be individually installed by pasting the lines into R.
+
+### Summary of the Available Extensions
 
 EASI extentions are files that extend the functions beyond the original vision for EASI. The EASI extensions parallel the primary categories of analyses but add the following:
 
