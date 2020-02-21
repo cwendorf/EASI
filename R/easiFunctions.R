@@ -9,6 +9,10 @@ formatFrame <- function(results,digits=3) {
   return(format(as.data.frame(round(results,digits=digits)),width=7,trim=T,nsmall=digits))
 }
 
+formatList <- function(results,digits=3) {
+  return(lapply(results,formatFrame,digits))
+}
+
 ### Descriptive Functions
 
 #### Describe Function for Mutiple Groups and Variables
@@ -36,7 +40,7 @@ descData.formula <- function(formula,...) {
 
 describeData <- function(...,digits=3) {
   cat("\nDESCRIPTIVE STATISTICS FOR THE DATA\n\n")
-   print(formatFrame(descData(...),digits=digits))
+  print(formatFrame(descData(...),digits=digits))
   cat("\n")
 }
 
@@ -57,7 +61,7 @@ correlateData <- function(...,digits=3) {
   cat("\n")
 }
 
-cor2cov <- function(CorrStats,SD) {
+cortocov <- function(CorrStats,SD) {
   sdsquare <- SD %*% t(SD)
   covstats <- sdsquare * CorrStats
   return(covstats)
@@ -209,7 +213,7 @@ ciContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope
   SD <- DescStats[,"SD"]
   df <- N-1
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
-  covstats <- cor2cov(CorrStats,SD)
+  covstats <- cortocov(CorrStats,SD)
   Est <- (t(contrast)%*%M)
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
   LL <- Est-tcrit*SE
@@ -385,7 +389,7 @@ nhstContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,ro
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
   Est <- (t(contrast)%*%M)-mu
-  covstats <- cor2cov(CorrStats,SD)
+  covstats <- cortocov(CorrStats,SD)
   SE <- sqrt(t(contrast)%*%covstats%*%contrast/N)
   t <- Est/SE
   df <- N-1

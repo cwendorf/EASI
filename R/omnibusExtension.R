@@ -2,7 +2,7 @@
 ## Extension for Omnibus (Analysis of Variance) Analyses
 
 ### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF EASI-FUNCTIONS INTO R
+### ALSO: PASTE CONTENTS OF EASIFUNCTIONS INTO R
 
 ### Descriptive Functions
 
