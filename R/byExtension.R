@@ -97,7 +97,7 @@ estimateMeansBy <- function(...,digits=3) {
   print(lapply(ciMeansBy(...),formatFrame,digits=digits))
 }
 
-#### CI Function for Mean Differences/Comparisons
+#### CI Function for Mean Differences
 
 ciDifferenceBy <- function(...) 
   UseMethod("ciDifferenceBy")
@@ -139,7 +139,7 @@ ciDifferenceBy.formula <- function(formula,by,conf.level=.95) {
 }
 
 estimateDifferenceBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE COMPARISONS\n\n")
+  cat("\nCONFIDENCE INTERVALS FOR THE DIFFERENCES\n\n")
   print(lapply(ciDifferenceBy(...),formatFrame,digits=digits))
 }
 
@@ -237,7 +237,7 @@ testMeansBy <- function(...,digits=3) {
   print(lapply(nhstMeansBy(...),formatFrame,digits=digits))
 }
 
-##### NHST Function for Mean Differences/Comparisons
+##### NHST Function for Mean Differences
 
 nhstDifferenceBy <- function(...) 
   UseMethod("nhstDifferenceBy")
@@ -279,7 +279,7 @@ nhstDifferenceBy.formula <- function(formula,by,mu=0) {
 }
 
 testDifferenceBy <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TESTS FOR THE COMPARISONS\n\n")
+  cat("\nHYPOTHESIS TESTS FOR THE DIFFERENCES\n\n")
   print(lapply(nhstDifferenceBy(...),formatFrame,digits=digits))
 }
 
@@ -377,7 +377,7 @@ standardizeMeansBy <- function(...,digits=3) {
   print(lapply(smdMeansBy(...),formatFrame,digits=digits))
 }
 
-#### SMD Function for Mean Differences/Comparisons
+#### SMD Function for Mean Differences
 
 smdDifferenceBy <- function(...) 
   UseMethod("smdDifferenceBy")
@@ -419,7 +419,7 @@ smdDifferenceBy.formula <- function(formula,by,mu=0,conf.level=.95) {
 }
 
 standardizeDifferenceBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS\n\n")
+  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED DIFFERENCES\n\n")
   print(lapply(smdDifferenceBy(...),formatFrame,digits=digits)) 
 }
 
@@ -524,7 +524,7 @@ plotMeansBy.formula <- function(formula,by,ylab="Outcome",xlab="",mu=NULL,rope=N
   par(ask=FALSE)  
 }
 
-#### Plot Function for Confidence Intervals of Mean Differences/Comparisons
+#### Plot Function for Confidence Intervals of Mean Differences
 
 plotDifferenceBy <- function(...) 
   UseMethod("plotDifferenceBy")
@@ -563,7 +563,7 @@ plotDifferenceBy.bss <- function(ListDescStats,ylab="Outcome",xlab="",mu=NULL,ro
 }
 
 plotDifferenceBy.default <- function(...,by,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
-  main="Confidence Intervals for the Comparisons"
+  main="Confidence Intervals for the Differences"
   for (i in 1:nlevels(by)) {
     Vars <- ciMeansBy(...,by=by,conf.level=conf.level)[[i]][1:2,c(2,5,6)]
     colnames(Vars) <- c("Est","LL","UL")
@@ -579,7 +579,7 @@ plotDifferenceBy.default <- function(...,by,ylab="Outcome",xlab="",mu=NULL,rope=
 }
 
 plotDifferenceBy.formula <- function(formula,by,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3){
-  main="Confidence Intervals for the Comparisons"
+  main="Confidence Intervals for the Differences"
   for (i in 1:nlevels(by)) {
     Groups <- ciMeansBy(formula,by=by,conf.level=conf.level)[[i]]
     Groups <- Groups[1:2,c(2,5,6)]

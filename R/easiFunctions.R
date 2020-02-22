@@ -141,7 +141,7 @@ estimateMeans <- function(...,digits=3) {
   cat("\n")
 }
 
-#### CI Function for Mean Differences/Comparisons
+#### CI Function for Mean Differences
 
 ciDifference <- function(...) 
   UseMethod("ciDifference")
@@ -160,8 +160,8 @@ ciDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,.
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
   LL <- MD-tcrit*SE
   UL <- MD+tcrit*SE
-  results <- data.frame(Diff=MD,SE=SE,df=df,LL=LL,UL=UL)
-  rownames(results) <- c("Comparison")
+  results <- data.frame(Est=MD,SE=SE,df=df,LL=LL,UL=UL)
+  rownames(results) <- c("Difference")
   return(results)
 }
 
@@ -176,8 +176,8 @@ ciDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,...) {
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
   LL <- MD-tcrit*SE
   UL <- MD+tcrit*SE
-  results <- data.frame(Diff=MD,SE=SE,df=df,LL=LL,UL=UL)
-  rownames(results) <- c("Comparison")
+  results <- data.frame(Est=MD,SE=SE,df=df,LL=LL,UL=UL)
+  rownames(results) <- c("Difference")
   return(results)
 }
 
@@ -197,7 +197,7 @@ ciDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 }
 
 estimateDifference <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVAL FOR THE COMPARISON\n\n")
+  cat("\nCONFIDENCE INTERVAL FOR THE DIFFERENCE\n\n")
   print(formatFrame(ciDifference(...),digits=digits))
   cat("\n")  
 }
@@ -278,7 +278,7 @@ nhstMeans.wss <- nhstMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NU
   t <- Diff/SE
   df <- N-1
   p <- 2*(1 - pt(abs(t),df))
-  results <- data.frame(Diff=Diff,SE=SE,t=t,df=df,p=p)
+  results <- data.frame(Est=Diff,SE=SE,t=t,df=df,p=p)
   rownames(results) <- rownames(DescStats)  
   return(results)
 }
@@ -303,7 +303,7 @@ testMeans <- function(...,digits=3) {
   cat("\n")
 }
 
-#### NHST Function for Mean Differences/Comparisons
+#### NHST Function for Mean Differences
 
 nhstDifference <- function(...) 
   UseMethod("nhstDifference")
@@ -321,8 +321,8 @@ nhstDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL
   df <- min(N)-1
   t <- MD/SE
   p <- 2*(1 - pt(abs(t),df))
-  results <- data.frame(Diff=MD,SE=SE,t=t,df=df,p=p)
-  rownames(results) <- c("Comparison")
+  results <- data.frame(Est=MD,SE=SE,t=t,df=df,p=p)
+  rownames(results) <- c("Difference")
   return(results)
 }
 
@@ -336,8 +336,8 @@ nhstDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,...) {
   df <- ((SD[1]^2/N[1] + SD[2]^2/N[2])^2 )/( (SD[1]^2/N[1])^2/(N[1]-1) + (SD[2]^2/N[2])^2/(N[2]-1) )
   t <- MD/SE
   p <- 2*(1 - pt(abs(t),df))
-  results <- data.frame(Diff=MD,SE=SE,t=t,df=df,p=p)
-  rownames(results) <- c("Comparison")
+  results <- data.frame(Est=MD,SE=SE,t=t,df=df,p=p)
+  rownames(results) <- c("Difference")
   return(results)
 }
 
@@ -357,7 +357,7 @@ nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 }
 
 testDifference <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TEST FOR THE COMPARISON\n\n")
+  cat("\nHYPOTHESIS TEST FOR THE DIFFERENCE\n\n")
   print(formatFrame(nhstDifference(...),digits=digits))
   cat("\n")
 }
@@ -484,7 +484,7 @@ standardizeMeans <- function(...,digits=3){
   cat("\n")
 }
 
-#### SMD Function for Mean Differences/Comparisons
+#### SMD Function for Mean Differences
 
 smdDifference <- function(...) 
   UseMethod("smdDifference")
@@ -508,7 +508,7 @@ smdDifference.wss <- function(DescStats,CorrStats,mu=0,conf.level=.95,rope=NULL,
   UL <- Est+z*SE
   results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("Est","SE","LL","UL")
-  rownames(results) <- c("Comparison")
+  rownames(results) <- c("Difference")
   return(results)
 }
 
@@ -527,7 +527,7 @@ smdDifference.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,.
   UL <- Est+z*SE
   results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("Est","SE","LL","UL")
-  rownames(results) <- c("Comparison")
+  rownames(results) <- c("Difference")
   return(results)
 }
 
@@ -547,7 +547,7 @@ smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL
 }
 
 standardizeDifference <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
+  cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE\n\n")
   print(formatFrame(smdDifference(...),digits=digits))
   cat("\n")  
 }
@@ -754,31 +754,31 @@ plotMeans.formula <- function(formula,ylab="Outcome",xlab="",mu=NULL,rope=NULL,c
   plotMeans(DescStats,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values,digits=digits)
 }
 
-#### Plot Function for Confidence Intervals of Mean Differences/Comparisons
+#### Plot Function for Confidence Intervals of Mean Differences
 
 plotDifference <- function(...) 
   UseMethod("plotDifference")
   
 plotDifference.wss <- function(CompStats,CorrStats,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,values=TRUE,digits=3,...) {
-  main="Confidence Intervals for the Comparison"
+  main="Confidence Intervals for the Difference"
   Vars <- ciMeans(CompStats,conf.level=conf.level)[1:2,c(2,5,6)]
   colnames(Vars) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,CorrStats,conf.level=conf.level)[c(1,4,5)]
   colnames(Diff) <- c("Est","LL","UL")
   results <- rbind(Vars,Diff)
-  rownames(results)[3]="Comparison"
+  rownames(results)[3]="Difference"
   cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits)
   arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)
 }
 
 plotDifference.bss <- function(CompStats,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,values=TRUE,digits=3,...) {
-  main="Confidence Intervals for the Comparison"
+  main="Confidence Intervals for the Difference"
   Groups <- ciMeans(CompStats,conf.level=conf.level)[1:2,c(2,5,6)]
   colnames(Groups) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,conf.level=conf.level)[c(1,4,5)]
   colnames(Diff) <- c("Est","LL","UL")
   results <- rbind(Groups,Diff)
-  rownames(results)[3]="Comparison"
+  rownames(results)[3]="Difference"
   cipDifference(results,main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits)
 }
 
