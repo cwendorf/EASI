@@ -41,8 +41,8 @@ Level3   4.000   7.000   2.449   1.224  -0.152  14.152
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> plotMeans(OneWaySummary) # OneWay-Figure1.jpeg
-> plotMeans(OneWaySummary,conf.level=.99,mu=5,rope=c(3,7)) # OneWay-Figure2.jpeg
+> plotMeans(OneWaySummary)
+> plotMeans(OneWaySummary,conf.level=.99,mu=5,rope=c(3,7))
 > 
 > #### Significance Tests for the Means
 > 
@@ -50,7 +50,7 @@ Level3   4.000   7.000   2.449   1.224  -0.152  14.152
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-          Diff      SE       t      df       p
+           Est      SE       t      df       p
 Level1   2.000   1.224   1.633   3.000   0.201
 Level2   6.000   1.224   4.900   3.000   0.016
 Level3   7.000   1.224   5.717   3.000   0.011
@@ -59,7 +59,7 @@ Level3   7.000   1.224   5.717   3.000   0.011
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-          Diff      SE       t      df       p
+           Est      SE       t      df       p
 Level1  -3.000   1.224  -2.450   3.000   0.092
 Level2   1.000   1.224   0.817   3.000   0.474
 Level3   2.000   1.224   1.633   3.000   0.201
@@ -95,56 +95,56 @@ Level3   0.817   0.594   0.616  -0.732   2.320
 > 
 > estimateDifference(CompSummary)
 
-CONFIDENCE INTERVAL FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE DIFFERENCE
 
-              Diff      SE      df      LL      UL
-Comparison   4.000   1.732   6.000  -0.237   8.237
+               Est      SE      df      LL      UL
+Difference   4.000   1.732   6.000  -0.237   8.237
 
 > estimateDifference(CompSummary,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE COMPARISON
+CONFIDENCE INTERVAL FOR THE DIFFERENCE
 
-              Diff      SE      df      LL      UL
-Comparison   4.000   1.732   6.000  -2.420  10.420
+               Est      SE      df      LL      UL
+Difference   4.000   1.732   6.000  -2.420  10.420
 
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
-> plotDifference(CompSummary) # OneWay-Figure3.jpeg
-> plotDifference(CompSummary,conf.level=.99,rope=c(-2,2)) # OneWay-Figure4.jpeg
+> plotDifference(CompSummary)
+> plotDifference(CompSummary,conf.level=.99,rope=c(-2,2))
 > 
 > #### Significance Test of the Mean Difference
 > 
 > testDifference(CompSummary)
 
-HYPOTHESIS TEST FOR THE COMPARISON
+HYPOTHESIS TEST FOR THE DIFFERENCE
 
-              Diff      SE       t      df       p
-Comparison   4.000   1.732   2.310   6.000   0.060
+               Est      SE       t      df       p
+Difference   4.000   1.732   2.310   6.000   0.060
 
 > testDifference(CompSummary,mu=-2)
 
-HYPOTHESIS TEST FOR THE COMPARISON
+HYPOTHESIS TEST FOR THE DIFFERENCE
 
-              Diff      SE       t      df       p
-Comparison   6.000   1.732   3.465   6.000   0.013
+               Est      SE       t      df       p
+Difference   6.000   1.732   3.465   6.000   0.013
 
 > 
 > #### Effect Size for the Mean Difference
 > 
 > standardizeDifference(CompSummary)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
 
                Est      SE      LL      UL
-Comparison   1.633   0.943  -0.215   3.481
+Difference   1.633   0.943  -0.215   3.481
 
 > standardizeDifference(CompSummary,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
+CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
 
                Est      SE      LL      UL
-Comparison   1.633   0.943  -0.795   4.062
+Difference   1.633   0.943  -0.795   4.062
 
 > 
 > ### Analyses of a Group Contrast
@@ -170,8 +170,8 @@ Contrast   4.500   1.500   6.000  -1.060  10.060
 > 
 > #### Plots of Confidence Intervals for a Contrast
 > 
-> plotContrast(OneWaySummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
-> plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # OneWay-Figure6.jpeg
+> plotContrast(OneWaySummary,contrast=L1vsOthers)
+> plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 > 
 > #### Significance Test for a Contrast
 > 

@@ -28,10 +28,10 @@ estimateMeans(BetweenSummaryB2,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeans(BetweenSummaryB1) # Factorial-Figure1.jpeg
-plotMeans(BetweenSummaryB2) # Factorial-Figure2.jpeg
-plotMeans(BetweenSummaryB1,conf.level=.99,mu=5,rope=c(3,7)) # Factorial-Figure3.jpeg
-plotMeans(BetweenSummaryB2,conf.level=.99,mu=5,rope=c(3,7)) # Factorial-Figure4.jpeg
+plotMeans(BetweenSummaryB1)
+plotMeans(BetweenSummaryB2)
+plotMeans(BetweenSummaryB1,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(BetweenSummaryB2,conf.level=.99,mu=5,rope=c(3,7))
 
 #### Significance Tests for the Means
 
@@ -63,10 +63,10 @@ estimateDifference(CompSummaryB2,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-plotDifference(CompSummaryB1) # Factorial-Figure5.jpeg
-plotDifference(CompSummaryB2) # Factorial-Figure6.jpeg
-plotDifference(CompSummaryB1,conf.level=.99,rope=c(-2,2)) # Factorial-Figure7.jpeg
-plotDifference(CompSummaryB2,conf.level=.99,rope=c(-2,2)) # Factorial-Figure8.jpeg
+plotDifference(CompSummaryB1)
+plotDifference(CompSummaryB2)
+plotDifference(CompSummaryB1,conf.level=.99,rope=c(-2,2))
+plotDifference(CompSummaryB2,conf.level=.99,rope=c(-2,2))
 
 #### Significance Test of the Mean Difference
 
@@ -95,10 +95,10 @@ estimateContrast(BetweenSummaryB2,contrast=A1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrast(BetweenSummaryB1,contrast=A1vsOthers) # Factorial-Figure9.jpeg
-plotContrast(BetweenSummaryB2,contrast=A1vsOthers) # Factorial-Figure10.jpeg
-plotContrast(BetweenSummaryB1,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure11.jpeg
-plotContrast(BetweenSummaryB2,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)) # Factorial-Figure12.jpeg
+plotContrast(BetweenSummaryB1,contrast=A1vsOthers)
+plotContrast(BetweenSummaryB2,contrast=A1vsOthers)
+plotContrast(BetweenSummaryB1,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(BetweenSummaryB2,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for a Contrast
 

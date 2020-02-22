@@ -25,10 +25,10 @@ with(DataSubsetB2,estimateMeans(Outcome~FactorA,conf.level=.99))
 
 #### Plot of the Confidence Intervals for the Means
 
-with(DataSubsetB1,plotMeans(Outcome~FactorA)) # Factorial-Figure1.jpeg
-with(DataSubsetB2,plotMeans(Outcome~FactorA)) # Factorial-Figure2.jpeg
-with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7))) # Factorial-Figure3.jpeg
-with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7))) # Factorial-Figure4.jpeg
+with(DataSubsetB1,plotMeans(Outcome~FactorA))
+with(DataSubsetB2,plotMeans(Outcome~FactorA))
+with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7)))
+with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7)))
 
 #### Significance Tests for the Means
 
@@ -58,10 +58,10 @@ with(DataSubsetB2,estimateDifference(Outcome~ComparisonB2,conf.level=.99))
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-with(DataSubsetB1,plotDifference(Outcome~ComparisonB1)) # Factorial-Figure5.jpeg
-with(DataSubsetB2,plotDifference(Outcome~ComparisonB2)) # Factorial-Figure6.jpeg
-with(DataSubsetB1,plotDifference(Outcome~ComparisonB1,conf.level=.99,rope=c(-2,2))) # Factorial-Figure7.jpeg
-with(DataSubsetB2,plotDifference(Outcome~ComparisonB2,conf.level=.99,rope=c(-2,2))) # Factorial-Figure8.jpeg
+with(DataSubsetB1,plotDifference(Outcome~ComparisonB1))
+with(DataSubsetB2,plotDifference(Outcome~ComparisonB2))
+with(DataSubsetB1,plotDifference(Outcome~ComparisonB1,conf.level=.99,rope=c(-2,2)))
+with(DataSubsetB2,plotDifference(Outcome~ComparisonB2,conf.level=.99,rope=c(-2,2)))
 
 #### Significance Test for the Mean Difference
 
@@ -90,10 +90,10 @@ with(DataSubsetB2,estimateContrast(Outcome~FactorA,contrast=A1vsOthers,conf.leve
 
 #### Plots of Confidence Intervals for a Contrast
 
-with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers)) # Factorial-Figure9.jpeg
-with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers)) # Factorial-Figure10.jpeg
-with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))) # Factorial-Figure11.jpeg
-with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))) # Factorial-Figure12.jpeg
+with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers))
+with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers))
+with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)))
+with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)))
 
 #### Significance Test for a Contrast
 
