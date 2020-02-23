@@ -13,7 +13,7 @@ descOmnibus.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
   n <- DescStats[,"N"]
   m <- DescStats[,"M"]
   sd <- DescStats[,"SD"]
-  cov <- cor2cov(CorrStats,sd)
+  cov <- cortocov(CorrStats,sd)
   Mcov <- mean(cov[lower.tri(cov)])
   a <- length(m)
   Mt <- mean(m)
