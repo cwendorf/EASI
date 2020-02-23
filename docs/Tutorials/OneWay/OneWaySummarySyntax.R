@@ -19,8 +19,8 @@ estimateMeans(OneWaySummary,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeans(OneWaySummary) # OneWay-Figure1.jpeg
-plotMeans(OneWaySummary,conf.level=.99,mu=5,rope=c(3,7)) # OneWay-Figure2.jpeg
+plotMeans(OneWaySummary)
+plotMeans(OneWaySummary,conf.level=.99,mu=5,rope=c(3,7))
 
 #### Significance Tests for the Means
 
@@ -44,8 +44,8 @@ estimateDifference(CompSummary,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-plotDifference(CompSummary) # OneWay-Figure3.jpeg
-plotDifference(CompSummary,conf.level=.99,rope=c(-2,2)) # OneWay-Figure4.jpeg
+plotDifference(CompSummary)
+plotDifference(CompSummary,conf.level=.99,rope=c(-2,2))
 
 #### Significance Test of the Mean Difference
 
@@ -68,8 +68,8 @@ estimateContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrast(OneWaySummary,contrast=L1vsOthers) # OneWay-Figure5.jpeg
-plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # OneWay-Figure6.jpeg
+plotContrast(OneWaySummary,contrast=L1vsOthers)
+plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for a Contrast
 

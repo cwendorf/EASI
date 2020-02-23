@@ -17,8 +17,8 @@ estimateMeans(Outcome1,Outcome2,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(Outcome1,Outcome2) # Paired-Figure1.jpeg
-plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6,rope=c(4,8)) # Paired-Figure2.jpeg
+plotMeans(Outcome1,Outcome2)
+plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6,rope=c(4,8))
 
 #### Significance Tests for the Means
 
@@ -39,8 +39,8 @@ estimateDifference(Outcome1,Outcome2,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(Outcome1,Outcome2) # Paired-Figure3.jpeg
-plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)) # Paired-Figure4.jpeg
+plotDifference(Outcome1,Outcome2)
+plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Mean Difference
 
