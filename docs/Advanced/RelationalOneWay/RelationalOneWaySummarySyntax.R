@@ -1,23 +1,21 @@
 # Estimation Approach to Statistical Inference
-## Relational Intervals - OneWay (Between-Subjects) Example with Wendorf Summary Statistics
+## Relational Intervals - OneWay (Between-Subjects) Tutorial with Summary Statistics
 
 ### Enter Summary Statistics
 
-L1 <- c(N=10,M=67.000,SD=4.295)
-L2 <- c(N=10,M=71.000,SD=5.375)
-L3 <- c(N=10,M=72.500,SD=4.859)
-L4 <- c(N=10,M=76.000,SD=6.583)
-L5 <- c(N=10,M=65.500,SD=4.972)
-RelationalOneWaySummary <- rbind(L1,L2,L3,L4,L5)
-class(RelationalOneWaySummary) <- "bss"
-RelationalOneWaySummary
+Level1 <- c(N=4,M=2.000,SD=2.449)
+Level2 <- c(N=4,M=6.000,SD=2.449)
+Level3 <- c(N=4,M=7.000,SD=2.449)
+OneWaySummary <- rbind(Level1,Level2,Level3)
+class(OneWaySummary) <- "bss"
+OneWaySummary
 
 ### Relational Intervals
 
-estimateRelational(RelationalOneWaySummary)
+estimateRelational(OneWaySummary)
 
-plotMeans(RelationalOneWaySummary)
-addRelational(RelationalOneWaySummary)
+plotMeans(OneWaySummary)
+addRelational(OneWaySummary)
 
-plotRelational(RelationalOneWaySummary)
-plotRelational(RelationalOneWaySummary,conf.level=.99,mu=70)
+plotRelational(OneWaySummary)
+plotRelational(OneWaySummary,conf.level=.99,mu=70)

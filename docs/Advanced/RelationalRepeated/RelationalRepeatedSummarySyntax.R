@@ -1,31 +1,28 @@
 # Estimation Approach to Statistical Inference
-## Relational Intervals - Repeated Measures (Within-Subjects) Example with Wendorf Summary Statistics
+## Relational Intervals - Repeated Measures (Within-Subjects) Tutorial with Summary Statistics
 
 ### Enter Summary Statistics
 
-L1 <- c(N=10,M=67.000,SD=4.295)
-L2 <- c(N=10,M=71.000,SD=5.375)
-L3 <- c(N=10,M=72.500,SD=4.859)
-L4 <- c(N=10,M=76.000,SD=6.583)
-L5 <- c(N=10,M=65.500,SD=4.972)
-RelationalRepeatedSummary <- rbind(L1,L2,L3,L4,L5)
-class(RelationalRepeatedSummary) <- "wss"
-RelationalRepeatedSummary
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
+class(RepeatedSummary) <- "wss"
+RepeatedSummary
 
-RelationalRepeatedCorr <- declareCorrMatrix("L1","L2","L3","L4","L5")
-RelationalRepeatedCorr["L1",] <- c(1.000,0.362,-0.106,0.216,0.702)
-RelationalRepeatedCorr["L2",] <- c(0.362,1.000,0.425,0.879,0.062)
-RelationalRepeatedCorr["L3",] <- c(-0.106,0.425,1.000,0.521,-0.287)
-RelationalRepeatedCorr["L4",] <- c(0.216,0.879,0.521,1.000,-0.102)
-RelationalRepeatedCorr["L5",] <- c(0.702,0.062,-0.287,-0.102,1.000)
-RelationalRepeatedCorr
+RepeatedCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+RepeatedCorr["Outcome1","Outcome2"] <- .500
+RepeatedCorr["Outcome1","Outcome3"] <- .056
+RepeatedCorr["Outcome2","Outcome3"] <- .389
+RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
+RepeatedCorr
 
 ### Relational Intervals
 
-estimateRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
+estimateRelational(RepeatedSummary,RepeatedCorr)
 
-plotMeans(RelationalRepeatedSummary)
-addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
+plotMeans(RepeatedSummary)
+addRelational(RepeatedSummary,RepeatedCorr)
 
-plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
-plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70)
+plotRelational(RepeatedSummary,RepeatedCorr)
+plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=70)

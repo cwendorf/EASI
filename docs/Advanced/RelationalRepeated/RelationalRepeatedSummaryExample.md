@@ -7,78 +7,67 @@
 
 ---
 
-## Relational Intervals - Repeated (Within-Subjects) Example with Wendorf Summary Statistics
+## Relational Intervals - Repeated (Within-Subjects) Tutorial with Summary Statistics
 
 ### Enter Summary Statistics
 
 ```r
-L1 <- c(N=10,M=67.000,SD=4.295)
-L2 <- c(N=10,M=71.000,SD=5.375)
-L3 <- c(N=10,M=72.500,SD=4.859)
-L4 <- c(N=10,M=76.000,SD=6.583)
-L5 <- c(N=10,M=65.500,SD=4.972)
-RelationalRepeatedSummary <- rbind(L1,L2,L3,L4,L5)
-class(RelationalRepeatedSummary) <- "wss"
-RelationalRepeatedSummary
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
+class(RepeatedSummary) <- "wss"
+RepeatedSummary
 ```
 ```
-    N    M    SD
-L1 10 67.0 4.295
-L2 10 71.0 5.375
-L3 10 72.5 4.859
-L4 10 76.0 6.583
-L5 10 65.5 4.972
+         N M    SD
+Outcome1 4 2 2.449
+Outcome2 4 6 2.449
+Outcome3 4 7 2.449
 attr(,"class")
 [1] "wss"
 ```
-
 ```r
-RelationalRepeatedCorr <- declareCorrMatrix("L1","L2","L3","L4","L5")
-RelationalRepeatedCorr["L1",] <- c(1.000,0.362,-0.106,0.216,0.702)
-RelationalRepeatedCorr["L2",] <- c(0.362,1.000,0.425,0.879,0.062)
-RelationalRepeatedCorr["L3",] <- c(-0.106,0.425,1.000,0.521,-0.287)
-RelationalRepeatedCorr["L4",] <- c(0.216,0.879,0.521,1.000,-0.102)
-RelationalRepeatedCorr["L5",] <- c(0.702,0.062,-0.287,-0.102,1.000)
-RelationalRepeatedCorr
+RepeatedCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+RepeatedCorr["Outcome1","Outcome2"] <- .500
+RepeatedCorr["Outcome1","Outcome3"] <- .056
+RepeatedCorr["Outcome2","Outcome3"] <- .389
+RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
+RepeatedCorr
 ```
-```
-       L1    L2     L3     L4     L5
-L1  1.000 0.362 -0.106  0.216  0.702
-L2  0.362 1.000  0.425  0.879  0.062
-L3 -0.106 0.425  1.000  0.521 -0.287
-L4  0.216 0.879  0.521  1.000 -0.102
-L5  0.702 0.062 -0.287 -0.102  1.000
+```         Outcome1 Outcome2 Outcome3
+Outcome1    1.000    0.500    0.056
+Outcome2    0.500    1.000    0.389
+Outcome3    0.056    0.389    1.000
 ```
 
 ### Relational Intervals
 
 ```r
-estimateRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
+estimateRelational(RepeatedSummary,RepeatedCorr)
 ```
 ```
 CONFIDENCE AND RELATIONAL INTERVALS FOR THE MEANS
 
-      M  CI.LL  CI.UL  RI.LL  RI.UL
-L1 67.0 63.928 70.072 64.969 69.031
-L2 71.0 67.155 74.845 68.969 73.031
-L3 72.5 69.024 75.976 70.469 74.531
-L4 76.0 71.291 80.709 73.969 78.031
-L5 65.5 61.943 69.057 63.469 67.531
+               M   CI.LL   CI.UL   RI.LL   RI.UL
+Outcome1   2.000  -1.897   5.897   0.246   3.754
+Outcome2   6.000   2.103   9.897   4.246   7.754
+Outcome3   7.000   3.103  10.897   5.246   8.754
 ```
 
 ```r
-plotMeans(RelationalRepeatedSummary)
+plotMeans(RepeatedSummary)
 ```
 <kbd><img src="RelationalRepeatedFigure1.jpeg"></kbd>
 ```r
-addRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
+addRelational(RepeatedSummary,RepeatedCorr)
 ```
 <kbd><img src="RelationalRepeatedFigure2.jpeg"></kbd>
 ```r
-plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr)
+plotRelational(RepeatedSummary,RepeatedCorr)
+```
+<kbd><img src="RelationalRepeatedFigure3.jpeg"></kbd>
+```r
+plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=70)
 ```
 <kbd><img src="RelationalRepeatedFigure4.jpeg"></kbd>
-```r
-plotRelational(RelationalRepeatedSummary,RelationalRepeatedCorr,conf.level=.99,mu=70)
-```
-<kbd><img src="RelationalRepeatedFigure5.jpeg"></kbd>

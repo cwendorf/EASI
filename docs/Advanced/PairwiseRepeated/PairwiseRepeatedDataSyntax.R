@@ -7,8 +7,8 @@ Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)
 Outcome3 <- c(9,6,4,9)
 
-PairwiseRepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
-PairwiseRepeatedData
+RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+RepeatedData
 
 ### Analyses of Pairwise Variable Comparisons
 
