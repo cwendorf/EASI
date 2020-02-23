@@ -202,6 +202,12 @@ estimateDifference <- function(...,digits=3) {
   cat("\n")  
 }
 
+estimateComparison <- function(...,digits=3) {
+  cat("\nCONFIDENCE INTERVAL FOR THE COMPARISON\n\n")
+  print(formatFrame(ciDifference(...),digits=digits))
+  cat("\n")  
+}
+
 #### CI Function for Mean Contrasts
 
 ciContrast <- function(...) 
@@ -357,6 +363,12 @@ nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 }
 
 testDifference <- function(...,digits=3) {
+  cat("\nHYPOTHESIS TEST FOR THE COMPARISON\n\n")
+  print(formatFrame(nhstDifference(...),digits=digits))
+  cat("\n")
+}
+
+testComparison <- function(...,digits=3) {
   cat("\nHYPOTHESIS TEST FOR THE COMPARISON\n\n")
   print(formatFrame(nhstDifference(...),digits=digits))
   cat("\n")
@@ -547,6 +559,12 @@ smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL
 }
 
 standardizeDifference <- function(...,digits=3) {
+  cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
+  print(formatFrame(smdDifference(...),digits=digits))
+  cat("\n")  
+}
+
+standardizeComparison <- function(...,digits=3) {
   cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
   print(formatFrame(smdDifference(...),digits=digits))
   cat("\n")  
@@ -755,6 +773,9 @@ plotMeans.formula <- function(formula,ylab="Outcome",xlab="",mu=NULL,rope=NULL,c
 }
 
 #### Plot Function for Confidence Intervals of Mean Differences/Comparisons
+
+plotComparison <- function(...) 
+  UseMethod("plotDifference")
 
 plotDifference <- function(...) 
   UseMethod("plotDifference")
