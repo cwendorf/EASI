@@ -717,15 +717,17 @@ cipMeansMulti <- function(results,main,ylab,xlab,col) {
 plotMeansMulti <- function(...) 
   UseMethod("plotMeansMulti")
 
-plotMeansMulti.wss <- function(ListDescStats,ylab="Outcome",xlab="",col="black") {
+plotMeansMulti.wss <- function(ListDescStats,ylab="Outcome",xlab="",conf.level=.95,col="black") {
   main="Confidence Intervals for the Means"
-  results <- ciMeansBy(ListDescStats)
+  results <- ciMeansBy(ListDescStats,conf.level=conf.level)
+  class(results) <- "wss"  
   cipMeansMulti(results,main,ylab=ylab,xlab=xlab,col=col)
 }
 
-plotMeansMulti.bss <- function(ListDescStats,ylab="Outcome",xlab="",col="black") {
+plotMeansMulti.bss <- function(ListDescStats,ylab="Outcome",xlab="",conf.level=.95,col="black") {
   main="Confidence Intervals for the Means"
-  results <- ciMeansBy(ListDescStats)
+  results <- ciMeansBy(ListDescStats,conf.level=conf.level)
+  class(results) <- "bss"  
   cipMeansMulti(results,main,ylab=ylab,xlab=xlab,col=col)
 }
 
