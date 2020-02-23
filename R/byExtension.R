@@ -486,10 +486,6 @@ standardizeContrastBy <- function(...,digits=3) {
 
 ### Confidence Interval Plot Functions
 
-#### Basic Confidence Interval Plot Functions
-
-
-
 #### Plot Function for Confidence Intervals of the Means
 
 plotMeansBy <- function(...) 
@@ -693,11 +689,9 @@ plotContrastBy.formula <- function(formula,by,contrast,ylab="Outcome",xlab="",ro
   par(ask=FALSE)
 }
 
-### New Plot for Entire Factorial/Mixed Design
+#### Plot for Entire Factorial/Mixed Design
 
-#### Basic Confidence Interval Plot Functions
-
-cipFactorial <- function(results,main,ylab,xlab,col) {
+cipMeansAll <- function(results,main,ylab,xlab,col) {
   ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x["LL"])))))-1
   ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x["UL"])))))+1
   ylimrange <- range(c(ylimmin,ylimmax))
@@ -712,36 +706,33 @@ cipFactorial <- function(results,main,ylab,xlab,col) {
   }
 }
 
-#### Plot Function for Confidence Intervals of the Means
+plotMeansAll <- function(...) 
+  UseMethod("plotMeansAll")
 
-plotFactorial <- function(...) 
-  UseMethod("plotFactorial")
-
-plotFactorial.wss <- function(ListDescStats,ylab="Outcome",xlab="",conf.level=.95,col="black") {
+plotMeansAll.wss <- function(ListDescStats,ylab="Outcome",xlab="",conf.level=.95,col="black") {
   main="Confidence Intervals for the Means"
   results <- ciMeansBy(ListDescStats,conf.level=conf.level)
   class(results) <- "wss"  
-  cipFactorial(results,main,ylab=ylab,xlab=xlab,col=col)
+  cipMeansAll(results,main,ylab=ylab,xlab=xlab,col=col)
 }
 
-plotFactorial.bss <- function(ListDescStats,ylab="Outcome",xlab="",conf.level=.95,col="black") {
+plotMeansAll.bss <- function(ListDescStats,ylab="Outcome",xlab="",conf.level=.95,col="black") {
   main="Confidence Intervals for the Means"
   results <- ciMeansBy(ListDescStats,conf.level=conf.level)
   class(results) <- "bss"  
-  cipFactorial(results,main,ylab=ylab,xlab=xlab,col=col)
+  cipMeansAll(results,main,ylab=ylab,xlab=xlab,col=col)
 }
 
-plotFactorial.default <- function(...,by,ylab="Outcome",xlab="",conf.level=.95,col="black") {
+plotMeansAll.default <- function(...,by,ylab="Outcome",xlab="",conf.level=.95,col="black") {
   main="Confidence Intervals for the Means"
   results <- ciMeansBy(...,by=by,conf.level=conf.level)
   class(results) <- "wss"
-  cipFactorial(results,main,ylab=ylab,xlab=xlab,col=col)
+  cipMeansAll(results,main,ylab=ylab,xlab=xlab,col=col)
 }
 
-plotFactorial.formula <- function(formula,by,ylab="Outcome",xlab="",conf.level=.95,col="black") {
+plotMeansAll.formula <- function(formula,by,ylab="Outcome",xlab="",conf.level=.95,col="black") {
   main="Confidence Intervals for the Means"
   results <- ciMeansBy(formula,by=by,conf.level=conf.level)
   class(results) <- "bss"
-  cipFactorial(results,main,ylab=ylab,xlab=xlab,col=col)
+  cipMeansAll(results,main,ylab=ylab,xlab=xlab,col=col)
 }
-
