@@ -22,8 +22,8 @@ estimateMeans(PairedSummary,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(PairedSummary)
-plotMeans(PairedSummary,conf.level=.99,mu=6,rope=c(4,8))
+plotMeans(PairedSummary) # Paired-Figure1.jpeg
+plotMeans(PairedSummary,conf.level=.99,mu=6,rope=c(4,8)) # Paired-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -44,8 +44,8 @@ estimateDifference(PairedSummary,PairedCorr,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(PairedSummary,PairedCorr)
-plotDifference(PairedSummary,PairedCorr,conf.level=.99,rope=c(-2,2))
+plotDifference(PairedSummary,PairedCorr) # Paired-Figure3.jpeg
+plotDifference(PairedSummary,PairedCorr,conf.level=.99,rope=c(-2,2)) # Paired-Figure4.jpeg
 
 #### Significance Test for the Mean Difference
 

@@ -18,8 +18,8 @@ estimateMeans(IndependentSummary,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeans(IndependentSummary)
-plotMeans(IndependentSummary,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(IndependentSummary) # Independent-Figure1.jpeg
+plotMeans(IndependentSummary,conf.level=.99,mu=5,rope=c(3,7)) # Independent-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -40,8 +40,8 @@ estimateDifference(IndependentSummary,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-plotDifference(IndependentSummary)
-plotDifference(IndependentSummary,conf.level=.99,rope=c(-2,2))
+plotDifference(IndependentSummary) # Independent-Figure3.jpeg
+plotDifference(IndependentSummary,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
 
 #### Significance Test of the Mean Difference
 

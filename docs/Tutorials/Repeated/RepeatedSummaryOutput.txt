@@ -61,7 +61,7 @@ Outcome3   4.000   7.000   2.449   1.224  -0.152  14.152
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1   2.000   1.224   1.633   3.000   0.201
 Outcome2   6.000   1.224   4.900   3.000   0.016
 Outcome3   7.000   1.224   5.717   3.000   0.011
@@ -70,7 +70,7 @@ Outcome3   7.000   1.224   5.717   3.000   0.011
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1  -3.000   1.224  -2.450   3.000   0.092
 Outcome2   1.000   1.224   0.817   3.000   0.474
 Outcome3   2.000   1.224   1.633   3.000   0.201
@@ -106,17 +106,17 @@ Outcome3   0.817   0.594   0.616  -0.732   2.320
 > 
 > estimateDifference(CompSummary,RepeatedCorr)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.224   3.000   0.103   7.897
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.224   3.000   0.103   7.897
 
 > estimateDifference(CompSummary,RepeatedCorr,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.224   3.000  -3.152  11.152
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.224   3.000  -3.152  11.152
 
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
@@ -128,34 +128,34 @@ Difference   4.000   1.224   3.000  -3.152  11.152
 > 
 > testDifference(CompSummary,RepeatedCorr)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   4.000   1.224   3.267   3.000   0.047
+              Diff      SE       t      df       p
+Comparison   4.000   1.224   3.267   3.000   0.047
 
 > testDifference(CompSummary,RepeatedCorr,mu=-2)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   6.000   1.224   4.900   3.000   0.016
+              Diff      SE       t      df       p
+Comparison   6.000   1.224   4.900   3.000   0.016
 
 > 
 > #### Effect Size for the Mean Difference
 > 
 > standardizeDifference(CompSummary,RepeatedCorr)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.782   0.101   3.166
+Comparison   1.633   0.782   0.101   3.166
 
 > standardizeDifference(CompSummary,RepeatedCorr,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.782  -0.380   3.647
+Comparison   1.633   0.782  -0.380   3.647
 
 > 
 > ### Analyses of a Variable Contrast

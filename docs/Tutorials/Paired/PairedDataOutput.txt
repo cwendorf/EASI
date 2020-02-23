@@ -36,8 +36,8 @@ Outcome2   4.000   6.000   2.449   1.225  -1.154  13.154
 > 
 > #### Plots of Confidence Intervals for the Means
 > 
-> plotMeans(Outcome1,Outcome2)
-> plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6,rope=c(4,8))
+> plotMeans(Outcome1,Outcome2) # Paired-Figure1.jpeg
+> plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6,rope=c(4,8)) # Paired-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -45,7 +45,7 @@ Outcome2   4.000   6.000   2.449   1.225  -1.154  13.154
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1   2.000   1.225   1.633   3.000   0.201
 Outcome2   6.000   1.225   4.899   3.000   0.016
 
@@ -53,7 +53,7 @@ Outcome2   6.000   1.225   4.899   3.000   0.016
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1  -4.000   1.225  -3.266   3.000   0.047
 Outcome2   0.000   1.225   0.000   3.000   1.000
 
@@ -83,55 +83,55 @@ Outcome2   0.000   0.000   0.559  -1.288   1.288
 > 
 > estimateDifference(Outcome1,Outcome2)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.225   3.000   0.102   7.898
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.225   3.000   0.102   7.898
 
 > estimateDifference(Outcome1,Outcome2,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.225   3.000  -3.154  11.154
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.225   3.000  -3.154  11.154
 
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
-> plotDifference(Outcome1,Outcome2)
-> plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
+> plotDifference(Outcome1,Outcome2) # Paired-Figure3.jpeg
+> plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)) # Paired-Figure4.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
 > testDifference(Outcome1,Outcome2) 
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   4.000   1.225   3.266   3.000   0.047
+              Diff      SE       t      df       p
+Comparison   4.000   1.225   3.266   3.000   0.047
 
 > testDifference(Outcome1,Outcome2,mu=-2) 
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   6.000   1.225   4.899   3.000   0.016
+              Diff      SE       t      df       p
+Comparison   6.000   1.225   4.899   3.000   0.016
 
 > 
 > #### Effect Size for the Mean Difference
 > 
 > standardizeDifference(Outcome1,Outcome2)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.782   0.101   3.165
+Comparison   1.633   0.782   0.101   3.165
 
 > standardizeDifference(Outcome1,Outcome2,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.782  -0.381   3.647
+Comparison   1.633   0.782  -0.381   3.647
 
 > 

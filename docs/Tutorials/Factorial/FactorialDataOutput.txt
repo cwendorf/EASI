@@ -82,10 +82,10 @@ A3   4.000   5.000   2.449   1.225  -2.154  12.154
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> with(DataSubsetB1,plotMeans(Outcome~FactorA))
-> with(DataSubsetB2,plotMeans(Outcome~FactorA))
-> with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7)))
-> with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7)))
+> with(DataSubsetB1,plotMeans(Outcome~FactorA)) # Factorial-Figure1.jpeg
+> with(DataSubsetB2,plotMeans(Outcome~FactorA)) # Factorial-Figure2.jpeg
+> with(DataSubsetB1,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7))) # Factorial-Figure3.jpeg
+> with(DataSubsetB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7))) # Factorial-Figure4.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -93,7 +93,7 @@ A3   4.000   5.000   2.449   1.225  -2.154  12.154
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-       Est      SE       t      df       p
+      Diff      SE       t      df       p
 A1   2.000   1.225   1.633   3.000   0.201
 A2   6.000   1.225   4.899   3.000   0.016
 A3   7.000   1.225   5.715   3.000   0.011
@@ -102,7 +102,7 @@ A3   7.000   1.225   5.715   3.000   0.011
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-       Est      SE       t      df       p
+      Diff      SE       t      df       p
 A1   4.000   1.225   3.266   3.000   0.047
 A2   4.000   1.225   3.266   3.000   0.047
 A3   5.000   1.225   4.082   3.000   0.027
@@ -111,7 +111,7 @@ A3   5.000   1.225   4.082   3.000   0.027
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-       Est      SE       t      df       p
+      Diff      SE       t      df       p
 A1  -3.000   1.225  -2.449   3.000   0.092
 A2   1.000   1.225   0.816   3.000   0.474
 A3   2.000   1.225   1.633   3.000   0.201
@@ -120,7 +120,7 @@ A3   2.000   1.225   1.633   3.000   0.201
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-       Est      SE       t      df       p
+      Diff      SE       t      df       p
 A1  -1.000   1.225  -0.816   3.000   0.474
 A2  -1.000   1.225  -0.816   3.000   0.474
 A3   0.000   1.225   0.000   3.000   1.000
@@ -190,86 +190,86 @@ A2   4.000   4.000   2.449   1.225   0.102   7.898
 
 > with(DataSubsetB1,estimateDifference(Outcome~ComparisonB1,conf.level=.99))
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.732   6.000  -2.421  10.421
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.732   6.000  -2.421  10.421
 
 > with(DataSubsetB2,estimateDifference(Outcome~ComparisonB2,conf.level=.99))
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   0.000   1.732   6.000  -6.421   6.421
+              Diff      SE      df      LL      UL
+Comparison   0.000   1.732   6.000  -6.421   6.421
 
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
-> with(DataSubsetB1,plotDifference(Outcome~ComparisonB1))
-> with(DataSubsetB2,plotDifference(Outcome~ComparisonB2))
-> with(DataSubsetB1,plotDifference(Outcome~ComparisonB1,conf.level=.99,rope=c(-2,2)))
-> with(DataSubsetB2,plotDifference(Outcome~ComparisonB2,conf.level=.99,rope=c(-2,2)))
+> with(DataSubsetB1,plotDifference(Outcome~ComparisonB1)) # Factorial-Figure5.jpeg
+> with(DataSubsetB2,plotDifference(Outcome~ComparisonB2)) # Factorial-Figure6.jpeg
+> with(DataSubsetB1,plotDifference(Outcome~ComparisonB1,conf.level=.99,rope=c(-2,2))) # Factorial-Figure7.jpeg
+> with(DataSubsetB2,plotDifference(Outcome~ComparisonB2,conf.level=.99,rope=c(-2,2))) # Factorial-Figure8.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
 > with(DataSubsetB1,testDifference(Outcome~ComparisonB1))
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   4.000   1.732   2.309   6.000   0.060
+              Diff      SE       t      df       p
+Comparison   4.000   1.732   2.309   6.000   0.060
 
 > with(DataSubsetB2,testDifference(Outcome~ComparisonB2))
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   0.000   1.732   0.000   6.000   1.000
+              Diff      SE       t      df       p
+Comparison   0.000   1.732   0.000   6.000   1.000
 
 > with(DataSubsetB1,testDifference(Outcome~ComparisonB1,mu=-2))
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   6.000   1.732   3.464   6.000   0.013
+              Diff      SE       t      df       p
+Comparison   6.000   1.732   3.464   6.000   0.013
 
 > with(DataSubsetB2,testDifference(Outcome~ComparisonB2,mu=-2))
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   2.000   1.732   1.155   6.000   0.292
+              Diff      SE       t      df       p
+Comparison   2.000   1.732   1.155   6.000   0.292
 
 > 
 > #### Effect Size for the Mean Difference
 > 
 > with(DataSubsetB1,standardizeDifference(Outcome~ComparisonB1))
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.943  -0.215   3.481
+Comparison   1.633   0.943  -0.215   3.481
 
 > with(DataSubsetB2,standardizeDifference(Outcome~ComparisonB2))
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   0.000   0.816  -1.600   1.600
+Comparison   0.000   0.816  -1.600   1.600
 
 > with(DataSubsetB1,standardizeDifference(Outcome~ComparisonB1,conf.level=.99))
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.943  -0.796   4.062
+Comparison   1.633   0.943  -0.796   4.062
 
 > with(DataSubsetB2,standardizeDifference(Outcome~ComparisonB2,conf.level=.99))
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   0.000   0.816  -2.103   2.103
+Comparison   0.000   0.816  -2.103   2.103
 
 > 
 > ### Analyses of a Group Contrast
@@ -309,10 +309,10 @@ Contrast   0.500   1.500   6.000  -5.061   6.061
 > 
 > #### Plots of Confidence Intervals for a Contrast
 > 
-> with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers))
-> with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers))
-> with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)))
-> with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2)))
+> with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers)) # Factorial-Figure9.jpeg
+> with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers)) # Factorial-Figure10.jpeg
+> with(DataSubsetB1,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))) # Factorial-Figure11.jpeg
+> with(DataSubsetB2,plotContrast(Outcome~FactorA,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))) # Factorial-Figure12.jpeg
 > 
 > #### Significance Test for a Contrast
 > 

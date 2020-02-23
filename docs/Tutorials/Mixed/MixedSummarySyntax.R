@@ -40,10 +40,10 @@ estimateMeans(WithinSummaryL2,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
-plotMeans(WithinSummaryL1)
-plotMeans(WithinSummaryL2)
-plotMeans(WithinSummaryL1,conf.level=.99,mu=5,rope=c(3,7))
-plotMeans(WithinSummaryL2,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(WithinSummaryL1) # Mixed-Figure1.jpeg
+plotMeans(WithinSummaryL2) # Mixed-Figure2.jpeg
+plotMeans(WithinSummaryL1,conf.level=.99,mu=5,rope=c(3,7)) # Mixed-Figure3.jpeg
+plotMeans(WithinSummaryL2,conf.level=.99,mu=5,rope=c(3,7)) # Mixed-Figure4.jpeg
 
 #### Significance Tests for the Means
 
@@ -75,10 +75,10 @@ estimateDifference(CompSummaryL2,WithinCorrL2,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-plotDifference(CompSummaryL1,WithinCorrL1)
-plotDifference(CompSummaryL2,WithinCorrL2)
-plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99,rope=c(-2,2))
-plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99,rope=c(-2,2))
+plotDifference(CompSummaryL1,WithinCorrL1) # Mixed-Figure5.jpg
+plotDifference(CompSummaryL2,WithinCorrL2) # Mixed-Figure6.jpg
+plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99,rope=c(-2,2)) # Mixed-Figure7.jpeg
+plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99,rope=c(-2,2)) # Mixed-Figure8.jpeg
 
 #### Significance Test for the Mean Difference
 
@@ -107,10 +107,10 @@ estimateContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,conf.level=.99
 
 #### Plots of Confidence Intervals for a Contrast
 
-plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers)
-plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
-plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
-plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers) # Mixed-Figure9.jpeg
+plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers) # Mixed-Figure10.jpeg
+plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Mixed-Figure11.jpeg
+plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Mixed-Figure12.jpeg
 
 #### Significance Test for the Contrast
 

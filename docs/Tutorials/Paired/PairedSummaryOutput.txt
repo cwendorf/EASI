@@ -44,8 +44,8 @@ Outcome2   4.000   6.000   2.449   1.224  -1.152  13.152
 > 
 > #### Plots of Confidence Intervals for the Means
 > 
-> plotMeans(PairedSummary)
-> plotMeans(PairedSummary,conf.level=.99,mu=6,rope=c(4,8))
+> plotMeans(PairedSummary) # Paired-Figure1.jpeg
+> plotMeans(PairedSummary,conf.level=.99,mu=6,rope=c(4,8)) # Paired-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -53,7 +53,7 @@ Outcome2   4.000   6.000   2.449   1.224  -1.152  13.152
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1   2.000   1.224   1.633   3.000   0.201
 Outcome2   6.000   1.224   4.900   3.000   0.016
 
@@ -61,7 +61,7 @@ Outcome2   6.000   1.224   4.900   3.000   0.016
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1  -4.000   1.224  -3.267   3.000   0.047
 Outcome2   0.000   1.224   0.000   3.000   1.000
 
@@ -91,55 +91,55 @@ Outcome2   0.000   0.000   0.559  -1.288   1.288
 > 
 > estimateDifference(PairedSummary,PairedCorr)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.224   3.000   0.103   7.897
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.224   3.000   0.103   7.897
 
 > estimateDifference(PairedSummary,PairedCorr,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.224   3.000  -3.152  11.152
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.224   3.000  -3.152  11.152
 
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
-> plotDifference(PairedSummary,PairedCorr)
-> plotDifference(PairedSummary,PairedCorr,conf.level=.99,rope=c(-2,2))
+> plotDifference(PairedSummary,PairedCorr) # Paired-Figure3.jpeg
+> plotDifference(PairedSummary,PairedCorr,conf.level=.99,rope=c(-2,2)) # Paired-Figure4.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
 > testDifference(PairedSummary,PairedCorr)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   4.000   1.224   3.267   3.000   0.047
+              Diff      SE       t      df       p
+Comparison   4.000   1.224   3.267   3.000   0.047
 
 > testDifference(PairedSummary,PairedCorr,mu=-2)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   6.000   1.224   4.900   3.000   0.016
+              Diff      SE       t      df       p
+Comparison   6.000   1.224   4.900   3.000   0.016
 
 > 
 > #### Effect Size for the Mean Difference
 > 
 > standardizeDifference(PairedSummary,PairedCorr)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.782   0.101   3.166
+Comparison   1.633   0.782   0.101   3.166
 
 > standardizeDifference(PairedSummary,PairedCorr,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.782  -0.380   3.647
+Comparison   1.633   0.782  -0.380   3.647
 
 > 

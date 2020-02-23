@@ -92,10 +92,10 @@ Outcome3   4.000   5.000   2.449   1.224  -2.152  12.152
 > 
 > #### Plots of Confidence Intervals for the Means
 > 
-> plotMeans(WithinSummaryL1)
-> plotMeans(WithinSummaryL2)
-> plotMeans(WithinSummaryL1,conf.level=.99,mu=5,rope=c(3,7))
-> plotMeans(WithinSummaryL2,conf.level=.99,mu=5,rope=c(3,7))
+> plotMeans(WithinSummaryL1) # Mixed-Figure1.jpeg
+> plotMeans(WithinSummaryL2) # Mixed-Figure2.jpeg
+> plotMeans(WithinSummaryL1,conf.level=.99,mu=5,rope=c(3,7)) # Mixed-Figure3.jpeg
+> plotMeans(WithinSummaryL2,conf.level=.99,mu=5,rope=c(3,7)) # Mixed-Figure4.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -103,7 +103,7 @@ Outcome3   4.000   5.000   2.449   1.224  -2.152  12.152
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1   2.000   1.224   1.633   3.000   0.201
 Outcome2   6.000   1.224   4.900   3.000   0.016
 Outcome3   7.000   1.224   5.717   3.000   0.011
@@ -112,7 +112,7 @@ Outcome3   7.000   1.224   5.717   3.000   0.011
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1   4.000   1.224   3.267   3.000   0.047
 Outcome2   4.000   1.224   3.267   3.000   0.047
 Outcome3   5.000   1.224   4.083   3.000   0.027
@@ -121,7 +121,7 @@ Outcome3   5.000   1.224   4.083   3.000   0.027
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1  -3.000   1.224  -2.450   3.000   0.092
 Outcome2   1.000   1.224   0.817   3.000   0.474
 Outcome3   2.000   1.224   1.633   3.000   0.201
@@ -130,7 +130,7 @@ Outcome3   2.000   1.224   1.633   3.000   0.201
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-             Est      SE       t      df       p
+            Diff      SE       t      df       p
 Outcome1  -1.000   1.224  -0.817   3.000   0.474
 Outcome2  -1.000   1.224  -0.817   3.000   0.474
 Outcome3   0.000   1.224   0.000   3.000   1.000
@@ -186,100 +186,100 @@ Outcome3   0.000   0.000   0.559  -1.288   1.288
 > 
 > estimateDifference(CompSummaryL1,WithinCorrL1)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.224   3.000   0.103   7.897
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.224   3.000   0.103   7.897
 
 > estimateDifference(CompSummaryL2,WithinCorrL2)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   0.000   0.577   3.000  -1.836   1.836
+              Diff      SE      df      LL      UL
+Comparison   0.000   0.577   3.000  -1.836   1.836
 
 > estimateDifference(CompSummaryL1,WithinCorrL1,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.224   3.000  -3.152  11.152
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.224   3.000  -3.152  11.152
 
 > estimateDifference(CompSummaryL2,WithinCorrL2,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   0.000   0.577   3.000  -3.370   3.370
+              Diff      SE      df      LL      UL
+Comparison   0.000   0.577   3.000  -3.370   3.370
 
 > 
 > #### Plots of Confidence Intervals for the Mean Difference
 > 
-> plotDifference(CompSummaryL1,WithinCorrL1)
-> plotDifference(CompSummaryL2,WithinCorrL2)
-> plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99,rope=c(-2,2))
-> plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99,rope=c(-2,2))
+> plotDifference(CompSummaryL1,WithinCorrL1) # Mixed-Figure5.jpg
+> plotDifference(CompSummaryL2,WithinCorrL2) # Mixed-Figure6.jpg
+> plotDifference(CompSummaryL1,WithinCorrL1,conf.level=.99,rope=c(-2,2)) # Mixed-Figure7.jpeg
+> plotDifference(CompSummaryL2,WithinCorrL2,conf.level=.99,rope=c(-2,2)) # Mixed-Figure8.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
 > testDifference(CompSummaryL1,WithinCorrL1)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   4.000   1.224   3.267   3.000   0.047
+              Diff      SE       t      df       p
+Comparison   4.000   1.224   3.267   3.000   0.047
 
 > testDifference(CompSummaryL2,WithinCorrL2)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   0.000   0.577   0.000   3.000   1.000
+              Diff      SE       t      df       p
+Comparison   0.000   0.577   0.000   3.000   1.000
 
 > testDifference(CompSummaryL1,WithinCorrL1,mu=-2)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   6.000   1.224   4.900   3.000   0.016
+              Diff      SE       t      df       p
+Comparison   6.000   1.224   4.900   3.000   0.016
 
 > testDifference(CompSummaryL2,WithinCorrL2,mu=-2)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   2.000   0.577   3.467   3.000   0.040
+              Diff      SE       t      df       p
+Comparison   2.000   0.577   3.467   3.000   0.040
 
 > 
 > #### Effect Size for the Mean Difference
 > 
 > standardizeDifference(CompSummaryL1,WithinCorrL1)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.782   0.101   3.166
+Comparison   1.633   0.782   0.101   3.166
 
 > standardizeDifference(CompSummaryL2,WithinCorrL2)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   0.000   0.272  -0.533   0.533
+Comparison   0.000   0.272  -0.533   0.533
 
 > standardizeDifference(CompSummaryL1,WithinCorrL1,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.782  -0.380   3.647
+Comparison   1.633   0.782  -0.380   3.647
 
 > standardizeDifference(CompSummaryL2,WithinCorrL2,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   0.000   0.272  -0.701   0.701
+Comparison   0.000   0.272  -0.701   0.701
 
 > 
 > ### Analyses of a Variable Contrast
@@ -319,10 +319,10 @@ Contrast   0.500   0.645   3.000  -3.268   4.268
 > 
 > #### Plots of Confidence Intervals for a Contrast
 > 
-> plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers)
-> plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers)
-> plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
-> plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
+> plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers) # Mixed-Figure9.jpeg
+> plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers) # Mixed-Figure10.jpeg
+> plotContrast(WithinSummaryL1,WithinCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Mixed-Figure11.jpeg
+> plotContrast(WithinSummaryL2,WithinCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)) # Mixed-Figure12.jpeg
 > 
 > #### Significance Test for the Contrast
 > 

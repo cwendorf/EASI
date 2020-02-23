@@ -18,8 +18,8 @@ estimateMeans(Outcome~Factor,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
-plotMeans(Outcome~Factor)
-plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(Outcome~Factor) # Independent-Figure1.jpeg
+plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7)) # Independent-Figure2.jpeg
 
 #### Significance Tests for the Means
 
@@ -40,8 +40,8 @@ estimateDifference(Outcome~Factor,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
-plotDifference(Outcome~Factor)
-plotDifference(Outcome~Factor,conf.level=.99,rope=c(-2,2))
+plotDifference(Outcome~Factor) # Independent-Figure3.jpeg
+plotDifference(Outcome~Factor,conf.level=.99,rope=c(-2,2)) # Independent-Figure4.jpeg
 
 #### Significance Test of the Mean Difference
 

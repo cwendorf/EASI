@@ -32,10 +32,10 @@ with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
 
 #### Plots of Confidence Intervals for the Means
 
-with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3))
-with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3))
-with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)))
-with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)))
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure1.jpeg
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3)) # Mixed-Figure2.jpeg
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7))) # Mixed-Figure3.jpeg
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7))) # Mixed-Figure4.jpeg
 
 #### Significance Tests for the Means
 
@@ -62,10 +62,10 @@ with(DataSubsetL2,estimateDifference(Outcome1,Outcome2,conf.level=.99))
 
 #### Plots of Confidence Intervals for the Mean Difference
 
-with(DataSubsetL1,plotDifference(Outcome1,Outcome2))
-with(DataSubsetL2,plotDifference(Outcome1,Outcome2))
-with(DataSubsetL1,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)))
-with(DataSubsetL2,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)))
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2)) # Mixed-Figure5.jpeg
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2)) # Mixed-Figure6.jpeg
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))) # Mixed-Figure7.jpeg
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))) # Mixed-Figure8.jpeg
 
 #### Significance Test for the Mean Difference
 
@@ -94,10 +94,10 @@ with(DataSubsetL2,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOther
 
 #### Plots of Confidence Intervals for a Contrast
 
-with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
-with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
-with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)))
-with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)))
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)) # Mixed-Figure9.jpeg
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)) # Mixed-Figure10.jpeg
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))) # Mixed-Figure11.jpeg
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))) # Mixed-Figure12.jpeg
 
 #### Significance Test for the Contrast
 

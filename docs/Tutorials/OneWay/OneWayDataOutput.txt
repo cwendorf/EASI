@@ -47,8 +47,8 @@ Level3   4.000   7.000   2.449   1.225  -0.154  14.154
 > 
 > #### Plot of the Confidence Intervals for the Means
 > 
-> plotMeans(Outcome~Factor)
-> plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7))
+> plotMeans(Outcome~Factor) # OneWay-Figure1.jpeg
+> plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7)) # OneWay-Figure2.jpeg
 > 
 > #### Significance Tests for the Means
 > 
@@ -56,7 +56,7 @@ Level3   4.000   7.000   2.449   1.225  -0.154  14.154
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-           Est      SE       t      df       p
+          Diff      SE       t      df       p
 Level1   2.000   1.225   1.633   3.000   0.201
 Level2   6.000   1.225   4.899   3.000   0.016
 Level3   7.000   1.225   5.715   3.000   0.011
@@ -65,7 +65,7 @@ Level3   7.000   1.225   5.715   3.000   0.011
 
 HYPOTHESIS TESTS FOR THE MEANS
 
-           Est      SE       t      df       p
+          Diff      SE       t      df       p
 Level1  -3.000   1.225  -2.449   3.000   0.092
 Level2   1.000   1.225   0.816   3.000   0.474
 Level3   2.000   1.225   1.633   3.000   0.201
@@ -100,56 +100,56 @@ Level3   0.816   0.594   0.616  -0.732   2.319
 > 
 > estimateDifference(Outcome~Comparison)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.732   6.000  -0.238   8.238
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.732   6.000  -0.238   8.238
 
 > estimateDifference(Outcome~Comparison,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE DIFFERENCE
+CONFIDENCE INTERVAL FOR THE COMPARISON
 
-               Est      SE      df      LL      UL
-Difference   4.000   1.732   6.000  -2.421  10.421
+              Diff      SE      df      LL      UL
+Comparison   4.000   1.732   6.000  -2.421  10.421
 
 > 
 > #### Plot of the Confidence Interval for the Mean Difference
 > 
-> plotDifference(Outcome~Comparison)
-> plotDifference(Outcome~Comparison,conf.level=.99,rope=c(-2,2))
+> plotDifference(Outcome~Comparison) # OneWay-Figure3.jpeg
+> plotDifference(Outcome~Comparison,conf.level=.99,rope=c(-2,2)) # OneWay-Figure4.jpeg
 > 
 > #### Significance Test for the Mean Difference
 > 
 > testDifference(Outcome~Comparison)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   4.000   1.732   2.309   6.000   0.060
+              Diff      SE       t      df       p
+Comparison   4.000   1.732   2.309   6.000   0.060
 
 > testDifference(Outcome~Comparison,mu=-2)
 
-HYPOTHESIS TEST FOR THE DIFFERENCE
+HYPOTHESIS TEST FOR THE COMPARISON
 
-               Est      SE       t      df       p
-Difference   6.000   1.732   3.464   6.000   0.013
+              Diff      SE       t      df       p
+Comparison   6.000   1.732   3.464   6.000   0.013
 
 > 
 > #### Effect Size for the Mean Difference
 > 
 > standardizeDifference(Outcome~Comparison)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.943  -0.215   3.481
+Comparison   1.633   0.943  -0.215   3.481
 
 > standardizeDifference(Outcome~Comparison,conf.level=.99)
 
-CONFIDENCE INTERVAL FOR THE STANDARDIZED DIFFERENCE
+CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON
 
                Est      SE      LL      UL
-Difference   1.633   0.943  -0.796   4.062
+Comparison   1.633   0.943  -0.796   4.062
 
 > 
 > ### Analyses of a Group Contrast
@@ -175,8 +175,8 @@ Contrast   4.500   1.500   6.000  -1.061  10.061
 > 
 > #### Plots of Confidence Intervals for a Contrast
 > 
-> plotContrast(Outcome~Factor,contrast=L1vsOthers)
-> plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
+> plotContrast(Outcome~Factor,contrast=L1vsOthers) # OneWay-Figure5.jpeg
+> plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)) # OneWay-Figure6.jpeg
 > 
 > #### Significance Test for a Contrast
 > 
