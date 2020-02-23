@@ -94,6 +94,7 @@ plotRelational.wss <- function(DescStats,CorrStats,ylab="Outcome",xlab="",conf.l
   main="Confidence and Relational Intervals for the Means"
   results <- ciMeans(DescStats,conf.level=conf.level,...)[,c(2,5,6)]
   cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
+  if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,"M"],i+1,results[i+1,"M"],code=3,length=0,lty=1)}  
   addRelational(DescStats,CorrStats,conf.level=conf.level,...)
 }
 
@@ -108,6 +109,7 @@ plotRelational.default <- function(...,ylab="Outcome",xlab="",mu=NULL,rope=NULL,
   main="Confidence and Relational Intervals for the Means"
   results <- ciMeans(...,conf.level=conf.level)[,c(2,5,6)]
   cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
+  if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,"M"],i+1,results[i+1,"M"],code=3,length=0,lty=1)}   
   addRelational(...,conf.level=conf.level)
 }
 
