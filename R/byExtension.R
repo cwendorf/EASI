@@ -143,6 +143,11 @@ estimateDifferenceBy <- function(...,digits=3) {
   print(lapply(ciDifferenceBy(...),formatFrame,digits=digits))
 }
 
+estimateComparisonBy <- function(...,digits=3) {
+  cat("\nCONFIDENCE INTERVALS FOR THE COMPARISONS\n\n")
+  print(lapply(ciDifferenceBy(...),formatFrame,digits=digits))
+}
+
 #### CI Function for Mean Contrasts
 
 ciContrastBy <- function(...) 
@@ -279,6 +284,11 @@ nhstDifferenceBy.formula <- function(formula,by,mu=0) {
 }
 
 testDifferenceBy <- function(...,digits=3) {
+  cat("\nHYPOTHESIS TESTS FOR THE COMPARISONS\n\n")
+  print(lapply(nhstDifferenceBy(...),formatFrame,digits=digits))
+}
+
+testComparisonBy <- function(...,digits=3) {
   cat("\nHYPOTHESIS TESTS FOR THE COMPARISONS\n\n")
   print(lapply(nhstDifferenceBy(...),formatFrame,digits=digits))
 }
@@ -423,6 +433,11 @@ standardizeDifferenceBy <- function(...,digits=3) {
   print(lapply(smdDifferenceBy(...),formatFrame,digits=digits)) 
 }
 
+standardizeComparisonBy <- function(...,digits=3) {
+  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS\n\n")
+  print(lapply(smdDifferenceBy(...),formatFrame,digits=digits)) 
+}
+
 #### SMD Function for Mean Contrasts
 
 smdContrastBy <- function(...) 
@@ -525,6 +540,9 @@ plotMeansBy.formula <- function(formula,by,ylab="Outcome",xlab="",mu=NULL,rope=N
 }
 
 #### Plot Function for Confidence Intervals of Mean Differences/Comparisons
+
+plotComparisonBy <- function(...) 
+  UseMethod("plotDifferenceBy")
 
 plotDifferenceBy <- function(...) 
   UseMethod("plotDifferenceBy")

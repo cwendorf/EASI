@@ -18,7 +18,7 @@ analyzeMeans <- function(...,digits=3) {
   cat("\nANALYSES OF THE MEANS\n\n")
   plotMeans(...,digits=digits)
   results <- allMeans(...)
-  names(results) <- c("Confidence Intervals for the Means","Hypothesis Tests for the Means","Confidence Intervals for the Standardized Means")
+  names(results) <- c("CONFIDENCE INTERVALS FOR THE MEANS","HYPOTHESIS TESTS FOR THE MEANS","CONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS")
   formatList(results,digits)
 }
 
@@ -36,7 +36,15 @@ analyzeDifference <- function(...,digits=3) {
   cat("\nANALYSES OF THE COMPARISON\n\n")
   plotDifference(...,digits=digits)
   results <- allDifference(...)
-  names(results) <- c("Confidence Interval for the Comparison","Hypothesis Test for the Comparison","Confidence Interval for the Standardized Comparison")
+  names(results) <- c("CONFIDENCE INTERVAL FOR THE COMPARISON","HYPOTHESIS TEST FOR THE COMPARISON","CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON")
+  formatList(results,digits)
+}
+
+analyzeComparison <- function(...,digits=3) {
+  cat("\nANALYSES OF THE COMPARISON\n\n")
+  plotDifference(...,digits=digits)
+  results <- allDifference(...)
+  names(results) <- c("CONFIDENCE INTERVAL FOR THE COMPARISON","HYPOTHESIS TEST FOR THE COMPARISON","CONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON")
   formatList(results,digits)
 }
 
@@ -54,6 +62,6 @@ analyzeContrast <- function(...,digits=3) {
   cat("\nANALYSES OF THE CONTRAST\n\n")
   plotContrast(...,digits=digits)
   results <- allContrast(...)
-  names(results) <- c("Confidence Interval for the Contrast","Hypothesis Test for the Contrast","Confidence Interval for the Standardized Contrast")
+  names(results) <- c("CONFIDENCE INTERVAL FOR THE CONTRAST","HYPOTHESIS TEST FOR THE CONTRAST","CONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST")
   formatList(results,digits)
 }
