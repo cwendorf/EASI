@@ -22,7 +22,7 @@ analyzeMeans <- function(...,digits=3) {
   formatList(results,digits)
 }
 
-### Meta-Wrapper for Mean Difference Functions
+### Meta-Wrapper for Mean Difference/Comparison Functions
 
 allDifference <- function(...) {
   output <- list(
@@ -33,10 +33,10 @@ allDifference <- function(...) {
 }
 
 analyzeDifference <- function(...,digits=3) {
-  cat("\nANALYSES OF THE DIFFERENCE\n\n")
+  cat("\nANALYSES OF THE COMPARISON\n\n")
   plotDifference(...,digits=digits)
   results <- allDifference(...)
-  names(results) <- c("Confidence Interval for the Difference","Hypothesis Test for the Difference","Confidence Interval for the Standardized Difference")
+  names(results) <- c("Confidence Interval for the Comparison","Hypothesis Test for the Comparison","Confidence Interval for the Standardized Comparison")
   formatList(results,digits)
 }
 

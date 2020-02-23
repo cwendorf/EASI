@@ -20,7 +20,7 @@ ciPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,...){
   nr <- nrow(SumStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
-  colnames(results) <- c("Est","SE","df","LL","UL")
+  colnames(results) <- c("Diff","SE","df","LL","UL")
   comp <- 1
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
@@ -47,7 +47,7 @@ ciPairwise.bss <- function(SumStats,conf.level=.95,...){
   nr <- nrow(SumStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
-  colnames(results) <- c("Est","SE","df","LL","UL")
+  colnames(results) <- c("Diff","SE","df","LL","UL")
   comp <- 1
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
