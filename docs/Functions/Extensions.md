@@ -15,7 +15,7 @@ If the package is installed using the following procedure, then all extensions a
 
 ``` r
 install.packages("devtools")
-devtools::install_github("cwendorf/EASI",build=FALSE)
+devtools::install_github("cwendorf/EASI",build=FALSE,force=TRUE)
 library(EASI)
 ```
 
