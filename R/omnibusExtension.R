@@ -69,8 +69,10 @@ descOmnibus.formula <- function(formula,conf.level=.95,...) {
   return(results)
 }
 
-describeOmnibus <- function(...,digits=3) {
-  cat("\nANALYSIS OF VARIANCE SOURCE TABLE\n\n")
+describeOmnibus <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Analysis of Variance Source Table"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(descOmnibus(...),digits=digits))
   cat("\n")
 }
@@ -123,8 +125,10 @@ nhstOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL) {
   return(results)
 }
 
-testOmnibus <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TEST FOR THE OMNIBUS EFFECT\n\n")
+testOmnibus <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Hypothesis Test for the Omnibus Effect"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(nhstOmnibus(...),digits=digits))
   cat("\n")
 }
@@ -136,10 +140,10 @@ ncpF <- function(x,df1,df2,prob,interval=c(0,10000),my.tol=0.000001) {
   return(uniroot(temp, interval, tol = my.tol)$root)
 }
 
-povOmnibus <- function(...) 
-  UseMethod("povOmnibus")
+pvaOmnibus <- function(...) 
+  UseMethod("pvaOmnibus")
 
-povOmnibus.bss <- function(DescStats,conf.level=.90) {
+pvaOmnibus.bss <- function(DescStats,conf.level=.90) {
   temptab <- descOmnibus(DescStats)
   SSb <- temptab["Between","SS"]
   SSw <- temptab["Within","SS"]
@@ -160,7 +164,7 @@ povOmnibus.bss <- function(DescStats,conf.level=.90) {
   return(results)
 }
 
-povOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90) {
+pvaOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90) {
   temptab <- descOmnibus(DescStats,CorrStats)
   SSf <- temptab["Factor","SS"]
   SSe <- temptab["Error","SS"]
@@ -181,23 +185,25 @@ povOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90) {
   return(results)
 }
 
-povOmnibus.default <- function(...,mu=0,conf.level=.90,rope=NULL) {
+pvaOmnibus.default <- function(...,mu=0,conf.level=.90,rope=NULL) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
   CorrStats <- corrData(...)  
-  results <- povOmnibus(DescStats,CorrStats)
+  results <- pvaOmnibus(DescStats,CorrStats)
   return(results)
 }
 
-povOmnibus.formula <- function(formula,mu=0,conf.level=.90,rope=NULL) {
+pvaOmnibus.formula <- function(formula,mu=0,conf.level=.90,rope=NULL) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
-  results <- povOmnibus(DescStats,conf.level)
+  results <- pvaOmnibus(DescStats,conf.level)
   return(results)
 }
 
-effectOmnibus <- function(...,digits=3) {
-  cat("\nPROPORTION OF VARIANCE FOR BY THE OMNIBUS EFFECT\n\n")
-  print(formatFrame(povOmnibus(...),digits=digits))
+effectOmnibus <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Proportion of Variance Accounted For By the Omnibus Effect"}
+  cat("\n")
+  cat(main,"\n\n")
+  print(formatFrame(pvaOmnibus(...),digits=digits))
   cat("\n")
 }

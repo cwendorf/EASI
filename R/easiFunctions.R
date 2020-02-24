@@ -38,8 +38,10 @@ descData.formula <- function(formula,...) {
   return(results)
 }
 
-describeData <- function(...,digits=3) {
-  cat("\nDESCRIPTIVE STATISTICS FOR THE DATA\n\n")
+describeData <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Descriptive Statistics for the Data"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(descData(...),digits=digits))
   cat("\n")
 }
@@ -55,9 +57,11 @@ corrData.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   return(results)
 }
 
-correlateData <- function(...,digits=3) {
-  cat("\nCORRELATION MATRIX FOR THE DATA\n\n")
-   print(formatFrame(corrData(...),digits=digits))
+correlateData <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Correlation Matrix for the Data"}
+  cat("\n")
+  cat(main,"\n\n")
+  print(formatFrame(corrData(...),digits=digits))
   cat("\n")
 }
 
@@ -135,8 +139,10 @@ ciMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-estimateMeans <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE MEANS\n\n")
+estimateMeans <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Means"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(ciMeans(...),digits=digits))
   cat("\n")
 }
@@ -196,16 +202,12 @@ ciDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-estimateDifference <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVAL FOR THE COMPARISON\n\n")
+estimateDifference <- estimateComparison <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Interval for the Comparison"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(ciDifference(...),digits=digits))
-  cat("\n")  
-}
-
-estimateComparison <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVAL FOR THE COMPARISON\n\n")
-  print(formatFrame(ciDifference(...),digits=digits))
-  cat("\n")  
+  cat("\n")
 }
 
 #### CI Function for Mean Contrasts
@@ -263,10 +265,12 @@ ciContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,..
   return(results)
 }
 
-estimateContrast <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVAL FOR THE CONTRAST\n\n")
+estimateContrast <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Interval for the Contrast"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(ciContrast(...),digits=digits))
-  cat("\n")  
+  cat("\n")
 }
 
 ### Null Hypothesis Significance Test Functions
@@ -303,8 +307,10 @@ nhstMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-testMeans <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TESTS FOR THE MEANS\n\n")
+testMeans <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Hypothesis Tests for the Means"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(nhstMeans(...),digits=digits))
   cat("\n")
 }
@@ -362,14 +368,10 @@ nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-testDifference <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TEST FOR THE COMPARISON\n\n")
-  print(formatFrame(nhstDifference(...),digits=digits))
+testDifference <- testComparison <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Hypothesis Test for the Comparison"}
   cat("\n")
-}
-
-testComparison <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TEST FOR THE COMPARISON\n\n")
+  cat(main,"\n\n")
   print(formatFrame(nhstDifference(...),digits=digits))
   cat("\n")
 }
@@ -427,10 +429,12 @@ nhstContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,
   return(results)
 }
 
-testContrast<-function(...,digits=3) {
-  cat("\nHYPOTHESIS TEST FOR THE CONTRAST\n\n")
+testContrast <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Hypothesis Test for the Contrast"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(nhstContrast(...),digits=digits))
-  cat("\n")  
+  cat("\n")
 }
 
 ### Standardized Mean Difference Functions
@@ -490,8 +494,10 @@ smdMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-standardizeMeans <- function(...,digits=3){
-  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS\n\n")
+standardizeMeans <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Standardized Means"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(smdMeans(...),digits=digits))
   cat("\n")
 }
@@ -558,16 +564,12 @@ smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL
   return(results)
 }
 
-standardizeDifference <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
+standardizeDifference <- standardizeComparison <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Interval for the Standardized Comparison"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(smdDifference(...),digits=digits))
-  cat("\n")  
-}
-
-standardizeComparison <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED COMPARISON\n\n")
-  print(formatFrame(smdDifference(...),digits=digits))
-  cat("\n")  
+  cat("\n")
 }
 
 #### SMD Function for Mean Contrasts
@@ -635,10 +637,12 @@ smdContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,.
   return(results)
 }
 
-standardizeContrast <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVAL FOR THE STANDARDIZED CONTRAST\n\n")
+standardizeContrast <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Interval for the Standardized Contrast"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(smdContrast(...),digits=digits))
-  cat("\n")  
+  cat("\n")
 }
 
 ### Confidence Interval Plot Functions

@@ -28,8 +28,10 @@ summData.formula <- function(formula,...) {
   return(results)
 }
 
-summarizeData <- function(...,digits=3) {
-  cat("\nSUMMARY STATISTICS FOR THE DATA\n\n")
+summarizeData <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Summary Statistics for the Data"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(summData(...),digits=digits))
   cat("\n")
 }

@@ -26,9 +26,12 @@ descDataBy.formula <- function(formula,by) {
   return(results)
 }
 
-describeDataBy <- function(...,digits=3) {
-  cat("\nDESCRIPTIVE STATISTICS FOR THE DATA\n\n")
+describeDataBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Descriptive Statistics for the Data"}
+  cat("\n")
+  cat(main,"\n\n")
   print(lapply(descDataBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 #### Correlate/Covary Functions for Mutiple Variables
@@ -43,10 +46,12 @@ corrDataBy.default <- function(...,by) {
   return(results)
 }
 
-correlateLevelsBy <- function(...,digits=3) {
-  cat("\nCORRELATION MATRIX FOR THE LEVELS\n\n")
-  print(corrDataBy(...))
+correlateDataBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Correlation Matrix for the Data"}
+  cat("\n")
+  cat(main,"\n\n")
   print(lapply(corrDataBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 ### Confidence Interval Functions
@@ -92,9 +97,12 @@ ciMeansBy.formula <- function(formula,by,conf.level=.95) {
   return(results)
 }
 
-estimateMeansBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE MEANS\n\n")
+estimateMeansBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Means"}
+  cat("\n")
+  cat(main,"\n\n")
   print(lapply(ciMeansBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 #### CI Function for Mean Differences/Comparisons
@@ -138,14 +146,12 @@ ciDifferenceBy.formula <- function(formula,by,conf.level=.95) {
   return(results)
 }
 
-estimateDifferenceBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE COMPARISONS\n\n")
+estimateDifferenceBy <- estimateComparisonBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Comparison"}
+  cat("\n")
+  cat(main,"\n\n")
   print(lapply(ciDifferenceBy(...),formatFrame,digits=digits))
-}
-
-estimateComparisonBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE COMPARISONS\n\n")
-  print(lapply(ciDifferenceBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 #### CI Function for Mean Contrasts
@@ -189,9 +195,12 @@ ciContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
   return(results)
 }
 
-estimateContrastBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE CONTRASTS\n\n")
-  print(lapply(ciContrastBy(...),formatFrame,digits=digits))  
+estimateContrastBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Contrast"}
+  cat("\n")
+  cat(main,"\n\n")
+  print(lapply(ciContrastBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 ### Null Hypothesis Significance Test Functions 
@@ -237,9 +246,12 @@ nhstMeansBy.formula <- function(formula,by,mu=0) {
   return(results)
 }
 
-testMeansBy <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TESTS FOR THE MEANS\n\n")
+testMeansBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Hypothesis Tests for the Means"}
+  cat("\n")
+  cat(main,"\n\n")
   print(lapply(nhstMeansBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 ##### NHST Function for Mean Differences/Comparisons
@@ -283,14 +295,12 @@ nhstDifferenceBy.formula <- function(formula,by,mu=0) {
   return(results)
 }
 
-testDifferenceBy <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TESTS FOR THE COMPARISONS\n\n")
+testDifferenceBy <- testComparisonBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Hypothesis Tests for the Comparison"}
+  cat("\n")
+  cat(main,"\n\n")
   print(lapply(nhstDifferenceBy(...),formatFrame,digits=digits))
-}
-
-testComparisonBy <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TESTS FOR THE COMPARISONS\n\n")
-  print(lapply(nhstDifferenceBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 #### NHST Function for Mean Contrasts
@@ -334,9 +344,12 @@ nhstContrastBy.formula <- function(formula,by,contrast,mu=0) {
   return(results)
 }
 
-testContrastBy <- function(...,digits=3) {
-  cat("\nHYPOTHESIS TESTS FOR THE CONTRASTS\n\n")
-  print(lapply(nhstContrastBy(...),formatFrame,digits=digits)) 
+testContrastBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Hypothesis Tests for the Contrast"}
+  cat("\n")
+  cat(main,"\n\n")
+  print(lapply(nhstContrastBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 ### Standardized Mean Difference Functions
@@ -382,9 +395,12 @@ smdMeansBy.formula <- function(formula,by,mu=0,conf.level=.95) {
   return(results)
 }
 
-standardizeMeansBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED MEANS\n\n")
+standardizeMeansBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Standardized Means"}
+  cat("\n")
+  cat(main,"\n\n")
   print(lapply(smdMeansBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 #### SMD Function for Mean Differences/Comparisons
@@ -428,14 +444,12 @@ smdDifferenceBy.formula <- function(formula,by,mu=0,conf.level=.95) {
   return(results)
 }
 
-standardizeDifferenceBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS\n\n")
-  print(lapply(smdDifferenceBy(...),formatFrame,digits=digits)) 
-}
-
-standardizeComparisonBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED COMPARISONS\n\n")
-  print(lapply(smdDifferenceBy(...),formatFrame,digits=digits)) 
+standardizeDifferenceBy <- standardizeComparisonBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Standardized Comparison"}
+  cat("\n")
+  cat(main,"\n\n")
+  print(lapply(smdDifferenceBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 #### SMD Function for Mean Contrasts
@@ -479,9 +493,12 @@ smdContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
   return(results)
 }
 
-standardizeContrastBy <- function(...,digits=3) {
-  cat("\nCONFIDENCE INTERVALS FOR THE STANDARDIZED CONTRASTS\n\n")
-  print(lapply(smdContrastBy(...),formatFrame,digits=digits)) 
+standardizeContrastBy <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Standardized Contrast"}
+  cat("\n")
+  cat(main,"\n\n")
+  print(lapply(smdContrastBy(...),formatFrame,digits=digits))
+  cat("\n")
 }
 
 ### Confidence Interval Plot Functions

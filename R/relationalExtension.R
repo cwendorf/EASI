@@ -54,8 +54,10 @@ ciRelational.formula <- function(formula,conf.level=.95,...) {
   return(results)
 }
 
-estimateRelational <- function(...,digits=3){
-  cat("\nCONFIDENCE AND RELATIONAL INTERVALS FOR THE MEANS\n\n")
+estimateRelational <- function(...,main=NULL,digits=3) {
+  if(is.null(main)) {main="Confidence and Relational Intervals for the Means"}
+  cat("\n")
+  cat(main,"\n\n")
   print(formatFrame(ciRelational(...),digits=digits))
   cat("\n")
 }
