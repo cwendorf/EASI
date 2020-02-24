@@ -93,18 +93,18 @@ estimatePairwise <- function(...,digits=3) {
 plotPairwise <- function(...) 
   UseMethod("plotPairwise")
 
-plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
-  main="Confidence Intervals for the Pairwise Comparisons"
+plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Pairwise Comparisons"}
   results <- ciPairwise(...,conf.level=conf.level)
   colnames(results)[1] <- "M"  
-  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
+  cipMeans(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
 }
 
-plotPairwise.formula <- function(formula,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,digits=3,...) {
-  main="Confidence Intervals for the Pairwise Comparisons"
+plotPairwise.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,digits=3,...) {
+  if(is.null(main)) {main="Confidence Intervals for the Pairwise Comparisons"}
   results <- ciPairwise(formula,conf.level=conf.level)
   colnames(results)[1] <- "M"
-  cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
+  cipMeans(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
 }
 
 ### Standardized Mean Difference Functions

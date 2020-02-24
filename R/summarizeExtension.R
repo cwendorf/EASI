@@ -39,15 +39,15 @@ summarizeData <- function(...,digits=3) {
 plotBoxes <- function(...) 
   UseMethod("plotBoxes")
 
-plotBoxes.default <- function(...,ylab="Outcome",xlab="") {
-  main="Boxplots for the Data"
+plotBoxes.default <- function(...,main=NULL,ylab="Outcome",xlab="") {
+  if(is.null(main)) {main="Boxplots for the Data"}
   data <- data.frame(...)
   par(bty="l")
   boxplot(data,boxwex=.15,cex=1.5,cex.lab=1.3,xlab=xlab,ylab=ylab,main=main,...)
 }  
 
-plotBoxes.formula <- function(formula,ylab="Outcome",xlab="",...) {
-  main="Boxplots for the Data"
+plotBoxes.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",...) {
+  if(is.null(main)) {main="Boxplots for the Data"}
   par(bty="l")
   boxplot(formula,boxwex=.15,cex=1.5,cex.lab=1.3,xlab=xlab,ylab=ylab,main=main,...)
 }
