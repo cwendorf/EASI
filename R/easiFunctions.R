@@ -763,7 +763,7 @@ plotMeans.bss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",conf.level=
 plotMeans.default <- function(...,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
   DescStats <- descData(...)
   class(DescStats) <- "wss"
-  plotMeans(DescStats,main,=main,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values,digits=digits)
+  plotMeans(DescStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values,digits=digits)
 }
 
 plotMeans.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3,...) {
