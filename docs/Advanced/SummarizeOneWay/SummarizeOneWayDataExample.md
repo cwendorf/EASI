@@ -32,6 +32,7 @@ OneWayData
 10 Level3       6
 11 Level3       4
 12 Level3       9
+```
 
 ### Summaries of Multiple Groups
 
