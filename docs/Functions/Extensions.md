@@ -30,6 +30,11 @@ EASI extentions are files that extend the functions beyond the original vision f
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/analyzeExtension.R")
 ```
 
+**_summarizeExtension_** (`summarizeData` and `plotBoxes` functions that calculate and plot summary statistics for boxplots of data for single-factor between- and within-subjects designs)
+```r
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/summarizeExtension.R")
+```
+
 **_omnibusExtension_** (`describeOmnibus` and `testOmnibus` functions that provide an analysis of variance for single-factor between- and within-subjects designs)
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/omnibusExtension.R")
