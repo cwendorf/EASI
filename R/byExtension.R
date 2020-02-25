@@ -542,8 +542,9 @@ plotMeansBy.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=NULL,
   par(ask=FALSE)  
 }
 
-plotMeansBy.formula <- function(formula,by,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3){
+plotMeansBy.formula <- function(formula,by,main=NULL,ylab=NULL,xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3){
   if(is.null(main)) {main="Confidence Intervals for the Means"}
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   for (i in 1:nlevels(by)) {
     results <- ciMeansBy(formula=formula,by=by,conf.level=conf.level)[[i]][,c(2,5,6)]
     cipMeans(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
@@ -609,8 +610,9 @@ plotDifferenceBy.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=
   par(ask=FALSE)  
 }
 
-plotDifferenceBy.formula <- function(formula,by,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3){
+plotDifferenceBy.formula <- function(formula,by,main=NULL,ylab=NULL,xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3){
   if(is.null(main)) {main="Confidence Intervals for the Comparisons"}
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   for (i in 1:nlevels(by)) {
     Groups <- ciMeansBy(formula,by=by,conf.level=conf.level)[[i]]
     Groups <- Groups[1:2,c(2,5,6)]
@@ -688,8 +690,9 @@ plotContrastBy.default <- function(...,by,contrast,main=NULL,ylab="Outcome",xlab
   par(ask=FALSE)  
 }
 
-plotContrastBy.formula <- function(formula,by,contrast,main=NULL,ylab="Outcome",xlab="",rope=NULL,labels=NULL,values=TRUE,digits=3,...){
+plotContrastBy.formula <- function(formula,by,contrast,main=NULL,ylab=NULL,xlab="",rope=NULL,labels=NULL,values=TRUE,digits=3,...){
   if(is.null(main)) {main="Confidence Intervals for the Contrast"}
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   for (i in 1:nlevels(by)) {  
     congrp1 <- ifelse(contrast<0,0,contrast)
     resgrp1 <- ciContrastBy(formula,by=by,contrast=congrp1,...)[[i]]
@@ -747,8 +750,9 @@ plotMeansAll.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",conf.le
   cipMeansAll(results,main=main,ylab=ylab,xlab=xlab,col=col)
 }
 
-plotMeansAll.formula <- function(formula,by,main=NULL,ylab="Outcome",xlab="",conf.level=.95,col="black") {
+plotMeansAll.formula <- function(formula,by,main=NULL,ylab=NULL,xlab="",conf.level=.95,col="black") {
   if(is.null(main)) {main="Confidence Intervals for the Means"}
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   results <- ciMeansBy(formula,by=by,conf.level=conf.level)
   class(results) <- "bss"
   cipMeansAll(results,main=main,ylab=ylab,xlab=xlab,col=col)

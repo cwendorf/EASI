@@ -652,19 +652,18 @@ standardizeContrast <- function(...,main=NULL,digits=3) {
 plotData <- function(...)
   UseMethod("plotData")
 
-plotData.default <- function(...,add=FALSE,method="jitter",col="gray60",pch=16) {
+plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",method="jitter",col="gray60",pch=16) {
   data <- data.frame(...)
   ylimrange <- range(pretty(c(floor(min(data-2)),ceiling(max(data)+2))))
   xlimrange <- c(.5,ncol(data)+.5)
   mx <- ncol(data)+.15
   mn <- 1+.15
   par(bty="l",xaxs="i",yaxs="i")
-  main="Data for the Variables"  
-  ylab="Outcome"
-  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,jitter=0.08,col=col,pch=pch,cex.lab=1.3)
+  if(is.null(main)) {main="Data for the Variables"}
+  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=0.08,col=col,pch=pch,cex.lab=1.3)
 } 
 
-plotData.formula <- function(formula,add=FALSE,method="jitter",col="gray60",pch=16,...) {
+plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",method="jitter",col="gray60",pch=16,...) {
   x <- eval(formula[[3]])
   adjustX <- as.numeric(x)+.15
   mn <- min(adjustX,na.rm=TRUE)
@@ -673,8 +672,9 @@ plotData.formula <- function(formula,add=FALSE,method="jitter",col="gray60",pch=
   ylimrange <- range(pretty(c(floor(min(y-2)),ceiling(max(y)+2))))
   xlimrange <- c(.5,nlevels(x)+.5)
   par(bty="l",xaxs="i",yaxs="i")
-  main="Data for the Groups"  
-  stripchart(formula,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,jitter=0.08,col=col,pch=pch,cex.lab=1.3,...)
+  if(is.null(main)) {main="Data for the Groups"}
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
+  stripchart(formula,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=0.08,col=col,pch=pch,cex.lab=1.3,...)
 }
 
 #### Add Data to Plot
@@ -770,9 +770,10 @@ plotMeans.default <- function(...,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=
   plotMeans(DescStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values,digits=digits)
 }
 
-plotMeans.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3,...) {
+plotMeans.formula <- function(formula,main=NULL,ylab=NULL,xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}
   plotMeans(DescStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values,digits=digits)
 }
 
@@ -814,9 +815,10 @@ plotDifference.default <- function(...,main=NULL,ylab="Outcome",xlab="",conf.lev
   plotDifference(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
 }
 
-plotDifference.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,lables=NULL,values=TRUE,digits=3,...) {
+plotDifference.formula <- function(formula,main=NULL,ylab=NULL,xlab="",conf.level=.95,rope=NULL,lables=NULL,values=TRUE,digits=3,...) {
   CompStats <- descData(formula)
   class(CompStats) <- "bss"
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   plotDifference(CompStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
 }
 
@@ -861,8 +863,9 @@ plotContrast.default <- function(...,contrast,main=NULL,ylab="Outcome",xlab="",c
   plotContrast(DescStats,CorrStats,contrast=contrast,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
 }
 
-plotContrast.formula <- function(formula,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3,...) {
+plotContrast.formula <- function(formula,contrast,main=NULL,ylab=NULL,xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3,...) {
   DescStats <- descData(formula)
   class(DescStats) <- "bss"
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   plotContrast(DescStats,contrast=contrast,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
 }

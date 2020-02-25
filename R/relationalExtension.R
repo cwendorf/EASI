@@ -115,8 +115,9 @@ plotRelational.default <- function(...,main=NULL,ylab="Outcome",xlab="",mu=NULL,
   addRelational(...,conf.level=conf.level)
 }
 
-plotRelational.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
+plotRelational.formula <- function(formula,main=NULL,ylab=NULL,xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
   if(is.null(main)) {main="Confidence and Relational Intervals for the Means"}
+  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   results <- ciMeans(formula,conf.level=conf.level,...)[,c(2,5,6)]
   cipMeans(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
   addRelational(formula,conf.level=conf.level,...)
