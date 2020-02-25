@@ -3,7 +3,8 @@ title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
 date: "`r Sys.Date()`"
 output: 
-  rmarkdown::html_vignette
+  rmarkdown::html_vignette:
+    keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{OneWay (Between-Subjects) Tutorial with Data}
   %\VignetteEngine{knitr::rmarkdown}
