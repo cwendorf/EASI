@@ -82,10 +82,8 @@ ciPairwise.formula <- function(formula,conf.level=.95,...){
 
 estimatePairwise <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Pairwise Comparisons"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(ciPairwise(...),digits=digits))
-  cat("\n")
 }
 
 ### Plots of Confidence Intervals
@@ -198,10 +196,8 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
 
 standardizePairwise <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Standardized Pairwise Comparisons"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(smdPairwise(...),digits=digits))
-  cat("\n")
 }
 
 ### Null Hypothesis Significance Test Functions 
@@ -280,8 +276,6 @@ nhstPairwise.formula <- function(formula,mu=0,...){
 
 testPairwise <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Hypothesis Tests for the Pairwise Comparisons"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(nhstPairwise(...),digits=digits))
-  cat("\n")
 }

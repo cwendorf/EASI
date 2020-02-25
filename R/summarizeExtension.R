@@ -30,10 +30,8 @@ summData.formula <- function(formula,...) {
 
 summarizeData <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Summary Statistics for the Data"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(summData(...),digits=digits))
-  cat("\n")
 }
 
 #### Plot Functions for Boxes and Data

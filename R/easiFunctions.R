@@ -40,10 +40,8 @@ descData.formula <- function(formula,...) {
 
 describeData <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Descriptive Statistics for the Data"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(descData(...),digits=digits))
-  cat("\n")
 }
 
 #### Correlate/Covary Functions for Mutiple Variables
@@ -59,10 +57,8 @@ corrData.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
 
 correlateData <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Correlation Matrix for the Data"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(corrData(...),digits=digits))
-  cat("\n")
 }
 
 cortocov <- function(CorrStats,SD) {
@@ -141,10 +137,8 @@ ciMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 
 estimateMeans <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Means"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(ciMeans(...),digits=digits))
-  cat("\n")
 }
 
 #### CI Function for Mean Differences/Comparisons
@@ -204,10 +198,8 @@ ciDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 
 estimateDifference <- estimateComparison <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Interval for the Comparison"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(ciDifference(...),digits=digits))
-  cat("\n")
 }
 
 #### CI Function for Mean Contrasts
@@ -267,10 +259,8 @@ ciContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,..
 
 estimateContrast <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Interval for the Contrast"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(ciContrast(...),digits=digits))
-  cat("\n")
 }
 
 ### Null Hypothesis Significance Test Functions
@@ -309,10 +299,8 @@ nhstMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 
 testMeans <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Hypothesis Tests for the Means"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(nhstMeans(...),digits=digits))
-  cat("\n")
 }
 
 #### NHST Function for Mean Differences/Comparisons
@@ -370,10 +358,8 @@ nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 
 testDifference <- testComparison <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Hypothesis Test for the Comparison"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(nhstDifference(...),digits=digits))
-  cat("\n")
 }
 
 #### NHST Function for Mean Contrasts
@@ -431,10 +417,8 @@ nhstContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,
 
 testContrast <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Hypothesis Test for the Contrast"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(nhstContrast(...),digits=digits))
-  cat("\n")
 }
 
 ### Standardized Mean Difference Functions
@@ -496,10 +480,8 @@ smdMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 
 standardizeMeans <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Standardized Means"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(smdMeans(...),digits=digits))
-  cat("\n")
 }
 
 #### SMD Function for Mean Differences/Comparisons
@@ -566,10 +548,8 @@ smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL
 
 standardizeDifference <- standardizeComparison <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Interval for the Standardized Comparison"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(smdDifference(...),digits=digits))
-  cat("\n")
 }
 
 #### SMD Function for Mean Contrasts
@@ -639,10 +619,8 @@ smdContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,.
 
 standardizeContrast <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Interval for the Standardized Contrast"}
-  cat("\n")
   cat(main,"\n\n")
   print(formatFrame(smdContrast(...),digits=digits))
-  cat("\n")
 }
 
 ### Confidence Interval Plot Functions

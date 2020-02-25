@@ -16,7 +16,6 @@ allMeans <- function(...) {
 
 analyzeMeans <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Analyses of the Means"}
-  cat("\n")
   cat(main,"\n\n")
   plotMeans(...,main=main,digits=digits)
   results <- allMeans(...)
@@ -36,7 +35,6 @@ allDifference <- function(...) {
 
 analyzeDifference <- analyzeComparison <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Analyses of the Comparison"}
-  cat("\n")
   cat(main,"\n\n")
   plotMeans(...,main=main,digits=digits)
   results <- allDifference(...)
@@ -56,7 +54,6 @@ allContrast <- function(...) {
 
 analyzeContrast <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Analyses of the Contrast"}
-  cat("\n")
   cat(main,"\n\n")
   plotMeans(...,main=main,digits=digits)
   results <- allContrast(...)

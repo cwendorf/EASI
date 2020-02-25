@@ -28,10 +28,8 @@ descDataBy.formula <- function(formula,by) {
 
 describeDataBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Descriptive Statistics for the Data"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(descDataBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 #### Correlate/Covary Functions for Mutiple Variables
@@ -48,10 +46,8 @@ corrDataBy.default <- function(...,by) {
 
 correlateDataBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Correlation Matrix for the Data"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(corrDataBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 ### Confidence Interval Functions
@@ -99,10 +95,8 @@ ciMeansBy.formula <- function(formula,by,conf.level=.95) {
 
 estimateMeansBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Means"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(ciMeansBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 #### CI Function for Mean Differences/Comparisons
@@ -148,10 +142,8 @@ ciDifferenceBy.formula <- function(formula,by,conf.level=.95) {
 
 estimateDifferenceBy <- estimateComparisonBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(ciDifferenceBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 #### CI Function for Mean Contrasts
@@ -197,10 +189,8 @@ ciContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
 
 estimateContrastBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Contrast"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(ciContrastBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 ### Null Hypothesis Significance Test Functions 
@@ -248,10 +238,8 @@ nhstMeansBy.formula <- function(formula,by,mu=0) {
 
 testMeansBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Hypothesis Tests for the Means"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(nhstMeansBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 ##### NHST Function for Mean Differences/Comparisons
@@ -297,10 +285,8 @@ nhstDifferenceBy.formula <- function(formula,by,mu=0) {
 
 testDifferenceBy <- testComparisonBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Hypothesis Tests for the Comparison"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(nhstDifferenceBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 #### NHST Function for Mean Contrasts
@@ -346,10 +332,8 @@ nhstContrastBy.formula <- function(formula,by,contrast,mu=0) {
 
 testContrastBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Hypothesis Tests for the Contrast"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(nhstContrastBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 ### Standardized Mean Difference Functions
@@ -397,10 +381,8 @@ smdMeansBy.formula <- function(formula,by,mu=0,conf.level=.95) {
 
 standardizeMeansBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Standardized Means"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(smdMeansBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 #### SMD Function for Mean Differences/Comparisons
@@ -446,10 +428,8 @@ smdDifferenceBy.formula <- function(formula,by,mu=0,conf.level=.95) {
 
 standardizeDifferenceBy <- standardizeComparisonBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Standardized Comparison"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(smdDifferenceBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 #### SMD Function for Mean Contrasts
@@ -495,10 +475,8 @@ smdContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
 
 standardizeContrastBy <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main="Confidence Intervals for the Standardized Contrast"}
-  cat("\n")
   cat(main,"\n\n")
   print(lapply(smdContrastBy(...),formatFrame,digits=digits))
-  cat("\n")
 }
 
 ### Confidence Interval Plot Functions
