@@ -15,7 +15,7 @@ This package is not currently on CRAN, but can be installed directly from this r
 
 ``` r
 install.packages("devtools")
-devtools::install_github("cwendorf/EASI",build=FALSE,force=TRUE)
+devtools::install_github("cwendorf/EASI",build_vignettes=TRUE,force=TRUE)
 library(EASI)
 ```
 
