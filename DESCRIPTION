@@ -8,3 +8,5 @@ Author: Craig A Wendorf <cwendorf@uwsp.edu>
 Maintainer: Craig A Wendorf <cwendorf@uwsp.edu>
 URL: https://cwendorf.github.io/EASI/
 Encoding: UTF-8
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
