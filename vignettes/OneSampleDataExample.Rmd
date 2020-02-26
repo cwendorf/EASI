@@ -1,0 +1,83 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{One Sample Tutorial with Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r globalOptions,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,loadEASI,include=FALSE}
+library(EASI)
+```
+
+## One Sample Tutorial with Data
+
+### Enter Data
+
+This code inputs the variable name and creates a viewable data frame.
+```{r}
+Outcome <- c(0,0,3,5,4,7,4,9)
+OneSampleData <- data.frame(Outcome)
+```
+
+### Analyses of the Group
+
+This section produces analyses that are equivalent to one-sample analyses for the variable.
+
+#### Confidence Interval for the Mean
+
+This code will provide a table of descriptive statistics and confidence intervals for the variable.
+```{r}
+estimateMeans(Outcome)
+```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
+```{r}
+estimateMeans(Outcome,conf.level=.99)
+```
+
+#### Plots of the Confidence Intervals for the Mean
+
+This code will produce a graph of the confidence interval for the variable.
+```{r,OneSample-MeansA}
+plotMeans(Outcome)
+```
+
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
+```{r,OneSample-MeansB}
+plotMeans(Outcome,conf.level=.99,mu=5,rope=c(3,7))
+```
+
+#### Significance Tests for the Mean
+
+This code will produce a table of NHST sfor the variable. In this case, the mean is tested against a value of zero.
+```{r}
+testMeans(Outcome)
+```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
+```{r}
+testMeans(Outcome,mu=5)
+```
+
+#### Effect Sizes for the Mean
+
+This code will produce a table of standardized mean difference for the variable. In this case, the mean is compared to zero to form the effect size.
+```{r}
+standardizeMeans(Outcome)
+```
+
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+```{r}
+standardizeMeans(Outcome,mu=5,conf.level=.99)
+```
