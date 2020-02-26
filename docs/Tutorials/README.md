@@ -7,7 +7,7 @@
 
 ---
 
-## Tutorials with Simple Fictional Data
+## Tutorials with Simple Data
 
 ### Overview of the Examples
 
@@ -19,24 +19,40 @@
 
 ### Included Examples
 
-The following is an example for a one-sample design.
+The **OneSample** files analyze an example of a single-group design:
 
-- The [**OneSample**](./OneSample/) files analyze an example of a single-group design.
+- [**_OneSampleDataExample.md_**](./OneSampleDataExample.md) uses raw data input.
+- [**_OneSampleSummaryExample.md_**](./OneSampleSummaryExample.md) uses summary statistics input.
 
-The following are examples for two-group and paired-samples designs.
+The **Independent** files analyze an example of a two-group between-subjects design (independent-groups):
 
-- The [**Independent**](./Independent/) files analyze examples of a two-group between-subjects design (independent-groups)
-- The [**Paired**](./Paired/) files analyze examples of a within-subjects design for two time points (paired samples)
+- [**_IndependentDataExample.md_**](./IndependentDataExample.md) uses raw data input.
+- [**_IndependentSummaryExample.md_**](./IndependentSummaryExample.md) uses summary statistics input.
 
-The following are examples for single-factor designs.
+The **Paired** files analyze examples of a within-subjects design for two time points (paired samples):
 
-- The [**OneWay**](./OneWay/) files analyze an example of a single-factor between-subjects design
-- The [**Repeated**](./Repeated/) files analyze an example of a single-factor within-subjects design
+- [**_PairedDataExample.md_**](./PairedDataExample.md) uses raw data input.
+- [**_PairedSummaryExample.md_**](./PairedSummaryExample.md) uses summary statistics input.
 
-The following are examples for two-factor designs.
+The **OneWay** files analyze an example of a single-factor between-subjects design:
 
-- The [**Factorial**](./Factorial/) files analyze an example of a two-factor between-subjects design
-- The [**Mixed**](./Mixed) files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor)
+- [**_OneWayDataExample.md_**](./OneWayDataExample.md) uses raw data input.
+- [**_OneWaySummaryExample.md_**](./OneWaySummaryExample.md) uses summary statistics input.
+
+The **Repeated** files analyze an example of a single-factor within-subjects design:
+
+- [**_RepeatedDataExample.md_**](./RepeatedDataExample.md) uses raw data input.
+- [**_RepeatedSummaryExample.md_**](./RepeatedSummaryExample.md) uses summary statistics input.
+
+The **Factorial** files analyze an example of a two-factor between-subjects design:
+
+- [**_FactorialDataExample.md_**](./FactorialDataExample.md) uses raw data input.
+- [**_FactorialSummaryExample.md_**](./FactorialSummaryExample.md) uses summary statistics input.
+
+The **Mixed** files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor):
+
+- [**_MixedDataExample.md_**](./MixedDataExample.md) uses raw data input.
+- [**_MixedSummaryExample.md_**](./MixedSummaryExample.md) uses summary statistics input.
 
 ### References
 
