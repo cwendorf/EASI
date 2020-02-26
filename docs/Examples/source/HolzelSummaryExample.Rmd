@@ -1,0 +1,59 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Mixed Design Example with Holzel Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+library(EASI)
+```
+
+## Mixed Design Example with Holzel Summary Statistics
+
+### Enter Summary Statistics
+
+```{r}
+PretestControl <- c(N=17,M=43.815,SD=4.910)
+PosttestControl <- c(N=17,M=43.932,SD=5.507)
+HolzelSummaryControl <- rbind(PretestControl,PosttestControl)
+class(HolzelSummaryControl) <- "wss"
+
+HolzelCorrControl <- declareCorrMatrix("PretestControl","PosttestControl")
+HolzelCorrControl["PretestControl","PosttestControl"] <- .970
+HolzelCorrControl <- fillCorrMatrix(HolzelCorrControl)
+```
+
+```{r}
+PretestMeditation <- c(N=16,M=43.705,SD=6.427)
+PosttestMeditation <- c(N=16,M=44.666,SD=6.303)
+HolzelSummaryMeditation <- rbind(PretestMeditation,PosttestMeditation)
+class(HolzelSummaryMeditation) <- "wss"
+
+HolzelCorrMeditation <- declareCorrMatrix("PretestMeditation","PosttestMeditation")
+HolzelCorrMeditation["PretestMeditation","PosttestMeditation"] <- .993
+HolzelCorrMeditation <- fillCorrMatrix(HolzelCorrMeditation)
+```
+
+### Analyses of the Differences within Conditions
+
+```{r,Holzel-Difference}
+plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter")
+plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,ylab="Gray Matter")
+```
+
+```{r}
+standardizeDifference(HolzelSummaryControl,HolzelCorrControl)
+standardizeDifference(HolzelSummaryMeditation,HolzelCorrMeditation)
+```
