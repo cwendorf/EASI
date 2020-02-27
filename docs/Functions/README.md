@@ -1,12 +1,3 @@
-# Estimation Approach to Statistical Inference
-
-[**Functions**](../Functions) | 
-[**Tutorials**](../Tutorials) | 
-[**Examples**](../Examples) | 
-[**Advanced**](../Advanced)
-
----
-
 ## About the EASI Functions
 
 ### Installation of the Primary Functions

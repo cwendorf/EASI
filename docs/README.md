@@ -1,9 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-[**Functions**](./Functions) | 
-[**Tutorials**](./Tutorials) | 
-[**Examples**](./Examples) | 
-[**Advanced**](./Advanced)
+**An R Package for Calculating the New Statistics** 
 
 ---
 

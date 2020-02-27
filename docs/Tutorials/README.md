@@ -1,12 +1,3 @@
-# Estimation Approach to Statistical Inference
-
-[**Functions**](../Functions) | 
-[**Tutorials**](../Tutorials) | 
-[**Examples**](../Examples) | 
-[**Advanced**](../Advanced)
-
----
-
 ## Tutorials with Simple Data
 
 ### Overview of the Tutorials
