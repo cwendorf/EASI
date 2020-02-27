@@ -1,12 +1,3 @@
-# Estimation Approach to Statistical Inference
-
-[**Functions**](../Functions) | 
-[**Tutorials**](../Tutorials) | 
-[**Examples**](../Examples) | 
-[**Advanced**](../Advanced)
-
----
-
 ## About the EASI Extensions
 
 ### Installation of the Extensions
