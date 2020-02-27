@@ -35,12 +35,8 @@ analyzeMeans(Outcome~Factor)
 ```
 
 ```
-## Analyses of the Means
-```
-
-![](figures/AnalyzeOneWay-MeansA-1.png)<!-- -->
-
-```
+## Analyses of the Means 
+## 
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
 ## Level1   4.000   2.000   2.449   1.225  -1.898   5.898
@@ -60,18 +56,16 @@ analyzeMeans(Outcome~Factor)
 ## Level3   2.858   2.078   1.063   0.464   5.226
 ```
 
+![](figures/AnalyzeOneWay-MeansA-1.png)<!-- -->
+
 
 ```r
 analyzeMeans(Outcome~Factor,mu=5,conf.level=.99,rope=c(3,7))
 ```
 
 ```
-## Analyses of the Means
-```
-
-![](figures/AnalyzeOneWay-MeansB-1.png)<!-- -->
-
-```
+## Analyses of the Means 
+## 
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
 ## Level1   4.000   2.000   2.449   1.225  -5.154   9.154
@@ -91,6 +85,8 @@ analyzeMeans(Outcome~Factor,mu=5,conf.level=.99,rope=c(3,7))
 ## Level3   0.816   0.594   0.616  -0.732   2.319
 ```
 
+![](figures/AnalyzeOneWay-MeansB-1.png)<!-- -->
+
 ### Analyses of a Group Comparison
 
 
@@ -100,12 +96,8 @@ analyzeDifference(Outcome~Comparison)
 ```
 
 ```
-## Analyses of the Comparison
-```
-
-![](figures/AnalyzeOneWay-DifferenceA-1.png)<!-- -->
-
-```
+## Analyses of the Comparison 
+## 
 ## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -0.238   8.238
@@ -119,18 +111,16 @@ analyzeDifference(Outcome~Comparison)
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
 
+![](figures/AnalyzeOneWay-DifferenceA-1.png)<!-- -->
+
 
 ```r
 analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99,rope=c(-2,2))
 ```
 
 ```
-## Analyses of the Comparison
-```
-
-![](figures/AnalyzeOneWay-DifferenceB-1.png)<!-- -->
-
-```
+## Analyses of the Comparison 
+## 
 ## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -2.421  10.421
@@ -144,6 +134,8 @@ analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99,rope=c(-2,2))
 ## Comparison   1.633   0.943  -0.796   4.062
 ```
 
+![](figures/AnalyzeOneWay-DifferenceB-1.png)<!-- -->
+
 ### Analyses of a Group Contrast
 
 
@@ -153,12 +145,8 @@ analyzeContrast(Outcome~Factor,contrast=L1vsOthers)
 ```
 
 ```
-## Analyses of the Contrast
-```
-
-![](figures/AnalyzeOneWay-ContrastA-1.png)<!-- -->
-
-```
+## Analyses of the Contrast 
+## 
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.500   6.000   0.830   8.170
@@ -172,18 +160,16 @@ analyzeContrast(Outcome~Factor,contrast=L1vsOthers)
 ## Contrast   1.837   0.829   0.212   3.462
 ```
 
+![](figures/AnalyzeOneWay-ContrastA-1.png)<!-- -->
+
 
 ```r
 analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 ```
 
 ```
-## Analyses of the Contrast
-```
-
-![](figures/AnalyzeOneWay-ContrastB-1.png)<!-- -->
-
-```
+## Analyses of the Contrast 
+## 
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.500   6.000  -1.061  10.061
@@ -196,3 +182,5 @@ analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2
 ##              Est      SE      LL      UL
 ## Contrast   1.837   0.829  -0.299   3.973
 ```
+
+![](figures/AnalyzeOneWay-ContrastB-1.png)<!-- -->
