@@ -2,9 +2,7 @@
 
 # Estimation Approach to Statistical Inference
 
-**Main Site: [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)**
-
----
+## Main Site: [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
 
 ### Overview
 
