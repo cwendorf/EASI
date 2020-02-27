@@ -1,40 +1,62 @@
 ## Advanced Applications
 
-### Overview of the Examples
+### Overview of the Tutorials
 
-- Examples are from [_Statistics for Social Science: A Sourcebook of Basic Statistical Methods_](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm) (Wendorf, 2019)
-- Examples show both the default output and the available options
-- Examples include estimation, plots, significance tests, and effect sizes where relevant
-- Each example provides a syntax file, a text output file, and graphs
+- Data for the tutorials are from [_Statistics for Social Science: A Sourcebook of Basic Statistical Methods_](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm) (Wendorf, 2019)
+- Tutorials show both the default output and the available options
+- Tutorials include estimation, plots, significance tests, and effect sizes where relevant
 
-> NOTE: All advanced examples depend on one or more [necessary extensions](../Functions/Extensions.md).
+> NOTE: All advanced tutorials depend on one or more [necessary extensions](../Functions/Extensions.md).
 
-### Included Examples
+### Included Tutorials
 
-**Analyze Extension**: These examples combine the estimate, plot, test, and standardize functions for single-factor designs.
+The **AnalyzeOneWay** tutorial combines the estimate, plot, test, and standardize functions for a single-factor between-subjects design:
 
-- The [**AnalyzeOneWay**](./AnalyzeOneWay/) files analyze an example of a single-factor between-subjects design 
-- The [**AnalyzeRepeated**](./AnalyzeRepeated/) files analyze an example of a single-factor within-subjects design
+- [**_AnalyzeOneWayDataTutorial_**](./AnalyzeOneWayDataTutorial.md) uses raw data input.
+- [**_AnalyzeOneWaySummaryTutorial_**](./AnalyzeOneWaySummaryTutorial.md) uses summary statistics input.
 
-**Summarize Extension**: These examples provide summary statistics, boxplots, and data plots for single-factor designs.
+The **AnalyzeRepeated** tutorial combines the estimate, plot, test, and standardize functions for a single-factor within-subjects design:
 
-- The [**SummarizeOneWay**](./SummarizeOneWay/) files analyze an example of a single-factor between-subjects design 
-- The [**SummarizeRepeated**](./SummarizeRepeated/) files analyze an example of a single-factor within-subjects design
+- [**_AnalyzeRepeatedDataTutorial_**](./AnalyzeRepeatedDataTutorial.md) uses raw data input.
+- [**_AnalyzeRepeatedSummaryTutorial_**](./AnalyzeRepeatedSummaryTutorial.md) uses summary statistics input.
 
-**Pairwise Extension**: These examples analyze unadjusted paiwise comparisons for single-factor designs.
+The **SummarizeOneWay** tutorial provides summary statistics, boxplots, and data plots for a single-factor between-subjects design:
 
-- The [**PairwiseOneWay**](./PairwiseOneWay/) files analyze an example of a single-factor between-subjects design 
-- The [**PairwiseRepeated**](./PairwiseRepeated/) files analyze an example of a single-factor within-subjects design 
+- [**_SummarizeOneWayDataTutorial_**](./SummarizeOneWayDataTutorial.md) uses raw data input.
 
-**Relational Extension**: These examples provide arelational (standard) and relational (comparative) intervals for single-factor desgins.
+The **SummarizeRepeated** tutorial provides summary statistics, boxplots, and data plots for a single-factor within-subjects design:
 
-- The [**RelationalOneWay**](./RelationalOneWay/) files analyze an example of a single-factor between-subjects design 
-- The [**RelationalRepeated**](./RelationalRepeated/) files analyze an example of a single-factor within-subjects design
+- [**_SumamrizeRepeatedDataTutorial_**](./SummarizeRepeatedDataTutorial.md) uses raw data input.
 
-**By Extension**: These examples apply the estimate, plot, test, and standardize functions separately at levels of the second factor (i.e., simple effects) in a two-factor design.
+The **PairwiseOneWay** tutorial analyzes unadjusted paiwise comparisons for a single-factor between-subjects design:
 
-- The [**FactorialBy**](./FactorialBy/) files analyze an example of a two-factor between-subjects design 
-- The [**MixedBy**](./MixedBy/) files analyze an example of a mixed factorial design
+- [**_PairwiseOneWayDataTutorial_**](./PairwiseOneWayDataTutorial.md) uses raw data input.
+- [**_PairwiseOneWaySummaryTutorial_**](./PairwiseOneWaySummaryTutorial.md) uses summary statistics input.
+
+The **PairwiseRepeated** tutorial analyzes unadjusted paiwise comparisons for a single-factor within-subjects design:
+
+- [**_PairwiseRepeatedDataTutorial_**](./PairwiseRepeatedDataTutorial.md) uses raw data input.
+- [**_PairwiseRepeatedSummaryTutorial_**](./PairwiseRepeatedSummaryTutorial.md) uses summary statistics input.
+
+The **RelationalOneWay** tutorial provides arelational (standard) and relational (comparative) intervals for a single-factor between-subjects design:
+
+- [**_RelationalOneWayDataTutorial_**](./RelationalOneWayDataTutorial.md) uses raw data input.
+- [**_RelationalOneWaySummaryTutorial_**](./RelationalOneWaySummaryTutorial.md) uses summary statistics input.
+
+The **RelationalRepeated** tutorial provides arelational (standard) and relational (comparative) intervals for a single-factor within-subjects design:
+
+- [**_RelationalRepeatedDataTutorial_**](./RelationalRepeatedDataTutorial.md) uses raw data input.
+- [**_RelationalRepeatedSummaryTutorial_**](./RelationalRepeatedSummaryTutorial.md) uses summary statistics input.
+
+The **FactorialBy** tutorial applies the estimate, plot, test, and standardize functions separately at levels of the second factor (i.e., simple effects) in a two-factor (between-subjects) design:
+
+- [**_FactorialByDataTutorial_**](./FactorialByDataTutorial.md) uses raw data input.
+- [**_FactorialBySummaryTutorial_**](./FactorialBySummaryTutorial.md) uses summary statistics input.
+
+The **MixedBy** tutorial applies the estimate, plot, test, and standardize functions separately at levels of the second factor (i.e., simple effects) in a two-factor mixed design:
+
+- [**_MixedByDataTutorial_**](./MixedByDataTutorial.md) uses raw data input.
+- [**_MixedBySummaryTutorial_**](./MixedBySummaryTutorial.md) uses summary statistics input.
 
 ### References
 

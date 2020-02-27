@@ -1,0 +1,190 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{MixedBy - Mixed Design (Between-Subjects and Within-Subjects) Tutorial with Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+library(EASI)
+```
+
+## MixedBy - Mixed Design (Between-Subjects and Within-Subjects) Tutorial with Summary Statistics
+
+### Enter Summary Statistics
+
+```{r}
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+WithinSummaryL1 <- rbind(Outcome1,Outcome2,Outcome3)
+
+Outcome1 <- c(N=4,M=4.000,SD=2.449)
+Outcome2 <- c(N=4,M=4.000,SD=2.449)
+Outcome3 <- c(N=4,M=5.000,SD=2.449)
+WithinSummaryL2 <- rbind(Outcome1,Outcome2,Outcome3)
+
+MixedSummary <- list("Level1"=WithinSummaryL1,"Level2"=WithinSummaryL2)
+class(MixedSummary) <- "wss"
+
+WithinCorrL1 <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorrL1["Outcome1",] <- c(1.000,.500,.389)
+WithinCorrL1["Outcome2",] <- c(.500,1.000,.889)
+WithinCorrL1["Outcome3",] <- c(.389,.889,1.000)
+
+WithinCorrL2 <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+WithinCorrL2["Outcome1",] <- c(1.000,.889,.778)
+WithinCorrL2["Outcome2",] <- c(.889,1.000,.889)
+WithinCorrL2["Outcome3",] <- c(.778,.889,1.000)
+
+MixedCorr <- list("Level1"=WithinCorrL1,"Level2"=WithinCorrL2)
+class(MixedCorr) <- "wss"
+```
+
+### Analyses of Multiple Variables
+
+#### Confidence Intervals for the Means
+
+```{r}
+estimateMeansBy(MixedSummary)
+```
+
+```{r}
+estimateMeansBy(MixedSummary,conf.level=.99)
+```
+
+#### Plots of Confidence Intervals for the Means
+
+```{r,MixedBy-MeansA}
+plotMeansBy(MixedSummary)
+```
+
+```{r,MixedBy-MeansB}
+plotMeansBy(MixedSummary,conf.level=.99,mu=5,rope=c(3,7))
+```
+
+#### Significance Tests for the Means
+
+```{r}
+testMeansBy(MixedSummary)
+```
+
+```{r}
+testMeansBy(MixedSummary,mu=5)
+```
+
+#### Effect Size for the Means
+
+```{r}
+standardizeMeansBy(MixedSummary)
+```
+
+```{r}
+standardizeMeansBy(MixedSummary,mu=5,conf.level=.99)
+```
+
+### Analyses of a Variable Comparison
+
+```{r}
+CompSummaryL1 <- WithinSummaryL1[c("Outcome1","Outcome2"),]
+CompSummaryL2 <- WithinSummaryL2[c("Outcome1","Outcome2"),]
+CompSummary <- list("Level1"=WithinSummaryL1,"Level2"=WithinSummaryL2)
+class(CompSummary) <- "wss"
+```
+
+#### Confidence Interval for the Mean Difference
+
+```{r}
+estimateDifferenceBy(CompSummary,MixedCorr)
+```
+
+```{r}
+estimateDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
+```
+
+#### Plots of Confidence Intervals for the Mean Difference
+
+```{r,MixedBy-DifferenceA}
+plotDifferenceBy(CompSummary,MixedCorr)
+```
+
+```{r,MixedBy-DifferenceB}
+plotDifferenceBy(CompSummary,MixedCorr,conf.level=.99,rope=c(-2,2))
+```
+
+#### Significance Test for the Mean Difference
+
+```{r}
+testDifferenceBy(CompSummary,MixedCorr)
+```
+
+```{r}
+testDifferenceBy(CompSummary,MixedCorr,mu=-2)
+```
+
+#### Effect Size for the Mean Difference
+
+```{r}
+standardizeDifferenceBy(CompSummary,MixedCorr)
+```
+
+```{r}
+standardizeDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
+```
+
+### Analyses of a Variable Contrast
+
+```{r}
+O1vsOthers <- c(-1,.5,.5)
+```
+
+#### Confidence Interval for the Contrast
+
+```{r}
+estimateContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+```
+
+```{r}
+estimateContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,conf.level=.99)
+```
+
+#### Plots of Confidence Intervals for a Contrast
+
+```{r,MixedBy-ContrastA}
+plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+```
+
+```{r,MixedBy-ContrastB}
+plotContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
+```
+
+#### Significance Test for the Contrast
+
+```{r}
+testContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+```
+
+```{r}
+testContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,mu=4)
+```
+
+#### Effect Size for the Contrast
+
+```{r}
+standardizeContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+```
+
+```{r}
+standardizeContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,conf.level=.99)
+```

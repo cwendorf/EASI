@@ -1,0 +1,74 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Pairwise Comparisons - Repeated Measures (Within-Subjects) Tutorial with Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+library(EASI)
+```
+
+## Pairwise Comparisons - Repeated Measures (Within-Subjects) Tutorial with Data
+
+### Enter Data
+
+```{r}
+Outcome1 <- c(0,0,3,5)
+Outcome2 <- c(4,7,4,9)
+Outcome3 <- c(9,6,4,9)
+PairwiseRepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+```
+
+### Analyses of Pairwise Variable Comparisons
+
+#### Confidence Intervals for the Pairwise Comparisons
+
+```{r}
+estimatePairwise(Outcome1,Outcome2,Outcome3)
+```
+
+```{r}
+estimatePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
+```
+
+#### Plots of the Confidence Intervals for the Pairwise Comparisons
+
+```{r,Repeated-PairwiseA}
+plotPairwise(Outcome1,Outcome2,Outcome3)
+```
+
+```{r,Repeated-PairwiseB}
+plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0))
+```
+
+#### Significance Tests of the Pairwise Comparisons
+
+```{r}
+testPairwise(Outcome1,Outcome2,Outcome3)
+```
+
+```{r}
+testPairwise(Outcome1,Outcome2,Outcome3,mu=-2)
+```
+
+#### Effect Sizes for the Pairwise Comparisons
+
+```{r}
+standardizePairwise(Outcome1,Outcome2,Outcome3)
+```
+
+```{r}
+standardizePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
+```
