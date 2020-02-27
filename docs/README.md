@@ -12,8 +12,8 @@ This site includes the primary functions and available extensions, along with nu
 
 - [**Functions**](./Functions): Contains descriptions of the primary functions and extensions that can be installed or sourced into R.
 - [**Tutorials**](./Tutorials): Contains between-subjects and within-subjects tutorials that highlight the primary functions
+- [**Advanced**](./Advanced): Contains advanced applications and additional tutorials for the extensions
 - [**Examples**](./Examples): Contains between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
-- [**Advanced**](./Advanced): Contains advanced applications and additional examples of the functions and extensions
 
 ### How to Cite
 
