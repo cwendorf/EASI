@@ -1,8 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-**An R Package for Calculating the New Statistics** 
-
----
+## An R Package for Calculating the New Statistics
 
 ### Overview
 
