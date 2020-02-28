@@ -69,6 +69,6 @@ class(PenLaptop3Summary) <- "bss"
 plotDifference(PenLaptop3Summary,ylab="Transcription")
 ```
 
-```{r,PenLaptop3-Difference}
+```{r}
 standardizeDifference(PenLaptop3Summary)
 ```

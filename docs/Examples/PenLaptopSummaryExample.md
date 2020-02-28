@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-26"
+date: "2020-02-28"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -90,7 +90,7 @@ class(PenLaptop3Summary) <- "bss"
 plotDifference(PenLaptop3Summary,ylab="Transcription")
 ```
 
-![](figures/unnamed-chunk-8-1.png)<!-- -->
+![](figures/PenLaptop3-Difference-1.png)<!-- -->
 
 
 ```r
