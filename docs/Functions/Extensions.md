@@ -10,7 +10,7 @@ devtools::install_github("cwendorf/EASI",build_vignettes=TRUE,force=TRUE
 library(EASI)
 ```
 
-If the entire package is not installed, the extensions can be individually installed by pasting the appropriate lines into R.
+If the package is not installed, the extensions can be individually souced by pasting the appropriate lines below into R.
 
 ### Summary of the Available Extensions
 
