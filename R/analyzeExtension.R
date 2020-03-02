@@ -15,12 +15,9 @@ allMeans <- function(...) {
 }
 
 analyzeMeans <- function(...,main=NULL,digits=3) {
-  if(is.null(main)) {main="Analyses of the Means"}
-  cat(main,"\n\n")
-  results <- allMeans(...)
-  names(results) <- c("Confidence Intervals for the Means","Hypothesis Tests for the Means","Confidence Intervals for the Standardized Means")
-  print(formatList(results,digits))
-  plotMeans(...,main=main,digits=digits)
+  results <- formatList(allMeans(...),digits=digits)
+  if(is.null(main)) {names(results) <- c("Confidence Intervals for the Means","Hypothesis Tests for the Means","Confidence Intervals for the Standardized Means")} else {names(results) <- main}
+  return(results)
 }
 
 ### Meta-Wrapper for Mean Difference/Comparison Functions
@@ -34,12 +31,9 @@ allDifference <- function(...) {
 }
 
 analyzeDifference <- analyzeComparison <- function(...,main=NULL,digits=3) {
-  if(is.null(main)) {main="Analyses of the Comparison"}
-  cat(main,"\n\n")
-  results <- allDifference(...)
-  names(results) <- c("Confidence Interval for the Comparison","Hypothesis Test for the Comparison","Confidence Interval for the Standardized Comparison")
-  print(formatList(results,digits))
-  plotDifference(...,main=main,digits=digits)
+  results <- formatList(allDifference(...),digits=digits)
+  if(is.null(main)) {names(results) <- c("Confidence Interval for the Comparison","Hypothesis Test for the Comparison","Confidence Interval for the Standardized Comparison")} else {names(results) <- main}
+  return(results)
 }
 
 ### Meta-Wrapper for Mean Contrast Functions
@@ -53,10 +47,7 @@ allContrast <- function(...) {
 }
 
 analyzeContrast <- function(...,main=NULL,digits=3) {
-  if(is.null(main)) {main="Analyses of the Contrast"}
-  cat(main,"\n\n")
-  results <- allContrast(...)
-  names(results) <- c("Confidence Interval for the Contrast","Hypothesis Test for the Contrast","Confidence Interval for the Standardized Contrast")
-  print(formatList(results,digits))
-  plotContrast(...,main=main,digits=digits)
+  results <- formatList(allContrast(...),digits=digits)
+  if(is.null(main)) {names(results) <- c("Confidence Interval for the Contrast","Hypothesis Test for the Contrast","Confidence Interval for the Standardized Contrast")} else {names(results) <- main}
+  return(results)
 }
