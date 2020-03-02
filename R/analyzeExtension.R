@@ -16,8 +16,9 @@ allMeans <- function(...) {
 
 analyzeMeans <- function(...,main=NULL,digits=3) {
   results <- formatList(allMeans(...),digits=digits)
-  if(is.null(main)) {names(results) <- c("Confidence Intervals for the Means","Hypothesis Tests for the Means","Confidence Intervals for the Standardized Means")} else {names(results) <- main}
-  return(results)
+  names(results) <- c("Confidence Intervals for the Means","Hypothesis Tests for the Means","Confidence Intervals for the Standardized Means")
+  print(results)
+  plotMeans(...,main=main,digits=digits)
 }
 
 ### Meta-Wrapper for Mean Difference/Comparison Functions
@@ -32,8 +33,9 @@ allDifference <- function(...) {
 
 analyzeDifference <- analyzeComparison <- function(...,main=NULL,digits=3) {
   results <- formatList(allDifference(...),digits=digits)
-  if(is.null(main)) {names(results) <- c("Confidence Interval for the Comparison","Hypothesis Test for the Comparison","Confidence Interval for the Standardized Comparison")} else {names(results) <- main}
-  return(results)
+  names(results) <- c("Confidence Interval for the Comparison","Hypothesis Test for the Comparison","Confidence Interval for the Standardized Comparison")
+  print(results)
+  plotDifference(...,main=main,digits=digits)
 }
 
 ### Meta-Wrapper for Mean Contrast Functions
@@ -48,6 +50,7 @@ allContrast <- function(...) {
 
 analyzeContrast <- function(...,main=NULL,digits=3) {
   results <- formatList(allContrast(...),digits=digits)
-  if(is.null(main)) {names(results) <- c("Confidence Interval for the Contrast","Hypothesis Test for the Contrast","Confidence Interval for the Standardized Contrast")} else {names(results) <- main}
-  return(results)
+  names(results) <- c("Confidence Interval for the Contrast","Hypothesis Test for the Contrast","Confidence Interval for the Standardized Contrast")
+  print(results)
+  plotContrast(...,main=main,digits=digits)
 }
