@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-27"
+date: "2020-03-02"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -35,8 +35,7 @@ summarizeData(Outcome1,Outcome2,Outcome3)
 ```
 
 ```
-## Summary Statistics for the Data 
-## 
+## $`Summary Statistics for the Data`
 ##          Lower Whisker Lower Hinge  Median Upper Hinge Upper Whisker
 ## Outcome1         0.000       0.000   1.500       4.000         5.000
 ## Outcome2         4.000       4.000   5.500       8.000         9.000

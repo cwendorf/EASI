@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-25"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -50,8 +50,7 @@ with(DataSubsetB1,estimateMeans(Outcome~FactorA))
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   2.000   2.449   1.225  -1.898   5.898
 ## A2   4.000   6.000   2.449   1.225   2.102   9.898
@@ -63,8 +62,7 @@ with(DataSubsetB2,estimateMeans(Outcome~FactorA))
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   4.000   2.449   1.225   0.102   7.898
 ## A2   4.000   4.000   2.449   1.225   0.102   7.898
@@ -78,8 +76,7 @@ with(DataSubsetB1,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   2.000   2.449   1.225  -5.154   9.154
 ## A2   4.000   6.000   2.449   1.225  -1.154  13.154
@@ -91,8 +88,7 @@ with(DataSubsetB2,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   4.000   2.449   1.225  -3.154  11.154
 ## A2   4.000   4.000   2.449   1.225  -3.154  11.154
@@ -138,8 +134,7 @@ with(DataSubsetB1,testMeans(Outcome~FactorA))
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##       Diff      SE       t      df       p
 ## A1   2.000   1.225   1.633   3.000   0.201
 ## A2   6.000   1.225   4.899   3.000   0.016
@@ -151,8 +146,7 @@ with(DataSubsetB2,testMeans(Outcome~FactorA))
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##       Diff      SE       t      df       p
 ## A1   4.000   1.225   3.266   3.000   0.047
 ## A2   4.000   1.225   3.266   3.000   0.047
@@ -166,8 +160,7 @@ with(DataSubsetB1,testMeans(Outcome~FactorA,mu=5))
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##       Diff      SE       t      df       p
 ## A1  -3.000   1.225  -2.449   3.000   0.092
 ## A2   1.000   1.225   0.816   3.000   0.474
@@ -179,8 +172,7 @@ with(DataSubsetB2,testMeans(Outcome~FactorA,mu=5))
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##       Diff      SE       t      df       p
 ## A1  -1.000   1.225  -0.816   3.000   0.474
 ## A2  -1.000   1.225  -0.816   3.000   0.474
@@ -196,8 +188,7 @@ with(DataSubsetB1,standardizeMeans(Outcome~FactorA))
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##          d  d.unb.      SE      LL      UL
 ## A1   0.816   0.594   0.616  -0.387   1.934
 ## A2   2.449   1.781   0.955   0.325   4.531
@@ -209,8 +200,7 @@ with(DataSubsetB2,standardizeMeans(Outcome~FactorA))
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##          d  d.unb.      SE      LL      UL
 ## A1   1.633   1.188   0.761   0.013   3.177
 ## A2   1.633   1.188   0.761   0.013   3.177
@@ -224,8 +214,7 @@ with(DataSubsetB1,standardizeMeans(Outcome~FactorA,mu=5,conf.level=.99))
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##          d  d.unb.      SE      LL      UL
 ## A1  -1.225  -0.891   0.680  -3.010   0.547
 ## A2   0.408   0.297   0.574  -0.969   1.734
@@ -237,8 +226,7 @@ with(DataSubsetB1,standardizeMeans(Outcome~FactorA,mu=5,conf.level=.99))
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##          d  d.unb.      SE      LL      UL
 ## A1  -1.225  -0.891   0.680  -3.010   0.547
 ## A2   0.408   0.297   0.574  -0.969   1.734
@@ -265,8 +253,7 @@ with(DataSubsetB1,estimateMeans(Outcome~ComparisonB1))
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   2.000   2.449   1.225  -1.898   5.898
 ## A2   4.000   6.000   2.449   1.225   2.102   9.898
@@ -277,8 +264,7 @@ with(DataSubsetB2,estimateMeans(Outcome~ComparisonB2))
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   4.000   2.449   1.225   0.102   7.898
 ## A2   4.000   4.000   2.449   1.225   0.102   7.898
@@ -291,8 +277,7 @@ with(DataSubsetB1,estimateDifference(Outcome~ComparisonB1,conf.level=.99))
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -2.421  10.421
 ```
@@ -302,8 +287,7 @@ with(DataSubsetB2,estimateDifference(Outcome~ComparisonB2,conf.level=.99))
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   0.000   1.732   6.000  -6.421   6.421
 ```
@@ -347,8 +331,7 @@ with(DataSubsetB1,testDifference(Outcome~ComparisonB1))
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   4.000   1.732   2.309   6.000   0.060
 ```
@@ -358,8 +341,7 @@ with(DataSubsetB2,testDifference(Outcome~ComparisonB2))
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   0.000   1.732   0.000   6.000   1.000
 ```
@@ -371,8 +353,7 @@ with(DataSubsetB1,testDifference(Outcome~ComparisonB1,mu=-2))
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   6.000   1.732   3.464   6.000   0.013
 ```
@@ -382,8 +363,7 @@ with(DataSubsetB2,testDifference(Outcome~ComparisonB2,mu=-2))
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   2.000   1.732   1.155   6.000   0.292
 ```
@@ -397,8 +377,7 @@ with(DataSubsetB1,standardizeDifference(Outcome~ComparisonB1))
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
@@ -408,8 +387,7 @@ with(DataSubsetB2,standardizeDifference(Outcome~ComparisonB2))
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   0.000   0.816  -1.600   1.600
 ```
@@ -421,8 +399,7 @@ with(DataSubsetB1,standardizeDifference(Outcome~ComparisonB1,conf.level=.99))
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.796   4.062
 ```
@@ -432,8 +409,7 @@ with(DataSubsetB2,standardizeDifference(Outcome~ComparisonB2,conf.level=.99))
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   0.000   0.816  -2.103   2.103
 ```
@@ -457,8 +433,7 @@ with(DataSubsetB1,estimateContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.500   6.000   0.830   8.170
 ```
@@ -468,8 +443,7 @@ with(DataSubsetB2,estimateContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   0.500   1.500   6.000  -3.170   4.170
 ```
@@ -481,8 +455,7 @@ with(DataSubsetB1,estimateContrast(Outcome~FactorA,contrast=A1vsOthers,conf.leve
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.500   6.000  -1.061  10.061
 ```
@@ -492,8 +465,7 @@ with(DataSubsetB2,estimateContrast(Outcome~FactorA,contrast=A1vsOthers,conf.leve
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   0.500   1.500   6.000  -5.061   6.061
 ```
@@ -537,8 +509,7 @@ with(DataSubsetB1,testContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast   4.500   1.500   3.000   6.000   0.024
 ```
@@ -548,8 +519,7 @@ with(DataSubsetB2,testContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast   0.500   1.500   0.333   6.000   0.750
 ```
@@ -561,8 +531,7 @@ with(DataSubsetB1,testContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast   0.500   1.500   0.333   6.000   0.750
 ```
@@ -572,8 +541,7 @@ with(DataSubsetB2,testContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast  -3.500   1.500  -2.333   6.000   0.058
 ```
@@ -587,8 +555,7 @@ with(DataSubsetB1,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   1.837   0.829   0.212   3.462
 ```
@@ -598,8 +565,7 @@ with(DataSubsetB2,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   0.204   0.709  -1.185   1.593
 ```
@@ -611,8 +577,7 @@ with(DataSubsetB1,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers,conf.l
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   1.837   0.829  -0.299   3.973
 ```
@@ -622,8 +587,7 @@ with(DataSubsetB2,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers,conf.l
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   0.204   0.709  -1.621   2.030
 ```

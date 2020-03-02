@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-26"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -64,8 +64,7 @@ standardizeDifference(HolzelSummaryControl,HolzelCorrControl)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   0.022   0.068  -0.110   0.155
 ```
@@ -75,8 +74,7 @@ standardizeDifference(HolzelSummaryMeditation,HolzelCorrMeditation)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   0.151   0.041   0.070   0.232
 ```

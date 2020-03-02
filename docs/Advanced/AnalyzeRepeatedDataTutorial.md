@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-27"
+date: "2020-03-02"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -35,8 +35,6 @@ analyzeMeans(Outcome1,Outcome2,Outcome3)
 ```
 
 ```
-## Analyses of the Means 
-## 
 ## $`Confidence Intervals for the Means`
 ##                N       M      SD      SE      LL      UL
 ## Outcome1   4.000   2.000   2.449   1.225  -1.898   5.898
@@ -64,8 +62,6 @@ analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7))
 ```
 
 ```
-## Analyses of the Means 
-## 
 ## $`Confidence Intervals for the Means`
 ##                N       M      SD      SE      LL      UL
 ## Outcome1   4.000   2.000   2.449   1.225  -5.154   9.154
@@ -95,8 +91,6 @@ analyzeDifference(Outcome1,Outcome2)
 ```
 
 ```
-## Analyses of the Comparison 
-## 
 ## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.225   3.000   0.102   7.898
@@ -118,8 +112,6 @@ analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2))
 ```
 
 ```
-## Analyses of the Comparison 
-## 
 ## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.225   3.000  -3.154  11.154
@@ -144,8 +136,6 @@ analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 ```
 
 ```
-## Analyses of the Contrast 
-## 
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.307   3.000   0.340   8.660
@@ -167,8 +157,6 @@ analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.
 ```
 
 ```
-## Analyses of the Contrast 
-## 
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.307   3.000  -3.134  12.134

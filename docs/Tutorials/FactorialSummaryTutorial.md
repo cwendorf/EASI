@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-25"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -52,8 +52,7 @@ estimateMeans(BetweenSummaryB1)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   2.000   2.449   1.224  -1.897   5.897
 ## A2   4.000   6.000   2.449   1.224   2.103   9.897
@@ -65,8 +64,7 @@ estimateMeans(BetweenSummaryB2)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   4.000   2.449   1.224   0.103   7.897
 ## A2   4.000   4.000   2.449   1.224   0.103   7.897
@@ -80,8 +78,7 @@ estimateMeans(BetweenSummaryB1,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   2.000   2.449   1.224  -5.152   9.152
 ## A2   4.000   6.000   2.449   1.224  -1.152  13.152
@@ -93,8 +90,7 @@ estimateMeans(BetweenSummaryB2,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##          N       M      SD      SE      LL      UL
 ## A1   4.000   4.000   2.449   1.224  -3.152  11.152
 ## A2   4.000   4.000   2.449   1.224  -3.152  11.152
@@ -140,8 +136,7 @@ testMeans(BetweenSummaryB1)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##       Diff      SE       t      df       p
 ## A1   2.000   1.224   1.633   3.000   0.201
 ## A2   6.000   1.224   4.900   3.000   0.016
@@ -153,8 +148,7 @@ testMeans(BetweenSummaryB2)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##       Diff      SE       t      df       p
 ## A1   4.000   1.224   3.267   3.000   0.047
 ## A2   4.000   1.224   3.267   3.000   0.047
@@ -168,8 +162,7 @@ testMeans(BetweenSummaryB1,mu=5)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##       Diff      SE       t      df       p
 ## A1  -3.000   1.224  -2.450   3.000   0.092
 ## A2   1.000   1.224   0.817   3.000   0.474
@@ -181,8 +174,7 @@ testMeans(BetweenSummaryB2,mu=5)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##       Diff      SE       t      df       p
 ## A1  -1.000   1.224  -0.817   3.000   0.474
 ## A2  -1.000   1.224  -0.817   3.000   0.474
@@ -198,8 +190,7 @@ standardizeMeans(BetweenSummaryB1)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##          d  d.unb.      SE      LL      UL
 ## A1   0.817   0.594   0.616  -0.387   1.934
 ## A2   2.450   1.782   0.955   0.325   4.532
@@ -211,8 +202,7 @@ standardizeMeans(BetweenSummaryB2)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##          d  d.unb.      SE      LL      UL
 ## A1   1.633   1.188   0.761   0.013   3.177
 ## A2   1.633   1.188   0.761   0.013   3.177
@@ -226,8 +216,7 @@ standardizeMeans(BetweenSummaryB1,mu=5,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##          d  d.unb.      SE      LL      UL
 ## A1  -1.225  -0.891   0.680  -3.011   0.547
 ## A2   0.408   0.297   0.574  -0.968   1.734
@@ -239,8 +228,7 @@ standardizeMeans(BetweenSummaryB2,mu=5,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##          d  d.unb.      SE      LL      UL
 ## A1  -0.408  -0.297   0.574  -1.734   0.968
 ## A2  -0.408  -0.297   0.574  -1.734   0.968
@@ -269,8 +257,7 @@ estimateDifference(CompSummaryB1)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -0.237   8.237
 ```
@@ -280,8 +267,7 @@ estimateDifference(CompSummaryB2)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   0.000   1.732   6.000  -4.237   4.237
 ```
@@ -293,8 +279,7 @@ estimateDifference(CompSummaryB1,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -2.420  10.420
 ```
@@ -304,8 +289,7 @@ estimateDifference(CompSummaryB2,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   0.000   1.732   6.000  -6.420   6.420
 ```
@@ -349,8 +333,7 @@ testDifference(CompSummaryB1)
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   4.000   1.732   2.310   6.000   0.060
 ```
@@ -360,8 +343,7 @@ testDifference(CompSummaryB2)
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   0.000   1.732   0.000   6.000   1.000
 ```
@@ -373,8 +355,7 @@ testDifference(CompSummaryB1,mu=-2)
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   6.000   1.732   3.465   6.000   0.013
 ```
@@ -384,8 +365,7 @@ testDifference(CompSummaryB2,mu=-2)
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   2.000   1.732   1.155   6.000   0.292
 ```
@@ -399,8 +379,7 @@ standardizeDifference(CompSummaryB1)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
@@ -410,8 +389,7 @@ standardizeDifference(CompSummaryB2)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   0.000   0.816  -1.600   1.600
 ```
@@ -423,8 +401,7 @@ standardizeDifference(CompSummaryB1,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.795   4.062
 ```
@@ -434,8 +411,7 @@ standardizeDifference(CompSummaryB2,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   0.000   0.816  -2.103   2.103
 ```
@@ -459,8 +435,7 @@ estimateContrast(BetweenSummaryB1,contrast=A1vsOthers)
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.500   6.000   0.830   8.170
 ```
@@ -470,8 +445,7 @@ estimateContrast(BetweenSummaryB2,contrast=A1vsOthers)
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   0.500   1.500   6.000  -3.170   4.170
 ```
@@ -483,8 +457,7 @@ estimateContrast(BetweenSummaryB1,contrast=A1vsOthers,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.500   6.000  -1.060  10.060
 ```
@@ -494,8 +467,7 @@ estimateContrast(BetweenSummaryB2,contrast=A1vsOthers,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   0.500   1.500   6.000  -5.060   6.060
 ```
@@ -539,8 +511,7 @@ testContrast(BetweenSummaryB1,contrast=A1vsOthers)
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast   4.500   1.500   3.001   6.000   0.024
 ```
@@ -550,8 +521,7 @@ testContrast(BetweenSummaryB2,contrast=A1vsOthers)
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast   0.500   1.500   0.333   6.000   0.750
 ```
@@ -563,8 +533,7 @@ testContrast(BetweenSummaryB1,contrast=A1vsOthers,mu=4)
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast   0.500   1.500   0.333   6.000   0.750
 ```
@@ -574,8 +543,7 @@ testContrast(BetweenSummaryB2,contrast=A1vsOthers,mu=4)
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast  -3.500   1.500  -2.334   6.000   0.058
 ```
@@ -589,8 +557,7 @@ standardizeContrast(BetweenSummaryB1,contrast=A1vsOthers)
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   1.837   0.829   0.212   3.463
 ```
@@ -600,8 +567,7 @@ standardizeContrast(BetweenSummaryB2,contrast=A1vsOthers)
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   0.204   0.709  -1.185   1.593
 ```
@@ -613,8 +579,7 @@ standardizeContrast(BetweenSummaryB1,contrast=A1vsOthers,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   1.837   0.829  -0.298   3.973
 ```
@@ -624,8 +589,7 @@ standardizeContrast(BetweenSummaryB2,contrast=A1vsOthers,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   0.204   0.709  -1.621   2.030
 ```

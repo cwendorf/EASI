@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-25"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -40,8 +40,7 @@ estimateMeans(OneSampleSummary)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##               N       M      SD      SE      LL      UL
 ## Outcome   8.000   4.000   3.117   1.102   1.394   6.606
 ```
@@ -53,8 +52,7 @@ estimateMeans(OneSampleSummary,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##               N       M      SD      SE      LL      UL
 ## Outcome   8.000   4.000   3.117   1.102   0.143   7.857
 ```
@@ -86,8 +84,7 @@ testMeans(OneSampleSummary)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##            Diff      SE       t      df       p
 ## Outcome   4.000   1.102   3.630   7.000   0.008
 ```
@@ -99,8 +96,7 @@ testMeans(OneSampleSummary,mu=5)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##            Diff      SE       t      df       p
 ## Outcome  -1.000   1.102  -0.907   7.000   0.394
 ```
@@ -114,8 +110,7 @@ standardizeMeans(OneSampleSummary)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##               d  d.unb.      SE      LL      UL
 ## Outcome   1.283   1.141   0.482   0.304   2.217
 ```
@@ -127,8 +122,7 @@ standardizeMeans(OneSampleSummary,mu=5,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##               d  d.unb.      SE      LL      UL
 ## Outcome  -0.321  -0.285   0.383  -1.247   0.625
 ```

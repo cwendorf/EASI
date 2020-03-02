@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-27"
+date: "2020-03-02"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -42,8 +42,6 @@ analyzeMeans(RepeatedSummary)
 ```
 
 ```
-## Analyses of the Means 
-## 
 ## $`Confidence Intervals for the Means`
 ##                N       M      SD      SE      LL      UL
 ## Outcome1   4.000   2.000   2.449   1.224  -1.897   5.897
@@ -71,8 +69,6 @@ analyzeMeans(RepeatedSummary,mu=5,conf.level=.99,rope=c(3,7))
 ```
 
 ```
-## Analyses of the Means 
-## 
 ## $`Confidence Intervals for the Means`
 ##                N       M      SD      SE      LL      UL
 ## Outcome1   4.000   2.000   2.449   1.224  -5.152   9.152
@@ -107,8 +103,6 @@ analyzeDifference(CompSummary,RepeatedCorr)
 ```
 
 ```
-## Analyses of the Comparison 
-## 
 ## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.224   3.000   0.103   7.897
@@ -130,8 +124,6 @@ analyzeDifference(CompSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-2,2))
 ```
 
 ```
-## Analyses of the Comparison 
-## 
 ## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.224   3.000  -3.152  11.152
@@ -159,8 +151,6 @@ analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
 ```
 
 ```
-## Analyses of the Contrast 
-## 
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.307   3.000   0.342   8.658
@@ -182,8 +172,6 @@ analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4,conf.level
 ```
 
 ```
-## Analyses of the Contrast 
-## 
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.307   3.000  -3.131  12.131

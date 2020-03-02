@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-25"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -50,8 +50,7 @@ estimateMeans(IndependentSummary)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
 ## Level1   4.000   2.000   2.449   1.224  -1.897   5.897
 ## Level2   4.000   6.000   2.449   1.224   2.103   9.897
@@ -64,8 +63,7 @@ estimateMeans(IndependentSummary,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
 ## Level1   4.000   2.000   2.449   1.224  -5.152   9.152
 ## Level2   4.000   6.000   2.449   1.224  -1.152  13.152
@@ -98,8 +96,7 @@ testMeans(IndependentSummary)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##           Diff      SE       t      df       p
 ## Level1   2.000   1.224   1.633   3.000   0.201
 ## Level2   6.000   1.224   4.900   3.000   0.016
@@ -112,8 +109,7 @@ testMeans(IndependentSummary,mu=5)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##           Diff      SE       t      df       p
 ## Level1  -3.000   1.224  -2.450   3.000   0.092
 ## Level2   1.000   1.224   0.817   3.000   0.474
@@ -128,8 +124,7 @@ standardizeMeans(IndependentSummary)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##              d  d.unb.      SE      LL      UL
 ## Level1   0.817   0.594   0.616  -0.387   1.934
 ## Level2   2.450   1.782   0.955   0.325   4.532
@@ -142,8 +137,7 @@ standardizeMeans(IndependentSummary,mu=5,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##              d  d.unb.      SE      LL      UL
 ## Level1  -1.225  -0.891   0.680  -3.011   0.547
 ## Level2   0.408   0.297   0.574  -0.968   1.734
@@ -162,8 +156,7 @@ estimateDifference(IndependentSummary)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -0.237   8.237
 ```
@@ -175,8 +168,7 @@ estimateDifference(IndependentSummary,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -2.420  10.420
 ```
@@ -208,8 +200,7 @@ testDifference(IndependentSummary)
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   4.000   1.732   2.310   6.000   0.060
 ```
@@ -221,8 +212,7 @@ testDifference(IndependentSummary,mu=2)
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   2.000   1.732   1.155   6.000   0.292
 ```
@@ -236,8 +226,7 @@ standardizeDifference(IndependentSummary)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
@@ -249,8 +238,7 @@ standardizeDifference(IndependentSummary,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.795   4.062
 ```

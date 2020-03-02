@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-25"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -40,8 +40,7 @@ estimateMeans(Outcome1,Outcome2)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##                N       M      SD      SE      LL      UL
 ## Outcome1   4.000   2.000   2.449   1.225  -1.898   5.898
 ## Outcome2   4.000   6.000   2.449   1.225   2.102   9.898
@@ -54,8 +53,7 @@ estimateMeans(Outcome1,Outcome2,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##                N       M      SD      SE      LL      UL
 ## Outcome1   4.000   2.000   2.449   1.225  -5.154   9.154
 ## Outcome2   4.000   6.000   2.449   1.225  -1.154  13.154
@@ -88,8 +86,7 @@ testMeans(Outcome1,Outcome2)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##             Diff      SE       t      df       p
 ## Outcome1   2.000   1.225   1.633   3.000   0.201
 ## Outcome2   6.000   1.225   4.899   3.000   0.016
@@ -102,8 +99,7 @@ testMeans(Outcome1,Outcome2,mu=6)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
+## $`Hypothesis Test for the Means`
 ##             Diff      SE       t      df       p
 ## Outcome1  -4.000   1.225  -3.266   3.000   0.047
 ## Outcome2   0.000   1.225   0.000   3.000   1.000
@@ -118,8 +114,7 @@ standardizeMeans(Outcome1,Outcome2)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##                d  d.unb.      SE      LL      UL
 ## Outcome1   0.816   0.594   0.616  -0.387   1.934
 ## Outcome2   2.449   1.781   0.955   0.325   4.531
@@ -132,8 +127,7 @@ standardizeMeans(Outcome1,Outcome2,mu=6,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
+## $`Confidence Intervals for the Standardized Means`
 ##                d  d.unb.      SE      LL      UL
 ## Outcome1  -1.633  -1.188   0.761  -3.764   0.398
 ## Outcome2   0.000   0.000   0.559  -1.288   1.288
@@ -152,8 +146,7 @@ estimateDifference(Outcome1,Outcome2)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.225   3.000   0.102   7.898
 ```
@@ -165,8 +158,7 @@ estimateDifference(Outcome1,Outcome2,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.225   3.000  -3.154  11.154
 ```
@@ -198,8 +190,7 @@ testDifference(Outcome1,Outcome2)
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   4.000   1.225   3.266   3.000   0.047
 ```
@@ -211,8 +202,7 @@ testDifference(Outcome1,Outcome2,mu=-2)
 ```
 
 ```
-## Hypothesis Test for the Comparison 
-## 
+## $`Hypothesis Test for the Comparison`
 ##               Diff      SE       t      df       p
 ## Comparison   6.000   1.225   4.899   3.000   0.016
 ```
@@ -226,8 +216,7 @@ standardizeDifference(Outcome1,Outcome2)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.782   0.101   3.165
 ```
@@ -239,8 +228,7 @@ standardizeDifference(Outcome1,Outcome2,conf.level=.99)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.782  -0.381   3.647
 ```

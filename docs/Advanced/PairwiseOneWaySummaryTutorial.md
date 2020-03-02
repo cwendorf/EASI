@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-27"
+date: "2020-03-02"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -38,8 +38,7 @@ estimatePairwise(OneWaySummary)
 ```
 
 ```
-## Confidence Intervals for the Pairwise Comparisons 
-## 
+## $`Confidence Intervals for the Pairwise Comparisons`
 ##                    Diff      SE      df      LL      UL
 ## Level1 v Level2   4.000   1.732   6.000  -0.237   8.237
 ## Level1 v Level3   5.000   1.732   6.000   0.763   9.237
@@ -52,8 +51,7 @@ estimatePairwise(OneWaySummary,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Pairwise Comparisons 
-## 
+## $`Confidence Intervals for the Pairwise Comparisons`
 ##                    Diff      SE      df      LL      UL
 ## Level1 v Level2   4.000   1.732   6.000  -2.420  10.420
 ## Level1 v Level3   5.000   1.732   6.000  -1.420  11.420
@@ -84,8 +82,7 @@ testPairwise(OneWaySummary)
 ```
 
 ```
-## Hypothesis Tests for the Pairwise Comparisons 
-## 
+## $`Hypothesis Tests for the Pairwise Comparisons`
 ##                    Diff      SE       t      df       p
 ## Level1 v Level2   4.000   1.732   2.310   6.000   0.060
 ## Level1 v Level3   5.000   1.732   2.887   6.000   0.028
@@ -98,8 +95,7 @@ testPairwise(OneWaySummary,mu=-2)
 ```
 
 ```
-## Hypothesis Tests for the Pairwise Comparisons 
-## 
+## $`Hypothesis Tests for the Pairwise Comparisons`
 ##                    Diff      SE       t      df       p
 ## Level1 v Level2   6.000   1.732   3.465   6.000   0.013
 ## Level1 v Level3   7.000   1.732   4.042   6.000   0.007
@@ -114,8 +110,7 @@ standardizePairwise(OneWaySummary)
 ```
 
 ```
-## Confidence Intervals for the Standardized Pairwise Comparisons 
-## 
+## $`Confidence Intervals for the Standardized Pairwise Comparisons`
 ##                     Est      SE      LL      UL
 ## Level1 v Level2   1.633   0.943  -0.215   3.481
 ## Level1 v Level3   2.042   1.007   0.068   4.015
@@ -128,8 +123,7 @@ standardizePairwise(OneWaySummary,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Pairwise Comparisons 
-## 
+## $`Confidence Intervals for the Standardized Pairwise Comparisons`
 ##                     Est      SE      LL      UL
 ## Level1 v Level2   1.633   0.943  -0.795   4.062
 ## Level1 v Level3   2.042   1.007  -0.552   4.635

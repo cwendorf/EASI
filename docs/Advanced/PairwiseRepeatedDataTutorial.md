@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-27"
+date: "2020-03-02"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -37,8 +37,7 @@ estimatePairwise(Outcome1,Outcome2,Outcome3)
 ```
 
 ```
-## Confidence Intervals for the Pairwise Comparisons 
-## 
+## $`Confidence Intervals for the Pairwise Comparisons`
 ##                        Diff      SE      df      LL      UL
 ## Outcome1 v Outcome2   4.000   1.225   3.000   0.102   7.898
 ## Outcome1 v Outcome3   5.000   1.683   3.000  -0.357  10.357
@@ -51,8 +50,7 @@ estimatePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Pairwise Comparisons 
-## 
+## $`Confidence Intervals for the Pairwise Comparisons`
 ##                        Diff      SE      df      LL      UL
 ## Outcome1 v Outcome2   4.000   1.225   3.000  -3.154  11.154
 ## Outcome1 v Outcome3   5.000   1.683   3.000  -4.832  14.832
@@ -83,8 +81,7 @@ testPairwise(Outcome1,Outcome2,Outcome3)
 ```
 
 ```
-## Hypothesis Tests for the Pairwise Comparisons 
-## 
+## $`Hypothesis Tests for the Pairwise Comparisons`
 ##                        Diff      SE       t      df       p
 ## Outcome1 v Outcome2   4.000   1.225   3.266   3.000   0.047
 ## Outcome1 v Outcome3   5.000   1.683   2.970   3.000   0.059
@@ -97,8 +94,7 @@ testPairwise(Outcome1,Outcome2,Outcome3,mu=-2)
 ```
 
 ```
-## Hypothesis Tests for the Pairwise Comparisons 
-## 
+## $`Hypothesis Tests for the Pairwise Comparisons`
 ##                        Diff      SE       t      df       p
 ## Outcome1 v Outcome2   6.000   1.225   4.899   3.000   0.016
 ## Outcome1 v Outcome3   7.000   1.683   4.159   3.000   0.025
@@ -113,8 +109,7 @@ standardizePairwise(Outcome1,Outcome2,Outcome3)
 ```
 
 ```
-## Confidence Intervals for the Standardized Pairwise Comparisons 
-## 
+## $`Confidence Intervals for the Standardized Pairwise Comparisons`
 ##                         Est      SE      LL      UL
 ## Outcome1 v Outcome2   1.633   0.782   0.101   3.165
 ## Outcome1 v Outcome3   2.041   0.876   0.324   3.758
@@ -127,8 +122,7 @@ standardizePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Pairwise Comparisons 
-## 
+## $`Confidence Intervals for the Standardized Pairwise Comparisons`
 ##                         Est      SE      LL      UL
 ## Outcome1 v Outcome2   1.633   0.782  -0.381   3.647
 ## Outcome1 v Outcome3   2.041   0.876  -0.215   4.298

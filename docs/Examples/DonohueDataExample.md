@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-26"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -34,8 +34,7 @@ estimateMeans(Pretest,Posttest,Followup)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##                N       M      SD      SE      LL      UL
 ## Pretest   20.000  19.300   5.904   1.320  16.537  22.063
 ## Posttest  20.000  23.600   4.762   1.065  21.371  25.829
@@ -57,8 +56,7 @@ estimateDifference(Posttest,Followup)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison  -0.200   0.753  19.000  -1.775   1.375
 ```
@@ -76,8 +74,7 @@ standardizeDifference(Posttest,Followup)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison  -0.043   0.165  -0.366   0.280
 ```
@@ -91,8 +88,7 @@ estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.200   1.130  19.000   1.835   6.565
 ```
@@ -110,8 +106,7 @@ testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast   4.200   1.130   3.717  19.000   0.001
 ```
@@ -122,8 +117,7 @@ standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   0.819   0.214   0.399   1.239
 ```

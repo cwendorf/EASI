@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-26"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -35,8 +35,7 @@ estimateMeans(Motivation~Feedback)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
+## $`Confidence Intervals for the Means`
 ##                 N       M      SD      SE      LL      UL
 ## Comfort    18.000   3.333   1.917   0.452   2.380   4.287
 ## Challenge  17.000   5.265   1.448   0.351   4.520   6.009
@@ -59,8 +58,7 @@ estimateDifference(Motivation~Comparison)
 ```
 
 ```
-## Confidence Interval for the Comparison 
-## 
+## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   1.931   0.572  31.521   0.765   3.098
 ```
@@ -78,8 +76,7 @@ standardizeDifference(Motivation~Comparison)
 ```
 
 ```
-## Confidence Interval for the Standardized Comparison 
-## 
+## $`Confidence Interval for the Standardized Comparison`
 ##                Est      SE      LL      UL
 ## Comparison   1.137   0.376   0.401   1.873
 ```
@@ -93,8 +90,7 @@ estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
 
 ```
-## Confidence Interval for the Contrast 
-## 
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   1.523   0.512  26.898   0.472   2.573
 ```
@@ -112,8 +108,7 @@ testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
 
 ```
-## Hypothesis Test for the Contrast 
-## 
+## $`Hypothesis Test for the Contrast`
 ##              Est      SE       t      df       p
 ## Contrast   1.523   0.512   2.974  26.898   0.006
 ```
@@ -124,8 +119,7 @@ standardizeContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
 
 ```
-## Confidence Interval for the Standardized Contrast 
-## 
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   0.943   0.340   0.276   1.610
 ```

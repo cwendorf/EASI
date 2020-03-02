@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-27"
+date: "2020-03-02"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -35,8 +35,6 @@ analyzeMeans(Outcome~Factor)
 ```
 
 ```
-## Analyses of the Means 
-## 
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
 ## Level1   4.000   2.000   2.449   1.225  -1.898   5.898
@@ -64,8 +62,6 @@ analyzeMeans(Outcome~Factor,mu=5,conf.level=.99,rope=c(3,7))
 ```
 
 ```
-## Analyses of the Means 
-## 
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
 ## Level1   4.000   2.000   2.449   1.225  -5.154   9.154
@@ -96,8 +92,6 @@ analyzeDifference(Outcome~Comparison)
 ```
 
 ```
-## Analyses of the Comparison 
-## 
 ## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -0.238   8.238
@@ -119,8 +113,6 @@ analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99,rope=c(-2,2))
 ```
 
 ```
-## Analyses of the Comparison 
-## 
 ## $`Confidence Interval for the Comparison`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -2.421  10.421
@@ -145,8 +137,6 @@ analyzeContrast(Outcome~Factor,contrast=L1vsOthers)
 ```
 
 ```
-## Analyses of the Contrast 
-## 
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.500   6.000   0.830   8.170
@@ -168,8 +158,6 @@ analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2
 ```
 
 ```
-## Analyses of the Contrast 
-## 
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.500   6.000  -1.061  10.061

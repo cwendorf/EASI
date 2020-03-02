@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-02-27"
+date: "2020-03-02"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -58,8 +58,6 @@ estimateMeansBy(MixedSummary)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
 ## $Level1
 ##                N       M      SD      SE      LL      UL
 ## Outcome1   4.000   2.000   2.449   1.224  -1.897   5.897
@@ -79,8 +77,6 @@ estimateMeansBy(MixedSummary,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Means 
-## 
 ## $Level1
 ##                N       M      SD      SE      LL      UL
 ## Outcome1   4.000   2.000   2.449   1.224  -5.152   9.152
@@ -118,8 +114,6 @@ testMeansBy(MixedSummary)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
 ## $Level1
 ##             Diff      SE       t      df       p
 ## Outcome1   2.000   1.224   1.633   3.000   0.201
@@ -139,8 +133,6 @@ testMeansBy(MixedSummary,mu=5)
 ```
 
 ```
-## Hypothesis Tests for the Means 
-## 
 ## $Level1
 ##             Diff      SE       t      df       p
 ## Outcome1  -3.000   1.224  -2.450   3.000   0.092
@@ -162,8 +154,6 @@ standardizeMeansBy(MixedSummary)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
 ## $Level1
 ##                d  d.unb.      SE      LL      UL
 ## Outcome1   0.817   0.594   0.616  -0.387   1.934
@@ -183,8 +173,6 @@ standardizeMeansBy(MixedSummary,mu=5,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Means 
-## 
 ## $Level1
 ##                d  d.unb.      SE      LL      UL
 ## Outcome1  -1.225  -0.891   0.680  -3.011   0.547
@@ -216,8 +204,6 @@ estimateDifferenceBy(CompSummary,MixedCorr)
 ```
 
 ```
-## Confidence Intervals for the Comparison 
-## 
 ## $Level1
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.224   3.000   0.103   7.897
@@ -233,8 +219,6 @@ estimateDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Comparison 
-## 
 ## $Level1
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.224   3.000  -3.152  11.152
@@ -268,8 +252,6 @@ testDifferenceBy(CompSummary,MixedCorr)
 ```
 
 ```
-## Hypothesis Tests for the Comparison 
-## 
 ## $Level1
 ##               Diff      SE       t      df       p
 ## Comparison   4.000   1.224   3.267   3.000   0.047
@@ -285,8 +267,6 @@ testDifferenceBy(CompSummary,MixedCorr,mu=-2)
 ```
 
 ```
-## Hypothesis Tests for the Comparison 
-## 
 ## $Level1
 ##               Diff      SE       t      df       p
 ## Comparison   6.000   1.224   4.900   3.000   0.016
@@ -304,8 +284,6 @@ standardizeDifferenceBy(CompSummary,MixedCorr)
 ```
 
 ```
-## Confidence Intervals for the Standardized Comparison 
-## 
 ## $Level1
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.782   0.101   3.166
@@ -321,8 +299,6 @@ standardizeDifferenceBy(CompSummary,MixedCorr,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Comparison 
-## 
 ## $Level1
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.782  -0.380   3.647
@@ -347,8 +323,6 @@ estimateContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
 ```
 
 ```
-## Confidence Intervals for the Contrast 
-## 
 ## $Level1
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.258   3.000   0.496   8.504
@@ -364,8 +338,6 @@ estimateContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Contrast 
-## 
 ## $Level1
 ##              Est      SE      df      LL      UL
 ## Contrast   4.500   1.258   3.000  -2.848  11.848
@@ -399,8 +371,6 @@ testContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
 ```
 
 ```
-## Hypothesis Tests for the Contrast 
-## 
 ## $Level1
 ##              Est      SE       t      df       p
 ## Contrast   4.500   1.258   3.577   3.000   0.037
@@ -416,8 +386,6 @@ testContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,mu=4)
 ```
 
 ```
-## Hypothesis Tests for the Contrast 
-## 
 ## $Level1
 ##              Est      SE       t      df       p
 ## Contrast   0.500   1.258   0.397   3.000   0.718
@@ -435,8 +403,6 @@ standardizeContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
 ```
 
 ```
-## Confidence Intervals for the Standardized Contrast 
-## 
 ## $Level1
 ##              Est      SE      LL      UL
 ## Contrast   1.837   0.676   0.512   3.163
@@ -452,8 +418,6 @@ standardizeContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers,conf.level=.99)
 ```
 
 ```
-## Confidence Intervals for the Standardized Contrast 
-## 
 ## $Level1
 ##              Est      SE      LL      UL
 ## Contrast   1.837   0.676   0.096   3.579
