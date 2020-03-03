@@ -11,38 +11,38 @@
 
 The **OneSample** files analyze a tutorial for a single-group design:
 
-- [OneSampleDataTutorial](./OneSampleDataTutorial.md) uses raw data input.
-- [OneSampleSummaryTutorial](./OneSampleSummaryTutorial.md) uses summary statistics input.
+- [**_OneSampleDataTutorial_**](./OneSampleDataTutorial.md) uses raw data input.
+- [**_OneSampleSummaryTutorial_**](./OneSampleSummaryTutorial.md) uses summary statistics input.
 
 The **Independent** files analyze a tutorial for a two-group between-subjects design (independent-groups):
 
-- [IndependentDataTutorial](./IndependentDataTutorial.md) uses raw data input.
-- [IndependentSummaryTutorial](./IndependentSummaryTutorial.md) uses summary statistics input.
+- [**_IndependentDataTutorial_**](./IndependentDataTutorial.md) uses raw data input.
+- [**_IndependentSummaryTutorial_**](./IndependentSummaryTutorial.md) uses summary statistics input.
 
 The **Paired** files analyze a tutorial for a within-subjects design for two time points (paired samples):
 
-- [PairedDataTutorial](./PairedDataTutorial.md) uses raw data input.
-- [PairedSummaryTutorial](./PairedSummaryTutorial.md) uses summary statistics input.
+- [**_PairedDataTutorial_**](./PairedDataTutorial.md) uses raw data input.
+- [**_PairedSummaryTutorial_**](./PairedSummaryTutorial.md) uses summary statistics input.
 
 The **OneWay** files analyze a tutorial for a single-factor between-subjects design:
 
-- [OneWayDataTutorial](./OneWayDataTutorial.md) uses raw data input.
-- [OneWaySummaryTutorial](./OneWaySummaryTutorial.md) uses summary statistics input.
+- [**_OneWayDataTutorial_**](./OneWayDataTutorial.md) uses raw data input.
+- [**_OneWaySummaryTutorial_**](./OneWaySummaryTutorial.md) uses summary statistics input.
 
 The **Repeated** files analyze a tutorial for a single-factor within-subjects design:
 
-- [RepeatedDataTutorial](./RepeatedDataTutorial.md) uses raw data input.
-- [RepeatedSummaryTutorial](./RepeatedSummaryTutorial.md) uses summary statistics input.
+- [**_RepeatedDataTutorial_**](./RepeatedDataTutorial.md) uses raw data input.
+- [**_RepeatedSummaryTutorial_**](./RepeatedSummaryTutorial.md) uses summary statistics input.
 
 The **Factorial** files analyze a tutorial for a two-factor between-subjects design:
 
-- [FactorialDataTutorial](./FactorialDataTutorial.md) uses raw data input.
-- [FactorialSummaryTutorial](./FactorialSummaryTutorial.md) uses summary statistics input.
+- [**_FactorialDataTutorial_**](./FactorialDataTutorial.md) uses raw data input.
+- [**_FactorialSummaryTutorial_**](./FactorialSummaryTutorial.md) uses summary statistics input.
 
 The **Mixed** files analyze a tutorial for a two-factor mixed design (one between-subjects and one within-subjects factor):
 
-- [MixedDataTutorial](./MixedDataTutorial.md) uses raw data input.
-- [MixedSummaryTutorial](./MixedSummaryTutorial.md) uses summary statistics input.
+- [**_MixedDataTutorial_**](./MixedDataTutorial.md) uses raw data input.
+- [**_MixedSummaryTutorial_**](./MixedSummaryTutorial.md) uses summary statistics input.
 
 ### References
 

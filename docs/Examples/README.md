@@ -9,32 +9,32 @@
 
 The **PenLaptop** files analyze an example of a two-group between-subjects (independent-groups) design (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 7):
 
-- [PenLaptopDataExample](./PenLaptopDataExample.md) uses raw data input.
-- [PenLaptopSummaryExample](./PenLaptopSummaryExample.md) uses summary statistics input.
+- [**_PenLaptopDataExample_**](./PenLaptopDataExample.md) uses raw data input.
+- [**_PenLaptopSummaryExample_**](./PenLaptopSummaryExample.md) uses summary statistics input.
 
 The **Thomason** files analyze an example of a within-subjects design for two time points (paired samples,see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 8):
 
-- [ThomasonDataExample](./ThomasonDataExample.md) uses raw data input.
-- [ThomasonSummaryExample](./ThomasonSummaryExample.md) uses summary statistics input.
+- [**_ThomasonDataExample_**](./ThomasonDataExample.md) uses raw data input.
+- [**_ThomasonSummaryExample_**](./ThomasonSummaryExample.md) uses summary statistics input.
 
 The **Rattan** files analyze an example of a single-factor between-subjects design (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14):
 
-- [RattanDataExample](./RattanDataExample.md) uses raw data input.
-- [RattanSummaryExample](./RattanSummaryExample.md) uses summary statistics input.
+- [**_RattanDataExample_**](./RattanDataExample.md) uses raw data input.
+- [**_RattanSummaryExample_**](./RattanSummaryExample.md) uses summary statistics input.
 
 The **Donohue** files analyze an example of a single-factor within-subjects design (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 14):
 
-- [DonohueDataExample](./DonohueDataExample.md) uses raw data input.
-- [DonohueSummaryExample](./DonohueSummaryExample.md) uses summary statistics input.
+- [**_DonohueDataExample_**](./DonohueDataExample.md) uses raw data input.
+- [**_DonohueSummaryExample_**](./DonohueSummaryExample.md) uses summary statistics input.
 
 The **Frenda** files analyze an example of a two-factor between-subjects design (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 15):
 
-- [FrendaSummaryExample](./FrendaSummaryExample.md) uses summary statistics input.
+- [**_FrendaSummaryExample_**](./FrendaSummaryExample.md) uses summary statistics input.
 
 The **Holzel** files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor) (see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 15):
 
-- [HolzelDataExample](./HolzelDataExample.md) uses raw data input.
-- [HolzelSummaryExample](./HolzelSummaryExample.md) uses summary statistics input.
+- [**_HolzelDataExample_**](./HolzelDataExample.md) uses raw data input.
+- [**_HolzelSummaryExample_**](./HolzelSummaryExample.md) uses summary statistics input.
 
 ### References
 
