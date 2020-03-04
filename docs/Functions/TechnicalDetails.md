@@ -1,6 +1,6 @@
-## About the EASI Extensions
+## Technical Details
 
-### Technical Details
+### Calculations and Explanations
 
 For means, mean differences, and mean contrasts:
 

@@ -40,7 +40,7 @@ _By_ | functions that extend the other functions to examine differences in facto
 The basic procedures and targets are combined to produce the following available functions:
 
 - [`describeData`](./describeData.md)
-- [`correlateData`](./correlatedData.md)
+- [`correlateData`](./correlateData.md)
 - [`plotData`](./plotData.md)
 - [`estimateMeans`](./estimateMeans.md)
 - [`plotMeans`](./plotMeans.md)
