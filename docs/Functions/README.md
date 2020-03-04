@@ -15,7 +15,7 @@ library(EASI)
 EASI is designed to offer the following basic procedures:
 
 Prefix | Description
---- | ---
+:-- | :--
 _estimate_ | functions that estimate confidence intervals for means, mean differences, and contrasts
 _plot_| functions that plot confidence intervals for means, mean differences, and contrasts
 _test_ | functions that calculate NHST for means, mean differences, and contrasts
@@ -25,7 +25,7 @@ _analyze_ | functions that combine the _estimate_, _plot_, _test_, and _standard
 Generally speaking, these procedures then can be applied to different targets or objects:
 
 Suffix | Description
---- | ---
+:-- | :--
 _Data_ | functions that summarize or represent raw data
 _Means_| functions that examine all individual group or level means
 _Difference_ | functions that examine a difference/comparison among two group or level means
