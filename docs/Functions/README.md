@@ -1,8 +1,8 @@
-## About the EASI Functions
+## About the EASI Package
 
-### Installation of the Primary Functions
+### Installation of the Functions
 
-This package is not currently on CRAN, but can be installed directly from this repository by pasting the following lines into R.
+The EASI package is not currently on CRAN, but can be installed directly from the GitHub repository by pasting the following lines into R.
 
 ``` r
 install.packages("devtools")
@@ -10,35 +10,72 @@ devtools::install_github("cwendorf/EASI",build_vignettes=TRUE,force=TRUE)
 library(EASI)
 ```
 
-Alternatively, pasting the following line into R will automatically make the most current versions of the primary functions available for use.
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/easiFunctions.R")
-```
-
-For some analyses, [extensions are needed](./Extensions.md).
-
 ### Summary of the Functions
 
-The primary EASI functions represent four basic categories of analyses:
+EASI is primarily designed to offer the following basic procedures:
 
-- _estimate_ ([`estimateMeans`](./estimateMeans.md),[`estimateDifference`](./estimateDifference.md), and [`estimateContrast`](./estimateContrast.md) functions that estimate confidence intervals for means, mean differences, and contrasts respectively)
-- _plot_ ([`plotMeans`](./plotMeans.md), [`plotDifference`](./plotDifference.md), and [`plotContrast`](./plotContrast) functions that plot confidence intervals for means, mean differences, and contrasts respectively)
-- _test_ ([`testMeans`](./testMeans.md), [`testDifference`](./testDifference.md), and [`testContrast`](./testContrast.md) functions that calculate NHST for means, mean differences, and contrasts respectively)
-- _standardize_ ([`standardizeMeans`](./standardizeMeans.md), [`standardizeDifference`](./standardizeDifference.md), and [`standardizeContrast`](./standardizeContrast.md) functions that calculate confidence intervals for standardized effect sizes for individual means, mean differences, and contrasts respectively)
+- _estimate_: functions that estimate confidence intervals for means, mean differences, and contrasts
+- _plot_: functions that plot confidence intervals for means, mean differences, and contrasts
+- _test_: functions that calculate NHST for means, mean differences, and contrasts
+- _standardize_: functions that calculate standardized effect sizes and their confidence intervals
+- _analyze_: functions that combine the _estimate_, _plot_, _test_, and _standardize_ procedures into a single analysis
 
-### Technical Details
+Each of these types can be applied to different targets or objects:
 
-For means, mean differences, and mean contrasts:
+- _Means_: functions that examine all individual groups or level means
+- _Difference_ or _Comparison_: functions that examine a difference/comparison among two group or level means
+- _Contrast_: functions that examine a contrast among all of the group or level means
+- _Pairwise_: functions that examine all possible unadjusted pairwise comparisons among the group or levels means
+- _Relational_: functions that provide arelational (standard) and relational (comparative) intervals 
+- _By_: functions that apply the basic procedures across levels of a second factor in a factorial or mixed design
+- _Omnibus_: functions that provide an analysis of omnibus effects (like an ANOVA)
 
-- Confidence intervals are calculated independent of each other (i.e., they are not simultaneous)
-- No corrections for multiple intervals/contrasts are made
-- All calculations assume heterogenity of variance
 
-For standardized effect sizes:
+### Listing of Available Functions
 
-- All effect sizes are calculated as standardized comparisons (Cohen's d) or as standardized contrasts (see Bonett, 2008)
-- Confidence intervals for standardized comparisons and contrasts are based on Bonett's (2008) method.
+The basic procedures and targets are combined to produce the following available functions:
 
-### References
+- [`estimateMeans`](./estimateMeans.md)
+- [`estimateDifference`](./estimateDifference.md) and [`estimateComparison`](./estimateDifference.md)
+- [`estimateContrast`](./estimateContrast.md)
+- [`plotMeans`](./plotMeans.md)
+- [`plotDifference`](./plotDifference.md) and [`plotComparison`](./plotDifference.md)
+- [`plotContrast`](./plotContrast)
+- [`testMeans`](./testMeans.md)
+- [`testDifference`](./testDifference.md) and [`testComparison`](./testDifference.md)
+- [`testContrast`](./testContrast.md)
+- [`standardizeMeans`](./standardizeMeans.md)
+- [`standardizeDifference`](./standardizeDifference.md) and [`standardizeComparison`](./standardizeDifference.md)
+- [`standardizeContrast`](./standardizeContrast.md) 
 
-Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. _Psychological Methods_, _13_(2), 99-109.
+The following functions are also avialable but not yet fully documented:
+
+- `describeData`
+- `correlateData`
+- `plotData`
+- `describeOmnibus`
+- `testOmnibus`
+- `effectOmnibus`
+- `estimatePairwise`
+- `plotPairwise`
+- `testPairwise`
+- `standardizePairwise`
+- `estimateRelational`
+- `plotRelational`
+- `estimateMeansBy`
+- `estimateDifferenceBy`
+- `estimateContrastBy`
+- `plotMeansBy`
+- `plotDifferenceBy`
+- `plotContrastBy`
+- `testMeansBy`
+- `testDifferenceBy`
+- `testContrastBy`
+- `standardizeMeansBy`
+- `standardizeDifferenceBy`
+- `standardizeContrastBy` 
+
+### More Information
+
+More information about the functions, their assumptions, and their calculations can be found on the [Technical Details](./TechnicalDetails.md) page.
+
