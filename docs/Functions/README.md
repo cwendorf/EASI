@@ -22,12 +22,12 @@ _test_ | functions that calculate NHST for means, mean differences, and contrast
 _standardize_| functions that calculate standardized effect sizes and their confidence intervals
 _analyze_ | functions that combine the _estimate_, _plot_, _test_, and _standardize_ procedures into a single analysis
 
-Each of these types can be applied to different targets or objects:
+Generally speaking, these procedures then can be applied to different targets or objects:
 
 Suffix | Description
 --- | ---
 _Means_| functions that examine all individual groups or level means
-_Difference_ or _Comparison_ | functions that examine a difference/comparison among two group or level means
+_Difference_ | functions that examine a difference/comparison among two group or level means
 _Contrast_ | functions that examine a contrast among all of the group or level means
 _Pairwise_ | functions that examine all possible unadjusted pairwise comparisons among the group or levels means
 _Relational_ | functions that provide arelational (standard) and relational (comparative) intervals 
@@ -41,16 +41,16 @@ The basic procedures and targets are combined to produce the following available
 - [`describeData`](./describeData.md)
 - [`correlateData`](./correlatedData.md)
 - [`estimateMeans`](./estimateMeans.md)
-- [`estimateDifference`](./estimateDifference.md) and [`estimateComparison`](./estimateDifference.md)
+- [`estimateDifference`](./estimateDifference.md) (and [`estimateComparison`](./estimateDifference.md))
 - [`estimateContrast`](./estimateContrast.md)
 - [`plotMeans`](./plotMeans.md)
-- [`plotDifference`](./plotDifference.md) and [`plotComparison`](./plotDifference.md)
+- [`plotDifference`](./plotDifference.md) (and [`plotComparison`](./plotDifference.md))
 - [`plotContrast`](./plotContrast)
 - [`testMeans`](./testMeans.md)
-- [`testDifference`](./testDifference.md) and [`testComparison`](./testDifference.md)
+- [`testDifference`](./testDifference.md) (and [`testComparison`](./testDifference.md))
 - [`testContrast`](./testContrast.md)
 - [`standardizeMeans`](./standardizeMeans.md)
-- [`standardizeDifference`](./standardizeDifference.md) and [`standardizeComparison`](./standardizeDifference.md)
+- [`standardizeDifference`](./standardizeDifference.md) (and [`standardizeComparison`](./standardizeDifference.md))
 - [`standardizeContrast`](./standardizeContrast.md) 
 
 The following functions are also avialable but not yet fully documented:
@@ -81,4 +81,3 @@ The following functions are also avialable but not yet fully documented:
 ### More Information
 
 More information about the functions, their assumptions, and their calculations can be found on the [Technical Details](./TechnicalDetails.md) page.
-
