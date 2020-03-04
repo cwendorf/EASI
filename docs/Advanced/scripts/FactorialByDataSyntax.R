@@ -1,0 +1,83 @@
+# Estimation Approach to Statistical Inference
+## FactorialBy - Factorial (Between-Subjects) Tutorial with Data
+
+### Enter Data
+
+FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)
+FactorB <- c(1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2)
+Outcome <- c(0,0,3,5,4,7,4,9,4,9,6,9,3,1,6,6,2,2,5,7,2,4,7,7)
+FactorA <- factor(FactorA,levels=c(1,2,3),labels=c("A1","A2","A3"))
+FactorB <- factor(FactorB,levels=c(1,2),labels=c("B1","B2"))
+FactorialData <- data.frame(FactorA,FactorB,Outcome)
+FactorialData
+
+### Analyses of Multiple Groups
+
+#### Confidence Intervals for the Means
+
+estimateMeansBy(Outcome~FactorA,by=FactorB)
+estimateMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99)
+
+#### Plot of the Confidence Intervals for the Means
+
+plotMeansBy(Outcome~FactorA,by=FactorB)
+plotMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5,rope=c(3,7))
+
+#### Significance Tests for the Means
+
+testMeansBy(Outcome~FactorA,by=FactorB)
+testMeansBy(Outcome~FactorA,by=FactorB,mu=5)
+
+#### Effect Size for the Means
+
+standardizeMeansBy(Outcome~FactorA,by=FactorB)
+standardizeMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5)
+
+### Analyses of a Group Comparison
+
+Comparison=factor(FactorA,c("A1","A2"))
+CompData=na.omit(data.frame(Outcome,Comparison,FactorB))
+
+#### Confidence Interval for a Mean Difference
+
+with(CompData,estimateDifferenceBy(Outcome~Comparison,by=FactorB))
+with(CompData,estimateDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99))
+
+#### Plot of the Confidence Interval for the Mean Difference
+
+with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB))
+with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,rope=c(-2,2)))
+
+#### Significance Test for the Mean Difference
+
+with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB))
+with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB,mu=-2))
+
+#### Effect Size for the Mean Difference
+
+with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB))
+with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,mu=-2))
+
+### Analyses of a Factor Contrast
+
+A1vsOthers <- c(-1,.5,.5)
+
+#### Confidence Interval for a Contrast
+
+estimateContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
+estimateContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,conf.level=.99)
+
+#### Plots of Confidence Intervals for a Contrast
+
+plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
+plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
+
+#### Significance Test for a Contrast
+
+testContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
+testContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,mu=4)
+
+#### Effect Size for a Contrast
+
+standardizeContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
+standardizeContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,conf.level=.99)
