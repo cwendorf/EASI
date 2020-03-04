@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-02"
+date: "2020-03-04"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -35,7 +35,8 @@ estimateRelational(Outcome~Factor)
 ```
 
 ```
-## $`Confidence and Relational Intervals for the Means`
+## Confidence and Relational Intervals for the Means 
+## 
 ##              M   CI.LL   CI.UL   RI.LL   RI.UL
 ## Level1   2.000  -1.898   5.898   0.041   3.959
 ## Level2   6.000   2.102   9.898   4.041   7.959
@@ -59,7 +60,7 @@ plotRelational(Outcome~Factor)
 
 
 ```r
-plotRelational(Outcome~Factor,conf.level=.99,mu=70)
+plotRelational(Outcome~Factor,conf.level=.99,mu=5)
 ```
 
 ![](figures/OneWay-RelationalC-1.png)<!-- -->

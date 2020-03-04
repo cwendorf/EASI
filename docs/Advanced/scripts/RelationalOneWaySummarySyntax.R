@@ -18,4 +18,4 @@ plotMeans(OneWaySummary)
 addRelational(OneWaySummary)
 
 plotRelational(OneWaySummary)
-plotRelational(OneWaySummary,conf.level=.99,mu=70)
+plotRelational(OneWaySummary,conf.level=.99,mu=5)

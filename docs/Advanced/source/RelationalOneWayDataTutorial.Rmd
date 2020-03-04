@@ -47,5 +47,5 @@ plotRelational(Outcome~Factor)
 ```
 
 ```{r,OneWay-RelationalC}
-plotRelational(Outcome~Factor,conf.level=.99,mu=70)
+plotRelational(Outcome~Factor,conf.level=.99,mu=5)
 ```

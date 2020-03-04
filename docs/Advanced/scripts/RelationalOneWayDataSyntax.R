@@ -17,4 +17,4 @@ plotMeans(Outcome~Factor)
 addRelational(Outcome~Factor)
 
 plotRelational(Outcome~Factor)
-plotRelational(Outcome~Factor,conf.level=.99,mu=70)
+plotRelational(Outcome~Factor,conf.level=.99,mu=5)
