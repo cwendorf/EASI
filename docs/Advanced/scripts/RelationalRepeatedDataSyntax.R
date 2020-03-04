@@ -17,4 +17,4 @@ plotMeans(Outcome1,Outcome2,Outcome3)
 addRelational(Outcome1,Outcome2,Outcome3)
 
 plotRelational(Outcome1,Outcome2,Outcome3)
-plotRelational(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=70)
+plotRelational(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-02"
+date: "2020-03-04"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -42,7 +42,8 @@ estimateRelational(RepeatedSummary,RepeatedCorr)
 ```
 
 ```
-## $`Confidence and Relational Intervals for the Means`
+## Confidence and Relational Intervals for the Means 
+## 
 ##                M   CI.LL   CI.UL   RI.LL   RI.UL
 ## Outcome1   2.000  -1.897   5.897   0.246   3.754
 ## Outcome2   6.000   2.103   9.897   4.246   7.754
@@ -66,7 +67,7 @@ plotRelational(RepeatedSummary,RepeatedCorr)
 
 
 ```r
-plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=70)
+plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=5)
 ```
 
 ![](figures/Repeated-RelationalC-1.png)<!-- -->

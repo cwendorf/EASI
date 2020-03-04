@@ -54,5 +54,5 @@ plotRelational(RepeatedSummary,RepeatedCorr)
 ```
 
 ```{r,Repeated-RelationalC}
-plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=70)
+plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=5)
 ```

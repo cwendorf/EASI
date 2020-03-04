@@ -25,4 +25,4 @@ plotMeans(RepeatedSummary)
 addRelational(RepeatedSummary,RepeatedCorr)
 
 plotRelational(RepeatedSummary,RepeatedCorr)
-plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=70)
+plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=5)
