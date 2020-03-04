@@ -201,3 +201,22 @@ effectOmnibus <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For By the Omnibus Effect"} else {names(results) <- main}
   return(results)
 }
+
+### Meta-Wrappers for Functions
+
+#### Meta-Wrapper for Omnibus Functions
+
+allOmnibus <- function(...) {
+  output <- list(
+  descOmnibus=descOmnibus(...),
+  nhstOmnibus=nhstOmnibus(...),
+  pvaOmnibus=pvaOmnibus(...))
+  return(output)
+}
+
+analyzeOmnibus <- function(...,main=NULL,digits=3) {
+  results <- formatList(allOmnibus(...),digits=digits)
+  names(results) <- c("Analysis of Variance Source Table","Hypothesis Tests for the Omnibus Effect","Proportion of Variance Accounted For By the Omnibus Effect")
+  print(results)
+}
+

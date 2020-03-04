@@ -848,3 +848,56 @@ plotContrast.formula <- function(formula,contrast,main=NULL,ylab=NULL,xlab="",co
   if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   plotContrast(DescStats,contrast=contrast,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
 }
+
+### Meta-Wrappers for Functions
+
+#### Meta-Wrapper for Mean Functions
+
+allMeans <- function(...) {
+  output <- list(
+  ciMeans=ciMeans(...),
+  nhstMeans=nhstMeans(...),
+  smdMeans=smdMeans(...))
+  return(output)
+}
+
+analyzeMeans <- function(...,main=NULL,digits=3) {
+  results <- formatList(allMeans(...),digits=digits)
+  names(results) <- c("Confidence Intervals for the Means","Hypothesis Tests for the Means","Confidence Intervals for the Standardized Means")
+  print(results)
+  plotMeans(...,main=main,digits=digits)
+}
+
+#### Meta-Wrapper for Mean Difference/Comparison Functions
+
+allDifference <- function(...) {
+  output <- list(
+  ciDifference=ciDifference(...),
+  nhstDifference=nhstDifference(...),
+  smdDifference=smdDifference(...))
+  return(output)
+}
+
+analyzeDifference <- analyzeComparison <- function(...,main=NULL,digits=3) {
+  results <- formatList(allDifference(...),digits=digits)
+  names(results) <- c("Confidence Interval for the Comparison","Hypothesis Test for the Comparison","Confidence Interval for the Standardized Comparison")
+  print(results)
+  plotDifference(...,main=main,digits=digits)
+}
+
+#### Meta-Wrapper for Mean Contrast Functions
+
+allContrast <- function(...) {
+  output <- list(
+  ciContrast=ciContrast(...),
+  nhstContrast=nhstContrast(...),
+  smdContrast=smdContrast(...))
+  return(output)
+}
+
+analyzeContrast <- function(...,main=NULL,digits=3) {
+  results <- formatList(allContrast(...),digits=digits)
+  names(results) <- c("Confidence Interval for the Contrast","Hypothesis Test for the Contrast","Confidence Interval for the Standardized Contrast")
+  print(results)
+  plotContrast(...,main=main,digits=digits)
+}
