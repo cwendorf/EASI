@@ -21,7 +21,7 @@ EASI extentions are files that extend the functions beyond the original vision f
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/summarizeExtension.R")
 ```
 
-**_omnibusExtension_** (`describeOmnibus` and `testOmnibus` functions that provide an analysis of variance for single-factor between- and within-subjects designs)
+**_omnibusExtension_** (`describeOmnibus`, `testOmnibus`, and `effectOmnibus` functions that provide an analysis of variance for single-factor between- and within-subjects designs)
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/omnibusExtension.R")
 ```
