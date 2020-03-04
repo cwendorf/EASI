@@ -6,8 +6,6 @@
 - Tutorials show both the default output and the available options
 - Tutorials include estimation, plots, significance tests, and effect sizes where relevant
 
-> NOTE: All advanced tutorials depend on one or more [necessary extensions](../Functions/Extensions.md).
-
 ### Included Tutorials
 
 The **AnalyzeOneWay** tutorial combines the estimate, plot, test, and standardize functions for a single-factor between-subjects design:
@@ -19,14 +17,6 @@ The **AnalyzeRepeated** tutorial combines the estimate, plot, test, and standard
 
 - [_AnalyzeRepeatedDataTutorial_](./AnalyzeRepeatedDataTutorial.md) uses raw data input.
 - [_AnalyzeRepeatedSummaryTutorial_](./AnalyzeRepeatedSummaryTutorial.md) uses summary statistics input.
-
-The **SummarizeOneWay** tutorial provides summary statistics, boxplots, and data plots for a single-factor between-subjects design:
-
-- [_SummarizeOneWayDataTutorial_](./SummarizeOneWayDataTutorial.md) uses raw data input.
-
-The **SummarizeRepeated** tutorial provides summary statistics, boxplots, and data plots for a single-factor within-subjects design:
-
-- [_SumamrizeRepeatedDataTutorial_](./SummarizeRepeatedDataTutorial.md) uses raw data input.
 
 The **PairwiseOneWay** tutorial analyzes unadjusted paiwise comparisons for a single-factor between-subjects design:
 

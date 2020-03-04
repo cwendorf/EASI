@@ -27,7 +27,7 @@ Generally speaking, these procedures then can be applied to different targets or
 Suffix | Description
 --- | ---
 _Data_ | functions that summarize or represent raw data
-_Means_| functions that examine all individual groups or level means
+_Means_| functions that examine all individual group or level means
 _Difference_ | functions that examine a difference/comparison among two group or level means
 _Contrast_ | functions that examine a contrast among all of the group or level means
 _Pairwise_ | functions that examine all possible unadjusted pairwise comparisons among the group or levels means
