@@ -16,11 +16,6 @@ If the package is not installed, the extensions can be individually souced by pa
 
 EASI extentions are files that extend the functions beyond the original vision for EASI. The EASI extensions parallel the primary categories of analyses but add the following:
 
-**_analyzeExtension_** (`analyzeMeans`, `analyzeDifference`, and `analyzeContrast` wrappers that combine the estimate, plot, test, and standardize functions for single-factor between- and within-subjects designs)
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/analyzeExtension.R")
-```
-
 **_summarizeExtension_** (`summarizeData` and `plotBoxes` functions that calculate and plot summary statistics for boxplots of data for single-factor between- and within-subjects designs)
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/summarizeExtension.R")

@@ -155,7 +155,7 @@ pvaOmnibus.bss <- function(DescStats,conf.level=.90) {
   if(is.character(delta.lower)) {delta.lower <- 0}
   etasq.lower <- delta.lower / (delta.lower + dfb + dfw + 1)
   etasq.upper <- delta.upper / (delta.upper + dfb + dfw + 1)
-  results <- cbind(EST=etasq,LL=etasq.lower,UL=etasq.upper)
+  results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
   rownames(results) <- "Omnibus"
   return(results)
 }
@@ -176,7 +176,7 @@ pvaOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90) {
   if(is.character(delta.lower)) {delta.lower <- 0}
   etasq.lower <- delta.lower / (delta.lower + dff + dfe + 1)
   etasq.upper <- delta.upper / (delta.upper + dff + dfe + 1)
-  results <- cbind(EST=etasq,LL=etasq.lower,UL=etasq.upper)
+  results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
   rownames(results) <- "Omnibus"
   return(results)
 }
@@ -216,7 +216,7 @@ allOmnibus <- function(...) {
 
 analyzeOmnibus <- function(...,main=NULL,digits=3) {
   results <- formatList(allOmnibus(...),digits=digits)
-  names(results) <- c("Analysis of Variance Source Table","Hypothesis Tests for the Omnibus Effect","Proportion of Variance Accounted For By the Omnibus Effect")
+  names(results) <- c("Analysis of Variance Source Table","Hypothesis Test for the Omnibus Effect","Proportion of Variance Accounted For By the Omnibus Effect")
   print(results)
 }
 
