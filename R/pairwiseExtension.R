@@ -279,3 +279,24 @@ testPairwise <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {names(results) <- "Hypothesis Tests for the Pairwise Comparisons"} else {names(results) <- main}
   return(results)
 }
+
+### Meta-Wrappers for Functions
+
+#### Meta-Wrapper for Pairwise Functions
+
+allPairwise <- function(...) {
+  output <- list(
+  ciPairwise=ciPairwise(...),
+  nhstPairwise=nhstPairwise(...),
+  smdPairwise=smdPairwise(...))
+  return(output)
+}
+
+analyzePairwise <- function(...,main=NULL,digits=3) {
+  results <- formatList(allPairwise(...),digits=digits)
+  names(results) <- c("Confidence Intervals for the Pairwise Comparisons","Hypothesis Tests for the Pairwise Comparisons","Confidence Intervals for the Standardized Pairwise Comparisons")
+  print(results)
+  plotPairwise(...,main=main,digits=digits)
+}
+
+
