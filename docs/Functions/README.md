@@ -27,13 +27,13 @@ Prefix | Description
 
 The basic procedures and targets are combined to produce the following available functions for the input structures:
 
-`Data` | functions that plot or provide simple summaries of raw data
+`Data` - functions that plot or provide simple summaries of raw data
 
 - [`describeData`](./describeData.md)
 - [`correlateData`](./correlateData.md)
 - [`plotData`](./plotData.md)
 
-`Means` | functions that examine all individual group or level means
+`Means` - functions that examine all individual group or level means
 
 - [`estimateMeans`](./estimateMeans.md)
 - [`plotMeans`](./plotMeans.md)
@@ -41,7 +41,7 @@ The basic procedures and targets are combined to produce the following available
 - [`standardizeMeans`](./standardizeMeans.md)
 - [`analyzeMeans`](./analyzeMeans.md)
 
-`Difference` | functions that examine a difference/comparison among two group or level means
+`Difference` - functions that examine a difference/comparison among two group or level means
 
 - [`estimateDifference`](./estimateDifference.md) (or [`estimateComparison`](./estimateDifference.md))
 - [`plotDifference`](./plotDifference.md) (or [`plotComparison`](./plotDifference.md))
@@ -49,7 +49,7 @@ The basic procedures and targets are combined to produce the following available
 - [`standardizeDifference`](./standardizeDifference.md) (or [`standardizeComparison`](./standardizeDifference.md))
 - [`analyzeDifference`](./analyzeDifference.md) (or [`analyzeComparison`](./analyzeDifference.md))
 
-`Contrast` | functions that examine a contrast among all of the group or level means
+`Contrast` - functions that examine a contrast among all of the group or level means
 
 - [`estimateContrast`](./estimateContrast.md)
 - [`plotContrast`](./plotContrast)
@@ -57,7 +57,7 @@ The basic procedures and targets are combined to produce the following available
 - [`standardizeContrast`](./standardizeContrast.md) 
 - [`analyzeContrast`](./analyzeContrast.md)
 
-`Pairwise` | functions that examine all possible unadjusted pairwise comparisons among the group or levels means
+`Pairwise` (functions that examine all possible unadjusted pairwise comparisons among the group or levels means)
 
 - [`estimatePairwise`](./estimatePairwise.md)
 - [`plotPairwise`](./plotPairwise.md)
@@ -65,18 +65,18 @@ The basic procedures and targets are combined to produce the following available
 - [`standardizePairwise`](./standardizePairwise.md)
 - [`analyzePairwise`](./analyzePairwise.md)
 
-`Relational` | functions that provide arelational (standard) and relational (comparative) intervals 
+`Relational` - functions that provide arelational (standard) and relational (comparative) intervals 
 
 - [`estimateRelational`](./estimateRelational.md)
 - [`plotRelational`](./plotRelational.md)
 
-`Omnibus` | functions that provide an analysis of omnibus effects (like an ANOVA)
+`Omnibus` - functions that provide an analysis of omnibus effects (like an ANOVA)
 
 - [`describeOmnibus`](./describeOmnibus.md)
 - [`testOmnibus`](./testOmnibus.md)
 - [`effectOmnibus`](./effectOmnibus.md)
 
-`By` | functions that apply the basic functions repeatedly for each level of a second factor in a factorial or mixed design
+`By` - functions that apply the basic functions repeatedly for each level of a second factor in a factorial or mixed design
 
 - [`estimateMeansBy`](./estimateMeansBy.md)
 - [`plotMeansBy`](./plotMeansBy.md)
