@@ -12,7 +12,16 @@ library(EASI)
 
 ### Summary of the Functions
 
-EASI is designed to offer the following basic procedures:
+EASI is designed to accept the follow types of input:
+
+Class | Description
+:-- | :--
+`...` | listing of variables for a within-subjects design
+`formula` | a formula in `lhs~rhs` syntax for a between-subjects design 
+`wss` | a table of summary statistics from a within-subjects design
+`bss` | a table of summary statistics from a between-subjects design
+
+These data structures can then be used for the following basic procedures:
 
 Prefix | Description
 :-- | :--
@@ -22,7 +31,7 @@ _test_ | functions that calculate NHST for means, mean differences, and contrast
 _standardize_| functions that calculate standardized effect sizes and their confidence intervals
 _analyze_ | functions that combine the _estimate_, _plot_, _test_, and _standardize_ procedures into a single analysis
 
-Generally speaking, these procedures then can be applied to different targets or objects:
+Generally speaking, these procedures then can be applied to different targets of interest:
 
 Suffix | Description
 :-- | :--
