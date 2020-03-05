@@ -12,39 +12,43 @@ library(EASI)
 
 ### Summary of the Functions
 
+#### Classes of Data/Statistical Input 
+
 EASI is designed to accept the follow types of input:
 
 Class | Description
 :-- | :--
-`...` | listing of variables for a within-subjects design
+`...` | a listing of variables for a within-subjects design
 `formula` | a formula in `lhs~rhs` syntax for a between-subjects design 
 `wss` | a table of summary statistics from a within-subjects design
 `bss` | a table of summary statistics from a between-subjects design
+
+#### Basic Statistical Procedures
 
 These data structures can then be used for the following basic procedures:
 
 Prefix | Description
 :-- | :--
-_estimate_ | functions that estimate confidence intervals for means, mean differences, and contrasts
-_plot_| functions that plot confidence intervals for means, mean differences, and contrasts
-_test_ | functions that calculate NHST for means, mean differences, and contrasts
-_standardize_| functions that calculate standardized effect sizes and their confidence intervals
-_analyze_ | functions that combine the _estimate_, _plot_, _test_, and _standardize_ procedures into a single analysis
+`estimate` | functions that estimate confidence intervals for means, mean differences, and contrasts
+`plot` | functions that plot confidence intervals for means, mean differences, and contrasts
+`test` | functions that calculate NHST for means, mean differences, and contrasts
+`standardize` | functions that calculate standardized effect sizes and their confidence intervals
+`analyze` | functions that combine the _estimate_, _plot_, _test_, and _standardize_ procedures into a single analysis
+
+#### Targets for the Statistical Procedures
 
 Generally speaking, these procedures then can be applied to different targets of interest:
 
 Suffix | Description
 :-- | :--
-_Data_ | functions that summarize or represent raw data
-_Means_| functions that examine all individual group or level means
-_Difference_ | functions that examine a difference/comparison among two group or level means
-_Contrast_ | functions that examine a contrast among all of the group or level means
-_Pairwise_ | functions that examine all possible unadjusted pairwise comparisons among the group or levels means
-_Relational_ | functions that provide arelational (standard) and relational (comparative) intervals 
-_Omnibus_ | functions that provide an analysis of omnibus effects (like an ANOVA)
-_By_ | functions that extend the other functions to examine differences in factorial and mixed deisgns
+`Means` | functions that examine all individual group or level means
+`Difference` | functions that examine a difference/comparison among two group or level means
+`Contrast` | functions that examine a contrast among all of the group or level means
+`Pairwise` | functions that examine all possible unadjusted pairwise comparisons among the group or levels means
+`Relational` | functions that provide arelational (standard) and relational (comparative) intervals 
+`Omnibus` | functions that provide an analysis of omnibus effects (like an ANOVA)
 
-### Listing of Available Functions
+#### Listing of Available Functions
 
 The basic procedures and targets are combined to produce the following available functions for the input structures:
 
