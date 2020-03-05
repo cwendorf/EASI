@@ -12,72 +12,77 @@ library(EASI)
 
 ### Summary of the Functions
 
-#### General Statistical Procedures
+#### Classes of Data/Statistical Input 
+
+EASI is designed to accept the follow types of input:
+
+Class | Description
+:-- | :--
+`...` | a listing of variables for a within-subjects design
+`formula` | a formula in `lhs~rhs` syntax for a between-subjects design 
+`wss` | a table of summary statistics from a within-subjects design
+`bss` | a table of summary statistics from a between-subjects design
+
+#### Basic Statistical Procedures
+
+These data structures can then be used for the following basic procedures:
 
 Prefix | Description
 :-- | :--
-`describe` | provide simple descriptive summaries of the information
-`estimate` | estimate confidence intervals for means, mean differences, and contrasts
-`plot` | plot confidence intervals for means, mean differences, and contrasts
-`test` | calculate NHST for means, mean differences, and contrasts
-`standardize` | calculate standardized effect sizes and their confidence intervals
-`analyze` | combine the _estimate_, _plot_, _test_, and _standardize_ procedures into a single analysis
+`estimate` | functions that estimate confidence intervals for means, mean differences, and contrasts
+`plot` | functions that plot confidence intervals for means, mean differences, and contrasts
+`test` | functions that calculate NHST for means, mean differences, and contrasts
+`standardize` | functions that calculate standardized effect sizes and their confidence intervals
+`analyze` | functions that combine the _estimate_, _plot_, _test_, and _standardize_ procedures into a single analysis
+
+#### Targets for the Statistical Procedures
+
+Generally speaking, these procedures then can be applied to different targets of interest:
+
+Suffix | Description
+:-- | :--
+`Means` | functions that examine all individual group or level means
+`Difference` | functions that examine a difference/comparison among two group or level means
+`Contrast` | functions that examine a contrast among all of the group or level means
+`Pairwise` | functions that examine all possible unadjusted pairwise comparisons among the group or levels means
+`Relational` | functions that provide arelational (standard) and relational (comparative) intervals 
+`Omnibus` | functions that provide an analysis of omnibus effects (like an ANOVA)
 
 #### Listing of Available Functions
 
 The basic procedures and targets are combined to produce the following available functions for the input structures:
 
-`Data` | functions that plot or provide simple summaries of raw data
-
 - [`describeData`](./describeData.md)
 - [`correlateData`](./correlateData.md)
 - [`plotData`](./plotData.md)
-
-`Means` | functions that examine all individual group or level means
-
 - [`estimateMeans`](./estimateMeans.md)
 - [`plotMeans`](./plotMeans.md)
 - [`testMeans`](./testMeans.md)
 - [`standardizeMeans`](./standardizeMeans.md)
 - [`analyzeMeans`](./analyzeMeans.md)
-
-`Difference` | functions that examine a difference/comparison among two group or level means
-
 - [`estimateDifference`](./estimateDifference.md) (or [`estimateComparison`](./estimateDifference.md))
 - [`plotDifference`](./plotDifference.md) (or [`plotComparison`](./plotDifference.md))
 - [`testDifference`](./testDifference.md) (or [`testComparison`](./testDifference.md))
 - [`standardizeDifference`](./standardizeDifference.md) (or [`standardizeComparison`](./standardizeDifference.md))
 - [`analyzeDifference`](./analyzeDifference.md) (or [`analyzeComparison`](./analyzeDifference.md))
-
-`Contrast` | functions that examine a contrast among all of the group or level means
-
 - [`estimateContrast`](./estimateContrast.md)
 - [`plotContrast`](./plotContrast)
 - [`testContrast`](./testContrast.md)
 - [`standardizeContrast`](./standardizeContrast.md) 
 - [`analyzeContrast`](./analyzeContrast.md)
-
-`Pairwise` | functions that examine all possible unadjusted pairwise comparisons among the group or levels means
-
 - [`estimatePairwise`](./estimatePairwise.md)
 - [`plotPairwise`](./plotPairwise.md)
 - [`testPairwise`](./testPairwise.md)
 - [`standardizePairwise`](./standardizePairwise.md)
 - [`analyzePairwise`](./analyzePairwise.md)
 
-`Relational` | functions that provide arelational (standard) and relational (comparative) intervals 
+The following functions are available but are not fully documented yet:
 
 - [`estimateRelational`](./estimateRelational.md)
 - [`plotRelational`](./plotRelational.md)
-
-`Omnibus` | functions that provide an analysis of omnibus effects (like an ANOVA)
-
 - [`describeOmnibus`](./describeOmnibus.md)
 - [`testOmnibus`](./testOmnibus.md)
 - [`effectOmnibus`](./effectOmnibus.md)
-
-`By` | functions that apply the basic functions repeatedly for each level of a second factor in a factorial or mixed design
-
 - [`estimateMeansBy`](./estimateMeansBy.md)
 - [`plotMeansBy`](./plotMeansBy.md)
 - [`testMeansBy`](./testMeansBy.md)
