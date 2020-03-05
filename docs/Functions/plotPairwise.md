@@ -1,10 +1,8 @@
-`plotPairwise` {EASI}
-
 ## Plot Pairwise
 
 ### Description
 
-Provides a plot of all all unadjusted pairwise comparisons and their confidence intervals given the input.
+Provides a plot of all all unadjusted pairwise comparisons and their confidence intervals.
 
 ### Usage
 
@@ -25,7 +23,7 @@ plotPairwise(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,valu
 ### Arguments
 
 Argument | Description
---- | ---
+:-- | :--
 ```...``` | a set of (non-empty) numeric vectors of data values.
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.

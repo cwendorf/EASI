@@ -46,7 +46,7 @@ _By_ | functions that extend the other functions to examine differences in facto
 
 ### Listing of Available Functions
 
-The basic procedures and targets are combined to produce the following available functions:
+The basic procedures and targets are combined to produce the following available functions for the input structures:
 
 - [`describeData`](./describeData.md)
 - [`correlateData`](./correlateData.md)
@@ -66,11 +66,14 @@ The basic procedures and targets are combined to produce the following available
 - [`testContrast`](./testContrast.md)
 - [`standardizeContrast`](./standardizeContrast.md) 
 - [`analyzeContrast`](./analyzeContrast.md)
-- [`estimatePairwise`](./analyzePairwise.md)
+- [`estimatePairwise`](./estimatePairwise.md)
 - [`plotPairwise`](./plotPairwise.md)
 - [`testPairwise`](./testPairwise.md)
 - [`standardizePairwise`](./standardizePairwise.md)
 - [`analyzePairwise`](./analyzePairwise.md)
+
+The following functions are available but are not fully documented yet:
+
 - [`estimateRelational`](./estimateRelational.md)
 - [`plotRelational`](./plotRelational.md)
 - [`describeOmnibus`](./describeOmnibus.md)

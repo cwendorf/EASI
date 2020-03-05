@@ -8,7 +8,7 @@
 \alias{nhstPairwise.wss}
 \alias{nhstPairwise.bss}
 \title{Test Pairwise}
-\description{Provides a statistical significance test for all unadjusted pairwise comparisons given the input.}
+\description{Provides a statistical significance test for all unadjusted pairwise comparisons.}
 
 \usage{
 \method{testPairwise}{default}(\dots,mu=0,digits=3)

@@ -1,5 +1,3 @@
-`EASI-package` {EASI}
-
 ## Estimation Approach to Statistical Inference
 
 ### Description
@@ -9,7 +7,7 @@
 ### Details
 
 Attribute | Value
---- |---
+:-- | :--
 Package | EASI
 Type | Package
 

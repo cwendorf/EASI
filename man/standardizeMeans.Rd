@@ -8,7 +8,7 @@
 \alias{smdMeans.wss}
 \alias{smdMeans.bss}
 \title{Standardize Means}
-\description{Provides a standardized effect size and its confidence interval for each mean given the input.}
+\description{Provides a standardized effect size and its confidence interval for each group or level mean.}
 
 \usage{
 \method{standardizeMeans}{default}(\dots,mu=0,conf.level=.95,digits=3)

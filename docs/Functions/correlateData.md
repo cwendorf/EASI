@@ -1,5 +1,3 @@
-`correlateData` {EASI}
-
 ## Correlate Data
 
 ### Description
@@ -16,7 +14,7 @@ correlateData(...,digits=3)
 ### Arguments
 
 Argument | Description
---- |---
+:-- | :--
 ```...``` | a set of (non-empty) numeric vectors of data values.
 ```digits``` | the specified number of decimal places.
 

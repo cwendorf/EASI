@@ -1,23 +1,23 @@
-% File man/standardizeContrast.Rd
+% File man/analyzeContrast.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{standardizeContrast}
-\alias{standardizeContrast}
-\alias{smdContrast.default}
-\alias{smdContrast.formula}
-\alias{smdContrast.wss}
-\alias{smdContrast.bss}
-\title{Standardize Contrast}
-\description{Provides the standardized effect size and its confidence interval for the contrast.}
+\name{analyzeContrast}
+\alias{analyzeContrast}
+\alias{allContrast.default}
+\alias{allContrast.formula}
+\alias{allContrast.wss}
+\alias{allContrast.bss}
+\title{Analyze Contrast}
+\description{Provides a list of output that combines the estimate, plot, test, and standardize functions for a contrast.}
 
 \usage{
-\method{standardizeContrast}{default}(\dots,contrast,mu=0,conf.level=.95,digits=3)
+\method{analyzeContrast}{default}(\dots,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
-\method{standardizeContrast}{formula}(formula,contrast,mu=0,conf.level=.95,digits=3)
+\method{analyzeContrast}{formula}(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
-\method{standardizeContrast}{wss}(DescStats,CorrStats,contrast,mu=0,conf.level=.95,digits=3)
+\method{analyzeContrast}{wss}(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
-\method{standardizeContrast}{bss}(DescStats,contrast,mu=0,conf.level=.95,digits=3)
+\method{analyzeContrast}{bss}(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 }
 
 \arguments{

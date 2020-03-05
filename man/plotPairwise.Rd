@@ -8,7 +8,7 @@
 \alias{plotPairwise.wss}
 \alias{plotPairwise.bss}
 \title{Plot Pairwise}
-\description{Provides a plot of all all unadjusted pairwise comparisons and their confidence intervals given the input.}
+\description{Provides a plot of all all unadjusted pairwise comparisons and their confidence intervals.}
 
 \usage{
 \method{plotPairwise}{default}(\dots,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)

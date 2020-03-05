@@ -8,7 +8,7 @@
 \alias{ciContrast.wss}
 \alias{ciContrast.bss}
 \title{Estimate Contrast}
-\description{Provides the mean contrast, standard error, and confidence interval of the contrast given the input.}
+\description{Provides the mean contrast, standard error, and confidence interval of the contrast.}
 
 \usage{
 \method{estimateContrast}{default}(\dots,contrast,conf.level=.95,digits=3)

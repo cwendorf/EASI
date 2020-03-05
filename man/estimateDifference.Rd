@@ -8,7 +8,7 @@
 \alias{ciDifference.wss}
 \alias{ciDifference.bss}
 \title{Estimate Difference}
-\description{Provides the mean difference, standard error, and confidence interval of the difference given the input.}
+\description{Provides the mean difference, standard error, and confidence interval of the difference.}
 
 \usage{
 \method{estimateDifference}{default}(\dots,conf.level=.95,digits=3)

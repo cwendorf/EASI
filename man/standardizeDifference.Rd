@@ -8,7 +8,7 @@
 \alias{smdDifference.wss}
 \alias{smdDifference.bss}
 \title{Standardize Difference}
-\description{Provides the standardized effect size and its confidence interval for the difference given the input.}
+\description{Provides the standardized effect size for the difference and its confidence interval.}
 
 \usage{
 \method{standardizeDifference}{default}(\dots,mu=0,conf.level=.95,digits=3)

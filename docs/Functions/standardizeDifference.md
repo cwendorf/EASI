@@ -1,10 +1,8 @@
-`standardizeDifference` {EASI}
-
 ## Standardize Difference
 
 ### Description
 
-Provides the standardized effect size and its confidence interval for the difference given the input.
+Provides the standardized effect size for the difference and its confidence interval.
 
 ### Usage
 
@@ -25,7 +23,7 @@ standardizeDifference(CompStats,mu=0,conf.level=.95,digits=3)
 ### Arguments
 
 Argument | Description
---- | ---
+:-- | :--
 ```...``` | a set of (non-empty) numeric vectors of data values.
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```CompStats``` | a matrix/frame of descriptive/summary statistics.

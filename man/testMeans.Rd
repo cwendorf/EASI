@@ -8,7 +8,7 @@
 \alias{nhstMeans.wss}
 \alias{nhstMeans.bss}
 \title{Test Means}
-\description{Provides a statistical significance test for each mean given the input.}
+\description{Provides a statistical significance test for each group or level mean.}
 
 \usage{
 \method{testMeans}{default}(\dots,mu=0,digits=3)

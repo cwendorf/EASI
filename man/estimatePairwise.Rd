@@ -8,7 +8,7 @@
 \alias{ciPairwise.wss}
 \alias{ciPairwise.bss}
 \title{Estimate Pairwise}
-\description{Provides a table of confidence intervals for all unadjusted pairwise comparisons among the means given the input.}
+\description{Provides a table of confidence intervals for all unadjusted pairwise comparisons among the means.}
 
 \usage{
 \method{estimatePairwise}{default}(\dots,conf.level=.95,digits=3)

@@ -1,10 +1,8 @@
-`estimatePairwise` {EASI}
-
 ## Estimate Pairwise
 
 ### Description
 
-Provides a table of confidence intervals for all unadjusted pairwise comparisons among the means given the input.
+Provides a table of confidence intervals for all unadjusted pairwise comparisons among the group or level means.
 
 ### Usage
 
@@ -25,7 +23,7 @@ estimatePairwise(DescStats,conf.level=.95,digits=3)
 ### Arguments
 
 Argument | Description
---- | ---
+:-- | :--
 ```...``` | a set of (non-empty) numeric vectors of data values.
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.

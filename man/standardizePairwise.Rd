@@ -8,7 +8,7 @@
 \alias{smdPairwise.wss}
 \alias{smdPairwise.bss}
 \title{Standardize Pairwise}
-\description{Provides a standardized effect size and its confidence interval for all unadjusted pairwise comparisons given the input.}
+\description{Provides a standardized effect size and its confidence interval for all unadjusted pairwise comparisons.}
 
 \usage{
 \method{standardizePairwise}{default}(\dots,mu=0,conf.level=.95,digits=3)

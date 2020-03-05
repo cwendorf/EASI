@@ -8,7 +8,7 @@
 \alias{plotDifference.wss}
 \alias{plotDifference.bss}
 \title{Plot Difference}
-\description{Provides a plot of the two means, the mean difference, and their confidence intervals given the input.}
+\description{Provides a plot of the two means, the mean difference, and their confidence intervals.}
 
 \usage{
 \method{plotDifference}{default}(\dots,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)

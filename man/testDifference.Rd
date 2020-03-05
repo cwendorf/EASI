@@ -8,7 +8,7 @@
 \alias{nhstDifference.wss}
 \alias{nhstDifference.bss}
 \title{Test Difference}
-\description{Provides a statistical significance test of the mean difference given the input.}
+\description{Provides a statistical significance test of the mean difference.}
 
 \usage{
 \method{testDifference}{default}(\dots,mu=0,digits=3)

@@ -1,23 +1,23 @@
-## Standardize Means
+## Analyze Difference
 
 ### Description
 
-Provides a standardized effect size and its confidence interval for each group or level mean.
+Provides a list of output that combines the estimate, plot, test, and standardize functions for a mean diference.
 
 ### Usage
 
 ```r
 ## Default S3 method:
-standardizeMeans(...,mu=0,conf.level=.95,digits=3)
+plotDifference(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
 ## S3 method for class 'formula'
-standardizeMeans(formula,mu=0,conf.level=.95,digits=3)
+plotDifference(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
 ## S3 method for class 'wss'
-standardizeMeans(DescStats,mu=0,conf.level=.95,digits=3)
+plotDifference(CompStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
 ## S3 method for class 'bss'
-standardizeMeans(DescStats,mu=0,conf.level=.95,digits=3)
+plotDifference(CompStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 ```
 
 ### Arguments
@@ -27,8 +27,12 @@ Argument | Description
 ```...``` | a set of (non-empty) numeric vectors of data values.
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.
+```ylab``` | a label for the y-axis.
+```xlab``` | a label for the x-axis.
 ```mu``` | a number indicating the true/hypothesized value of the mean.
 ```conf.level``` | confidence level of the interval.
+```rope``` | lower and upper values for a region of practical equivalence.
+```values``` | whether the points should be labeled with their values.
 ```digits``` | the specified number of decimal places.
 
 ### Details

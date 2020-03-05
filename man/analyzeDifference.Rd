@@ -1,23 +1,23 @@
-% File man/plotMeans.Rd
+% File man/analyzeDifference.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{plotMeans}
-\alias{plotMeans}
-\alias{plotMeans.default}
-\alias{plotMeans.formula}
-\alias{plotMeans.wss}
-\alias{plotMeans.bss}
-\title{Plot Means}
-\description{Provides a plot of all group or level means and their confidence intervals.}
+\name{analyzeDifference}
+\alias{analyzeDifference}
+\alias{allDifference.default}
+\alias{allDifference.formula}
+\alias{allDifference.wss}
+\alias{allDifference.bss}
+\title{Analyze Difference}
+\description{Provides a list of output that combines the estimate, plot, test, and standardize functions for a mean diference.}
 
 \usage{
-\method{plotMeans}{default}(\dots,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+\method{analyzeDifference}{default}(\dots,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
-\method{plotMeans}{formula}(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+\method{analyzeDifference}{formula}(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
-\method{plotMeans}{wss}(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+\method{analyzeDifference}{wss}(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 
-\method{plotMeans}{bss}(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+\method{analyzeDifference}{bss}(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
 }
 
 \arguments{

@@ -8,7 +8,7 @@
 \alias{nhstContrast.wss}
 \alias{nhstContrast.bss}
 \title{Test Contrast}
-\description{Provides a statistical significance test of the mean contrast given the input.}
+\description{Provides a statistical significance test of the mean contrast.}
 
 \usage{
 \method{testContrast}{default}(\dots,contrast,mu=0,digits=3)

@@ -8,7 +8,7 @@
 \alias{plotContrast.wss}
 \alias{plotContrast.bss}
 \title{Plot Contrast}
-\description{Provides the plot of the means, the mean contrast, and their confidence intervals given the input.}
+\description{Provides the plot of the means, the mean contrast, and their confidence intervals.}
 
 \usage{
 \method{plotContrast}{default}(\dots,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)

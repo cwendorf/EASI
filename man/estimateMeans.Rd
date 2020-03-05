@@ -8,7 +8,7 @@
 \alias{ciMeans.wss}
 \alias{ciMeans.bss}
 \title{Estimate Means}
-\description{Provides a table of means, standard deviations, and confidence intervals for each mean given the input.}
+\description{Provides a table of means, standard deviations, and confidence intervals for each group or level mean.}
 
 \usage{
 \method{estimateMeans}{default}(\dots,conf.level=.95,digits=3)

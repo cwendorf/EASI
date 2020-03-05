@@ -1,10 +1,8 @@
-`plotContrast` {EASI}
-
 ## Plot Contrast
 
 ### Description
 
-Provides the plot of the means, the mean contrast, and their confidence intervals given the input.
+Provides the plot of the means, the mean contrast, and their confidence intervals.
 
 ### Usage
 
@@ -25,7 +23,7 @@ plotContrast(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=
 ### Arguments
 
 Argument | Description
---- | ---
+:-- | :--
 ```...``` | a set of (non-empty) numeric vectors of data values.
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.
