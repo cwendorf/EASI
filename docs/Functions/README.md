@@ -25,8 +25,6 @@ Prefix | Description
 
 #### Listing of Available Functions
 
-The basic procedures and targets are combined to produce the following available functions for the input structures:
-
 `Data` - functions that plot or provide simple summaries of raw data
 
 - [`describeData`](./describeData.md)
@@ -76,7 +74,7 @@ The basic procedures and targets are combined to produce the following available
 - [`testOmnibus`](./testOmnibus.md)
 - [`effectOmnibus`](./effectOmnibus.md)
 
-`By` - functions that apply the basic functions repeatedly for each level of a second factor in a factorial or mixed design
+`By` - functions that apply the above functions repeatedly for each level of a second factor in a factorial or mixed design
 
 - [`estimateMeansBy`](./estimateMeansBy.md)
 - [`plotMeansBy`](./plotMeansBy.md)
