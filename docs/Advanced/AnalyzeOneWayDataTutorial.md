@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-02"
+date: "2020-03-05"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,6 +19,8 @@ vignette: >
 
 ### Enter Data
 
+This code inputs the variable names and creates a viewable data frame.
+
 
 ```r
 Factor <- c(rep(1,4),rep(2,4),rep(3,4))
@@ -28,6 +30,10 @@ OneWayData <- data.frame(Factor,Outcome)
 ```
 
 ### Analyses of Multiple Groups
+
+This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
+
+This code will provide a table of descriptive statistics and confidence intervals, a table of NHST, and a table of standardized mean differences for each level of the factor.
 
 
 ```r
@@ -55,6 +61,8 @@ analyzeMeans(Outcome~Factor)
 ```
 
 ![](figures/AnalyzeOneWay-MeansA-1.png)<!-- -->
+
+It is also possible to alter the width of the confidence intervals, add a comparison value for the means, and to add a region of practical equivalence.
 
 
 ```r
@@ -85,6 +93,10 @@ analyzeMeans(Outcome~Factor,mu=5,conf.level=.99,rope=c(3,7))
 
 ### Analyses of a Group Comparison
 
+This section produces analyses that are equivalent to comparisons of two levels of a factor.
+
+This code creates a new factor that identifies the two levels for comparison. It also provides table for the confidence interval of the difference, a table of NHST for the difference, and a table of the standardized mean difference.
+
 
 ```r
 Comparison=factor(Factor,c("Level1","Level2"))
@@ -106,6 +118,8 @@ analyzeDifference(Outcome~Comparison)
 ```
 
 ![](figures/AnalyzeOneWay-DifferenceA-1.png)<!-- -->
+
+As always, a interval width can be altered, and comparison values and a region of practical equivalence can be added.
 
 
 ```r
@@ -130,6 +144,10 @@ analyzeDifference(Outcome~Comparison,mu=-2,conf.level=.99,rope=c(-2,2))
 
 ### Analyses of a Group Contrast
 
+This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
+
+This code identifies a contrast among the groups. It also provides table for the confidence interval for the contrast, a table of NHST for the contrast, and a table of the standardized contrast.
+
 
 ```r
 L1vsOthers <- c(-1,.5,.5)
@@ -151,6 +169,8 @@ analyzeContrast(Outcome~Factor,contrast=L1vsOthers)
 ```
 
 ![](figures/AnalyzeOneWay-ContrastA-1.png)<!-- -->
+
+Finally, a comparison value, a region of practical equivalence, and a custom interval width can be specified.
 
 
 ```r

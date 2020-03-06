@@ -24,7 +24,7 @@ library(EASI)
 
 ### Enter Summary Statistics
 
-This code inputs the variable summaries and creates a single summary table (for the first simple effect).
+This code inputs the group summaries and creates a single summary table (for the first simple effect).
 ```{r}
 A1 <- c(N=4,M=2.000,SD=2.449)
 A2 <- c(N=4,M=6.000,SD=2.449)

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-02"
+date: "2020-03-05"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,6 +19,8 @@ vignette: >
 
 ### Enter Summary Statistics
 
+This code inputs the group summaries and creates a single summary table.
+
 
 ```r
 Level1 <- c(N=4,M=2.000,SD=2.449)
@@ -29,6 +31,10 @@ class(OneWaySummary) <- "bss"
 ```
 
 ### Analyses of Multiple Groups
+
+This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
+
+This code will provide a table of descriptive statistics and confidence intervals, a table of NHST, and a table of standardized mean differences for each level of the factor.
 
 
 ```r
@@ -56,6 +62,8 @@ analyzeMeans(OneWaySummary)
 ```
 
 ![](figures/AnalyzeOneWay-MeansA-1.png)<!-- -->
+
+It is also possible to alter the width of the confidence intervals, add a comparison value for the means, and to add a region of practical equivalence.
 
 
 ```r
@@ -86,13 +94,14 @@ analyzeMeans(OneWaySummary,mu=5,conf.level=.99,rope=c(3,7))
 
 ### Analyses of a Group Comparison
 
+This section produces analyses that are equivalent to comparisons of two levels of a factor.
+
+This code creates a new table that identifies the two levels for comparison. It also provides table for the confidence interval of the difference, a table of NHST for the difference, and a table of the standardized mean difference.
+
 
 ```r
 CompSummary <- OneWaySummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
-```
-
-```r
 analyzeDifference(CompSummary)
 ```
 
@@ -111,6 +120,8 @@ analyzeDifference(CompSummary)
 ```
 
 ![](figures/AnalyzeOneWay-DifferenceA-1.png)<!-- -->
+
+As always, a interval width can be altered, and comparison values and a region of practical equivalence can be added.
 
 
 ```r
@@ -135,12 +146,13 @@ analyzeDifference(CompSummary,mu=-2,conf.level=.99,rope=c(-2,2))
 
 ### Analyses of a Group Contrast
 
+This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
+
+This code identifies a contrast among the groups. It also provides table for the confidence interval for the contrast, a table of NHST for the contrast, and a table of the standardized contrast.
+
 
 ```r
 L1vsOthers <- c(-1,.5,.5)
-```
-
-```r
 analyzeContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
@@ -159,6 +171,8 @@ analyzeContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 ![](figures/AnalyzeOneWay-ContrastA-1.png)<!-- -->
+
+Finally, a comparison value, a region of practical equivalence, and a custom interval width can be specified.
 
 
 ```r

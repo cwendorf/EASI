@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-03-05"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,7 +19,7 @@ vignette: >
 
 ### Enter Summary Statistics
 
-This code inputs the variable summaries and creates a single summary table (for the first simple effect).
+This code inputs the group summaries and creates a single summary table (for the first simple effect).
 
 ```r
 A1 <- c(N=4,M=2.000,SD=2.449)
