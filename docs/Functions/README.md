@@ -63,7 +63,7 @@ Prefix | Description
 - [`standardizePairwise`](./standardizePairwise.md)
 - [`analyzePairwise`](./analyzePairwise.md)
 
-`Relational` - functions that provide arelational (standard) and relational (comparative) intervals 
+`Relational` - functions that provide both arelational (confidence) and relational (comparative) intervals 
 
 - [`estimateRelational`](./estimateRelational.md)
 - [`plotRelational`](./plotRelational.md)
