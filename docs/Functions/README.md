@@ -87,7 +87,7 @@ Prefix | Description
 - [`estimateContrastBy`](./estimateContrastBy.md)
 - [`plotContrastBy`](./plotContrastBy.md)
 - [`testContrastBy`](./testContrastBy.md)
-- [`standardizeContrastBy`](./standardizedContrastBy.md)
+- [`standardizeContrastBy`](./standardizeContrastBy.md)
 
 ### More Information
 
