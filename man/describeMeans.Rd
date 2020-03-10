@@ -1,17 +1,17 @@
-% File man/describeData.Rd
+% File man/describeMeans.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{describeData}
-\alias{describeData}
-\alias{descData.default}
-\alias{descData.formula}
-\title{Describe Data}
+\name{describeMeans}
+\alias{describeMeans}
+\alias{descMeans.default}
+\alias{descMeans.formula}
+\title{Describe Means}
 \description{Provides a table of descriptive/summary statistics for a data set.}
 
 \usage{
-\method{describeData}{default}(\dots,digits=3)
+\method{describeMeans}{default}(\dots,digits=3)
 
-\method{describeData}{formula}(formula,digits=3)
+\method{describeMeans}{formula}(formula,digits=3)
 }
 
 \arguments{

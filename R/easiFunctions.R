@@ -17,10 +17,10 @@ formatList <- function(results,digits=3) {
 
 #### Describe Function for Mutiple Groups and Variables
 
-descData <- function(...) 
-  UseMethod("descData")
+descMeans <- function(...) 
+  UseMethod("descMeans")
 
-descData.default <- function(...) {
+descMeans.default <- function(...) {
   data <- data.frame(...)
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
@@ -29,8 +29,8 @@ descData.default <- function(...) {
   return(results)
 }
 
-descData.formula <- function(formula,...) {
-  results <- aggregate(formula,FUN=descData,...)
+descMeans.formula <- function(formula,...) {
+  results <- aggregate(formula,FUN=descMeans,...)
   rn <- results[,1]
   results <- results[[2]]
   rownames(results) <- rn
@@ -38,25 +38,25 @@ descData.formula <- function(formula,...) {
   return(results)
 }
 
-describeData <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(descData(...)),digits=digits)
+describeMeans <- function(...,main=NULL,digits=3) {
+  results <- formatList(list(descMeans(...)),digits=digits)
   if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}
   return(results)
 }
 
 #### Correlate/Covary Functions for Mutiple Variables
 
-corrData <- function(...) 
-  UseMethod("corrData")
+descCorrelation <- function(...) 
+  UseMethod("descCorrelation")
 
-corrData.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
+descCorrelation.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   data <- data.frame(...)
   results <- cor(data)
   return(results)
 }
 
-correlateData <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(corrData(...)),digits=digits)
+describeCorrelation <- describeCorr <- function(...,main=NULL,digits=3) {
+  results <- formatList(list(descCorrelation(...)),digits=digits)
   if(is.null(main)) {names(results) <- "Correlation Matrix for the Data"} else {names(results) <- main}
   return(results)
 }
@@ -69,7 +69,7 @@ cortocov <- function(CorrStats,SD) {
 
 #### Declare and Fill Blanks in Matrix
 
-declareCorrMatrix <- function(...) {
+declareCorrealtionMAtrix <- declareCorrMatrix <- function(...) {
   clist=c(...)
   nr=length(clist)
   results=matrix(data=NA,nr,nr)
@@ -78,7 +78,7 @@ declareCorrMatrix <- function(...) {
   return(results)
 }
 
-fillCorrMatrix <- function(mat) {
+fillCorrelationMatrix <- fillCorrMatrix <- function(mat) {
   nr <- nrow(mat)
   nc <- ncol(mat)
   rn <- rownames(mat)
@@ -122,14 +122,14 @@ ciMeans.wss <- ciMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,.
 }
 
 ciMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
   results <- ciMeans(DescStats,conf.level=conf.level)
   return(results)
 }
 
 ciMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- ciMeans(DescStats,conf.level=conf.level)
   return(results)
@@ -182,15 +182,15 @@ ciDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,...) {
 }
 
 ciDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
-  CompStats <- descData(...)
+  CompStats <- descMeans(...)
   class(CompStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- ciDifference(CompStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 ciDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
-  CompStats <- descData(formula)
+  CompStats <- descMeans(formula)
   class(CompStats) <- "bss"
   results <- ciDifference(CompStats,conf.level=conf.level)
   return(results)
@@ -244,15 +244,15 @@ ciContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,...)
 }
 
 ciContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- ciContrast(DescStats,CorrStats,contrast,conf.level=conf.level)
   return(results)
 }
 
 ciContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- ciContrast(DescStats,contrast,conf.level=conf.level)
   return(results)
@@ -285,14 +285,14 @@ nhstMeans.wss <- nhstMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NU
 }
 
 nhstMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
   results <- nhstMeans(DescStats,mu=mu)
   return(results)
 }
 
 nhstMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- nhstMeans(DescStats,mu=mu)
   return(results)
@@ -343,15 +343,15 @@ nhstDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,...) {
 }
 
 nhstDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
-  CompStats <- descData(...)
+  CompStats <- descMeans(...)
   class(CompStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- nhstDifference(CompStats,CorrStats,mu=mu)
   return(results)
 }
 
 nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
-  CompStats <- descData(formula)
+  CompStats <- descMeans(formula)
   class(CompStats) <- "bss"
   results <- nhstDifference(CompStats,mu=mu)
   return(results)
@@ -402,15 +402,15 @@ nhstContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,ro
 }
 
 nhstContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- nhstContrast(DescStats,CorrStats,contrast,mu=mu)
   return(results)
 }
 
 nhstContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- nhstContrast(DescStats,contrast,mu=mu)
   return(results)
@@ -460,20 +460,20 @@ smdMeans.wss <- smdMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL
   ul2 <- ifelse(t>0,a+c*ulp,a+c*llp)
   LL <- ifelse(skew<.001,ll1*sqrt(1/N),ll2*sqrt(1/N))
   UL <- ifelse(skew<.001,ul1*sqrt(1/N),ul2*sqrt(1/N))
-  results <- data.frame(d=CD,"d(unb)"=CDU,SE=SE,LL=LL,UL=UL)
+  results <- data.frame(d=CD,"d.unb"=CDU,SE=SE,LL=LL,UL=UL)
   rownames(results) <- rownames(DescStats)
   return(results)
 }
 
 smdMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
   results <- smdMeans(DescStats,mu=mu,conf.level=conf.level)
   return(results)
 }
 
 smdMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- smdMeans(DescStats,mu=mu,conf.level=conf.level)
   return(results)
@@ -533,15 +533,15 @@ smdDifference.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,.
 }
 
 smdDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
-  CompStats <- descData(...)
+  CompStats <- descMeans(...)
   class(CompStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- smdDifference(CompStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- smdDifference(DescStats,contrast,conf.level=conf.level)
   return(results)
@@ -604,15 +604,15 @@ smdContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,...
 }
 
 smdContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- smdContrast(DescStats,CorrStats,contrast,conf.level=conf.level)
   return(results)
 }
 
 smdContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- smdContrast(DescStats,contrast,conf.level=conf.level)
   return(results)
@@ -744,13 +744,13 @@ plotMeans.bss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",conf.level=
 }
 
 plotMeans.default <- function(...,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
   plotMeans(DescStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values,digits=digits)
 }
 
 plotMeans.formula <- function(formula,main=NULL,ylab=NULL,xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   if(is.null(ylab)) {ylab=all.vars(formula)[1]}
   plotMeans(DescStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,mu=mu,rope=rope,values=values,digits=digits)
@@ -788,14 +788,14 @@ plotDifference.bss <- function(CompStats,main=NULL,ylab="Outcome",xlab="",conf.l
 }
 
 plotDifference.default <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
-  CompStats <- descData(...)
+  CompStats <- descMeans(...)
   class(CompStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   plotDifference(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
 }
 
 plotDifference.formula <- function(formula,main=NULL,ylab=NULL,xlab="",conf.level=.95,rope=NULL,lables=NULL,values=TRUE,digits=3,...) {
-  CompStats <- descData(formula)
+  CompStats <- descMeans(formula)
   class(CompStats) <- "bss"
   if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   plotDifference(CompStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
@@ -836,14 +836,14 @@ plotContrast.bss <- function(DescStats,contrast,main=NULL,ylab="Outcome",xlab=""
 }
 
 plotContrast.default <- function(...,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,digits=3) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   plotContrast(DescStats,CorrStats,contrast=contrast,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
 }
 
 plotContrast.formula <- function(formula,contrast,main=NULL,ylab=NULL,xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   plotContrast(DescStats,contrast=contrast,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)

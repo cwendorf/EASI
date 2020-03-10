@@ -1,4 +1,4 @@
-## Correlate Data
+## Describe Correlation
 
 ### Description
 
@@ -8,7 +8,7 @@ Provides a square matrix/frame of correlations for a data set.
 
 ```r
 ## Default S3 method
-correlateData(...,digits=3)
+describeCorrelation(...,digits=3)
 ```
 
 ### Arguments
