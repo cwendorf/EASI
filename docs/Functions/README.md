@@ -25,14 +25,9 @@ Prefix | Description
 
 #### Listing of Available Functions
 
-`Data` - functions that plot or provide simple summaries of raw data
-
-- [`describeData`](./describeData.md)
-- [`correlateData`](./correlateData.md)
-- [`plotData`](./plotData.md)
-
 `Means` - functions that examine all individual group or level means
 
+- [`describeMeans`](./describeMeans.md)
 - [`estimateMeans`](./estimateMeans.md)
 - [`plotMeans`](./plotMeans.md)
 - [`testMeans`](./testMeans.md)
@@ -88,6 +83,10 @@ Prefix | Description
 - [`plotContrastBy`](./plotContrastBy.md)
 - [`testContrastBy`](./testContrastBy.md)
 - [`standardizeContrastBy`](./standardizeContrastBy.md)
+
+`Correlation` - functions that provide analyses of correlations among variables
+
+- [`describeCorrelation`](./describeCorrelation.md)
 
 ### More Information
 
