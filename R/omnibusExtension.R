@@ -1,9 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Extension for Omnibus (Analysis of Variance) Analyses
 
-### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF EASIFUNCTIONS INTO R
-
 ### Descriptive Functions
 
 descOmnibus <- function(...) 
@@ -55,15 +52,15 @@ descOmnibus.bss <- function(DescStats,conf.level=.95,...) {
 }
 
 descOmnibus.default <- function(...,conf.level=.95) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- corrData(...)  
+  CorrStats <- descCorrelation(...)  
   results <- descOmnibus(DescStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 descOmnibus.formula <- function(formula,conf.level=.95,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- descOmnibus(DescStats,conf.level=conf.level)
   return(results)
@@ -109,15 +106,15 @@ nhstOmnibus.bss <- function(DescStats) {
 }
 
 nhstOmnibus.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- corrData(...)  
+  CorrStats <- descCorrelation(...)  
   results <- nhstOmnibus(DescStats,CorrStats)
   return(results)
 }
 
 nhstOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- nhstOmnibus(DescStats)
   return(results)
@@ -182,15 +179,15 @@ pvaOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90) {
 }
 
 pvaOmnibus.default <- function(...,mu=0,conf.level=.90,rope=NULL) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- corrData(...)  
+  CorrStats <- descCorrelation(...)  
   results <- pvaOmnibus(DescStats,CorrStats)
   return(results)
 }
 
 pvaOmnibus.formula <- function(formula,mu=0,conf.level=.90,rope=NULL) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- pvaOmnibus(DescStats,conf.level)
   return(results)

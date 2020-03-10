@@ -1,50 +1,47 @@
 # Estimation Approach to Statistical Inference
 ## Extension for Analyzing Factorial and Mixed Designs
 
-### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF EASIFUNCTIONS INTO R
-
 ### Data Functions
 
 #### Describe Function for Mutiple Groups and Variables
 
-descDataBy <- function(...) 
-  UseMethod("descDataBy")
+descMeansBy <- function(...) 
+  UseMethod("descMeansBy")
 
-descDataBy.default <- function(...,by) {
+descMeansBy.default <- function(...,by) {
   MixedData <- data.frame(by,...)
   SplitData <- split(MixedData[-1],by)
-  results <- lapply(SplitData,descData)
+  results <- lapply(SplitData,descMeans)
   return(results)
 }
 
-descDataBy.formula <- function(formula,by) {
+descMeansBy.formula <- function(formula,by) {
   model <- model.frame(formula)
   FactorialData <- cbind(by,model[2],model[1])
   SplitData <- split(FactorialData[-1],by)
-  results <- lapply(SplitData,descData.formula,formula=formula)
+  results <- lapply(SplitData,descMeans.formula,formula=formula)
   return(results)
 }
 
-describeDataBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(descDataBy(...),digits=digits)
+describeMeansBy <- function(...,main=NULL,digits=3) {
+  results <- formatList(descMeansBy(...),digits=digits)
   return(results)
 }
 
 #### Correlate/Covary Functions for Mutiple Variables
 
-corrDataBy <- function(...) 
-  UseMethod("corrDataBy")
+descCorrelationBy <- function(...) 
+  UseMethod("descCorrelationBy")
 
-corrDataBy.default <- function(...,by) {
+descCorrelationBy.default <- function(...,by) {
   MixedData <- data.frame(by,...)
   SplitData <- split(MixedData[-1],by)
-  results <- lapply(SplitData,corrData)
+  results <- lapply(SplitData,descCorrelation)
   return(results)
 }
 
-correlateDataBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(corrDataBy(...),digits=digits)
+dscribeCorrelationBy <- function(...,main=NULL,digits=3) {
+  results <- formatList(descCorrelationBy(...),digits=digits)
   return(results)
 }
 
@@ -85,7 +82,7 @@ ciMeansBy.default <- function(...,by,conf.level=.95) {
 }
 
 ciMeansBy.formula <- function(formula,by,conf.level=.95) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss"  
   results <- lapply(ListDescStats,FUN=function(x) ciMeans(x,conf.level=conf.level))
   return(results)
@@ -131,7 +128,7 @@ ciDifferenceBy.default <- function(...,by,conf.level=.95) {
 }
 
 ciDifferenceBy.formula <- function(formula,by,conf.level=.95) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss" 
   results <- lapply(ListDescStats,FUN=function(x) ciDifference(x,conf.level=conf.level))
   return(results)
@@ -177,7 +174,7 @@ ciContrastBy.default <- function(...,by,contrast,conf.level=.95) {
 }
 
 ciContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss" 
   results <- lapply(ListDescStats,FUN=function(x) ciContrast(x,contrast=contrast,conf.level=conf.level))
   return(results)
@@ -225,7 +222,7 @@ nhstMeansBy.default <- function(...,by,mu=0) {
 }
 
 nhstMeansBy.formula <- function(formula,by,mu=0) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss"  
   results <- lapply(ListDescStats,FUN=function(x) nhstMeans(x,mu=mu))
   return(results)
@@ -271,7 +268,7 @@ nhstDifferenceBy.default <- function(...,by,mu=0) {
 }
 
 nhstDifferenceBy.formula <- function(formula,by,mu=0) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss" 
   results <- lapply(ListDescStats,FUN=function(x) nhstDifference(x,mu=mu))
   return(results)
@@ -317,7 +314,7 @@ nhstContrastBy.default <- function(...,by,contrast,mu=0) {
 }
 
 nhstContrastBy.formula <- function(formula,by,contrast,mu=0) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss" 
   results <- lapply(ListDescStats,FUN=function(x) nhstContrast(x,contrast=contrast,mu=mu))
   return(results)
@@ -365,7 +362,7 @@ smdMeansBy.default <- function(...,by,mu=0,conf.level=.95) {
 }
 
 smdMeansBy.formula <- function(formula,by,mu=0,conf.level=.95) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss"  
   results <- lapply(ListDescStats,FUN=function(x) smdMeans(x,mu=mu,conf.level=conf.level))
   return(results)
@@ -411,7 +408,7 @@ smdDifferenceBy.default <- function(...,by,mu=0,conf.level=.95) {
 }
 
 smdDifferenceBy.formula <- function(formula,by,mu=0,conf.level=.95) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss" 
   results <- lapply(ListDescStats,FUN=function(x) smdDifference(x,mu=mu,conf.level=conf.level))
   return(results)
@@ -457,7 +454,7 @@ smdContrastBy.default <- function(...,by,contrast,conf.level=.95) {
 }
 
 smdContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
-  ListDescStats <- descDataBy(formula,by)
+  ListDescStats <- descMeansBy(formula,by)
   for (i in 1:length(ListDescStats)) class(ListDescStats[[i]])="bss" 
   results <- lapply(ListDescStats,FUN=function(x) smdContrast(x,contrast=contrast,conf.level=conf.level))
   return(results)

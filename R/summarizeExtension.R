@@ -1,9 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Extension for Data Summaries and Plots
 
-### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF EASI-FUNCTIONS INTO R
-
 ### Data Functions
 
 #### Summary Functions

@@ -1,9 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Extension for Relational Intervals
 
-### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF EASIFUNCTIONS INTO R
-
 ### Relational Interval Function
 
 ciRelational <- function(...) 
@@ -40,15 +37,15 @@ ciRelational.bss <- function(DescStats,conf.level=.95,...) {
 }
 
 ciRelational.default <- function(...,conf.level=.95) {
-  DescStats <- descData(...)
+  DescStats <- descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- corrData(...)  
+  CorrStats <- descCorrelation(...)  
   results <- ciRelational(DescStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 ciRelational.formula <- function(formula,conf.level=.95,...) {
-  DescStats <- descData(formula)
+  DescStats <- descMeans(formula)
   class(DescStats) <- "bss"
   results <- ciRelational(DescStats,conf.level=conf.level)
   return(results)

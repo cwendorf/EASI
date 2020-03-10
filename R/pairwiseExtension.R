@@ -66,15 +66,15 @@ ciPairwise.bss <- function(SumStats,conf.level=.95,...){
 }
 
 ciPairwise.default <- function(...,conf.level=.95){
-  SumStats <- descData(...)
+  SumStats <- descMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- ciPairwise(SumStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 ciPairwise.formula <- function(formula,conf.level=.95,...){
-  SumStats <- descData(formula)
+  SumStats <- descMeans(formula)
   class(SumStats) <- "bss"
   results <- ciPairwise(SumStats,conf.level=conf.level)
   return(results)
@@ -180,15 +180,15 @@ smdPairwise.bss <- function(SumStats,conf.level=.95,...){
 }
 
 smdPairwise.default <- function(...,conf.level=.95){
-  SumStats <- descData(...)
+  SumStats <- descMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- smdPairwise(SumStats,CorrStats,conf.level=conf.level)
   return(results)
 }
 
 smdPairwise.formula <- function(formula,conf.level=.95,...){
-  SumStats <- descData(formula)
+  SumStats <- descMeans(formula)
   class(SumStats) <- "bss"
   results <- smdPairwise(SumStats,conf.level=conf.level)
   return(results)
@@ -260,15 +260,15 @@ nhstPairwise.bss <- function(SumStats,mu=0,...){
 }
 
 nhstPairwise.default <- function(...,mu=0){
-  SumStats <- descData(...)
+  SumStats <- descMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- corrData(...)
+  CorrStats <- descCorrelation(...)
   results <- nhstPairwise(SumStats,CorrStats,mu=mu)
   return(results)
 }
 
 nhstPairwise.formula <- function(formula,mu=0,...){
-  SumStats <- descData(formula)
+  SumStats <- descMeans(formula)
   class(SumStats) <- "bss"
   results <- nhstPairwise(SumStats,mu=mu)
   return(results)

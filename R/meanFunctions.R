@@ -1,8 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Basic Functions for Means and Mean Differences
 
-### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-
 ### Formatting Functions
 
 formatFrame <- function(results,digits=3) {
