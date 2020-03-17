@@ -189,7 +189,7 @@ ciContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,..
   return(results)
 }
 
-estimateContrast <- function(...,,conf.level=.95,main=NULL,digits=3) {
+estimateContrast <- function(...,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(ciContrast(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Interval for the Contrast"} else {names(results) <- main}
   return(results)
