@@ -51,8 +51,8 @@ ciRelational.formula <- function(formula,conf.level=.95,...) {
   return(results)
 }
 
-estimateRelational <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(ciRelational(...)),digits=digits)
+estimateRelational <- function(...,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(ciRelational(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence and Relational Intervals for the Means"} else {names(results) <- main}
   return(results)
 }

@@ -66,8 +66,8 @@ ciMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-estimateMeans <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(ciMeans(...)),digits=digits)
+estimateMeans <- function(...,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(ciMeans(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Means"} else {names(results) <- main}
   return(results)
 }
@@ -127,8 +127,8 @@ ciDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-estimateDifference <- estimateComparison <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(ciDifference(...)),digits=digits)
+estimateDifference <- estimateComparison <- function(...,,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(ciDifference(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Interval for the Comparison"} else {names(results) <- main}
   return(results)
 }
@@ -189,8 +189,8 @@ ciContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,..
   return(results)
 }
 
-estimateContrast <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(ciContrast(...)),digits=digits)
+estimateContrast <- function(...,,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(ciContrast(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Interval for the Contrast"} else {names(results) <- main}
   return(results)
 }
@@ -229,8 +229,8 @@ nhstMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-testMeans <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(nhstMeans(...)),digits=digits)
+testMeans <- function(...,mu=0,main=NULL,digits=3) {
+  results <- formatList(list(nhstMeans(...,mu=mu)),digits=digits)
   if(is.null(main)) {names(results) <- "Hypothesis Test for the Means"} else {names(results) <- main}
   return(results)
 }
@@ -288,8 +288,8 @@ nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-testDifference <- testComparison <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(nhstDifference(...)),digits=digits)
+testDifference <- testComparison <- function(...,mu=0,main=NULL,digits=3) {
+  results <- formatList(list(nhstDifference(...,mu=mu)),digits=digits)
   if(is.null(main)) {names(results) <- "Hypothesis Test for the Comparison"} else {names(results) <- main}
   return(results)
 }
@@ -347,8 +347,8 @@ nhstContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,
   return(results)
 }
 
-testContrast <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(nhstContrast(...)),digits=digits)
+testContrast <- function(...,mu=0,main=NULL,digits=3) {
+  results <- formatList(list(nhstContrast(...,mu=mu)),digits=digits)
   if(is.null(main)) {names(results) <- "Hypothesis Test for the Contrast"} else {names(results) <- main}
   return(results)
 }
@@ -410,8 +410,8 @@ smdMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-standardizeMeans <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(smdMeans(...)),digits=digits)
+standardizeMeans <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(smdMeans(...,mu=mu,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Means"} else {names(results) <- main}
   return(results)
 }
@@ -478,8 +478,8 @@ smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL
   return(results)
 }
 
-standardizeDifference <- standardizeComparison <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(smdDifference(...)),digits=digits)
+standardizeDifference <- standardizeComparison <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(smdDifference(...,mu=mu,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Comparison"} else {names(results) <- main}
   return(results)
 }
@@ -549,8 +549,8 @@ smdContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,.
   return(results)
 }
 
-standardizeContrast <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(smdContrast(...)),digits=digits)
+standardizeContrast <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(smdContrast(...,mu=mu,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Contrast"} else {names(results) <- main}
   return(results)
 }

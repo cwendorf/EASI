@@ -193,8 +193,8 @@ pvaOmnibus.formula <- function(formula,mu=0,conf.level=.90,rope=NULL) {
   return(results)
 }
 
-effectOmnibus <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(pvaOmnibus(...)),digits=digits)
+effectOmnibus <- function(...,conf.level=.90,main=NULL,digits=3) {
+  results <- formatList(list(pvaOmnibus(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For By the Omnibus Effect"} else {names(results) <- main}
   return(results)
 }

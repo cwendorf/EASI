@@ -88,8 +88,8 @@ ciMeansBy.formula <- function(formula,by,conf.level=.95) {
   return(results)
 }
 
-estimateMeansBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(ciMeansBy(...),digits=digits)
+estimateMeansBy <- function(...,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(ciMeansBy(...,conf.level=conf.level),digits=digits)
   return(results)
 }
 
@@ -134,8 +134,8 @@ ciDifferenceBy.formula <- function(formula,by,conf.level=.95) {
   return(results)
 }
 
-estimateDifferenceBy <- estimateComparisonBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(ciDifferenceBy(...),digits=digits)
+estimateDifferenceBy <- estimateComparisonBy <- function(...,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(ciDifferenceBy(...,conf.level=conf.level),digits=digits)
   return(results)
 }
 
@@ -180,8 +180,8 @@ ciContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
   return(results)
 }
 
-estimateContrastBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(ciContrastBy(...),digits=digits)
+estimateContrastBy <- function(...,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(ciContrastBy(...,conf.level=conf.level),digits=digits)
   return(results)
 }
 
@@ -228,8 +228,8 @@ nhstMeansBy.formula <- function(formula,by,mu=0) {
   return(results)
 }
 
-testMeansBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(nhstMeansBy(...),digits=digits)
+testMeansBy <- function(...,mu=0,main=NULL,digits=3) {
+  results <- formatList(nhstMeansBy(...,mu=mu),digits=digits)
   return(results)
 }
 
@@ -274,8 +274,8 @@ nhstDifferenceBy.formula <- function(formula,by,mu=0) {
   return(results)
 }
 
-testDifferenceBy <- testComparisonBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(nhstDifferenceBy(...),digits=digits)
+testDifferenceBy <- testComparisonBy <- function(...,mu=0,main=NULL,digits=3) {
+  results <- formatList(nhstDifferenceBy(...,mu=mu),digits=digits)
   return(results)
 }
 
@@ -320,8 +320,8 @@ nhstContrastBy.formula <- function(formula,by,contrast,mu=0) {
   return(results)
 }
 
-testContrastBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(nhstContrastBy(...),digits=digits)
+testContrastBy <- function(...,mu=0,main=NULL,digits=3) {
+  results <- formatList(nhstContrastBy(...,mu=mu),digits=digits)
   return(results)
 }
 
@@ -368,8 +368,8 @@ smdMeansBy.formula <- function(formula,by,mu=0,conf.level=.95) {
   return(results)
 }
 
-standardizeMeansBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(smdMeansBy(...),digits=digits)
+standardizeMeansBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(smdMeansBy(...,mu=mu,conf.level=conf.level),digits=digits)
   return(results)
 }
 
@@ -414,8 +414,8 @@ smdDifferenceBy.formula <- function(formula,by,mu=0,conf.level=.95) {
   return(results)
 }
 
-standardizeDifferenceBy <- standardizeComparisonBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(smdDifferenceBy(...),digits=digits)
+standardizeDifferenceBy <- standardizeComparisonBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(smdDifferenceBy(...,mu=mu,conf.level=conf.level),digits=digits)
   return(results)
 }
 
@@ -460,8 +460,8 @@ smdContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
   return(results)
 }
 
-standardizeContrastBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(smdContrastBy(...),digits=digits)
+standardizeContrastBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(smdContrastBy(...,mu=mu,conf.level=conf.level),digits=digits)
   return(results)
 }
 
