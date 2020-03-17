@@ -15,8 +15,9 @@ descCorrelation.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
 }
 
 describeCorrelation <- describeCorr <- function(...,main=NULL,digits=3) {
-  if(is.null(main)) {cat("\nCorrelation Matrix for the Data\n\n")} else {cat("\n",main,"\n\n")}
-  print(formatList(list(Matrix=descMeans(...)),digits=digits))
+  results <- formatList(list(descCorrelation(...)),digits=digits)
+  if(is.null(main)) {names(results) <- "Correlation Matrix for the Data"} else {names(results) <- main}
+  return(results)
 }
 
 #### Convert a Covariance Matrix

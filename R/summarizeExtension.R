@@ -26,8 +26,9 @@ summData.formula <- function(formula,...) {
 }
 
 summarizeData <- function(...,main=NULL,digits=3) {
-  if(is.null(main)) {cat("\nSummary Statistics for the Data\n\n")} else {cat("\n",main,"\n\n")}
-  print(formatList(list(Factor=descMeans(...)),digits=digits))
+  results <- formatList(list(summData(...)),digits=digits)
+  if(is.null(main)) {names(results) <- "Summary Statistics for the Data"} else {names(results) <- main}
+  return(results)
 }
 
 #### Plot Functions for Boxes and Data

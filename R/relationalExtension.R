@@ -51,9 +51,10 @@ ciRelational.formula <- function(formula,conf.level=.95,...) {
   return(results)
 }
 
-estimateRelational <- function(...,conf.level=.95,main=NULL,digits=3) {
-  if(is.null(main)) {cat("\nConfidence and Relational Intervals for the Means\n\n")} else {cat("\n",main,"\n\n")}
-  print(formatList(list(Factor=ciRelational(...,conf.level=conf.level)),digits=digits))
+estimateRelational <- function(...,main=NULL,digits=3) {
+  results <- formatList(list(ciRelational(...)),digits=digits)
+  if(is.null(main)) {names(results) <- "Confidence and Relational Intervals for the Means"} else {names(results) <- main}
+  return(results)
 }
 
 ### Add Relational Intervals to Existing CI Plot
