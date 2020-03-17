@@ -77,7 +77,7 @@ Prefix | Description
 - [`testOmnibus`](./testOmnibus.md)
 - [`effectOmnibus`](./effectOmnibus.md)
 
-`By` - functions that apply the above functions repeatedly for each level of a second factor in a factorial or mixed design
+`By` - functions that apply the above functions repeatedly for each level of a between-subjects factor in a factorial or mixed design
 
 - [`estimateMeansBy`](./estimateMeansBy.md)
 - [`plotMeansBy`](./plotMeansBy.md)
