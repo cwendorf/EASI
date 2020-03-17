@@ -127,7 +127,7 @@ ciDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-estimateDifference <- estimateComparison <- function(...,,conf.level=.95,main=NULL,digits=3) {
+estimateDifference <- estimateComparison <- function(...,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(ciDifference(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Interval for the Comparison"} else {names(results) <- main}
   return(results)
