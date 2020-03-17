@@ -80,31 +80,94 @@ ciPairwise.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-estimatePairwise <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(ciPairwise(...)),digits=digits)
-  if(is.null(main)) {names(results) <- "Confidence Intervals for the Pairwise Comparisons"} else {names(results) <- main}
+estimatePairwise <- function(...,conf.level=.95,main=NULL,digits=3) {
+  if(is.null(main)) {cat("\nConfidence Intervals for the Pairwise Comparisons\n\n")} else {cat("\n",main,"\n\n")}
+  print(formatList(list(Factor=ciPairwise(...,conf.level=conf.level)),digits=digits))
+}
+
+### Null Hypothesis Significance Test Functions 
+
+#### NHST Function for Pairwise Comparisons
+
+nhstPairwise <- function(...) 
+  UseMethod("nhstPairwise")
+
+nhstPairwise.wss <- function(SumStats,CorrStats,mu=0,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
+  SE <- SD/sqrt(N)
+  rn <- rownames(SumStats)
+  nr <- nrow(SumStats)
+  ncomp <- (nr)*(nr-1)/2
+  results <- data.frame(matrix(ncol=5,nrow=ncomp))
+  colnames(results) <- c("Diff","SE","t","df","p")
+  comp <- 1
+  for( i in 1:(nr-1) ){
+  for( j in (i+1):nr ){
+    rownames(results)[comp] <- paste(rn[i],"v",rn[j])
+    MD <- M[rn[j]]-M[rn[i]]-mu
+    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
+    df <- min(N)-1
+    t <- MD/SEd
+    p <- 2*(1 - pt(abs(t),df))
+    results[comp,] <- c(MD,SEd,t,df,p)
+   	comp <- comp+1
+  }
+  }
+  return(round(results,3))
+}
+
+nhstPairwise.bss <- function(SumStats,mu=0,...){
+  N <- SumStats[,"N"]
+  M <- SumStats[,"M"]
+  SD <- SumStats[,"SD"]
+  SE <- SD/sqrt(N)
+  rn <- rownames(SumStats)
+  nr <- nrow(SumStats)
+  ncomp <- (nr)*(nr-1)/2
+  results <- data.frame(matrix(ncol=5,nrow=ncomp))
+  colnames(results) <- c("Diff","SE","t","df","p")
+  comp <- 1
+  for( i in 1:(nr-1) ){
+  for( j in (i+1):nr ){
+    rownames(results)[comp] <- paste(rn[i],"v",rn[j])
+    MD <- M[rn[j]]-M[rn[i]]-mu
+    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
+    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
+    t <- MD/SEd
+    p <- 2*(1 - pt(abs(t),df))
+    results[comp,] <- c(MD,SEd,t,df,p)
+   	comp <- comp+1
+  }
+  }
+  return(round(results,3))
+}
+
+nhstPairwise.default <- function(...,mu=0){
+  SumStats <- descMeans(...)
+  class(SumStats) <- "wss"
+  CorrStats <- descCorrelation(...)
+  results <- nhstPairwise(SumStats,CorrStats,mu=mu)
   return(results)
 }
 
-### Plots of Confidence Intervals
-
-#### Pairwise Plots
-
-plotPairwise <- function(...) 
-  UseMethod("plotPairwise")
-
-plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
-  if(is.null(main)) {main="Confidence Intervals for the Pairwise Comparisons"}
-  results <- ciPairwise(...,conf.level=conf.level)
-  colnames(results)[1] <- "M"  
-  cipMeans(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
+nhstPairwise.formula <- function(formula,mu=0,...){
+  SumStats <- descMeans(formula)
+  class(SumStats) <- "bss"
+  results <- nhstPairwise(SumStats,mu=mu)
+  return(results)
 }
 
-plotPairwise.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,digits=3,...) {
-  if(is.null(main)) {main="Confidence Intervals for the Pairwise Comparisons"}
-  results <- ciPairwise(formula,conf.level=conf.level)
-  colnames(results)[1] <- "M"
-  cipMeans(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
+testPairwise <- function(...,main=NULL,digits=3) {
+  results <- formatList(list(nhstPairwise(...)),digits=digits)
+  if(is.null(main)) {names(results) <- "Hypothesis Tests for the Pairwise Comparisons"} else {names(results) <- main}
+  return(results)
+}
+
+testPairwise <- function(...,mu=0,main=NULL,digits=3) {
+  if(is.null(main)) {cat("\nHypothesis Tests for the Pairwise Comparisons\n\n")} else {cat("\n",main,"\n\n")}
+  print(formatList(list(Factor=nhstPairwise(...,mu=mu)),digits=digits))
 }
 
 ### Standardized Mean Difference Functions
@@ -194,90 +257,30 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-standardizePairwise <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(smdPairwise(...)),digits=digits)
-  if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Pairwise Comparisons"} else {names(results) <- main}
-  return(results)
+standardizePairwise <- function(...,conf.level=.95,main=NULL,digits=3) {
+  if(is.null(main)) {cat("\nConfidence Intervals for the Standardized Pairwise Comparisons\n\n")} else {cat("\n",main,"\n\n")}
+  print(formatList(list(Factor=smdDifference(...,conf.level=conf.level)),digits=digits))
 }
 
-### Null Hypothesis Significance Test Functions 
+### Plots of Confidence Intervals
 
-#### NHST Function for Pairwise Comparisons
+#### Pairwise Plots
 
-nhstPairwise <- function(...) 
-  UseMethod("nhstPairwise")
+plotPairwise <- function(...) 
+  UseMethod("plotPairwise")
 
-nhstPairwise.wss <- function(SumStats,CorrStats,mu=0,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
-  SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
-  ncomp <- (nr)*(nr-1)/2
-  results <- data.frame(matrix(ncol=5,nrow=ncomp))
-  colnames(results) <- c("Diff","SE","t","df","p")
-  comp <- 1
-  for( i in 1:(nr-1) ){
-  for( j in (i+1):nr ){
-    rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[j]]-M[rn[i]]-mu
-    SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
-    df <- min(N)-1
-    t <- MD/SEd
-    p <- 2*(1 - pt(abs(t),df))
-    results[comp,] <- c(MD,SEd,t,df,p)
-   	comp <- comp+1
-  }
-  }
-  return(round(results,3))
+plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
+  if(is.null(main)) {main="Confidence Intervals for the Pairwise Comparisons"}
+  results <- ciPairwise(...,conf.level=conf.level)
+  colnames(results)[1] <- "M"  
+  cipMeans(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
 }
 
-nhstPairwise.bss <- function(SumStats,mu=0,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
-  SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
-  ncomp <- (nr)*(nr-1)/2
-  results <- data.frame(matrix(ncol=5,nrow=ncomp))
-  colnames(results) <- c("Diff","SE","t","df","p")
-  comp <- 1
-  for( i in 1:(nr-1) ){
-  for( j in (i+1):nr ){
-    rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[j]]-M[rn[i]]-mu
-    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
-    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
-    t <- MD/SEd
-    p <- 2*(1 - pt(abs(t),df))
-    results[comp,] <- c(MD,SEd,t,df,p)
-   	comp <- comp+1
-  }
-  }
-  return(round(results,3))
-}
-
-nhstPairwise.default <- function(...,mu=0){
-  SumStats <- descMeans(...)
-  class(SumStats) <- "wss"
-  CorrStats <- descCorrelation(...)
-  results <- nhstPairwise(SumStats,CorrStats,mu=mu)
-  return(results)
-}
-
-nhstPairwise.formula <- function(formula,mu=0,...){
-  SumStats <- descMeans(formula)
-  class(SumStats) <- "bss"
-  results <- nhstPairwise(SumStats,mu=mu)
-  return(results)
-}
-
-testPairwise <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(nhstPairwise(...)),digits=digits)
-  if(is.null(main)) {names(results) <- "Hypothesis Tests for the Pairwise Comparisons"} else {names(results) <- main}
-  return(results)
+plotPairwise.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,digits=3,...) {
+  if(is.null(main)) {main="Confidence Intervals for the Pairwise Comparisons"}
+  results <- ciPairwise(formula,conf.level=conf.level)
+  colnames(results)[1] <- "M"
+  cipMeans(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits) 
 }
 
 ### Meta-Wrappers for Functions

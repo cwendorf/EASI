@@ -67,9 +67,8 @@ descOmnibus.formula <- function(formula,conf.level=.95,...) {
 }
 
 describeOmnibus <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(descOmnibus(...)),digits=digits)
-  if(is.null(main)) {names(results) <- "Analysis of Variance Source Table"} else {names(results) <- main}
-  return(results)
+  if(is.null(main)) {cat("\nAnalysis of Variance Source Table\n\n")} else {cat("\n",main,"\n\n")}
+  print(formatList(list(Factor=descOmnibus(...)),digits=digits))
 }
 
 ### Null Hypothesis Significance Test Functions
@@ -121,9 +120,8 @@ nhstOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL) {
 }
 
 testOmnibus <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(nhstOmnibus(...)),digits=digits)
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Omnibus Effect"} else {names(results) <- main}
-  return(results)
+  if(is.null(main)) {cat("\nHypothesis Test for the Omnibus Effect\n\n")} else {cat("\n",main,"\n\n")}
+  print(formatList(list(Factor=nhstOmnibus(...)),digits=digits))
 }
 
 ### Omnibus Effect Size
@@ -193,10 +191,9 @@ pvaOmnibus.formula <- function(formula,mu=0,conf.level=.90,rope=NULL) {
   return(results)
 }
 
-effectOmnibus <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(pvaOmnibus(...)),digits=digits)
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For By the Omnibus Effect"} else {names(results) <- main}
-  return(results)
+effectOmnibus <- function(...,conf.level=.95,main=NULL,digits=3) {
+  if(is.null(main)) {cat("\nProportion of Variance Accounted For By the Omnibus Effect\n\n")} else {cat("\n",main,"\n\n")}
+  print(formatList(list(Factor=smdMeans(...,conf.level=conf.level)),digits=digits))
 }
 
 ### Meta-Wrappers for Functions
