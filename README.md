@@ -37,4 +37,4 @@ Complete examples of all functions are available here:
 
 ### Getting Help
 
-If you have any problems, please post a minimal reproducible example in [github issues](https://github.com/cwendorf/EASI/issues). For other correspondence, contact me at [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu).
+If you have any problems, please post a minimal reproducible example in [GitHub issues](https://github.com/cwendorf/EASI/issues). For other correspondence, contact me at [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu).
