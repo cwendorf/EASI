@@ -30,7 +30,7 @@ cortocov <- function(CorrStats,SD) {
 
 #### Declare and Fill Blanks in Matrix
 
-declareCorrelationMatrix <- declareCorrMatrix <- function(...) {
+declareCorrelation <- declareCorrMatrix <- function(...) {
   clist=c(...)
   nr=length(clist)
   results=matrix(data=NA,nr,nr)
@@ -39,7 +39,7 @@ declareCorrelationMatrix <- declareCorrMatrix <- function(...) {
   return(results)
 }
 
-fillCorrelationMatrix <- fillCorrMatrix <- function(mat) {
+fillCorrelation <- fillCorrMatrix <- function(mat) {
   nr <- nrow(mat)
   nc <- ncol(mat)
   rn <- rownames(mat)
