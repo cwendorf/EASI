@@ -53,7 +53,7 @@ Prefix | Description
 `Contrast` - functions that examine a contrast among all of the group or level means
 
 - [`estimateContrast`](./estimateContrast.md)
-- [`plotContrast`](./plotContrast)
+- [`plotContrast`](./plotContrast.md)
 - [`testContrast`](./testContrast.md)
 - [`standardizeContrast`](./standardizeContrast.md) 
 - [`analyzeContrast`](./analyzeContrast.md)
