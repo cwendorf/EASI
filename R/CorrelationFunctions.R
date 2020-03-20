@@ -138,7 +138,7 @@ cipCorrelations <- function(results,main,ylab,xlab,mu,rope,values,digits) {
 plotCorrelations <- plotCorrelation <- function(...) 
   UseMethod("plotCorrelations")
 
-plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
+plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
   results <- ciCorrelations(CompStats,CorrStats,conf.level=conf.level)
   if(is.null(main)) {
     if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}
@@ -146,10 +146,10 @@ plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xl
   cipCorrelations(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
 }
 
-plotCorrelations.default <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
+plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",mu=NULL,conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
   CompStats <- descMeans(...)
   class(CompStats) <- "wss"
   CorrStats <- descCorrelation(...)
-  plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
+  plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,mu=mu,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
 }
 
