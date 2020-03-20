@@ -2,7 +2,7 @@
 
 ### Description
 
-Calculates the proportion of variance accounted for my the omnibus effect and its confidence interval.
+Calculates the proportion of variance accounted for by the omnibus effect and its confidence interval.
 
 ### Usage
 
