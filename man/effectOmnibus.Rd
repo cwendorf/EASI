@@ -8,7 +8,7 @@
 \alias{pvaOmnibus.wss}
 \alias{pvaOmnibus.bss}
 \title{Effect Omnibus}
-\description{Calculates the proportion of variance accounted for my the omnibus effect and its confidence interval.}
+\description{Calculates the proportion of variance accounted for by the omnibus effect and its confidence interval.}
 
 \usage{
 \method{effectOmnibus}{default}(\dots,conf.level=.95,digits=3)
