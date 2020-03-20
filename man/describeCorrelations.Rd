@@ -1,14 +1,14 @@
-% File man/describeCorrelation.Rd
+% File man/describeCorrelations.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{describeCorrelation}
-\alias{describeCorrelation}
-\alias{descCorrelation.default}
-\title{Describe Correlation}
+\name{describeCorrelations}
+\alias{describeCorrelations}
+\alias{descCorrelations.default}
+\title{Describe Correlations}
 \description{Provides a square matrix/frame of correlations for a data set.}
 
 \usage{
-\method{describeCorrelation}{default}(\dots,digits=3)
+\method{describeCorrelations}{default}(\dots,digits=3)
 }
 
 \arguments{

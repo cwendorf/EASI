@@ -1,17 +1,17 @@
-## Estimate Correlation
+## Estimate Correlations
 
 ### Description
 
-Provides a correlation, its standard error, and its confidence interval.
+Provides correlations, their standard errors, and their confidence intervals for a list of variables.
 
 ### Usage
 
 ```r
 ## Default S3 method:
-estimateCorrelation(...,conf.level=.95,digits=3)
+estimateCorrelations(...,conf.level=.95,digits=3)
 
 ## S3 method for class 'wss'
-estimateCorrelation(CompStats,CorrStats,conf.level=.95,digits=3)
+estimateCorrelations(CompStats,CorrStats,conf.level=.95,digits=3)
 ```
 
 ### Arguments
@@ -25,7 +25,5 @@ Argument | Description
 ```digits``` | the specified number of decimal places.
 
 ### Details
-
-This function compares two groups or variables. As such, the supplied factor or table of summary statistics should contain only two groups or two variables.
 
 Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

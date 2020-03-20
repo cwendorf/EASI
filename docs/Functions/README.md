@@ -35,11 +35,11 @@ Prefix | Description
 
 `Means` - functions that examine all individual group or level means
 
-- [`describeMeans`](./describeMeans.md)
-- [`estimateMeans`](./estimateMeans.md)
-- [`plotMeans`](./plotMeans.md)
-- [`testMeans`](./testMeans.md)
-- [`standardizeMeans`](./standardizeMeans.md)
+- [`describeMeans`](./describeMeans.md) (or [`describeMean`](./describeMeans.md))
+- [`estimateMeans`](./estimateMeans.md) (or [`estimateMeans`](./estimateMeans.md))
+- [`plotMeans`](./plotMeans.md) (or [`plotMean`](./plotMeans.md))
+- [`testMeans`](./testMeans.md) (or [`testMean`](./testMeans.md))
+- [`standardizeMeans`](./standardizeMeans.md) (or [`standardizeMean`](./standardizeMeans.md))
 - [`analyzeMeans`](./analyzeMeans.md)
 
 `Difference` - functions that examine a difference/comparison among two group or level means
@@ -94,8 +94,9 @@ Prefix | Description
 
 `Correlation` - functions that provide analyses of correlations among variables
 
-- [`describeCorrelation`](./describeCorrelation.md)
-- [`estimateCorrelation`](./estimateCorrelation.md)
+- [`describeCorrelations`](./describeCorrelations.md) (or [`describeCorrelation`](./describeCorrelations.md))
+- [`estimateCorrelations`](./estimateCorrelations.md) (or [`estimateCorrelation`](./estimateCorrelations.md))
+- [`plotCorrelations`](./plotCorrelations.md) (or [`plotCorrelation`](./plotCorrelations.md))
 
 ### More Information
 

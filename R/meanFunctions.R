@@ -5,7 +5,7 @@
 
 #### Describe Function for Mutiple Groups
 
-descMeans <- function(...) 
+descMeans <- descMean <- function(...) 
   UseMethod("descMeans")
 
 descMeans.default <- function(...) {
@@ -36,7 +36,7 @@ describeMeans <- describeMean <- function(...,main=NULL,digits=3) {
 
 #### CI Function for Means
 
-ciMeans <- function(...) 
+ciMeans <- ciMean <- function(...) 
   UseMethod("ciMeans")
 
 ciMeans.wss <- ciMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,...) {
@@ -205,7 +205,7 @@ estimateContrast <- function(...,conf.level=.95,main=NULL,digits=3) {
 
 #### NHST Function for Means
 
-nhstMeans <- function(...) 
+nhstMeans <- nhstMean <- function(...) 
   UseMethod("nhstMeans")
   
 nhstMeans.wss <- nhstMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,...) {
@@ -369,7 +369,7 @@ testContrast <- function(...,mu=0,main=NULL,digits=3) {
 
 #### SMD Function for Means
 
-smdMeans <- function(...) 
+smdMeans <- smdMean <- function(...) 
   UseMethod("smdMeans")
   
 smdMeans.wss <- smdMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,...) {

@@ -5,17 +5,17 @@
 
 #### Describe Function for Correlations
 
-descCorrelation <- function(...) 
-  UseMethod("descCorrelation")
+descCorrelations <- descCorrelation <- function(...) 
+  UseMethod("descCorrelations")
 
-descCorrelation.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
+descCorrelations.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
   data <- data.frame(...)
   results <- cor(data)
   return(results)
 }
 
-describeCorrelation <- describeCorrelations <- describeCorr <- function(...,main=NULL,digits=3) {
-  results <- formatList(list(descCorrelation(...)),digits=digits)
+describeCorrelations <- describeCorrelation <- describeCorr <- function(...,main=NULL,digits=3) {
+  results <- formatList(list(descCorrelations(...)),digits=digits)
   if(is.null(main)) {names(results) <- "Correlation Matrix for the Data"} else {names(results) <- main}
   return(results)
 }
@@ -99,7 +99,7 @@ ciCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,...){
 ciCorrelations.default <- function(...,conf.level=.95){
   SumStats <- descMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- descCorrelation(...)
+  CorrStats <- descCorrelations(...)
   results <- ciCorrelations(SumStats,CorrStats,conf.level=conf.level)
   return(results)
 }
