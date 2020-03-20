@@ -26,7 +26,7 @@ descMeans.formula <- function(formula,...) {
   return(results)
 }
 
-describeMeans <- function(...,main=NULL,digits=3) {
+describeMeans <- describeMean <- function(...,main=NULL,digits=3) {
   results <- formatList(list(descMeans(...)),digits=digits)
   if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}
   return(results)
@@ -69,6 +69,12 @@ ciMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 estimateMeans <- function(...,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(ciMeans(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Means"} else {names(results) <- main}
+  return(results)
+}
+
+estimateMean <- function(...,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(ciMeans(...,conf.level=conf.level)),digits=digits)
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Mean"} else {names(results) <- main}
   return(results)
 }
 
@@ -231,7 +237,13 @@ nhstMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 
 testMeans <- function(...,mu=0,main=NULL,digits=3) {
   results <- formatList(list(nhstMeans(...,mu=mu)),digits=digits)
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Means"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Hypothesis Tests for the Means"} else {names(results) <- main}
+  return(results)
+}
+
+testMean <- function(...,mu=0,main=NULL,digits=3) {
+  results <- formatList(list(nhstMeans(...,mu=mu)),digits=digits)
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Mean"} else {names(results) <- main}
   return(results)
 }
 
@@ -413,6 +425,12 @@ smdMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 standardizeMeans <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(smdMeans(...,mu=mu,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Means"} else {names(results) <- main}
+  return(results)
+}
+
+standardizeMean <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(list(smdMeans(...,mu=mu,conf.level=conf.level)),digits=digits)
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Mean"} else {names(results) <- main}
   return(results)
 }
 
@@ -658,12 +676,14 @@ cipDifference <- function(results,main,ylab,xlab,rope,values,digits) {
 
 #### Plot Function for Confidence Intervals of the Means
 
-plotMeans <- function(...) 
+plotMeans <- plotMean <- function(...) 
   UseMethod("plotMeans")
 
 plotMeans.wss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
-  if(is.null(main)) {main="Confidence Intervals for the Means"}
   results <- ciMeans(DescStats,conf.level=conf.level)
+  if(is.null(main)) {
+    if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}
+    }
   cipMeans(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits)
   if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,"M"],i+1,results[i+1,"M"],code=3,length=0,lty=1)}
 }
@@ -689,10 +709,7 @@ plotMeans.formula <- function(formula,main=NULL,ylab=NULL,xlab="",mu=NULL,rope=N
 
 #### Plot Function for Confidence Intervals of Mean Differences/Comparisons
 
-plotComparison <- function(...) 
-  UseMethod("plotDifference")
-
-plotDifference <- function(...) 
+plotDifference <- plotComparison <- function(...) 
   UseMethod("plotDifference")
   
 plotDifference.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,values=TRUE,digits=3,...) {
