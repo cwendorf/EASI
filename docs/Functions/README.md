@@ -36,7 +36,7 @@ Prefix | Description
 `Means` - functions that examine all individual group or level means
 
 - [`describeMeans`](./describeMeans.md) (or [`describeMean`](./describeMeans.md))
-- [`estimateMeans`](./estimateMeans.md) (or [`estimateMeans`](./estimateMeans.md))
+- [`estimateMeans`](./estimateMeans.md) (or [`estimateMean`](./estimateMeans.md))
 - [`plotMeans`](./plotMeans.md) (or [`plotMean`](./plotMeans.md))
 - [`testMeans`](./testMeans.md) (or [`testMean`](./testMeans.md))
 - [`standardizeMeans`](./standardizeMeans.md) (or [`standardizeMean`](./standardizeMeans.md))
