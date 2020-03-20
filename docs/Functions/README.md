@@ -95,6 +95,7 @@ Prefix | Description
 `Correlation` - functions that provide analyses of correlations among variables
 
 - [`describeCorrelation`](./describeCorrelation.md)
+- [`estimateCorrelation`](./estimateCorrelation.md)
 
 ### More Information
 
