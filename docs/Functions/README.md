@@ -92,7 +92,7 @@ Prefix | Description
 - [`testContrastBy`](./testContrastBy.md)
 - [`standardizeContrastBy`](./standardizeContrastBy.md)
 
-`Correlation` - functions that provide analyses of correlations among variables
+`Correlations` - functions that provide analyses of correlations among variables
 
 - [`describeCorrelations`](./describeCorrelations.md) (or [`describeCorrelation`](./describeCorrelations.md))
 - [`estimateCorrelations`](./estimateCorrelations.md) (or [`estimateCorrelation`](./estimateCorrelations.md))
