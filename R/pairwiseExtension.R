@@ -77,7 +77,7 @@ ciPairwise.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-estimateDiffernces <- estimatePairwise <- function(...,conf.level=.95,main=NULL,digits=3) {
+estimateDifferences <- estimatePairwise <- function(...,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(ciPairwise(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Pairwise Comparisons"} else {names(results) <- main}
   return(results)
