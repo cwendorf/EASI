@@ -77,7 +77,7 @@ ciPairwise.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-estimatePairwise <- function(...,conf.level=.95,main=NULL,digits=3) {
+estimateDiffernces <- estimatePairwise <- function(...,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(ciPairwise(...,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Pairwise Comparisons"} else {names(results) <- main}
   return(results)
@@ -157,7 +157,7 @@ nhstPairwise.formula <- function(formula,mu=0,...){
   return(results)
 }
 
-testPairwise <- function(...,mu=0,main=NULL,digits=3) {
+testDifferences <- testPairwise <- function(...,mu=0,main=NULL,digits=3) {
   results <- formatList(list(nhstPairwise(...,mu=mu)),digits=digits)
   if(is.null(main)) {names(results) <- "Hypothesis Tests for the Pairwise Comparisons"} else {names(results) <- main}
   return(results)
@@ -250,7 +250,7 @@ smdPairwise.formula <- function(formula,conf.level=.95,...){
   return(results)
 }
 
-standardizePairwise <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+standardizedDifferences <- standardizePairwise <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(smdPairwise(...,mu=mu,conf.level=conf.level)),digits=digits)
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Pairwise Comparisons"} else {names(results) <- main}
   return(results)
@@ -260,7 +260,7 @@ standardizePairwise <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
 
 #### Pairwise Plots
 
-plotPairwise <- function(...) 
+plotDifferences <- plotPairwise <- function(...) 
   UseMethod("plotPairwise")
 
 plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
