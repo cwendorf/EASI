@@ -2,11 +2,6 @@
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
 \name{describeOmnibus}
-\alias{describeOmnibus}
-\alias{descOmnibus.default}
-\alias{descOmnibus.formula}
-\alias{descOmnibus.wss}
-\alias{descOmnibus.bss}
 \title{Describe Omnibus}
 \description{Provides a Analysis of Variance source table.}
 

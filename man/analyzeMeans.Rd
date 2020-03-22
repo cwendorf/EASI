@@ -2,11 +2,6 @@
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
 \name{analyzeMeans}
-\alias{analyzeMeans}
-\alias{allMeans.default}
-\alias{allMeans.formula}
-\alias{allMeans.wss}
-\alias{allMeans.bss}
 \title{Analyze Means}
 \description{Provides a list of output that combines the estimate, plot, test, and standardize functions for all of the group or level means.}
 
