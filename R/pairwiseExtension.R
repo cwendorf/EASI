@@ -1,9 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Extension for Pairwise Comparisons
 
-### TO INSTALL: PASTE CONTENTS OF THIS ENTIRE FILE INTO R 
-### ALSO: PASTE CONTENTS OF EASIFUNCTIONS INTO R
-
 ### Confidence Interval Functions
 
 #### CI Function for Pairwise Group and Variable Comparisons
