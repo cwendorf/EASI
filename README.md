@@ -32,7 +32,7 @@ library(EASI)
 
 ### Usage
 
-This is the demo script for the cover script (using a built-in data set):
+This is the demo script for the cover image (using a built-in data set):
 
 ```r
 # Estimation Approach to Statistical Inference
