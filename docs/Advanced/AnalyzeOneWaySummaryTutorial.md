@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-05"
+date: "2020-03-22"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -23,10 +23,10 @@ This code inputs the group summaries and creates a single summary table.
 
 
 ```r
-Level1 <- c(N=4,M=2.000,SD=2.449)
-Level2 <- c(N=4,M=6.000,SD=2.449)
-Level3 <- c(N=4,M=7.000,SD=2.449)
-OneWaySummary <- rbind(Level1,Level2,Level3)
+Group1 <- c(N=4,M=2.000,SD=2.449)
+Group2 <- c(N=4,M=6.000,SD=2.449)
+Group3 <- c(N=4,M=7.000,SD=2.449)
+OneWaySummary <- rbind(Group1,Group2,Group3)
 class(OneWaySummary) <- "bss"
 ```
 
@@ -44,21 +44,21 @@ analyzeMeans(OneWaySummary)
 ```
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.224  -1.897   5.897
-## Level2   4.000   6.000   2.449   1.224   2.103   9.897
-## Level3   4.000   7.000   2.449   1.224   3.103  10.897
+## Group1   4.000   2.000   2.449   1.224  -1.897   5.897
+## Group2   4.000   6.000   2.449   1.224   2.103   9.897
+## Group3   4.000   7.000   2.449   1.224   3.103  10.897
 ## 
 ## $`Hypothesis Tests for the Means`
 ##           Diff      SE       t      df       p
-## Level1   2.000   1.224   1.633   3.000   0.201
-## Level2   6.000   1.224   4.900   3.000   0.016
-## Level3   7.000   1.224   5.717   3.000   0.011
+## Group1   2.000   1.224   1.633   3.000   0.201
+## Group2   6.000   1.224   4.900   3.000   0.016
+## Group3   7.000   1.224   5.717   3.000   0.011
 ## 
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1   0.817   0.594   0.616  -0.387   1.934
-## Level2   2.450   1.782   0.955   0.325   4.532
-## Level3   2.858   2.079   1.063   0.464   5.227
+##              d   d.unb      SE      LL      UL
+## Group1   0.817   0.594   0.616  -0.387   1.934
+## Group2   2.450   1.782   0.955   0.325   4.532
+## Group3   2.858   2.079   1.063   0.464   5.227
 ```
 
 ![](figures/AnalyzeOneWay-MeansA-1.png)<!-- -->
@@ -73,21 +73,21 @@ analyzeMeans(OneWaySummary,mu=5,conf.level=.99,rope=c(3,7))
 ```
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.224  -5.152   9.152
-## Level2   4.000   6.000   2.449   1.224  -1.152  13.152
-## Level3   4.000   7.000   2.449   1.224  -0.152  14.152
+## Group1   4.000   2.000   2.449   1.224  -5.152   9.152
+## Group2   4.000   6.000   2.449   1.224  -1.152  13.152
+## Group3   4.000   7.000   2.449   1.224  -0.152  14.152
 ## 
 ## $`Hypothesis Tests for the Means`
 ##           Diff      SE       t      df       p
-## Level1  -3.000   1.224  -2.450   3.000   0.092
-## Level2   1.000   1.224   0.817   3.000   0.474
-## Level3   2.000   1.224   1.633   3.000   0.201
+## Group1  -3.000   1.224  -2.450   3.000   0.092
+## Group2   1.000   1.224   0.817   3.000   0.474
+## Group3   2.000   1.224   1.633   3.000   0.201
 ## 
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1  -1.225  -0.891   0.680  -3.011   0.547
-## Level2   0.408   0.297   0.574  -0.968   1.734
-## Level3   0.817   0.594   0.616  -0.732   2.320
+##              d   d.unb      SE      LL      UL
+## Group1  -1.225  -0.891   0.680  -3.011   0.547
+## Group2   0.408   0.297   0.574  -0.968   1.734
+## Group3   0.817   0.594   0.616  -0.732   2.320
 ```
 
 ![](figures/AnalyzeOneWay-MeansB-1.png)<!-- -->
@@ -100,7 +100,7 @@ This code creates a new table that identifies the two levels for comparison. It 
 
 
 ```r
-CompSummary <- OneWaySummary[c("Level1","Level2"),]
+CompSummary <- OneWaySummary[c("Group1","Group2"),]
 class(CompSummary) <- "bss"
 analyzeDifference(CompSummary)
 ```
@@ -152,8 +152,8 @@ This code identifies a contrast among the groups. It also provides table for the
 
 
 ```r
-L1vsOthers <- c(-1,.5,.5)
-analyzeContrast(OneWaySummary,contrast=L1vsOthers)
+G1vsOthers <- c(-1,.5,.5)
+analyzeContrast(OneWaySummary,contrast=G1vsOthers)
 ```
 
 ```
@@ -176,7 +176,7 @@ Finally, a comparison value, a region of practical equivalence, and a custom int
 
 
 ```r
-analyzeContrast(OneWaySummary,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
+analyzeContrast(OneWaySummary,contrast=G1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 ```
 
 ```

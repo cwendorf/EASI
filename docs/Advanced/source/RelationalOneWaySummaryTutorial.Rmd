@@ -27,10 +27,10 @@ library(EASI)
 ### Enter Summary Statistics
 
 ```{r}
-Level1 <- c(N=4,M=2.000,SD=2.449)
-Level2 <- c(N=4,M=6.000,SD=2.449)
-Level3 <- c(N=4,M=7.000,SD=2.449)
-OneWaySummary <- rbind(Level1,Level2,Level3)
+Group1 <- c(N=4,M=2.000,SD=2.449)
+Group2 <- c(N=4,M=6.000,SD=2.449)
+Group3 <- c(N=4,M=7.000,SD=2.449)
+OneWaySummary <- rbind(Group1,Group2,Group3)
 class(OneWaySummary) <- "bss"
 ```
 

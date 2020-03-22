@@ -25,21 +25,21 @@ library(EASI)
 ### Enter Data
 
 ```{r}
-Outcome1 <- c(0,0,3,5)
-Outcome2 <- c(4,7,4,9)
-Outcome3 <- c(9,6,4,9)
-RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+Time1 <- c(0,0,3,5)
+Time2 <- c(4,7,4,9)
+Time3 <- c(9,6,4,9)
+RepeatedData <- data.frame(Time1,Time2,Time3)
 ```
 
 ### Summaries of Multiple Variables
 
 ```{r}
-summarizeData(Outcome1,Outcome2,Outcome3)
+summarizeData(Time1,Time2,Time3)
 ```
 
 ### Boxplots of Multiple Variables
 
 ```{r,SummarizeRepeated-Boxes}
-plotBoxes(Outcome1,Outcome2,Outcome3)
-addData(Outcome1,Outcome2,Outcome3,method="stack")
+plotBoxes(Time1,Time2,Time3)
+addData(Time1,Time2,Time3,method="stack")
 ```

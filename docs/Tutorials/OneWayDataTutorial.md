@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-03-22"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -24,7 +24,7 @@ This code inputs the variable names and creates a viewable data frame.
 ```r
 Factor <- c(rep(1,4),rep(2,4),rep(3,4))
 Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
+Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
 OneWayData <- data.frame(Factor,Outcome)
 ```
 
@@ -43,9 +43,9 @@ estimateMeans(Outcome~Factor)
 ```
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.225  -1.898   5.898
-## Level2   4.000   6.000   2.449   1.225   2.102   9.898
-## Level3   4.000   7.000   2.449   1.225   3.102  10.898
+## Group1   4.000   2.000   2.449   1.225  -1.898   5.898
+## Group2   4.000   6.000   2.449   1.225   2.102   9.898
+## Group3   4.000   7.000   2.449   1.225   3.102  10.898
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -57,9 +57,9 @@ estimateMeans(Outcome~Factor,conf.level=.99)
 ```
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.225  -5.154   9.154
-## Level2   4.000   6.000   2.449   1.225  -1.154  13.154
-## Level3   4.000   7.000   2.449   1.225  -0.154  14.154
+## Group1   4.000   2.000   2.449   1.225  -5.154   9.154
+## Group2   4.000   6.000   2.449   1.225  -1.154  13.154
+## Group3   4.000   7.000   2.449   1.225  -0.154  14.154
 ```
 
 #### Plots of the Confidence Intervals for the Means
@@ -89,11 +89,11 @@ testMeans(Outcome~Factor)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
+## $`Hypothesis Tests for the Means`
 ##           Diff      SE       t      df       p
-## Level1   2.000   1.225   1.633   3.000   0.201
-## Level2   6.000   1.225   4.899   3.000   0.016
-## Level3   7.000   1.225   5.715   3.000   0.011
+## Group1   2.000   1.225   1.633   3.000   0.201
+## Group2   6.000   1.225   4.899   3.000   0.016
+## Group3   7.000   1.225   5.715   3.000   0.011
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -103,11 +103,11 @@ testMeans(Outcome~Factor,mu=5)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
+## $`Hypothesis Tests for the Means`
 ##           Diff      SE       t      df       p
-## Level1  -3.000   1.225  -2.449   3.000   0.092
-## Level2   1.000   1.225   0.816   3.000   0.474
-## Level3   2.000   1.225   1.633   3.000   0.201
+## Group1  -3.000   1.225  -2.449   3.000   0.092
+## Group2   1.000   1.225   0.816   3.000   0.474
+## Group3   2.000   1.225   1.633   3.000   0.201
 ```
 
 #### Effect Sizes for the Means
@@ -120,10 +120,10 @@ standardizeMeans(Outcome~Factor)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1   0.816   0.594   0.616  -0.387   1.934
-## Level2   2.449   1.781   0.955   0.325   4.531
-## Level3   2.858   2.078   1.063   0.464   5.226
+##              d   d.unb      SE      LL      UL
+## Group1   0.816   0.594   0.616  -0.387   1.934
+## Group2   2.449   1.781   0.955   0.325   4.531
+## Group3   2.858   2.078   1.063   0.464   5.226
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -134,10 +134,10 @@ standardizeMeans(Outcome~Factor,mu=5,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1  -1.225  -0.891   0.680  -3.010   0.547
-## Level2   0.408   0.297   0.574  -0.969   1.734
-## Level3   0.816   0.594   0.616  -0.732   2.319
+##              d   d.unb      SE      LL      UL
+## Group1  -1.225  -0.891   0.680  -3.010   0.547
+## Group2   0.408   0.297   0.574  -0.969   1.734
+## Group3   0.816   0.594   0.616  -0.732   2.319
 ```
 
 ### Analyses of a Group Comparison
@@ -147,7 +147,7 @@ This section produces analyses that are equivalent to comparisons of two levels 
 This code creates a new factor that identifies the two levels for comparison.
 
 ```r
-Comparison=factor(Factor,c("Level1","Level2"))
+Comparison=factor(Factor,c("Group1","Group2"))
 ```
 
 #### Confidence Interval for a Mean Difference
@@ -253,7 +253,7 @@ This section produces analyses that are equivalent to analyses involving multipl
 This code identifies a contrast among the groups.
 
 ```r
-L1vsOthers <- c(-1,.5,.5)
+G1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for a Contrast
@@ -261,7 +261,7 @@ L1vsOthers <- c(-1,.5,.5)
 This code produces a confidence interval for that contrast.
 
 ```r
-estimateContrast(Outcome~Factor,contrast=L1vsOthers)
+estimateContrast(Outcome~Factor,contrast=G1vsOthers)
 ```
 
 ```
@@ -272,7 +272,7 @@ estimateContrast(Outcome~Factor,contrast=L1vsOthers)
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```r
-estimateContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
+estimateContrast(Outcome~Factor,contrast=G1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
@@ -280,7 +280,7 @@ estimateContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 
 ```r
-plotContrast(Outcome~Factor,contrast=L1vsOthers)
+plotContrast(Outcome~Factor,contrast=G1vsOthers)
 ```
 
 ![](figures/OneWay-ContrastA-1.png)<!-- -->
@@ -288,7 +288,7 @@ plotContrast(Outcome~Factor,contrast=L1vsOthers)
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 
 ```r
-plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(Outcome~Factor,contrast=G1vsOthers,labels=c("Group1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
 ![](figures/OneWay-ContrastB-1.png)<!-- -->
@@ -298,7 +298,7 @@ plotContrast(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 
 ```r
-testContrast(Outcome~Factor,contrast=L1vsOthers)
+testContrast(Outcome~Factor,contrast=G1vsOthers)
 ```
 
 ```
@@ -310,7 +310,7 @@ testContrast(Outcome~Factor,contrast=L1vsOthers)
 If desired, the contrast can be tested against other values.
 
 ```r
-testContrast(Outcome~Factor,contrast=L1vsOthers,mu=4)
+testContrast(Outcome~Factor,contrast=G1vsOthers,mu=4)
 ```
 
 ```
@@ -324,7 +324,7 @@ testContrast(Outcome~Factor,contrast=L1vsOthers,mu=4)
 This code calculates a standardized contrast and its confidence interval.
 
 ```r
-standardizeContrast(Outcome~Factor,contrast=L1vsOthers)
+standardizeContrast(Outcome~Factor,contrast=G1vsOthers)
 ```
 
 ```
@@ -336,7 +336,7 @@ standardizeContrast(Outcome~Factor,contrast=L1vsOthers)
 The width of the confidence interval for the effect size can be altered if desired.
 
 ```r
-standardizeContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
+standardizeContrast(Outcome~Factor,contrast=G1vsOthers,conf.level=.99)
 ```
 
 ```

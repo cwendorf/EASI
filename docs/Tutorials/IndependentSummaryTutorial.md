@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-05"
+date: "2020-03-22"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -22,17 +22,17 @@ vignette: >
 This code inputs the group summaries and creates a single summary table.
 
 ```r
-Level1 <- c(N=4,M=2.000,SD=2.449)
-Level2 <- c(N=4,M=6.000,SD=2.449)
-IndependentSummary <- rbind(Level1,Level2)
+Group1 <- c(N=4,M=2.000,SD=2.449)
+Group2 <- c(N=4,M=6.000,SD=2.449)
+IndependentSummary <- rbind(Group1,Group2)
 class(IndependentSummary) <- "bss"
 IndependentSummary
 ```
 
 ```
 ##        N M    SD
-## Level1 4 2 2.449
-## Level2 4 6 2.449
+## Group1 4 2 2.449
+## Group2 4 6 2.449
 ## attr(,"class")
 ## [1] "bss"
 ```
@@ -52,8 +52,8 @@ estimateMeans(IndependentSummary)
 ```
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.224  -1.897   5.897
-## Level2   4.000   6.000   2.449   1.224   2.103   9.897
+## Group1   4.000   2.000   2.449   1.224  -1.897   5.897
+## Group2   4.000   6.000   2.449   1.224   2.103   9.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -65,8 +65,8 @@ estimateMeans(IndependentSummary,conf.level=.99)
 ```
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.224  -5.152   9.152
-## Level2   4.000   6.000   2.449   1.224  -1.152  13.152
+## Group1   4.000   2.000   2.449   1.224  -5.152   9.152
+## Group2   4.000   6.000   2.449   1.224  -1.152  13.152
 ```
 
 #### Plots of the Confidence Intervals for the Means
@@ -96,10 +96,10 @@ testMeans(IndependentSummary)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
+## $`Hypothesis Tests for the Means`
 ##           Diff      SE       t      df       p
-## Level1   2.000   1.224   1.633   3.000   0.201
-## Level2   6.000   1.224   4.900   3.000   0.016
+## Group1   2.000   1.224   1.633   3.000   0.201
+## Group2   6.000   1.224   4.900   3.000   0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -109,10 +109,10 @@ testMeans(IndependentSummary,mu=5)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
+## $`Hypothesis Tests for the Means`
 ##           Diff      SE       t      df       p
-## Level1  -3.000   1.224  -2.450   3.000   0.092
-## Level2   1.000   1.224   0.817   3.000   0.474
+## Group1  -3.000   1.224  -2.450   3.000   0.092
+## Group2   1.000   1.224   0.817   3.000   0.474
 ```
 
 #### Effect Sizes for the Means
@@ -125,9 +125,9 @@ standardizeMeans(IndependentSummary)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1   0.817   0.594   0.616  -0.387   1.934
-## Level2   2.450   1.782   0.955   0.325   4.532
+##              d   d.unb      SE      LL      UL
+## Group1   0.817   0.594   0.616  -0.387   1.934
+## Group2   2.450   1.782   0.955   0.325   4.532
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -138,9 +138,9 @@ standardizeMeans(IndependentSummary,mu=5,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1  -1.225  -0.891   0.680  -3.011   0.547
-## Level2   0.408   0.297   0.574  -0.968   1.734
+##              d   d.unb      SE      LL      UL
+## Group1  -1.225  -0.891   0.680  -3.011   0.547
+## Group2   0.408   0.297   0.574  -0.968   1.734
 ```
  
 ### Analyses of a Group Comparison

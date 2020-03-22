@@ -25,27 +25,27 @@ library(EASI)
 ### Enter Data
 
 ```{r}
-Outcome1 <- c(0,0,3,5)
-Outcome2 <- c(4,7,4,9)
-Outcome3 <- c(9,6,4,9)
-RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+Time1 <- c(0,0,3,5)
+Time2 <- c(4,7,4,9)
+Time3 <- c(9,6,4,9)
+RepeatedData <- data.frame(Time1,Time2,Time3)
 ```
 
 ### Relational Intervals
 
 ```{r}
-estimateRelational(Outcome1,Outcome2,Outcome3)
+estimateRelational(Time1,Time2,Time3)
 ```
 
 ```{r,Repeated-RelationalA}
-plotMeans(Outcome1,Outcome2,Outcome3)
-addRelational(Outcome1,Outcome2,Outcome3)
+plotMeans(Time1,Time2,Time3)
+addRelational(Time1,Time2,Time3)
 ```
 
 ```{r,Repeated-RelationalB}
-plotRelational(Outcome1,Outcome2,Outcome3)
+plotRelational(Time1,Time2,Time3)
 ```
 
 ```{r,Repeated-RelationalC}
-plotRelational(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5)
+plotRelational(Time1,Time2,Time3,conf.level=.99,mu=5)
 ```

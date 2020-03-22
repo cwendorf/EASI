@@ -25,16 +25,16 @@ library(EASI)
 ### Enter Summary Statistics
 
 ```{r}
-Outcome1 <- c(N=4,M=2.000,SD=2.449)
-Outcome2 <- c(N=4,M=6.000,SD=2.449)
-Outcome3 <- c(N=4,M=7.000,SD=2.449)
-RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
+Time1 <- c(N=4,M=2.000,SD=2.449)
+Time2 <- c(N=4,M=6.000,SD=2.449)
+Time3 <- c(N=4,M=7.000,SD=2.449)
+RepeatedSummary <- rbind(Time1,Time2,Time3)
 class(RepeatedSummary) <- "wss"
 
-RepeatedCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
-RepeatedCorr["Outcome1","Outcome2"] <- .500
-RepeatedCorr["Outcome1","Outcome3"] <- .056
-RepeatedCorr["Outcome2","Outcome3"] <- .389
+RepeatedCorr <- declareCorrMatrix("Time1","Time2","Time3")
+RepeatedCorr["Time1","Time2"] <- .500
+RepeatedCorr["Time1","Time3"] <- .056
+RepeatedCorr["Time2","Time3"] <- .389
 RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
 ```
 

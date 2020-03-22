@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-04"
+date: "2020-03-22"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -23,10 +23,10 @@ vignette: >
 
 
 ```r
-Level1 <- c(N=4,M=2.000,SD=2.449)
-Level2 <- c(N=4,M=6.000,SD=2.449)
-Level3 <- c(N=4,M=7.000,SD=2.449)
-OneWaySummary <- rbind(Level1,Level2,Level3)
+Group1 <- c(N=4,M=2.000,SD=2.449)
+Group2 <- c(N=4,M=6.000,SD=2.449)
+Group3 <- c(N=4,M=7.000,SD=2.449)
+OneWaySummary <- rbind(Group1,Group2,Group3)
 class(OneWaySummary) <- "bss"
 ```
 
@@ -38,12 +38,11 @@ estimateRelational(OneWaySummary)
 ```
 
 ```
-## Confidence and Relational Intervals for the Means 
-## 
+## $`Confidence and Relational Intervals for the Means`
 ##              M   CI.LL   CI.UL   RI.LL   RI.UL
-## Level1   2.000  -1.897   5.897   0.041   3.959
-## Level2   6.000   2.103   9.897   4.041   7.959
-## Level3   7.000   3.103  10.897   5.041   8.959
+## Group1   2.000  -1.897   5.897   0.041   3.959
+## Group2   6.000   2.103   9.897   4.041   7.959
+## Group3   7.000   3.103  10.897   5.041   8.959
 ```
 
 

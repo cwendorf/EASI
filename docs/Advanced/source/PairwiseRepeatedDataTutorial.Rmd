@@ -25,10 +25,10 @@ library(EASI)
 ### Enter Data
 
 ```{r}
-Outcome1 <- c(0,0,3,5)
-Outcome2 <- c(4,7,4,9)
-Outcome3 <- c(9,6,4,9)
-PairwiseRepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+Time1 <- c(0,0,3,5)
+Time2 <- c(4,7,4,9)
+Time3 <- c(9,6,4,9)
+PairwiseRepeatedData <- data.frame(Time1,Time2,Time3)
 ```
 
 ### Analyses of Pairwise Variable Comparisons
@@ -36,39 +36,39 @@ PairwiseRepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 #### Confidence Intervals for the Pairwise Comparisons
 
 ```{r}
-estimatePairwise(Outcome1,Outcome2,Outcome3)
+estimatePairwise(Time1,Time2,Time3)
 ```
 
 ```{r}
-estimatePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
+estimatePairwise(Time1,Time2,Time3,conf.level=.99)
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
 ```{r,Repeated-PairwiseA}
-plotPairwise(Outcome1,Outcome2,Outcome3)
+plotPairwise(Time1,Time2,Time3)
 ```
 
 ```{r,Repeated-PairwiseB}
-plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0))
+plotPairwise(Time1,Time2,Time3,mu=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 #### Significance Tests of the Pairwise Comparisons
 
 ```{r}
-testPairwise(Outcome1,Outcome2,Outcome3)
+testPairwise(Time1,Time2,Time3)
 ```
 
 ```{r}
-testPairwise(Outcome1,Outcome2,Outcome3,mu=-2)
+testPairwise(Time1,Time2,Time3,mu=-2)
 ```
 
 #### Effect Sizes for the Pairwise Comparisons
 
 ```{r}
-standardizePairwise(Outcome1,Outcome2,Outcome3)
+standardizePairwise(Time1,Time2,Time3)
 ```
 
 ```{r}
-standardizePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
+standardizePairwise(Time1,Time2,Time3,conf.level=.99)
 ```

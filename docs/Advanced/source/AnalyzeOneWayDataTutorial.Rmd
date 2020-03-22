@@ -29,7 +29,7 @@ This code inputs the variable names and creates a viewable data frame.
 ```{r}
 Factor <- c(rep(1,4),rep(2,4),rep(3,4))
 Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
+Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
 OneWayData <- data.frame(Factor,Outcome)
 ```
 
@@ -56,7 +56,7 @@ This section produces analyses that are equivalent to comparisons of two levels 
 This code creates a new factor that identifies the two levels for comparison. It also provides table for the confidence interval of the difference, a table of NHST for the difference, and a table of the standardized mean difference.
 
 ```{r,AnalyzeOneWay-DifferenceA}
-Comparison=factor(Factor,c("Level1","Level2"))
+Comparison=factor(Factor,c("Group1","Group2"))
 analyzeDifference(Outcome~Comparison)
 ```
 
@@ -73,12 +73,12 @@ This section produces analyses that are equivalent to analyses involving multipl
 This code identifies a contrast among the groups. It also provides table for the confidence interval for the contrast, a table of NHST for the contrast, and a table of the standardized contrast.
 
 ```{r,AnalyzeOneWay-ContrastA}
-L1vsOthers <- c(-1,.5,.5)
-analyzeContrast(Outcome~Factor,contrast=L1vsOthers)
+G1vsOthers <- c(-1,.5,.5)
+analyzeContrast(Outcome~Factor,contrast=G1vsOthers)
 ```
 
 Finally, a comparison value, a region of practical equivalence, and a custom interval width can be specified.
 
 ```{r,AnalyzeOneWay-ContrastB}
-analyzeContrast(Outcome~Factor,contrast=L1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
+analyzeContrast(Outcome~Factor,contrast=G1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 ```
