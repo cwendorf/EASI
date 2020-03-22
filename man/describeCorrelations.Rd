@@ -2,6 +2,8 @@
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
 \name{describeCorrelations}
+\alias{describeCorrelations}
+\alias{descCorrelations.default}
 \title{Describe Correlations}
 \description{Provides a square matrix/frame of correlations for a data set.}
 

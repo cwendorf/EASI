@@ -2,6 +2,11 @@
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
 \name{analyzeDifference}
+\alias{analyzeDifference}
+\alias{allDifference.default}
+\alias{allDifference.formula}
+\alias{allDifference.wss}
+\alias{allDifference.bss}
 \title{Analyze Difference}
 \description{Provides a list of output that combines the estimate, plot, test, and standardize functions for a mean diference.}
 

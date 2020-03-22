@@ -2,6 +2,11 @@
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
 \name{analyzeContrast}
+\alias{analyzeContrast}
+\alias{allContrast.default}
+\alias{allContrast.formula}
+\alias{allContrast.wss}
+\alias{allContrast.bss}
 \title{Analyze Contrast}
 \description{Provides a list of output that combines the estimate, plot, test, and standardize functions for a contrast.}
 

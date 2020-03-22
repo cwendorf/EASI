@@ -2,6 +2,9 @@
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
 \name{describeMeans}
+\alias{describeMeans}
+\alias{descMeans.default}
+\alias{descMeans.formula}
 \title{Describe Means}
 \description{Provides a table of descriptive/summary statistics for a data set.}
 
