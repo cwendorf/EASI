@@ -26,10 +26,10 @@ library(EASI)
 
 This code inputs the group summaries and creates a single summary table.
 ```{r}
-Group1 <- c(N=4,M=2.000,SD=2.449)
-Group2 <- c(N=4,M=6.000,SD=2.449)
-Group3 <- c(N=4,M=7.000,SD=2.449)
-OneWaySummary <- rbind(Group1,Group2,Group3)
+Level1 <- c(N=4,M=2.000,SD=2.449)
+Level2 <- c(N=4,M=6.000,SD=2.449)
+Level3 <- c(N=4,M=7.000,SD=2.449)
+OneWaySummary <- rbind(Level1,Level2,Level3)
 class(OneWaySummary) <- "bss"
 OneWaySummary
 ```
@@ -92,7 +92,7 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code creates a new table that identifies the two levels for comparison.
 ```{r}
-CompSummary <- OneWaySummary[c("Group1","Group2"),]
+CompSummary <- OneWaySummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
 ```
 
@@ -150,53 +150,53 @@ This section produces analyses that are equivalent to analyses involving multipl
 
 This code identifies a contrast among the groups
 ```{r}
-G1vsOthers <- c(-1,.5,.5)
+L1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for a Contrast
 
 This code produces a confidence interval for that contrast.
 ```{r}
-estimateContrast(OneWaySummary,contrast=G1vsOthers)
+estimateContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```{r}
-estimateContrast(OneWaySummary,contrast=G1vsOthers,conf.level=.99)
+estimateContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```{r,OneWay-ContrastA}
-plotContrast(OneWaySummary,contrast=G1vsOthers)
+plotContrast(OneWaySummary,contrast=L1vsOthers)
 ````
 
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```{r,OneWay-ContrastB}
-plotContrast(OneWaySummary,contrast=G1vsOthers,labels=c("Group1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
 #### Significance Test for a Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
-testContrast(OneWaySummary,contrast=G1vsOthers)
+testContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 If desired, the contrast can be tested against other values.
 ```{r}
-testContrast(OneWaySummary,contrast=G1vsOthers,mu=4)
+testContrast(OneWaySummary,contrast=L1vsOthers,mu=4)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}
-standardizeContrast(OneWaySummary,contrast=G1vsOthers)
+standardizeContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-standardizeContrast(OneWaySummary,contrast=G1vsOthers,conf.level=.99)
+standardizeContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 ```

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-22"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -22,17 +22,17 @@ vignette: >
 This code inputs the variable summaries and creates a summary table.
 
 ```r
-Time1 <- c(N=4,M=2.000,SD=2.449)
-Time2 <- c(N=4,M=6.000,SD=2.449)
-PairedSummary <- rbind(Time1,Time2)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+PairedSummary <- rbind(Outcome1,Outcome2)
 class(PairedSummary) <- "wss"
 ```
 
 This code creates a correlation matrix and enters single correlation.
 
 ```r
-PairedCorr <- declareCorrMatrix("Time1","Time2")
-PairedCorr["Time1","Time2"] <- .500
+PairedCorr <- declareCorrMatrix("Outcome1","Outcome2")
+PairedCorr["Outcome1","Outcome2"] <- .500
 ```
  
 ### Analyses of Multiple Variables
@@ -49,9 +49,9 @@ estimateMeans(PairedSummary)
 
 ```
 ## $`Confidence Intervals for the Means`
-##             N       M      SD      SE      LL      UL
-## Time1   4.000   2.000   2.449   1.224  -1.897   5.897
-## Time2   4.000   6.000   2.449   1.224   2.103   9.897
+##                N       M      SD      SE      LL      UL
+## Outcome1   4.000   2.000   2.449   1.224  -1.897   5.897
+## Outcome2   4.000   6.000   2.449   1.224   2.103   9.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -62,9 +62,9 @@ estimateMeans(PairedSummary,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Means`
-##             N       M      SD      SE      LL      UL
-## Time1   4.000   2.000   2.449   1.224  -5.152   9.152
-## Time2   4.000   6.000   2.449   1.224  -1.152  13.152
+##                N       M      SD      SE      LL      UL
+## Outcome1   4.000   2.000   2.449   1.224  -5.152   9.152
+## Outcome2   4.000   6.000   2.449   1.224  -1.152  13.152
 ```
 
 #### Plots of Confidence Intervals for the Means
@@ -94,10 +94,10 @@ testMeans(PairedSummary)
 ```
 
 ```
-## $`Hypothesis Tests for the Means`
-##          Diff      SE       t      df       p
-## Time1   2.000   1.224   1.633   3.000   0.201
-## Time2   6.000   1.224   4.900   3.000   0.016
+## $`Hypothesis Test for the Means`
+##             Diff      SE       t      df       p
+## Outcome1   2.000   1.224   1.633   3.000   0.201
+## Outcome2   6.000   1.224   4.900   3.000   0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -107,10 +107,10 @@ testMeans(PairedSummary,mu=6)
 ```
 
 ```
-## $`Hypothesis Tests for the Means`
-##          Diff      SE       t      df       p
-## Time1  -4.000   1.224  -3.267   3.000   0.047
-## Time2   0.000   1.224   0.000   3.000   1.000
+## $`Hypothesis Test for the Means`
+##             Diff      SE       t      df       p
+## Outcome1  -4.000   1.224  -3.267   3.000   0.047
+## Outcome2   0.000   1.224   0.000   3.000   1.000
 ```
 
 #### Effect Sizes for the Means
@@ -123,9 +123,9 @@ standardizeMeans(PairedSummary)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##             d   d.unb      SE      LL      UL
-## Time1   0.817   0.594   0.616  -0.387   1.934
-## Time2   2.450   1.782   0.955   0.325   4.532
+##                d  d.unb.      SE      LL      UL
+## Outcome1   0.817   0.594   0.616  -0.387   1.934
+## Outcome2   2.450   1.782   0.955   0.325   4.532
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -136,9 +136,9 @@ standardizeMeans(PairedSummary,mu=6,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##             d   d.unb      SE      LL      UL
-## Time1  -1.633  -1.188   0.761  -3.765   0.398
-## Time2   0.000   0.000   0.559  -1.288   1.288
+##                d  d.unb.      SE      LL      UL
+## Outcome1  -1.633  -1.188   0.761  -3.765   0.398
+## Outcome2   0.000   0.000   0.559  -1.288   1.288
 ```
 
 ### Analyses of a Variable Comparison

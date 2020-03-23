@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-22"
+date: "2020-03-05"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -23,10 +23,10 @@ This code inputs the variable names and creates a viewable data frame.
 
 
 ```r
-Time1 <- c(0,0,3,5)
-Time2 <- c(4,7,4,9)
-Time3 <- c(9,6,4,9)
-RepeatedData <- data.frame(Time1,Time2,Time3)
+Outcome1 <- c(0,0,3,5)
+Outcome2 <- c(4,7,4,9)
+Outcome3 <- c(9,6,4,9)
+RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 ```
 
 ### Analyses of Multiple Variables
@@ -37,27 +37,27 @@ This code will provide a table of descriptive statistics and confidence interval
 
 
 ```r
-analyzeMeans(Time1,Time2,Time3)
+analyzeMeans(Outcome1,Outcome2,Outcome3)
 ```
 
 ```
 ## $`Confidence Intervals for the Means`
-##             N       M      SD      SE      LL      UL
-## Time1   4.000   2.000   2.449   1.225  -1.898   5.898
-## Time2   4.000   6.000   2.449   1.225   2.102   9.898
-## Time3   4.000   7.000   2.449   1.225   3.102  10.898
+##                N       M      SD      SE      LL      UL
+## Outcome1   4.000   2.000   2.449   1.225  -1.898   5.898
+## Outcome2   4.000   6.000   2.449   1.225   2.102   9.898
+## Outcome3   4.000   7.000   2.449   1.225   3.102  10.898
 ## 
 ## $`Hypothesis Tests for the Means`
-##          Diff      SE       t      df       p
-## Time1   2.000   1.225   1.633   3.000   0.201
-## Time2   6.000   1.225   4.899   3.000   0.016
-## Time3   7.000   1.225   5.715   3.000   0.011
+##             Diff      SE       t      df       p
+## Outcome1   2.000   1.225   1.633   3.000   0.201
+## Outcome2   6.000   1.225   4.899   3.000   0.016
+## Outcome3   7.000   1.225   5.715   3.000   0.011
 ## 
 ## $`Confidence Intervals for the Standardized Means`
-##             d   d.unb      SE      LL      UL
-## Time1   0.816   0.594   0.616  -0.387   1.934
-## Time2   2.449   1.781   0.955   0.325   4.531
-## Time3   2.858   2.078   1.063   0.464   5.226
+##                d  d.unb.      SE      LL      UL
+## Outcome1   0.816   0.594   0.616  -0.387   1.934
+## Outcome2   2.449   1.781   0.955   0.325   4.531
+## Outcome3   2.858   2.078   1.063   0.464   5.226
 ```
 
 ![](figures/AnalyzeRepeated-MeansA-1.png)<!-- -->
@@ -66,27 +66,27 @@ It is also possible to alter the width of the confidence intervals, add a compar
 
 
 ```r
-analyzeMeans(Time1,Time2,Time3,mu=5,conf.level=.99,rope=c(3,7))
+analyzeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99,rope=c(3,7))
 ```
 
 ```
 ## $`Confidence Intervals for the Means`
-##             N       M      SD      SE      LL      UL
-## Time1   4.000   2.000   2.449   1.225  -5.154   9.154
-## Time2   4.000   6.000   2.449   1.225  -1.154  13.154
-## Time3   4.000   7.000   2.449   1.225  -0.154  14.154
+##                N       M      SD      SE      LL      UL
+## Outcome1   4.000   2.000   2.449   1.225  -5.154   9.154
+## Outcome2   4.000   6.000   2.449   1.225  -1.154  13.154
+## Outcome3   4.000   7.000   2.449   1.225  -0.154  14.154
 ## 
 ## $`Hypothesis Tests for the Means`
-##          Diff      SE       t      df       p
-## Time1  -3.000   1.225  -2.449   3.000   0.092
-## Time2   1.000   1.225   0.816   3.000   0.474
-## Time3   2.000   1.225   1.633   3.000   0.201
+##             Diff      SE       t      df       p
+## Outcome1  -3.000   1.225  -2.449   3.000   0.092
+## Outcome2   1.000   1.225   0.816   3.000   0.474
+## Outcome3   2.000   1.225   1.633   3.000   0.201
 ## 
 ## $`Confidence Intervals for the Standardized Means`
-##             d   d.unb      SE      LL      UL
-## Time1  -1.225  -0.891   0.680  -3.010   0.547
-## Time2   0.408   0.297   0.574  -0.969   1.734
-## Time3   0.816   0.594   0.616  -0.732   2.319
+##                d  d.unb.      SE      LL      UL
+## Outcome1  -1.225  -0.891   0.680  -3.010   0.547
+## Outcome2   0.408   0.297   0.574  -0.969   1.734
+## Outcome3   0.816   0.594   0.616  -0.732   2.319
 ```
 
 ![](figures/AnalyzeRepeated-MeansB-1.png)<!-- -->
@@ -99,7 +99,7 @@ This code creates a new factor that identifies the two levels for comparison. It
 
 
 ```r
-analyzeDifference(Time1,Time2)
+analyzeDifference(Outcome1,Outcome2)
 ```
 
 ```
@@ -122,7 +122,7 @@ As always, a interval width can be altered, and comparison values and a region o
 
 
 ```r
-analyzeDifference(Time1,Time2,mu=-2,conf.level=.99,rope=c(-2,2))
+analyzeDifference(Outcome1,Outcome2,mu=-2,conf.level=.99,rope=c(-2,2))
 ```
 
 ```
@@ -149,8 +149,8 @@ This code identifies a contrast among the levels. It also provides table for the
 
 
 ```r
-T1vsOthers <- c(-1,.5,.5)
-analyzeContrast(Time1,Time2,Time3,contrast=T1vsOthers)
+O1vsOthers <- c(-1,.5,.5)
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 ```
 
 ```
@@ -173,7 +173,7 @@ Finally, a comparison value, a region of practical equivalence, and a custom int
 
 
 ```r
-analyzeContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
+analyzeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 ```
 
 ```

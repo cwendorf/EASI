@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-22"
+date: "2020-03-05"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -23,10 +23,10 @@ This code inputs the variable summaries and creates a summary table.
 
 
 ```r
-Time1 <- c(N=4,M=2.000,SD=2.449)
-Time2 <- c(N=4,M=6.000,SD=2.449)
-Time3 <- c(N=4,M=7.000,SD=2.449)
-RepeatedSummary <- rbind(Time1,Time2,Time3)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(RepeatedSummary) <- "wss"
 ```
 
@@ -34,10 +34,10 @@ This code creates a correlation matrix, enters just the top triangle, and then u
 
 
 ```r
-RepeatedCorr <- declareCorrMatrix("Time1","Time2","Time3")
-RepeatedCorr["Time1","Time2"] <- .500
-RepeatedCorr["Time1","Time3"] <- .056
-RepeatedCorr["Time2","Time3"] <- .389
+RepeatedCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+RepeatedCorr["Outcome1","Outcome2"] <- .500
+RepeatedCorr["Outcome1","Outcome3"] <- .056
+RepeatedCorr["Outcome2","Outcome3"] <- .389
 RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
 ```
 
@@ -54,22 +54,22 @@ analyzeMeans(RepeatedSummary)
 
 ```
 ## $`Confidence Intervals for the Means`
-##             N       M      SD      SE      LL      UL
-## Time1   4.000   2.000   2.449   1.224  -1.897   5.897
-## Time2   4.000   6.000   2.449   1.224   2.103   9.897
-## Time3   4.000   7.000   2.449   1.224   3.103  10.897
+##                N       M      SD      SE      LL      UL
+## Outcome1   4.000   2.000   2.449   1.224  -1.897   5.897
+## Outcome2   4.000   6.000   2.449   1.224   2.103   9.897
+## Outcome3   4.000   7.000   2.449   1.224   3.103  10.897
 ## 
 ## $`Hypothesis Tests for the Means`
-##          Diff      SE       t      df       p
-## Time1   2.000   1.224   1.633   3.000   0.201
-## Time2   6.000   1.224   4.900   3.000   0.016
-## Time3   7.000   1.224   5.717   3.000   0.011
+##             Diff      SE       t      df       p
+## Outcome1   2.000   1.224   1.633   3.000   0.201
+## Outcome2   6.000   1.224   4.900   3.000   0.016
+## Outcome3   7.000   1.224   5.717   3.000   0.011
 ## 
 ## $`Confidence Intervals for the Standardized Means`
-##             d   d.unb      SE      LL      UL
-## Time1   0.817   0.594   0.616  -0.387   1.934
-## Time2   2.450   1.782   0.955   0.325   4.532
-## Time3   2.858   2.079   1.063   0.464   5.227
+##                d  d.unb.      SE      LL      UL
+## Outcome1   0.817   0.594   0.616  -0.387   1.934
+## Outcome2   2.450   1.782   0.955   0.325   4.532
+## Outcome3   2.858   2.079   1.063   0.464   5.227
 ```
 
 ![](figures/AnalyzeRepeated-MeansA-1.png)<!-- -->
@@ -83,22 +83,22 @@ analyzeMeans(RepeatedSummary,mu=5,conf.level=.99,rope=c(3,7))
 
 ```
 ## $`Confidence Intervals for the Means`
-##             N       M      SD      SE      LL      UL
-## Time1   4.000   2.000   2.449   1.224  -5.152   9.152
-## Time2   4.000   6.000   2.449   1.224  -1.152  13.152
-## Time3   4.000   7.000   2.449   1.224  -0.152  14.152
+##                N       M      SD      SE      LL      UL
+## Outcome1   4.000   2.000   2.449   1.224  -5.152   9.152
+## Outcome2   4.000   6.000   2.449   1.224  -1.152  13.152
+## Outcome3   4.000   7.000   2.449   1.224  -0.152  14.152
 ## 
 ## $`Hypothesis Tests for the Means`
-##          Diff      SE       t      df       p
-## Time1  -3.000   1.224  -2.450   3.000   0.092
-## Time2   1.000   1.224   0.817   3.000   0.474
-## Time3   2.000   1.224   1.633   3.000   0.201
+##             Diff      SE       t      df       p
+## Outcome1  -3.000   1.224  -2.450   3.000   0.092
+## Outcome2   1.000   1.224   0.817   3.000   0.474
+## Outcome3   2.000   1.224   1.633   3.000   0.201
 ## 
 ## $`Confidence Intervals for the Standardized Means`
-##             d   d.unb      SE      LL      UL
-## Time1  -1.225  -0.891   0.680  -3.011   0.547
-## Time2   0.408   0.297   0.574  -0.968   1.734
-## Time3   0.817   0.594   0.616  -0.732   2.320
+##                d  d.unb.      SE      LL      UL
+## Outcome1  -1.225  -0.891   0.680  -3.011   0.547
+## Outcome2   0.408   0.297   0.574  -0.968   1.734
+## Outcome3   0.817   0.594   0.616  -0.732   2.320
 ```
 
 ![](figures/AnalyzeRepeated-MeansB-1.png)<!-- -->
@@ -111,7 +111,7 @@ This code creates a new table that identifies the two levels for comparison. It 
 
 
 ```r
-CompSummary <- RepeatedSummary[c("Time1","Time2"),]
+CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 ```
 
@@ -164,11 +164,11 @@ This code identifies a contrast among the levels. It also provides table for the
 
 
 ```r
-T1vsOthers <- c(-1,.5,.5)
+O1vsOthers <- c(-1,.5,.5)
 ```
 
 ```r
-analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers)
+analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
 ```
 
 ```
@@ -191,7 +191,7 @@ Finally, a comparison value, a region of practical equivalence, and a custom int
 
 
 ```r
-analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
+analyzeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4,conf.level=.99,rope=c(-2,2))
 ```
 
 ```

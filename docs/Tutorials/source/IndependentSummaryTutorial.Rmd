@@ -26,9 +26,9 @@ library(EASI)
 
 This code inputs the group summaries and creates a single summary table.
 ```{r}
-Group1 <- c(N=4,M=2.000,SD=2.449)
-Group2 <- c(N=4,M=6.000,SD=2.449)
-IndependentSummary <- rbind(Group1,Group2)
+Level1 <- c(N=4,M=2.000,SD=2.449)
+Level2 <- c(N=4,M=6.000,SD=2.449)
+IndependentSummary <- rbind(Level1,Level2)
 class(IndependentSummary) <- "bss"
 IndependentSummary
 ```

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-22"
+date: "2020-03-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -22,20 +22,20 @@ vignette: >
 This code inputs the variable summaries and creates a summary table.
 
 ```r
-Time1 <- c(N=4,M=2.000,SD=2.449)
-Time2 <- c(N=4,M=6.000,SD=2.449)
-Time3 <- c(N=4,M=7.000,SD=2.449)
-RepeatedSummary <- rbind(Time1,Time2,Time3)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(RepeatedSummary) <- "wss"
 ```
 
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 
 ```r
-RepeatedCorr <- declareCorrMatrix("Time1","Time2","Time3")
-RepeatedCorr["Time1","Time2"] <- .500
-RepeatedCorr["Time1","Time3"] <- .056
-RepeatedCorr["Time2","Time3"] <- .389
+RepeatedCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
+RepeatedCorr["Outcome1","Outcome2"] <- .500
+RepeatedCorr["Outcome1","Outcome3"] <- .056
+RepeatedCorr["Outcome2","Outcome3"] <- .389
 RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
 ```
  
@@ -53,10 +53,10 @@ estimateMeans(RepeatedSummary)
 
 ```
 ## $`Confidence Intervals for the Means`
-##             N       M      SD      SE      LL      UL
-## Time1   4.000   2.000   2.449   1.224  -1.897   5.897
-## Time2   4.000   6.000   2.449   1.224   2.103   9.897
-## Time3   4.000   7.000   2.449   1.224   3.103  10.897
+##                N       M      SD      SE      LL      UL
+## Outcome1   4.000   2.000   2.449   1.224  -1.897   5.897
+## Outcome2   4.000   6.000   2.449   1.224   2.103   9.897
+## Outcome3   4.000   7.000   2.449   1.224   3.103  10.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -67,10 +67,10 @@ estimateMeans(RepeatedSummary,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Means`
-##             N       M      SD      SE      LL      UL
-## Time1   4.000   2.000   2.449   1.224  -5.152   9.152
-## Time2   4.000   6.000   2.449   1.224  -1.152  13.152
-## Time3   4.000   7.000   2.449   1.224  -0.152  14.152
+##                N       M      SD      SE      LL      UL
+## Outcome1   4.000   2.000   2.449   1.224  -5.152   9.152
+## Outcome2   4.000   6.000   2.449   1.224  -1.152  13.152
+## Outcome3   4.000   7.000   2.449   1.224  -0.152  14.152
 ```
 
 #### Plots of Confidence Intervals for the Means
@@ -100,11 +100,11 @@ testMeans(RepeatedSummary)
 ```
 
 ```
-## $`Hypothesis Tests for the Means`
-##          Diff      SE       t      df       p
-## Time1   2.000   1.224   1.633   3.000   0.201
-## Time2   6.000   1.224   4.900   3.000   0.016
-## Time3   7.000   1.224   5.717   3.000   0.011
+## $`Hypothesis Test for the Means`
+##             Diff      SE       t      df       p
+## Outcome1   2.000   1.224   1.633   3.000   0.201
+## Outcome2   6.000   1.224   4.900   3.000   0.016
+## Outcome3   7.000   1.224   5.717   3.000   0.011
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -114,11 +114,11 @@ testMeans(RepeatedSummary,mu=5)
 ```
 
 ```
-## $`Hypothesis Tests for the Means`
-##          Diff      SE       t      df       p
-## Time1  -3.000   1.224  -2.450   3.000   0.092
-## Time2   1.000   1.224   0.817   3.000   0.474
-## Time3   2.000   1.224   1.633   3.000   0.201
+## $`Hypothesis Test for the Means`
+##             Diff      SE       t      df       p
+## Outcome1  -3.000   1.224  -2.450   3.000   0.092
+## Outcome2   1.000   1.224   0.817   3.000   0.474
+## Outcome3   2.000   1.224   1.633   3.000   0.201
 ```
 
 #### Effect Sizes for the Means
@@ -131,10 +131,10 @@ standardizeMeans(RepeatedSummary)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##             d   d.unb      SE      LL      UL
-## Time1   0.817   0.594   0.616  -0.387   1.934
-## Time2   2.450   1.782   0.955   0.325   4.532
-## Time3   2.858   2.079   1.063   0.464   5.227
+##                d  d.unb.      SE      LL      UL
+## Outcome1   0.817   0.594   0.616  -0.387   1.934
+## Outcome2   2.450   1.782   0.955   0.325   4.532
+## Outcome3   2.858   2.079   1.063   0.464   5.227
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -145,10 +145,10 @@ standardizeMeans(RepeatedSummary,mu=5,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##             d   d.unb      SE      LL      UL
-## Time1  -1.225  -0.891   0.680  -3.011   0.547
-## Time2   0.408   0.297   0.574  -0.968   1.734
-## Time3   0.817   0.594   0.616  -0.732   2.320
+##                d  d.unb.      SE      LL      UL
+## Outcome1  -1.225  -0.891   0.680  -3.011   0.547
+## Outcome2   0.408   0.297   0.574  -0.968   1.734
+## Outcome3   0.817   0.594   0.616  -0.732   2.320
 ```
 
 ### Analyses of a Variable Comparison
@@ -158,7 +158,7 @@ This section produces analyses that are equivalent to comparisons of two levels 
 This code creates a new table that identifies the two levels for comparison.
 
 ```r
-CompSummary <- RepeatedSummary[c("Time1","Time2"),]
+CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 ```
 
@@ -265,7 +265,7 @@ This section produces analyses that are equivalent to analyses involving multipl
 This code identifies a contrast among the levels.
 
 ```r
-T1vsOthers <- c(-1,.5,.5)
+O1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for the Contrast
@@ -273,7 +273,7 @@ T1vsOthers <- c(-1,.5,.5)
 This code produces a confidence interval for that contrast.
 
 ```r
-estimateContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers)
+estimateContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
 ```
 
 ```
@@ -285,7 +285,7 @@ estimateContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers)
 As in all other cases, the default value of the confidence interval can be changed.
 
 ```r
-estimateContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers,conf.level=.99)
+estimateContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99)
 ```
 
 ```
@@ -299,7 +299,7 @@ estimateContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers,conf.level=.99
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 
 ```r
-plotContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers) 
+plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) 
 ```
 
 ![](figures/Repeated-ContrastA-1.png)<!-- -->
@@ -307,7 +307,7 @@ plotContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers)
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 
 ```r
-plotContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers,labels=c("Time1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
 ![](figures/Repeated-ContrastB-1.png)<!-- -->
@@ -317,7 +317,7 @@ plotContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers,labels=c("Time1","
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 
 ```r
-testContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers)
+testContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
 ```
 
 ```
@@ -329,7 +329,7 @@ testContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers)
 If desired, the contrast can be tested against other values.
 
 ```r
-testContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers,mu=4)
+testContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4)
 ```
 
 ```
@@ -343,7 +343,7 @@ testContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers,mu=4)
 This code calculates a standardized contrast and its confidence interval.
 
 ```r
-standardizeContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers)
+standardizeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
 ```
 
 ```
@@ -355,7 +355,7 @@ standardizeContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers)
 The width of the confidence interval for the effect size can be altered if desired.
 
 ```r
-standardizeContrast(RepeatedSummary,RepeatedCorr,contrast=T1vsOthers,conf.level=.99)
+standardizeContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99)
 ```
 
 ```

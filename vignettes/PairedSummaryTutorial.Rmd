@@ -26,16 +26,16 @@ library(EASI)
 
 This code inputs the variable summaries and creates a summary table.
 ```{r}
-Time1 <- c(N=4,M=2.000,SD=2.449)
-Time2 <- c(N=4,M=6.000,SD=2.449)
-PairedSummary <- rbind(Time1,Time2)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+PairedSummary <- rbind(Outcome1,Outcome2)
 class(PairedSummary) <- "wss"
 ```
 
 This code creates a correlation matrix and enters single correlation.
 ```{r}
-PairedCorr <- declareCorrMatrix("Time1","Time2")
-PairedCorr["Time1","Time2"] <- .500
+PairedCorr <- declareCorrMatrix("Outcome1","Outcome2")
+PairedCorr["Outcome1","Outcome2"] <- .500
 ```
  
 ### Analyses of Multiple Variables

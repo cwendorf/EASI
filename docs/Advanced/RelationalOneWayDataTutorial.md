@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-22"
+date: "2020-03-04"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -23,7 +23,7 @@ vignette: >
 ```r
 Factor <- c(rep(1,4),rep(2,4),rep(3,4))
 Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
+Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
 OneWayData <- data.frame(Factor,Outcome)
 ```
 
@@ -35,11 +35,12 @@ estimateRelational(Outcome~Factor)
 ```
 
 ```
-## $`Confidence and Relational Intervals for the Means`
+## Confidence and Relational Intervals for the Means 
+## 
 ##              M   CI.LL   CI.UL   RI.LL   RI.UL
-## Group1   2.000  -1.898   5.898   0.041   3.959
-## Group2   6.000   2.102   9.898   4.041   7.959
-## Group3   7.000   3.102  10.898   5.041   8.959
+## Level1   2.000  -1.898   5.898   0.041   3.959
+## Level2   6.000   2.102   9.898   4.041   7.959
+## Level3   7.000   3.102  10.898   5.041   8.959
 ```
 
 

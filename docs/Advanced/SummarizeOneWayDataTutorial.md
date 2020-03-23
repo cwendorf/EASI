@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-22"
+date: "2020-03-02"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -23,7 +23,7 @@ vignette: >
 ```r
 Factor <- c(rep(1,4),rep(2,4),rep(3,4))
 Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
+Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
 OneWayData <- data.frame(Factor,Outcome)
 ```
 
@@ -37,9 +37,9 @@ summarizeData(Outcome~Factor)
 ```
 ## $`Summary Statistics for the Data`
 ##        Lower Whisker Lower Hinge  Median Upper Hinge Upper Whisker
-## Group1         0.000       0.000   1.500       4.000         5.000
-## Group2         4.000       4.000   5.500       8.000         9.000
-## Group3         4.000       5.000   7.500       9.000         9.000
+## Level1         0.000       0.000   1.500       4.000         5.000
+## Level2         4.000       4.000   5.500       8.000         9.000
+## Level3         4.000       5.000   7.500       9.000         9.000
 ```
 
 ### Boxplots of Multiple Groups

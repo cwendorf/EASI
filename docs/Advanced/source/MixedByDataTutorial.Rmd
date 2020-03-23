@@ -26,11 +26,11 @@ library(EASI)
 
 ```{r}
 Factor <- c(1,1,1,1,2,2,2,2)
-Time1 <- c(0,0,3,5,1,3,6,6)
-Time2 <- c(4,7,4,9,3,1,6,6)
-Time3 <- c(4,9,6,9,3,3,6,8)
-Factor <- factor(Factor,levels=c(1,2),labels=c("Group1","Group2"))
-MixedData <- data.frame(Factor,Time1,Time2,Time3)
+Outcome1 <- c(0,0,3,5,1,3,6,6)
+Outcome2 <- c(4,7,4,9,3,1,6,6)
+Outcome3 <- c(4,9,6,9,3,3,6,8)
+Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
+MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 ```
 
 ### Analyses of Multiple Variables
@@ -38,41 +38,41 @@ MixedData <- data.frame(Factor,Time1,Time2,Time3)
 #### Confidence Intervals for the Means
 
 ```{r}
-estimateMeansBy(Time1,Time2,Time3,by=Factor)
+estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 ```
 
 ```{r}
-estimateMeansBy(Time1,Time2,Time3,by=Factor,conf.level=.99)
+estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for the Means
 
 ```{r,MixedBy-MeansA}
-plotMeansBy(Time1,Time2,Time3,by=Factor)
+plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 ```
 
 ```{r,MixedBy-MeansB}
-plotMeansBy(Time1,Time2,Time3,by=Factor,conf.level=.99,mu=5,rope=c(3,7)) 
+plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=5,rope=c(3,7)) 
 ```
 
 #### Significance Tests for the Means
 
 ```{r}
-testMeansBy(Time1,Time2,Time3,by=Factor)
+testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 ```
 
 ```{r}
-testMeansBy(Time1,Time2,Time3,by=Factor,mu=5)
+testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5)
 ```
 
 #### Effect Size for the Means
 
 ```{r}
-standardizeMeansBy(Time1,Time2,Time3,by=Factor)
+standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 ```
 
 ```{r}
-standardizeMeansBy(Time1,Time2,Time3,by=Factor,mu=5,conf.level=.99)
+standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5,conf.level=.99)
 ```
 
 ### Analyses of a Variable Comparison
@@ -80,85 +80,85 @@ standardizeMeansBy(Time1,Time2,Time3,by=Factor,mu=5,conf.level=.99)
 #### Confidence Interval for the Mean Difference
 
 ```{r}
-estimateDifferenceBy(Time1,Time2,by=Factor)
+estimateDifferenceBy(Outcome1,Outcome2,by=Factor)
 ```
 
 ```{r}
-estimateDifferenceBy(Time1,Time2,by=Factor,conf.level=.99)
+estimateDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for the Mean Difference
 
 ```{r,MixedBy-DifferenceA}
-plotDifferenceBy(Time1,Time2,by=Factor)
+plotDifferenceBy(Outcome1,Outcome2,by=Factor)
 ```
 
 ```{r,MixedBy-DifferenceB}
-plotDifferenceBy(Time1,Time2,by=Factor,conf.level=.99,rope=c(-2,2))
+plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99,rope=c(-2,2))
 ```
 
 #### Significance Test for the Mean Difference
 
 ```{r}
-testDifferenceBy(Time1,Time2,by=Factor)
+testDifferenceBy(Outcome1,Outcome2,by=Factor)
 ```
 
 ```{r}
-testDifferenceBy(Time1,Time2,by=Factor,mu=-2)
+testDifferenceBy(Outcome1,Outcome2,by=Factor,mu=-2)
 ```
 
 #### Effect Size for the Mean Difference
 
 ```{r}
-standardizeDifferenceBy(Time1,Time2,by=Factor)
+standardizeDifferenceBy(Outcome1,Outcome2,by=Factor)
 ```
 
 ```{r}
-standardizeDifferenceBy(Time1,Time2,by=Factor,conf.level=.99)
+standardizeDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
 ```
 
 ### Analyses of a Variable Contrast
 
 ```{r}
-T1vsOthers <- c(-1,.5,.5)
+O1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for the Contrast
 
 ```{r}
-estimateContrastBy(Time1,Time2,Time3,by=Factor,contrast=T1vsOthers)
+estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
 
 ```{r}
-estimateContrastBy(Time1,Time2,Time3,by=Factor,contrast=T1vsOthers,conf.level=.99)
+estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 ```{r,MixedBy-ContrastA}
-plotContrastBy(Time1,Time2,Time3,by=Factor,contrast=T1vsOthers)
+plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
 
 ```{r,MixedBy-ContrastB}
-plotContrastBy(Time1,Time2,Time3,by=Factor,contrast=T1vsOthers,labels=c("Time1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
 #### Significance Test for the Contrast
 
 ```{r}
-testContrastBy(Time1,Time2,Time3,by=Factor,contrast=T1vsOthers)
+testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
 
 ```{r}
-testContrastBy(Time1,Time2,Time3,by=Factor,contrast=T1vsOthers,mu=4)
+testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,mu=4)
 ```
 
 #### Effect Size for the Contrast
 
 ```{r}
-standardizeContrastBy(Time1,Time2,Time3,by=Factor,contrast=T1vsOthers)
+standardizeContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
 
 ```{r}
-standardizeContrastBy(Time1,Time2,Time3,by=Factor,contrast=T1vsOthers,conf.level=.99)
+standardizeContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf.level=.99)
 ```

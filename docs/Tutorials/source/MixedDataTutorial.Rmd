@@ -27,17 +27,17 @@ library(EASI)
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
 Factor <- c(1,1,1,1,2,2,2,2)
-Time1 <- c(0,0,3,5,3,1,6,6)
-Time2 <- c(4,7,4,9,2,2,5,7)
-Time3 <- c(4,9,6,9,2,4,7,7)
-Factor <- factor(Factor,levels=c(1,2),labels=c("Group1","Group2"))
-MixedData <- data.frame(Factor,Time1,Time2,Time3)
+Outcome1 <- c(0,0,3,5,3,1,6,6)
+Outcome2 <- c(4,7,4,9,2,2,5,7)
+Outcome3 <- c(4,9,6,9,2,4,7,7)
+Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
+MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 ```
 
 This code subsets the data into two different data frames (for simple effects analysis).
 ```{r}
-DataSubsetG1 <- subset(MixedData,Factor=="Group1")
-DataSubsetG2 <- subset(MixedData,Factor=="Group2")
+DataSubsetL1 <- subset(MixedData,Factor=="Level1")
+DataSubsetL2 <- subset(MixedData,Factor=="Level2")
 ```
 
 ### Analyses of Multiple Variables
@@ -48,70 +48,70 @@ This section produces analyses that are equivalent to one-sample analyses separa
 
 This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```{r}
-with(DataSubsetG1,estimateMeans(Time1,Time2,Time3))
-with(DataSubsetG2,estimateMeans(Time1,Time2,Time3))
+with(DataSubsetL1,estimateMeans(Outcome1,Outcome2,Outcome3))
+with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-with(DataSubsetG1,estimateMeans(Time1,Time2,Time3,conf.level=.99))
-with(DataSubsetG2,estimateMeans(Time1,Time2,Time3,conf.level=.99))
+with(DataSubsetL1,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
+with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
 ```
 
 #### Confidence Intervals for the Means
 
 This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 ```{r}
-with(DataSubsetG1,estimateMeans(Time1,Time2,Time3))
-with(DataSubsetG2,estimateMeans(Time1,Time2,Time3))
+with(DataSubsetL1,estimateMeans(Outcome1,Outcome2,Outcome3))
+with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-with(DataSubsetG1,estimateMeans(Time1,Time2,Time3,conf.level=.99))
-with(DataSubsetG2,estimateMeans(Time1,Time2,Time3,conf.level=.99))
+with(DataSubsetL1,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
+with(DataSubsetL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
 ```
 
 #### Plots of Confidence Intervals for the Means
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```{r,Mixed-MeansA}
-with(DataSubsetG1,plotMeans(Time1,Time2,Time3))
-with(DataSubsetG2,plotMeans(Time1,Time2,Time3))
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3))
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```{r,Mixed-MeansB}
-with(DataSubsetG1,plotMeans(Time1,Time2,Time3,conf.level=.99,mu=5,rope=c(3,7)))
-with(DataSubsetG2,plotMeans(Time1,Time2,Time3,conf.level=.99,mu=5,rope=c(3,7)))
+with(DataSubsetL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)))
+with(DataSubsetL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)))
 ```
 
 #### Significance Tests for the Means
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```{r}
-with(DataSubsetG1,testMeans(Time1,Time2,Time3))
-with(DataSubsetG2,testMeans(Time1,Time2,Time3))
+with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3))
+with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```{r}
-with(DataSubsetG1,testMeans(Time1,Time2,Time3,mu=5))
-with(DataSubsetG2,testMeans(Time1,Time2,Time3,mu=5))
+with(DataSubsetL1,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
+with(DataSubsetL2,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
 ```
 
 #### Effect Size for the Means
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
-with(DataSubsetG1,standardizeMeans(Time1,Time2,Time3))
-with(DataSubsetG2,standardizeMeans(Time1,Time2,Time3))
+with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3))
+with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```{r}
-with(DataSubsetG1,standardizeMeans(Time1,Time2,Time3,mu=5,conf.level=.99))
-with(DataSubsetG2,standardizeMeans(Time1,Time2,Time3,mu=5,conf.level=.99))
+with(DataSubsetL1,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
+with(DataSubsetL2,standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
 ```
 
 ### Analyses of a Variable Comparison
@@ -122,56 +122,56 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code identifies the two levels for comparison and estimates the confidence interval of the difference.
 ```{r}
-with(DataSubsetG1,estimateDifference(Time1,Time2))
-with(DataSubsetG2,estimateDifference(Time1,Time2))
+with(DataSubsetL1,estimateDifference(Outcome1,Outcome2))
+with(DataSubsetL2,estimateDifference(Outcome1,Outcome2))
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-with(DataSubsetG1,estimateDifference(Time1,Time2,conf.level=.99))
-with(DataSubsetG2,estimateDifference(Time1,Time2,conf.level=.99))
+with(DataSubsetL1,estimateDifference(Outcome1,Outcome2,conf.level=.99))
+with(DataSubsetL2,estimateDifference(Outcome1,Outcome2,conf.level=.99))
 ```
 
 #### Plots of Confidence Intervals for the Mean Difference
 
 This code obtains and plots the confidence intervals for the levels and the mean difference in the identified comparison.
 ```{r,Mixed-DifferenceA}
-with(DataSubsetG1,plotDifference(Time1,Time2))
-with(DataSubsetG2,plotDifference(Time1,Time2))
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2))
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2))
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```{r,Mixed-DifferenceB}
-with(DataSubsetG1,plotDifference(Time1,Time2,conf.level=.99,rope=c(-2,2)))
-with(DataSubsetG2,plotDifference(Time1,Time2,conf.level=.99,rope=c(-2,2)))
+with(DataSubsetL1,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)))
+with(DataSubsetL2,plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)))
 ```
 
 #### Significance Test for the Mean Difference
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```{r}
-with(DataSubsetG1,testDifference(Time1,Time2))
-with(DataSubsetG2,testDifference(Time1,Time2))
+with(DataSubsetL1,testDifference(Outcome1,Outcome2))
+with(DataSubsetL2,testDifference(Outcome1,Outcome2))
 ```
 
 If the default value of zero is not plausible, it too can be changed.
 ```{r}
-with(DataSubsetG1,testDifference(Time1,Time2,mu=-2))
-with(DataSubsetG2,testDifference(Time1,Time2,mu=-2))
+with(DataSubsetL1,testDifference(Outcome1,Outcome2,mu=-2))
+with(DataSubsetL2,testDifference(Outcome1,Outcome2,mu=-2))
 ```
 
 #### Effect Size for the Mean Difference
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```{r}
-with(DataSubsetG1,standardizeDifference(Time1,Time2))
-with(DataSubsetG2,standardizeDifference(Time1,Time2))
+with(DataSubsetL1,standardizeDifference(Outcome1,Outcome2))
+with(DataSubsetL2,standardizeDifference(Outcome1,Outcome2))
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-with(DataSubsetG1,standardizeDifference(Time1,Time2,conf.level=.99))
-with(DataSubsetG2,standardizeDifference(Time1,Time2,conf.level=.99))
+with(DataSubsetL1,standardizeDifference(Outcome1,Outcome2,conf.level=.99))
+with(DataSubsetL2,standardizeDifference(Outcome1,Outcome2,conf.level=.99))
 ```
 
 ### Analyses of a Variable Contrast
@@ -180,61 +180,61 @@ This section produces analyses that are equivalent to analyses involving multipl
 
 This code identifies a contrast among the levels.
 ```{r}
-T1vsOthers <- c(-1,.5,.5)
+O1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for the Contrast
 
 This code produces a confidence interval for that contrast.
 ```{r}
-with(DataSubsetG1,estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers))
-with(DataSubsetG2,estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers))
+with(DataSubsetL1,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+with(DataSubsetL2,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```{r}
-with(DataSubsetG1,estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99))
-with(DataSubsetG2,estimateContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99))
+with(DataSubsetL1,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
+with(DataSubsetL2,estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```{r,Mixed-ContrastA}
-with(DataSubsetG1,plotContrast(Time1,Time2,Time3,contrast=T1vsOthers))
-with(DataSubsetG2,plotContrast(Time1,Time2,Time3,contrast=T1vsOthers))
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
 ```
 
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```{r,Mixed-ContrastB}
-with(DataSubsetG1,plotContrast(Time1,Time2,Time3,contrast=T1vsOthers,labels=c("Time1","Others"),conf.level=.99,rope=c(-2,2)))
-with(DataSubsetG2,plotContrast(Time1,Time2,Time3,contrast=T1vsOthers,labels=c("Time1","Others"),conf.level=.99,rope=c(-2,2)))
+with(DataSubsetL1,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)))
+with(DataSubsetL2,plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)))
 ```
 
 #### Significance Test for the Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
-with(DataSubsetG1,testContrast(Time1,Time2,Time3,contrast=T1vsOthers))
-with(DataSubsetG2,testContrast(Time1,Time2,Time3,contrast=T1vsOthers))
+with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
 ```
 
 If desired, the contrast can be tested against other values.
 ```{r}
-with(DataSubsetG1,testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=4))
-with(DataSubsetG2,testContrast(Time1,Time2,Time3,contrast=T1vsOthers,mu=4))
+with(DataSubsetL1,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
+with(DataSubsetL2,testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4))
 ```
 
 #### Effect Size for the Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}
-with(DataSubsetG1,standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers))
-with(DataSubsetG2,standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers))
+with(DataSubsetL1,standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
+with(DataSubsetL2,standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-with(DataSubsetG1,standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99))
-with(DataSubsetG2,standardizeContrast(Time1,Time2,Time3,contrast=T1vsOthers,conf.level=.99))
+with(DataSubsetL1,standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
+with(DataSubsetL2,standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
 ```

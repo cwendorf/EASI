@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-22"
+date: "2020-03-05"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -22,19 +22,19 @@ vignette: >
 This code inputs the group summaries and creates a single summary table.
 
 ```r
-Group1 <- c(N=4,M=2.000,SD=2.449)
-Group2 <- c(N=4,M=6.000,SD=2.449)
-Group3 <- c(N=4,M=7.000,SD=2.449)
-OneWaySummary <- rbind(Group1,Group2,Group3)
+Level1 <- c(N=4,M=2.000,SD=2.449)
+Level2 <- c(N=4,M=6.000,SD=2.449)
+Level3 <- c(N=4,M=7.000,SD=2.449)
+OneWaySummary <- rbind(Level1,Level2,Level3)
 class(OneWaySummary) <- "bss"
 OneWaySummary
 ```
 
 ```
 ##        N M    SD
-## Group1 4 2 2.449
-## Group2 4 6 2.449
-## Group3 4 7 2.449
+## Level1 4 2 2.449
+## Level2 4 6 2.449
+## Level3 4 7 2.449
 ## attr(,"class")
 ## [1] "bss"
 ```
@@ -54,9 +54,9 @@ estimateMeans(OneWaySummary)
 ```
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
-## Group1   4.000   2.000   2.449   1.224  -1.897   5.897
-## Group2   4.000   6.000   2.449   1.224   2.103   9.897
-## Group3   4.000   7.000   2.449   1.224   3.103  10.897
+## Level1   4.000   2.000   2.449   1.224  -1.897   5.897
+## Level2   4.000   6.000   2.449   1.224   2.103   9.897
+## Level3   4.000   7.000   2.449   1.224   3.103  10.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -68,9 +68,9 @@ estimateMeans(OneWaySummary,conf.level=.99)
 ```
 ## $`Confidence Intervals for the Means`
 ##              N       M      SD      SE      LL      UL
-## Group1   4.000   2.000   2.449   1.224  -5.152   9.152
-## Group2   4.000   6.000   2.449   1.224  -1.152  13.152
-## Group3   4.000   7.000   2.449   1.224  -0.152  14.152
+## Level1   4.000   2.000   2.449   1.224  -5.152   9.152
+## Level2   4.000   6.000   2.449   1.224  -1.152  13.152
+## Level3   4.000   7.000   2.449   1.224  -0.152  14.152
 ```
 
 #### Plots of the Confidence Intervals for the Means
@@ -100,11 +100,11 @@ testMeans(OneWaySummary)
 ```
 
 ```
-## $`Hypothesis Tests for the Means`
+## $`Hypothesis Test for the Means`
 ##           Diff      SE       t      df       p
-## Group1   2.000   1.224   1.633   3.000   0.201
-## Group2   6.000   1.224   4.900   3.000   0.016
-## Group3   7.000   1.224   5.717   3.000   0.011
+## Level1   2.000   1.224   1.633   3.000   0.201
+## Level2   6.000   1.224   4.900   3.000   0.016
+## Level3   7.000   1.224   5.717   3.000   0.011
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -114,11 +114,11 @@ testMeans(OneWaySummary,mu=5)
 ```
 
 ```
-## $`Hypothesis Tests for the Means`
+## $`Hypothesis Test for the Means`
 ##           Diff      SE       t      df       p
-## Group1  -3.000   1.224  -2.450   3.000   0.092
-## Group2   1.000   1.224   0.817   3.000   0.474
-## Group3   2.000   1.224   1.633   3.000   0.201
+## Level1  -3.000   1.224  -2.450   3.000   0.092
+## Level2   1.000   1.224   0.817   3.000   0.474
+## Level3   2.000   1.224   1.633   3.000   0.201
 ```
 
 #### Effect Sizes for the Means
@@ -131,10 +131,10 @@ standardizeMeans(OneWaySummary)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d   d.unb      SE      LL      UL
-## Group1   0.817   0.594   0.616  -0.387   1.934
-## Group2   2.450   1.782   0.955   0.325   4.532
-## Group3   2.858   2.079   1.063   0.464   5.227
+##              d  d.unb.      SE      LL      UL
+## Level1   0.817   0.594   0.616  -0.387   1.934
+## Level2   2.450   1.782   0.955   0.325   4.532
+## Level3   2.858   2.079   1.063   0.464   5.227
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -145,10 +145,10 @@ standardizeMeans(OneWaySummary,mu=5,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d   d.unb      SE      LL      UL
-## Group1  -1.225  -0.891   0.680  -3.011   0.547
-## Group2   0.408   0.297   0.574  -0.968   1.734
-## Group3   0.817   0.594   0.616  -0.732   2.320
+##              d  d.unb.      SE      LL      UL
+## Level1  -1.225  -0.891   0.680  -3.011   0.547
+## Level2   0.408   0.297   0.574  -0.968   1.734
+## Level3   0.817   0.594   0.616  -0.732   2.320
 ```
  
 ### Analyses of a Group Comparison
@@ -158,7 +158,7 @@ This section produces analyses that are equivalent to comparisons of two levels 
 This code creates a new table that identifies the two levels for comparison.
 
 ```r
-CompSummary <- OneWaySummary[c("Group1","Group2"),]
+CompSummary <- OneWaySummary[c("Level1","Level2"),]
 class(CompSummary) <- "bss"
 ```
 
@@ -265,7 +265,7 @@ This section produces analyses that are equivalent to analyses involving multipl
 This code identifies a contrast among the groups
 
 ```r
-G1vsOthers <- c(-1,.5,.5)
+L1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for a Contrast
@@ -273,7 +273,7 @@ G1vsOthers <- c(-1,.5,.5)
 This code produces a confidence interval for that contrast.
 
 ```r
-estimateContrast(OneWaySummary,contrast=G1vsOthers)
+estimateContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 ```
@@ -285,7 +285,7 @@ estimateContrast(OneWaySummary,contrast=G1vsOthers)
 As in all other cases, the default value of the confidence interval can be changed.
 
 ```r
-estimateContrast(OneWaySummary,contrast=G1vsOthers,conf.level=.99)
+estimateContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 ```
 
 ```
@@ -299,7 +299,7 @@ estimateContrast(OneWaySummary,contrast=G1vsOthers,conf.level=.99)
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 
 ```r
-plotContrast(OneWaySummary,contrast=G1vsOthers)
+plotContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 ![](figures/OneWay-ContrastA-1.png)<!-- -->
@@ -307,7 +307,7 @@ plotContrast(OneWaySummary,contrast=G1vsOthers)
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 
 ```r
-plotContrast(OneWaySummary,contrast=G1vsOthers,labels=c("Group1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
 ![](figures/OneWay-ContrastB-1.png)<!-- -->
@@ -317,7 +317,7 @@ plotContrast(OneWaySummary,contrast=G1vsOthers,labels=c("Group1","Others"),conf.
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 
 ```r
-testContrast(OneWaySummary,contrast=G1vsOthers)
+testContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 ```
@@ -329,7 +329,7 @@ testContrast(OneWaySummary,contrast=G1vsOthers)
 If desired, the contrast can be tested against other values.
 
 ```r
-testContrast(OneWaySummary,contrast=G1vsOthers,mu=4)
+testContrast(OneWaySummary,contrast=L1vsOthers,mu=4)
 ```
 
 ```
@@ -343,7 +343,7 @@ testContrast(OneWaySummary,contrast=G1vsOthers,mu=4)
 This code calculates a standardized contrast and its confidence interval.
 
 ```r
-standardizeContrast(OneWaySummary,contrast=G1vsOthers)
+standardizeContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 ```
@@ -355,7 +355,7 @@ standardizeContrast(OneWaySummary,contrast=G1vsOthers)
 The width of the confidence interval for the effect size can be altered if desired.
 
 ```r
-standardizeContrast(OneWaySummary,contrast=G1vsOthers,conf.level=.99)
+standardizeContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 ```
 
 ```
