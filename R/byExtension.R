@@ -460,8 +460,8 @@ smdContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
   return(results)
 }
 
-standardizeContrastBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
-  results <- formatList(smdContrastBy(...,mu=mu,conf.level=conf.level),digits=digits)
+standardizeContrastBy <- function(...,conf.level=.95,main=NULL,digits=3) {
+  results <- formatList(smdContrastBy(...,conf.level=conf.level),digits=digits)
   return(results)
 }
 
