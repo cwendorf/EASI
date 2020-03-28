@@ -470,7 +470,7 @@ smdContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
 }
 
 standardizeContrastBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
-  results <- list(formatList(smdContrastBy(...,mu=mu,conf.level=conf.level),digits=digits))
+  results <- list(formatList(smdContrastBy(...,conf.level=conf.level),digits=digits))
   if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Contrast"} else {names(results) <- main}
   return(results)
 }
