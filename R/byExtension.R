@@ -24,7 +24,8 @@ descMeansBy.formula <- function(formula,by) {
 }
 
 describeMeansBy <- function(...,main=NULL,digits=3) {
-  results <- formatList(descMeansBy(...),digits=digits)
+  results <- list(formatList(descMeansBy(...),digits=digits))
+  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}
   return(results)
 }
 
@@ -89,7 +90,8 @@ ciMeansBy.formula <- function(formula,by,conf.level=.95) {
 }
 
 estimateMeansBy <- function(...,conf.level=.95,main=NULL,digits=3) {
-  results <- formatList(ciMeansBy(...,conf.level=conf.level),digits=digits)
+  results <- list(formatList(ciMeansBy(...,conf.level=conf.level),digits=digits))
+  if(is.null(main)) {names(results) <- "Confidence Intervals for the Means"} else {names(results) <- main}
   return(results)
 }
 
@@ -135,7 +137,8 @@ ciDifferenceBy.formula <- function(formula,by,conf.level=.95) {
 }
 
 estimateDifferenceBy <- estimateComparisonBy <- function(...,conf.level=.95,main=NULL,digits=3) {
-  results <- formatList(ciDifferenceBy(...,conf.level=conf.level),digits=digits)
+  results <- list(formatList(ciDifferenceBy(...,conf.level=conf.level),digits=digits))
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Comparison"} else {names(results) <- main}
   return(results)
 }
 
@@ -181,7 +184,8 @@ ciContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
 }
 
 estimateContrastBy <- function(...,conf.level=.95,main=NULL,digits=3) {
-  results <- formatList(ciContrastBy(...,conf.level=conf.level),digits=digits)
+  results <- listist(formatList(ciContrastBy(...,conf.level=conf.level),digits=digits))
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Contrast"} else {names(results) <- main}
   return(results)
 }
 
@@ -229,7 +233,8 @@ nhstMeansBy.formula <- function(formula,by,mu=0) {
 }
 
 testMeansBy <- function(...,mu=0,main=NULL,digits=3) {
-  results <- formatList(nhstMeansBy(...,mu=mu),digits=digits)
+  results <- list(formatList(nhstMeansBy(...,mu=mu),digits=digits))
+  if(is.null(main)) {names(results) <- "Hypothesis Tests for the Means"} else {names(results) <- main}
   return(results)
 }
 
@@ -275,7 +280,8 @@ nhstDifferenceBy.formula <- function(formula,by,mu=0) {
 }
 
 testDifferenceBy <- testComparisonBy <- function(...,mu=0,main=NULL,digits=3) {
-  results <- formatList(nhstDifferenceBy(...,mu=mu),digits=digits)
+  results <- list(formatList(nhstDifferenceBy(...,mu=mu),digits=digits))
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Comparison"} else {names(results) <- main}
   return(results)
 }
 
@@ -321,7 +327,8 @@ nhstContrastBy.formula <- function(formula,by,contrast,mu=0) {
 }
 
 testContrastBy <- function(...,mu=0,main=NULL,digits=3) {
-  results <- formatList(nhstContrastBy(...,mu=mu),digits=digits)
+  results <- listist(formatList(nhstContrastBy(...,mu=mu),digits=digits))
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Contrast"} else {names(results) <- main}
   return(results)
 }
 
@@ -369,7 +376,8 @@ smdMeansBy.formula <- function(formula,by,mu=0,conf.level=.95) {
 }
 
 standardizeMeansBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
-  results <- formatList(smdMeansBy(...,mu=mu,conf.level=conf.level),digits=digits)
+  results <- list(formatList(smdMeansBy(...,mu=mu,conf.level=conf.level),digits=digits))
+  if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Means"} else {names(results) <- main}
   return(results)
 }
 
@@ -415,7 +423,8 @@ smdDifferenceBy.formula <- function(formula,by,mu=0,conf.level=.95) {
 }
 
 standardizeDifferenceBy <- standardizeComparisonBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
-  results <- formatList(smdDifferenceBy(...,mu=mu,conf.level=conf.level),digits=digits)
+  results <- list(formatList(smdDifferenceBy(...,mu=mu,conf.level=conf.level),digits=digits))
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Comparison"} else {names(results) <- main}
   return(results)
 }
 
@@ -460,8 +469,9 @@ smdContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
   return(results)
 }
 
-standardizeContrastBy <- function(...,conf.level=.95,main=NULL,digits=3) {
-  results <- formatList(smdContrastBy(...,conf.level=conf.level),digits=digits)
+standardizeContrastBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+  results <- list(formatList(smdContrastBy(...,mu=mu,conf.level=conf.level),digits=digits))
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Contrast"} else {names(results) <- main}
   return(results)
 }
 
@@ -519,10 +529,7 @@ plotMeansBy.formula <- function(formula,by,main=NULL,ylab=NULL,xlab="",mu=NULL,r
 
 #### Plot Function for Confidence Intervals of Mean Differences/Comparisons
 
-plotComparisonBy <- function(...) 
-  UseMethod("plotDifferenceBy")
-
-plotDifferenceBy <- function(...) 
+plotDifferenceBy <-  plotComparisonBy <- function(...) 
   UseMethod("plotDifferenceBy")
 
 plotDifferenceBy.wss <- function(ListDescStats,ListCorrStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {

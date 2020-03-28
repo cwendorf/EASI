@@ -139,7 +139,6 @@ estimateDifference <- estimateComparison <- function(...,conf.level=.95,main=NUL
   return(results)
 }
 
-
 #### CI Function for Mean Contrasts
 
 ciContrast <- function(...) 
