@@ -184,7 +184,7 @@ ciContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
 }
 
 estimateContrastBy <- function(...,conf.level=.95,main=NULL,digits=3) {
-  results <- listist(formatList(ciContrastBy(...,conf.level=conf.level),digits=digits))
+  results <- list(formatList(ciContrastBy(...,conf.level=conf.level),digits=digits))
   if(is.null(main)) {names(results) <- "Confidence Interval for the Contrast"} else {names(results) <- main}
   return(results)
 }
@@ -327,7 +327,7 @@ nhstContrastBy.formula <- function(formula,by,contrast,mu=0) {
 }
 
 testContrastBy <- function(...,mu=0,main=NULL,digits=3) {
-  results <- listist(formatList(nhstContrastBy(...,mu=mu),digits=digits))
+  results <- list(formatList(nhstContrastBy(...,mu=mu),digits=digits))
   if(is.null(main)) {names(results) <- "Hypothesis Test for the Contrast"} else {names(results) <- main}
   return(results)
 }
