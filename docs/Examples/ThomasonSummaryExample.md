@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-03-29"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,6 +19,8 @@ vignette: >
 
 ### Thomason1 Example
 
+Thomason1 focuses on the difference between pretest and postest in the first sample. First, create the tables of summary statistics.
+
 
 ```r
 Pretest <- c(N=12,M=11.583,SD=3.315)
@@ -29,12 +31,16 @@ Thomason1Corr <- data.frame()
 Thomason1Corr["Pretest","Posttest"] <- .892
 ```
 
+The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
+
 
 ```r
 plotDifference(Thomason1Summary,Thomason1Corr,ylab="LSAT")
 ```
 
 ![](figures/Thomason1-Difference-1.png)<!-- -->
+
+The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 
 ```r
@@ -49,6 +55,8 @@ standardizeDifference(Thomason1Summary,Thomason1Corr)
 
 ### Thomason2 Example
 
+Thomason2 focuses on the difference between pretest and postest in the second sample. Thus, create the tables of summary statistics.
+
 
 ```r
 Pretest <- c(N=16,M=12.875,SD=3.403)
@@ -59,12 +67,16 @@ Thomason2Corr <- data.frame()
 Thomason2Corr["Pretest","Posttest"] <- .871
 ```
 
+The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
+
 
 ```r
 plotDifference(Thomason2Summary,Thomason2Corr,ylab="LSAT")
 ```
 
 ![](figures/Thomason2-Difference-1.png)<!-- -->
+
+The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 
 ```r
@@ -79,6 +91,8 @@ standardizeDifference(Thomason2Summary,Thomason2Corr)
 
 ### Thomason3 Example
 
+Thomason3 focuses on the difference between pretest and postest in the third sample. Thus, create the tables of summary statistics.
+
 
 ```r
 Pretest <- c(N=39,M=67.410,SD=7.419)
@@ -89,12 +103,16 @@ Thomason3Corr <- data.frame()
 Thomason3Corr["Pretest","Posttest"] <- .601
 ```
 
+The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
+
 
 ```r
 plotDifference(Thomason3Summary,Thomason3Corr,ylab="LSAT")
 ```
 
 ![](figures/Thomason3-Difference-1.png)<!-- -->
+
+The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 
 ```r

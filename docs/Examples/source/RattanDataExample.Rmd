@@ -24,6 +24,8 @@ library(EASI)
 
 ### Enter Data
 
+Prior to analyses, enter the data.
+
 ```{r}
 Feedback <- c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3)
 Motivation <- c(5.5,5,5.5,6,1,2.5,4.5,1,3.5,1.5,5.5,6,1.5,1,3.5,2.5,3,1,2,6,4.5,4.5,6,7,3,7,3.5,5,4.5,5.5,6.5,6,6,7,5.5,6,2.5,4.5,3.5,6,5,6,3.5,4,3,5.5,3,6,3,5,6,6.5,3.5,2)
@@ -33,9 +35,13 @@ RattanData <- data.frame(Feedback,Motivation)
 
 ### Analyses of the Different Groups
 
+With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
+
 ```{r}
 estimateMeans(Motivation~Feedback)
 ```
+
+It is also useful to view the means and confidence intervals of the groups in a plot.
 
 ```{r,Rattan-Means}
 plotMeans(Motivation~Feedback,ylab="Motivation")
@@ -43,14 +49,22 @@ plotMeans(Motivation~Feedback,ylab="Motivation")
 
 ### Analysis of a Group Difference
 
+The first research question is whether there is a difference between the two non-control groups.
+
+First, set the comparison and get an estimate of the difference and its confidence interval.
+
 ```{r}
 Comparison <- factor(Feedback,c("Comfort","Challenge"))
 estimateDifference(Motivation~Comparison)
 ```
 
+Then, obtain the difference plot for that comparison.
+
 ```{r,Rattan-Difference}
 plotDifference(Motivation~Comparison,ylab="Motivation")
 ```
+
+Finally, obtain the standardized effect size for that comparison.
 
 ```{r}
 standardizeDifference(Motivation~Comparison)
@@ -58,18 +72,22 @@ standardizeDifference(Motivation~Comparison)
 
 ### Analysis of a Group Contrast
 
+The second research question is whether the Comfort group differs from the other two groups.
+
+First, set the contrast and get an estimate of the contrast and its confidence interval.
+
 ```{r}
 ComfortvsOthers <- c(-1,.5,.5)
 estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
 
+Then, obtain a difference plot for the contrast.
+
 ```{r,Rattan-Contrast}
 plotContrast(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),ylab="Motivation")
 ```
 
-```{r}
-testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
-```
+Finally, estimate the standardized contrast.
 
 ```{r}
 standardizeContrast(Motivation~Feedback,contrast=ComfortvsOthers)

@@ -24,6 +24,8 @@ library(EASI)
 
 ### Enter Data
 
+Prior to analyses, enter the data.
+
 ```{r}
 Pretest <- c(7,11,11,13,15,17,18,18,19,19,19,19,21,22,25,25,25,26,27,29)
 Posttest <- c(16,20,25,22,28,12,16,26,21,22,26,30,23,27,23,27,28,24,28,28)
@@ -32,9 +34,13 @@ DonohueData <- data.frame(Pretest,Posttest,Followup)
 ```
 ### Analyses of the Different Variables
 
+With multiple variables, it is useful to get descriptive statistics and confidence intervals for each variable.
+
 ```{r}
 estimateMeans(Pretest,Posttest,Followup)
 ```
+
+It is also useful to view the means and confidence intervals of the groups in a plot.
 
 ```{r,Donohue-Means}
 plotMeans(Pretest,Posttest,Followup,ylab="Critical Thinking")
@@ -42,13 +48,21 @@ plotMeans(Pretest,Posttest,Followup,ylab="Critical Thinking")
  
 ### Analysis of a Variable Difference
 
+The first research question is whether there is a difference between the posttest and followup occasions.
+
+First, set the comparison and get an estimate of the difference and its confidence interval.
+
 ```{r}
 estimateDifference(Posttest,Followup)
 ```
 
+Then, obtain the difference plot for that comparison.
+
 ```{r,Donohue-Difference}
 plotDifference(Posttest,Followup,ylab="Critical Thinking")
 ```
+
+Finally, obtain the standardized effect size for that comparison.
 
 ```{r}
 standardizeDifference(Posttest,Followup)
@@ -56,18 +70,22 @@ standardizeDifference(Posttest,Followup)
 
 ### Analysis of a Variable Contrast
 
+The second research question is whether the pretest differs from the posttest and followup combined.
+
+First, set the contrast and get an estimate of the contrast and its confidence interval.
+
 ```{r}
 PrevsPostFollow <- c(-1,.5,.5)
 estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
 
+Then, obtain a difference plot for the contrast.
+
 ```{r,Donohue-Contrast}
 plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),ylab="Critical Thinking")
 ```
 
-```{r}
-testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
-```
+Finally, estimate the standardized contrast.
 
 ```{r}
 standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)

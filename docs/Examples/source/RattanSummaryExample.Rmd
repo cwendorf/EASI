@@ -24,6 +24,8 @@ library(EASI)
 
 ### Enter Summary Statistics
 
+Prior to analyses, enter a table of summary statistics.
+
 ```{r}
 Comfort <- c(N=18,M=3.333,SD=1.917)
 Challenge <- c(N=17,M=5.265,SD=1.448)
@@ -34,9 +36,13 @@ class(RattanSummary) <- "bss"
 
 ### Analyses of the Different Groups
 
+With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
+
 ```{r}
 estimateMeans(RattanSummary)
 ```
+
+It is also useful to view the means and confidence intervals of the groups in a plot.
 
 ```{r,Rattan-Means}
 plotMeans(RattanSummary,ylab="Motivation")
@@ -44,15 +50,23 @@ plotMeans(RattanSummary,ylab="Motivation")
 
 ### Analysis of a Group Difference
 
+The first research question is whether there is a difference between the two non-control groups.
+
+First, set the comparison and get an estimate of the difference and its confidence interval.
+
 ```{r}
 ComfortvsChallenge <- rbind(Comfort,Challenge)
 class(ComfortvsChallenge) <- "bss"
 estimateDifference(ComfortvsChallenge)
 ```
 
+Then, obtain the difference plot for that comparison.
+
 ```{r,Rattan-Difference}
 plotDifference(RattanSummary,contrast=ComfortvsChallenge,ylab="Motivation")
 ```
+
+Finally, obtain the standardized effect size for that comparison.
 
 ```{r}
 standardizeDifference(ComfortvsChallenge)
@@ -60,18 +74,22 @@ standardizeDifference(ComfortvsChallenge)
 
 ### Analysis of a Group Contrast
 
+The second research question is whether the Comfort group differs from the other two groups.
+
+First, set the contrast and get an estimate of the contrast and its confidence interval.
+
 ```{r}
 ComfortvsOthers <- c(-1,.5,.5)
 estimateContrast(RattanSummary,contrast=ComfortvsOthers)
 ```
 
+Then, obtain a difference plot for the contrast.
+
 ```{r,Rattan-Contrast}
 plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),ylab="Motivation")
 ```
 
-```{r}
-testContrast(RattanSummary,contrast=ComfortvsOthers)
-```
+Finally, estimate the standardized contrast.
 
 ```{r}
 standardizeContrast(RattanSummary,contrast=ComfortvsOthers)

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-03-29"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,6 +19,8 @@ vignette: >
 
 ### Enter Summary Statistics
 
+Create two tables of summary statistics for the first simple effect of interest.
+
 
 ```r
 PretestControl <- c(N=17,M=43.815,SD=4.910)
@@ -30,6 +32,8 @@ HolzelCorrControl <- declareCorrMatrix("PretestControl","PosttestControl")
 HolzelCorrControl["PretestControl","PosttestControl"] <- .970
 HolzelCorrControl <- fillCorrMatrix(HolzelCorrControl)
 ```
+
+Create two tables of summary statistics for the second simple effect of interest.
 
 
 ```r
@@ -45,6 +49,8 @@ HolzelCorrMeditation <- fillCorrMatrix(HolzelCorrMeditation)
 
 ### Analyses of the Differences within Conditions
 
+For each subset, obtain a difference plot comparing pretest and posttest.
+
 
 ```r
 plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter")
@@ -57,6 +63,8 @@ plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,ylab="Gray Matter")
 ```
 
 ![](figures/Holzel-Difference-2.png)<!-- -->
+
+Then for each subset, obtain the standardized effect size comparing pretest to posttest.
 
 
 ```r

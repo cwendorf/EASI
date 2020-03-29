@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-03-29"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,6 +19,8 @@ vignette: >
 
 ### Enter Data
 
+Prior to analyses, enter the data.
+
 
 ```r
 Feedback <- c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3)
@@ -28,6 +30,8 @@ RattanData <- data.frame(Feedback,Motivation)
 ```
 
 ### Analyses of the Different Groups
+
+With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
 
 
 ```r
@@ -42,6 +46,8 @@ estimateMeans(Motivation~Feedback)
 ## Control    19.000   4.447   1.433   0.329   3.757   5.138
 ```
 
+It is also useful to view the means and confidence intervals of the groups in a plot.
+
 
 ```r
 plotMeans(Motivation~Feedback,ylab="Motivation")
@@ -50,6 +56,10 @@ plotMeans(Motivation~Feedback,ylab="Motivation")
 ![](figures/Rattan-Means-1.png)<!-- -->
 
 ### Analysis of a Group Difference
+
+The first research question is whether there is a difference between the two non-control groups.
+
+First, set the comparison and get an estimate of the difference and its confidence interval.
 
 
 ```r
@@ -63,12 +73,16 @@ estimateDifference(Motivation~Comparison)
 ## Comparison   1.931   0.572  31.521   0.765   3.098
 ```
 
+Then, obtain the difference plot for that comparison.
+
 
 ```r
 plotDifference(Motivation~Comparison,ylab="Motivation")
 ```
 
 ![](figures/Rattan-Difference-1.png)<!-- -->
+
+Finally, obtain the standardized effect size for that comparison.
 
 
 ```r
@@ -83,6 +97,10 @@ standardizeDifference(Motivation~Comparison)
 
 ### Analysis of a Group Contrast
 
+The second research question is whether the Comfort group differs from the other two groups.
+
+First, set the contrast and get an estimate of the contrast and its confidence interval.
+
 
 ```r
 ComfortvsOthers <- c(-1,.5,.5)
@@ -95,6 +113,8 @@ estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ## Contrast   1.523   0.512  26.898   0.472   2.573
 ```
 
+Then, obtain a difference plot for the contrast.
+
 
 ```r
 plotContrast(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),ylab="Motivation")
@@ -102,16 +122,7 @@ plotContrast(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Ot
 
 ![](figures/Rattan-Contrast-1.png)<!-- -->
 
-
-```r
-testContrast(Motivation~Feedback,contrast=ComfortvsOthers)
-```
-
-```
-## $`Hypothesis Test for the Contrast`
-##              Est      SE       t      df       p
-## Contrast   1.523   0.512   2.974  26.898   0.006
-```
+Finally, estimate the standardized contrast.
 
 
 ```r

@@ -1,12 +1,12 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-03-29"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{OneWay (Indendent Groups Example with PenLaptop Data}
+  %\VignetteIndexEntry{Independent Groups Example with PenLaptop Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -19,6 +19,8 @@ vignette: >
 
 ### PenLaptop1 Example
 
+PenLaptop1 focuses on the difference between two groups in the first sample. First, enter the data.
+
 
 ```r
 Group <- c(rep(1,34),rep(2,31))
@@ -26,12 +28,16 @@ Transcription <- c(12.1,6.5,8.1,7.6,12.2,10.8,1,2.9,14.4,8.4,17.7,20.1,2.1,11.1,
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```
 
+The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
+
 
 ```r
 plotDifference(Transcription~Group,ylab="Transcription")
 ```
 
 ![](figures/PenLaptop1-Difference-1.png)<!-- -->
+
+The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 
 ```r
@@ -46,6 +52,8 @@ standardizeDifference(Transcription~Group)
 
 ### PenLaptop2 Example
 
+PenLaptop2 focuses on the difference between two groups in the second sample. Thus, enter the data.
+
 
 ```r
 Group <- c(rep(1,48),rep(2,103))
@@ -53,12 +61,16 @@ Transcription <- c(8.99,1.35,8.22,4.31,6.59,16,5.85,6.64,5.54,4.02,3.73,3.81,13.
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```
 
+The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
+
 
 ```r
 plotDifference(Transcription~Group,ylab="Transcription")
 ```
 
 ![](figures/PenLaptop2-Difference-1.png)<!-- -->
+
+The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 
 ```r
@@ -73,6 +85,8 @@ standardizeDifference(Transcription~Group)
 
 ### PenLaptop3 Example
 
+PenLaptop3 focuses on the difference between two groups in the third sample. Thus, enter the data.
+
 
 ```r
 Group <- c(rep(1,54),rep(2,55))
@@ -80,12 +94,16 @@ Transcription <- c(5.13,0.5,1.37,1.37,5.82,5.24,3.97,2.14,4,4.36,8.61,1.26,4.95,
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 ```
 
+The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
+
 
 ```r
 plotDifference(Transcription~Group,ylab="Transcription")
 ```
 
 ![](figures/PenLaptop3-Difference-1.png)<!-- -->
+
+The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 
 ```r

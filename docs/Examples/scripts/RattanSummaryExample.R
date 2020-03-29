@@ -29,5 +29,4 @@ ComfortvsOthers <- c(-1,.5,.5)
 
 estimateContrast(RattanSummary,contrast=ComfortvsOthers)
 plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),ylab="Motivation")
-testContrast(RattanSummary,contrast=ComfortvsOthers)
 standardizeContrast(RattanSummary,contrast=ComfortvsOthers)

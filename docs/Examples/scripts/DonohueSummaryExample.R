@@ -24,16 +24,15 @@ plotMeans(DonohueSummary,ylab="Critical Thinking")
 
 PostvsFollowup <- DonohueSummary[c(2,3),]
 class(PostvsFollowup) <- "wss"
-estimateDifference(PostvsFollowup,DonohueCorr)
 
+estimateDifference(PostvsFollowup,DonohueCorr)
 plotDifference(PostvsFollowup,DonohueCorr,ylab="Critical Thinking")
 standardizeDifference(PostvsFollowup,DonohueCorr)
 
 ### Analysis of a Variable Contrast
 
 PrevsPostFollow <- c(-1,.5,.5)
-estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 
+estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),ylab="Critical Thinking")
-testContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 standardizeContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)

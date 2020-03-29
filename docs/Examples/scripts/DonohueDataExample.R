@@ -25,5 +25,4 @@ PrevsPostFollow <- c(-1,.5,.5)
 
 estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),ylab="Critical Thinking")
-testContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)

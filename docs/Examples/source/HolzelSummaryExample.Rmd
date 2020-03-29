@@ -24,6 +24,8 @@ library(EASI)
 
 ### Enter Summary Statistics
 
+Create two tables of summary statistics for the first simple effect of interest.
+
 ```{r}
 PretestControl <- c(N=17,M=43.815,SD=4.910)
 PosttestControl <- c(N=17,M=43.932,SD=5.507)
@@ -34,6 +36,8 @@ HolzelCorrControl <- declareCorrMatrix("PretestControl","PosttestControl")
 HolzelCorrControl["PretestControl","PosttestControl"] <- .970
 HolzelCorrControl <- fillCorrMatrix(HolzelCorrControl)
 ```
+
+Create two tables of summary statistics for the second simple effect of interest.
 
 ```{r}
 PretestMeditation <- c(N=16,M=43.705,SD=6.427)
@@ -48,10 +52,14 @@ HolzelCorrMeditation <- fillCorrMatrix(HolzelCorrMeditation)
 
 ### Analyses of the Differences within Conditions
 
+For each subset, obtain a difference plot comparing pretest and posttest.
+
 ```{r,Holzel-Difference}
 plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter")
 plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,ylab="Gray Matter")
 ```
+
+Then for each subset, obtain the standardized effect size comparing pretest to posttest.
 
 ```{r}
 standardizeDifference(HolzelSummaryControl,HolzelCorrControl)

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-03-29"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,6 +19,8 @@ vignette: >
 
 ### Enter Summary Statistics
 
+Create a table of summary statistics for the study. Though the study is a factorial design, treat each level of the two factors as independent groups in a single factor.
+
 
 ```r
 EveningSleep <- c(N=26,M=1.50,SD=1.38)
@@ -30,6 +32,8 @@ class(FrendaSummary) <- "bss"
 ```
 
 ### Analyses of the Different Groups
+
+First, estimate the descriptive statistics and confidence intervals for all levels.
 
 
 ```r
@@ -45,6 +49,8 @@ estimateMeans(FrendaSummary)
 ## MorningNosleep  26.000   2.220   1.680   0.329   1.541   2.899
 ```
 
+Then plot those confidence intervals.
+
 
 ```r
 plotMeans(FrendaSummary,ylab="False Memory")
@@ -53,6 +59,10 @@ plotMeans(FrendaSummary,ylab="False Memory")
 ![](figures/Frenda-Means-1.png)<!-- -->
 
 ### Analyses of the Marginal Means
+
+Then, use contrast codes to estimate the marginal means for each factor.
+
+First, for the Evening condition:
 
 
 ```r
@@ -66,6 +76,8 @@ estimateContrast(FrendaSummary,contrast=Evening)
 ## Contrast   1.320   0.165  44.605   0.988   1.652
 ```
 
+Then for the Morning condition:
+
 
 ```r
 Morning <- c(0,0,.5,.5)
@@ -78,6 +90,8 @@ estimateContrast(FrendaSummary,contrast=Morning)
 ## Contrast   1.800   0.223  48.740   1.352   2.248
 ```
 
+Then for the Sleep condition:
+
 
 ```r
 Sleep <- c(.5,0,.5,0)
@@ -89,6 +103,8 @@ estimateContrast(FrendaSummary,contrast=Sleep)
 ##              Est      SE      df      LL      UL
 ## Contrast   1.440   0.202  48.269   1.034   1.846
 ```
+
+Finally for the NoSleep condition:
 
 
 ```r
@@ -104,6 +120,8 @@ estimateContrast(FrendaSummary,contrast=Nosleep)
 
 ### Analyses of the Factor A (Evening vs Morning) Main Effect
 
+To analyze the main effect of Factor A, set a contrast code and estimate the effect.
+
 
 ```r
 mainFactorA <- c(-.5,-.5,.5,.5)
@@ -116,12 +134,16 @@ estimateContrast(FrendaSummary,contrast=mainFactorA)
 ## Contrast   0.480   0.277  87.919  -0.071   1.031
 ```
 
+Then plot the marginal means and the difference between them.
+
 
 ```r
 plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),ylab="False Memory")
 ```
 
 ![](figures/Frenda-MainA-1.png)<!-- -->
+
+This main effect can be tested for statistical significance.
 
 
 ```r
@@ -134,6 +156,8 @@ testContrast(FrendaSummary,contrast=mainFactorA)
 ## Contrast   0.480   0.277   1.732  87.919   0.087
 ```
 
+Finally, estimate the standardized effect size for the main effect.
+
 
 ```r
 standardizeContrast(FrendaSummary,contrast=mainFactorA)
@@ -145,8 +169,9 @@ standardizeContrast(FrendaSummary,contrast=mainFactorA)
 ## Contrast   0.342   0.203  -0.056   0.739
 ```
 
-
 ### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
+
+To analyze the main effect of Factor B, set a contrast code and estimate the effect.
 
 
 ```r
@@ -160,12 +185,16 @@ estimateContrast(FrendaSummary,contrast=mainFactorB)
 ## Contrast   0.240   0.277  87.919  -0.311   0.791
 ```
 
+Then plot the marginal means and the difference between them.
+
 
 ```r
 plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),ylab="False Memory")
 ```
 
 ![](figures/Frenda-MainB-1.png)<!-- -->
+
+This main effect can be tested for statistical significance.
 
 
 ```r
@@ -178,6 +207,8 @@ testContrast(FrendaSummary,contrast=mainFactorB)
 ## Contrast   0.240   0.277   0.866  87.919   0.389
 ```
 
+Finally, estimate the standardized effect size for the main effect.
+
 
 ```r
 standardizeContrast(FrendaSummary,contrast=mainFactorB)
@@ -189,8 +220,9 @@ standardizeContrast(FrendaSummary,contrast=mainFactorB)
 ## Contrast   0.171   0.202  -0.224   0.566
 ```
 
-
 ### Analyses of the Factor A x B Interaction
+
+To analyze the interaction, set a contrast code and estimate the effect.
 
 
 ```r
@@ -203,6 +235,8 @@ estimateContrast(FrendaSummary,contrast=Interaction)
 ##              Est      SE      df      LL      UL
 ## Contrast   1.200   0.554  87.919   0.098   2.302
 ```
+
+Then test the interaction for statistical significance.
 
 
 ```r
@@ -217,6 +251,8 @@ testContrast(FrendaSummary,contrast=Interaction)
 
 ### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
 
+More helpfully, analyze the simple effect by setting the appropriate contrast.
+
 
 ```r
 simpleBatEvening <- c(-1,1,0,0)
@@ -229,12 +265,16 @@ estimateContrast(FrendaSummary,contrast=simpleBatEvening)
 ## Contrast  -0.360   0.330  44.605  -1.024   0.304
 ```
 
+Then plot the conditions associated with the simple effect.
+
 
 ```r
 plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),ylab="False Memory")
 ```
 
 ![](figures/Frenda-SimpleA1-1.png)<!-- -->
+
+Test the simple effect for statistical significance.
 
 
 ```r
@@ -247,6 +287,8 @@ testContrast(FrendaSummary,contrast=simpleBatEvening)
 ## Contrast  -0.360   0.330  -1.092  44.605   0.281
 ```
 
+Finally, estimate the standardized effect size for the simple effect.
+
 
 ```r
 standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
@@ -258,8 +300,9 @@ standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
 ## Contrast  -0.256   0.240  -0.727   0.214
 ```
 
-
 ### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect
+
+Next, analyze the other simple effect by setting the appropriate contrast.
 
 
 ```r
@@ -273,12 +316,16 @@ estimateContrast(FrendaSummary,contrast=simpleBatMorning)
 ## Contrast   0.840   0.446  48.740  -0.056   1.736
 ```
 
+Then plot the conditions associated with the simple effect.
+
 
 ```r
 plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),ylab="False Memory")
 ```
 
 ![](figures/Frenda-SimpleA2-1.png)<!-- -->
+
+Test the simple effect for statistical significance.
 
 
 ```r
@@ -290,6 +337,8 @@ testContrast(FrendaSummary,contrast=simpleBatMorning)
 ##              Est      SE       t      df       p
 ## Contrast   0.840   0.446   1.885  48.740   0.065
 ```
+
+Finally, estimate the standardized effect size for the simple effect.
 
 
 ```r
