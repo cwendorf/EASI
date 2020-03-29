@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-02"
+date: "2020-03-29"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,6 +19,8 @@ vignette: >
 
 ### Enter Summary Statistics
 
+This code inputs the variable summaries and creates a summary table.
+
 
 ```r
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
@@ -26,7 +28,12 @@ Outcome2 <- c(N=4,M=6.000,SD=2.449)
 Outcome3 <- c(N=4,M=7.000,SD=2.449)
 RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(RepeatedSummary) <- "wss"
+```
 
+This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
+
+
+```r
 RepeatedCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
 RepeatedCorr["Outcome1","Outcome2"] <- .500
 RepeatedCorr["Outcome1","Outcome3"] <- .056
@@ -37,6 +44,8 @@ RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
 ### Analyses of Pairwise Variable Comparisons
 
 #### Confidence Intervals for the Pairwise Comparisons
+
+This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 
 
 ```r
@@ -50,6 +59,8 @@ estimatePairwise(RepeatedSummary,RepeatedCorr)
 ## Outcome1 v Outcome3   5.000   1.683   3.000  -0.355  10.355
 ## Outcome2 v Outcome3   1.000   1.354   3.000  -3.308   5.308
 ```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
 
 
 ```r
@@ -66,12 +77,16 @@ estimatePairwise(RepeatedSummary,RepeatedCorr,conf.level=.99)
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
 
+This code will produce a graph of the confidence intervals for each of the pairwise comparisons.
+
 
 ```r
 plotPairwise(RepeatedSummary,RepeatedCorr)
 ```
 
 ![](figures/Repeated-PairwiseA-1.png)<!-- -->
+
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 
 
 ```r
@@ -81,6 +96,8 @@ plotPairwise(RepeatedSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-4,0))
 ![](figures/Repeated-PairwiseB-1.png)<!-- -->
 
 #### Significance Tests of the Pairwise Comparisons
+
+This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 
 
 ```r
@@ -94,6 +111,8 @@ testPairwise(RepeatedSummary,RepeatedCorr)
 ## Outcome1 v Outcome3   5.000   1.683   2.972   3.000   0.059
 ## Outcome2 v Outcome3   1.000   1.354   0.739   3.000   0.514
 ```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 
 
 ```r
@@ -110,6 +129,8 @@ testPairwise(RepeatedSummary,RepeatedCorr,mu=-2)
 
 #### Effect Sizes for the Pairwise Comparisons
 
+This code will produce a table of standardized mean differences for each pairwise comparison. 
+
 
 ```r
 standardizePairwise(RepeatedSummary,RepeatedCorr)
@@ -122,6 +143,8 @@ standardizePairwise(RepeatedSummary,RepeatedCorr)
 ## Outcome1 v Outcome3   2.042   0.876   0.325   3.759
 ## Outcome2 v Outcome3   0.408   0.592  -0.752   1.569
 ```
+
+Here too it is possible to alter the width of the confidence intervals.
 
 
 ```r
