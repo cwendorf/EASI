@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-28"
+date: "2020-03-29"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -19,6 +19,8 @@ vignette: >
 
 ### Enter Data
 
+This code inputs the variable names and creates a viewable data frame.
+
 
 ```r
 FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)
@@ -31,7 +33,11 @@ FactorialData <- data.frame(FactorA,FactorB,Outcome)
 
 ### Analyses of Multiple Groups
 
+This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
+
 #### Confidence Intervals for the Means
+
+This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 
 
 ```r
@@ -52,6 +58,8 @@ estimateMeansBy(Outcome~FactorA,by=FactorB)
 ## A2   4.000   4.000   2.449   1.225   0.102   7.898
 ## A3   4.000   5.000   2.449   1.225   1.102   8.898
 ```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
 
 
 ```r
@@ -75,12 +83,16 @@ estimateMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99)
 
 #### Plot of the Confidence Intervals for the Means
 
+This code will produce a graph of the confidence intervals for each level of the factor.
+
 
 ```r
 plotMeansBy(Outcome~FactorA,by=FactorB)
 ```
 
 ![](figures/FactorialBy-MeansA-1.png)<!-- -->![](figures/FactorialBy-MeansA-2.png)<!-- -->
+
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 
 
 ```r
@@ -90,6 +102,8 @@ plotMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5,rope=c(3,7))
 ![](figures/FactorialBy-MeansB-1.png)<!-- -->![](figures/FactorialBy-MeansB-2.png)<!-- -->
 
 #### Significance Tests for the Means
+
+This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 
 
 ```r
@@ -110,6 +124,8 @@ testMeansBy(Outcome~FactorA,by=FactorB)
 ## A2   4.000   1.225   3.266   3.000   0.047
 ## A3   5.000   1.225   4.082   3.000   0.027
 ```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 
 
 ```r
@@ -133,6 +149,8 @@ testMeansBy(Outcome~FactorA,by=FactorB,mu=5)
 
 #### Effect Size for the Means
 
+This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
+
 
 ```r
 standardizeMeansBy(Outcome~FactorA,by=FactorB)
@@ -152,6 +170,8 @@ standardizeMeansBy(Outcome~FactorA,by=FactorB)
 ## A2   1.633   1.188   0.761   0.013   3.177
 ## A3   2.041   1.485   0.854   0.176   3.846
 ```
+
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 
 
 ```r
@@ -175,6 +195,10 @@ standardizeMeansBy(Outcome~FactorA,by=FactorB,conf.level=.99,mu=5)
 
 ### Analyses of a Group Comparison
 
+This section produces analyses that are equivalent to comparisons of two levels of a factor.
+
+This code creates a new factor that identifies the two levels for comparison.
+
 
 ```r
 Comparison=factor(FactorA,c("A1","A2"))
@@ -182,6 +206,8 @@ CompData=na.omit(data.frame(Outcome,Comparison,FactorB))
 ```
 
 #### Confidence Interval for a Mean Difference
+
+This code estimates the confidence interval of the difference.
 
 
 ```r
@@ -198,6 +224,8 @@ with(CompData,estimateDifferenceBy(Outcome~Comparison,by=FactorB))
 ##               Diff      SE      df      LL      UL
 ## Comparison   0.000   1.732   6.000  -4.238   4.238
 ```
+
+Of course, you can change the confidence level from the default 95% if desired.
 
 
 ```r
@@ -217,12 +245,16 @@ with(CompData,estimateDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99)
 
 #### Plot of the Confidence Interval for the Mean Difference
 
+This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
+
 
 ```r
 with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB))
 ```
 
 ![](figures/FactorialBy-DifferenceA-1.png)<!-- -->![](figures/FactorialBy-DifferenceA-2.png)<!-- -->
+
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 
 
 ```r
@@ -232,6 +264,8 @@ with(CompData,plotDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,rope
 ![](figures/FactorialBy-DifferenceB-1.png)<!-- -->![](figures/FactorialBy-DifferenceB-2.png)<!-- -->
 
 #### Significance Test for the Mean Difference
+
+This code produces NHST for the identified comparison (using a default test value of zero).
 
 
 ```r
@@ -248,6 +282,8 @@ with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB))
 ##               Diff      SE       t      df       p
 ## Comparison   0.000   1.732   0.000   6.000   1.000
 ```
+
+If the default value of zero is not plausible, it too can be changed.
 
 
 ```r
@@ -267,6 +303,8 @@ with(CompData,testDifferenceBy(Outcome~Comparison,by=FactorB,mu=2))
 
 #### Effect Size for the Mean Difference
 
+This code calculates a standardized mean difference for the comparison and its confidence interval.
+
 
 ```r
 with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB))
@@ -283,9 +321,11 @@ with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB))
 ## Comparison   0.000   0.816  -1.600   1.600
 ```
 
+The width of the confidence interval for the effect size can be altered if desired.
+
 
 ```r
-with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99,mu=2))
+with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.99))
 ```
 
 ```
@@ -301,12 +341,18 @@ with(CompData,standardizeDifferenceBy(Outcome~Comparison,by=FactorB,conf.level=.
 
 ### Analyses of a Factor Contrast
 
+This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
+
+This code identifies a contrast among the groups.
+
 
 ```r
 A1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for a Contrast
+
+This code produces a confidence interval for that contrast.
 
 
 ```r
@@ -323,6 +369,8 @@ estimateContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
 ##              Est      SE      df      LL      UL
 ## Contrast   0.500   1.500   6.000  -3.170   4.170
 ```
+
+As in all other cases, the default value of the confidence interval can be changed.
 
 
 ```r
@@ -342,12 +390,16 @@ estimateContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,conf.level=.99
 
 #### Plots of Confidence Intervals for a Contrast
 
+This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
+
 
 ```r
 plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
 ```
 
 ![](figures/FactorialBy-ContrastA-1.png)<!-- -->![](figures/FactorialBy-ContrastA-2.png)<!-- -->
+
+The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 
 
 ```r
@@ -357,6 +409,8 @@ plotContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,labels=c("A1","Oth
 ![](figures/FactorialBy-ContrastB-1.png)<!-- -->![](figures/FactorialBy-ContrastB-2.png)<!-- -->
 
 #### Significance Test for a Contrast
+
+This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 
 
 ```r
@@ -373,6 +427,8 @@ testContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
 ##              Est      SE       t      df       p
 ## Contrast   0.500   1.500   0.333   6.000   0.750
 ```
+
+If desired, the contrast can be tested against other values.
 
 
 ```r
@@ -392,6 +448,8 @@ testContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers,mu=4)
 
 #### Effect Size for a Contrast
 
+This code calculates a standardized contrast and its confidence interval.
+
 
 ```r
 standardizeContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
@@ -407,6 +465,8 @@ standardizeContrastBy(Outcome~FactorA,by=FactorB,contrast=A1vsOthers)
 ##              Est      SE      LL      UL
 ## Contrast   0.204   0.709  -1.185   1.593
 ```
+
+The width of the confidence interval for the effect size can be altered if desired.
 
 
 ```r

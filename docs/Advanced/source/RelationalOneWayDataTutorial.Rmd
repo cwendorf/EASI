@@ -24,6 +24,8 @@ library(EASI)
 
 ### Enter Data
 
+This code inputs the variable names and creates a viewable data frame.
+
 ```{r}
 Factor <- c(rep(1,4),rep(2,4),rep(3,4))
 Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
@@ -33,18 +35,26 @@ OneWayData <- data.frame(Factor,Outcome)
 
 ### Relational Intervals
 
+This code will provide a table of descriptive statistics, the confidence intervals, and the relational intervals for each level of the factor.
+
 ```{r}
 estimateRelational(Outcome~Factor)
 ```
+
+This code will produce a graph of the confidence intervals for each level of the factor. It will then add relational intervals to the existing plot.
 
 ```{r,OneWay-RelationalA}
 plotMeans(Outcome~Factor)
 addRelational(Outcome~Factor)
 ```
 
+Instead, this code can be used to directly create the graph of confidence intervals and relational intervals for each level of the factor.
+
 ```{r,OneWay-RelationalB}
 plotRelational(Outcome~Factor)
 ```
+
+And of course, the confidence levels can be altered and a comparison line to represent a population (or test) value can be added.
 
 ```{r,OneWay-RelationalC}
 plotRelational(Outcome~Factor,conf.level=.99,mu=5)

@@ -24,13 +24,19 @@ library(EASI)
 
 ### Enter Summary Statistics
 
+This code inputs the variable summaries and creates a summary table.
+
 ```{r}
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
 Outcome2 <- c(N=4,M=6.000,SD=2.449)
 Outcome3 <- c(N=4,M=7.000,SD=2.449)
 RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(RepeatedSummary) <- "wss"
+```
 
+This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
+
+```{r}
 RepeatedCorr <- declareCorrMatrix("Outcome1","Outcome2","Outcome3")
 RepeatedCorr["Outcome1","Outcome2"] <- .500
 RepeatedCorr["Outcome1","Outcome3"] <- .056
@@ -40,18 +46,26 @@ RepeatedCorr <- fillCorrMatrix(RepeatedCorr)
 
 ### Relational Intervals
 
+This code will provide a table of descriptive statistics, the confidence intervals, and the relational intervals for each level of the factor.
+
 ```{r}
 estimateRelational(RepeatedSummary,RepeatedCorr)
 ```
+
+This code will produce a graph of the confidence intervals for each level of the factor. It will then add relational intervals to the existing plot.
 
 ```{r,Repeated-RelationalA}
 plotMeans(RepeatedSummary)
 addRelational(RepeatedSummary,RepeatedCorr)
 ```
 
+Instead, this code can be used to directly create the graph of confidence intervals and relational intervals for each level of the factor.
+
 ```{r,Repeated-RelationalB}
 plotRelational(RepeatedSummary,RepeatedCorr)
 ```
+
+And of course, the confidence levels can be altered and a comparison line to represent a population (or test) value can be added.
 
 ```{r,Repeated-RelationalC}
 plotRelational(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=5)

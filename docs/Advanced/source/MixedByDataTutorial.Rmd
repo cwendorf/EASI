@@ -24,6 +24,8 @@ library(EASI)
 
 ### Enter Data
 
+This code inputs the variable names and creates a viewable data frame.
+
 ```{r}
 Factor <- c(1,1,1,1,2,2,2,2)
 Outcome1 <- c(0,0,3,5,1,3,6,6)
@@ -35,11 +37,17 @@ MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 
 ### Analyses of Multiple Variables
 
+This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
+
 #### Confidence Intervals for the Means
+
+This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
 
 ```{r}
 estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 ```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```{r}
 estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99)
@@ -47,9 +55,13 @@ estimateMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Means
 
+This code will produce a graph of the confidence intervals for each level of the factor.
+
 ```{r,MixedBy-MeansA}
 plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 ```
+
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 
 ```{r,MixedBy-MeansB}
 plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=5,rope=c(3,7)) 
@@ -57,9 +69,13 @@ plotMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,conf.level=.99,mu=5,rope=c(3,7)
 
 #### Significance Tests for the Means
 
+This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
+
 ```{r}
 testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 ```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 
 ```{r}
 testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5)
@@ -67,9 +83,13 @@ testMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5)
 
 #### Effect Size for the Means
 
+This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
+
 ```{r}
 standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor)
 ```
+
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 
 ```{r}
 standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5,conf.level=.99)
@@ -77,11 +97,17 @@ standardizeMeansBy(Outcome1,Outcome2,Outcome3,by=Factor,mu=5,conf.level=.99)
 
 ### Analyses of a Variable Comparison
 
+This section produces analyses that are equivalent to comparisons of two levels of a factor.
+
 #### Confidence Interval for the Mean Difference
+
+This code identifies the two levels for comparison and estimates the confidence interval of the difference.
 
 ```{r}
 estimateDifferenceBy(Outcome1,Outcome2,by=Factor)
 ```
+
+Of course, you can change the confidence level from the default 95% if desired.
 
 ```{r}
 estimateDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
@@ -89,9 +115,13 @@ estimateDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
 
 #### Plots of Confidence Intervals for the Mean Difference
 
+This code obtains and plots the confidence intervals for the levels and the mean difference in the identified comparison.
+
 ```{r,MixedBy-DifferenceA}
 plotDifferenceBy(Outcome1,Outcome2,by=Factor)
 ```
+
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 
 ```{r,MixedBy-DifferenceB}
 plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99,rope=c(-2,2))
@@ -99,9 +129,13 @@ plotDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99,rope=c(-2,2))
 
 #### Significance Test for the Mean Difference
 
+This code produces NHST for the identified comparison (using a default test value of zero).
+
 ```{r}
 testDifferenceBy(Outcome1,Outcome2,by=Factor)
 ```
+
+If the default value of zero is not plausible, it too can be changed.
 
 ```{r}
 testDifferenceBy(Outcome1,Outcome2,by=Factor,mu=-2)
@@ -109,9 +143,13 @@ testDifferenceBy(Outcome1,Outcome2,by=Factor,mu=-2)
 
 #### Effect Size for the Mean Difference
 
+This code calculates a standardized mean difference for the comparison and its confidence interval.
+
 ```{r}
 standardizeDifferenceBy(Outcome1,Outcome2,by=Factor)
 ```
+
+The width of the confidence interval for the effect size can be altered if desired.
 
 ```{r}
 standardizeDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
@@ -119,15 +157,23 @@ standardizeDifferenceBy(Outcome1,Outcome2,by=Factor,conf.level=.99)
 
 ### Analyses of a Variable Contrast
 
+This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
+
+This code identifies a contrast among the levels.
+
 ```{r}
 O1vsOthers <- c(-1,.5,.5)
 ```
 
 #### Confidence Interval for the Contrast
 
+This code produces a confidence interval for that contrast.
+
 ```{r}
 estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
+
+As in all other cases, the default value of the confidence interval can be changed.
 
 ```{r}
 estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf.level=.99)
@@ -135,9 +181,13 @@ estimateContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf
 
 #### Plots of Confidence Intervals for a Contrast
 
+This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
+
 ```{r,MixedBy-ContrastA}
 plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
+
+The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 
 ```{r,MixedBy-ContrastB}
 plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
@@ -145,9 +195,13 @@ plotContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,labels=c
 
 #### Significance Test for the Contrast
 
+This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
+
 ```{r}
 testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
+
+If desired, the contrast can be tested against other values.
 
 ```{r}
 testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,mu=4)
@@ -155,9 +209,13 @@ testContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,mu=4)
 
 #### Effect Size for the Contrast
 
+This code calculates a standardized contrast and its confidence interval.
+
 ```{r}
 standardizeContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers)
 ```
+
+The width of the confidence interval for the effect size can be altered if desired.
 
 ```{r}
 standardizeContrastBy(Outcome1,Outcome2,Outcome3,by=Factor,contrast=O1vsOthers,conf.level=.99)

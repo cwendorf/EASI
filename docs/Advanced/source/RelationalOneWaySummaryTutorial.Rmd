@@ -26,6 +26,8 @@ library(EASI)
 
 ### Enter Summary Statistics
 
+This code inputs the group summaries and creates a single summary table.
+
 ```{r}
 Level1 <- c(N=4,M=2.000,SD=2.449)
 Level2 <- c(N=4,M=6.000,SD=2.449)
@@ -36,18 +38,26 @@ class(OneWaySummary) <- "bss"
 
 ### Relational Intervals
 
+This code will provide a table of descriptive statistics, the confidence intervals, and the relational intervals for each level of the factor.
+
 ```{r}
 estimateRelational(OneWaySummary)
 ```
+
+This code will produce a graph of the confidence intervals for each level of the factor. It will then add relational intervals to the existing plot.
 
 ```{r,OneWay-RelationalA}
 plotMeans(OneWaySummary)
 addRelational(OneWaySummary)
 ```
 
+Instead, this code can be used to directly create the graph of confidence intervals and relational intervals for each level of the factor.
+
 ```{r,OneWay-RelationalB}
 plotRelational(OneWaySummary)
 ```
+
+And of course, the confidence levels can be altered and a comparison line to represent a population (or test) value can be added.
 
 ```{r,OneWay-RelationalC}
 plotRelational(OneWaySummary,conf.level=.99,mu=5)
