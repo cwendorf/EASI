@@ -724,7 +724,7 @@ plotDifference.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab
 }
 
 plotDifference.bss <- function(CompStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,values=TRUE,digits=3,...) {
-  if(is.null(main)) {main="Confidence Intervals for the comparison"}
+  if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   Groups <- ciMeans(CompStats,conf.level=conf.level)[1:2,c(2,5,6)]
   colnames(Groups) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,conf.level=conf.level)[c(1,4,5)]
