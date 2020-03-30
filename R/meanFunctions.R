@@ -301,7 +301,7 @@ nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
 
 testDifference <- function(...,mu=0,main=NULL,digits=3) {
   results <- formatList(list(nhstDifference(...,mu=mu)),digits=digits)
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Differece"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Difference"} else {names(results) <- main}
   return(results)
 }
 
