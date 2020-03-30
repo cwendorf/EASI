@@ -133,9 +133,9 @@ ciDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-estimateDifference <- estimateComparison <- function(...,conf.level=.95,main=NULL,digits=3) {
+estimateDifference <- function(...,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(ciDifference(...,conf.level=conf.level)),digits=digits)
-  if(is.null(main)) {names(results) <- "Confidence Interval for the Comparison"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Difference"} else {names(results) <- main}
   return(results)
 }
 
@@ -299,9 +299,9 @@ nhstDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,...) {
   return(results)
 }
 
-testDifference <- testComparison <- function(...,mu=0,main=NULL,digits=3) {
+testDifference <- function(...,mu=0,main=NULL,digits=3) {
   results <- formatList(list(nhstDifference(...,mu=mu)),digits=digits)
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Comparison"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Differece"} else {names(results) <- main}
   return(results)
 }
 
@@ -495,9 +495,9 @@ smdDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL
   return(results)
 }
 
-standardizeDifference <- standardizeComparison <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+standardizeDifference <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
   results <- formatList(list(smdDifference(...,mu=mu,conf.level=conf.level)),digits=digits)
-  if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Comparison"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Difference"} else {names(results) <- main}
   return(results)
 }
 
@@ -708,7 +708,7 @@ plotMeans.formula <- function(formula,main=NULL,ylab=NULL,xlab="",mu=NULL,rope=N
 
 #### Plot Function for Confidence Intervals of Mean Differences/Comparisons
 
-plotDifference <- plotComparison <- function(...) 
+plotDifference <- function(...) 
   UseMethod("plotDifference")
   
 plotDifference.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,values=TRUE,digits=3,...) {
@@ -724,7 +724,7 @@ plotDifference.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab
 }
 
 plotDifference.bss <- function(CompStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,values=TRUE,digits=3,...) {
-  if(is.null(main)) {main="Confidence Intervals for the Comparison"}
+  if(is.null(main)) {main="Confidence Intervals for the comparison"}
   Groups <- ciMeans(CompStats,conf.level=conf.level)[1:2,c(2,5,6)]
   colnames(Groups) <- c("Est","LL","UL")
   Diff <- ciDifference(CompStats,conf.level=conf.level)[c(1,4,5)]
@@ -825,9 +825,9 @@ allDifference <- function(...) {
   return(output)
 }
 
-analyzeDifference <- analyzeComparison <- function(...,main=NULL,digits=3) {
+analyzeDifference <- function(...,main=NULL,digits=3) {
   results <- formatList(allDifference(...),digits=digits)
-  names(results) <- c("Confidence Interval for the Comparison","Hypothesis Test for the Comparison","Confidence Interval for the Standardized Comparison")
+  names(results) <- c("Confidence Interval for the Difference","Hypothesis Test for the Difference","Confidence Interval for the Standardized Difference")
   print(results)
   plotDifference(...,main=main,digits=digits)
 }

@@ -136,9 +136,9 @@ ciDifferenceBy.formula <- function(formula,by,conf.level=.95) {
   return(results)
 }
 
-estimateDifferenceBy <- estimateComparisonBy <- function(...,conf.level=.95,main=NULL,digits=3) {
+estimateDifferenceBy <- function(...,conf.level=.95,main=NULL,digits=3) {
   results <- list(formatList(ciDifferenceBy(...,conf.level=conf.level),digits=digits))
-  if(is.null(main)) {names(results) <- "Confidence Interval for the Comparison"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Difference"} else {names(results) <- main}
   return(results)
 }
 
@@ -279,9 +279,9 @@ nhstDifferenceBy.formula <- function(formula,by,mu=0) {
   return(results)
 }
 
-testDifferenceBy <- testComparisonBy <- function(...,mu=0,main=NULL,digits=3) {
+testDifferenceBy <- function(...,mu=0,main=NULL,digits=3) {
   results <- list(formatList(nhstDifferenceBy(...,mu=mu),digits=digits))
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Comparison"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Difference"} else {names(results) <- main}
   return(results)
 }
 
@@ -422,9 +422,9 @@ smdDifferenceBy.formula <- function(formula,by,mu=0,conf.level=.95) {
   return(results)
 }
 
-standardizeDifferenceBy <- standardizeComparisonBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
+standardizeDifferenceBy <- function(...,mu=0,conf.level=.95,main=NULL,digits=3) {
   results <- list(formatList(smdDifferenceBy(...,mu=mu,conf.level=conf.level),digits=digits))
-  if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Comparison"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Confidence Interval for the Standardized Difference"} else {names(results) <- main}
   return(results)
 }
 
@@ -529,7 +529,7 @@ plotMeansBy.formula <- function(formula,by,main=NULL,ylab=NULL,xlab="",mu=NULL,r
 
 #### Plot Function for Confidence Intervals of Mean Differences/Comparisons
 
-plotDifferenceBy <-  plotComparisonBy <- function(...) 
+plotDifferenceBy <-  function(...) 
   UseMethod("plotDifferenceBy")
 
 plotDifferenceBy.wss <- function(ListDescStats,ListCorrStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
@@ -566,7 +566,7 @@ plotDifferenceBy.bss <- function(ListDescStats,main=NULL,ylab="Outcome",xlab="",
 }
 
 plotDifferenceBy.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
-  if(is.null(main)) {main="Confidence Intervals for the Comparisons"}
+  if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   for (i in 1:nlevels(by)) {
     Vars <- ciMeansBy(...,by=by,conf.level=conf.level)[[i]][1:2,c(2,5,6)]
     colnames(Vars) <- c("Est","LL","UL")
@@ -582,7 +582,7 @@ plotDifferenceBy.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=
 }
 
 plotDifferenceBy.formula <- function(formula,by,main=NULL,ylab=NULL,xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3){
-  if(is.null(main)) {main="Confidence Intervals for the Comparisons"}
+  if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   for (i in 1:nlevels(by)) {
     Groups <- ciMeansBy(formula,by=by,conf.level=conf.level)[[i]]

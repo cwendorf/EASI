@@ -44,11 +44,11 @@ Prefix | Description
 
 `Difference` - functions that examine a difference/comparison among two group or level means
 
-- [`estimateDifference`](./estimateDifference.md) (or [`estimateComparison`](./estimateDifference.md))
-- [`plotDifference`](./plotDifference.md) (or [`plotComparison`](./plotDifference.md))
-- [`testDifference`](./testDifference.md) (or [`testComparison`](./testDifference.md))
-- [`standardizeDifference`](./standardizeDifference.md) (or [`standardizeComparison`](./standardizeDifference.md))
-- [`analyzeDifference`](./analyzeDifference.md) (or [`analyzeComparison`](./analyzeDifference.md))
+- [`estimateDifference`](./estimateDifference.md)
+- [`plotDifference`](./plotDifference.md)
+- [`testDifference`](./testDifference.md)
+- [`standardizeDifference`](./standardizeDifference.md)
+- [`analyzeDifference`](./analyzeDifference.md)
 
 `Contrast` - functions that examine a contrast among all of the group or level means
 
@@ -83,10 +83,10 @@ Prefix | Description
 - [`plotMeansBy`](./plotMeansBy.md)
 - [`testMeansBy`](./testMeansBy.md)
 - [`standardizeMeansBy`](./standardizeMeansBy.md)
-- [`estimateDifferenceBy`](./estimateDifferenceBy.md) (or [`estimateComparisonBy`](./estimateDifferenceBy.md))
-- [`plotDifferenceBy`](./plotDifferenceBy.md) (or [`plotComparisonBy`](./plotDifferenceBy.md))
-- [`testDifferenceBy`](./testDifferenceBy.md) (or [`testComparisonBy`](./testDifferenceBy.md))
-- [`standardizeDifferenceBy`](./standardizeDifferenceBy.md) (or [`standardizeComparisonBy`](./standardizeDifferenceBy.md))
+- [`estimateDifferenceBy`](./estimateDifferenceBy.md)
+- [`plotDifferenceBy`](./plotDifferenceBy.md)
+- [`testDifferenceBy`](./testDifferenceBy.md)
+- [`standardizeDifferenceBy`](./standardizeDifferenceBy.md)
 - [`estimateContrastBy`](./estimateContrastBy.md)
 - [`plotContrastBy`](./plotContrastBy.md)
 - [`testContrastBy`](./testContrastBy.md)
