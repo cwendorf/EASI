@@ -34,7 +34,7 @@ Then subdivide the data into subsets (one for each simple effect of interest).
 
 ```r
 HolzelSubsetControl <- subset(HolzelData,Group=="Control")
-HolzelSubsetLMeditation <- subset(HolzelData,Group=="Meditation")
+HolzelSubsetMeditation <- subset(HolzelData,Group=="Meditation")
 ```
 
 ### Analyses of the Differences within Conditions
@@ -49,7 +49,7 @@ with(HolzelSubsetControl,plotDifference(Pretest,Posttest,ylab="Gray Matter"))
 ![](figures/Holzel-Difference-1.png)<!-- -->
 
 ```r
-with(HolzelSubsetLMeditation,plotDifference(Pretest,Posttest,ylab="Gray Matter"))
+with(HolzelSubsetMeditation,plotDifference(Pretest,Posttest,ylab="Gray Matter"))
 ```
 
 ![](figures/Holzel-Difference-2.png)<!-- -->
@@ -68,7 +68,7 @@ with(HolzelSubsetControl,standardizeDifference(Pretest,Posttest))
 ```
 
 ```r
-with(HolzelSubsetLMeditation,standardizeDifference(Pretest,Posttest))
+with(HolzelSubsetMeditation,standardizeDifference(Pretest,Posttest))
 ```
 
 ```
