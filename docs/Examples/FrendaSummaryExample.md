@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-29"
+date: "2020-04-08"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -42,11 +42,11 @@ estimateMeans(FrendaSummary)
 
 ```
 ## $`Confidence Intervals for the Means`
-##                      N       M      SD      SE      LL      UL
-## EveningSleep    26.000   1.500   1.380   0.271   0.943   2.057
-## EveningNosleep  26.000   1.140   0.960   0.188   0.752   1.528
-## MorningSleep    25.000   1.380   1.500   0.300   0.761   1.999
-## MorningNosleep  26.000   2.220   1.680   0.329   1.541   2.899
+##                      M      SE      df      LL      UL
+## EveningSleep     1.500   0.271  25.000   0.943   2.057
+## EveningNosleep   1.140   0.188  25.000   0.752   1.528
+## MorningSleep     1.380   0.300  24.000   0.761   1.999
+## MorningNosleep   2.220   0.329  25.000   1.541   2.899
 ```
 
 Then plot those confidence intervals.
@@ -152,8 +152,8 @@ testContrast(FrendaSummary,contrast=mainFactorA)
 
 ```
 ## $`Hypothesis Test for the Contrast`
-##              Est      SE       t      df       p
-## Contrast   0.480   0.277   1.732  87.919   0.087
+##              Est      SE      df       t       p
+## Contrast   0.480   0.277  87.919   1.732   0.087
 ```
 
 Finally, estimate the standardized effect size for the main effect.
@@ -203,8 +203,8 @@ testContrast(FrendaSummary,contrast=mainFactorB)
 
 ```
 ## $`Hypothesis Test for the Contrast`
-##              Est      SE       t      df       p
-## Contrast   0.240   0.277   0.866  87.919   0.389
+##              Est      SE      df       t       p
+## Contrast   0.240   0.277  87.919   0.866   0.389
 ```
 
 Finally, estimate the standardized effect size for the main effect.
@@ -245,8 +245,8 @@ testContrast(FrendaSummary,contrast=Interaction)
 
 ```
 ## $`Hypothesis Test for the Contrast`
-##              Est      SE       t      df       p
-## Contrast   1.200   0.554   2.165  87.919   0.033
+##              Est      SE      df       t       p
+## Contrast   1.200   0.554  87.919   2.165   0.033
 ```
 
 ### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
@@ -283,8 +283,8 @@ testContrast(FrendaSummary,contrast=simpleBatEvening)
 
 ```
 ## $`Hypothesis Test for the Contrast`
-##              Est      SE       t      df       p
-## Contrast  -0.360   0.330  -1.092  44.605   0.281
+##              Est      SE      df       t       p
+## Contrast  -0.360   0.330  44.605  -1.092   0.281
 ```
 
 Finally, estimate the standardized effect size for the simple effect.
@@ -334,8 +334,8 @@ testContrast(FrendaSummary,contrast=simpleBatMorning)
 
 ```
 ## $`Hypothesis Test for the Contrast`
-##              Est      SE       t      df       p
-## Contrast   0.840   0.446   1.885  48.740   0.065
+##              Est      SE      df       t       p
+## Contrast   0.840   0.446  48.740   1.885   0.065
 ```
 
 Finally, estimate the standardized effect size for the simple effect.

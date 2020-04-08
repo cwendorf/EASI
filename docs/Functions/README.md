@@ -29,9 +29,8 @@ Prefix | Description
 `plot` | plot confidence intervals for means, mean differences, and contrasts
 `test` | calculate NHST for means, mean differences, and contrasts
 `standardize` | calculate standardized effect sizes and their confidence intervals
-`analyze` | combine the _estimate_, _plot_, _test_, and _standardize_ procedures into a single analysis
 
-#### Listing of Available Functions
+#### Available Functions
 
 `Means` - functions that examine all individual group or level means
 
@@ -40,7 +39,6 @@ Prefix | Description
 - [`plotMeans`](./plotMeans.md) (or [`plotMean`](./plotMeans.md))
 - [`testMeans`](./testMeans.md) (or [`testMean`](./testMeans.md))
 - [`standardizeMeans`](./standardizeMeans.md) (or [`standardizeMean`](./standardizeMeans.md))
-- [`analyzeMeans`](./analyzeMeans.md)
 
 `Difference` - functions that examine a difference/comparison among two group or level means
 
@@ -48,7 +46,6 @@ Prefix | Description
 - [`plotDifference`](./plotDifference.md)
 - [`testDifference`](./testDifference.md)
 - [`standardizeDifference`](./standardizeDifference.md)
-- [`analyzeDifference`](./analyzeDifference.md)
 
 `Contrast` - functions that examine a contrast among all of the group or level means
 
@@ -56,7 +53,6 @@ Prefix | Description
 - [`plotContrast`](./plotContrast.md)
 - [`testContrast`](./testContrast.md)
 - [`standardizeContrast`](./standardizeContrast.md) 
-- [`analyzeContrast`](./analyzeContrast.md)
 
 `Pairwise` (functions that examine all possible unadjusted pairwise comparisons among the group or levels means)
 
@@ -64,7 +60,6 @@ Prefix | Description
 - [`plotPairwise`](./plotPairwise.md)
 - [`testPairwise`](./testPairwise.md)
 - [`standardizePairwise`](./standardizePairwise.md)
-- [`analyzePairwise`](./analyzePairwise.md)
 
 `Relational` - functions that provide both arelational (confidence) and relational (comparative) intervals 
 
@@ -77,25 +72,11 @@ Prefix | Description
 - [`testOmnibus`](./testOmnibus.md)
 - [`effectOmnibus`](./effectOmnibus.md)
 
-`By` - functions that apply the above functions repeatedly for each level of a between-subjects factor in a factorial or mixed design
-
-- [`estimateMeansBy`](./estimateMeansBy.md)
-- [`plotMeansBy`](./plotMeansBy.md)
-- [`testMeansBy`](./testMeansBy.md)
-- [`standardizeMeansBy`](./standardizeMeansBy.md)
-- [`estimateDifferenceBy`](./estimateDifferenceBy.md)
-- [`plotDifferenceBy`](./plotDifferenceBy.md)
-- [`testDifferenceBy`](./testDifferenceBy.md)
-- [`standardizeDifferenceBy`](./standardizeDifferenceBy.md)
-- [`estimateContrastBy`](./estimateContrastBy.md)
-- [`plotContrastBy`](./plotContrastBy.md)
-- [`testContrastBy`](./testContrastBy.md)
-- [`standardizeContrastBy`](./standardizeContrastBy.md)
-
 `Correlations` - functions that provide analyses of correlations among variables
 
 - [`describeCorrelations`](./describeCorrelations.md) (or [`describeCorrelation`](./describeCorrelations.md))
 - [`estimateCorrelations`](./estimateCorrelations.md) (or [`estimateCorrelation`](./estimateCorrelations.md))
+- [`testCorrelations`](./testCorrelations.md) (or [`testCorrelation`](./testCorrelations.md))
 - [`plotCorrelations`](./plotCorrelations.md) (or [`plotCorrelation`](./plotCorrelations.md))
 
 ### More Information

@@ -63,7 +63,7 @@ estimateDifference(ComfortvsChallenge)
 Then, obtain the difference plot for that comparison.
 
 ```{r,Rattan-Difference}
-plotDifference(RattanSummary,contrast=ComfortvsChallenge,ylab="Motivation")
+plotDifference(ComfortvsChallenge,ylab="Motivation")
 ```
 
 Finally, obtain the standardized effect size for that comparison.

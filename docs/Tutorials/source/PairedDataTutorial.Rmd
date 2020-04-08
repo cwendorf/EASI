@@ -31,13 +31,20 @@ Outcome2 <- c(4,7,4,9)
 PairedData <- data.frame(Outcome1,Outcome2)
 ```
  
-### Analyses of Multiple Variables
+### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+describeMeans(Outcome1,Outcome2)
+```
+
+### Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
-This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
+This code will provide a table of confidence intervals for each level of the factor.
 ```{r}
 estimateMeans(Outcome1,Outcome2)
 ```
@@ -83,9 +90,9 @@ Here too it is possible to alter the width of the confidence intervals and to es
 standardizeMeans(Outcome1,Outcome2,mu=6,conf.level=.99)
 ```
 
-### Analyses of a Variable Comparison
+### Analyses of the Comparison
 
-This section produces analyses that are equivalent to comparisons of two levels of a factor.
+This section produces analyses that examine the difference among the two levels of the factor.
 
 #### Confidence Interval for the Mean Difference
 

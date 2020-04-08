@@ -31,13 +31,13 @@ OneSampleSummary <- rbind(Outcome)
 class(OneSampleSummary) <- "wss"
 ```
 
-### Analyses of the Group
+### Analyses of the Mean
 
 This section produces analyses that are equivalent to one-sample analyses for the variable.
 
 #### Confidence Interval for the Mean
 
-This code will provide a table of descriptive statistics and confidence intervals for the variable.
+This code will provide a table of confidence intervals for the variable.
 ```{r}
 estimateMeans(OneSampleSummary)
 ```

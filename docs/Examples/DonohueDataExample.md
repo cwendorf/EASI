@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-29"
+date: "2020-04-08"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -39,10 +39,10 @@ estimateMeans(Pretest,Posttest,Followup)
 
 ```
 ## $`Confidence Intervals for the Means`
-##                N       M      SD      SE      LL      UL
-## Pretest   20.000  19.300   5.904   1.320  16.537  22.063
-## Posttest  20.000  23.600   4.762   1.065  21.371  25.829
-## Followup  20.000  23.400   4.616   1.032  21.240  25.560
+##                M      SE      df      LL      UL
+## Pretest   19.300   1.320  19.000  16.537  22.063
+## Posttest  23.600   1.065  19.000  21.371  25.829
+## Followup  23.400   1.032  19.000  21.240  25.560
 ```
 
 It is also useful to view the means and confidence intervals of the groups in a plot.
@@ -66,7 +66,7 @@ estimateDifference(Posttest,Followup)
 ```
 
 ```
-## $`Confidence Interval for the Comparison`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison  -0.200   0.753  19.000  -1.775   1.375
 ```
@@ -88,7 +88,7 @@ standardizeDifference(Posttest,Followup)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison  -0.043   0.165  -0.366   0.280
 ```

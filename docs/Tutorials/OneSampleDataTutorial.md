@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-04-08"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -26,22 +26,36 @@ Outcome <- c(0,0,3,5,4,7,4,9)
 OneSampleData <- data.frame(Outcome)
 ```
 
-### Analyses of the Group
+### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+
+```r
+describeMeans(Outcome)
+```
+
+```
+## $`Descriptive Statistics for the Data`
+##               N       M      SD
+## Outcome   8.000   4.000   3.117
+```
+
+### Analyses of the Mean
 
 This section produces analyses that are equivalent to one-sample analyses for the variable.
 
 #### Confidence Interval for the Mean
 
-This code will provide a table of descriptive statistics and confidence intervals for the variable.
+This code will provide a table of confidence intervals for the variable.
 
 ```r
 estimateMeans(Outcome)
 ```
 
 ```
-## $`Confidence Intervals for the Means`
-##               N       M      SD      SE      LL      UL
-## Outcome   8.000   4.000   3.117   1.102   1.394   6.606
+## $`Confidence Interval for the Mean`
+##               M      SE      df      LL      UL
+## Outcome   4.000   1.102   7.000   1.394   6.606
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -51,9 +65,9 @@ estimateMeans(Outcome,conf.level=.99)
 ```
 
 ```
-## $`Confidence Intervals for the Means`
-##               N       M      SD      SE      LL      UL
-## Outcome   8.000   4.000   3.117   1.102   0.144   7.856
+## $`Confidence Interval for the Mean`
+##               M      SE      df      LL      UL
+## Outcome   4.000   1.102   7.000   0.144   7.856
 ```
 
 #### Plots of the Confidence Intervals for the Mean
@@ -83,9 +97,9 @@ testMeans(Outcome)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
-##            Diff      SE       t      df       p
-## Outcome   4.000   1.102   3.630   7.000   0.008
+## $`Hypothesis Test for the Mean`
+##            Diff      SE      df       t       p
+## Outcome   4.000   1.102   7.000   3.630   0.008
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -95,9 +109,9 @@ testMeans(Outcome,mu=5)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
-##            Diff      SE       t      df       p
-## Outcome  -1.000   1.102  -0.907   7.000   0.394
+## $`Hypothesis Test for the Mean`
+##            Diff      SE      df       t       p
+## Outcome  -1.000   1.102   7.000  -0.907   0.394
 ```
 
 #### Effect Sizes for the Mean
@@ -109,9 +123,9 @@ standardizeMeans(Outcome)
 ```
 
 ```
-## $`Confidence Intervals for the Standardized Means`
-##               d  d.unb.      SE      LL      UL
-## Outcome   1.283   1.141   0.482   0.304   2.217
+## $`Confidence Interval for the Standardized Mean`
+##               d      SE      LL      UL
+## Outcome   1.283   0.482   0.304   2.217
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -121,7 +135,7 @@ standardizeMeans(Outcome,mu=5,conf.level=.99)
 ```
 
 ```
-## $`Confidence Intervals for the Standardized Means`
-##               d  d.unb.      SE      LL      UL
-## Outcome  -0.321  -0.285   0.383  -1.247   0.625
+## $`Confidence Interval for the Standardized Mean`
+##               d      SE      LL      UL
+## Outcome  -0.321   0.383  -1.247   0.625
 ```

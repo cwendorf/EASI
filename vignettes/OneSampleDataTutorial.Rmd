@@ -30,13 +30,20 @@ Outcome <- c(0,0,3,5,4,7,4,9)
 OneSampleData <- data.frame(Outcome)
 ```
 
-### Analyses of the Group
+### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+describeMeans(Outcome)
+```
+
+### Analyses of the Mean
 
 This section produces analyses that are equivalent to one-sample analyses for the variable.
 
 #### Confidence Interval for the Mean
 
-This code will provide a table of descriptive statistics and confidence intervals for the variable.
+This code will provide a table of confidence intervals for the variable.
 ```{r}
 estimateMeans(Outcome)
 ```

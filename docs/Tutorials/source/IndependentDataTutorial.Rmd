@@ -32,13 +32,20 @@ Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 IndependentData <- data.frame(Factor,Outcome)
 ```
 
-### Analyses of Multiple Groups
+### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+describeMeans(Outcome~Factor)
+```
+
+### Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
-This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
+This code will provide a table of confidence intervals for each level of the factor.
 ```{r}
 estimateMeans(Outcome~Factor)
 ```
@@ -84,9 +91,9 @@ Here too it is possible to alter the width of the confidence intervals and to es
 standardizeMeans(Outcome~Factor,mu=5,conf.level=.99)
 ```
 
-### Analyses of a Group Comparison
+### Analyses of the Comparison
 
-This section produces analyses that examine differences among the two levels of a factor.
+This section produces analyses that examine the difference among the two levels of the factor.
 
 #### Confidence Interval for a Mean Difference
 

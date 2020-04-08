@@ -16,8 +16,7 @@ This site includes the primary functions and available extensions, along with nu
 
 - [**Functions**](./Functions): Contains a description of how to install the package and details about the functions
 - [**Tutorials**](./Tutorials): Contains between-subjects and within-subjects tutorials that highlight the primary functions
-- [**Advanced**](./Advanced): Contains advanced applications of the other available functions
-- [**Examples**](./Examples): Contains between-subjects and within-subjects examples from the book _Introduction to the New Statistics_
+- [**Examples**](./Examples): Contains between-subjects and within-subjects examples from textbooks and other published work
 
 ### How to Cite
 

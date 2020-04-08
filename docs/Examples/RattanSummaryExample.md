@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-29"
+date: "2020-04-08"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -41,10 +41,10 @@ estimateMeans(RattanSummary)
 
 ```
 ## $`Confidence Intervals for the Means`
-##                 N       M      SD      SE      LL      UL
-## Comfort    18.000   3.333   1.917   0.452   2.380   4.286
-## Challenge  17.000   5.265   1.448   0.351   4.521   6.009
-## Control    19.000   4.447   1.433   0.329   3.756   5.138
+##                 M      SE      df      LL      UL
+## Comfort     3.333   0.452  17.000   2.380   4.286
+## Challenge   5.265   0.351  16.000   4.521   6.009
+## Control     4.447   0.329  18.000   3.756   5.138
 ```
 
 It is also useful to view the means and confidence intervals of the groups in a plot.
@@ -70,7 +70,7 @@ estimateDifference(ComfortvsChallenge)
 ```
 
 ```
-## $`Confidence Interval for the Comparison`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison   1.932   0.572  31.521   0.766   3.098
 ```
@@ -79,7 +79,7 @@ Then, obtain the difference plot for that comparison.
 
 
 ```r
-plotDifference(RattanSummary,contrast=ComfortvsChallenge,ylab="Motivation")
+plotDifference(ComfortvsChallenge,ylab="Motivation")
 ```
 
 ![](figures/Rattan-Difference-1.png)<!-- -->
@@ -92,7 +92,7 @@ standardizeDifference(ComfortvsChallenge)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.137   0.376   0.401   1.873
 ```

@@ -29,8 +29,8 @@ This code inputs the group summaries and creates a single summary table (for the
 A1 <- c(N=4,M=2.000,SD=2.449)
 A2 <- c(N=4,M=6.000,SD=2.449)
 A3 <- c(N=4,M=7.000,SD=2.449)
-BetweenSummaryB1 <- rbind(A1,A2,A3)
-class(BetweenSummaryB1) <- "bss"
+FactorialSummaryB1 <- rbind(A1,A2,A3)
+class(FactorialSummaryB1) <- "bss"
 ```
 
 And repeat the process to create the second subset.
@@ -38,79 +38,79 @@ And repeat the process to create the second subset.
 A1 <- c(N=4,M=4.000,SD=2.449)
 A2 <- c(N=4,M=4.000,SD=2.449)
 A3 <- c(N=4,M=5.000,SD=2.449)
-BetweenSummaryB2 <- rbind(A1,A2,A3)
-class(BetweenSummaryB2) <- "bss"
+FactorialSummaryB2 <- rbind(A1,A2,A3)
+class(FactorialSummaryB2) <- "bss"
 ```
 
-### Analyses of Multiple Groups
+### Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
-This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
+This code will provide tables of confidence intervals for each level of the factor.
 ```{r}
-estimateMeans(BetweenSummaryB1)
-estimateMeans(BetweenSummaryB2)
+estimateMeans(FactorialSummaryB1)
+estimateMeans(FactorialSummaryB2)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateMeans(BetweenSummaryB1,conf.level=.99)
-estimateMeans(BetweenSummaryB2,conf.level=.99)
+estimateMeans(FactorialSummaryB1,conf.level=.99)
+estimateMeans(FactorialSummaryB2,conf.level=.99)
 ```
 
 #### Plot of the Confidence Intervals for the Means
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```{r,Factorial-MeansA}
-plotMeans(BetweenSummaryB1)
-plotMeans(BetweenSummaryB2)
+plotMeans(FactorialSummaryB1)
+plotMeans(FactorialSummaryB2)
 ```
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 ```{r,Factorial-MeansB}
-plotMeans(BetweenSummaryB1,conf.level=.99,mu=5,rope=c(3,7))
-plotMeans(BetweenSummaryB2,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(FactorialSummaryB1,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(FactorialSummaryB2,conf.level=.99,mu=5,rope=c(3,7))
 ```
 
 #### Significance Tests for the Means
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```{r}
-testMeans(BetweenSummaryB1)
-testMeans(BetweenSummaryB2)
+testMeans(FactorialSummaryB1)
+testMeans(FactorialSummaryB2)
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```{r}
-testMeans(BetweenSummaryB1,mu=5)
-testMeans(BetweenSummaryB2,mu=5)
+testMeans(FactorialSummaryB1,mu=5)
+testMeans(FactorialSummaryB2,mu=5)
 ```
 
 #### Effect Size for the Means
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
-standardizeMeans(BetweenSummaryB1)
-standardizeMeans(BetweenSummaryB2)
+standardizeMeans(FactorialSummaryB1)
+standardizeMeans(FactorialSummaryB2)
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```{r}
-standardizeMeans(BetweenSummaryB1,mu=5,conf.level=.99)
-standardizeMeans(BetweenSummaryB2,mu=5,conf.level=.99)
+standardizeMeans(FactorialSummaryB1,mu=5,conf.level=.99)
+standardizeMeans(FactorialSummaryB2,mu=5,conf.level=.99)
 ```
 
-### Analyses of a Group Comparison
+### Analyses of a Comparison
 
 This section produces analyses that are equivalent to comparisons of two levels of a factor.
 
 This code creates a new factor that identifies the two levels for comparison.
 ```{r}
-CompSummaryB1 <- BetweenSummaryB1[c("A1","A2"),]
+CompSummaryB1 <- FactorialSummaryB1[c("A1","A2"),]
 class(CompSummaryB1) <- "bss"
-CompSummaryB2 <- BetweenSummaryB2[c("A1","A2"),]
+CompSummaryB2 <- FactorialSummaryB2[c("A1","A2"),]
 class(CompSummaryB2) <- "bss"
 ```
 
@@ -170,7 +170,7 @@ standardizeDifference(CompSummaryB1,conf.level=.99)
 standardizeDifference(CompSummaryB2,conf.level=.99)
 ```
 
-### Analyses of a Group Contrast
+### Analyses of a Contrast
 
 This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
 
@@ -183,54 +183,122 @@ A1vsOthers <- c(-1,.5,.5)
 
 This code produces a confidence interval for that contrast.
 ```{r}
-estimateContrast(BetweenSummaryB1,contrast=A1vsOthers)
-estimateContrast(BetweenSummaryB2,contrast=A1vsOthers)
+estimateContrast(FactorialSummaryB1,contrast=A1vsOthers)
+estimateContrast(FactorialSummaryB2,contrast=A1vsOthers)
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```{r}
-estimateContrast(BetweenSummaryB1,contrast=A1vsOthers,conf.level=.99)
-estimateContrast(BetweenSummaryB2,contrast=A1vsOthers,conf.level=.99)
+estimateContrast(FactorialSummaryB1,contrast=A1vsOthers,conf.level=.99)
+estimateContrast(FactorialSummaryB2,contrast=A1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```{r,Factorial-ContrastA}
-plotContrast(BetweenSummaryB1,contrast=A1vsOthers)
-plotContrast(BetweenSummaryB2,contrast=A1vsOthers)
+plotContrast(FactorialSummaryB1,contrast=A1vsOthers)
+plotContrast(FactorialSummaryB2,contrast=A1vsOthers)
 ```
 
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```{r,Factorial-ContrastB}
-plotContrast(BetweenSummaryB1,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
-plotContrast(BetweenSummaryB2,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(FactorialSummaryB1,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(FactorialSummaryB2,contrast=A1vsOthers,labels=c("A1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
 #### Significance Test for a Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
-testContrast(BetweenSummaryB1,contrast=A1vsOthers)
-testContrast(BetweenSummaryB2,contrast=A1vsOthers)
+testContrast(FactorialSummaryB1,contrast=A1vsOthers)
+testContrast(FactorialSummaryB2,contrast=A1vsOthers)
 ```
 
 If desired, the contrast can be tested against other values.
 ```{r}
-testContrast(BetweenSummaryB1,contrast=A1vsOthers,mu=4)
-testContrast(BetweenSummaryB2,contrast=A1vsOthers,mu=4)
+testContrast(FactorialSummaryB1,contrast=A1vsOthers,mu=4)
+testContrast(FactorialSummaryB2,contrast=A1vsOthers,mu=4)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}
-standardizeContrast(BetweenSummaryB1,contrast=A1vsOthers)
-standardizeContrast(BetweenSummaryB2,contrast=A1vsOthers)
+standardizeContrast(FactorialSummaryB1,contrast=A1vsOthers)
+standardizeContrast(FactorialSummaryB2,contrast=A1vsOthers)
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-standardizeContrast(BetweenSummaryB1,contrast=A1vsOthers,conf.level=.99)
-standardizeContrast(BetweenSummaryB2,contrast=A1vsOthers,conf.level=.99)
+standardizeContrast(FactorialSummaryB1,contrast=A1vsOthers,conf.level=.99)
+standardizeContrast(FactorialSummaryB2,contrast=A1vsOthers,conf.level=.99)
+```
+
+### Analyses of the Pairwise Comparisons
+
+This section provides analyses of all possible pairwise comparisons among the levels of the factor.
+
+#### Confidence Intervals for the Pairwise Comparisons
+
+This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
+
+```{r}
+estimatePairwise(FactorialSummaryB1)
+estimatePairwise(FactorialSummaryB2)
+```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
+
+```{r}
+estimatePairwise(FactorialSummaryB1,conf.level=.99)
+estimatePairwise(FactorialSummaryB2,conf.level=.99)
+```
+
+#### Plots of the Confidence Intervals for the Pairwise Comparisons
+
+This code will produce a graph of the confidence intervals for each of the pairwise comparisons.
+
+```{r,Factorial-PairwiseA}
+plotPairwise(FactorialSummaryB1)
+plotPairwise(FactorialSummaryB2)
+```
+
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
+
+```{r,Factorial-PairwiseB}
+plotPairwise(FactorialSummaryB1,mu=-2,conf.level=.99,rope=c(-4,0))
+plotPairwise(FactorialSummaryB2,mu=-2,conf.level=.99,rope=c(-4,0))
+```
+
+#### Significance Tests of the Pairwise Comparisons
+
+This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
+
+```{r}
+testPairwise(FactorialSummaryB1)
+testPairwise(FactorialSummaryB2)
+```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
+
+```{r}
+testPairwise(FactorialSummaryB1,mu=-2)
+testPairwise(FactorialSummaryB2,mu=-2)
+```
+
+#### Effect Sizes for the Pairwise Comparisons
+
+This code will produce a table of standardized mean differences for each pairwise comparison. 
+
+```{r}
+standardizePairwise(FactorialSummaryB1)
+standardizePairwise(FactorialSummaryB2)
+```
+
+Here too it is possible to alter the width of the confidence intervals.
+
+```{r}
+standardizePairwise(FactorialSummaryB1,conf.level=.99)
+standardizePairwise(FactorialSummaryB2,conf.level=.99)
 ```

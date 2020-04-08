@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-29"
+date: "2020-04-08"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -46,7 +46,7 @@ standardizeDifference(PenLaptop1Summary)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   0.928   0.270   0.398   1.458
 ```
@@ -80,7 +80,7 @@ standardizeDifference(PenLaptop2Summary)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.059   0.179   0.709   1.409
 ```
@@ -114,7 +114,7 @@ standardizeDifference(PenLaptop3Summary)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.691   0.237   1.226   2.156
 ```

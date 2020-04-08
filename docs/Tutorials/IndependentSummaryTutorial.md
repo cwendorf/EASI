@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-05"
+date: "2020-04-08"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -37,13 +37,13 @@ IndependentSummary
 ## [1] "bss"
 ```
 
-### Analyses of Multiple Groups
+### Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
-This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
+This code will provide a table of confidence intervals for each level of the factor.
 
 ```r
 estimateMeans(IndependentSummary)
@@ -51,9 +51,9 @@ estimateMeans(IndependentSummary)
 
 ```
 ## $`Confidence Intervals for the Means`
-##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.224  -1.897   5.897
-## Level2   4.000   6.000   2.449   1.224   2.103   9.897
+##              M      SE      df      LL      UL
+## Level1   2.000   1.224   3.000  -1.897   5.897
+## Level2   6.000   1.224   3.000   2.103   9.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -64,9 +64,9 @@ estimateMeans(IndependentSummary,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Means`
-##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.224  -5.152   9.152
-## Level2   4.000   6.000   2.449   1.224  -1.152  13.152
+##              M      SE      df      LL      UL
+## Level1   2.000   1.224   3.000  -5.152   9.152
+## Level2   6.000   1.224   3.000  -1.152  13.152
 ```
 
 #### Plots of the Confidence Intervals for the Means
@@ -96,10 +96,10 @@ testMeans(IndependentSummary)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
-##           Diff      SE       t      df       p
-## Level1   2.000   1.224   1.633   3.000   0.201
-## Level2   6.000   1.224   4.900   3.000   0.016
+## $`Hypothesis Tests for the Means`
+##           Diff      SE      df       t       p
+## Level1   2.000   1.224   3.000   1.633   0.201
+## Level2   6.000   1.224   3.000   4.900   0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -109,10 +109,10 @@ testMeans(IndependentSummary,mu=5)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
-##           Diff      SE       t      df       p
-## Level1  -3.000   1.224  -2.450   3.000   0.092
-## Level2   1.000   1.224   0.817   3.000   0.474
+## $`Hypothesis Tests for the Means`
+##           Diff      SE      df       t       p
+## Level1  -3.000   1.224   3.000  -2.450   0.092
+## Level2   1.000   1.224   3.000   0.817   0.474
 ```
 
 #### Effect Sizes for the Means
@@ -125,9 +125,9 @@ standardizeMeans(IndependentSummary)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1   0.817   0.594   0.616  -0.387   1.934
-## Level2   2.450   1.782   0.955   0.325   4.532
+##              d      SE      LL      UL
+## Level1   0.817   0.616  -0.387   1.934
+## Level2   2.450   0.955   0.325   4.532
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -138,14 +138,14 @@ standardizeMeans(IndependentSummary,mu=5,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1  -1.225  -0.891   0.680  -3.011   0.547
-## Level2   0.408   0.297   0.574  -0.968   1.734
+##              d      SE      LL      UL
+## Level1  -1.225   0.680  -3.011   0.547
+## Level2   0.408   0.574  -0.968   1.734
 ```
  
-### Analyses of a Group Comparison
+### Analyses of the Comparison
 
-This section produces analyses that examine differences among the two levels of a factor.
+This section produces analyses that examine the difference among the two levels of the factor.
 
 #### Confidence Interval for a Mean Difference
 
@@ -156,7 +156,7 @@ estimateDifference(IndependentSummary)
 ```
 
 ```
-## $`Confidence Interval for the Comparison`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -0.237   8.237
 ```
@@ -168,7 +168,7 @@ estimateDifference(IndependentSummary,conf.level=.99)
 ```
 
 ```
-## $`Confidence Interval for the Comparison`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -2.420  10.420
 ```
@@ -200,9 +200,9 @@ testDifference(IndependentSummary)
 ```
 
 ```
-## $`Hypothesis Test for the Comparison`
-##               Diff      SE       t      df       p
-## Comparison   4.000   1.732   2.310   6.000   0.060
+## $`Hypothesis Test for the Difference`
+##               Diff      SE      df       t       p
+## Comparison   4.000   1.732   6.000   2.310   0.060
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -212,9 +212,9 @@ testDifference(IndependentSummary,mu=2)
 ```
 
 ```
-## $`Hypothesis Test for the Comparison`
-##               Diff      SE       t      df       p
-## Comparison   2.000   1.732   1.155   6.000   0.292
+## $`Hypothesis Test for the Difference`
+##               Diff      SE      df       t       p
+## Comparison   2.000   1.732   6.000   1.155   0.292
 ```
 
 #### Effect Size for the Mean Difference
@@ -226,7 +226,7 @@ standardizeDifference(IndependentSummary)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
@@ -238,7 +238,7 @@ standardizeDifference(IndependentSummary,conf.level=.99)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.795   4.062
 ```

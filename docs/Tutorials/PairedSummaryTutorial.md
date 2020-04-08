@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-04-08"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -31,17 +31,17 @@ class(PairedSummary) <- "wss"
 This code creates a correlation matrix and enters single correlation.
 
 ```r
-PairedCorr <- declareCorrMatrix("Outcome1","Outcome2")
+PairedCorr <- declareCorrelation("Outcome1","Outcome2")
 PairedCorr["Outcome1","Outcome2"] <- .500
 ```
  
-### Analyses of Multiple Variables
+### Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
-This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
+This code will provide a table of confidence intervals for each level of the factor.
 
 ```r
 estimateMeans(PairedSummary)
@@ -49,9 +49,9 @@ estimateMeans(PairedSummary)
 
 ```
 ## $`Confidence Intervals for the Means`
-##                N       M      SD      SE      LL      UL
-## Outcome1   4.000   2.000   2.449   1.224  -1.897   5.897
-## Outcome2   4.000   6.000   2.449   1.224   2.103   9.897
+##                M      SE      df      LL      UL
+## Outcome1   2.000   1.224   3.000  -1.897   5.897
+## Outcome2   6.000   1.224   3.000   2.103   9.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -62,9 +62,9 @@ estimateMeans(PairedSummary,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Means`
-##                N       M      SD      SE      LL      UL
-## Outcome1   4.000   2.000   2.449   1.224  -5.152   9.152
-## Outcome2   4.000   6.000   2.449   1.224  -1.152  13.152
+##                M      SE      df      LL      UL
+## Outcome1   2.000   1.224   3.000  -5.152   9.152
+## Outcome2   6.000   1.224   3.000  -1.152  13.152
 ```
 
 #### Plots of Confidence Intervals for the Means
@@ -94,10 +94,10 @@ testMeans(PairedSummary)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
-##             Diff      SE       t      df       p
-## Outcome1   2.000   1.224   1.633   3.000   0.201
-## Outcome2   6.000   1.224   4.900   3.000   0.016
+## $`Hypothesis Tests for the Means`
+##             Diff      SE      df       t       p
+## Outcome1   2.000   1.224   3.000   1.633   0.201
+## Outcome2   6.000   1.224   3.000   4.900   0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -107,10 +107,10 @@ testMeans(PairedSummary,mu=6)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
-##             Diff      SE       t      df       p
-## Outcome1  -4.000   1.224  -3.267   3.000   0.047
-## Outcome2   0.000   1.224   0.000   3.000   1.000
+## $`Hypothesis Tests for the Means`
+##             Diff      SE      df       t       p
+## Outcome1  -4.000   1.224   3.000  -3.267   0.047
+## Outcome2   0.000   1.224   3.000   0.000   1.000
 ```
 
 #### Effect Sizes for the Means
@@ -123,9 +123,9 @@ standardizeMeans(PairedSummary)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##                d  d.unb.      SE      LL      UL
-## Outcome1   0.817   0.594   0.616  -0.387   1.934
-## Outcome2   2.450   1.782   0.955   0.325   4.532
+##                d      SE      LL      UL
+## Outcome1   0.817   0.616  -0.387   1.934
+## Outcome2   2.450   0.955   0.325   4.532
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -136,14 +136,14 @@ standardizeMeans(PairedSummary,mu=6,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##                d  d.unb.      SE      LL      UL
-## Outcome1  -1.633  -1.188   0.761  -3.765   0.398
-## Outcome2   0.000   0.000   0.559  -1.288   1.288
+##                d      SE      LL      UL
+## Outcome1  -1.633   0.761  -3.765   0.398
+## Outcome2   0.000   0.559  -1.288   1.288
 ```
 
-### Analyses of a Variable Comparison
+### Analyses of the Comparison
 
-This section produces analyses that are equivalent to comparisons of two levels of a factor.
+This section produces analyses that examine the difference among the two levels of the factor.
 
 #### Confidence Interval for the Mean Difference
 
@@ -154,7 +154,7 @@ estimateDifference(PairedSummary,PairedCorr)
 ```
 
 ```
-## $`Confidence Interval for the Comparison`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.224   3.000   0.103   7.897
 ```
@@ -166,7 +166,7 @@ estimateDifference(PairedSummary,PairedCorr,conf.level=.99)
 ```
 
 ```
-## $`Confidence Interval for the Comparison`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.224   3.000  -3.152  11.152
 ```
@@ -198,9 +198,9 @@ testDifference(PairedSummary,PairedCorr)
 ```
 
 ```
-## $`Hypothesis Test for the Comparison`
-##               Diff      SE       t      df       p
-## Comparison   4.000   1.224   3.267   3.000   0.047
+## $`Hypothesis Test for the Difference`
+##               Diff      SE      df       t       p
+## Comparison   4.000   1.224   3.000   3.267   0.047
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -210,9 +210,9 @@ testDifference(PairedSummary,PairedCorr,mu=-2)
 ```
 
 ```
-## $`Hypothesis Test for the Comparison`
-##               Diff      SE       t      df       p
-## Comparison   6.000   1.224   4.900   3.000   0.016
+## $`Hypothesis Test for the Difference`
+##               Diff      SE      df       t       p
+## Comparison   6.000   1.224   3.000   4.900   0.016
 ```
 
 #### Effect Size for the Mean Difference
@@ -224,7 +224,7 @@ standardizeDifference(PairedSummary,PairedCorr)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.782   0.101   3.166
 ```
@@ -236,7 +236,7 @@ standardizeDifference(PairedSummary,PairedCorr,conf.level=.99)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.782  -0.380   3.647
 ```

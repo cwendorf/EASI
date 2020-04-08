@@ -32,13 +32,20 @@ Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
 OneWayData <- data.frame(Factor,Outcome)
 ```
 
-### Analyses of Multiple Groups
+### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+describeMeans(Outcome~Factor)
+```
+
+### Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
-This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
+This code will provide a table of confidence intervals for each level of the factor.
 ```{r}
 estimateMeans(Outcome~Factor)
 ```
@@ -84,7 +91,7 @@ Here too it is possible to alter the width of the confidence intervals and to es
 standardizeMeans(Outcome~Factor,mu=5,conf.level=.99)
 ```
 
-### Analyses of a Group Comparison
+### Analyses of a Comparison
 
 This section produces analyses that are equivalent to comparisons of two levels of a factor.
 
@@ -141,7 +148,7 @@ The width of the confidence interval for the effect size can be altered if desir
 standardizeDifference(Outcome~Comparison,conf.level=.99)
 ```
 
-### Analyses of a Group Contrast
+### Analyses of a Contrast
 
 This section produces analyses that are equivalent to analyses involving multiple levels of a factor.
 
@@ -196,4 +203,64 @@ standardizeContrast(Outcome~Factor,contrast=L1vsOthers)
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
 standardizeContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
+```
+
+### Analyses of the Pairwise Comparisons
+
+This section provides analyses of all possible pairwise comparisons among the levels of the factor.
+
+#### Confidence Intervals for the Pairwise Comparisons
+
+This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
+
+```{r}
+estimatePairwise(Outcome~Factor)
+```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
+
+```{r}
+estimatePairwise(Outcome~Factor,conf.level=.99)
+```
+
+#### Plots of the Confidence Intervals for the Pairwise Comparisons
+
+This code will produce a graph of the confidence intervals for each of the pairwise comparisons.
+
+```{r,OneWay-PairwiseA}
+plotPairwise(Outcome~Factor)
+```
+
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
+
+```{r,OneWay-PairwiseB}
+plotPairwise(Outcome~Factor,mu=-2,conf.level=.99,rope=c(-4,0))
+```
+
+#### Significance Tests of the Pairwise Comparisons
+
+This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
+
+```{r}
+testPairwise(Outcome~Factor)
+```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
+
+```{r}
+testPairwise(Outcome~Factor,mu=-2)
+```
+
+#### Effect Sizes for the Pairwise Comparisons
+
+This code will produce a table of standardized mean differences for each pairwise comparison. 
+
+```{r}
+standardizePairwise(Outcome~Factor)
+```
+
+Here too it is possible to alter the width of the confidence intervals.
+
+```{r}
+standardizePairwise(Outcome~Factor,conf.level=.99)
 ```

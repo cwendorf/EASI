@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-03-01"
+date: "2020-04-08"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -28,13 +28,28 @@ Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 IndependentData <- data.frame(Factor,Outcome)
 ```
 
-### Analyses of Multiple Groups
+### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+
+```r
+describeMeans(Outcome~Factor)
+```
+
+```
+## $`Descriptive Statistics for the Data`
+##              N       M      SD
+## Level1   4.000   2.000   2.449
+## Level2   4.000   6.000   2.449
+```
+
+### Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
 #### Confidence Intervals for the Means
 
-This code will provide a table of descriptive statistics and confidence intervals for each level of the factor.
+This code will provide a table of confidence intervals for each level of the factor.
 
 ```r
 estimateMeans(Outcome~Factor)
@@ -42,9 +57,9 @@ estimateMeans(Outcome~Factor)
 
 ```
 ## $`Confidence Intervals for the Means`
-##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.225  -1.898   5.898
-## Level2   4.000   6.000   2.449   1.225   2.102   9.898
+##              M      SE      df      LL      UL
+## Level1   2.000   1.225   3.000  -1.898   5.898
+## Level2   6.000   1.225   3.000   2.102   9.898
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -55,9 +70,9 @@ estimateMeans(Outcome~Factor,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Means`
-##              N       M      SD      SE      LL      UL
-## Level1   4.000   2.000   2.449   1.225  -5.154   9.154
-## Level2   4.000   6.000   2.449   1.225  -1.154  13.154
+##              M      SE      df      LL      UL
+## Level1   2.000   1.225   3.000  -5.154   9.154
+## Level2   6.000   1.225   3.000  -1.154  13.154
 ```
 
 #### Plots of the Confidence Intervals for the Means
@@ -87,10 +102,10 @@ testMeans(Outcome~Factor)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
-##           Diff      SE       t      df       p
-## Level1   2.000   1.225   1.633   3.000   0.201
-## Level2   6.000   1.225   4.899   3.000   0.016
+## $`Hypothesis Tests for the Means`
+##           Diff      SE      df       t       p
+## Level1   2.000   1.225   3.000   1.633   0.201
+## Level2   6.000   1.225   3.000   4.899   0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -100,10 +115,10 @@ testMeans(Outcome~Factor,mu=5)
 ```
 
 ```
-## $`Hypothesis Test for the Means`
-##           Diff      SE       t      df       p
-## Level1  -3.000   1.225  -2.449   3.000   0.092
-## Level2   1.000   1.225   0.816   3.000   0.474
+## $`Hypothesis Tests for the Means`
+##           Diff      SE      df       t       p
+## Level1  -3.000   1.225   3.000  -2.449   0.092
+## Level2   1.000   1.225   3.000   0.816   0.474
 ```
 
 #### Effect Sizes for the Means
@@ -116,9 +131,9 @@ standardizeMeans(Outcome~Factor)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1   0.816   0.594   0.616  -0.387   1.934
-## Level2   2.449   1.781   0.955   0.325   4.531
+##              d      SE      LL      UL
+## Level1   0.816   0.616  -0.387   1.934
+## Level2   2.449   0.955   0.325   4.531
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -129,14 +144,14 @@ standardizeMeans(Outcome~Factor,mu=5,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Means`
-##              d  d.unb.      SE      LL      UL
-## Level1  -1.225  -0.891   0.680  -3.010   0.547
-## Level2   0.408   0.297   0.574  -0.969   1.734
+##              d      SE      LL      UL
+## Level1  -1.225   0.680  -3.010   0.547
+## Level2   0.408   0.574  -0.969   1.734
 ```
 
-### Analyses of a Group Comparison
+### Analyses of the Comparison
 
-This section produces analyses that examine differences among the two levels of a factor.
+This section produces analyses that examine the difference among the two levels of the factor.
 
 #### Confidence Interval for a Mean Difference
 
@@ -147,7 +162,7 @@ estimateDifference(Outcome~Factor)
 ```
 
 ```
-## $`Confidence Interval for the Comparison`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -0.238   8.238
 ```
@@ -159,7 +174,7 @@ estimateDifference(Outcome~Factor,conf.level=.99)
 ```
 
 ```
-## $`Confidence Interval for the Comparison`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison   4.000   1.732   6.000  -2.421  10.421
 ```
@@ -191,9 +206,9 @@ testDifference(Outcome~Factor)
 ```
 
 ```
-## $`Hypothesis Test for the Comparison`
-##               Diff      SE       t      df       p
-## Comparison   4.000   1.732   2.309   6.000   0.060
+## $`Hypothesis Test for the Difference`
+##               Diff      SE      df       t       p
+## Comparison   4.000   1.732   6.000   2.309   0.060
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -203,9 +218,9 @@ testDifference(Outcome~Factor,mu=2)
 ```
 
 ```
-## $`Hypothesis Test for the Comparison`
-##               Diff      SE       t      df       p
-## Comparison   2.000   1.732   1.155   6.000   0.292
+## $`Hypothesis Test for the Difference`
+##               Diff      SE      df       t       p
+## Comparison   2.000   1.732   6.000   1.155   0.292
 ```
 
 #### Effect Size for the Mean Difference
@@ -217,7 +232,7 @@ standardizeDifference(Outcome~Factor)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
@@ -229,7 +244,7 @@ standardizeDifference(Outcome~Factor,conf.level=.99)
 ```
 
 ```
-## $`Confidence Interval for the Standardized Comparison`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.633   0.943  -0.796   4.062
 ```
