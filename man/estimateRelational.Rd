@@ -11,13 +11,13 @@
 \description{Provides a table of arelational (confidence) and relational (comparative) intervals for each group or level mean.}
 
 \usage{
-\method{estimateRelational}{default}(\dots,conf.level=.95,digits=3)
+\method{estimateRelational}{default}(\dots,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateRelational}{formula}(formula,conf.level=.95,digits=3)
+\method{estimateRelational}{formula}(formula,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateRelational}{wss}(DescStats,conf.level=.95,digits=3)
+\method{estimateRelational}{wss}(DescStats,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateRelational}{bss}(DescStats,conf.level=.95,digits=3)
+\method{estimateRelational}{bss}(DescStats,conf.level=.95,main=NULL,digits=3)
 }
 
 \arguments{
@@ -25,6 +25,7 @@
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
 \item{DescStats}{a matrix/frame of descriptive/summary statistics.}
 \item{conf.level}{confidence level of the interval.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

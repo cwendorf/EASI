@@ -11,13 +11,13 @@
 \description{Provides a statistical significance test of the mean difference.}
 
 \usage{
-\method{testDifference}{default}(\dots,mu=0,digits=3)
+\method{testDifference}{default}(\dots,mu=0,main=NULL,digits=3)
 
-\method{testDifference}{formula}(formula,mu=0,digits=3)
+\method{testDifference}{formula}(formula,mu=0,main=NULL,digits=3)
 
-\method{testDifference}{wss}(CompStats,CorrStats,mu=0,digits=3)
+\method{testDifference}{wss}(CompStats,CorrStats,mu=0,main=NULL,digits=3)
 
-\method{testDifference}{bss}(CompStats,mu=0,digits=3)
+\method{testDifference}{bss}(CompStats,mu=0,main=NULL,digits=3)
 }
 
 \arguments{
@@ -26,6 +26,7 @@
 \item{CompStats}{a matrix/frame of descriptive/summary statistics.}
 \item{CorrStats}{a matrix/frame of correlations among the measures.}
 \item{mu}{a number indicating the true/hypothesized value of the mean difference.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

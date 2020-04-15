@@ -11,13 +11,13 @@
 \description{Provides the standardized effect size and its confidence interval for the contrast.}
 
 \usage{
-\method{standardizeContrast}{default}(\dots,contrast,mu=0,conf.level=.95,digits=3)
+\method{standardizeContrast}{default}(\dots,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizeContrast}{formula}(formula,contrast,mu=0,conf.level=.95,digits=3)
+\method{standardizeContrast}{formula}(formula,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizeContrast}{wss}(DescStats,CorrStats,contrast,mu=0,conf.level=.95,digits=3)
+\method{standardizeContrast}{wss}(DescStats,CorrStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizeContrast}{bss}(DescStats,contrast,mu=0,conf.level=.95,digits=3)
+\method{standardizeContrast}{bss}(DescStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 }
 
 \arguments{
@@ -28,6 +28,7 @@
 \item{contrast}{a vector of codes for the contrast among all means.}
 \item{mu}{a number indicating the true/hypothesized value of the mean contrast.}
 \item{conf.level}{confidence level of the interval.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

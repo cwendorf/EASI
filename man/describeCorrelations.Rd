@@ -8,11 +8,12 @@
 \description{Provides a square matrix/frame of correlations for a data set.}
 
 \usage{
-\method{describeCorrelations}{default}(\dots,digits=3)
+\method{describeCorrelations}{default}(\dots,main=NULL,digits=3)
 }
 
 \arguments{
 \item{\dots}{a set of (non-empty) numeric vectors of data values.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

@@ -11,19 +11,20 @@
 \description{Provides a statistical significance test for for an Analysis of Variance.}
 
 \usage{
-\method{testOmnibus}{default}(\dots,digits=3)
+\method{testOmnibus}{default}(\dots,main=NULL,digits=3)
 
-\method{testOmnibus}{formula}(formula,digits=3)
+\method{testOmnibus}{formula}(formula,main=NULL,digits=3)
 
-\method{testOmnibus}{wss}(DescStats,digits=3)
+\method{testOmnibus}{wss}(DescStats,main=NULL,digits=3)
 
-\method{testOmnibus}{bss}(DescStats,digits=3)
+\method{testOmnibus}{bss}(DescStats,main=NULL,digits=3)
 }
 
 \arguments{
 \item{\dots}{a set of (non-empty) numeric vectors of data values.}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
 \item{DescStats}{a matrix/frame of descriptive/summary statistics.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

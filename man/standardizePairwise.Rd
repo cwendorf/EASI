@@ -11,13 +11,13 @@
 \description{Provides a standardized effect size and its confidence interval for all unadjusted pairwise comparisons.}
 
 \usage{
-\method{standardizePairwise}{default}(\dots,mu=0,conf.level=.95,digits=3)
+\method{standardizePairwise}{default}(\dots,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizePairwise}{formula}(formula,mu=0,conf.level=.95,digits=3)
+\method{standardizePairwise}{formula}(formula,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizePairwise}{wss}(DescStats,mu=0,conf.level=.95,digits=3)
+\method{standardizePairwise}{wss}(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizePairwise}{bss}(DescStats,mu=0,conf.level=.95,digits=3)
+\method{standardizePairwise}{bss}(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
 }
 
 \arguments{
@@ -26,6 +26,7 @@
 \item{DescStats}{a matrix/frame of descriptive/summary statistics.}
 \item{mu}{a number indicating the true/hypothesized value of the mean.}
 \item{conf.level}{confidence level of the interval.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

@@ -11,13 +11,13 @@
 \description{Provides the standardized effect size for the difference and its confidence interval.}
 
 \usage{
-\method{standardizeDifference}{default}(\dots,mu=0,conf.level=.95,digits=3)
+\method{standardizeDifference}{default}(\dots,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizeDifference}{formula}(formula,mu=0,conf.level=.95,digits=3)
+\method{standardizeDifference}{formula}(formula,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizeDifference}{wss}(CompStats,CorrStats,mu=0,conf.level=.95,digits=3)
+\method{standardizeDifference}{wss}(CompStats,CorrStats,mu=0,conf.level=.95,main=NULL,digits=3)
 
-\method{standardizeDifference}{bss}(CompStats,mu=0,conf.level=.95,digits=3)
+\method{standardizeDifference}{bss}(CompStats,mu=0,conf.level=.95,main=NULL,digits=3)
 }
 
 \arguments{
@@ -27,6 +27,7 @@
 \item{CorrStats}{a matrix/frame of correlations among the measures.}
 \item{mu}{a number indicating the true/hypothesized value of the mean difference.}
 \item{conf.level}{confidence level of the interval.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

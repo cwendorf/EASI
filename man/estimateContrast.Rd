@@ -11,13 +11,13 @@
 \description{Provides the mean contrast, standard error, and confidence interval of the contrast.}
 
 \usage{
-\method{estimateContrast}{default}(\dots,contrast,conf.level=.95,digits=3)
+\method{estimateContrast}{default}(\dots,contrast,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateContrast}{formula}(formula,contrast,conf.level=.95,digits=3)
+\method{estimateContrast}{formula}(formula,contrast,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateContrast}{wss}(DescStats,CorrStats,contrast,conf.level=.95,digits=3)
+\method{estimateContrast}{wss}(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateContrast}{bss}(DescStats,contrast,conf.level=.95,digits=3)
+\method{estimateContrast}{bss}(DescStats,contrast,conf.level=.95,main=NULL,digits=3)
 }
 
 \arguments{
@@ -27,6 +27,7 @@
 \item{CorrStats}{a matrix/frame of correlations among the measures.}
 \item{contrast}{a vector of codes for the contrast among all means.}
 \item{conf.level}{confidence level of the interval.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

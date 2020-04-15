@@ -11,13 +11,13 @@
 \description{Provides a statistical significance test of the mean contrast.}
 
 \usage{
-\method{testContrast}{default}(\dots,contrast,mu=0,digits=3)
+\method{testContrast}{default}(\dots,contrast,mu=0,main=NULL,digits=3)
 
-\method{testContrast}{formula}(formula,contrast,mu=0,digits=3)
+\method{testContrast}{formula}(formula,contrast,mu=0,main=NULL,digits=3)
 
-\method{testContrast}{wss}(DescStats,CorrStats,contrast,mu=0,digits=3)
+\method{testContrast}{wss}(DescStats,CorrStats,contrast,mu=0,main=NULL,digits=3)
 
-\method{testContrast}{bss}(DescStats,contrast,mu=0,digits=3)
+\method{testContrast}{bss}(DescStats,contrast,mu=0,main=NULL,digits=3)
 }
 
 \arguments{
@@ -27,6 +27,7 @@
 \item{CorrStats}{a matrix/frame of correlations among the measures.}
 \item{contrast}{a vector of codes for the contrast among all means.}
 \item{mu}{a number indicating the true/hypothesized value of the mean contrast.}
+\item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
 

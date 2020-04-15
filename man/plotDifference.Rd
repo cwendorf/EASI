@@ -11,13 +11,13 @@
 \description{Provides a plot of the two means, the mean difference, and their confidence intervals.}
 
 \usage{
-\method{plotDifference}{default}(\dots,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+\method{plotDifference}{default}(\dots,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
 
-\method{plotDifference}{formula}(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+\method{plotDifference}{formula}(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
 
-\method{plotDifference}{wss}(CompStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+\method{plotDifference}{wss}(CompStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
 
-\method{plotDifference}{bss}(CompStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,digits=3)
+\method{plotDifference}{bss}(CompStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
 }
 
 \arguments{
@@ -31,6 +31,7 @@
 \item{conf.level}{confidence level of the interval.}
 \item{rope}{lower and upper values for a region of practical equivalence.}
 \item{values}{whether the points should be labeled with their values.}
+\item{main}{a custom title for the graph.}
 \item{digits}{the specified number of decimal places.}
 }
 

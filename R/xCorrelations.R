@@ -108,7 +108,7 @@ estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 
 #### NHST Function for Correlations
 
-testCorrelations <- function(...) 
+testCorrelations <- testCorrelation <- function(...) 
   UseMethod("testCorrelations")
 
 testCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -150,16 +150,16 @@ testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 plotCorrelations <- plotCorrelation <- function(...) 
   UseMethod("plotCorrelations")
 
-plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {
+plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,digits=3,...) {
   results <- data.matrix(estimateCorrelations(CompStats,CorrStats,conf.level=conf.level)[[1]][,c(1,3,4)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}}
   .cipMain(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=FALSE)
 }
 
-plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",mu=NULL,conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
+plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",conf.level=.95,labels=NULL,values=TRUE,digits=3) {
   CompStats <- .descMeans(...)
   class(CompStats) <- "wss"
   CorrStats <- .descCorrelations(...)
-  plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,mu=mu,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
+  plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,mu=NULL,conf.level=conf.level,rope=NULL,labels=labels,values=values,digits=digits)
 }
 
