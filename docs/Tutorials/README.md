@@ -44,6 +44,11 @@ The **Mixed** files analyze a tutorial for a two-factor mixed design (one betwee
 - [_MixedDataTutorial_](./MixedDataTutorial.md) uses raw data input.
 - [_MixedSummaryTutorial_](./MixedSummaryTutorial.md) uses summary statistics input.
 
+The **Correlations** files analyze a tutorial for a correlations among multiple variables:
+
+- [_CorrelationsDataTutorial_](./CorrelationsDataTutorial.md) uses raw data input.
+- [_CorrelationsSummaryTutorial_](./CorrelationsSummaryTutorial.md) uses summary statistics input.
+
 ### References
 
 Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
