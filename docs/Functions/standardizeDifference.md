@@ -8,16 +8,16 @@ Provides the standardized effect size for the difference and its confidence inte
 
 ```r
 ## Default S3 method:
-standardizeDifference(...,mu=0,conf.level=.95,digits=3)
+standardizeDifference(...,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-standardizeDifference(formula,mu=0,conf.level=.95,digits=3)
+standardizeDifference(formula,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-standardizeDifference(CompStats,CorrStats,mu=0,conf.level=.95,digits=3)
+standardizeDifference(CompStats,CorrStats,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-standardizeDifference(CompStats,mu=0,conf.level=.95,digits=3)
+standardizeDifference(CompStats,mu=0,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -30,6 +30,7 @@ Argument | Description
 ```CorrStats``` | a matrix/frame of correlations among the measures.
 ```mu``` | a number indicating the true/hypothesized value of the mean difference.
 ```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

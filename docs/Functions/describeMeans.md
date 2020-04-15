@@ -8,10 +8,10 @@ Provides a table of descriptive/summary statistics for a data set.
 
 ```r
 ## Default S3 method:
-describeMeans(...,digits=3)
+describeMeans(...,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-describeMeans(formula,digits=3)
+describeMeans(formula,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -20,6 +20,7 @@ Argument | Description
 :-- | :--
 ```...``` | a set of (non-empty) numeric vectors of data values.
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

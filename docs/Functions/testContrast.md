@@ -8,16 +8,16 @@ Provides a statistical significance test of the mean contrast.
 
 ```r
 ## Default S3 method:
-testContrast(...,contrast,mu=0,digits=3)
+testContrast(...,contrast,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-testContrast(formula,contrast,mu=0,digits=3)
+testContrast(formula,contrast,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-testContrast(DescStats,CorrStats,contrast,mu=0,digits=3)
+testContrast(DescStats,CorrStats,contrast,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-testContrast(DescStats,contrast,mu=0,digits=3)
+testContrast(DescStats,contrast,mu=0,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -30,6 +30,7 @@ Argument | Description
 ```CorrStats``` | a matrix/frame of correlations among the measures.
 ```contrast``` | a vector of codes for the contrast among all means.
 ```mu``` | a number indicating the true/hypothesized value of the mean contrast.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

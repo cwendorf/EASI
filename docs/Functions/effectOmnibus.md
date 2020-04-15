@@ -8,16 +8,16 @@ Calculates the proportion of variance accounted for by the omnibus effect and it
 
 ```r
 ## Default S3 method:
-effectOmnibus(...,conf.level=.95,digits=3)
+effectOmnibus(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-effectOmnibus(formula,conf.level=.95,digits=3)
+effectOmnibus(formula,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-effectOmnibus(DescStats,conf.level=.95,digits=3)
+effectOmnibus(DescStats,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-effectOmnibus(DescStats,conf.level=.95,digits=3)
+effectOmnibus(DescStats,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -28,6 +28,7 @@ Argument | Description
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.
 ```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

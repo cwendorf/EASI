@@ -9,7 +9,7 @@
 \description{Provides a plot of all correlations and their confidence intervals for a list of variables.}
 
 \usage{
-\method{plotCorrelations}{default}(\dots,,ylab="Correlation",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+\method{plotCorrelations}{default}(\dots,,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,digits=3)
 
 \method{plotCorrelations}{wss}(CompStats,CorrStats,ylab="Correlation",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
 }
@@ -20,9 +20,7 @@
 \item{CorrStats}{a matrix/frame of correlations among the measures.}
 \item{ylab}{a label for the y-axis.}
 \item{xlab}{a label for the x-axis.}
-\item{mu}{a number indicating the true/hypothesized value of the correlation.}
 \item{conf.level}{confidence level of the interval.}
-\item{rope}{lower and upper values for a region of practical equivalence.}
 \item{values}{whether the points should be labeled with their values.}
 \item{main}{a custom title for the graph.}
 \item{digits}{the specified number of decimal places.}

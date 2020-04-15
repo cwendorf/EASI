@@ -8,16 +8,16 @@ Provides a statistical significance test of the mean difference.
 
 ```r
 ## Default S3 method:
-testDifference(...,mu=0,digits=3)
+testDifference(...,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-testDifference(formula,mu=0,digits=3)
+testDifference(formula,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-testDifference(CompStats,CorrStats,mu=0,digits=3)
+testDifference(CompStats,CorrStats,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-testDifference(CompStats,mu=0,digits=3)
+testDifference(CompStats,mu=0,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -29,6 +29,7 @@ Argument | Description
 ```CompStats``` | a matrix/frame of descriptive/summary statistics.
 ```CorrStats``` | a matrix/frame of correlations among the measures.
 ```mu``` | a number indicating the true/hypothesized value of the mean difference.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

@@ -8,16 +8,16 @@ Provides a standardized effect size and its confidence interval for each group o
 
 ```r
 ## Default S3 method:
-standardizeMeans(...,mu=0,conf.level=.95,digits=3)
+standardizeMeans(...,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-standardizeMeans(formula,mu=0,conf.level=.95,digits=3)
+standardizeMeans(formula,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-standardizeMeans(DescStats,mu=0,conf.level=.95,digits=3)
+standardizeMeans(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-standardizeMeans(DescStats,mu=0,conf.level=.95,digits=3)
+standardizeMeans(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -29,6 +29,7 @@ Argument | Description
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.
 ```mu``` | a number indicating the true/hypothesized value of the mean.
 ```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

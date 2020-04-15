@@ -8,16 +8,16 @@ Provides a standardized effect size and its confidence interval for all unadjust
 
 ```r
 ## Default S3 method:
-standardizePairwise(...,mu=0,conf.level=.95,digits=3)
+standardizePairwise(...,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-standardizePairwise(formula,mu=0,conf.level=.95,digits=3)
+standardizePairwise(formula,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-standardizePairwise(DescStats,mu=0,conf.level=.95,digits=3)
+standardizePairwise(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-standardizePairwise(DescStats,mu=0,conf.level=.95,digits=3)
+standardizePairwise(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -29,6 +29,7 @@ Argument | Description
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.
 ```mu``` | a number indicating the true/hypothesized value of the mean.
 ```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

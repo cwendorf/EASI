@@ -8,16 +8,16 @@ Provides a statistical significance test for all unadjusted pairwise comparisons
 
 ```r
 ## Default S3 method:
-testPairwise(...,mu=0,digits=3)
+testPairwise(...,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-testPairwise(formula,mu=0,digits=3)
+testPairwise(formula,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-testPairwise(DescStats,mu=0,digits=3)
+testPairwise(DescStats,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-testPairwise(DescStats,mu=0,digits=3)
+testPairwise(DescStats,mu=0,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -28,6 +28,7 @@ Argument | Description
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.
 ```mu``` | a number indicating the true/hypothesized value of the mean.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

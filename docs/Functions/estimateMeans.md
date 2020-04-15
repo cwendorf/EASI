@@ -8,16 +8,16 @@ Provides a table of means, standard deviations, and confidence intervals for eac
 
 ```r
 ## Default S3 method:
-estimateMeans(...,conf.level=.95,digits=3)
+estimateMeans(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-estimateMeans(formula,conf.level=.95,digits=3)
+estimateMeans(formula,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateMeans(DescStats,conf.level=.95,digits=3)
+estimateMeans(DescStats,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-estimateMeans(DescStats,conf.level=.95,digits=3)
+estimateMeans(DescStats,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -28,6 +28,7 @@ Argument | Description
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.
 ```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

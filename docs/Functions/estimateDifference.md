@@ -8,16 +8,16 @@ Provides the mean difference, standard error, and confidence interval of the dif
 
 ```r
 ## Default S3 method:
-estimateDifference(...,conf.level=.95,digits=3)
+estimateDifference(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-estimateDifference(formula,conf.level=.95,digits=3)
+estimateDifference(formula,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateDifference(CompStats,CorrStats,conf.level=.95,digits=3)
+estimateDifference(CompStats,CorrStats,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-estimateDifference(CompStats,conf.level=.95,digits=3)
+estimateDifference(CompStats,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -29,6 +29,7 @@ Argument | Description
 ```CompStats``` | a matrix/frame of descriptive/summary statistics.
 ```CorrStats``` | a matrix/frame of correlations among the measures.
 ```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details

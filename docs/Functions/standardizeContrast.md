@@ -8,16 +8,16 @@ Provides the standardized effect size and its confidence interval for the contra
 
 ```r
 ## Default S3 method:
-standardizeContrast(...,contrast,mu=0,conf.level=.95,digits=3)
+standardizeContrast(...,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-standardizeContrast(formula,contrast,mu=0,conf.level=.95,digits=3)
+standardizeContrast(formula,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-standardizeContrast(DescStats,CorrStats,contrast,mu=0,conf.level=.95,digits=3)
+standardizeContrast(DescStats,CorrStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-standardizeContrast(DescStats,contrast,mu=0,conf.level=.95,digits=3)
+standardizeContrast(DescStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 ```
 
 ## Arguments
@@ -31,6 +31,7 @@ Argument | Description
 ```contrast``` | a vector of codes for the contrast among all means.
 ```mu``` | a number indicating the true/hypothesized value of the mean contrast.
 ```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ## Details

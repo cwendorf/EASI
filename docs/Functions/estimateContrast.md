@@ -8,16 +8,16 @@ Provides the mean contrast, standard error, and confidence interval of the contr
 
 ```r
 ## Default S3 method:
-estimateContrast(...,contrast,conf.level=.95,digits=3)
+estimateContrast(...,contrast,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-estimateContrast(formula,contrast,conf.level=.95,digits=3)
+estimateContrast(formula,contrast,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateContrast(DescStats,CorrStats,contrast,conf.level=.95,digits=3)
+estimateContrast(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-estimateContrast(DescStats,contrast,conf.level=.95,digits=3)
+estimateContrast(DescStats,contrast,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -30,6 +30,7 @@ Argument | Description
 ```CorrStats``` | a matrix/frame of correlations among the measures.
 ```contrast``` | a vector of codes for the contrast among all means.
 ```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
 
 ### Details
