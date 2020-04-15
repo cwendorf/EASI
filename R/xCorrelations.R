@@ -153,7 +153,7 @@ plotCorrelations <- plotCorrelation <- function(...)
 plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,digits=3,...) {
   results <- data.matrix(estimateCorrelations(CompStats,CorrStats,conf.level=conf.level)[[1]][,c(1,3,4)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}}
-  .cipMain(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=FALSE)
+  .cipMain(results,main,ylab=ylab,xlab=xlab,mu=NULL,rope=NULL,values=values,digits=digits,connect=FALSE)
 }
 
 plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",conf.level=.95,labels=NULL,values=TRUE,digits=3) {
