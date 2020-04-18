@@ -50,14 +50,14 @@ estimateContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NUL
 }
 
 estimateContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .descMeans(...)
+  DescStats <- data.matrix(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- .descCorrelations(...)
+  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   estimateContrast(DescStats,CorrStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .descMeans(formula)
+  DescStats <- data.matrix(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   estimateContrast(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
@@ -109,14 +109,14 @@ testContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,ro
 }
 
 testContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .descMeans(...)
+  DescStats <- data.matrix(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- .descCorrelations(...)
+  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   testContrast(DescStats,CorrStats,contrast,mu=mu,main=main,digits=digits)
 }
 
 testContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .descMeans(formula)
+  DescStats <- data.matrix(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   testContrast(DescStats,contrast,mu=mu,main=main,digits=digits)
 }
@@ -180,14 +180,14 @@ standardizeContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=
 }
 
 standardizeContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .descMeans(...)
+  DescStats <- data.matrix(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- .descCorrelations(...)
+  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   standardizeContrast(DescStats,CorrStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
 standardizeContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .descMeans(formula)
+  DescStats <- data.matrix(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   standardizeContrast(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }

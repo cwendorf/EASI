@@ -8,7 +8,7 @@ estimateRelational <- function(...)
 
 estimateRelational.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...) {
   results <- data.matrix(estimateMeans(DescStats,conf.level=conf.level,...)[[1]])
-  mymodel <- .descOmnibus(DescStats,CorrStats)
+  mymodel <- data.matrix(describeOmnibus(DescStats,CorrStats,...)[[1]])
   dfe <- mymodel[3,2]
   mse <- mymodel[3,3]
   ntilde <- 1/mean(1/results[[1]]) 
@@ -25,7 +25,7 @@ estimateRelational.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,
 
 estimateRelational.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,...) {
   results <- data.matrix(estimateMeans(DescStats,conf.level=conf.level,...)[[1]])
-  mymodel <- .descOmnibus(DescStats)
+  mymodel <- data.matrix(describeOmnibus(DescStats,...)[[1]])
   dfe <- mymodel[2,2]
   mse <- mymodel[2,3]
   ntilde <- 1/mean(1/results[[1]]) 
@@ -41,14 +41,14 @@ estimateRelational.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,.
 }
 
 estimateRelational.default <- function(...,conf.level=.95,main=NULL,digits=3) {
-  DescStats <- .descMeans(...)
+  DescStats <- data.matrix(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- .descCorrelations(...)  
+  CorrStats <- data.matrix(describeCorrelations(...)[[1]]) 
   estimateRelational(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateRelational.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...) {
-  DescStats <- .descMeans(formula)
+  DescStats <- data.matrix(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   estimateRelational(DescStats,conf.level=conf.level,main=main,digits=digits)
 }

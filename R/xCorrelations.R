@@ -5,18 +5,14 @@
 
 #### Describe Function for Correlations
 
-.descCorrelations <- function(...) 
-  UseMethod(".descCorrelations")
+describeCorrelations <- describeCorrelation <- function(...) 
+  UseMethod("describeCorrelations")
 
-.descCorrelations.default <- function(...,mu=0,conf.level=.95,rope=NULL) {
+describeCorrelations.default <- function(...,main=NULL,digits=3) {
   data <- data.frame(...)
   results <- cor(data)
-  return(results)
-}
-
-describeCorrelations <- describeCorrelation <- function(...,main=NULL,digits=3) {
-  results <- .formatList(list(.descCorrelations(...)),digits=digits)
-  if(is.null(main)) {names(results) <- "Correlation Matrix for the Variables"} else {names(results) <- main}
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results) <- "Correlation Matrix for the Variables"} else {names(results) <- main}  
   return(results)
 }
 
@@ -98,9 +94,9 @@ estimateCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL
 }
 
 estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .descMeans(...)
+  SumStats <- data.matrix(describeMeans(...)[[1]])
   class(SumStats) <- "wss"
-  CorrStats <- .descCorrelations(...)
+  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   estimateCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
@@ -137,9 +133,9 @@ testCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,dig
 }
 
 testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .descMeans(...)
+  SumStats <- data.matrix(describeMeans(...)[[1]])
   class(SumStats) <- "wss"
-  CorrStats <- .descCorrelations(...)
+  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   testCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
@@ -157,9 +153,9 @@ plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation
 }
 
 plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",conf.level=.95,labels=NULL,values=TRUE,digits=3) {
-  CompStats <- .descMeans(...)
+  CompStats <- data.matrix(describeMeans(...)[[1]])
   class(CompStats) <- "wss"
-  CorrStats <- .descCorrelations(...)
+  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,mu=NULL,conf.level=conf.level,rope=NULL,labels=labels,values=values,digits=digits)
 }
 
