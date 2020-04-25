@@ -1,6 +1,6 @@
 <img src="docs/logo.png" height="60px;" align="left;">
 
-# **Estimation Approach to Statistical Inference**
+# Estimation Approach to Statistical Inference
 
 **An R Package for Estimation Statistics**
 
