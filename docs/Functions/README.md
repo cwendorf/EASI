@@ -10,14 +10,6 @@ devtools::install_github("cwendorf/EASI",build_vignettes=TRUE,force=TRUE)
 library(EASI)
 ```
 
-If you do not want the included vignettees, the following code offers a faster install:
-
-``` r
-install.packages("devtools")
-devtools::install_github("cwendorf/EASI",force=TRUE)
-library(EASI)
-```
-
 ### Summary of the Functions
 
 #### General Statistical Procedures
