@@ -42,7 +42,7 @@ standardizeDifference(Outcome~Comp1v2)
 plotDifference(Outcome~Comp1v2)
 ```
 
-Complete examples of all functions are available here:  
+Complete tutorials and examples from published work are available here:  
 [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
 
 ### Getting Help
