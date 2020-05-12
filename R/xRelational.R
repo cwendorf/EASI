@@ -41,14 +41,14 @@ estimateRelational.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,.
 }
 
 estimateRelational.default <- function(...,conf.level=.95,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .descMeans(...)
   class(DescStats) <- "wss"
   CorrStats <- data.matrix(describeCorrelations(...)[[1]]) 
   estimateRelational(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateRelational.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .descMeans(formula)
   class(DescStats) <- "bss"
   estimateRelational(DescStats,conf.level=conf.level,main=main,digits=digits)
 }

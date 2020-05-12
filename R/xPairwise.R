@@ -65,14 +65,14 @@ estimatePairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,...)
 }
 
 estimatePairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- data.matrix(describeMeans(...)[[1]])
+  SumStats <- .descMeans(...)
   class(SumStats) <- "wss"
   CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   estimatePairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimatePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
-  SumStats <- data.matrix(describeMeans(formula)[[1]])
+  SumStats <- .descMeans(formula)
   class(SumStats) <- "bss"
   estimatePairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
 }
@@ -139,14 +139,14 @@ testPairwise.bss <- function(SumStats,mu=0,main=NULL,digits=3,...){
 }
 
 testPairwise.default <- function(...,mu=0,main=NULL,digits=3){
-  SumStats <- data.matrix(describeMeans(...)[[1]])
+  SumStats <- .descMeans(...)
   class(SumStats) <- "wss"
   CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   testPairwise(SumStats,CorrStats,mu=mu,main=main,digits=digits)
 }
 
 testPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
-  SumStats <- data.matrix(describeMeans(formula)[[1]])
+  SumStats <- .descMeans(formula)
   class(SumStats) <- "bss"
   testPairwise(SumStats,mu=mu,main=main,digits=digits)
 }
@@ -226,14 +226,14 @@ standardizePairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,.
 }
 
 standardizePairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- data.matrix(describeMeans(...)[[1]])
+  SumStats <- .descMeans(...)
   class(SumStats) <- "wss"
   CorrStats <- data.matrix(describeCorrelations(...)[[1]])
   standardizePairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 standardizePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
-  SumStats <- data.matrix(describeMeans(formula)[[1]])
+  SumStats <- .descMeans(formula)
   class(SumStats) <- "bss"
   standardizePairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
 }
