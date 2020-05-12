@@ -5,7 +5,7 @@
 
 #### Describe Function for Correlations
 
-.descCorrelations function(x,...) 
+.descCorrelations <- function(x,...) 
   UseMethod(".descCorrelations")
 
 .descCorrelations.default <- function(...) {
