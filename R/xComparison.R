@@ -21,53 +21,29 @@ plotComparison <- function(x,...)
   UseMethod("plotComparison")
 
 plotComparison.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
-  temp <- estimateComparison(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
-  temp1 <- temp[[1]][,c(1,4,5)]
-  results1 <- data.frame(sapply(temp1,FUN=as.numeric))
-  rownames(results1) <- rownames(temp1)
-  temp2 <- temp[[2]][,c(1,4,5)]
-  results2 <- data.frame(sapply(temp2,FUN=as.numeric))
-  rownames(results2) <- rownames(temp2)
-  results <- rbind(results1,results2)
+  results <- estimateComparison(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  results <- rbind(data.matrix(results[[1]][,c(1,4,5)]),data.matrix(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits,connect=TRUE)
 }
 
 plotComparison.bss <- function(CompStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
-  temp <- estimateComparison(CompStats,conf.level=conf.level,main=main,digits=digits)
-  temp1 <- temp[[1]][,c(1,4,5)]
-  results1 <- data.frame(sapply(temp1,FUN=as.numeric))
-  rownames(results1) <- rownames(temp1)
-  temp2 <- temp[[2]][,c(1,4,5)]
-  results2 <- data.frame(sapply(temp2,FUN=as.numeric))
-  rownames(results2) <- rownames(temp2)
-  results <- rbind(results1,results2)
+  results <- estimateComparison(CompStats,conf.level=conf.level,main=main,digits=digits)
+  results <- rbind(data.matrix(results[[1]][,c(1,4,5)]),data.matrix(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits,connect=FALSE)
 }
 
 plotComparison.default <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
-  temp <- estimateComparison(...,conf.level=conf.level,main=main,digits=digits)
-  temp1 <- temp[[1]][,c(1,4,5)]
-  results1 <- data.frame(sapply(temp1,FUN=as.numeric))
-  rownames(results1) <- rownames(temp1)
-  temp2 <- temp[[2]][,c(1,4,5)]
-  results2 <- data.frame(sapply(temp2,FUN=as.numeric))
-  rownames(results2) <- rownames(temp2)
-  results <- rbind(results1,results2)
+  results <- estimateComparison(...,conf.level=conf.level,main=main,digits=digits)
+  results <- rbind(data.matrix(results[[1]][,c(1,4,5)]),data.matrix(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits,connect=TRUE)
 }
 
 plotComparison.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
-  temp <- estimateComparison(formula,conf.level=conf.level,main=main,digits=digits)
-  temp1 <- temp[[1]][,c(1,4,5)]
-  results1 <- data.frame(sapply(temp1,FUN=as.numeric))
-  rownames(results1) <- rownames(temp1)
-  temp2 <- temp[[2]][,c(1,4,5)]
-  results2 <- data.frame(sapply(temp2,FUN=as.numeric))
-  rownames(results2) <- rownames(temp2)
-  results <- rbind(results1,results2)
+  results <- estimateComparison(formula,conf.level=conf.level,main=main,digits=digits)
+  results <- rbind(data.matrix(results[[1]][,c(1,4,5)]),data.matrix(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits,connect=FALSE)
 }
