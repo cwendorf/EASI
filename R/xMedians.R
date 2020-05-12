@@ -35,7 +35,7 @@ describeMedians <- function(...,main=NULL,digits=3) {
 
 #### Boxplot Functions
 
-plotBoxes <- function(x,...) 
+plotBoxes <- function(,...) 
   UseMethod("plotBoxes")
 
 plotBoxes.default <- function(...,main=NULL,ylab="Outcome",xlab="") {
