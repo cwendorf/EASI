@@ -22,28 +22,28 @@ plotComparison <- function(x,...)
 
 plotComparison.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
   results <- estimateComparison(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
-  results <- rbind(data.matrix(results[[1]][,c(1,4,5)]),data.matrix(results[[2]][,c(1,4,5)]))
+  results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits,connect=TRUE)
 }
 
 plotComparison.bss <- function(CompStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
   results <- estimateComparison(CompStats,conf.level=conf.level,main=main,digits=digits)
-  results <- rbind(data.matrix(results[[1]][,c(1,4,5)]),data.matrix(results[[2]][,c(1,4,5)]))
+  results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits,connect=FALSE)
 }
 
 plotComparison.default <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
   results <- estimateComparison(...,conf.level=conf.level,main=main,digits=digits)
-  results <- rbind(data.matrix(results[[1]][,c(1,4,5)]),data.matrix(results[[2]][,c(1,4,5)]))
+  results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits,connect=TRUE)
 }
 
 plotComparison.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
   results <- estimateComparison(formula,conf.level=conf.level,main=main,digits=digits)
-  results <- rbind(data.matrix(results[[1]][,c(1,4,5)]),data.matrix(results[[2]][,c(1,4,5)]))
+  results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the Comparison"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,digits=digits,connect=FALSE)
 }

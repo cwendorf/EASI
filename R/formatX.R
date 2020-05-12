@@ -10,3 +10,7 @@
 .formatList <- function(results,digits=3) {
   return(lapply(results,.formatFrame,digits))
 }
+
+.unformatFrame <- function(results) {
+  return(apply(results,c(1,2),FUN=as.numeric))
+}
