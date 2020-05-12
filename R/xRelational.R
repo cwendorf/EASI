@@ -3,7 +3,7 @@
 
 ### Relational Interval Function
 
-estimateRelational <- function(x,...) 
+estimateRelational <- function(...) 
   UseMethod("estimateRelational")
 
 estimateRelational.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...) {
@@ -55,7 +55,7 @@ estimateRelational.formula <- function(formula,conf.level=.95,main=NULL,digits=3
 
 ### Add Relational Intervals to Existing CI Plot
 
-addRelational <- function(x,...) 
+addRelational <- function(...) 
   UseMethod("addRelational")
 
 addRelational.wss <- function(DescStats,CorrStats,conf.level=.95,mu=NA,col=rgb(.5,.5,.5,.4),...) {
@@ -80,7 +80,7 @@ addRelational.formula <- function(formula,conf.level=.95,mu=NA,col=rgb(.5,.5,.5,
 
 ### Plot Confidence and Relational Intervals
 
-plotRelational <- function(x,...) 
+plotRelational <- function(...) 
   UseMethod("plotRelational")
 
 plotRelational.wss <- function(DescStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3,...) {

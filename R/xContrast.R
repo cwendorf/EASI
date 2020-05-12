@@ -5,7 +5,7 @@
 
 #### CI Function for Mean Contrasts
 
-estimateContrast <- function(x,...) 
+estimateContrast <- function(...) 
   UseMethod("estimateContrast")
 
 estimateContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -66,7 +66,7 @@ estimateContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=N
 
 #### NHST Function for Mean Contrasts
 
-testContrast <- function(x,...) 
+testContrast <- function(...) 
   UseMethod("testContrast")
   
 testContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -125,7 +125,7 @@ testContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,
 
 #### SMD Function for Mean Contrasts
 
-standardizeContrast <- function(x,...) 
+standardizeContrast <- function(...) 
   UseMethod("standardizeContrast")
 
 standardizeContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {

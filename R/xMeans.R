@@ -5,7 +5,7 @@
 
 #### Describe Function for Means
 
-describeMeans <- describeMean <- function(x,...) 
+describeMeans <- describeMean <- function(...) 
   UseMethod("describeMeans")
 
 describeMeans.default <- function(...,main=NULL,digits=3) {
@@ -33,7 +33,7 @@ describeMeans.formula <- function(formula,main=NULL,digits=3) {
 
 #### CI Function for Means
 
-estimateMeans <- function(x,...) 
+estimateMeans <- function(...) 
   UseMethod("estimateMeans")
 
 estimateMeans.wss <- estimateMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -69,7 +69,7 @@ estimateMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NUL
 
 #### NHST Function for Means
 
-testMeans <- testMean <- function(x,...) 
+testMeans <- testMean <- function(...) 
   UseMethod("testMeans")
   
 testMeans.wss <- testMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -104,7 +104,7 @@ testMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,di
 
 #### SMD Function for Means
 
-standardizeMeans <- standardizeMean <- function(x,...) 
+standardizeMeans <- standardizeMean <- function(...) 
   UseMethod("standardizeMeans")
   
 standardizeMeans.wss <- standardizeMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -162,7 +162,7 @@ standardizeMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=
 
 #### Plot Function for Confidence Intervals of the Means
 
-plotMeans <- plotMean <- function(x,...) 
+plotMeans <- plotMean <- function(...) 
   UseMethod("plotMeans")
 
 plotMeans.wss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {

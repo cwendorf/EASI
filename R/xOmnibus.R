@@ -3,7 +3,7 @@
 
 ### Descriptive Functions
 
-describeOmnibus <- function(x,...) 
+describeOmnibus <- function(...) 
   UseMethod("describeOmnibus")
 
 describeOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...) {
@@ -72,7 +72,7 @@ describeOmnibus.formula <- function(formula,main=NULL,digits=3,...) {
 
 ### Null Hypothesis Significance Test Functions
 
-testOmnibus <- function(x,...) 
+testOmnibus <- function(...) 
   UseMethod("testOmnibus")
 
 testOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
@@ -127,7 +127,7 @@ testOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,
   return(uniroot(temp, interval, tol = my.tol)$root)
 }
 
-effectOmnibus <- function(x,...) 
+effectOmnibus <- function(...) 
   UseMethod("effectOmnibus")
 
 effectOmnibus.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3) {

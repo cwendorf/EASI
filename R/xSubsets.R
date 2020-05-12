@@ -28,7 +28,7 @@ estimateSubsetContrast <- function(...,contrast,conf.level=.95,labels=NULL,main=
 
 #### Plot Function for Confidence Intervals of Mean Subsets
 
-plotSubsetContrast <- function(x,...) 
+plotSubsetContrast <- function(...) 
   UseMethod("plotSubsetContrast")
 
 plotSubsetContrast.wss <- function(CompStats,CorrStats,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {

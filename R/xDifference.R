@@ -5,7 +5,7 @@
 
 #### CI Function for Mean Differences/Comparisons
 
-estimateDifference <- function(x,...) 
+estimateDifference <- function(...) 
   UseMethod("estimateDifference")
   
 estimateDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -66,7 +66,7 @@ estimateDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,mai
 
 #### NHST Function for Mean Differences/Comparisons
 
-testDifference <- function(x,...) 
+testDifference <- function(...) 
   UseMethod("testDifference")
   
 testDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -125,7 +125,7 @@ testDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NU
 
 #### SMD Function for Mean Differences/Comparisons
 
-standardizeDifference <- function(x,...) 
+standardizeDifference <- function(...) 
   UseMethod("standardizeDifference")
 
 standardizeDifference.wss <- function(DescStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
