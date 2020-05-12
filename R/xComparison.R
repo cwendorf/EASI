@@ -17,7 +17,7 @@ estimateComparison <- function(...,conf.level=.95,main=NULL,digits=3) {
 
 #### Plot Function for Confidence Intervals of Mean Comparisons
 
-plotComparison <- function(...) 
+plotComparison <- function(x,...) 
   UseMethod("plotComparison")
 
 plotComparison.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
