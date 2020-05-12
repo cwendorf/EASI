@@ -58,7 +58,7 @@ describeOmnibus.bss <- function(DescStats,main=NULL,digits=3,...) {
 describeOmnibus.default <- function(...,main=NULL,digits=3) {
   DescStats <- .descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]]) 
+  CorrStats <- .descCorrelations(...) 
   results <- describeOmnibus(DescStats,CorrStats,main=main,digits=digits)
   return(results)
 }
@@ -110,7 +110,7 @@ testOmnibus.bss <- function(DescStats,main=NULL,digits=3) {
 testOmnibus.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
   DescStats <- .descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]]) 
+  CorrStats <- .descCorrelations(...) 
   testOmnibus(DescStats,CorrStats,main=main,digits=digits)
 }
 
@@ -179,7 +179,7 @@ effectOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL,digit
 effectOmnibus.default <- function(...,mu=0,conf.level=.90,rope=NULL,main=NULL,digits=3) {
   DescStats <- .descMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])  
+  CorrStats <- .descCorrelations(...)  
   effectOmnibus(DescStats,CorrStats,main=main,digits=digits)
 }
 

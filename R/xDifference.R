@@ -52,7 +52,7 @@ estimateDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,main=
 estimateDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
   CompStats <- .descMeans(...)
   class(CompStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .descCorrelations(...)
   estimateDifference(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
@@ -111,7 +111,7 @@ testDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,main=NULL
 testDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
   CompStats <- .descMeans(...)
   class(CompStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .descCorrelations(...)
   testDifference(CompStats,CorrStats,mu=mu,main=main,digits=digits)
 }
 
@@ -179,7 +179,7 @@ standardizeDifference.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rop
 standardizeDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
   CompStats <- .descMeans(...)
   class(CompStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .descCorrelations(...)
   standardizeDifference(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 

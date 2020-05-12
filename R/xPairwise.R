@@ -67,7 +67,7 @@ estimatePairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,...)
 estimatePairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
   SumStats <- .descMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .descCorrelations(...)
   estimatePairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
@@ -141,7 +141,7 @@ testPairwise.bss <- function(SumStats,mu=0,main=NULL,digits=3,...){
 testPairwise.default <- function(...,mu=0,main=NULL,digits=3){
   SumStats <- .descMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .descCorrelations(...)
   testPairwise(SumStats,CorrStats,mu=mu,main=main,digits=digits)
 }
 
@@ -228,7 +228,7 @@ standardizePairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,.
 standardizePairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
   SumStats <- .descMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .descCorrelations(...)
   standardizePairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
