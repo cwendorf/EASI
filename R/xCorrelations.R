@@ -15,7 +15,7 @@
   return(results)
 }
 
-describeCorrelations <- describeCorrelation <- function(...,main=NULL,digits=3) {
+describeCorrelations <- describe Correlation <- function(...,main=NULL,digits=3) {
   results <- .formatList(list(.descCorrelations(...)),digits=digits) 
   if(is.null(main)) {names(results) <- "Correlation Matrix for the Variables"} else {names(results) <- main}  
   return(results)
