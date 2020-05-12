@@ -5,7 +5,7 @@
 
 #### Describe Function for Medians
 
-.descMedians <- function(x,...)
+.descMedians <- function(,...)
   UseMethod(".descMedians")
 
 .descMedians.default <- function(...) {
