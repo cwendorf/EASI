@@ -26,7 +26,7 @@ describeCorrelations.default <- function(...,main=NULL,digits=3) {
 
 #### Declare and Fill Blanks in Matrix
 
-declareCorrelation <- declareCorrelations <- function(x,...) {
+declareCorrelation <- declareCorrelations <- function(...) {
   clist=c(...)
   nr=length(clist)
   results=matrix(data=NA,nr,nr)
