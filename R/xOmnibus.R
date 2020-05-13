@@ -3,7 +3,7 @@
 
 ### Descriptive Functions
 
-describeOmnibus <- function(...) 
+describeOmnibus <- function(x,...) 
   UseMethod("describeOmnibus")
 
 describeOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...) {
@@ -56,15 +56,15 @@ describeOmnibus.bss <- function(DescStats,main=NULL,digits=3,...) {
 }
 
 describeOmnibus.default <- function(...,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]]) 
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]]) 
   results <- describeOmnibus(DescStats,CorrStats,main=main,digits=digits)
   return(results)
 }
 
 describeOmnibus.formula <- function(formula,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   results <- describeOmnibus(DescStats,main=main,digits=digits)
   return(results)
@@ -72,11 +72,11 @@ describeOmnibus.formula <- function(formula,main=NULL,digits=3,...) {
 
 ### Null Hypothesis Significance Test Functions
 
-testOmnibus <- function(...) 
+testOmnibus <- function(x,...) 
   UseMethod("testOmnibus")
 
 testOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
-  temptab <- data.matrix(describeOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
+  temptab <- .unformatFrame(describeOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
   MSf <- temptab["Factor","MS"]
   MSe <- temptab["Error","MS"]
   dff <- temptab["Factor","df"]
@@ -92,7 +92,7 @@ testOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
 }
 
 testOmnibus.bss <- function(DescStats,main=NULL,digits=3) {
-  temptab <- data.matrix(describeOmnibus(DescStats,main=main,digits=digits)[[1]])
+  temptab <- .unformatFrame(describeOmnibus(DescStats,main=main,digits=digits)[[1]])
   MSb <- temptab["Between","MS"]
   MSw <- temptab["Within","MS"]
   dfb <- temptab["Between","df"]
@@ -108,14 +108,14 @@ testOmnibus.bss <- function(DescStats,main=NULL,digits=3) {
 }
 
 testOmnibus.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]]) 
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]]) 
   testOmnibus(DescStats,CorrStats,main=main,digits=digits)
 }
 
 testOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   testOmnibus(DescStats,main=main,digits=digits)
 }
@@ -127,11 +127,11 @@ testOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,
   return(uniroot(temp, interval, tol = my.tol)$root)
 }
 
-effectOmnibus <- function(...) 
+effectOmnibus <- function(x,...) 
   UseMethod("effectOmnibus")
 
 effectOmnibus.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3) {
-  temptab <- data.matrix(describeOmnibus(DescStats,main=main,digits=digits)[[1]])
+  temptab <- .unformatFrame(describeOmnibus(DescStats,main=main,digits=digits)[[1]])
   SSb <- temptab["Between","SS"]
   SSw <- temptab["Within","SS"]
   SSt <- SSb + SSw
@@ -154,7 +154,7 @@ effectOmnibus.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3) {
 }
 
 effectOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL,digits=3) {
-  temptab <- data.matrix(describeOmnibus(DescStats,CorrStats,main=main,digits=digits)[[]])
+  temptab <- .unformatFrame(describeOmnibus(DescStats,CorrStats,main=main,digits=digits)[[]])
   SSf <- temptab["Factor","SS"]
   SSe <- temptab["Error","SS"]
   SSt <- SSf + SSe
@@ -177,14 +177,14 @@ effectOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL,digit
 }
 
 effectOmnibus.default <- function(...,mu=0,conf.level=.90,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])  
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])  
   effectOmnibus(DescStats,CorrStats,main=main,digits=digits)
 }
 
 effectOmnibus.formula <- function(formula,mu=0,conf.level=.90,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   effectOmnibus(DescStats,conf.level,main=main,digits=digits)
 }

@@ -5,7 +5,7 @@
 
 #### CI Function for Pairwise Group and Variable Comparisons
 
-estimatePairwise <- estimateDifferences <- function(...) 
+estimatePairwise <- estimateDifferences <- function(x,...) 
   UseMethod("estimatePairwise")
 
 estimatePairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -65,14 +65,14 @@ estimatePairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,...)
 }
 
 estimatePairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- data.matrix(describeMeans(...)[[1]])
+  SumStats <- .unformatFrame(describeMeans(...)[[1]])
   class(SumStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   estimatePairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimatePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
-  SumStats <- data.matrix(describeMeans(formula)[[1]])
+  SumStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(SumStats) <- "bss"
   estimatePairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
 }
@@ -81,7 +81,7 @@ estimatePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,.
 
 #### NHST Function for Pairwise Comparisons
 
-testPairwise <- testDifferences <- function(...) 
+testPairwise <- testDifferences <- function(x,...) 
   UseMethod("testPairwise")
 
 testPairwise.wss <- function(SumStats,CorrStats,mu=0,main=NULL,digits=3,...){
@@ -139,14 +139,14 @@ testPairwise.bss <- function(SumStats,mu=0,main=NULL,digits=3,...){
 }
 
 testPairwise.default <- function(...,mu=0,main=NULL,digits=3){
-  SumStats <- data.matrix(describeMeans(...)[[1]])
+  SumStats <- .unformatFrame(describeMeans(...)[[1]])
   class(SumStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   testPairwise(SumStats,CorrStats,mu=mu,main=main,digits=digits)
 }
 
 testPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
-  SumStats <- data.matrix(describeMeans(formula)[[1]])
+  SumStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(SumStats) <- "bss"
   testPairwise(SumStats,mu=mu,main=main,digits=digits)
 }
@@ -155,7 +155,7 @@ testPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
 
 #### SMD Function for Pairwise Group and Variable Comparisons
 
-standardizePairwise <- standardizeDifferences <- function(...) 
+standardizePairwise <- standardizeDifferences <- function(x,...) 
   UseMethod("standardizePairwise")
 
 standardizePairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -226,14 +226,14 @@ standardizePairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,.
 }
 
 standardizePairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- data.matrix(describeMeans(...)[[1]])
+  SumStats <- .unformatFrame(describeMeans(...)[[1]])
   class(SumStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   standardizePairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 standardizePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
-  SumStats <- data.matrix(describeMeans(formula)[[1]])
+  SumStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(SumStats) <- "bss"
   standardizePairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
 }
@@ -242,17 +242,17 @@ standardizePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=
 
 #### Pairwise Plots
 
-plotPairwise <- plotDifferences <- function(...) 
+plotPairwise <- plotDifferences <- function(x,...) 
   UseMethod("plotPairwise")
 
 plotPairwise.default <- .plotPairwise.bss <- plotPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
-  results <- data.matrix(estimatePairwise(...,conf.level=conf.level)[[1]][,c(1,4,5)])
+  results <- .unformatFrame(estimatePairwise(...,conf.level=conf.level)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Comparisons"} else {main="Confidence Interval for the Pairwise Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=FALSE) 
 }
 
 plotPairwise.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,digits=3,...) {
-  results <- data.matrix(estimatePairwise(formula,conf.level=conf.level)[[1]][,c(1,4,5)])
+  results <- .unformatFrame(estimatePairwise(formula,conf.level=conf.level)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Comparisons"} else {main="Confidence Interval for the Pairwise Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=FALSE) 
 }

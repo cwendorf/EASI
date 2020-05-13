@@ -5,7 +5,7 @@
 
 #### Describe Function for Correlations
 
-describeCorrelations <- describeCorrelation <- function(...) 
+describeCorrelations <- describeCorrelation <- function(x,...) 
   UseMethod("describeCorrelations")
 
 describeCorrelations.default <- function(...,main=NULL,digits=3) {
@@ -26,7 +26,7 @@ describeCorrelations.default <- function(...,main=NULL,digits=3) {
 
 #### Declare and Fill Blanks in Matrix
 
-declareCorrelation <- declareCorrelations <- function(...) {
+declareCorrelation <- declareCorrelations <- function(x,...) {
   clist=c(...)
   nr=length(clist)
   results=matrix(data=NA,nr,nr)
@@ -62,7 +62,7 @@ fillCorrelations <- function(mat) {
 
 #### Confidence Intervals for Correlations
 
-estimateCorrelations <- estimateCorrelation <- function(...) 
+estimateCorrelations <- estimateCorrelation <- function(x,...) 
   UseMethod("estimateCorrelations")
 
 estimateCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -94,9 +94,9 @@ estimateCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL
 }
 
 estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- data.matrix(describeMeans(...)[[1]])
+  SumStats <- .unformatFrame(describeMeans(...)[[1]])
   class(SumStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   estimateCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
@@ -104,7 +104,7 @@ estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 
 #### NHST Function for Correlations
 
-testCorrelations <- testCorrelation <- function(...) 
+testCorrelations <- testCorrelation <- function(x,...) 
   UseMethod("testCorrelations")
 
 testCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -133,9 +133,9 @@ testCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,dig
 }
 
 testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- data.matrix(describeMeans(...)[[1]])
+  SumStats <- .unformatFrame(describeMeans(...)[[1]])
   class(SumStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   testCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
@@ -143,19 +143,19 @@ testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 
 #### Plot Function for Confidence Intervals of the Correlations
 
-plotCorrelations <- plotCorrelation <- function(...) 
+plotCorrelations <- plotCorrelation <- function(x,...) 
   UseMethod("plotCorrelations")
 
 plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,digits=3,...) {
-  results <- data.matrix(estimateCorrelations(CompStats,CorrStats,conf.level=conf.level)[[1]][,c(1,3,4)])
+  results <- .unformatFrame(estimateCorrelations(CompStats,CorrStats,conf.level=conf.level)[[1]][,c(1,3,4)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}}
   .cipMain(results,main,ylab=ylab,xlab=xlab,mu=NULL,rope=NULL,values=values,digits=digits,connect=FALSE)
 }
 
 plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",conf.level=.95,labels=NULL,values=TRUE,digits=3) {
-  CompStats <- data.matrix(describeMeans(...)[[1]])
+  CompStats <- .unformatFrame(describeMeans(...)[[1]])
   class(CompStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,mu=NULL,conf.level=conf.level,rope=NULL,labels=labels,values=values,digits=digits)
 }
 

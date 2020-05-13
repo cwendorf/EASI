@@ -5,7 +5,7 @@
 
 #### Describe Function for Means
 
-describeMeans <- describeMean <- function(...) 
+describeMeans <- describeMean <- function(x,...) 
   UseMethod("describeMeans")
 
 describeMeans.default <- function(...,main=NULL,digits=3) {
@@ -33,7 +33,7 @@ describeMeans.formula <- function(formula,main=NULL,digits=3) {
 
 #### CI Function for Means
 
-estimateMeans <- function(...) 
+estimateMeans <- function(x,...) 
   UseMethod("estimateMeans")
 
 estimateMeans.wss <- estimateMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -54,13 +54,13 @@ estimateMeans.wss <- estimateMeans.bss <- function(DescStats,mu=0,conf.level=.95
 }
 
 estimateMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
   estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
@@ -69,7 +69,7 @@ estimateMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NUL
 
 #### NHST Function for Means
 
-testMeans <- testMean <- function(...) 
+testMeans <- testMean <- function(x,...) 
   UseMethod("testMeans")
   
 testMeans.wss <- testMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -89,13 +89,13 @@ testMeans.wss <- testMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NU
 }
 
 testMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
   testMeans(DescStats,mu=mu,main=main,digits=digits)
 }
 
 testMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   testMeans(DescStats,mu=mu,main=main,digits=digits)
 }
@@ -104,7 +104,7 @@ testMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,di
 
 #### SMD Function for Means
 
-standardizeMeans <- standardizeMean <- function(...) 
+standardizeMeans <- standardizeMean <- function(x,...) 
   UseMethod("standardizeMeans")
   
 standardizeMeans.wss <- standardizeMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -147,13 +147,13 @@ standardizeMeans.wss <- standardizeMeans.bss <- function(DescStats,mu=0,conf.lev
 }
 
 standardizeMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
   standardizeMeans(DescStats,mu=mu,conf.level=conf.level,mainmain=main,digits=digits)
 }
 
 standardizeMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   standardizeMeans(DescStats,mu=mu,conf.level=conf.level,main=main,digits=digits)
 }
@@ -162,29 +162,29 @@ standardizeMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=
 
 #### Plot Function for Confidence Intervals of the Means
 
-plotMeans <- plotMean <- function(...) 
+plotMeans <- plotMean <- function(x,...) 
   UseMethod("plotMeans")
 
 plotMeans.wss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
-  results <- data.matrix(estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
+  results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=TRUE)
 }
 
 plotMeans.bss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
-  results <- data.matrix(estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
+  results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=FALSE)
 }
 
 plotMeans.default <- function(...,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
-  results <- data.matrix(estimateMeans(...,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
+  results <- .unformatFrame(estimateMeans(...,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=TRUE)
 }
 
 plotMeans.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,digits=3) {
-  results <- data.matrix(estimateMeans(formula=formula,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
+  results <- .unformatFrame(estimateMeans(formula=formula,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=FALSE)
 }

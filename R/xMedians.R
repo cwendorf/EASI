@@ -5,10 +5,10 @@
 
 #### Describe Function for Medians
 
-.descMedians <- function(...)
+.descMedians <- function(x,...)
   UseMethod(".descMedians")
 
-.descMedians.default <- function(...) {
+.descMedians.default <- function(x,...) {
   data <- data.frame(...)
   results <- do.call(rbind,lapply(data,function(x) boxplot.stats(x)$stats))
   results <- round(results,3)
@@ -35,7 +35,7 @@ describeMedians <- function(...,main=NULL,digits=3) {
 
 #### Boxplot Functions
 
-plotBoxes <- function(...) 
+plotBoxes <- function(x,...) 
   UseMethod("plotBoxes")
 
 plotBoxes.default <- function(...,main=NULL,ylab="Outcome",xlab="") {

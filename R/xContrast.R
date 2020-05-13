@@ -5,7 +5,7 @@
 
 #### CI Function for Mean Contrasts
 
-estimateContrast <- function(...) 
+estimateContrast <- function(x,...) 
   UseMethod("estimateContrast")
 
 estimateContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -50,14 +50,14 @@ estimateContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NUL
 }
 
 estimateContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   estimateContrast(DescStats,CorrStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   estimateContrast(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
@@ -66,7 +66,7 @@ estimateContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=N
 
 #### NHST Function for Mean Contrasts
 
-testContrast <- function(...) 
+testContrast <- function(x,...) 
   UseMethod("testContrast")
   
 testContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -109,14 +109,14 @@ testContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,ro
 }
 
 testContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   testContrast(DescStats,CorrStats,contrast,mu=mu,main=main,digits=digits)
 }
 
 testContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   testContrast(DescStats,contrast,mu=mu,main=main,digits=digits)
 }
@@ -125,7 +125,7 @@ testContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,
 
 #### SMD Function for Mean Contrasts
 
-standardizeContrast <- function(...) 
+standardizeContrast <- function(x,...) 
   UseMethod("standardizeContrast")
 
 standardizeContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -180,14 +180,14 @@ standardizeContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=
 }
 
 standardizeContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- data.matrix(describeMeans(...)[[1]])
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   standardizeContrast(DescStats,CorrStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
 standardizeContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   standardizeContrast(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }

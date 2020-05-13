@@ -5,7 +5,7 @@
 
 #### CI Function for Mean Differences/Comparisons
 
-estimateDifference <- function(...) 
+estimateDifference <- function(x,...) 
   UseMethod("estimateDifference")
   
 estimateDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -50,14 +50,14 @@ estimateDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,main=
 }
 
 estimateDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  CompStats <- data.matrix(describeMeans(...)[[1]])
+  CompStats <- .unformatFrame(describeMeans(...)[[1]])
   class(CompStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   estimateDifference(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  CompStats <- data.matrix(describeMeans(formula)[[1]])
+  CompStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(CompStats) <- "bss"
   estimateDifference(CompStats,conf.level=conf.level,main=main,digits=digits)
 }
@@ -66,7 +66,7 @@ estimateDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,mai
 
 #### NHST Function for Mean Differences/Comparisons
 
-testDifference <- function(...) 
+testDifference <- function(x,...) 
   UseMethod("testDifference")
   
 testDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -109,14 +109,14 @@ testDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,main=NULL
 }
 
 testDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  CompStats <- data.matrix(describeMeans(...)[[1]])
+  CompStats <- .unformatFrame(describeMeans(...)[[1]])
   class(CompStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   testDifference(CompStats,CorrStats,mu=mu,main=main,digits=digits)
 }
 
 testDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  CompStats <- data.matrix(describeMeans(formula)[[1]])
+  CompStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(CompStats) <- "bss"
   testDifference(CompStats,mu=mu,main=main,digits=digits)
 }
@@ -125,7 +125,7 @@ testDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NU
 
 #### SMD Function for Mean Differences/Comparisons
 
-standardizeDifference <- function(...) 
+standardizeDifference <- function(x,...) 
   UseMethod("standardizeDifference")
 
 standardizeDifference.wss <- function(DescStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -177,14 +177,14 @@ standardizeDifference.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rop
 }
 
 standardizeDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  CompStats <- data.matrix(describeMeans(...)[[1]])
+  CompStats <- .unformatFrame(describeMeans(...)[[1]])
   class(CompStats) <- "wss"
-  CorrStats <- data.matrix(describeCorrelations(...)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   standardizeDifference(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 standardizeDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- data.matrix(describeMeans(formula)[[1]])
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   standardizeDifference(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
