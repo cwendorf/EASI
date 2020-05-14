@@ -245,7 +245,7 @@ standardizePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=
 plotPairwise <- function(x,...) 
   UseMethod("plotPairwise")
 
-plotPairwise.default <- .plotPairwise.bss <- plotPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
+plotPairwise.default <- plotPairwise.bss <- plotPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {
   results <- .unformatFrame(estimatePairwise(...,conf.level=conf.level)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Comparisons"} else {main="Confidence Interval for the Pairwise Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,digits=digits,connect=FALSE) 
