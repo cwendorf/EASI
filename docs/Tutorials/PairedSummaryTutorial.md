@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-05-14"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -31,7 +31,7 @@ class(PairedSummary) <- "wss"
 This code creates a correlation matrix and enters single correlation.
 
 ```r
-PairedCorr <- declareCorrelation("Outcome1","Outcome2")
+PairedCorr <- declareCorrelations("Outcome1","Outcome2")
 PairedCorr["Outcome1","Outcome2"] <- .500
 ```
  

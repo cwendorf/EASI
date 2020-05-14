@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-15"
+date: "2020-05-14"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -67,7 +67,7 @@ This section produces analyses of a single correlation.
 This code will provide the confidence interval for the correlation.
 
 ```r
-estimateCorrelation(Outcome1,Outcome2)
+estimateCorrelations(Outcome1,Outcome2)
 ```
 
 ```
@@ -79,7 +79,7 @@ estimateCorrelation(Outcome1,Outcome2)
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```r
-estimateCorrelation(Outcome1,Outcome2,conf.level=.99)
+estimateCorrelations(Outcome1,Outcome2,conf.level=.99)
 ```
 
 ```
@@ -93,7 +93,7 @@ estimateCorrelation(Outcome1,Outcome2,conf.level=.99)
 This code will produce a graph of the confidence interval for the correlation.
 
 ```r
-plotCorrelation(Outcome1,Outcome2)
+plotCorrelations(Outcome1,Outcome2)
 ```
 
 ![](figures/Correlation-A-1.png)<!-- -->
@@ -101,7 +101,7 @@ plotCorrelation(Outcome1,Outcome2)
 Of course, it is possible to change from the default confidence level.
 
 ```r
-plotCorrelation(Outcome1,Outcome2,conf.level=.99)
+plotCorrelations(Outcome1,Outcome2,conf.level=.99)
 ```
 
 ![](figures/Correlation-B-1.png)<!-- -->
@@ -111,7 +111,7 @@ plotCorrelation(Outcome1,Outcome2,conf.level=.99)
 This code will produce a table of NHST for the correlation (against a value of zero).
 
 ```r
-testCorrelation(Outcome1,Outcome2)
+testCorrelations(Outcome1,Outcome2)
 ```
 
 ```

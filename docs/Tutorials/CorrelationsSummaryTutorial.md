@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-15"
+date: "2020-05-14"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -56,7 +56,7 @@ CompCorr <- RepeatedCorr[c("Outcome1","Outcome2"),c("Outcome1","Outcome2")]
 This code will provide the confidence interval for the correlation.
 
 ```r
-estimateCorrelation(CompSummary,CompCorr)
+estimateCorrelations(CompSummary,CompCorr)
 ```
 
 ```
@@ -68,7 +68,7 @@ estimateCorrelation(CompSummary,CompCorr)
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```r
-estimateCorrelation(CompSummary,CompCorr,conf.level=.99)
+estimateCorrelations(CompSummary,CompCorr,conf.level=.99)
 ```
 
 ```
@@ -82,7 +82,7 @@ estimateCorrelation(CompSummary,CompCorr,conf.level=.99)
 This code will produce a graph of the confidence interval for the correlation.
 
 ```r
-plotCorrelation(CompSummary,CompCorr)
+plotCorrelations(CompSummary,CompCorr)
 ```
 
 ![](figures/Correlation-A-1.png)<!-- -->
@@ -90,7 +90,7 @@ plotCorrelation(CompSummary,CompCorr)
 Of course, it is possible to change from the default confidence level.
 
 ```r
-plotCorrelation(CompSummary,CompCorr,conf.level=.99)
+plotCorrelations(CompSummary,CompCorr,conf.level=.99)
 ```
 
 ![](figures/Correlation-B-1.png)<!-- -->
@@ -100,7 +100,7 @@ plotCorrelation(CompSummary,CompCorr,conf.level=.99)
 This code will produce a table of NHST for the correlation (against a value of zero).
 
 ```r
-testCorrelation(CompSummary,CompCorr)
+testCorrelations(CompSummary,CompCorr)
 ```
 
 ```

@@ -57,31 +57,31 @@ CompCorr <- RepeatedCorr[c("Outcome1","Outcome2"),c("Outcome1","Outcome2")]
 
 This code will provide the confidence interval for the correlation.
 ```{r}
-estimateCorrelation(CompSummary,CompCorr)
+estimateCorrelations(CompSummary,CompCorr)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateCorrelation(CompSummary,CompCorr,conf.level=.99)
+estimateCorrelations(CompSummary,CompCorr,conf.level=.99)
 ```
 
 #### Plot of the Confidence Interval for the Correlation
 
 This code will produce a graph of the confidence interval for the correlation.
 ```{r,Correlation-A}
-plotCorrelation(CompSummary,CompCorr)
+plotCorrelations(CompSummary,CompCorr)
 ```
 
 Of course, it is possible to change from the default confidence level.
 ```{r,Correlation-B}
-plotCorrelation(CompSummary,CompCorr,conf.level=.99)
+plotCorrelations(CompSummary,CompCorr,conf.level=.99)
 ```
 
 #### Significance Test for the Correlation
 
 This code will produce a table of NHST for the correlation (against a value of zero).
 ```{r}
-testCorrelation(CompSummary,CompCorr)
+testCorrelations(CompSummary,CompCorr)
 ```
 
 ### Analyses of Several Correlations
