@@ -1,2 +1,13 @@
-# Export all names
-exportPattern(".")
+# Export Main Functions
+
+S3method(describeMeans,default)
+S3method(describeMeans,formula)
+S3method(describeMeans,wss)
+S3method(describeMeans,bss)
+S3method(estimateMeans,default)
+S3method(estimateMeans,formula)
+S3method(estimateMeans,wss)
+S3method(estimateMeans,bss)
+
+export(describeMeans)
+export(estimateMeans)
