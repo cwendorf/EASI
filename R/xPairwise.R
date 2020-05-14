@@ -5,7 +5,7 @@
 
 #### CI Function for Pairwise Group and Variable Comparisons
 
-estimatePairwise <- estimateDifferences <- function(x,...) 
+estimatePairwise <- function(x,...) 
   UseMethod("estimatePairwise")
 
 estimatePairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -81,7 +81,7 @@ estimatePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,.
 
 #### NHST Function for Pairwise Comparisons
 
-testPairwise <- testDifferences <- function(x,...) 
+testPairwise <- function(x,...) 
   UseMethod("testPairwise")
 
 testPairwise.wss <- function(SumStats,CorrStats,mu=0,main=NULL,digits=3,...){
@@ -155,7 +155,7 @@ testPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
 
 #### SMD Function for Pairwise Group and Variable Comparisons
 
-standardizePairwise <- standardizeDifferences <- function(x,...) 
+standardizePairwise <- function(x,...) 
   UseMethod("standardizePairwise")
 
 standardizePairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -242,7 +242,7 @@ standardizePairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=
 
 #### Pairwise Plots
 
-plotPairwise <- plotDifferences <- function(x,...) 
+plotPairwise <- function(x,...) 
   UseMethod("plotPairwise")
 
 plotPairwise.default <- .plotPairwise.bss <- plotPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,digits=3) {

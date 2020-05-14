@@ -14,15 +14,15 @@
 
 ### Installation
 
-This package is not currently on CRAN, but can be installed directly from this repository (for R > 3.5.0 but R < 4.0.0):
+This package is not currently on CRAN, but can be installed directly from this repository:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("cwendorf/EASI",build_vignettes=TRUE,force=TRUE)
+devtools::install_github("cwendorf/EASI")
 library(EASI)
 ```
 
-For users running R 4.0.0, the install does not work correctly. Instead, the functions should be sourced:
+If you do not wish a full install, the functions can be sourced instead:
 
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/source-EASI.R")

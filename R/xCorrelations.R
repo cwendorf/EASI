@@ -5,7 +5,7 @@
 
 #### Describe Function for Correlations
 
-describeCorrelations <- describeCorrelation <- function(x,...) 
+describeCorrelations <- function(x,...) 
   UseMethod("describeCorrelations")
 
 describeCorrelations.default <- function(...,main=NULL,digits=3) {
@@ -26,7 +26,7 @@ describeCorrelations.default <- function(...,main=NULL,digits=3) {
 
 #### Declare and Fill Blanks in Matrix
 
-declareCorrelation <- declareCorrelations <- function(...) {
+declareCorrelations <- function(...) {
   clist=c(...)
   nr=length(clist)
   results=matrix(data=NA,nr,nr)
@@ -62,7 +62,7 @@ fillCorrelations <- function(mat) {
 
 #### Confidence Intervals for Correlations
 
-estimateCorrelations <- estimateCorrelation <- function(x,...) 
+estimateCorrelations <- function(x,...) 
   UseMethod("estimateCorrelations")
 
 estimateCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -104,7 +104,7 @@ estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 
 #### NHST Function for Correlations
 
-testCorrelations <- testCorrelation <- function(x,...) 
+testCorrelations <- function(x,...) 
   UseMethod("testCorrelations")
 
 testCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -143,7 +143,7 @@ testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 
 #### Plot Function for Confidence Intervals of the Correlations
 
-plotCorrelations <- plotCorrelation <- function(x,...) 
+plotCorrelations <- function(x,...) 
   UseMethod("plotCorrelations")
 
 plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,digits=3,...) {

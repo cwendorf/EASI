@@ -52,31 +52,31 @@ This section produces analyses of a single correlation.
 
 This code will provide the confidence interval for the correlation.
 ```{r}
-estimateCorrelation(Outcome1,Outcome2)
+estimateCorrelations(Outcome1,Outcome2)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateCorrelation(Outcome1,Outcome2,conf.level=.99)
+estimateCorrelations(Outcome1,Outcome2,conf.level=.99)
 ```
 
 #### Plot of the Confidence Interval for the Correlation
 
 This code will produce a graph of the confidence interval for the correlation.
 ```{r,Correlation-A}
-plotCorrelation(Outcome1,Outcome2)
+plotCorrelations(Outcome1,Outcome2)
 ```
 
 Of course, it is possible to change from the default confidence level.
 ```{r,Correlation-B}
-plotCorrelation(Outcome1,Outcome2,conf.level=.99)
+plotCorrelations(Outcome1,Outcome2,conf.level=.99)
 ```
 
 #### Significance Test for the Correlation
 
 This code will produce a table of NHST for the correlation (against a value of zero).
 ```{r}
-testCorrelation(Outcome1,Outcome2)
+testCorrelations(Outcome1,Outcome2)
 ```
 
 ### Analyses of Several Correlations

@@ -2,16 +2,15 @@
 
 ### Installation of the Functions
 
-
-This package is not currently on CRAN, but can be installed directly from this repository (for R > 3.5.0 but R < 4.0.0):
+This package is not currently on CRAN, but can be installed directly from this repository:
 
 ``` r
 install.packages("devtools")
-devtools::install_github("cwendorf/EASI",build_vignettes=TRUE,force=TRUE)
+devtools::install_github("cwendorf/EASI")
 library(EASI)
 ```
 
-For users running R 4.0.0, the install does not work correctly. Instead, the functions should be sourced:
+If you do not wish a full install, the functions can be sourced instead:
 
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/source-EASI.R")
@@ -33,11 +32,11 @@ Prefix | Description
 
 `Means` - functions that examine all individual group or level means
 
-- [`describeMeans`](./describeMeans.md) (or [`describeMean`](./describeMeans.md))
-- [`estimateMeans`](./estimateMeans.md) (or [`estimateMean`](./estimateMeans.md))
-- [`plotMeans`](./plotMeans.md) (or [`plotMean`](./plotMeans.md))
-- [`testMeans`](./testMeans.md) (or [`testMean`](./testMeans.md))
-- [`standardizeMeans`](./standardizeMeans.md) (or [`standardizeMean`](./standardizeMeans.md))
+- [`describeMeans`](./describeMeans.md)
+- [`estimateMeans`](./estimateMeans.md)
+- [`plotMeans`](./plotMeans.md)
+- [`testMeans`](./testMeans.md)
+- [`standardizeMeans`](./standardizeMeans.md)
 
 `Difference` - functions that examine a difference/comparison among two group or level means
 
@@ -73,10 +72,10 @@ Prefix | Description
 
 `Correlations` - functions that provide analyses of correlations among variables
 
-- [`describeCorrelations`](./describeCorrelations.md) (or [`describeCorrelation`](./describeCorrelations.md))
-- [`estimateCorrelations`](./estimateCorrelations.md) (or [`estimateCorrelation`](./estimateCorrelations.md))
-- [`testCorrelations`](./testCorrelations.md) (or [`testCorrelation`](./testCorrelations.md))
-- [`plotCorrelations`](./plotCorrelations.md) (or [`plotCorrelation`](./plotCorrelations.md))
+- [`describeCorrelations`](./describeCorrelations.md)
+- [`estimateCorrelations`](./estimateCorrelations.md)
+- [`testCorrelations`](./testCorrelations.md)
+- [`plotCorrelations`](./plotCorrelations.md)
 
 ### More Information
 
