@@ -30,7 +30,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/source-EASI.R")
 
 ### Usage
 
-This is the demo script for the cover image (using a built-in data set):
+This is the demo script for the cover image (using a tutorial data set):
 
 ```r
 # Estimation Approach to Statistical Inference
