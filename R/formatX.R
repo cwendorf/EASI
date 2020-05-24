@@ -4,8 +4,7 @@
 ### Formatting Functions
 
 .formatFrame <- function(results,digits=3) {
-  cw <- max(ceiling(results),nchar(rownames(results)),nchar(colnames(results)))+1
-  return(format(as.data.frame(round(results,digits=digits)),width=cw,trim=T,nsmall=digits))
+  return(format(as.data.frame(round(results,digits=digits)),width=7,trim=T,nsmall=digits))
 }
 
 .formatList <- function(results,digits=3) {
