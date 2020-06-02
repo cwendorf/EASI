@@ -193,8 +193,8 @@ standardizeDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,r
 
 #### Plot Function for Confidence Intervals of Mean Differences/Comparisons
 
-plotDifference <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,digits=3) {
-  plotComparison(...,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,digits=digits)
+plotDifference <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+  plotComparison(...,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,ylim=ylim,digits=digits)
 }
 
 ### Meta-Wrappers for Functions

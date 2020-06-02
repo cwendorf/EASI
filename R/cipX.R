@@ -3,9 +3,9 @@
 
 ### Basic Confidence Interval Plot Functions
 
-.cipMain <- function(results,main,ylab,xlab,mu,rope,values,digits,connect) {
-  ylimrange <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))
-  plot(results[,1],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylimrange,xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
+.cipMain <- function(results,main,ylab,xlab,mu,rope,values,ylim,digits,connect) {
+  if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))}
+  plot(results[,1],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=15,bty="l")
   axis(1,1:nrow(results),row.names(results))
   for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1)}}
@@ -18,19 +18,19 @@
   for (i in 1:nrow(results)) text(i,as.numeric(results[,3][i]),results[,3][i],cex=.8,pos=2,offset=.5)}
 }
 
-.cipComp <- function(results,main,ylab,xlab,rope,values,digits,connect) {
+.cipComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect) {
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
-  ylimrange <- range(pretty(c(floor(min(graph[,2]-.4)),ceiling(max(graph[,3])+.4))))
+  if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(graph[,2]-.4)),ceiling(max(graph[,3])+.4))))}
   par(mar=c(5,5,5,5))  
-  plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylimrange,pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="n")
+  plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylim,pch=c(15,15,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="n")
   axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
   axis(1,2.6:3.6,labels=FALSE,lwd.tick=0)
   axis(1,at=c(1,2),labels=rownames(graph)[1:2])
   axis(1,at=3,labels=rownames(graph)[3])
   axis(2)
-  axis(2,at=ylimrange,labels=FALSE,lwd.tick=0)
+  axis(2,at=ylim,labels=FALSE,lwd.tick=0)
   for (i in 1:3) lines(x=c(i,i), y=c(graph[,2][i],graph[,3][i]),lwd=2)
   arrows(1,graph[1,1],4.5,graph[1,1],code=3,length=0,lty=2)  
   arrows(2,graph[2,1],4.5,graph[2,1],code=3,length=0,lty=2)

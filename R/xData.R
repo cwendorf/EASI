@@ -35,17 +35,17 @@ plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",metho
 
 #### Add Data to Plot
 
-addData <- function(x,...) 
-  UseMethod("addData")
+addplotData <- function(x,...) 
+  UseMethod("addplotData")
 
-addData.default <- function(...,method="jitter",col="gray60",pch=16) {
+addplotData.default <- function(...,method="jitter",col="gray60",pch=16) {
   data <- data.frame(...)
   mx <- ncol(data)+.15
   mn <- 1+.15
   stripchart(data,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=pch,col=col)
 }
 
-addData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
+addplotData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
   x <- eval(formula[[3]])
   adjustX <- as.numeric(x)+.15
   mn <- min(adjustX,na.rm=TRUE)
