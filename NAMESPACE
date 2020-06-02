@@ -1,7 +1,5 @@
 # Export Main Functions
 
-S3method(describeBoxes,default)
-S3method(describeBoxes,formula)
 S3method(plotBoxes,default)
 S3method(plotBoxes,formula)
 S3method(describeMeans,default)
