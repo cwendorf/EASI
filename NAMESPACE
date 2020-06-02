@@ -1,5 +1,9 @@
 # Export Main Functions
 
+S3method(describeBoxes,default)
+S3method(describeBoxes,formula)
+S3method(plotBoxes,default)
+S3method(plotBoxes,formula)
 S3method(describeMeans,default)
 S3method(describeMeans,formula)
 S3method(estimateMeans,default)
@@ -97,6 +101,8 @@ S3method(plotCorrelations,default)
 S3method(plotCorrelations,wss)
 S3method(testCorrelations,default)
 S3method(testCorrelations,wss)
+export(describeBoxes)
+export(plotBoxes)
 export(describeMeans)
 export(estimateMeans)
 export(plotMeans)
