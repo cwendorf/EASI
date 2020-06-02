@@ -8,16 +8,16 @@ Provides a plot of all group or level means and their confidence intervals.
 
 ```r
 ## Default S3 method:
-plotMeans(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotMeans(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'
-plotMeans(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotMeans(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'
-plotMeans(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotMeans(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'bss'
-plotMeans(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotMeans(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 ```
 
 ### Arguments
@@ -34,6 +34,7 @@ Argument | Description
 ```rope``` | lower and upper values for a region of practical equivalence.
 ```values``` | whether the points should be labeled with their values.
 ```main``` | a custom title for the graph.
+```ylim``` | custom limits for the y axis.
 ```digits``` | the specified number of decimal places.
 
 ### Details

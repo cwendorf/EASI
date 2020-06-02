@@ -8,10 +8,10 @@ Provides a plot of all correlations and their confidence intervals for a list of
 
 ```r
 ## Default S3 method:
-plotCorrelations(...,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,digits=3)
+plotCorrelations(...,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'
-plotCorrelations(CompStats,CorrStats,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,digits=3)
+plotCorrelations(CompStats,CorrStats,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
 ```
 
 ### Arguments
@@ -26,6 +26,7 @@ Argument | Description
 ```conf.level``` | confidence level of the interval.
 ```values``` | whether the points should be labeled with their values.
 ```main``` | a custom title for the graph.
+```ylim``` | custom limits for the y axis.
 ```digits``` | the specified number of decimal places.
 
 ### Details

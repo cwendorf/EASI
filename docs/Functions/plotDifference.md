@@ -8,16 +8,16 @@ Provides a plot of the two means, the mean difference, and their confidence inte
 
 ```r
 ## Default S3 method:
-plotDifference(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotDifference(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'
-plotDifference(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotDifference(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'
-plotDifference(CompStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotDifference(CompStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'bss'
-plotDifference(CompStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotDifference(CompStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 ```
 
 ### Arguments
@@ -35,6 +35,7 @@ Argument | Description
 ```rope``` | lower and upper values for a region of practical equivalence.
 ```values``` | whether the points should be labeled with their values.
 ```main``` | a custom title for the graph.
+```ylim``` | custom limits for the y axis.
 ```digits``` | the specified number of decimal places.
 
 ### Details

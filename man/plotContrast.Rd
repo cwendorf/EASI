@@ -11,13 +11,13 @@
 \description{Provides the plot of the means, the mean contrast, and their confidence intervals.}
 
 \usage{
-\method{plotContrast}{default}(\dots,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+\method{plotContrast}{default}(\dots,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
-\method{plotContrast}{formula}(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+\method{plotContrast}{formula}(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
-\method{plotContrast}{wss}(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+\method{plotContrast}{wss}(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
-\method{plotContrast}{bss}(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+\method{plotContrast}{bss}(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 }
 
 \arguments{
@@ -29,6 +29,7 @@
 \item{mu}{a number indicating the true/hypothesized value of the mean contrast.}
 \item{conf.level}{confidence level of the interval.}
 \item{main}{a custom title for the graph.}
+\item{ylim}{custom limits for the y axis.}
 \item{digits}{the specified number of decimal places.}
 }
 

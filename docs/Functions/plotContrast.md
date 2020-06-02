@@ -8,16 +8,16 @@ Provides the plot of the means, the mean contrast, and their confidence interval
 
 ```r
 ## Default S3 method:
-plotContrast(...,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotContrast(...,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'
-plotContrast(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotContrast(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'
-plotContrast(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotContrast(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'bss'
-plotContrast(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotContrast(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 ```
 
 ### Arguments
@@ -32,6 +32,7 @@ Argument | Description
 ```mu``` | a number indicating the true/hypothesized value of the mean contrast.
 ```conf.level``` | confidence level of the interval.
 ```main``` | a custom title for the graph.
+```ylim``` | custom limits for the y axis.
 ```digits``` | the specified number of decimal places.
 
 ### Details

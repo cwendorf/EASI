@@ -9,9 +9,9 @@
 \description{Provides a plot of all correlations and their confidence intervals for a list of variables.}
 
 \usage{
-\method{plotCorrelations}{default}(\dots,,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,digits=3)
+\method{plotCorrelations}{default}(\dots,,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
-\method{plotCorrelations}{wss}(CompStats,CorrStats,ylab="Correlation",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+\method{plotCorrelations}{wss}(CompStats,CorrStats,ylab="Correlation",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 }
 
 \arguments{
@@ -23,6 +23,7 @@
 \item{conf.level}{confidence level of the interval.}
 \item{values}{whether the points should be labeled with their values.}
 \item{main}{a custom title for the graph.}
+\item{ylim}{custom limits for the y axis.}
 \item{digits}{the specified number of decimal places.}
 }
 

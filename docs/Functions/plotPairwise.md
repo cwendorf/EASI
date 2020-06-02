@@ -8,16 +8,16 @@ Provides a plot of all all unadjusted pairwise comparisons and their confidence 
 
 ```r
 ## Default S3 method:
-plotPairwise(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotPairwise(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'
-plotPairwise(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotPairwise(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'
-plotPairwise(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotPairwise(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'bss'
-plotPairwise(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,digits=3)
+plotPairwise(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 ```
 
 ### Arguments
@@ -34,6 +34,7 @@ Argument | Description
 ```rope``` | lower and upper values for a region of practical equivalence.
 ```values``` | whether the points should be labeled with their values.
 ```main``` | a custom title for the graph.
+```ylim``` | custom limits for the y axis.
 ```digits``` | the specified number of decimal places.
 
 ### Details
