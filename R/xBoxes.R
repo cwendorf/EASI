@@ -8,10 +8,9 @@
 .descBoxes <- function(x,...)
   UseMethod(".descBoxes")
 
-.descBoxes.default <- function(x,...) {
+.descBoxes.default <- function(...) {
   data <- data.frame(...)
   results <- do.call(rbind,lapply(data,function(x) boxplot.stats(x)$stats))
-  results <- round(results,3)
   colnames(results) <- c("Min","LQ","Mdn","UQ","Max")
   return(results)
 }
@@ -36,16 +35,16 @@ describeBoxes <- function(...,main=NULL,digits=3) {
 #### Boxplot Functions
 
 .bpvio <- function(var,loc,offset=0,scale=.6) {
-y=density(var)
-y1=loc+(y$y*scale)+offset
-y2=loc-(y$y*scale)+offset
-polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border="gray75",col="gray90")
-z=.descBoxes(var)
-arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2)
-rect(loc+offset-.06,z[2],loc+offset+.06,z[4],col="white",lwd=1)
-arrows(loc+offset-.06,z[3],loc+offset+.06,z[3],length=0,lwd=2)
-arrows(loc+offset-.03,z[1],loc+offset+.03,z[1],length=0,lwd=1)
-arrows(loc+offset-.03,z[5],loc+offset+.03,z[5],length=0,lwd=1)
+  y <- density(var)
+  y1 <- loc+(y$y*scale)+offset
+  y2 <- loc-(y$y*scale)+offset
+  polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border="gray75",col="gray90")
+  z <- .descBoxes(var)
+  arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2)
+  rect(loc+offset-.06,z[2],loc+offset+.06,z[4],col="white",lwd=1)
+  arrows(loc+offset-.06,z[3],loc+offset+.06,z[3],length=0,lwd=2)
+  arrows(loc+offset-.03,z[1],loc+offset+.03,z[1],length=0,lwd=1)
+  arrows(loc+offset-.03,z[5],loc+offset+.03,z[5],length=0,lwd=1)
 }
 
 plotBoxes <- function(...) 
