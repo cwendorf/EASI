@@ -10,7 +10,7 @@ plotData <- function(x,...)
 
 plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",method="jitter",col="gray60",pch=16) {
   data <- data.frame(...)
-  ylimrange <- range(pretty(c(floor(min(data-2)),ceiling(max(data)+2))))
+  ylimrange <- range(pretty(c(floor(min(data-.4)),ceiling(max(data)+.4))))
   xlimrange <- c(.5,ncol(data)+.5)
   mx <- ncol(data)+.15
   mn <- 1+.15
@@ -25,7 +25,7 @@ plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",metho
   mn <- min(adjustX,na.rm=TRUE)
   mx <- max(adjustX,na.rm=TRUE)
   y <- eval(formula[[2]])
-  ylimrange <- range(pretty(c(floor(min(y-2)),ceiling(max(y)+2))))
+  ylimrange <- range(pretty(c(floor(min(y-.4)),ceiling(max(y)+.4))))
   xlimrange <- c(.5,nlevels(x)+.5)
   par(bty="l",xaxs="i",yaxs="i")
   if(is.null(main)) {main="Data for the Groups"}
