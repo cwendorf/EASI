@@ -9,7 +9,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xCorrelations.R"
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xData.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xDifference.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeans.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMedians.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xBoxes.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xOmnibus.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xPairwise.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xRelational.R")
