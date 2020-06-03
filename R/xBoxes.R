@@ -47,32 +47,34 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
 plotBoxes <- function(...) 
   UseMethod("plotBoxes")
 
-plotBoxes.default <- function(...,main=NULL,ylab="Outcome",xlab="") {
+plotBoxes.default <- function(...,main=NULL,ylab="Outcome",xlab="",ylim=NULL) {
   if(is.null(main)) {main="Violin Plots for the Variables"}
   data <- data.frame(...)
+  if(is.null(ylim)) {
   z <- lapply(data,FUN=function(x) cbind(x=density(x)$x,y=density(x)$y))
   mn <- min(sapply(z,`[`,1,1))
   mx <- max(sapply(z,`[`,,1))
-  ylim <- range(pretty(c(mn,mx)))
+  ylim <- range(pretty(c(mn,mx)))}
   vars <- colnames(data)
   nvars <- length(data)
-  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,nvars+.5),ylim=ylim)
+  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,nvars+.5),ylim=ylim,cex.lab=1.3)
   axis(1,1:nvars,vars)
   for(i in 1:nvars) {.bpvio(data[,i],i)}
 } 
 
-plotBoxes.formula <- function(formula,main=NULL,ylab="Outcome",xlab="") {
+plotBoxes.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",ylim=NULL) {
   if(is.null(main)) {main="Violin Plots for the Groups"}
   group <- eval(formula[[3]])
   outcome <- eval(formula[[2]])
   data <- data.frame(group,outcome)
+  if(is.null(ylim)) {
   z <- tapply(outcome,group,FUN=function(x) cbind(x=density(x)$x,y=density(x)$y))
   mn <- min(sapply(z,`[`,1,1))
   mx <- max(sapply(z,`[`,,1))
-  ylim <- range(pretty(c(mn,mx)))
+  ylim <- range(pretty(c(mn,mx)))}
   groups <- levels(group)
   ngroups <- nlevels(group)
-  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,ngroups+.5),ylim=ylim)
+  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,ngroups+.5),ylim=ylim,cex.lab=1.3)
   axis(1,1:ngroups,groups)
   for(i in 1:ngroups) {with(subset(data,group==groups[i]),.bpvio(outcome,i))}
 }
