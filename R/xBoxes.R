@@ -38,10 +38,10 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
   polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border="gray75",col="gray90")
   z <- .unformatFrame(describeBoxes(var)[[1]])
   arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2)
-  rect(loc+offset-.06,z[2],loc+offset+.06,z[4],col="white",lwd=1)
-  arrows(loc+offset-.06,z[3],loc+offset+.06,z[3],length=0,lwd=2)
-  arrows(loc+offset-.03,z[1],loc+offset+.03,z[1],length=0,lwd=1)
-  arrows(loc+offset-.03,z[5],loc+offset+.03,z[5],length=0,lwd=1)
+  rect(loc+offset-.04,z[2],loc+offset+.04,z[4],col="white",lwd=1)
+  arrows(loc+offset-.04,z[3],loc+offset+.04,z[3],length=0,lwd=2)
+  arrows(loc+offset-.02,z[1],loc+offset+.02,z[1],length=0,lwd=1)
+  arrows(loc+offset-.02,z[5],loc+offset+.02,z[5],length=0,lwd=1)
 }
 
 plotBoxes <- function(...) 
