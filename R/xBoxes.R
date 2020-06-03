@@ -5,28 +5,25 @@
 
 #### Describe Function for Medians
 
-.descBoxes <- function(x,...)
-  UseMethod(".descBoxes")
+describeBoxes <- function(x,...)
+  UseMethod("describeBoxes")
 
-.descBoxes.default <- function(...) {
+describeBoxes.default <- function(...,main=NULL,digits=3) {
   data <- data.frame(...)
   results <- do.call(rbind,lapply(data,function(x) boxplot.stats(x)$stats))
   colnames(results) <- c("Min","LQ","Mdn","UQ","Max")
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
   return(results)
 }
 
-.descBoxes.formula <- function(formula,...) {
-  results <- aggregate(formula,FUN=.descBoxes,...)
+describeBoxes.formula <- function(formula,main=NULL,digits=3) {
+  results <- aggregate(formula,FUN=describeBoxes)
   rn <- results[,1]
-  results <- results[[2]]
+  results <- Reduce(rbind,results[[2]])
   rownames(results) <- rn
-  colnames(results) <- c("Min","LQ","Mdn","UQ","Max")
-  return(results)
-}
-
-describeBoxes <- function(...,main=NULL,digits=3) {
-  results <- .formatList(list(.descBoxes(...)),digits=digits)
-  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}
+  results <- list(results)
+  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
   return(results)
 }
 
@@ -39,7 +36,7 @@ describeBoxes <- function(...,main=NULL,digits=3) {
   y1 <- loc+(y$y*scale)+offset
   y2 <- loc-(y$y*scale)+offset
   polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border="gray75",col="gray90")
-  z <- .descBoxes(var)
+  z <- .unformatFrame(describeBoxes(var)[[1]])
   arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2)
   rect(loc+offset-.06,z[2],loc+offset+.06,z[4],col="white",lwd=1)
   arrows(loc+offset-.06,z[3],loc+offset+.06,z[3],length=0,lwd=2)
