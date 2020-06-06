@@ -8,7 +8,7 @@
 plotData <- function(x,...)
   UseMethod("plotData")
 
-plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",method="jitter",col="gray60",pch=16) {
+plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",method="jitter",col="gray60",pch=1) {
   data <- data.frame(...)
   ylimrange <- range(pretty(c(floor(min(data-.4)),ceiling(max(data)+.4))))
   xlimrange <- c(.5,ncol(data)+.5)
@@ -19,7 +19,7 @@ plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",meth
   stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=0.08,col=col,pch=pch,cex.lab=1.3)
 } 
 
-plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",method="jitter",col="gray60",pch=16,...) {
+plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",method="jitter",col="gray60",pch=1,...) {
   x <- eval(formula[[3]])
   adjustX <- as.numeric(x)+.15
   mn <- min(adjustX,na.rm=TRUE)
@@ -38,14 +38,14 @@ plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",metho
 addplotData <- function(x,...) 
   UseMethod("addplotData")
 
-addplotData.default <- function(...,method="jitter",col="gray60",pch=16) {
+addplotData.default <- function(...,method="jitter",col="gray60",pch=1) {
   data <- data.frame(...)
   mx <- ncol(data)+.15
   mn <- 1+.15
   stripchart(data,add=TRUE,at=mn:mx,vertical=TRUE,method=method,jitter=0.08,pch=pch,col=col)
 }
 
-addplotData.formula <- function(formula,method="jitter",col="gray60",pch=16,...) {
+addplotData.formula <- function(formula,method="jitter",col="gray60",pch=1,...) {
   x <- eval(formula[[3]])
   adjustX <- as.numeric(x)+.15
   mn <- min(adjustX,na.rm=TRUE)
