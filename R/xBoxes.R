@@ -31,11 +31,11 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
 
 #### Boxplot Functions
 
-.vio <- function(var,loc,offset=0,scale=.6) {
+.vio <- function(var,loc,offset=0,scale=.6,border="gray75",col="gray90") {
   y <- density(var)
   y1 <- loc+(y$y*scale)+offset
   y2 <- loc-(y$y*scale)+offset
-  polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border="gray75",col="gray90")
+  polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border=border,col=col)
 }
 
 .halfvio <- function(var,loc,offset=0,scale=.6,border="gray75",col="gray90") {
@@ -45,30 +45,34 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
   polygon(c(y1,seq(from=loc+offset,to=loc+offset,length.out=length(y2))),c(y$x,rev(y$x)),border=border,col=col)
 }
 
-.bp <- function(var,loc,offset=0,scale=.6) {
+.bp <- function(var,loc,offset=0,scale=.6,border="black",col="white") {
   z <- .unformatFrame(describeBoxes(var)[[1]])
-  arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2)
-  rect(loc+offset-.04,z[2],loc+offset+.04,z[4],col="white",lwd=1)
-  arrows(loc+offset-.04,z[3],loc+offset+.04,z[3],length=0,lwd=2)
-  arrows(loc+offset-.02,z[1],loc+offset+.02,z[1],length=0,lwd=1)
-  arrows(loc+offset-.02,z[5],loc+offset+.02,z[5],length=0,lwd=1)
+  arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2,col=border)
+  rect(loc+offset-.03,z[2],loc+offset+.03,z[4],border=border,col=col,lwd=1)
+  arrows(loc+offset-.03,z[3],loc+offset+.03,z[3],length=0,lwd=2,col=border)
+  arrows(loc+offset-.02,z[1],loc+offset+.02,z[1],length=0,lwd=1,col=border)
+  arrows(loc+offset-.02,z[5],loc+offset+.02,z[5],length=0,lwd=1,col=border)
 }
 
-.halfbp <- function(var,loc,offset=0,scale=.6) {
+.halfbp <- function(var,loc,offset=0,scale=.6,border="black",col="white") {
   z <- .unformatFrame(describeBoxes(var)[[1]])
-  arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2)
-  rect(loc,z[2],loc+offset+.04,z[4],col="white",lwd=1)
-  arrows(loc,z[3],loc+offset+.04,z[3],length=0,lwd=2)
-  arrows(loc,z[1],loc+offset+.02,z[1],length=0,lwd=1)
-  arrows(loc,z[5],loc+offset+.02,z[5],length=0,lwd=1)
+  arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2,col=border)
+  rect(loc,z[2],loc+offset+.03,z[4],border=border,col=col,lwd=1)
+  arrows(loc,z[3],loc+offset+.03,z[3],length=0,lwd=2,col=border)
+  arrows(loc,z[1],loc+offset+.02,z[1],length=0,lwd=1,col=border)
+  arrows(loc,z[5],loc+offset+.02,z[5],length=0,lwd=1,col=border)
 }
 
-.dots <- function(var,loc,offset=0,jitter=0,col="gray60",pch=1) {
+.dots <- function(var,loc,offset=0,jitter=0,col="gray0",pch=16) {
   newx <- NULL
-  for(i in 1:length(var)) {newx[i] <- loc+runif(1,min=0,max=jitter)+offset}
+  for(i in 1:length(var)) {newx[i] <- loc+runif(1,min=-(jitter/2),max=(jitter/2))+offset}
   points(newx,var,col=col,pch=pch)
 }
 
+.bplabels <- function(var,loc,offset=0,col="black") {
+  z <- .unformatFrame(describeBoxes(var)[[1]])
+for (i in 1:ncol(z)) text(loc+offset,z[i],z[i],cex=.8,col=col)  
+}
 
 plotBoxes <- function(...) 
   UseMethod("plotBoxes")
