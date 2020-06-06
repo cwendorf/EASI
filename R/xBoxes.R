@@ -31,18 +31,18 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
 
 #### Boxplot Functions
 
-.vio <- function(var,loc,offset=0,scale=.6,sides="both") {
+.vio <- function(var,loc,offset=0,scale=.6) {
   y <- density(var)
   y1 <- loc+(y$y*scale)+offset
   y2 <- loc-(y$y*scale)+offset
   polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border="gray75",col="gray90")
 }
 
-.halfvio <- function(var,loc,offset=0,scale=.6) {
+.halfvio <- function(var,loc,offset=0,scale=.6,border="gray75",col="gray90") {
   y <- density(var)
   y1 <- loc+(y$y*scale)+offset
   y2 <- loc-(y$y*scale)+offset
-  polygon(c(y1,seq(from=loc,to=loc,length.out=length(y2))),c(y$x,rev(y$x)),border="gray75",col="gray90")
+  polygon(c(y1,seq(from=loc+offset,to=loc+offset,length.out=length(y2))),c(y$x,rev(y$x)),border=border,col=col)
 }
 
 .bp <- function(var,loc,offset=0,scale=.6) {
@@ -52,6 +52,15 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
   arrows(loc+offset-.04,z[3],loc+offset+.04,z[3],length=0,lwd=2)
   arrows(loc+offset-.02,z[1],loc+offset+.02,z[1],length=0,lwd=1)
   arrows(loc+offset-.02,z[5],loc+offset+.02,z[5],length=0,lwd=1)
+}
+
+.halfbp <- function(var,loc,offset=0,scale=.6) {
+  z <- .unformatFrame(describeBoxes(var)[[1]])
+  arrows(loc+offset,z[1],loc+offset,z[5],length=0,lty=2)
+  rect(loc,z[2],loc+offset+.04,z[4],col="white",lwd=1)
+  arrows(loc,z[3],loc+offset+.04,z[3],length=0,lwd=2)
+  arrows(loc,z[1],loc+offset+.02,z[1],length=0,lwd=1)
+  arrows(loc,z[5],loc+offset+.02,z[5],length=0,lwd=1)
 }
 
 .dots <- function(var,loc,offset=0,jitter=0,col="gray60",pch=1) {
@@ -76,7 +85,7 @@ plotBoxes.default <- function(...,main=NULL,ylab="Outcome",xlab="",ylim=NULL) {
   nvars <- length(data)
   plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,nvars+.5),ylim=ylim,cex.lab=1.3)
   axis(1,1:nvars,vars)
-  for(i in 1:nvars) {.halfvio(data[,i],i)}
+  for(i in 1:nvars) {.vio(data[,i],i)}
   for(i in 1:nvars) {.bp(data[,i],i)}  
 } 
 
