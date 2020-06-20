@@ -5,7 +5,7 @@
 \alias{plotBoxes}
 \alias{plotBoxes.default}
 \alias{plotBoxes.formula}
-s\title{Plot Boxes}
+\title{Plot Boxes}
 \description{Provides a boxplot for each group or level mean.}
 
 \usage{
