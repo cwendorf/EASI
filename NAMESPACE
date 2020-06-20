@@ -97,10 +97,10 @@ S3method(plotCorrelations,default)
 S3method(plotCorrelations,wss)
 S3method(testCorrelations,default)
 S3method(testCorrelations,wss)
-export(describeBoxes)
 
 # Export Functions
 
+export(describeBoxes)
 export(plotBoxes)
 export(plotViolins)
 export(plotData)
