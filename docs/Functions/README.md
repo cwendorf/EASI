@@ -37,7 +37,7 @@ Prefix | Description
 `Boxes` - functions that summarize and provide boxplots for the groups or levels
 
 - [`describeBoxes`](./describeBoxes.md)
-- [`plotBoxes'](./plotBoxes.md)
+- [`plotBoxes`](./plotBoxes.md)
 
 `Violins` - functions that provide densities and violin plots for the groups or levels
 
