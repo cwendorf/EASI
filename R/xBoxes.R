@@ -74,7 +74,7 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
 for (i in 1:ncol(z)) text(loc+offset,z[i],z[i],cex=.8,col=col)  
 }
 
-plotBoxes <- function(...) 
+plotBoxes <- function(x,...) 
   UseMethod("plotBoxes")
 
 plotBoxes.default <- function(...,main=NULL,ylab="Outcome",xlab="",ylim=NULL) {
@@ -110,5 +110,3 @@ plotBoxes.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",ylim=NULL
   for(i in 1:ngroups) {with(subset(data,group==groups[i]),.vio(outcome,i))}
   for(i in 1:ngroups) {with(subset(data,group==groups[i]),.bp(outcome,i))}
 }
-
-
