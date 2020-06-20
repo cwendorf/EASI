@@ -3,10 +3,10 @@
 
 \name{testOmnibus}
 \alias{testOmnibus}
-\alias{nhstOmnibus.default}
-\alias{nhstOmnibus.formula}
-\alias{nhstOmnibus.wss}
-\alias{nhstOmnibus.bss}
+\alias{testOmnibus.default}
+\alias{testOmnibus.formula}
+\alias{testOmnibus.wss}
+\alias{testOmnibus.bss}
 \title{Test Omnibus}
 \description{Provides a statistical significance test for for an Analysis of Variance.}
 

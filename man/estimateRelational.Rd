@@ -3,10 +3,10 @@
 
 \name{estimateRelational}
 \alias{estimateRelational}
-\alias{ciRelational.default}
-\alias{ciRelational.formula}
-\alias{ciRelational.wss}
-\alias{ciRelational.bss}
+\alias{estimateRelational.default}
+\alias{estimateRelational.formula}
+\alias{estimateRelational.wss}
+\alias{estimateRelational.bss}
 \title{Estimate Relational}
 \description{Provides a table of arelational (confidence) and relational (comparative) intervals for each group or level mean.}
 

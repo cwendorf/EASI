@@ -3,10 +3,10 @@
 
 \name{describeOmnibus}
 \alias{describeOmnibus}
-\alias{descOmnibus.default}
-\alias{descOmnibus.formula}
-\alias{descOmnibus.wss}
-\alias{descOmnibus.bss}
+\alias{describeOmnibus.default}
+\alias{describeOmnibus.formula}
+\alias{describeOmnibus.wss}
+\alias{describeOmnibus.bss}
 \title{Describe Omnibus}
 \description{Provides a Analysis of Variance source table.}
 

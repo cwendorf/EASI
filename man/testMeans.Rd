@@ -3,10 +3,10 @@
 
 \name{testMeans}
 \alias{testMeans}
-\alias{nhstMeans.default}
-\alias{nhstMeans.formula}
-\alias{nhstMeans.wss}
-\alias{nhstMeans.bss}
+\alias{testMeans.default}
+\alias{testMeans.formula}
+\alias{testMeans.wss}
+\alias{testMeans.bss}
 \title{Test Means}
 \description{Provides a statistical significance test for each group or level mean.}
 

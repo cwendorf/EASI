@@ -3,10 +3,10 @@
 
 \name{standardizeMeans}
 \alias{standardizeMeans}
-\alias{smdMeans.default}
-\alias{smdMeans.formula}
-\alias{smdMeans.wss}
-\alias{smdMeans.bss}
+\alias{standardizeMeans.default}
+\alias{standardizeMeans.formula}
+\alias{standardizeMeans.wss}
+\alias{standardizeMeans.bss}
 \title{Standardize Means}
 \description{Provides a standardized effect size and its confidence interval for each group or level mean.}
 

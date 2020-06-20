@@ -3,10 +3,10 @@
 
 \name{testPairwise}
 \alias{testPairwise}
-\alias{nhstPairwise.default}
-\alias{nhstPairwise.formula}
-\alias{nhstPairwise.wss}
-\alias{nhstPairwise.bss}
+\alias{testPairwise.default}
+\alias{testPairwise.formula}
+\alias{testPairwise.wss}
+\alias{testPairwise.bss}
 \title{Test Pairwise}
 \description{Provides a statistical significance test for all unadjusted pairwise comparisons.}
 

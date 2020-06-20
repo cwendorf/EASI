@@ -3,10 +3,10 @@
 
 \name{effectOmnibus}
 \alias{effectOmnibus}
-\alias{pvaOmnibus.default}
-\alias{pvaOmnibus.formula}
-\alias{pvaOmnibus.wss}
-\alias{pvaOmnibus.bss}
+\alias{effectOmnibus.default}
+\alias{effectOmnibus.formula}
+\alias{effectOmnibus.wss}
+\alias{effectOmnibus.bss}
 \title{Effect Omnibus}
 \description{Calculates the proportion of variance accounted for by the omnibus effect and its confidence interval.}
 

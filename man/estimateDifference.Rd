@@ -3,10 +3,10 @@
 
 \name{estimateDifference}
 \alias{estimateDifference}
-\alias{ciDifference.default}
-\alias{ciDifference.formula}
-\alias{ciDifference.wss}
-\alias{ciDifference.bss}
+\alias{estimateDifference.default}
+\alias{estimateDifference.formula}
+\alias{estimateDifference.wss}
+\alias{estimateDifference.bss}
 \title{Estimate Difference}
 \description{Provides the mean difference, standard error, and confidence interval of the difference.}
 

@@ -3,10 +3,10 @@
 
 \name{testDifference}
 \alias{testDifference}
-\alias{nhstDifference.default}
-\alias{nhstDifference.formula}
-\alias{nhstDifference.wss}
-\alias{nhstDifference.bss}
+\alias{testDifference.default}
+\alias{testDifference.formula}
+\alias{testDifference.wss}
+\alias{testDifference.bss}
 \title{Test Difference}
 \description{Provides a statistical significance test of the mean difference.}
 

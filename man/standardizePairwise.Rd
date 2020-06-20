@@ -3,10 +3,10 @@
 
 \name{standardizePairwise}
 \alias{standardizePairwise}
-\alias{smdPairwise.default}
-\alias{smdPairwise.formula}
-\alias{smdPairwise.wss}
-\alias{smdPairwise.bss}
+\alias{standardizePairwise.default}
+\alias{standardizePairwise.formula}
+\alias{standardizePairwise.wss}
+\alias{standardizePairwise.bss}
 \title{Standardize Pairwise}
 \description{Provides a standardized effect size and its confidence interval for all unadjusted pairwise comparisons.}
 

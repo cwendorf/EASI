@@ -3,10 +3,10 @@
 
 \name{testContrast}
 \alias{testContrast}
-\alias{nhstContrast.default}
-\alias{nhstContrast.formula}
-\alias{nhstContrast.wss}
-\alias{nhstContrast.bss}
+\alias{testContrast.default}
+\alias{testContrast.formula}
+\alias{testContrast.wss}
+\alias{testContrast.bss}
 \title{Test Contrast}
 \description{Provides a statistical significance test of the mean contrast.}
 

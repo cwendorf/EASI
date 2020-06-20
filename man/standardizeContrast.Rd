@@ -3,10 +3,10 @@
 
 \name{standardizeContrast}
 \alias{standardizeContrast}
-\alias{smdContrast.default}
-\alias{smdContrast.formula}
-\alias{smdContrast.wss}
-\alias{smdContrast.bss}
+\alias{standardizeContrast.default}
+\alias{standardizeContrast.formula}
+\alias{standardizeContrast.wss}
+\alias{standardizeContrast.bss}
 \title{Standardize Contrast}
 \description{Provides the standardized effect size and its confidence interval for the contrast.}
 

@@ -3,10 +3,10 @@
 
 \name{estimatePairwise}
 \alias{estimatePairwise}
-\alias{ciPairwise.default}
-\alias{ciPairwise.formula}
-\alias{ciPairwise.wss}
-\alias{ciPairwise.bss}
+\alias{estimatePairwise.default}
+\alias{estimatePairwise.formula}
+\alias{estimatePairwise.wss}
+\alias{estimatePairwise.bss}
 \title{Estimate Pairwise}
 \description{Provides a table of confidence intervals for all unadjusted pairwise comparisons among the means.}
 

@@ -1,17 +1,17 @@
-% File man/describeMeans.Rd
+% File man/describeBoxes.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{describeMeans}
-\alias{describeMeans}
-\alias{describeMeans.default}
-\alias{describeMeans.formula}
-\title{Describe Means}
-\description{Provides a table of descriptive/summary statistics for a data set.}
+\name{describeBoxes}
+\alias{describeBoxes}
+\alias{describeBoxes.default}
+\alias{describeBoxes.formula}
+\title{Describe Boxes}
+\description{Provides a five number summary (median and quartile information) for a data set.}
 
 \usage{
-\method{describeMeans}{default}(\dots,main=NULL,digits=3)
+\method{describeBoxes}{default}(\dots,main=NULL,digits=3)
 
-\method{describeMeans}{formula}(formula,main=NULL,digits=3)
+\method{describeBoxes}{formula}(formula,main=NULL,digits=3)
 }
 
 \arguments{

@@ -3,10 +3,10 @@
 
 \name{standardizeDifference}
 \alias{standardizeDifference}
-\alias{smdDifference.default}
-\alias{smdDifference.formula}
-\alias{smdDifference.wss}
-\alias{smdDifference.bss}
+\alias{standardizeDifference.default}
+\alias{standardizeDifference.formula}
+\alias{standardizeDifference.wss}
+\alias{standardizeDifference.bss}
 \title{Standardize Difference}
 \description{Provides the standardized effect size for the difference and its confidence interval.}
 

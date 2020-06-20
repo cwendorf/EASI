@@ -3,8 +3,8 @@
 
 \name{estimateCorrelations}
 \alias{estimateCorrelations}
-\alias{ciCorrelations.default}
-\alias{ciCorrelations.wss}
+\alias{estimateCorrelations.default}
+\alias{estimateCorrelations.wss}
 \title{Estimate Correlations}
 \description{Provides correlations, their standard errors, and their confidence intervals for a list of variables.}
 

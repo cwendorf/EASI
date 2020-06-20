@@ -3,10 +3,10 @@
 
 \name{estimateContrast}
 \alias{estimateContrast}
-\alias{ciContrast.default}
-\alias{ciContrast.formula}
-\alias{ciContrast.wss}
-\alias{ciContrast.bss}
+\alias{estimateContrast.default}
+\alias{estimateContrast.formula}
+\alias{estimateContrast.wss}
+\alias{estimateContrast.bss}
 \title{Estimate Contrast}
 \description{Provides the mean contrast, standard error, and confidence interval of the contrast.}
 
