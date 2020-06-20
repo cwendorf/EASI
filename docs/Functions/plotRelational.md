@@ -7,7 +7,7 @@ Provides a plot of of arelational (confidence) and relational (comparative) inte
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 plotMeans(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'

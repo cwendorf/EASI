@@ -22,13 +22,26 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/source-EASI.R")
 
 Prefix | Description
 :-- | :--
-`describe` | provide simple descriptive summaries of the information
-`estimate` | estimate confidence intervals for means, mean differences, and contrasts
-`plot` | plot confidence intervals for means, mean differences, and contrasts
-`test` | calculate NHST for means, mean differences, and contrasts
+`describe` | provide simple descriptive information
+`estimate` | estimate confidence intervals
+`plot` | plot confidence intervals 
+`test` | calculate null hypothesis significance tests
 `standardize` | calculate standardized effect sizes and their confidence intervals
 
 #### Available Functions
+
+`Data` - functions that examine and plot the data for the groups or levels
+
+- [`plotData`](./plotData.md)
+
+`Boxes` - functions that summarize and provide boxplots for the groups or levels
+
+- [`describeBoxes`](./describeBoxes.md)
+- [`plotBoxes'](./plotBoxes.md)
+
+`Violins` - functions that provide densities and violin plots for the groups or levels
+
+- [`plotViolins`](./plotViolins.md)
 
 `Means` - functions that examine all individual group or level means
 
