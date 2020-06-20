@@ -6,7 +6,7 @@ This package is not currently on CRAN, but can be installed directly from this r
 
 ``` r
 install.packages("devtools")
-devtools::install_github("cwendorf/EASI")
+devtools::install_github("cwendorf/EASI",build_vignettes=TRUE)
 library(EASI)
 ```
 
@@ -22,11 +22,11 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/source-EASI.R")
 
 Prefix | Description
 :-- | :--
-`describe` | provide simple descriptive information
-`estimate` | estimate confidence intervals
-`plot` | plot confidence intervals 
-`test` | calculate null hypothesis significance tests
-`standardize` | calculate standardized effect sizes and their confidence intervals
+`describe` | describe the data using summary statistics
+`estimate` | estimate the confidence intervals
+`plot` | plot the confidence intervals 
+`test` | test the estimates for statistical significance
+`standardize` | standardize the effect sizes and get their confidence intervals
 
 #### Available Functions
 
@@ -65,7 +65,7 @@ Prefix | Description
 - [`testContrast`](./testContrast.md)
 - [`standardizeContrast`](./standardizeContrast.md) 
 
-`Pairwise` (functions that examine all possible unadjusted pairwise comparisons among the group or levels means)
+`Pairwise` - functions that examine all possible unadjusted pairwise comparisons among the group or levels means
 
 - [`estimatePairwise`](./estimatePairwise.md)
 - [`plotPairwise`](./plotPairwise.md)
