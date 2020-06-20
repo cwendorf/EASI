@@ -13,7 +13,7 @@ library(EASI)
 If you do not wish a full install, the functions can be sourced instead:
 
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/source-EASI.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 ```
 
 ### Summary of the Functions
