@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,26 @@ vignette: >
 
 
 
+
+
 ## One Sample Tutorial with Data
 
-### Enter Data
+### Table of Contents
+
+- [One Sample Tutorial with Data](#one-sample-tutorial-with-data)
+    - [Data Management](#data-management)
+        - [Data Entry](#data-entry)
+        - [Plot of the Data](#plot-of-the-data)
+        - [Descriptive Statistics](#descriptive-statistics)
+    - [Analyses of the Mean](#analyses-of-the-mean)
+        - [Confidence Interval for the Mean](#confidence-interval-for-the-mean)
+        - [Plots of the Confidence Intervals for the Mean](#plots-of-the-confidence-intervals-for-the-mean)
+        - [Significance Tests for the Mean](#significance-tests-for-the-mean)
+        - [Effect Sizes for the Mean](#effect-sizes-for-the-mean)
+
+### Data Management
+
+#### Data Entry
 
 This code inputs the variable name and creates a viewable data frame.
 
@@ -26,7 +43,18 @@ Outcome <- c(0,0,3,5,4,7,4,9)
 OneSampleData <- data.frame(Outcome)
 ```
 
-### Descriptive Statistics
+#### Plot of the Data
+
+
+```r
+plotViolins(Outcome,main="Summary of the Variable")
+plotBoxes(Outcome,add=TRUE)
+plotData(Outcome,add=TRUE,method="stack",pch=16)
+```
+
+![](figures/OneSample-Violin-1.png)<!-- -->
+
+#### Descriptive Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
@@ -67,7 +95,7 @@ estimateMeans(Outcome,conf.level=.99)
 ```
 ## $`Confidence Interval for the Mean`
 ##               M      SE      df      LL      UL
-## Outcome   4.000   1.102   7.000   0.144   7.856
+## Outcome   4.000   1.102   7.000   0.143   7.857
 ```
 
 #### Plots of the Confidence Intervals for the Mean

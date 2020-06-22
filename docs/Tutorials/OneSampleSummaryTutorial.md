@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,21 @@ vignette: >
 
 
 
+
+
 ## One Sample Tutorial with Summary Statistics
 
-### Enter Summary Statistics
+### Table of Contents
+
+- [One Sample Tutorial with Summary Statistics](#one-sample-tutorial-with-summary-statistics)
+    - [Data Management](#data-management)
+    - [Analyses of the Mean](#analyses-of-the-mean)
+        - [Confidence Interval for the Mean](#confidence-interval-for-the-mean)
+        - [Plots of the Confidence Intervals for the Mean](#plots-of-the-confidence-intervals-for-the-mean)
+        - [Significance Tests for the Mean](#significance-tests-for-the-mean)
+        - [Effect Sizes for the Mean](#effect-sizes-for-the-mean)
+
+### Data Management
 
 This code inputs the variable and creates a single summary table.
 

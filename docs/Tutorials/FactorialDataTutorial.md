@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-15"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,41 @@ vignette: >
 
 
 
+
+
 ## Factorial (Between-Subjects) Tutorial with Data
 
-### Enter Data
+### Table of Contents
+
+- [Factorial (Between-Subjects) Tutorial with Data](#factorial-(between-subjects)-tutorial-with-data)
+    - [Data Management](#data-management)
+        - [Data Entry](#data-entry)
+        - [Plot of the Data](#plot-of-the-data)
+        - [Descriptive Statistics](#descriptive-statistics)
+    - [Analyses of the Means](#analyses-of-the-means)
+        - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
+        - [Plot of the Confidence Intervals for the Means](#plot-of-the-confidence-intervals-for-the-means)
+        - [Significance Tests for the Means](#significance-tests-for-the-means)
+        - [Effect Size for the Means](#effect-size-for-the-means)
+    - [Analyses of a Comparison](#analyses-of-a-comparison)
+        - [Confidence Interval for a Mean Difference](#confidence-interval-for-a-mean-difference)
+        - [Plot of the Confidence Interval for the Mean Difference](#plot-of-the-confidence-interval-for-the-mean-difference)
+        - [Significance Test for the Mean Difference](#significance-test-for-the-mean-difference)
+        - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+    - [Analyses of a Contrast](#analyses-of-a-contrast)
+        - [Confidence Interval for a Contrast](#confidence-interval-for-a-contrast)
+        - [Plots of Confidence Intervals for a Contrast](#plots-of-confidence-intervals-for-a-contrast)
+        - [Significance Test for a Contrast](#significance-test-for-a-contrast)
+        - [Effect Size for a Contrast](#effect-size-for-a-contrast)
+    - [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
+        - [Confidence Intervals for the Pairwise Comparisons](#confidence-intervals-for-the-pairwise-comparisons)
+        - [Plots of the Confidence Intervals for the Pairwise Comparisons](#plots-of-the-confidence-intervals-for-the-pairwise-comparisons)
+        - [Significance Tests of the Pairwise Comparisons](#significance-tests-of-the-pairwise-comparisons)
+        - [Effect Sizes for the Pairwise Comparisons](#effect-sizes-for-the-pairwise-comparisons)
+
+### Data Management
+
+#### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
 
@@ -37,7 +69,26 @@ FactorialDataB1 <- subset(FactorialData,FactorB=="B1")
 FactorialDataB2 <- subset(FactorialData,FactorB=="B2")
 ```
 
-### Descriptive Statistics
+#### Plot of the Data
+
+
+```r
+with(FactorialDataB1,plotViolins(Outcome~FactorA,main="Summaries of the Groups"))
+with(FactorialDataB1,plotBoxes(Outcome~FactorA,add=TRUE))
+with(FactorialDataB1,plotData(Outcome~FactorA,add=TRUE,method="stack",pch=16))
+```
+
+![](figures/Factorial-Violins-1.png)<!-- -->
+
+```r
+with(FactorialDataB2,plotViolins(Outcome~FactorA,main="Summaries of the Groups"))
+with(FactorialDataB2,plotBoxes(Outcome~FactorA,add=TRUE))
+with(FactorialDataB2,plotData(Outcome~FactorA,add=TRUE,method="stack",pch=16))
+```
+
+![](figures/Factorial-Violins-2.png)<!-- -->
+
+#### Descriptive Statistics
 
 This code obtains the descriptive statistics for the two data frames.
 
@@ -80,9 +131,9 @@ with(FactorialDataB1,estimateMeans(Outcome~FactorA))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   2.000   1.225   3.000  -1.898   5.898
-## A2   6.000   1.225   3.000   2.102   9.898
-## A3   7.000   1.225   3.000   3.102  10.898
+## A1   2.000   1.224   3.000  -1.897   5.897
+## A2   6.000   1.224   3.000   2.103   9.897
+## A3   7.000   1.224   3.000   3.103  10.897
 ```
 
 ```r
@@ -92,9 +143,9 @@ with(FactorialDataB2,estimateMeans(Outcome~FactorA))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   4.000   1.225   3.000   0.102   7.898
-## A2   4.000   1.225   3.000   0.102   7.898
-## A3   5.000   1.225   3.000   1.102   8.898
+## A1   4.000   1.224   3.000   0.103   7.897
+## A2   4.000   1.224   3.000   0.103   7.897
+## A3   5.000   1.224   3.000   1.103   8.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -106,9 +157,9 @@ with(FactorialDataB1,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   2.000   1.225   3.000  -5.154   9.154
-## A2   6.000   1.225   3.000  -1.154  13.154
-## A3   7.000   1.225   3.000  -0.154  14.154
+## A1   2.000   1.224   3.000  -5.152   9.152
+## A2   6.000   1.224   3.000  -1.152  13.152
+## A3   7.000   1.224   3.000  -0.152  14.152
 ```
 
 ```r
@@ -118,9 +169,9 @@ with(FactorialDataB2,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   4.000   1.225   3.000  -3.154  11.154
-## A2   4.000   1.225   3.000  -3.154  11.154
-## A3   5.000   1.225   3.000  -2.154  12.154
+## A1   4.000   1.224   3.000  -3.152  11.152
+## A2   4.000   1.224   3.000  -3.152  11.152
+## A3   5.000   1.224   3.000  -2.152  12.152
 ```
 
 #### Plot of the Confidence Intervals for the Means
@@ -164,9 +215,9 @@ with(FactorialDataB1,testMeans(Outcome~FactorA))
 ```
 ## $`Hypothesis Tests for the Means`
 ##       Diff      SE      df       t       p
-## A1   2.000   1.225   3.000   1.633   0.201
-## A2   6.000   1.225   3.000   4.899   0.016
-## A3   7.000   1.225   3.000   5.715   0.011
+## A1   2.000   1.224   3.000   1.633   0.201
+## A2   6.000   1.224   3.000   4.900   0.016
+## A3   7.000   1.224   3.000   5.717   0.011
 ```
 
 ```r
@@ -176,9 +227,9 @@ with(FactorialDataB2,testMeans(Outcome~FactorA))
 ```
 ## $`Hypothesis Tests for the Means`
 ##       Diff      SE      df       t       p
-## A1   4.000   1.225   3.000   3.266   0.047
-## A2   4.000   1.225   3.000   3.266   0.047
-## A3   5.000   1.225   3.000   4.082   0.027
+## A1   4.000   1.224   3.000   3.267   0.047
+## A2   4.000   1.224   3.000   3.267   0.047
+## A3   5.000   1.224   3.000   4.083   0.027
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -190,9 +241,9 @@ with(FactorialDataB1,testMeans(Outcome~FactorA,mu=5))
 ```
 ## $`Hypothesis Tests for the Means`
 ##       Diff      SE      df       t       p
-## A1  -3.000   1.225   3.000  -2.449   0.092
-## A2   1.000   1.225   3.000   0.816   0.474
-## A3   2.000   1.225   3.000   1.633   0.201
+## A1  -3.000   1.224   3.000  -2.450   0.092
+## A2   1.000   1.224   3.000   0.817   0.474
+## A3   2.000   1.224   3.000   1.633   0.201
 ```
 
 ```r
@@ -202,9 +253,9 @@ with(FactorialDataB2,testMeans(Outcome~FactorA,mu=5))
 ```
 ## $`Hypothesis Tests for the Means`
 ##       Diff      SE      df       t       p
-## A1  -1.000   1.225   3.000  -0.816   0.474
-## A2  -1.000   1.225   3.000  -0.816   0.474
-## A3   0.000   1.225   3.000   0.000   1.000
+## A1  -1.000   1.224   3.000  -0.817   0.474
+## A2  -1.000   1.224   3.000  -0.817   0.474
+## A3   0.000   1.224   3.000   0.000   1.000
 ```
 
 #### Effect Size for the Means
@@ -218,9 +269,9 @@ with(FactorialDataB1,standardizeMeans(Outcome~FactorA))
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##          d      SE      LL      UL
-## A1   0.816   0.616  -0.387   1.934
-## A2   2.449   0.955   0.325   4.531
-## A3   2.858   1.063   0.464   5.226
+## A1   0.817   0.616  -0.387   1.934
+## A2   2.450   0.955   0.325   4.532
+## A3   2.858   1.063   0.464   5.227
 ```
 
 ```r
@@ -232,7 +283,7 @@ with(FactorialDataB2,standardizeMeans(Outcome~FactorA))
 ##          d      SE      LL      UL
 ## A1   1.633   0.761   0.013   3.177
 ## A2   1.633   0.761   0.013   3.177
-## A3   2.041   0.854   0.176   3.846
+## A3   2.042   0.854   0.176   3.847
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -244,9 +295,9 @@ with(FactorialDataB1,standardizeMeans(Outcome~FactorA,mu=5,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##          d      SE      LL      UL
-## A1  -1.225   0.680  -3.010   0.547
-## A2   0.408   0.574  -0.969   1.734
-## A3   0.816   0.616  -0.732   2.319
+## A1  -1.225   0.680  -3.011   0.547
+## A2   0.408   0.574  -0.968   1.734
+## A3   0.817   0.616  -0.732   2.320
 ```
 
 ```r
@@ -256,9 +307,9 @@ with(FactorialDataB1,standardizeMeans(Outcome~FactorA,mu=5,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##          d      SE      LL      UL
-## A1  -1.225   0.680  -3.010   0.547
-## A2   0.408   0.574  -0.969   1.734
-## A3   0.816   0.616  -0.732   2.319
+## A1  -1.225   0.680  -3.011   0.547
+## A2   0.408   0.574  -0.968   1.734
+## A3   0.817   0.616  -0.732   2.320
 ```
 
 ### Analyses of a Comparison
@@ -283,8 +334,8 @@ with(FactorialDataB1,estimateMeans(Outcome~CompDataB1))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   2.000   1.225   3.000  -1.898   5.898
-## A2   6.000   1.225   3.000   2.102   9.898
+## A1   2.000   1.224   3.000  -1.897   5.897
+## A2   6.000   1.224   3.000   2.103   9.897
 ```
 
 ```r
@@ -294,8 +345,8 @@ with(FactorialDataB2,estimateMeans(Outcome~CompDataB2))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   4.000   1.225   3.000   0.102   7.898
-## A2   4.000   1.225   3.000   0.102   7.898
+## A1   4.000   1.224   3.000   0.103   7.897
+## A2   4.000   1.224   3.000   0.103   7.897
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -307,7 +358,7 @@ with(FactorialDataB1,estimateDifference(Outcome~CompDataB1,conf.level=.99))
 ```
 ## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   4.000   1.732   6.000  -2.421  10.421
+## Comparison   4.000   1.732   6.000  -2.420  10.420
 ```
 
 ```r
@@ -317,7 +368,7 @@ with(FactorialDataB2,estimateDifference(Outcome~CompDataB2,conf.level=.99))
 ```
 ## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   1.732   6.000  -6.421   6.421
+## Comparison   0.000   1.732   6.000  -6.420   6.420
 ```
 
 #### Plot of the Confidence Interval for the Mean Difference
@@ -361,7 +412,7 @@ with(FactorialDataB1,testDifference(Outcome~CompDataB1))
 ```
 ## $`Hypothesis Test for the Difference`
 ##               Diff      SE      df       t       p
-## Comparison   4.000   1.732   6.000   2.309   0.060
+## Comparison   4.000   1.732   6.000   2.310   0.060
 ```
 
 ```r
@@ -383,7 +434,7 @@ with(FactorialDataB1,testDifference(Outcome~CompDataB1,mu=-2))
 ```
 ## $`Hypothesis Test for the Difference`
 ##               Diff      SE      df       t       p
-## Comparison   6.000   1.732   6.000   3.464   0.013
+## Comparison   6.000   1.732   6.000   3.465   0.013
 ```
 
 ```r
@@ -429,7 +480,7 @@ with(FactorialDataB1,standardizeDifference(Outcome~CompDataB1,conf.level=.99))
 ```
 ## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
-## Comparison   1.633   0.943  -0.796   4.062
+## Comparison   1.633   0.943  -0.795   4.062
 ```
 
 ```r
@@ -485,7 +536,7 @@ with(FactorialDataB1,estimateContrast(Outcome~FactorA,contrast=A1vsOthers,conf.l
 ```
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   4.500   1.500   6.000  -1.061  10.061
+## Contrast   4.500   1.500   6.000  -1.060  10.060
 ```
 
 ```r
@@ -495,7 +546,7 @@ with(FactorialDataB2,estimateContrast(Outcome~FactorA,contrast=A1vsOthers,conf.l
 ```
 ## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   1.500   6.000  -5.061   6.061
+## Contrast   0.500   1.500   6.000  -5.060   6.060
 ```
 
 #### Plots of Confidence Intervals for a Contrast
@@ -539,7 +590,7 @@ with(FactorialDataB1,testContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 ## $`Hypothesis Test for the Contrast`
 ##              Est      SE      df       t       p
-## Contrast   4.500   1.500   6.000   3.000   0.024
+## Contrast   4.500   1.500   6.000   3.001   0.024
 ```
 
 ```r
@@ -571,7 +622,7 @@ with(FactorialDataB2,testContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
 ```
 ## $`Hypothesis Test for the Contrast`
 ##              Est      SE      df       t       p
-## Contrast  -3.500   1.500   6.000  -2.333   0.058
+## Contrast  -3.500   1.500   6.000  -2.334   0.058
 ```
 
 #### Effect Size for a Contrast
@@ -585,7 +636,7 @@ with(FactorialDataB1,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 ## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
-## Contrast   1.837   0.829   0.212   3.462
+## Contrast   1.837   0.829   0.212   3.463
 ```
 
 ```r
@@ -607,7 +658,7 @@ with(FactorialDataB1,standardizeContrast(Outcome~FactorA,contrast=A1vsOthers,con
 ```
 ## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
-## Contrast   1.837   0.829  -0.299   3.973
+## Contrast   1.837   0.829  -0.298   3.973
 ```
 
 ```r
@@ -636,9 +687,9 @@ with(FactorialDataB1,estimatePairwise(Outcome~FactorA))
 ```
 ## $`Confidence Intervals for the Pairwise Comparisons`
 ##            Diff      SE      df      LL      UL
-## A1 v A2   4.000   1.732   6.000  -0.238   8.238
-## A1 v A3   5.000   1.732   6.000   0.762   9.238
-## A2 v A3   1.000   1.732   6.000  -3.238   5.238
+## A1 v A2   4.000   1.732   6.000  -0.237   8.237
+## A1 v A3   5.000   1.732   6.000   0.763   9.237
+## A2 v A3   1.000   1.732   6.000  -3.237   5.237
 ```
 
 ```r
@@ -648,9 +699,9 @@ with(FactorialDataB2,estimatePairwise(Outcome~FactorA))
 ```
 ## $`Confidence Intervals for the Pairwise Comparisons`
 ##            Diff      SE      df      LL      UL
-## A1 v A2   0.000   1.732   6.000  -4.238   4.238
-## A1 v A3   1.000   1.732   6.000  -3.238   5.238
-## A2 v A3   1.000   1.732   6.000  -3.238   5.238
+## A1 v A2   0.000   1.732   6.000  -4.237   4.237
+## A1 v A3   1.000   1.732   6.000  -3.237   5.237
+## A2 v A3   1.000   1.732   6.000  -3.237   5.237
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -663,9 +714,9 @@ with(FactorialDataB1,estimatePairwise(Outcome~FactorA,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Pairwise Comparisons`
 ##            Diff      SE      df      LL      UL
-## A1 v A2   4.000   1.732   6.000  -2.421  10.421
-## A1 v A3   5.000   1.732   6.000  -1.421  11.421
-## A2 v A3   1.000   1.732   6.000  -5.421   7.421
+## A1 v A2   4.000   1.732   6.000  -2.420  10.420
+## A1 v A3   5.000   1.732   6.000  -1.420  11.420
+## A2 v A3   1.000   1.732   6.000  -5.420   7.420
 ```
 
 ```r
@@ -675,9 +726,9 @@ with(FactorialDataB2,estimatePairwise(Outcome~FactorA,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Pairwise Comparisons`
 ##            Diff      SE      df      LL      UL
-## A1 v A2   0.000   1.732   6.000  -6.421   6.421
-## A1 v A3   1.000   1.732   6.000  -5.421   7.421
-## A2 v A3   1.000   1.732   6.000  -5.421   7.421
+## A1 v A2   0.000   1.732   6.000  -6.420   6.420
+## A1 v A3   1.000   1.732   6.000  -5.420   7.420
+## A2 v A3   1.000   1.732   6.000  -5.420   7.420
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
@@ -724,7 +775,7 @@ with(FactorialDataB1,testPairwise(Outcome~FactorA))
 ```
 ## $`Hypothesis Tests for the Pairwise Comparisons`
 ##            Diff      SE      df       t       p
-## A1 v A2   4.000   1.732   6.000   2.309   0.060
+## A1 v A2   4.000   1.732   6.000   2.310   0.060
 ## A1 v A3   5.000   1.732   6.000   2.887   0.028
 ## A2 v A3   1.000   1.732   6.000   0.577   0.585
 ```
@@ -751,8 +802,8 @@ with(FactorialDataB1,testPairwise(Outcome~FactorA,mu=-2))
 ```
 ## $`Hypothesis Tests for the Pairwise Comparisons`
 ##            Diff      SE      df       t       p
-## A1 v A2   6.000   1.732   6.000   3.464   0.013
-## A1 v A3   7.000   1.732   6.000   4.041   0.007
+## A1 v A2   6.000   1.732   6.000   3.465   0.013
+## A1 v A3   7.000   1.732   6.000   4.042   0.007
 ## A2 v A3   3.000   1.732   6.000   1.732   0.134
 ```
 
@@ -781,7 +832,7 @@ with(FactorialDataB1,standardizePairwise(Outcome~FactorA))
 ## $`Confidence Intervals for the Standardized Pairwise Comparisons`
 ##             Est      SE      LL      UL
 ## A1 v A2   1.633   0.943  -0.215   3.481
-## A1 v A3   2.041   1.007   0.068   4.015
+## A1 v A3   2.042   1.007   0.068   4.015
 ## A2 v A3   0.408   0.825  -1.209   2.025
 ```
 
@@ -807,8 +858,8 @@ with(FactorialDataB1,standardizePairwise(Outcome~FactorA,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Standardized Pairwise Comparisons`
 ##             Est      SE      LL      UL
-## A1 v A2   1.633   0.943  -0.796   4.062
-## A1 v A3   2.041   1.007  -0.552   4.635
+## A1 v A2   1.633   0.943  -0.795   4.062
+## A1 v A3   2.042   1.007  -0.552   4.635
 ## A2 v A3   0.408   0.825  -1.717   2.533
 ```
 

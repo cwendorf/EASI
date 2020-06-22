@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,31 @@ vignette: >
 
 
 
+
+
 ## Paired Samples Tutorial with Data
 
-### Enter Data
+### Table of Contents
+
+- [Paired Samples Tutorial with Data](#paired-samples-tutorial-with-data)
+    - [Data Management](#data-management)
+        - [Data Entry](#data-entry)
+        - [Plot of the Data](#plot-of-the-data)
+        - [Descriptive Statistics](#descriptive-statistics)
+    - [Analyses of the Means](#analyses-of-the-means)
+        - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
+        - [Plots of Confidence Intervals for the Means](#plots-of-confidence-intervals-for-the-means)
+        - [Significance Tests for the Means](#significance-tests-for-the-means)
+        - [Effect Sizes for the Means](#effect-sizes-for-the-means)
+    - [Analyses of the Comparison](#analyses-of-the-comparison)
+        - [Confidence Interval for the Mean Difference](#confidence-interval-for-the-mean-difference)
+        - [Plots of Confidence Intervals for the Mean Difference](#plots-of-confidence-intervals-for-the-mean-difference)
+        - [Significance Test for the Mean Difference](#significance-test-for-the-mean-difference)
+        - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+
+### Data Management
+
+#### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
 
@@ -26,8 +48,19 @@ Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)
 PairedData <- data.frame(Outcome1,Outcome2)
 ```
- 
-### Descriptive Statistics
+
+#### Plot of the Data
+
+
+```r
+plotViolins(Outcome1,Outcome2,main="Summaries of the Variables")
+plotBoxes(Outcome1,Outcome2,add=TRUE)
+plotData(Outcome1,Outcome2,add=TRUE,method="stack",pch=16)
+```
+
+![](figures/Paired-Violins-1.png)<!-- -->
+
+#### Descriptive Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
@@ -57,8 +90,8 @@ estimateMeans(Outcome1,Outcome2)
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   2.000   1.225   3.000  -1.898   5.898
-## Outcome2   6.000   1.225   3.000   2.102   9.898
+## Outcome1   2.000   1.224   3.000  -1.897   5.897
+## Outcome2   6.000   1.224   3.000   2.103   9.897
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
@@ -70,8 +103,8 @@ estimateMeans(Outcome1,Outcome2,conf.level=.99)
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   2.000   1.225   3.000  -5.154   9.154
-## Outcome2   6.000   1.225   3.000  -1.154  13.154
+## Outcome1   2.000   1.224   3.000  -5.152   9.152
+## Outcome2   6.000   1.224   3.000  -1.152  13.152
 ```
 
 #### Plots of Confidence Intervals for the Means
@@ -103,8 +136,8 @@ testMeans(Outcome1,Outcome2)
 ```
 ## $`Hypothesis Tests for the Means`
 ##             Diff      SE      df       t       p
-## Outcome1   2.000   1.225   3.000   1.633   0.201
-## Outcome2   6.000   1.225   3.000   4.899   0.016
+## Outcome1   2.000   1.224   3.000   1.633   0.201
+## Outcome2   6.000   1.224   3.000   4.900   0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -116,8 +149,8 @@ testMeans(Outcome1,Outcome2,mu=6)
 ```
 ## $`Hypothesis Tests for the Means`
 ##             Diff      SE      df       t       p
-## Outcome1  -4.000   1.225   3.000  -3.266   0.047
-## Outcome2   0.000   1.225   3.000   0.000   1.000
+## Outcome1  -4.000   1.224   3.000  -3.267   0.047
+## Outcome2   0.000   1.224   3.000   0.000   1.000
 ```
 
 #### Effect Sizes for the Means
@@ -131,8 +164,8 @@ standardizeMeans(Outcome1,Outcome2)
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##                d      SE      LL      UL
-## Outcome1   0.816   0.616  -0.387   1.934
-## Outcome2   2.449   0.955   0.325   4.531
+## Outcome1   0.817   0.616  -0.387   1.934
+## Outcome2   2.450   0.955   0.325   4.532
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
@@ -144,7 +177,7 @@ standardizeMeans(Outcome1,Outcome2,mu=6,conf.level=.99)
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##                d      SE      LL      UL
-## Outcome1  -1.633   0.761  -3.764   0.398
+## Outcome1  -1.633   0.761  -3.765   0.398
 ## Outcome2   0.000   0.559  -1.288   1.288
 ```
 
@@ -163,7 +196,7 @@ estimateDifference(Outcome1,Outcome2)
 ```
 ## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   4.000   1.225   3.000   0.102   7.898
+## Comparison   4.000   1.224   3.000   0.103   7.897
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -175,7 +208,7 @@ estimateDifference(Outcome1,Outcome2,conf.level=.99)
 ```
 ## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   4.000   1.225   3.000  -3.154  11.154
+## Comparison   4.000   1.224   3.000  -3.152  11.152
 ```
 
 #### Plots of Confidence Intervals for the Mean Difference
@@ -207,7 +240,7 @@ testDifference(Outcome1,Outcome2)
 ```
 ## $`Hypothesis Test for the Difference`
 ##               Diff      SE      df       t       p
-## Comparison   4.000   1.225   3.000   3.266   0.047
+## Comparison   4.000   1.224   3.000   3.267   0.047
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -219,7 +252,7 @@ testDifference(Outcome1,Outcome2,mu=-2)
 ```
 ## $`Hypothesis Test for the Difference`
 ##               Diff      SE      df       t       p
-## Comparison   6.000   1.225   3.000   4.899   0.016
+## Comparison   6.000   1.224   3.000   4.900   0.016
 ```
 
 #### Effect Size for the Mean Difference
@@ -233,7 +266,7 @@ standardizeDifference(Outcome1,Outcome2)
 ```
 ## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
-## Comparison   1.633   0.782   0.101   3.165
+## Comparison   1.633   0.782   0.101   3.166
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -245,5 +278,5 @@ standardizeDifference(Outcome1,Outcome2,conf.level=.99)
 ```
 ## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
-## Comparison   1.633   0.782  -0.381   3.647
+## Comparison   1.633   0.782  -0.380   3.647
 ```

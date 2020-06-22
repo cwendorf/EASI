@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,26 @@ vignette: >
 
 
 
+
+
 ## Independent Groups Tutorial with Summary Statistics
 
-### Enter Summary Statistics
+### Table of Contents
+
+- [Independent Groups Tutorial with Summary Statistics](#independent-groups-tutorial-with-summary-statistics)
+    - [Data Management](#data-management)
+    - [Analyses of the Means](#analyses-of-the-means)
+        - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
+        - [Plots of the Confidence Intervals for the Means](#plots-of-the-confidence-intervals-for-the-means)
+        - [Significance Tests for the Means](#significance-tests-for-the-means)
+        - [Effect Sizes for the Means](#effect-sizes-for-the-means)
+    - [Analyses of the Comparison](#analyses-of-the-comparison)
+        - [Confidence Interval for a Mean Difference](#confidence-interval-for-a-mean-difference)
+        - [Plot of the Confidence Interval for a Mean Difference](#plot-of-the-confidence-interval-for-a-mean-difference)
+        - [Significance Test for a Mean Difference](#significance-test-for-a-mean-difference)
+        - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+
+### Data Management
 
 This code inputs the group summaries and creates a single summary table.
 

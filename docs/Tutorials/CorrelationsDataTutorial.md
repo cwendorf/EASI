@@ -1,7 +1,7 @@
 ---
-title: "Correlations Tutorial with Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-06-22"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -22,8 +22,9 @@ vignette: >
 ### Table of Contents
 
 - [Correlations Tutorial with Data](#correlations-tutorial-with-data)
-    - [Enter Data](#enter-data)
-    - [Descriptive Statistics](#descriptive-statistics)
+    - [Data Management](#data-management)
+        - [Data Entry](#data-entry)
+        - [Descriptive Statistics](#descriptive-statistics)
     - [Analyses of a Correlation](#analyses-of-a-correlation)
         - [Confidence Interval for the Correlation](#confidence-interval-for-the-correlation)
         - [Plot of the Confidence Interval for the Correlation](#plot-of-the-confidence-interval-for-the-correlation)
@@ -33,7 +34,9 @@ vignette: >
         - [Plots of the Confidence Intervals for the Correlations](#plots-of-the-confidence-intervals-for-the-correlations)
         - [Significance Tests for the Correlation](#significance-tests-for-the-correlation)
 
-### Enter Data
+### Data Management
+
+#### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
 
@@ -44,7 +47,7 @@ Outcome3 <- c(9,6,4,9)
 RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 ```
 
-### Descriptive Statistics
+#### Descriptive Statistics
 
 This code obtains the descriptive statistics for the data frame.
 

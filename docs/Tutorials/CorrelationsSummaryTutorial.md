@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-05-14"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,24 @@ vignette: >
 
 
 
+
+
 ## Correlations Tutorial with Summary Statistics
 
-### Enter Summary Statistics
+### Table of Contents
+
+- [Correlations Tutorial with Summary Statistics](#correlations-tutorial-with-summary-statistics)
+    - [Data Management](#data-management)
+    - [Analyses of a Correlation](#analyses-of-a-correlation)
+        - [Confidence Interval for the Correlation](#confidence-interval-for-the-correlation)
+        - [Plot of the Confidence Interval for the Correlation](#plot-of-the-confidence-interval-for-the-correlation)
+        - [Significance Test for the Correlation](#significance-test-for-the-correlation)
+    - [Analyses of Several Correlations](#analyses-of-several-correlations)
+        - [Confidence Intervals for the Correlations](#confidence-intervals-for-the-correlations)
+        - [Plots of the Confidence Intervals for the Correlations](#plots-of-the-confidence-intervals-for-the-correlations)
+        - [Significance Tests for the Correlation](#significance-tests-for-the-correlation)
+
+### Data Management
 
 This code inputs the variable summaries and creates a summary table.
 

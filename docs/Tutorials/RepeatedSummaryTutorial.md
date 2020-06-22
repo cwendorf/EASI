@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-05-14"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,36 @@ vignette: >
 
 
 
+
+
 ## Repeated Measures (Within-Subjects) Tutorial with Summary Statistics
 
-### Enter Summary Statistics
+### Table of Contents
+
+- [Repeated Measures (Within-Subjects) Tutorial with Summary Statistics](#repeated-measures-(within-subjects)-tutorial-with-summary-statistics)
+    - [Data Management](#data-management)
+    - [Analyses of the Means](#analyses-of-the-means)
+        - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
+        - [Plots of Confidence Intervals for the Means](#plots-of-confidence-intervals-for-the-means)
+        - [Significance Tests for the Means](#significance-tests-for-the-means)
+        - [Effect Sizes for the Means](#effect-sizes-for-the-means)
+    - [Analyses of a Comparison](#analyses-of-a-comparison)
+        - [Confidence Interval for the Mean Difference](#confidence-interval-for-the-mean-difference)
+        - [Plots of Confidence Intervals for the Mean Difference](#plots-of-confidence-intervals-for-the-mean-difference)
+        - [Significance Test for the Mean Difference](#significance-test-for-the-mean-difference)
+        - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+    - [Analyses of a Contrast](#analyses-of-a-contrast)
+        - [Confidence Interval for the Contrast](#confidence-interval-for-the-contrast)
+        - [Plots of Confidence Intervals for a Contrast](#plots-of-confidence-intervals-for-a-contrast)
+        - [Significance Test for the Contrast](#significance-test-for-the-contrast)
+        - [Effect Size for a Contrast](#effect-size-for-a-contrast)
+    - [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
+        - [Confidence Intervals for the Pairwise Comparisons](#confidence-intervals-for-the-pairwise-comparisons)
+        - [Plots of the Confidence Intervals for the Pairwise Comparisons](#plots-of-the-confidence-intervals-for-the-pairwise-comparisons)
+        - [Significance Tests of the Pairwise Comparisons](#significance-tests-of-the-pairwise-comparisons)
+        - [Effect Sizes for the Pairwise Comparisons](#effect-sizes-for-the-pairwise-comparisons)
+
+### Data Management
 
 This code inputs the variable summaries and creates a summary table.
 

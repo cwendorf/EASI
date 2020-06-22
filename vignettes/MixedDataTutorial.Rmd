@@ -1,15 +1,20 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "`r Sys.Date()`"
+date: "2020-06-20"
 output: 
-  rmarkdown::html_vignette:
+  rmarkdown::html_vignette:   
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Mixed Design Tutorial with Data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8",filename="render_toc.R")
+```
 
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
@@ -22,7 +27,17 @@ library(EASI)
 
 ## Mixed Design Tutorial with Data
 
-### Enter Data
+### Table of Contents
+
+```{r toc, echo=FALSE}
+sourceDir <- getSrcDirectory(function(dummy) {dummy})
+setwd(sourceDir)
+render_toc("MixedDataTutorial.Rmd")
+```
+
+### Data Management
+
+#### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
@@ -40,7 +55,18 @@ MixedDataL1 <- subset(MixedData,Factor=="Level1")
 MixedDataL2 <- subset(MixedData,Factor=="Level2")
 ```
 
-### Descriptive Statistics
+#### Plot of the Data
+
+```{r,Mixed-Violins}
+with(MixedDataL1,plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables"))
+with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16))
+with(MixedDataL2,plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables"))
+with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16))
+```
+
+#### Descriptive Statistics
 
 This code obtains the descriptive statistics for the two data frames.
 ```{r}
