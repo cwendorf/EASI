@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "`r Sys.Date()`"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -10,6 +10,11 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8",filename="render_toc.R")
+```
 
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
@@ -22,7 +27,15 @@ library(EASI)
 
 ## Mixed Design Example with Holzel Summary Statistics
 
-### Enter Summary Statistics
+### Table of Contents
+
+```{r toc, echo=FALSE}
+sourceDir <- getSrcDirectory(function(dummy) {dummy})
+setwd(sourceDir)
+render_toc("HolzelSummaryExample.Rmd")
+```
+
+### Data Management
 
 Create two tables of summary statistics for the first simple effect of interest.
 

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,7 +15,16 @@ vignette: >
 
 
 
+
+
 ## Paired Samples Example with Thomason Summary Statistics
+
+### Table of Contents
+
+- [Paired Samples Example with Thomason Summary Statistics](#paired-samples-example-with-thomason-summary-statistics)
+    - [Thomason1 Example](#thomason1-example)
+    - [Thomason2 Example](#thomason2-example)
+    - [Thomason3 Example](#thomason3-example)
 
 ### Thomason1 Example
 
@@ -35,7 +44,7 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotDifference(Thomason1Summary,Thomason1Corr,ylab="LSAT")
+plotDifference(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
 ```
 
 ![](figures/Thomason1-Difference-1.png)<!-- -->
@@ -44,11 +53,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Thomason1Summary,Thomason1Corr)
+standardizeDifference(Thomason1Summary,Thomason1Corr,main="Cohen's d for Differences in LSAT Scores")
 ```
 
 ```
-## $`Confidence Interval for the Standardized Difference`
+## $`Cohen's d for Differences in LSAT Scores`
 ##                Est      SE      LL      UL
 ## Comparison   0.536   0.181   0.180   0.891
 ```
@@ -71,7 +80,7 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotDifference(Thomason2Summary,Thomason2Corr,ylab="LSAT")
+plotDifference(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
 ```
 
 ![](figures/Thomason2-Difference-1.png)<!-- -->
@@ -80,11 +89,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Thomason2Summary,Thomason2Corr)
+standardizeDifference(Thomason2Summary,Thomason2Corr,main="Cohen's d for Differences in LSAT Scores")
 ```
 
 ```
-## $`Confidence Interval for the Standardized Difference`
+## $`Cohen's d for Differences in LSAT Scores`
 ##                Est      SE      LL      UL
 ## Comparison   0.356   0.155   0.052   0.659
 ```
@@ -107,7 +116,7 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotDifference(Thomason3Summary,Thomason3Corr,ylab="LSAT")
+plotDifference(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
 ```
 
 ![](figures/Thomason3-Difference-1.png)<!-- -->
@@ -116,11 +125,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Thomason3Summary,Thomason3Corr)
+standardizeDifference(Thomason3Summary,Thomason3Corr,main="Cohen's d for Differences in LSAT Scores")
 ```
 
 ```
-## $`Confidence Interval for the Standardized Difference`
+## $`Cohen's d for Differences in LSAT Scores`
 ##                Est      SE      LL      UL
 ## Comparison   0.652   0.161   0.338   0.967
 ```

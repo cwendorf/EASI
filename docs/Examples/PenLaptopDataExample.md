@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,7 +15,16 @@ vignette: >
 
 
 
+
+
 ## Indendent Groups Example with PenLaptop Data
+
+### Table of Contents
+
+- [Indendent Groups Example with PenLaptop Data](#indendent-groups-example-with-penlaptop-data)
+    - [PenLaptop1 Example](#penlaptop1-example)
+    - [PenLaptop2 Example](#penlaptop2-example)
+    - [PenLaptop3 Example](#penlaptop3-example)
 
 ### PenLaptop1 Example
 
@@ -32,7 +41,8 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotDifference(Transcription~Group,ylab="Transcription")
+plotDifference(Transcription~Group,main="Transcription as a Function of Note Taking",
+ylab="Transcription %")
 ```
 
 ![](figures/PenLaptop1-Difference-1.png)<!-- -->
@@ -41,11 +51,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Transcription~Group)
+standardizeDifference(Transcription~Group,main="Cohen's d for Difference in Pen vs Laptop Transcription")
 ```
 
 ```
-## $`Confidence Interval for the Standardized Difference`
+## $`Cohen's d for Difference in Pen vs Laptop Transcription`
 ##                Est      SE      LL      UL
 ## Comparison   0.928   0.270   0.398   1.458
 ```
@@ -65,7 +75,8 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotDifference(Transcription~Group,ylab="Transcription")
+plotDifference(Transcription~Group,main="Transcription as a Function of Note Taking",
+ylab="Transcription %")
 ```
 
 ![](figures/PenLaptop2-Difference-1.png)<!-- -->
@@ -74,11 +85,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Transcription~Group)
+standardizeDifference(Transcription~Group,main="Cohen's d for Difference in Pen vs Laptop Transcription")
 ```
 
 ```
-## $`Confidence Interval for the Standardized Difference`
+## $`Cohen's d for Difference in Pen vs Laptop Transcription`
 ##                Est      SE      LL      UL
 ## Comparison   1.059   0.179   0.709   1.409
 ```
@@ -98,7 +109,8 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotDifference(Transcription~Group,ylab="Transcription")
+plotDifference(Transcription~Group,main="Transcription as a Function of Note Taking",
+ylab="Transcription %")
 ```
 
 ![](figures/PenLaptop3-Difference-1.png)<!-- -->
@@ -107,11 +119,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Transcription~Group)
+standardizeDifference(Transcription~Group,main="Cohen's d for Difference in Pen vs Laptop Transcription")
 ```
 
 ```
-## $`Confidence Interval for the Standardized Difference`
+## $`Cohen's d for Difference in Pen vs Laptop Transcription`
 ##                Est      SE      LL      UL
-## Comparison   1.691   0.237   1.226   2.155
+## Comparison   1.691   0.237   1.226   2.156
 ```

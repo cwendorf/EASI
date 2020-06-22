@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "`r Sys.Date()`"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -10,6 +10,11 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8",filename="render_toc.R")
+```
 
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
@@ -22,7 +27,15 @@ library(EASI)
 
 ## Repeated Measures (Within-Subjects) Example with Donohue Data
 
-### Enter Data
+### Table of Contents
+
+```{r toc, echo=FALSE}
+sourceDir <- getSrcDirectory(function(dummy) {dummy})
+setwd(sourceDir)
+render_toc("DonohueDataExample.Rmd")
+```
+
+### Data Management
 
 Prior to analyses, enter the data.
 
@@ -32,18 +45,19 @@ Posttest <- c(16,20,25,22,28,12,16,26,21,22,26,30,23,27,23,27,28,24,28,28)
 Followup <- c(16,18,23,21,27,21,18,21,24,21,27,28,18,27,23,28,31,18,31,27)
 DonohueData <- data.frame(Pretest,Posttest,Followup)
 ```
+
 ### Analyses of the Different Variables
 
 With multiple variables, it is useful to get descriptive statistics and confidence intervals for each variable.
 
 ```{r}
-estimateMeans(Pretest,Posttest,Followup)
+estimateMeans(Pretest,Posttest,Followup,main="Critical Thinking Scores Before and After Course")
 ```
 
 It is also useful to view the means and confidence intervals of the groups in a plot.
 
 ```{r,Donohue-Means}
-plotMeans(Pretest,Posttest,Followup,ylab="Critical Thinking")
+plotMeans(Pretest,Posttest,Followup,main="Critical Thinking Scores Before and After Course",ylab="Critical Thinking Score")
 ```
  
 ### Analysis of a Variable Difference
@@ -53,19 +67,19 @@ The first research question is whether there is a difference between the posttes
 First, set the comparison and get an estimate of the difference and its confidence interval.
 
 ```{r}
-estimateDifference(Posttest,Followup)
+estimateDifference(Posttest,Followup,main="Critical Thinking After the Course")
 ```
 
 Then, obtain the difference plot for that comparison.
 
 ```{r,Donohue-Difference}
-plotDifference(Posttest,Followup,ylab="Critical Thinking")
+plotDifference(Posttest,Followup,main="Critical Thinking After the Course",ylab="Critical Thinking Score")
 ```
 
 Finally, obtain the standardized effect size for that comparison.
 
 ```{r}
-standardizeDifference(Posttest,Followup)
+standardizeDifference(Posttest,Followup,main="Cohens d for Critical Thinking After the Course")
 ```
 
 ### Analysis of a Variable Contrast
@@ -76,17 +90,17 @@ First, set the contrast and get an estimate of the contrast and its confidence i
 
 ```{r}
 PrevsPostFollow <- c(-1,.5,.5)
-estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
+estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,main="Critical Thinking Before vs After the Course")
 ```
 
 Then, obtain a difference plot for the contrast.
 
 ```{r,Donohue-Contrast}
-plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),ylab="Critical Thinking")
+plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Before vs After the Course",ylab="Critical Thinking Score")
 ```
 
 Finally, estimate the standardized contrast.
 
 ```{r}
-standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
+standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,main="Cohens d for Critical Thinking Before vs After the Course")
 ```

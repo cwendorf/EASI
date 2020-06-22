@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "`r Sys.Date()`"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -10,6 +10,11 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8",filename="render_toc.R")
+```
 
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
@@ -22,7 +27,15 @@ library(EASI)
 
 ## OneWay (Between-Subjects) Example with Rattan Summary Statistics
 
-### Enter Summary Statistics
+### Table of Contents
+
+```{r toc, echo=FALSE}
+sourceDir <- getSrcDirectory(function(dummy) {dummy})
+setwd(sourceDir)
+render_toc("RattanSummaryExample.Rmd")
+```
+
+### Data Management
 
 Prior to analyses, enter a table of summary statistics.
 
@@ -39,13 +52,13 @@ class(RattanSummary) <- "bss"
 With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
 
 ```{r}
-estimateMeans(RattanSummary)
+estimateMeans(RattanSummary,main="Motivation as a Function of Feedback Type",ylab="Motivation")
 ```
 
 It is also useful to view the means and confidence intervals of the groups in a plot.
 
 ```{r,Rattan-Means}
-plotMeans(RattanSummary,ylab="Motivation")
+plotMeans(RattanSummary,main="Motivation as a Function of Feedback Type",ylab="Motivation")
 ```
 
 ### Analysis of a Group Difference
@@ -57,19 +70,19 @@ First, set the comparison and get an estimate of the difference and its confiden
 ```{r}
 ComfortvsChallenge <- rbind(Comfort,Challenge)
 class(ComfortvsChallenge) <- "bss"
-estimateDifference(ComfortvsChallenge)
+estimateDifference(ComfortvsChallenge,main="Influence of Comfort vs Challenge Feedback on Motivation")
 ```
 
 Then, obtain the difference plot for that comparison.
 
 ```{r,Rattan-Difference}
-plotDifference(ComfortvsChallenge,ylab="Motivation")
+plotDifference(ComfortvsChallenge,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation")
 ```
 
 Finally, obtain the standardized effect size for that comparison.
 
 ```{r}
-standardizeDifference(ComfortvsChallenge)
+standardizeDifference(ComfortvsChallenge,main="Cohens d for Comfort vs Challenge Feedback on Motivation")
 ```
 
 ### Analysis of a Group Contrast
@@ -80,17 +93,17 @@ First, set the contrast and get an estimate of the contrast and its confidence i
 
 ```{r}
 ComfortvsOthers <- c(-1,.5,.5)
-estimateContrast(RattanSummary,contrast=ComfortvsOthers)
+estimateContrast(RattanSummary,contrast=ComfortvsOthers,main="Influence Comfort Feedback vs Other Types of Feedback on Motivation")
 ```
 
 Then, obtain a difference plot for the contrast.
 
 ```{r,Rattan-Contrast}
-plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),ylab="Motivation")
+plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence Comfort Feedback vs Other Types of Feedback on Motivation",ylab="Motivation")
 ```
 
 Finally, estimate the standardized contrast.
 
 ```{r}
-standardizeContrast(RattanSummary,contrast=ComfortvsOthers)
+standardizeContrast(RattanSummary,contrast=ComfortvsOthers,main="Cohens d for Comfort Feedback vs Other Types of Feedback on Motivation")
 ```

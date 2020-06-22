@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "`r Sys.Date()`"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -10,6 +10,11 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8",filename="render_toc.R")
+```
 
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
@@ -21,6 +26,14 @@ library(EASI)
 ```
 
 ## Indendent Groups Example with PenLaptop Summary Statistics
+
+### Table of Contents
+
+```{r toc, echo=FALSE}
+sourceDir <- getSrcDirectory(function(dummy) {dummy})
+setwd(sourceDir)
+render_toc("PenLaptopSummaryExample.Rmd")
+```
 
 ### PenLaptop1 Example
 
@@ -36,13 +49,14 @@ class(PenLaptop1Summary) <- "bss"
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop1-Difference}
-plotDifference(PenLaptop1Summary,ylab="Transcription")
+plotDifference(PenLaptop1Summary,main="Transcription as a Function of Note Taking",
+ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(PenLaptop1Summary)
+standardizeDifference(PenLaptop1Summary,main="Cohen's d for Difference in Pen vs Laptop Transcription")
 ```
 
 ### PenLaptop2 Example
@@ -59,13 +73,14 @@ class(PenLaptop2Summary) <- "bss"
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop2-Difference}
-plotDifference(PenLaptop2Summary,ylab="Transcription")
+plotDifference(PenLaptop2Summary,main="Transcription as a Function of Note Taking",
+ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(PenLaptop2Summary)
+standardizeDifference(PenLaptop2Summary,main="Cohen's d for Difference in Pen vs Laptop Transcription")
 ```
 
 ### PenLaptop3 Example
@@ -82,11 +97,12 @@ class(PenLaptop3Summary) <- "bss"
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop3-Difference}
-plotDifference(PenLaptop3Summary,ylab="Transcription")
+plotDifference(PenLaptop3Summary,main="Transcription as a Function of Note Taking",
+ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(PenLaptop3Summary)
+standardizeDifference(PenLaptop3Summary,main="Cohen's d for Difference in Pen vs Laptop Transcription")
 ```

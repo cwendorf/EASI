@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,19 @@ vignette: >
 
 
 
+
+
 ## OneWay (Between-Subjects) Example with Rattan Data
 
-### Enter Data
+### Table of Contents
+
+- [OneWay (Between-Subjects) Example with Rattan Data](#oneway-(between-subjects)-example-with-rattan-data)
+    - [Data Management](#data-management)
+    - [Analyses of the Different Groups](#analyses-of-the-different-groups)
+    - [Analysis of a Group Difference](#analysis-of-a-group-difference)
+    - [Analysis of a Group Contrast](#analysis-of-a-group-contrast)
+
+### Data Management
 
 Prior to analyses, enter the data.
 
@@ -35,22 +45,22 @@ With multiple groups, it is useful to get descriptive statistics and confidence 
 
 
 ```r
-estimateMeans(Motivation~Feedback)
+estimateMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation")
 ```
 
 ```
-## $`Confidence Intervals for the Means`
+## $`Motivation as a Function of Feedback Type`
 ##                 M      SE      df      LL      UL
-## Comfort     3.333   0.452  17.000   2.380   4.287
-## Challenge   5.265   0.351  16.000   4.520   6.009
-## Control     4.447   0.329  18.000   3.757   5.138
+## Comfort     3.333   0.452  17.000   2.380   4.286
+## Challenge   5.265   0.351  16.000   4.521   6.009
+## Control     4.447   0.329  18.000   3.756   5.138
 ```
 
 It is also useful to view the means and confidence intervals of the groups in a plot.
 
 
 ```r
-plotMeans(Motivation~Feedback,ylab="Motivation")
+plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation")
 ```
 
 ![](figures/Rattan-Means-1.png)<!-- -->
@@ -64,20 +74,20 @@ First, set the comparison and get an estimate of the difference and its confiden
 
 ```r
 Comparison <- factor(Feedback,c("Comfort","Challenge"))
-estimateDifference(Motivation~Comparison)
+estimateDifference(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation")
 ```
 
 ```
-## $`Confidence Interval for the Difference`
+## $`Influence of Comfort vs Challenge Feedback on Motivation`
 ##               Diff      SE      df      LL      UL
-## Comparison   1.931   0.572  31.521   0.765   3.098
+## Comparison   1.932   0.572  31.521   0.766   3.098
 ```
 
 Then, obtain the difference plot for that comparison.
 
 
 ```r
-plotDifference(Motivation~Comparison,ylab="Motivation")
+plotDifference(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation")
 ```
 
 ![](figures/Rattan-Difference-1.png)<!-- -->
@@ -86,11 +96,11 @@ Finally, obtain the standardized effect size for that comparison.
 
 
 ```r
-standardizeDifference(Motivation~Comparison)
+standardizeDifference(Motivation~Comparison,main="Cohens d for Comfort vs Challenge Feedback on Motivation")
 ```
 
 ```
-## $`Confidence Interval for the Standardized Difference`
+## $`Cohens d for Comfort vs Challenge Feedback on Motivation`
 ##                Est      SE      LL      UL
 ## Comparison   1.137   0.376   0.401   1.873
 ```
@@ -104,20 +114,20 @@ First, set the contrast and get an estimate of the contrast and its confidence i
 
 ```r
 ComfortvsOthers <- c(-1,.5,.5)
-estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+estimateContrast(Motivation~Feedback,contrast=ComfortvsOthers,main="Influence Comfort Feedback vs Other Types of Feedback on Motivation")
 ```
 
 ```
-## $`Confidence Interval for the Contrast`
+## $`Influence Comfort Feedback vs Other Types of Feedback on Motivation`
 ##              Est      SE      df      LL      UL
-## Contrast   1.523   0.512  26.898   0.472   2.573
+## Contrast   1.523   0.512  26.903   0.473   2.573
 ```
 
 Then, obtain a difference plot for the contrast.
 
 
 ```r
-plotContrast(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),ylab="Motivation")
+plotContrast(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence Comfort Feedback vs Other Types of Feedback on Motivation",ylab="Motivation")
 ```
 
 ![](figures/Rattan-Contrast-1.png)<!-- -->
@@ -126,11 +136,11 @@ Finally, estimate the standardized contrast.
 
 
 ```r
-standardizeContrast(Motivation~Feedback,contrast=ComfortvsOthers)
+standardizeContrast(Motivation~Feedback,contrast=ComfortvsOthers,main="Cohens d for Comfort Feedback vs Other Types of Feedback on Motivation")
 ```
 
 ```
-## $`Confidence Interval for the Standardized Contrast`
+## $`Cohens d for Comfort Feedback vs Other Types of Feedback on Motivation`
 ##              Est      SE      LL      UL
 ## Contrast   0.943   0.340   0.276   1.610
 ```

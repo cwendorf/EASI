@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,23 @@ vignette: >
 
 
 
+
+
 ## Factorial Between-Subjects Example with Frenda Summary Statistics
 
-### Enter Summary Statistics
+### Table of Contents
+
+- [Factorial Between-Subjects Example with Frenda Summary Statistics](#factorial-between-subjects-example-with-frenda-summary-statistics)
+    - [Data Management](#data-management)
+    - [Analyses of the Different Groups](#analyses-of-the-different-groups)
+    - [Analyses of the Marginal Means](#analyses-of-the-marginal-means)
+    - [Analyses of the Factor A (Evening vs Morning) Main Effect](#analyses-of-the-factor-a-(evening-vs-morning)-main-effect)
+    - [Analyses of the Factor B (Sleep vs NoSleep) Main Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-main-effect)
+    - [Analyses of the Factor A x B Interaction](#analyses-of-the-factor-a-x-b-interaction)
+    - [Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a1-(evening)-simple-effect)
+    - [Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a2-(morning)-simple-effect)
+
+### Data Management
 
 Create a table of summary statistics for the study. Though the study is a factorial design, treat each level of the two factors as independent groups in a single factor.
 

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-04-08"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -15,9 +15,17 @@ vignette: >
 
 
 
+
+
 ## Mixed Design Example with Holzel Summary Statistics
 
-### Enter Summary Statistics
+### Table of Contents
+
+- [Mixed Design Example with Holzel Summary Statistics](#mixed-design-example-with-holzel-summary-statistics)
+    - [Data Management](#data-management)
+    - [Analyses of the Differences within Conditions](#analyses-of-the-differences-within-conditions)
+
+### Data Management
 
 Create two tables of summary statistics for the first simple effect of interest.
 

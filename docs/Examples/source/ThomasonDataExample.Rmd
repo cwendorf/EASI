@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "`r Sys.Date()`"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -10,6 +10,11 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8",filename="render_toc.R")
+```
 
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
@@ -21,6 +26,14 @@ library(EASI)
 ```
 
 ## Paired Samples Example with Thomason Data
+
+### Table of Contents
+
+```{r toc, echo=FALSE}
+sourceDir <- getSrcDirectory(function(dummy) {dummy})
+setwd(sourceDir)
+render_toc("ThomasonDataExample.Rmd")
+```
 
 ### Thomason1 Example
 
@@ -34,13 +47,13 @@ Posttest <- c(14,13,16,12,15,18,13,10,10,8,14,16)
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,Thomason1-Difference}
-plotDifference(Pretest,Posttest,ylab="LSAT")
+plotDifference(Pretest,Posttest,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Pretest,Posttest)
+standardizeDifference(Pretest,Posttest,main="Cohen's d for Difference in LSAT Scores")
 ```
 
 ### Thomason2 Example
@@ -55,13 +68,13 @@ Posttest <- c(12,19,6,9,15,13,17,14,10,17,9,14,15,22,18,18)
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,Thomason2-Difference}
-plotDifference(Pretest,Posttest,ylab="LSAT")
+plotDifference(Pretest,Posttest,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Pretest,Posttest)
+standardizeDifference(Pretest,Posttest,main="Cohen's d for Difference in LSAT Scores")
 ```
 
 ### Thomason3 Example
@@ -76,11 +89,11 @@ Posttest <- c(52,63,69,71,80,80,69,76,78,77,67,76,69,73,73,68,70,81,70,76,77,75,
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,Thomason3-Difference}
-plotDifference(Pretest,Posttest,ylab="LSAT")
+plotDifference(Pretest,Posttest,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Pretest,Posttest)
+standardizeDifference(Pretest,Posttest,main="Cohen's d for Difference in LSAT Scores")
 ```
