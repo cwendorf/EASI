@@ -17,7 +17,9 @@ vignette: >
 
 
 
-## Table of Contents
+## Correlations Tutorial with Data
+
+### Table of Contents
 
 - [Correlations Tutorial with Data](#correlations-tutorial-with-data)
     - [Enter Data](#enter-data)
@@ -30,10 +32,6 @@ vignette: >
         - [Confidence Intervals for the Correlations](#confidence-intervals-for-the-correlations)
         - [Plots of the Confidence Intervals for the Correlations](#plots-of-the-confidence-intervals-for-the-correlations)
         - [Significance Tests for the Correlation](#significance-tests-for-the-correlation)
-
----
-
-## Correlations Tutorial with Data
 
 ### Enter Data
 
