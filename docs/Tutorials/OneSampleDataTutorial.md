@@ -28,9 +28,9 @@ vignette: >
         - [Descriptive Statistics](#descriptive-statistics)
     - [Analyses of the Mean](#analyses-of-the-mean)
         - [Confidence Interval for the Mean](#confidence-interval-for-the-mean)
-        - [Plots of the Confidence Intervals for the Mean](#plots-of-the-confidence-intervals-for-the-mean)
-        - [Significance Tests for the Mean](#significance-tests-for-the-mean)
-        - [Effect Sizes for the Mean](#effect-sizes-for-the-mean)
+        - [Plot of the Confidence Interval for the Mean](#plot-of-the-confidence-interval-for-the-mean)
+        - [Significance Test for the Mean](#significance-test-for-the-mean)
+        - [Effect Size for the Mean](#effect-size-for-the-mean)
 
 ### Data Management
 
@@ -98,7 +98,7 @@ estimateMeans(Outcome,conf.level=.99)
 ## Outcome   4.000   1.102   7.000   0.143   7.857
 ```
 
-#### Plots of the Confidence Intervals for the Mean
+#### Plot of the Confidence Interval for the Mean
 
 This code will produce a graph of the confidence interval for the variable.
 
@@ -116,9 +116,9 @@ plotMeans(Outcome,conf.level=.99,mu=5,rope=c(3,7))
 
 ![](figures/OneSample-MeansB-1.png)<!-- -->
 
-#### Significance Tests for the Mean
+#### Significance Test for the Mean
 
-This code will produce a table of NHST sfor the variable. In this case, the mean is tested against a value of zero.
+This code will produce a table of NHST for the variable. In this case, the mean is tested against a value of zero.
 
 ```r
 testMeans(Outcome)
@@ -142,7 +142,7 @@ testMeans(Outcome,mu=5)
 ## Outcome  -1.000   1.102   7.000  -0.907   0.394
 ```
 
-#### Effect Sizes for the Mean
+#### Effect Size for the Mean
 
 This code will produce a table of standardized mean difference for the variable. In this case, the mean is compared to zero to form the effect size.
 

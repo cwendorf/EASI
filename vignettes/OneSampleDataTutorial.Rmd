@@ -76,7 +76,7 @@ The code defaults to 95% confidence intervals. This can be changed if desired.
 estimateMeans(Outcome,conf.level=.99)
 ```
 
-#### Plots of the Confidence Intervals for the Mean
+#### Plot of the Confidence Interval for the Mean
 
 This code will produce a graph of the confidence interval for the variable.
 ```{r,OneSample-MeansA}
@@ -88,9 +88,9 @@ Of course, it is possible to change from the default confidence level. Additiona
 plotMeans(Outcome,conf.level=.99,mu=5,rope=c(3,7))
 ```
 
-#### Significance Tests for the Mean
+#### Significance Test for the Mean
 
-This code will produce a table of NHST sfor the variable. In this case, the mean is tested against a value of zero.
+This code will produce a table of NHST for the variable. In this case, the mean is tested against a value of zero.
 ```{r}
 testMeans(Outcome)
 ```
@@ -100,7 +100,7 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 testMeans(Outcome,mu=5)
 ```
 
-#### Effect Sizes for the Mean
+#### Effect Size for the Mean
 
 This code will produce a table of standardized mean difference for the variable. In this case, the mean is compared to zero to form the effect size.
 ```{r}
