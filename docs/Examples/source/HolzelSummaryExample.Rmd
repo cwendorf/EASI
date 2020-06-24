@@ -68,8 +68,8 @@ HolzelCorrMeditation <- fillCorrelations(HolzelCorrMeditation)
 For each subset, obtain a difference plot comparing pretest and posttest.
 
 ```{r,Holzel-Difference}
-plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter")
-plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,ylab="Gray Matter")
+plotDifference(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter")
+plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter")
 ```
 
 Then for each subset, obtain the standardized effect size comparing pretest to posttest.

@@ -53,7 +53,7 @@ plotDifference(Pretest,Posttest,main="LSAT Score Before and After Mapping",ylab=
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Pretest,Posttest,main="Cohen's d for Difference in LSAT Scores")
+standardizeDifference(Pretest,Posttest)
 ```
 
 ### Thomason2 Example
@@ -74,7 +74,7 @@ plotDifference(Pretest,Posttest,main="LSAT Score Before and After Mapping",ylab=
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Pretest,Posttest,main="Cohen's d for Difference in LSAT Scores")
+standardizeDifference(Pretest,Posttest)
 ```
 
 ### Thomason3 Example
@@ -95,5 +95,5 @@ plotDifference(Pretest,Posttest,main="LSAT Score Before and After Mapping",ylab=
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Pretest,Posttest,main="Cohen's d for Difference in LSAT Scores")
+standardizeDifference(Pretest,Posttest)
 ```

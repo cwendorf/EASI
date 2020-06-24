@@ -51,13 +51,13 @@ DonohueData <- data.frame(Pretest,Posttest,Followup)
 With multiple variables, it is useful to get descriptive statistics and confidence intervals for each variable.
 
 ```{r}
-estimateMeans(Pretest,Posttest,Followup,main="Critical Thinking Scores Before and After Course")
+estimateMeans(Pretest,Posttest,Followup)
 ```
 
 It is also useful to view the means and confidence intervals of the groups in a plot.
 
 ```{r,Donohue-Means}
-plotMeans(Pretest,Posttest,Followup,main="Critical Thinking Scores Before and After Course",ylab="Critical Thinking Score")
+plotMeans(Pretest,Posttest,Followup,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score")
 ```
  
 ### Analysis of a Variable Difference
@@ -67,19 +67,19 @@ The first research question is whether there is a difference between the posttes
 First, set the comparison and get an estimate of the difference and its confidence interval.
 
 ```{r}
-estimateDifference(Posttest,Followup,main="Critical Thinking After the Course")
+estimateDifference(Posttest,Followup)
 ```
 
 Then, obtain the difference plot for that comparison.
 
 ```{r,Donohue-Difference}
-plotDifference(Posttest,Followup,main="Critical Thinking After the Course",ylab="Critical Thinking Score")
+plotDifference(Posttest,Followup,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score")
 ```
 
 Finally, obtain the standardized effect size for that comparison.
 
 ```{r}
-standardizeDifference(Posttest,Followup,main="Cohens d for Critical Thinking After the Course")
+standardizeDifference(Posttest,Followup)
 ```
 
 ### Analysis of a Variable Contrast
@@ -90,17 +90,17 @@ First, set the contrast and get an estimate of the contrast and its confidence i
 
 ```{r}
 PrevsPostFollow <- c(-1,.5,.5)
-estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,main="Critical Thinking Before vs After the Course")
+estimateContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```
 
 Then, obtain a difference plot for the contrast.
 
 ```{r,Donohue-Contrast}
-plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Before vs After the Course",ylab="Critical Thinking Score")
+plotContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score")
 ```
 
 Finally, estimate the standardized contrast.
 
 ```{r}
-standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow,main="Cohens d for Critical Thinking Before vs After the Course")
+standardizeContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
 ```

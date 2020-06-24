@@ -55,7 +55,7 @@ ylab="Transcription %")
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Transcription~Group,main="Cohen's d for Difference in Pen vs Laptop Transcription")
+standardizeDifference(Transcription~Group)
 ```
 
 ### PenLaptop2 Example
@@ -78,7 +78,7 @@ ylab="Transcription %")
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Transcription~Group,main="Cohen's d for Difference in Pen vs Laptop Transcription")
+standardizeDifference(Transcription~Group)
 ```
 
 ### PenLaptop3 Example
@@ -101,5 +101,5 @@ ylab="Transcription %")
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Transcription~Group,main="Cohen's d for Difference in Pen vs Laptop Transcription")
+standardizeDifference(Transcription~Group)
 ```

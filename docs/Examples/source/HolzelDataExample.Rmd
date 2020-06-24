@@ -58,8 +58,8 @@ HolzelSubsetMeditation <- subset(HolzelData,Group=="Meditation")
 For each subset, obtain a difference plot comparing pretest and posttest.
 
 ```{r,Holzel-Difference}
-with(HolzelSubsetControl,plotDifference(Pretest,Posttest,ylab="Gray Matter"))
-with(HolzelSubsetMeditation,plotDifference(Pretest,Posttest,ylab="Gray Matter"))
+with(HolzelSubsetControl,plotDifference(Pretest,Posttest,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter"))
+with(HolzelSubsetMeditation,plotDifference(Pretest,Posttest,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter"))
 ```
 
 Then for each subset, obtain the standardized effect size comparing pretest to posttest.

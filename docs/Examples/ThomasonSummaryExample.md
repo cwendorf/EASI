@@ -53,11 +53,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Thomason1Summary,Thomason1Corr,main="Cohen's d for Differences in LSAT Scores")
+standardizeDifference(Thomason1Summary,Thomason1Corr)
 ```
 
 ```
-## $`Cohen's d for Differences in LSAT Scores`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   0.536   0.181   0.180   0.891
 ```
@@ -89,11 +89,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Thomason2Summary,Thomason2Corr,main="Cohen's d for Differences in LSAT Scores")
+standardizeDifference(Thomason2Summary,Thomason2Corr)
 ```
 
 ```
-## $`Cohen's d for Differences in LSAT Scores`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   0.356   0.155   0.052   0.659
 ```
@@ -125,11 +125,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(Thomason3Summary,Thomason3Corr,main="Cohen's d for Differences in LSAT Scores")
+standardizeDifference(Thomason3Summary,Thomason3Corr)
 ```
 
 ```
-## $`Cohen's d for Differences in LSAT Scores`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   0.652   0.161   0.338   0.967
 ```

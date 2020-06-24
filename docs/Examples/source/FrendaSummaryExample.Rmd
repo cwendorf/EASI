@@ -106,7 +106,7 @@ estimateContrast(FrendaSummary,contrast=mainFactorA)
 Then plot the marginal means and the difference between them.
 
 ```{r,Frenda-MainA}
-plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),ylab="False Memory")
+plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory")
 ```
 
 This main effect can be tested for statistical significance.
@@ -133,7 +133,7 @@ estimateContrast(FrendaSummary,contrast=mainFactorB)
 Then plot the marginal means and the difference between them.
 
 ```{r,Frenda-MainB}
-plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),ylab="False Memory")
+plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory")
 ```
 
 This main effect can be tested for statistical significance.
@@ -175,7 +175,7 @@ estimateContrast(FrendaSummary,contrast=simpleBatEvening)
 Then plot the conditions associated with the simple effect.
 
 ```{r,Frenda-SimpleA1}
-plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),ylab="False Memory")
+plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
 ```
 
 Test the simple effect for statistical significance.
@@ -202,7 +202,7 @@ estimateContrast(FrendaSummary,contrast=simpleBatMorning)
 Then plot the conditions associated with the simple effect.
 
 ```{r,Frenda-SimpleA2}
-plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),ylab="False Memory")
+plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
 ```
 
 Test the simple effect for statistical significance.

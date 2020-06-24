@@ -51,13 +51,13 @@ For each subset, obtain a difference plot comparing pretest and posttest.
 
 
 ```r
-with(HolzelSubsetControl,plotDifference(Pretest,Posttest,ylab="Gray Matter"))
+with(HolzelSubsetControl,plotDifference(Pretest,Posttest,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter"))
 ```
 
 ![](figures/Holzel-Difference-1.png)<!-- -->
 
 ```r
-with(HolzelSubsetMeditation,plotDifference(Pretest,Posttest,ylab="Gray Matter"))
+with(HolzelSubsetMeditation,plotDifference(Pretest,Posttest,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter"))
 ```
 
 ![](figures/Holzel-Difference-2.png)<!-- -->

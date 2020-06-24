@@ -52,7 +52,7 @@ class(RattanSummary) <- "bss"
 With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
 
 ```{r}
-estimateMeans(RattanSummary,main="Motivation as a Function of Feedback Type",ylab="Motivation")
+estimateMeans(RattanSummary)
 ```
 
 It is also useful to view the means and confidence intervals of the groups in a plot.
@@ -70,7 +70,7 @@ First, set the comparison and get an estimate of the difference and its confiden
 ```{r}
 ComfortvsChallenge <- rbind(Comfort,Challenge)
 class(ComfortvsChallenge) <- "bss"
-estimateDifference(ComfortvsChallenge,main="Influence of Comfort vs Challenge Feedback on Motivation")
+estimateDifference(ComfortvsChallenge)
 ```
 
 Then, obtain the difference plot for that comparison.
@@ -82,7 +82,7 @@ plotDifference(ComfortvsChallenge,main="Influence of Comfort vs Challenge Feedba
 Finally, obtain the standardized effect size for that comparison.
 
 ```{r}
-standardizeDifference(ComfortvsChallenge,main="Cohens d for Comfort vs Challenge Feedback on Motivation")
+standardizeDifference(ComfortvsChallenge)
 ```
 
 ### Analysis of a Group Contrast
@@ -93,17 +93,17 @@ First, set the contrast and get an estimate of the contrast and its confidence i
 
 ```{r}
 ComfortvsOthers <- c(-1,.5,.5)
-estimateContrast(RattanSummary,contrast=ComfortvsOthers,main="Influence Comfort Feedback vs Other Types of Feedback on Motivation")
+estimateContrast(RattanSummary,contrast=ComfortvsOthers)
 ```
 
 Then, obtain a difference plot for the contrast.
 
 ```{r,Rattan-Contrast}
-plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence Comfort Feedback vs Other Types of Feedback on Motivation",ylab="Motivation")
+plotContrast(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs Other Types of Feedback on Motivation",ylab="Motivation")
 ```
 
 Finally, estimate the standardized contrast.
 
 ```{r}
-standardizeContrast(RattanSummary,contrast=ComfortvsOthers,main="Cohens d for Comfort Feedback vs Other Types of Feedback on Motivation")
+standardizeContrast(RattanSummary,contrast=ComfortvsOthers)
 ```

@@ -52,11 +52,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(PenLaptop1Summary,main="Cohen's d for Difference in Pen vs Laptop Transcription")
+standardizeDifference(PenLaptop1Summary)
 ```
 
 ```
-## $`Cohen's d for Difference in Pen vs Laptop Transcription`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   0.928   0.270   0.398   1.458
 ```
@@ -87,11 +87,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(PenLaptop2Summary,main="Cohen's d for Difference in Pen vs Laptop Transcription")
+standardizeDifference(PenLaptop2Summary)
 ```
 
 ```
-## $`Cohen's d for Difference in Pen vs Laptop Transcription`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.059   0.179   0.709   1.409
 ```
@@ -122,11 +122,11 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 
 
 ```r
-standardizeDifference(PenLaptop3Summary,main="Cohen's d for Difference in Pen vs Laptop Transcription")
+standardizeDifference(PenLaptop3Summary)
 ```
 
 ```
-## $`Cohen's d for Difference in Pen vs Laptop Transcription`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison   1.691   0.237   1.226   2.156
 ```

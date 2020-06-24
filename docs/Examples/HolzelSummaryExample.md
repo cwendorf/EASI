@@ -61,13 +61,13 @@ For each subset, obtain a difference plot comparing pretest and posttest.
 
 
 ```r
-plotDifference(HolzelSummaryControl,HolzelCorrControl,ylab="Gray Matter")
+plotDifference(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter")
 ```
 
 ![](figures/Holzel-Difference-1.png)<!-- -->
 
 ```r
-plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,ylab="Gray Matter")
+plotDifference(HolzelSummaryMeditation,HolzelCorrMeditation,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter")
 ```
 
 ![](figures/Holzel-Difference-2.png)<!-- -->

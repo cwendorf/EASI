@@ -152,7 +152,7 @@ Then plot the marginal means and the difference between them.
 
 
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),ylab="False Memory")
+plotContrast(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory")
 ```
 
 ![](figures/Frenda-MainA-1.png)<!-- -->
@@ -203,7 +203,7 @@ Then plot the marginal means and the difference between them.
 
 
 ```r
-plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),ylab="False Memory")
+plotContrast(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory")
 ```
 
 ![](figures/Frenda-MainB-1.png)<!-- -->
@@ -283,7 +283,7 @@ Then plot the conditions associated with the simple effect.
 
 
 ```r
-plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),ylab="False Memory")
+plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
 ```
 
 ![](figures/Frenda-SimpleA1-1.png)<!-- -->
@@ -334,7 +334,7 @@ Then plot the conditions associated with the simple effect.
 
 
 ```r
-plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),ylab="False Memory")
+plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
 ```
 
 ![](figures/Frenda-SimpleA2-1.png)<!-- -->

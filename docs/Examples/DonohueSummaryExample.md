@@ -52,11 +52,11 @@ With multiple variables, it is useful to get descriptive statistics and confiden
 
 
 ```r
-estimateMeans(DonohueSummary,main="Critical Thinking Scores Before and After Course")
+estimateMeans(DonohueSummary)
 ```
 
 ```
-## $`Critical Thinking Scores Before and After Course`
+## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
 ## Pretest   19.300   1.320  19.000  16.537  22.063
 ## Posttest  23.600   1.065  19.000  21.371  25.829
@@ -67,7 +67,7 @@ It is also useful to view the means and confidence intervals of the groups in a 
 
 
 ```r
-plotMeans(DonohueSummary,main="Critical Thinking Scores Before and After Course",ylab="Critical Thinking")
+plotMeans(DonohueSummary,main="Critical Thinking Scores at Pretest, Posttest, and Followup")
 ```
 
 ![](figures/Donohue-Means-1.png)<!-- -->
@@ -82,11 +82,11 @@ First, set the comparison and get an estimate of the difference and its confiden
 ```r
 PostvsFollowup <- DonohueSummary[c(2,3),]
 class(PostvsFollowup) <- "wss"
-estimateDifference(PostvsFollowup,DonohueCorr,main="Critical Thinking After the Course")
+estimateDifference(PostvsFollowup,DonohueCorr)
 ```
 
 ```
-## $`Critical Thinking After the Course`
+## $`Confidence Interval for the Difference`
 ##               Diff      SE      df      LL      UL
 ## Comparison  -0.200   0.752  19.000  -1.775   1.375
 ```
@@ -95,7 +95,7 @@ Then, obtain the difference plot for that comparison.
 
 
 ```r
-plotDifference(PostvsFollowup,DonohueCorr,main="Critical Thinking After the Course",ylab="Critical Thinking")
+plotDifference(PostvsFollowup,DonohueCorr,main="Critical Thinking Scores of Posttest vs Followup")
 ```
 
 ![](figures/Donohue-Difference-1.png)<!-- -->
@@ -104,11 +104,11 @@ Finally, obtain the standardized effect size for that comparison.
 
 
 ```r
-standardizeDifference(PostvsFollowup,DonohueCorr,main="Cohens d for Critical Thinking After the Course")
+standardizeDifference(PostvsFollowup,DonohueCorr)
 ```
 
 ```
-## $`Cohens d for Critical Thinking After the Course`
+## $`Confidence Interval for the Standardized Difference`
 ##                Est      SE      LL      UL
 ## Comparison  -0.043   0.165  -0.365   0.280
 ```
@@ -122,11 +122,11 @@ First, set the contrast and get an estimate of the contrast and its confidence i
 
 ```r
 PrevsPostFollow <- c(-1,.5,.5)
-estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,main="Critical Thinking Before vs After the Course")
+estimateContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```
 
 ```
-## $`Critical Thinking Before vs After the Course`
+## $`Confidence Interval for the Contrast`
 ##              Est      SE      df      LL      UL
 ## Contrast   4.200   1.130  19.000   1.834   6.566
 ```
@@ -135,7 +135,7 @@ Then, obtain a difference plot for the contrast.
 
 
 ```r
-plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Before vs After the Course",ylab="Critical Thinking")
+plotContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking")
 ```
 
 ![](figures/Donohue-Contrast-1.png)<!-- -->
@@ -144,11 +144,11 @@ Finally, estimate the standardized contrast.
 
 
 ```r
-standardizeContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,main="Cohens d for Critical Thinking Before vs After the Course")
+standardizeContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 ```
 
 ```
-## $`Cohens d for Critical Thinking Before vs After the Course`
+## $`Confidence Interval for the Standardized Contrast`
 ##              Est      SE      LL      UL
 ## Contrast   0.819   0.214   0.399   1.239
 ```
