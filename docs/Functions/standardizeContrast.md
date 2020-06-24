@@ -7,7 +7,7 @@ Provides the standardized effect size and its confidence interval for the contra
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 standardizeContrast(...,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

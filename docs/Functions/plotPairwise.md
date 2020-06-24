@@ -7,7 +7,7 @@ Provides a plot of all all unadjusted pairwise comparisons and their confidence 
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 plotPairwise(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'

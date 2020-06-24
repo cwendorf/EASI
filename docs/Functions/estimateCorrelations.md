@@ -7,7 +7,7 @@ Provides correlations, their standard errors, and their confidence intervals for
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 estimateCorrelations(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'

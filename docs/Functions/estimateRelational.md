@@ -7,7 +7,7 @@ Provides a table of arelational (confidence) and relational (comparative) interv
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 estimateRelational(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

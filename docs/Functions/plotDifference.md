@@ -7,7 +7,7 @@ Provides a plot of the two means, the mean difference, and their confidence inte
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 plotDifference(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'

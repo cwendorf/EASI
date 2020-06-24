@@ -7,7 +7,7 @@ Provides a plot of all correlations and their confidence intervals for a list of
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 plotCorrelations(...,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'

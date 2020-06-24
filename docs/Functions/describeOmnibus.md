@@ -7,7 +7,7 @@ Provides a Analysis of Variance source table.
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 descibeOmnibus(...,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

@@ -7,7 +7,7 @@ Provides a five number summary (median and quartile information) for a data set.
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 describeBoxes(...,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

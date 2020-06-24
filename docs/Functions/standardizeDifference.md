@@ -7,7 +7,7 @@ Provides the standardized effect size for the difference and its confidence inte
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 standardizeDifference(...,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

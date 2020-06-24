@@ -7,7 +7,7 @@ Provides the plot of the means, the mean contrast, and their confidence interval
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 plotContrast(...,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'

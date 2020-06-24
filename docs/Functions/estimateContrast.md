@@ -7,7 +7,7 @@ Provides the mean contrast, standard error, and confidence interval of the contr
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 estimateContrast(...,contrast,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

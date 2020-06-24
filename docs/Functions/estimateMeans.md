@@ -7,7 +7,7 @@ Provides a table of means, standard deviations, and confidence intervals for eac
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 estimateMeans(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

@@ -7,7 +7,7 @@ Provides a statistical significance test for correlations of the specified varia
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 testCorrelations(...,main=NULL,digits=3)
 
 ## S3 method for class 'wss'

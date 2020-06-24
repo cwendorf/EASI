@@ -7,7 +7,7 @@ Provides a statistical significance test of the mean contrast.
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 testContrast(...,contrast,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

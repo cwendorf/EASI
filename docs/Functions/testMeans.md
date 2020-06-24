@@ -7,7 +7,7 @@ Provides a statistical significance test for each group or level mean.
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 testMeans(...,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

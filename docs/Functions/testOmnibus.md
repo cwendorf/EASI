@@ -7,7 +7,7 @@ Provides a statistical significance test for for an Analysis of Variance.
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 testMeans(...,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

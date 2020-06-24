@@ -7,7 +7,7 @@ Provides a table of descriptive/summary statistics for a data set.
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 describeMeans(...,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

@@ -7,7 +7,7 @@ Provides a table of confidence intervals for all unadjusted pairwise comparisons
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 estimatePairwise(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

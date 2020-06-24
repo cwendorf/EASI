@@ -7,7 +7,7 @@ Provides a standardized effect size and its confidence interval for all unadjust
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 standardizePairwise(...,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

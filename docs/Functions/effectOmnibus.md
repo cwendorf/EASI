@@ -7,7 +7,7 @@ Calculates the proportion of variance accounted for by the omnibus effect and it
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 effectOmnibus(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'

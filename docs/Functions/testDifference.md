@@ -7,7 +7,7 @@ Provides a statistical significance test of the mean difference.
 ### Usage
 
 ```r
-## Default S3 method:
+## Default S3 method
 testDifference(...,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
