@@ -59,6 +59,8 @@ Complete tutorials and examples from published work are available here:
 
 ### Contact Me
 
-If you have any problems, please post a minimal reproducible example in [GitHub issues](https://github.com/cwendorf/EASI/issues). For other correspondence, contact me at [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu).
+If you have any problems, please post a minimal reproducible example in [GitHub issues](https://github.com/cwendorf/EASI/issues). 
+
+For general correspondence, contact me at [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu).
 
 Learn more about my other work at [https://cwendorf.github.io](https://cwendorf.github.io)
