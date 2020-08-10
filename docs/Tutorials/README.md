@@ -2,7 +2,7 @@
 
 ### Overview of the Tutorials
 
-- Data for the tutorials are from [_Statistics for Social Science: A Sourcebook of Basic Statistical Methods_](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm) (Wendorf, 2019)
+- Data for the tutorials are from [_Statistics for Social Science: A Sourcebook of Basic Statistical Methods_](https://cwendorf.github.io/Sourcebook/) (Wendorf, 2019)
 - Tutorials for a variety of research designs are included
 - Tutorials show both the default output and the available options
 - Tutorials include estimates, plots, significance tests, and effect sizes
@@ -51,4 +51,4 @@ The **Correlations** files analyze a tutorial for a correlations among multiple 
 
 ### References
 
-Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm](https://www4.uwsp.edu/psych/cw/statistics/sourcebook.htm)
+Wendorf, C. A. (2019). _Statistics for social science: A sourcebook of basic statistical methods._ [https://cwendorf.github.io/Sourcebook/](https://cwendorf.github.io/Sourcebook/)
