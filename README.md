@@ -34,6 +34,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 
 ### Usage
 
+Complete tutorials and examples from published work are available:  
+[https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
+
 This is the demo script for the cover image (using a tutorial data set):
 
 ```r
@@ -52,15 +55,12 @@ standardizeDifference(Outcome~Comp1v2)
 plotDifference(Outcome~Comp1v2)
 ```
 
-Complete tutorials and examples from published work are available here:  
-[https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
-
-### Contact Me
-
-- If you have any problems, please post a minimal reproducible example in [GitHub issues](https://github.com/cwendorf/EASI/issues). 
-- For general correspondence, contact me at [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu).
-- Learn more about my other work at [https://cwendorf.github.io](https://cwendorf.github.io)
-
 ### Citation
 
 > Wendorf, C. A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://cwendorf.github.io/EASI](https://cwendorf.github.io/EASI)
+
+### Contact Me
+
+- GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
+- Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
+- Author Homepage: [https://cwendorf.github.io](https://cwendorf.github.io)
