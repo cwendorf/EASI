@@ -1,4 +1,4 @@
-## About the EASI Package
+## About the EASI Functions
 
 ### Installation of the Functions
 
@@ -10,7 +10,7 @@ devtools::install_github("cwendorf/EASI",build_vignettes=TRUE)
 library(EASI)
 ```
 
-If you do not wish a full install, the functions can be sourced instead:
+If you do not wish a full install of the package, the functions can be sourced instead:
 
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
