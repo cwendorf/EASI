@@ -1,25 +1,67 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% seo %}
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <script src="https://kit.fontawesome.com/277c075f99.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
     <style>
-      .markdown-body h1 {margin: 0px;}
-      .markdown-body hr {background-color: #00bfff;}
-      div.custom {background: #ccc; width: 100%; height: 100%; }
-      div#header {padding: 10px 0px; height: auto; min-height: 70px;}
-      div#footer {padding: 10px 0px;}
-      div#site {float:left; margin-right: 20px}
-      div#nav {display: inline-block; font-weight: bold; font-size: 1.1em; margin: 10px 0px;}
-      div#nav a {text-decoration: none; margin: 10px 0px; padding: 10px 10px; color: black;}
-      div#nav a:hover {background: #ddd; color: #00bfff;}
-      img#logo {display: inline-block; height: 50px; padding: 0px; background: none;}
+      .markdown-body h1 {color: #00bfff; margin: 0px;}
+      .markdown-body hr {background-color: black;}
+      .markdown-body a {color: #00bfff;}
+      .custom {background: #ccc; width: 100%; height: 70px; }
+      #header {padding: 10px 0px; height: auto; }
+
+      #site {float:left; margin-right: 20px}
+      #nav {display: inline-block; font-weight: bold; font-size: 18px; margin: 12px 0px;}
+      #nav a {text-decoration: none; margin: 10px 0px; padding: 12px 10px; color: black;}
+      #nav a:hover {background: #ddd; color: #00bfff; }
+      #logo {display: inline-block; height: 50px; padding: 0px; background: none; }
+      
+      #menuButton {float: right; padding: 0px 0px; }
+      #menuButton i {text-decoration: none; margin: 0px 0px; padding: 8px 10px; color: black;}      
+      #menuButton i:hover {background: #ddd; color: #00bfff;}      
+      #dropdown {display: none; position: absolute; top: 71px; right: 2px; z-index: 99; background: #ccc; padding: 0px 0px; margin: 0px; width: 200px; }
+      #dropdown ul {list-style: none; padding: 10px; margin: 0px; width: 100%;}  
+      #dropdown li {width: 100%; text-align: center;}
+      #dropdown a {display: block; text-decoration: none; margin: 0px 0px; padding: 12px 10px; color: black; font-weight: bold; font-size: 18px;}
+      #dropdown a:hover {background: #ddd; color: #00bfff;}
+
+      #footer {padding: 10px 0px;}
+      #footer a {color: black; text-decoration: none; font-weight: bold;}
+      #footer a:hover {color: #00bfff;}
+
+      #topButton {float: right;}
+      #topButton i {padding: 10px;}
+      #topButton i:hover {background: #ddd;}
+
+      @media (max-width: 700px) {
+        div#nav {display: none;}
+        #menuButton {display: block;}
+      }
+      @media (min-width: 701px) {
+        div#nav {display: block;}
+        #menuButton {display: none;}
+      }
+      
     </style>
-    
+
+    <script language="javascript">
+      function toggleDropdown() {
+        var menu = document.getElementById('dropdown');
+        if (menu.style.display == "block") {
+          menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+      }
+    </script>
+
   </head>
   
   <body>
@@ -36,32 +78,48 @@
       </div>
       
       <div id=nav>
-        <a href="https://cwendorf.github.io/EASI/Functions/">Functions</a>  
-        <a href="https://cwendorf.github.io/EASI/Tutorials/">Tutorials</a>  
-        <a href="https://cwendorf.github.io/EASI/Examples/">Examples</a>  
+        <a href="{{ "/Functions/" | prepend: site.baseurl }}" alt="Functions">Functions</a> 
+        <a href="{{ "/Tutorials/" | prepend: site.baseurl }}" alt="Tutorials">Tutorials</a>  
+        <a href="{{ "/Examples/" | prepend: site.baseurl }}" alt="Examples">Examples</a>
       </div>
-        
-    </div>
-    </div>
-    
-    <div class="container-lg px-3 my-5 markdown-body" >
-     
-      {{ content }}
 
+      <div id=menuButton>
+        <i class="fas fa-bars fa-2x" onClick="toggleDropdown()"></i>
+      </div>
+
+    </div>
+    </div>
+
+    <div id=dropdown>
+
+      <ul>
+        <li class=""><a href="{{ "/Functions/" | prepend: site.baseurl }}" alt="Functions" class="">Functions</a></li>  
+        <li class=""><a href="{{ "/Tutorials/" | prepend: site.baseurl }}" alt="Tutorials" class="">Tutorials</a></li>  
+        <li class=""><a href="{{ "/Examples/" | prepend: site.baseurl }}" alt="Examples" class="">Examples</a></li>
+      </ul>
+
+    </div>   
+
+    <div class="container-lg px-3 my-5 markdown-body" >
+           
+      {{ content }}
+   
     </div>
     
     <div class="custom">
     <div id=footer class="container-lg px-3 markdown-body">
-      Contact: 
-      <a href="mailto:cwendorf@uwsp.edu">cwendorf@uwsp.edu</a>
-      <br />
-      Repository: 
-      {% if site.github.is_project_page %}
-      <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a> /  
-      {% endif %}
-      {% if site.github.is_project_page %}
-        <a href="{{ site.github.repository_url }}">EASI</a>
-      {% endif %}    
+
+        <a id=topButton href="#top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
+
+        <i class="fas fa-envelope-square" style="margin-right: 10px;"></i><a href="mailto:cwendorf@uwsp.edu"></i>cwendorf@uwsp.edu</a>
+        <br />
+        {% if site.github.is_project_page %}
+        <i class="fab fa-github-square" style="margin-right: 10px;"></i><a href="{{ site.github.owner_url }}"></i>{{ site.github.owner_name }}</a> /  
+        {% endif %}
+        {% if site.github.is_project_page %}
+          <a href="{{ site.github.repository_url }}">EASI</a>
+        {% endif %} 
+
     </div>
     </div>
    
@@ -77,6 +135,7 @@
       ga('send', 'pageview');
     </script>
     {% endif %}
-  </body>
-</html>
 
+  </body>
+
+</html>
