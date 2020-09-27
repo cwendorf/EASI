@@ -4,9 +4,7 @@
 
 # Estimation Approach to Statistical Inference
 
-### An R Package for Estimation Statistics
-
----
+## An R Package for Estimation Statistics
 
 ### Overview
 
