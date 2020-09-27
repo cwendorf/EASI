@@ -11,28 +11,23 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## Correlations Tutorial with Data
 
 ### Table of Contents
 
-- [Correlations Tutorial with Data](#correlations-tutorial-with-data)
-    - [Data Management](#data-management)
-        - [Data Entry](#data-entry)
-        - [Descriptive Statistics](#descriptive-statistics)
-    - [Analyses of a Correlation](#analyses-of-a-correlation)
-        - [Confidence Interval for the Correlation](#confidence-interval-for-the-correlation)
-        - [Plot of the Confidence Interval for the Correlation](#plot-of-the-confidence-interval-for-the-correlation)
-        - [Significance Test for the Correlation](#significance-test-for-the-correlation)
-    - [Analyses of Several Correlations](#analyses-of-several-correlations)
-        - [Confidence Intervals for the Correlations](#confidence-intervals-for-the-correlations)
-        - [Plots of the Confidence Intervals for the Correlations](#plots-of-the-confidence-intervals-for-the-correlations)
-        - [Significance Tests for the Correlation](#significance-tests-for-the-correlation)
+- [Data Management](#data-management)
+  - [Data Entry](#data-entry)
+  - [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+  - [Confidence Interval for the Correlation](#confidence-interval-for-the-correlation)
+  - [Plot of the Confidence Interval for the Correlation](#plot-of-the-confidence-interval-for-the-correlation)
+  - [Significance Test for the Correlation](#significance-test-for-the-correlation)
+- [Analyses of Several Correlations](#analyses-of-several-correlations)
+  - [Confidence Intervals for the Correlations](#confidence-intervals-for-the-correlations)
+  - [Plots of the Confidence Intervals for the Correlations](#plots-of-the-confidence-intervals-for-the-correlations)
+  - [Significance Tests for the Correlation](#significance-tests-for-the-correlation)
+
+---
 
 ### Data Management
 

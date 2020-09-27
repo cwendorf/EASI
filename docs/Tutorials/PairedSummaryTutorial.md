@@ -11,28 +11,23 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## Paired Samples Tutorial with Summary Statistics
 
 ### Table of Contents
 
-- [Paired Samples Tutorial with Summary Statistics](#paired-samples-tutorial-with-summary-statistics)
-    - [Data Management](#data-management)
-    - [Analyses of the Means](#analyses-of-the-means)
-        - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
-        - [Plots of Confidence Intervals for the Means](#plots-of-confidence-intervals-for-the-means)
-        - [Significance Tests for the Means](#significance-tests-for-the-means)
-        - [Effect Sizes for the Means](#effect-sizes-for-the-means)
-    - [Analyses of the Comparison](#analyses-of-the-comparison)
-        - [Confidence Interval for the Mean Difference](#confidence-interval-for-the-mean-difference)
-        - [Plots of Confidence Intervals for the Mean Difference](#plots-of-confidence-intervals-for-the-mean-difference)
-        - [Significance Test for the Mean Difference](#significance-test-for-the-mean-difference)
-        - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+- [Data Management](#data-management)
+- [Analyses of the Means](#analyses-of-the-means)
+  - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
+  - [Plots of Confidence Intervals for the Means](#plots-of-confidence-intervals-for-the-means)
+  - [Significance Tests for the Means](#significance-tests-for-the-means)
+  - [Effect Sizes for the Means](#effect-sizes-for-the-means)
+- [Analyses of the Comparison](#analyses-of-the-comparison)
+  - [Confidence Interval for the Mean Difference](#confidence-interval-for-the-mean-difference)
+  - [Plots of Confidence Intervals for the Mean Difference](#plots-of-confidence-intervals-for-the-mean-difference)
+  - [Significance Test for the Mean Difference](#significance-test-for-the-mean-difference)
+  - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+
+--
 
 ### Data Management
 

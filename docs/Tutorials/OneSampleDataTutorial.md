@@ -11,26 +11,21 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## One Sample Tutorial with Data
 
 ### Table of Contents
 
-- [One Sample Tutorial with Data](#one-sample-tutorial-with-data)
-    - [Data Management](#data-management)
-        - [Data Entry](#data-entry)
-        - [Plot of the Data](#plot-of-the-data)
-        - [Descriptive Statistics](#descriptive-statistics)
-    - [Analyses of the Mean](#analyses-of-the-mean)
-        - [Confidence Interval for the Mean](#confidence-interval-for-the-mean)
-        - [Plot of the Confidence Interval for the Mean](#plot-of-the-confidence-interval-for-the-mean)
-        - [Significance Test for the Mean](#significance-test-for-the-mean)
-        - [Effect Size for the Mean](#effect-size-for-the-mean)
+- [Data Management](#data-management)
+  - [Data Entry](#data-entry)
+  - [Plot of the Data](#plot-of-the-data)
+  - [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of the Mean](#analyses-of-the-mean)
+  - [Confidence Interval for the Mean](#confidence-interval-for-the-mean)
+  - [Plot of the Confidence Interval for the Mean](#plot-of-the-confidence-interval-for-the-mean)
+  - [Significance Test for the Mean](#significance-test-for-the-mean)
+  - [Effect Size for the Mean](#effect-size-for-the-mean)
+
+---
 
 ### Data Management
 

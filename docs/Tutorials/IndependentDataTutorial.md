@@ -11,31 +11,26 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## Independent Groups Tutorial with Data
 
 ### Table of Contents
 
-- [Independent Groups Tutorial with Data](#independent-groups-tutorial-with-data)
-    - [Data Management](#data-management)
-        - [Data Entry](#data-entry)
-        - [Plot of the Data](#plot-of-the-data)
-        - [Descriptive Statistics](#descriptive-statistics)
-    - [Analyses of the Means](#analyses-of-the-means)
-        - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
-        - [Plots of the Confidence Intervals for the Means](#plots-of-the-confidence-intervals-for-the-means)
-        - [Significance Tests for the Means](#significance-tests-for-the-means)
-        - [Effect Sizes for the Means](#effect-sizes-for-the-means)
-    - [Analyses of the Comparison](#analyses-of-the-comparison)
-        - [Confidence Interval for a Mean Difference](#confidence-interval-for-a-mean-difference)
-        - [Plot of the Confidence Interval for a Mean Difference](#plot-of-the-confidence-interval-for-a-mean-difference)
-        - [Significance Test for a Mean Difference](#significance-test-for-a-mean-difference)
-        - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+- [Data Management](#data-management)
+  - [Data Entry](#data-entry)
+  - [Plot of the Data](#plot-of-the-data)
+  - [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of the Means](#analyses-of-the-means)
+  - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
+  - [Plots of the Confidence Intervals for the Means](#plots-of-the-confidence-intervals-for-the-means)
+  - [Significance Tests for the Means](#significance-tests-for-the-means)
+  - [Effect Sizes for the Means](#effect-sizes-for-the-means)
+- [Analyses of the Comparison](#analyses-of-the-comparison)
+  - [Confidence Interval for a Mean Difference](#confidence-interval-for-a-mean-difference)
+  - [Plot of the Confidence Interval for a Mean Difference](#plot-of-the-confidence-interval-for-a-mean-difference)
+  - [Significance Test for a Mean Difference](#significance-test-for-a-mean-difference)
+  - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+
+---
 
 ### Data Management
 

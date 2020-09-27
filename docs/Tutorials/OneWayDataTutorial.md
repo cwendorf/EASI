@@ -11,41 +11,36 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## OneWay (Between-Subjects) Tutorial with Data
 
 ### Table of Contents
 
-- [OneWay (Between-Subjects) Tutorial with Data](#oneway-(between-subjects)-tutorial-with-data)
-    - [Data Management](#data-management)
-        - [Data Entry](#data-entry)
-        - [Plot of the Data](#plot-of-the-data)
-        - [Descriptive Statistics](#descriptive-statistics)
-    - [Analyses of the Means](#analyses-of-the-means)
-        - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
-        - [Plots of the Confidence Intervals for the Means](#plots-of-the-confidence-intervals-for-the-means)
-        - [Significance Tests for the Means](#significance-tests-for-the-means)
-        - [Effect Sizes for the Means](#effect-sizes-for-the-means)
-    - [Analyses of a Comparison](#analyses-of-a-comparison)
-        - [Confidence Interval for a Mean Difference](#confidence-interval-for-a-mean-difference)
-        - [Plot of the Confidence Interval for a Mean Difference](#plot-of-the-confidence-interval-for-a-mean-difference)
-        - [Significance Test for a Mean Difference](#significance-test-for-a-mean-difference)
-        - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
-    - [Analyses of a Contrast](#analyses-of-a-contrast)
-        - [Confidence Interval for a Contrast](#confidence-interval-for-a-contrast)
-        - [Plots of Confidence Intervals for a Contrast](#plots-of-confidence-intervals-for-a-contrast)
-        - [Significance Test for a Contrast](#significance-test-for-a-contrast)
-        - [Effect Size for a Contrast](#effect-size-for-a-contrast)
-    - [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-        - [Confidence Intervals for the Pairwise Comparisons](#confidence-intervals-for-the-pairwise-comparisons)
-        - [Plots of the Confidence Intervals for the Pairwise Comparisons](#plots-of-the-confidence-intervals-for-the-pairwise-comparisons)
-        - [Significance Tests of the Pairwise Comparisons](#significance-tests-of-the-pairwise-comparisons)
-        - [Effect Sizes for the Pairwise Comparisons](#effect-sizes-for-the-pairwise-comparisons)
+- [Data Management](#data-management)
+    - [Data Entry](#data-entry)
+    - [Plot of the Data](#plot-of-the-data)
+    - [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of the Means](#analyses-of-the-means)
+    - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
+    - [Plots of the Confidence Intervals for the Means](#plots-of-the-confidence-intervals-for-the-means)
+    - [Significance Tests for the Means](#significance-tests-for-the-means)
+    - [Effect Sizes for the Means](#effect-sizes-for-the-means)
+- [Analyses of a Comparison](#analyses-of-a-comparison)
+    - [Confidence Interval for a Mean Difference](#confidence-interval-for-a-mean-difference)
+    - [Plot of the Confidence Interval for a Mean Difference](#plot-of-the-confidence-interval-for-a-mean-difference)
+    - [Significance Test for a Mean Difference](#significance-test-for-a-mean-difference)
+    - [Effect Size for the Mean Difference](#effect-size-for-the-mean-difference)
+- [Analyses of a Contrast](#analyses-of-a-contrast)
+    - [Confidence Interval for a Contrast](#confidence-interval-for-a-contrast)
+    - [Plots of Confidence Intervals for a Contrast](#plots-of-confidence-intervals-for-a-contrast)
+    - [Significance Test for a Contrast](#significance-test-for-a-contrast)
+    - [Effect Size for a Contrast](#effect-size-for-a-contrast)
+- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
+    - [Confidence Intervals for the Pairwise Comparisons](#confidence-intervals-for-the-pairwise-comparisons)
+    - [Plots of the Confidence Intervals for the Pairwise Comparisons](#plots-of-the-confidence-intervals-for-the-pairwise-comparisons)
+    - [Significance Tests of the Pairwise Comparisons](#significance-tests-of-the-pairwise-comparisons)
+    - [Effect Sizes for the Pairwise Comparisons](#effect-sizes-for-the-pairwise-comparisons)
+
+---
 
 ### Data Management
 
