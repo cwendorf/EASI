@@ -11,24 +11,18 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## Mixed Design Example with Holzel Data
 
 ### Table of Contents
 
-- [Mixed Design Example with Holzel Data](#mixed-design-example-with-holzel-data)
-    - [Data Management](#data-management)
-    - [Analyses of the Differences within Conditions](#analyses-of-the-differences-within-conditions)
+- [Data Management](#data-management)
+- [Analyses of the Differences within Conditions](#analyses-of-the-differences-within-conditions)
+
+---
 
 ### Data Management
 
 First, enter the data.
-
 
 ```r
 Group <- c("Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Control","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation","Meditation")

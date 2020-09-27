@@ -11,24 +11,18 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## Mixed Design Example with Holzel Summary Statistics
 
 ### Table of Contents
 
-- [Mixed Design Example with Holzel Summary Statistics](#mixed-design-example-with-holzel-summary-statistics)
-    - [Data Management](#data-management)
-    - [Analyses of the Differences within Conditions](#analyses-of-the-differences-within-conditions)
+- [Data Management](#data-management)
+- [Analyses of the Differences within Conditions](#analyses-of-the-differences-within-conditions)
+
+---
 
 ### Data Management
 
 Create two tables of summary statistics for the first simple effect of interest.
-
 
 ```r
 PretestControl <- c(N=17,M=43.815,SD=4.910)

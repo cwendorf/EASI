@@ -11,21 +11,16 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## OneWay (Between-Subjects) Example with Rattan Data
 
 ### Table of Contents
 
-- [OneWay (Between-Subjects) Example with Rattan Data](#oneway-(between-subjects)-example-with-rattan-data)
-    - [Data Management](#data-management)
-    - [Analyses of the Different Groups](#analyses-of-the-different-groups)
-    - [Analysis of a Group Difference](#analysis-of-a-group-difference)
-    - [Analysis of a Group Contrast](#analysis-of-a-group-contrast)
+- [Data Management](#data-management)
+- [Analyses of the Different Groups](#analyses-of-the-different-groups)
+- [Analysis of a Group Difference](#analysis-of-a-group-difference)
+- [Analysis of a Group Contrast](#analysis-of-a-group-contrast)
+
+---
 
 ### Data Management
 

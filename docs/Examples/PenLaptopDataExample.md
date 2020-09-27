@@ -11,20 +11,15 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## Indendent Groups Example with PenLaptop Data
 
 ### Table of Contents
 
-- [Indendent Groups Example with PenLaptop Data](#indendent-groups-example-with-penlaptop-data)
-    - [PenLaptop1 Example](#penlaptop1-example)
-    - [PenLaptop2 Example](#penlaptop2-example)
-    - [PenLaptop3 Example](#penlaptop3-example)
+- [PenLaptop1 Example](#penlaptop1-example)
+- [PenLaptop2 Example](#penlaptop2-example)
+- [PenLaptop3 Example](#penlaptop3-example)
+
+---
 
 ### PenLaptop1 Example
 

@@ -11,21 +11,16 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics
 
 ### Table of Contents
 
-- [Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics](#repeated-measures-(within-subjects)-example-with-donohue-summary-statistics)
-    - [Data Management](#data-management)
-    - [Analyses of the Different Variables](#analyses-of-the-different-variables)
-    - [Analysis of a Variable Difference](#analysis-of-a-variable-difference)
-    - [Analysis of a Variable Contrast](#analysis-of-a-variable-contrast)
+- [Data Management](#data-management)
+- [Analyses of the Different Variables](#analyses-of-the-different-variables)
+- [Analysis of a Variable Difference](#analysis-of-a-variable-difference)
+- [Analysis of a Variable Contrast](#analysis-of-a-variable-contrast)
+
+---
 
 ### Data Management
 

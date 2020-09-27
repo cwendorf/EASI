@@ -11,20 +11,15 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
-
-
-
-
-
 ## Paired Samples Example with Thomason Summary Statistics
 
 ### Table of Contents
 
-- [Paired Samples Example with Thomason Summary Statistics](#paired-samples-example-with-thomason-summary-statistics)
-    - [Thomason1 Example](#thomason1-example)
-    - [Thomason2 Example](#thomason2-example)
-    - [Thomason3 Example](#thomason3-example)
+- [Thomason1 Example](#thomason1-example)
+- [Thomason2 Example](#thomason2-example)
+- [Thomason3 Example](#thomason3-example)
+
+---
 
 ### Thomason1 Example
 
