@@ -1,14 +1,7 @@
 ---
-title: "Estimation Approach to Statistical Inference"
+title: "different"
 author: "Craig A. Wendorf"
 date: "2020-06-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Tutorial with Summary Statistics}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ## Repeated Measures (Within-Subjects) Tutorial with Summary Statistics
