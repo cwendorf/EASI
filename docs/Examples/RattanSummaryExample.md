@@ -2,13 +2,6 @@
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
 date: "2020-06-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{OneWay (Between-Subjects) Example with Rattan Summary Statistics}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ## OneWay (Between-Subjects) Example with Rattan Summary Statistics

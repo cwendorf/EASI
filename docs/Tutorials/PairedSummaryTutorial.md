@@ -2,13 +2,6 @@
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
 date: "2020-06-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Paired Samples Tutorial with Summary Statistics}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ## Paired Samples Tutorial with Summary Statistics

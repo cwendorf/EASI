@@ -1,5 +1,5 @@
 ---
-title: "different"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
 date: "2020-06-20"
 ---
