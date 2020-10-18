@@ -168,26 +168,26 @@ testContrast(FrendaSummary,contrast=Interaction)
 More helpfully, analyze the simple effect by setting the appropriate contrast.
 
 ```{r}
-simpleBatEvening <- c(-1,1,0,0)
-estimateContrast(FrendaSummary,contrast=simpleBatEvening)
+simpleBatA1 <- c(-1,1,0,0)
+estimateContrast(FrendaSummary,contrast=simpleBatA1)
 ```
 
 Then plot the conditions associated with the simple effect.
 
 ```{r,Frenda-SimpleA1}
-plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
+plotContrast(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
 ```
 
 Test the simple effect for statistical significance.
 
 ```{r}
-testContrast(FrendaSummary,contrast=simpleBatEvening)
+testContrast(FrendaSummary,contrast=simpleBatA1)
 ```
 
 Finally, estimate the standardized effect size for the simple effect.
 
 ```{r}
-standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
+standardizeContrast(FrendaSummary,contrast=simpleBatA1)
 ```
 
 ### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect
@@ -195,24 +195,24 @@ standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
 Next, analyze the other simple effect by setting the appropriate contrast.
 
 ```{r}
-simpleBatMorning <- c(0,0,-1,1)
-estimateContrast(FrendaSummary,contrast=simpleBatMorning)
+simpleBatA2 <- c(0,0,-1,1)
+estimateContrast(FrendaSummary,contrast=simpleBatA2)
 ```
 
 Then plot the conditions associated with the simple effect.
 
 ```{r,Frenda-SimpleA2}
-plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
+plotContrast(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
 ```
 
 Test the simple effect for statistical significance.
 
 ```{r}
-testContrast(FrendaSummary,contrast=simpleBatMorning)
+testContrast(FrendaSummary,contrast=simpleBatA2)
 ```
 
 Finally, estimate the standardized effect size for the simple effect.
 
 ```{r}
-standardizeContrast(FrendaSummary,contrast=simpleBatMorning)
+standardizeContrast(FrendaSummary,contrast=simpleBatA2)
 ```

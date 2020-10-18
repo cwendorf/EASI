@@ -8,16 +8,15 @@ date: "2020-06-20"
 
 ### Table of Contents
 
-- [Data Management](#data-management)
-- [Analyses of the Different Groups](#analyses-of-the-different-groups)
-- [Analyses of the Marginal Means](#analyses-of-the-marginal-means)
-- [Analyses of the Factor A (Evening vs Morning) Main Effect](#analyses-of-the-factor-a-(evening-vs-morning)-main-effect)
-- [Analyses of the Factor B (Sleep vs NoSleep) Main Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-main-effect)
-- [Analyses of the Factor A x B Interaction](#analyses-of-the-factor-a-x-b-interaction)
-- [Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a1-(evening)-simple-effect)
-- [Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a2-(morning)-simple-effect)
-
----
+- [Factorial Between-Subjects Example with Frenda Summary Statistics](#factorial-between-subjects-example-with-frenda-summary-statistics)
+    - [Data Management](#data-management)
+    - [Analyses of the Different Groups](#analyses-of-the-different-groups)
+    - [Analyses of the Marginal Means](#analyses-of-the-marginal-means)
+    - [Analyses of the Factor A (Evening vs Morning) Main Effect](#analyses-of-the-factor-a-(evening-vs-morning)-main-effect)
+    - [Analyses of the Factor B (Sleep vs NoSleep) Main Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-main-effect)
+    - [Analyses of the Factor A x B Interaction](#analyses-of-the-factor-a-x-b-interaction)
+    - [Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a1-(evening)-simple-effect)
+    - [Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a2-(morning)-simple-effect)
 
 ### Data Management
 
@@ -257,8 +256,8 @@ More helpfully, analyze the simple effect by setting the appropriate contrast.
 
 
 ```r
-simpleBatEvening <- c(-1,1,0,0)
-estimateContrast(FrendaSummary,contrast=simpleBatEvening)
+simpleBatA1 <- c(-1,1,0,0)
+estimateContrast(FrendaSummary,contrast=simpleBatA1)
 ```
 
 ```
@@ -271,7 +270,7 @@ Then plot the conditions associated with the simple effect.
 
 
 ```r
-plotContrast(FrendaSummary,contrast=simpleBatEvening,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
+plotContrast(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
 ```
 
 ![](figures/Frenda-SimpleA1-1.png)<!-- -->
@@ -280,7 +279,7 @@ Test the simple effect for statistical significance.
 
 
 ```r
-testContrast(FrendaSummary,contrast=simpleBatEvening)
+testContrast(FrendaSummary,contrast=simpleBatA1)
 ```
 
 ```
@@ -293,7 +292,7 @@ Finally, estimate the standardized effect size for the simple effect.
 
 
 ```r
-standardizeContrast(FrendaSummary,contrast=simpleBatEvening)
+standardizeContrast(FrendaSummary,contrast=simpleBatA1)
 ```
 
 ```
@@ -308,8 +307,8 @@ Next, analyze the other simple effect by setting the appropriate contrast.
 
 
 ```r
-simpleBatMorning <- c(0,0,-1,1)
-estimateContrast(FrendaSummary,contrast=simpleBatMorning)
+simpleBatA2 <- c(0,0,-1,1)
+estimateContrast(FrendaSummary,contrast=simpleBatA2)
 ```
 
 ```
@@ -322,7 +321,7 @@ Then plot the conditions associated with the simple effect.
 
 
 ```r
-plotContrast(FrendaSummary,contrast=simpleBatMorning,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
+plotContrast(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
 ```
 
 ![](figures/Frenda-SimpleA2-1.png)<!-- -->
@@ -331,7 +330,7 @@ Test the simple effect for statistical significance.
 
 
 ```r
-testContrast(FrendaSummary,contrast=simpleBatMorning)
+testContrast(FrendaSummary,contrast=simpleBatA2)
 ```
 
 ```
@@ -344,7 +343,7 @@ Finally, estimate the standardized effect size for the simple effect.
 
 
 ```r
-standardizeContrast(FrendaSummary,contrast=simpleBatMorning)
+standardizeContrast(FrendaSummary,contrast=simpleBatA2)
 ```
 
 ```
