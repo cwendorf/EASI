@@ -16,7 +16,7 @@
 
 ### Installation
 
-This package is not currently on CRAN, but can be installed directly from this repository:
+This package is not currently on CRAN, but can be installed directly from the repository:
 
 ``` r
 install.packages("devtools")
