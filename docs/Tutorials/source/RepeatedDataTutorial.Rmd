@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-06-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -106,12 +106,12 @@ testMeans(Outcome1,Outcome2,Outcome3,mu=5)
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
-estimateStandardizedMeans(Outcome1,Outcome2,Outcome3)
+standardizeMeans(Outcome1,Outcome2,Outcome3)
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
 ```{r}
-estimateStandardizedMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99)
+standardizeMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99)
 ```
 
 ### Analyses of a Comparison
@@ -122,48 +122,48 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code identifies the two levels for comparison and estimates the confidence interval of the difference.
 ```{r}
-estimateMeanDifference(Outcome1,Outcome2)
+estimateDifference(Outcome1,Outcome2)
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-estimateMeanDifference(Outcome1,Outcome2,conf.level=.99)
+estimateDifference(Outcome1,Outcome2,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for the Mean Difference
 
 This code obtains and plots the confidence intervals for the levels and the mean difference in the identified comparison.
 ```{r,Repeated-DifferenceA}
-plotMeanDifference(Outcome1,Outcome2)
+plotDifference(Outcome1,Outcome2)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```{r,Repeated-DifferenceB}
-plotMeanDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
+plotDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
 ```
 
 #### Significance Test for the Mean Difference
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```{r}
-testMeanDifference(Outcome1,Outcome2)
+testDifference(Outcome1,Outcome2)
 ```
 
 If the default value of zero is not plausible, it too can be changed.
 ```{r}
-testMeanDifference(Outcome1,Outcome2,mu=-2)
+testDifference(Outcome1,Outcome2,mu=-2)
 ```
 
 #### Effect Size for the Mean Difference
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```{r}
-estimateStandardizedMeanDifference(Outcome1,Outcome2)
+standardizeDifference(Outcome1,Outcome2)
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-estimateStandardizedMeanDifference(Outcome1,Outcome2,conf.level=.99)
+standardizeDifference(Outcome1,Outcome2,conf.level=.99)
 ```
 
 ### Analyses of a Contrast
@@ -179,48 +179,48 @@ O1vsOthers <- c(-1,.5,.5)
 
 This code produces a confidence interval for that contrast.
 ```{r}
-estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```{r}
-estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
+estimateContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```{r,Repeated-ContrastA}
-plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 ````
 
 The width of the confidence interval for the contrast can be altered and a region of practice equivalence can be added.
 ```{r,Repeated-ContrastB}
-plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
+plotContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
 #### Significance Test for the Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
-testMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 ```
 
 If desired, the contrast can be tested against other values.
 ```{r}
-testMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4)
+testContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}
-estimateStandardizedMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-estimateStandardizedMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
+standardizeContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
 ```
 
 ### Analyses of the Pairwise Comparisons
@@ -232,13 +232,13 @@ This section provides analyses of all possible pairwise comparisons among the le
 This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 
 ```{r}
-estimateMeansPairwise(Outcome1,Outcome2,Outcome3)
+estimatePairwise(Outcome1,Outcome2,Outcome3)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```{r}
-estimateMeansPairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
+estimatePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
@@ -246,13 +246,13 @@ estimateMeansPairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 This code will produce a graph of the confidence intervals for each of the pairwise comparisons.
 
 ```{r,Repeated-PairwiseA}
-plotMeansPairwise(Outcome1,Outcome2,Outcome3)
+plotPairwise(Outcome1,Outcome2,Outcome3)
 ```
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 
 ```{r,Repeated-PairwiseB}
-plotMeansPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0))
+plotPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 #### Significance Tests of the Pairwise Comparisons
@@ -260,13 +260,13 @@ plotMeansPairwise(Outcome1,Outcome2,Outcome3,mu=-2,conf.level=.99,rope=c(-4,0))
 This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 
 ```{r}
-testMeansPairwise(Outcome1,Outcome2,Outcome3)
+testPairwise(Outcome1,Outcome2,Outcome3)
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 
 ```{r}
-testMeansPairwise(Outcome1,Outcome2,Outcome3,mu=-2)
+testPairwise(Outcome1,Outcome2,Outcome3,mu=-2)
 ```
 
 #### Effect Sizes for the Pairwise Comparisons
@@ -274,11 +274,11 @@ testMeansPairwise(Outcome1,Outcome2,Outcome3,mu=-2)
 This code will produce a table of standardized mean differences for each pairwise comparison. 
 
 ```{r}
-estimateStandardizedMeansPairwise(Outcome1,Outcome2,Outcome3)
+standardizePairwise(Outcome1,Outcome2,Outcome3)
 ```
 
 Here too it is possible to alter the width of the confidence intervals.
 
 ```{r}
-estimateStandardizedMeansPairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
+standardizePairwise(Outcome1,Outcome2,Outcome3,conf.level=.99)
 ```
