@@ -1,0 +1,151 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2020-06-20"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Independent Groups Tutorial with Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8",filename="render_toc.R")
+```
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+library(EASI)
+```
+
+## Independent Groups Tutorial with Summary Statistics
+
+### Table of Contents
+
+```{r toc, echo=FALSE}
+sourceDir <- getSrcDirectory(function(dummy) {dummy})
+setwd(sourceDir)
+render_toc("IndependentSummaryTutorial.Rmd")
+```
+
+### Data Management
+
+This code inputs the group summaries and creates a single summary table.
+```{r}
+Level1 <- c(N=4,M=2.000,SD=2.449)
+Level2 <- c(N=4,M=6.000,SD=2.449)
+IndependentSummary <- rbind(Level1,Level2)
+class(IndependentSummary) <- "bss"
+IndependentSummary
+```
+
+### Analyses of the Means
+
+This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
+
+#### Confidence Intervals for the Means
+
+This code will provide a table of confidence intervals for each level of the factor.
+```{r}
+estimateMeans(IndependentSummary)
+```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
+```{r}
+estimateMeans(IndependentSummary,conf.level=.99)
+```
+
+#### Plots of the Confidence Intervals for the Means
+
+This code will produce a graph of the confidence intervals for each level of the factor.
+```{r,Independent-MeansA}
+plotMeans(IndependentSummary)
+```
+
+Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence can be added.
+```{r,Independent-MeansB}
+plotMeans(IndependentSummary,conf.level=.99,mu=5,rope=c(3,7))
+```
+
+#### Significance Tests for the Means
+
+This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
+```{r}
+testMeans(IndependentSummary)
+```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
+```{r}
+testMeans(IndependentSummary,mu=5)
+```
+
+#### Effect Sizes for the Means
+
+This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
+```{r}
+standardizeMeans(IndependentSummary)
+```
+
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+```{r}
+standardizeMeans(IndependentSummary,mu=5,conf.level=.99)
+```
+ 
+### Analyses of the Comparison
+
+This section produces analyses that examine the difference among the two levels of the factor.
+
+#### Confidence Interval for a Mean Difference
+
+This code estimates the confidence interval of the difference.
+```{r}
+estimateDifference(IndependentSummary)
+```
+
+Of course, you can change the confidence level from the default 95% if desired.
+```{r}
+estimateDifference(IndependentSummary,conf.level=.99)
+```
+
+#### Plot of the Confidence Interval for a Mean Difference
+
+This code obtains and plots the confidence intervals for the groups and the mean difference .
+```{r,Independent-DifferenceA}
+plotDifference(IndependentSummary)
+```
+
+Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
+```{r,Independent-DifferenceB}
+plotDifference(IndependentSummary,conf.level=.99,rope=c(-2,2))
+```
+
+#### Significance Test for a Mean Difference
+
+This code produces NHST for the mean difference (using a default test value of zero).
+```{r}
+testDifference(IndependentSummary)
+```
+
+If the default value of zero is not plausible, it too can be changed.
+```{r}
+testDifference(IndependentSummary,mu=2)
+```
+
+#### Effect Size for the Mean Difference
+
+This code calculates a standardized mean difference and its confidence interval.
+```{r}
+standardizeDifference(IndependentSummary)
+```
+
+The width of the confidence interval for the effect size can be altered if desired.
+```{r}
+standardizeDifference(IndependentSummary,conf.level=.99)
+```
