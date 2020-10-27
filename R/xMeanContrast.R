@@ -117,8 +117,3 @@ testMeanContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=N
   testMeanContrast(DescStats,contrast,mu=mu,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
-
-plotMeansContrast <- plotMeanContrast <- function(...,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
-  plotSubsetContrast(...,contrast=contrast,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,ylim=ylim,digits=digits)
-}
