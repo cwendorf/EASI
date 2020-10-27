@@ -66,10 +66,3 @@ estimateStandardizedMeanDifference.formula <- function(formula,contrast,mu=0,con
   class(DescStats) <- "bss"
   estimateStandardizedMeanDifference(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
-
-### Confidence Interval Plot Functions
-
-plotMeansDifference <- plotMeanDifference <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
-  plotComparison(...,main=main,ylab=ylab,xlab=xlab,conf.level=conf.level,rope=rope,labels=labels,values=values,ylim=ylim,digits=digits)
-}
-
