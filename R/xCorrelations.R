@@ -3,8 +3,6 @@
 
 ### Correlate/Covary Functions for Mutiple Variables
 
-#### Describe Function for Correlations
-
 describeCorrelations <- function(x,...) 
   UseMethod("describeCorrelations")
 
@@ -60,8 +58,6 @@ fillCorrelations <- function(mat) {
 
 ### Confidence Interval Functions
 
-#### Confidence Intervals for Correlations
-
 estimateCorrelations <- function(x,...) 
   UseMethod("estimateCorrelations")
 
@@ -81,8 +77,8 @@ estimateCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL
     z <- qnorm((1+conf.level)/2)
     SE <- sqrt(1/((n-3)))
     zR <- log((1+R)/(1-R))/2
-    LL0 <- zR - z*SE
-    UL0 <- zR + z*SE
+    LL0 <- zR-z*SE
+    UL0 <- zR+z*SE
     LL <- (exp(2*LL0)-1)/(exp(2*LL0)+1)
     UL <- (exp(2*UL0)-1)/(exp(2*UL0)+1)
     results[comp,] <- c(R,SE,LL,UL)
@@ -101,8 +97,6 @@ estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 }
 
 ### Null Hypothesis Significance Test Functions
-
-#### NHST Function for Correlations
 
 testCorrelations <- function(x,...) 
   UseMethod("testCorrelations")
@@ -140,8 +134,6 @@ testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 }
 
 ### Confidence Interval Plot Functions
-
-#### Plot Function for Confidence Intervals of the Correlations
 
 plotCorrelations <- function(x,...) 
   UseMethod("plotCorrelations")

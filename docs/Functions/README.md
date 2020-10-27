@@ -2,7 +2,7 @@
 
 ### Installation of the Functions
 
-This package is not currently on CRAN, but can be installed directly from the repository:
+This package is not currently on CRAN, but can be installed directly from this repository:
 
 ``` r
 install.packages("devtools")
@@ -26,7 +26,6 @@ Prefix | Description
 `estimate` | estimate the confidence intervals
 `plot` | plot the confidence intervals 
 `test` | test the estimates for statistical significance
-`standardize` | standardize the effect sizes and get their confidence intervals
 
 #### Available Functions
 
@@ -49,39 +48,39 @@ Prefix | Description
 - [`estimateMeans`](./estimateMeans.md)
 - [`plotMeans`](./plotMeans.md)
 - [`testMeans`](./testMeans.md)
-- [`standardizeMeans`](./standardizeMeans.md)
+- [`estimateStandardizedMeans`](./estimateStandardizedMeans.md)
 
-`Difference` - functions that examine a difference/comparison among two group or level means
+`MeanDifference` - functions that examine a difference/comparison among two group or level means
 
-- [`estimateDifference`](./estimateDifference.md)
-- [`plotDifference`](./plotDifference.md)
-- [`testDifference`](./testDifference.md)
-- [`standardizeDifference`](./standardizeDifference.md)
+- [`estimateMeanDifference`](./estimateMeanDifference.md)
+- [`plotMeanDifference`](./plotMeanDifference.md)
+- [`testMeanDifference`](./testMeanDifference.md)
+- [`estimateStandardizedMeanDifference`](./estimateStandardizedMeanDifference.md)
 
-`Contrast` - functions that examine a contrast among all of the group or level means
+`MeanContrast` - functions that examine a contrast among all of the group or level means
 
-- [`estimateContrast`](./estimateContrast.md)
-- [`plotContrast`](./plotContrast.md)
-- [`testContrast`](./testContrast.md)
-- [`standardizeContrast`](./standardizeContrast.md) 
+- [`estimateMeanContrast`](./estimateMeanContrast.md)
+- [`plotMeanContrast`](./plotMeanContrast.md)
+- [`testMeanContrast`](./testMeanContrast.md)
+- [`estimateStandardizedMeanContrast`](./estimateStandardizedMeanContrast.md) 
 
-`Pairwise` - functions that examine all possible unadjusted pairwise comparisons among the group or levels means
+`MeansPairwise` - functions that examine all possible unadjusted pairwise comparisons among the group or levels means
 
-- [`estimatePairwise`](./estimatePairwise.md)
-- [`plotPairwise`](./plotPairwise.md)
-- [`testPairwise`](./testPairwise.md)
-- [`standardizePairwise`](./standardizePairwise.md)
+- [`estimateMeansPairwise`](./estimateMeansPairwise.md)
+- [`plotMeansPairwise`](./plotMeansPairwise.md)
+- [`testMeansPairwise`](./testMeansPairwise.md)
+- [`estimateStandardizedMeansPairwise`](./estimateStandardizedMeansPairwise.md)
 
-`Relational` - functions that provide both arelational (confidence) and relational (comparative) intervals 
+`MeansRelational` - functions that provide both arelational (confidence) and relational (comparative) intervals 
 
-- [`estimateRelational`](./estimateRelational.md)
-- [`plotRelational`](./plotRelational.md)
+- [`estimateMeansRelational`](./estimateMeansRelational.md)
+- [`plotMeansRelational`](./plotMeansRelational.md)
 
-`Omnibus` - functions that provide an analysis of omnibus effects (like an ANOVA)
+`MeansOmnibus` - functions that provide an analysis of omnibus effects (like an ANOVA)
 
-- [`describeOmnibus`](./describeOmnibus.md)
-- [`testOmnibus`](./testOmnibus.md)
-- [`effectOmnibus`](./effectOmnibus.md)
+- [`describeMeansOmnibus`](./describeMeansOmnibus.md)
+- [`testMeansOmnibus`](./testMeansOmnibus.md)
+- [`estimateEffectOmnibus`](./estimateEffectOmnibus.md)
 
 `Correlations` - functions that provide analyses of correlations among variables
 

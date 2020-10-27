@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-06-20"
+date: "2020-10-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-06-20"
+date: "2020-10-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -48,15 +48,14 @@ class(PenLaptop1Summary) <- "bss"
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop1-Difference}
-plotDifference(PenLaptop1Summary,main="Transcription as a Function of Note Taking",
-ylab="Transcription %")
+```{r,PenLaptop1-Comparison}
+plotMeanComparison(PenLaptop1Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(PenLaptop1Summary)
+estimateStandardizedMeanDifference(PenLaptop1Summary)
 ```
 
 ### PenLaptop2 Example
@@ -72,15 +71,14 @@ class(PenLaptop2Summary) <- "bss"
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop2-Difference}
-plotDifference(PenLaptop2Summary,main="Transcription as a Function of Note Taking",
-ylab="Transcription %")
+```{r,PenLaptop2-Comparison}
+plotMeanComparison(PenLaptop2Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(PenLaptop2Summary)
+estimateStandardizedMeanDifference(PenLaptop2Summary)
 ```
 
 ### PenLaptop3 Example
@@ -96,13 +94,12 @@ class(PenLaptop3Summary) <- "bss"
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop3-Difference}
-plotDifference(PenLaptop3Summary,main="Transcription as a Function of Note Taking",
-ylab="Transcription %")
+```{r,PenLaptop3-Comparison}
+plotMeanComparison(PenLaptop3Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(PenLaptop3Summary)
+estimateStandardizedMeanDifference(PenLaptop3Summary)
 ```

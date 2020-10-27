@@ -1,9 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Medians and Boxplots
+## Functions for Boxplots
 
 ### Descriptive Functions
-
-#### Describe Function for Medians
 
 describeBoxes <- function(x,...)
   UseMethod("describeBoxes")
@@ -28,8 +26,6 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
 }
 
 ### Plot Functions
-
-#### Boxplot Functions
 
 .bp <- function(var,loc,offset=0,scale=.6,border="black",col="white") {
   z <- .unformatFrame(describeBoxes(var)[[1]])

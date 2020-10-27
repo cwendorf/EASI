@@ -3,8 +3,6 @@
 
 ### Plot Functions
 
-#### Violin Functions
-
 .vio <- function(var,loc,offset=0,scale=.6,border="gray75",col="gray90") {
   y <- density(var)
   y1 <- loc+(y$y*scale)+offset

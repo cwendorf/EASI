@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-06-20"
+date: "2020-10-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -47,15 +47,14 @@ Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop1-Difference}
-plotDifference(Transcription~Group,main="Transcription as a Function of Note Taking",
-ylab="Transcription %")
+```{r,PenLaptop1-Comparison}
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Transcription~Group)
+estimateStandardizedMeanDifference(Transcription~Group)
 ```
 
 ### PenLaptop2 Example
@@ -70,15 +69,14 @@ Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop2-Difference}
-plotDifference(Transcription~Group,main="Transcription as a Function of Note Taking",
-ylab="Transcription %")
+```{r,PenLaptop2-Comparison}
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Transcription~Group)
+estimateStandardizedMeanDifference(Transcription~Group)
 ```
 
 ### PenLaptop3 Example
@@ -93,13 +91,12 @@ Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop3-Difference}
-plotDifference(Transcription~Group,main="Transcription as a Function of Note Taking",
-ylab="Transcription %")
+```{r,PenLaptop3-Comparison}
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
 ```{r}
-standardizeDifference(Transcription~Group)
+estimateStandardizedMeanDifference(Transcription~Group)
 ```

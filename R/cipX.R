@@ -3,9 +3,9 @@
 
 ### Basic Confidence Interval Plot Functions
 
-.cipMain <- function(results,main,ylab,xlab,mu,rope,values,ylim,digits,connect) {
+.cipMain <- function(results,main,ylab,xlab,mu,rope,values,ylim,digits,connect,pch=16) {
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))}
-  plot(results[,1],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=16,bty="l")
+  plot(results[,1],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=pch,bty="l")
   axis(1,1:nrow(results),row.names(results))
   for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1)}}

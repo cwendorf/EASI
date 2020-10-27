@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-06-20"
+date: "2020-10-20"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -112,7 +112,7 @@ class(CompSummary) <- "bss"
 
 This code estimates the confidence interval of the difference.
 ```{r}
-estimateDifference(CompSummary)
+estimateMeanDifference(CompSummary)
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
@@ -124,36 +124,36 @@ estimateDifference(CompSummary,conf.level=.99)
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified comparison.
 ```{r,OneWay-DifferenceA}
-plotDifference(CompSummary)
+plotMeanDifference(CompSummary)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added.
 ```{r,OneWay-DifferenceB}
-plotDifference(CompSummary,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(CompSummary,conf.level=.99,rope=c(-2,2))
 ```
 
 #### Significance Test for a Mean Difference
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```{r}
-testDifference(CompSummary)
+testMeanDifference(CompSummary)
 ```
 
 If the default value of zero is not plausible, it too can be changed.
 ```{r}
-testDifference(CompSummary,mu=-2)
+testMeanDifference(CompSummary,mu=-2)
 ```
 
 #### Effect Size for the Mean Difference
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```{r}
-standardizeDifference(CompSummary)
+estimateStandardizedMeanDifference(CompSummary)
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-standardizeDifference(CompSummary,conf.level=.99)
+estimateStandardizedMeanDifference(CompSummary,conf.level=.99)
 ```
 
 ### Analyses of a Contrast
@@ -169,48 +169,48 @@ L1vsOthers <- c(-1,.5,.5)
 
 This code produces a confidence interval for that contrast.
 ```{r}
-estimateContrast(OneWaySummary,contrast=L1vsOthers)
+estimateMeanContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```{r}
-estimateContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
+estimateMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 ```
 
 #### Plots of Confidence Intervals for a Contrast
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```{r,OneWay-ContrastA}
-plotContrast(OneWaySummary,contrast=L1vsOthers)
+plotMeanContrast(OneWaySummary,contrast=L1vsOthers)
 ````
 
 The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added.
 ```{r,OneWay-ContrastB}
-plotContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
+plotMeanContrast(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
 #### Significance Test for a Contrast
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
-testContrast(OneWaySummary,contrast=L1vsOthers)
+testMeanContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 If desired, the contrast can be tested against other values.
 ```{r}
-testContrast(OneWaySummary,contrast=L1vsOthers,mu=4)
+testMeanContrast(OneWaySummary,contrast=L1vsOthers,mu=4)
 ```
 
 #### Effect Size for a Contrast
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}
-standardizeContrast(OneWaySummary,contrast=L1vsOthers)
+estimateStandardizedMeanContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-standardizeContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
+estimateStandardizedMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 ```
 
 ### Analyses of the Pairwise Comparisons
@@ -222,13 +222,13 @@ This section provides analyses of all possible pairwise comparisons among the le
 This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 
 ```{r}
-estimatePairwise(OneWaySummary)
+estimateMeansPairwise(OneWaySummary)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```{r}
-estimatePairwise(OneWaySummary,conf.level=.99)
+estimateMeansPairwise(OneWaySummary,conf.level=.99)
 ```
 
 #### Plots of the Confidence Intervals for the Pairwise Comparisons
@@ -236,13 +236,13 @@ estimatePairwise(OneWaySummary,conf.level=.99)
 This code will produce a graph of the confidence intervals for each of the pairwise comparisons.
 
 ```{r,OneWay-PairwiseA}
-plotPairwise(OneWaySummary)
+plotMeansPairwise(OneWaySummary)
 ```
 
 Of course, it is possible to change from the default confidence level. Additionally, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence.
 
 ```{r,OneWay-PairwiseB}
-plotPairwise(OneWaySummary,mu=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(OneWaySummary,mu=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 #### Significance Tests of the Pairwise Comparisons
@@ -250,13 +250,13 @@ plotPairwise(OneWaySummary,mu=-2,conf.level=.99,rope=c(-4,0))
 This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 
 ```{r}
-testPairwise(OneWaySummary)
+testMeansPairwise(OneWaySummary)
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 
 ```{r}
-testPairwise(OneWaySummary,mu=-2)
+testMeansPairwise(OneWaySummary,mu=-2)
 ```
 
 #### Effect Sizes for the Pairwise Comparisons
@@ -264,11 +264,11 @@ testPairwise(OneWaySummary,mu=-2)
 This code will produce a table of standardized mean differences for each pairwise comparison. 
 
 ```{r}
-standardizePairwise(OneWaySummary)
+estimateStandardizedMeansPairwise(OneWaySummary)
 ```
 
 Here too it is possible to alter the width of the confidence intervals.
 
 ```{r}
-standardizePairwise(OneWaySummary,conf.level=.99)
+estimateStandardizedMeansPairwise(OneWaySummary,conf.level=.99)
 ```

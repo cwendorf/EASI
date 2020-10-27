@@ -1,9 +1,7 @@
 # Estimation Approach to Statistical Inference
-## General Data Functions
+## Data Functions
 
 ### Plot Functions
-
-#### Plot Data
 
 .dots <- function(var,loc,offset=0,jitter=0,col="gray0",pch=1) {
   newx <- NULL
