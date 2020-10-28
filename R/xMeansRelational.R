@@ -8,7 +8,7 @@ estimateMeansRelational <- estimateMeanRelational <- function(x,...)
 
 estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...) {
   results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,...)[[1]])
-  mymodel <- .unformatFrame(describeMeanOmnibus(DescStats,CorrStats,...)[[1]])
+  mymodel <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,...)[[1]])
   dfe <- mymodel[3,2]
   mse <- mymodel[3,3]
   ntilde <- 1/mean(1/DescStats[,1]) 
@@ -25,7 +25,7 @@ estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95,main=
 
 estimateMeansRelational.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,...) {
   results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,...)[[1]])
-  mymodel <- .unformatFrame(describeMeanOmnibus(DescStats,...)[[1]])
+  mymodel <- .unformatFrame(describeMeansOmnibus(DescStats,...)[[1]])
   dfe <- mymodel[2,2]
   mse <- mymodel[2,3]
   ntilde <- 1/mean(1/DescStats[,1]) 

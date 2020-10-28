@@ -4,7 +4,7 @@
 ### Descriptive Functions
 
 describeMeansOmnibus <- describeMeanOmnibus <- function(x,...) 
-  UseMethod("describeMeanOmnibus")
+  UseMethod("describeMeansOmnibus")
 
 describeMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...) {
   n <- DescStats[,"N"]
@@ -73,7 +73,7 @@ describeMeansOmnibus.formula <- function(formula,main=NULL,digits=3,...) {
 ### Null Hypothesis Significance Test Functions
 
 testMeansOmnibus <- testMeanOmnibus <- function(x,...) 
-  UseMethod("testMeanOmnibus")
+  UseMethod("testMeansOmnibus")
 
 testMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
