@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <style>
+      .markdown-body h1 {margin: 0px;}
+      .markdown-body hr {background-color: #00bfff;}
+      div.custom {background: #ccc; width: 100%; height: 100%; }
+      div#header {padding: 10px 0px; height: auto; min-height: 70px;}
+      div#footer {padding: 10px 0px;}
+      div#site {float:left; margin-right: 20px}
+      div#nav {display: inline-block; font-weight: bold; font-size: 1.1em; margin: 10px 0px;}
+      div#nav a {text-decoration: none; margin: 10px 0px; padding: 10px 10px; color: black;}
+      div#nav a:hover {background: #ddd; color: #00bfff;}
+      img#logo {display: inline-block; height: 50px; padding: 0px; background: none;}
+    </style>
+    
+  </head>
+  
+  <body>
+
+    <div class="custom">
+    <div id=header class="container-lg px-3 markdown-body">
+            
+      <div id=site>
+      {% if site.title and site.title != page.title %}
+        <a href="{{ "/" | absolute_url }}" style="text-decoration: none;">
+          <img id=logo src="{{ "/logo.png" | prepend: site.baseurl }}" alt="{{ site.title }}">
+        </a> 
+      {% endif %}
+      </div>
+      
+      <div id=nav>
+        <a href="https://cwendorf.github.io/EASI/Functions/">Functions</a>  
+        <a href="https://cwendorf.github.io/EASI/Tutorials/">Tutorials</a>  
+        <a href="https://cwendorf.github.io/EASI/Examples/">Examples</a>  
+      </div>
+        
+    </div>
+    </div>
+    
+    <div class="container-lg px-3 my-5 markdown-body" >
+     
+      {{ content }}
+
+    </div>
+    
+    <div class="custom">
+    <div id=footer class="container-lg px-3 markdown-body">
+      Contact: 
+      <a href="mailto:cwendorf@uwsp.edu">cwendorf@uwsp.edu</a>
+      <br />
+      Repository: 
+      {% if site.github.is_project_page %}
+      <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a> /  
+      {% endif %}
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}">EASI</a>
+      {% endif %}    
+    </div>
+    </div>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    {% if site.google_analytics %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    {% endif %}
+  </body>
+</html>
+

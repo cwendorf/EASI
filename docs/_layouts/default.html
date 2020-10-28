@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    {% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <script src="https://kit.fontawesome.com/277c075f99.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <style>
+      .markdown-body h1 {color: #028fbe; margin: 0px; padding-bottom: 20px;}
+      .markdown-body h2 {border-color: black; padding-bottom: 20px;}
+      .markdown-body hr {height: 1px; background-color: black;}
+      .markdown-body a {color: #028fbe;}
+      .custom {background: #ccc; width: 100%; height: 70px; }
+      #header {padding: 10px 0px; height: auto; }
+
+      #site {float: left; margin: 0px 20px 0px 0px;}
+      #site:hover {background: #ddd;}
+      #logo {display: block; height: 50px; padding: 0px; margin: 0px; background: none;}
+
+      #nav {display: inline-block; font-weight: bold; font-size: 18px; margin: 12px 0px;}
+      #nav a {text-decoration: none; margin: 10px 0px; padding: 12px 10px; color: black;}
+      #nav a:hover {background: #ddd; color: #028fbe; }
+     
+      #repository {float: right; padding: 0px 0px;}
+      #repository i {text-decoration: none; margin: 0px 0px; padding: 2px 6px; color: black;}      
+      #repository i:hover {background: #ddd; color: #028fbe;}       
+
+      #menuButton {float: right; padding: 0px 0px; }
+      #menuButton i {text-decoration: none; margin: 0px 0px; padding: 8px 10px; color: black;}      
+      #menuButton i:hover {background: #ddd; color: #028fbe;} 
+
+      #dropdown {display: none; position: absolute; top: 71px; right: 2px; z-index: 99; background: #ccc; padding: 0px 0px; margin: 0px; width: 200px; }
+      #dropdown ul {list-style: none; padding: 10px; margin: 0px; width: 100%;}  
+      #dropdown li {width: 100%; text-align: center;}
+      #dropdown a {display: block; text-decoration: none; margin: 0px 0px; padding: 12px 10px; color: black; font-weight: bold; font-size: 18px;}
+      #dropdown a:hover {background: #ddd; color: #028fbe;}
+
+      #footer {padding: 10px 0px;}
+      #footer a {color: black; text-decoration: none; font-weight: bold;}
+      #footer a:hover {color: #028fbe;}
+
+      #topButton {float: right;}
+      #topButton i {padding: 10px;}
+      #topButton i:hover {background: #ddd;}
+
+      @media (max-width: 700px) {
+        div#nav {display: none;}
+        div#repository {display: none;}
+        #menuButton {display: block;}
+      }
+      @media (min-width: 701px) {
+        div#nav {display: block;}
+        div#repository {display: block;}
+        #menuButton {display: none;}
+      }
+      
+    </style>
+
+    <script language="javascript">
+      function toggleDropdown() {
+        var menu = document.getElementById('dropdown');
+        if (menu.style.display == "block") {
+          menu.style.display = "none";
+      } else {
+        menu.style.display = "block";
+      }
+      }
+    </script>
+
+  </head>
+  
+  <body>
+
+    <div class="custom">
+    <div id=header class="container-lg px-3 markdown-body">
+            
+      <div id=site>
+      {% if site.title and site.title != page.title %}
+        <a href="{{ "/" | absolute_url }}" style="text-decoration: none;">
+          <img id=logo src="{{ "/logo.png" | prepend: site.baseurl }}" alt="{{ site.title }}">
+        </a> 
+      {% endif %}
+      </div>
+
+      <div id=repository>
+        <a href="{{ site.github.repository_url }}"><i class="fab fa-github-square fa-3x"></i></a>
+      </div>
+
+      <div id=menuButton>
+        <i class="fas fa-bars fa-2x" onClick="toggleDropdown()"></i>
+      </div>      
+
+      <div id=nav>
+        <a href="{{ "/Functions/" | prepend: site.baseurl }}" alt="Functions">Functions</a> 
+        <a href="{{ "/Tutorials/" | prepend: site.baseurl }}" alt="Tutorials">Tutorials</a>  
+        <a href="{{ "/Examples/" | prepend: site.baseurl }}" alt="Examples">Examples</a>
+      </div>
+
+    </div>
+    </div>
+
+    <div id=dropdown>
+
+      <ul>
+        <li class=""><a href="{{ "/Functions/" | prepend: site.baseurl }}" alt="Functions" class="">Functions</a></li>  
+        <li class=""><a href="{{ "/Tutorials/" | prepend: site.baseurl }}" alt="Tutorials" class="">Tutorials</a></li>  
+        <li class=""><a href="{{ "/Examples/" | prepend: site.baseurl }}" alt="Examples" class="">Examples</a></li>
+        <li class=""><hr /></li>
+        <li class=""><a href="{{ site.github.repository_url }}">GitHub</a></li> 
+      </ul>
+
+    </div>   
+
+    <div class="container-lg px-3 my-5 markdown-body" >
+           
+      {{ content }}
+   
+    </div>
+    
+    <div class="custom">
+    <div id=footer class="container-lg px-3 markdown-body">
+  
+      <a id=topButton href="#top"><i class="fas fa-arrow-circle-up fa-2x"></i></a>
+  
+      <a href="mailto:cwendorf@uwsp.edu"><i class="fas fa-envelope-square" style="margin: 0px 12px 0px 2px;"></i>cwendorf@uwsp.edu</a>
+      <br />
+      <a href="https://cwendorf.github.io"><i class="fas fa-home" style="margin-right: 10px;"></i>https://cwendorf.github.io</a>  
+  
+    </div>
+    </div>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    {% if site.google_analytics %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    {% endif %}
+
+  </body>
+
+</html>
