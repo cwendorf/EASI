@@ -99,6 +99,16 @@ Prefix | Description
 - [`testCorrelations`](./testCorrelations.md)
 - [`plotCorrelations`](./plotCorrelations.md)
 
+`CorrelationDifference` - functions that examine the difference between correlations across two independent samples
+
+- [`estimateCorrelationDifference`](./estimateCorrelationDifference.md)
+- [`plotCorrelationDifference`](./plotCorrelationDifference.md)
+
+`CorrelationComparison` - functions that examine a comparison among correlations from two independent sample (combines the `Correlations' and 'CorrelationDifference" functions)
+
+- [`estimateCorrelationComparison`](./estimateCorrelationComparison.md)
+- [`plotCorrelationComparison`](./plotCorrelationComparison.md)
+
 ### More Information
 
 More information about the functions, their assumptions, and their calculations can be found on the [Technical Details](./TechnicalDetails.md) page.
