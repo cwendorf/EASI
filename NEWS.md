@@ -6,7 +6,6 @@ Notable Changes
 
 - Reimagined naming scheme
 - Added comparison and subset functions
-- Added correlation differences
 - Revised all vignettes, tutorials, and examples
 
 ## EASI v3.200620
