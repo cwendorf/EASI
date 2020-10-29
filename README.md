@@ -50,7 +50,7 @@ estimateMeans(Outcome~Comp1v2)
 estimateMeanDifference(Outcome~Comp1v2)
 testMeanDifference(Outcome~Comp1v2)
 estimateStandardizedMeanDifference(Outcome~Comp1v2)
-plotComparison(Outcome~Comp1v2)
+plotMeanComparison(Outcome~Comp1v2)
 ```
 
 ### Citation
