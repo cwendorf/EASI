@@ -152,14 +152,14 @@ testMeansPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
 plotMeansPairwise <- plotMeanPairwise <- function(x,...) 
   UseMethod("plotMeansPairwise")
 
-plotMeansPairwise.default <- plotMeansPairwise.bss <- plotMeansPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeansPairwise.default <- plotMeansPairwise.bss <- plotMeansPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateMeansPairwise(...,conf.level=conf.level)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Mean Pairwise Comparisons"} else {main="Confidence Interval for the Mean Pairwise Comparison"}}  
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE) 
+  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=17) 
 }
 
-plotMeansPairwise.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,ylim=NULL,digits=3,...) {
+plotMeansPairwise.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL,...) {
   results <- .unformatFrame(estimateMeansPairwise(formula,conf.level=conf.level)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Mean Pairwise Comparisons"} else {main="Confidence Interval for the Mean Pairwise Comparison"}}  
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE) 
+  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=17) 
 }
