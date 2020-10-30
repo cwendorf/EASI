@@ -14,7 +14,7 @@ The **PenLaptop** files analyze an example of a two-group between-subjects (inde
 - [_PenLaptopDataExample_](./PenLaptopDataExample.md) uses raw data input.
 - [_PenLaptopSummaryExample_](./PenLaptopSummaryExample.md) uses summary statistics input.
 
-The **Thomason** files analyze an example of a within-subjects design for two time points (paired samples,see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 8):
+The **Thomason** files analyze an example of a within-subjects design for two time points (paired samples, see _[ITNS](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_, Ch. 8):
 
 - [_ThomasonDataExample_](./ThomasonDataExample.md) uses raw data input.
 - [_ThomasonSummaryExample_](./ThomasonSummaryExample.md) uses summary statistics input.
