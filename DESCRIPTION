@@ -6,6 +6,7 @@ Version: 4.201020
 Depends: R (>= 3.5.0)
 Author: Craig A Wendorf <cwendorf@uwsp.edu>
 Maintainer: Craig A Wendorf <cwendorf@uwsp.edu>
+License: MIT + file LICENSE
 URL: https://cwendorf.github.io/EASI/
 Encoding: UTF-8
 LazyData: true
