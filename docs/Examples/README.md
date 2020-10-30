@@ -5,7 +5,7 @@
 - Data for the examples are from the _[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")_ (_ITNS_; Cumming & Calin-Jageman, 2017)
 - The examples include estimates, plots, significance tests, and effect sizes
 
-> NOTE: The results of these analyses vary slightly from those presented in _ITNS_ because the two make different statistical assumptions (e.g, heterogeneity of variance, pooled error terms, etc.).
+> NOTE: The results of these analyses vary slightly from those presented in _ITNS_ because the two make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.).
 
 ### Included Examples
 
