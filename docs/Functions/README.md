@@ -22,9 +22,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 
 Prefix | Description
 :-- | :--
-`describe` | describe the data using summary statistics
-`estimate` | estimate the confidence intervals
-`plot` | plot the confidence intervals 
+`describe` | describe the data with summary statistics
+`estimate` | estimate the statistic and its confidence interval
+`plot` | plot the desciptive statistics or the estimates
 `test` | test the estimates for statistical significance
 
 #### Available Functions
