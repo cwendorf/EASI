@@ -69,7 +69,7 @@ Prefix | Description
 - [`testMeanContrast`](./testMeanContrast.md)
 - [`estimateStandardizedMeanContrast`](./estimateStandardizedMeanContrast.md) 
 
-`MeanSubsets` - functions that examine a subset contrast among all of the group or level means (combines the 'Means' and "MeanContrast" functions)
+`MeanSubsets` - functions that examine a subset contrast among all of the group or level means (combines the `Means` and `MeanContrast` functions)
 
 - [`estimateMeanSubsets`](./estimateMeanSubsets.md)
 - [`plotMeanSubsets`](./plotMeanSubsets.md)
@@ -104,7 +104,7 @@ Prefix | Description
 - [`estimateCorrelationDifference`](./estimateCorrelationDifference.md)
 - [`plotCorrelationDifference`](./plotCorrelationDifference.md)
 
-`CorrelationComparison` - functions that examine a comparison among correlations from two independent sample (combines the `Correlations' and 'CorrelationDifference" functions)
+`CorrelationComparison` - functions that examine a comparison among correlations from two independent sample (combines the `Correlations` and `CorrelationDifference` functions)
 
 - [`estimateCorrelationComparison`](./estimateCorrelationComparison.md)
 - [`plotCorrelationComparison`](./plotCorrelationComparison.md)
