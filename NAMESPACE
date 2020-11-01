@@ -246,16 +246,16 @@ export(testCorrelations)
 
 ### xCorrelationDifference
 
-S3method(estimateCorrelationDifference)
-export(estimateCorrelationDifference)
+S3method(estimateCorrelationDifference,default)
+export(estimateCorrelationDifference,default)
 
-S3method(plotCorrelationDifference)
-export(plotCorrelationDifference)
+S3method(plotCorrelationDifference,default)
+export(plotCorrelationDifference,default)
 
 ### xCorrelationComparison
 
-S3method(estimateCorrelationComparison)
-S3method(estimateCorrelationComparison)
+S3method(estimateCorrelationComparison,default)
+S3method(estimateCorrelationComparison,default)
 
-S3method(plotCorrelationComparison)
-S3method(plotCorrelationComparison)
+S3method(plotCorrelationComparison,default)
+S3method(plotCorrelationComparison,default)
