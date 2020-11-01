@@ -3,11 +3,12 @@
 
 \name{estimateCorrelationComparison}
 \alias{estimateCorrelationComparison}
+\alias{estimateCorrelationComparison.default}
 \title{Estimate Correlation Comparison}
 \description{Provides the confidence intervals for the correlations and correlation difference for independent samples.}
 
 \usage{
-\method{estimateCorrelationComparison}(CorrEst1,CorrEst2,main=NULL,digits=3)
+\method{estimateCorrelationComparison}{default}(CorrEst1,CorrEst2,main=NULL,digits=3)
 }
 
 \arguments{

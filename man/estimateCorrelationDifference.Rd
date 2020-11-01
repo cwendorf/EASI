@@ -3,11 +3,12 @@
 
 \name{estimateCorrelationDifference}
 \alias{estimateCorrelationDifference}
+\alias{estimateCorrelationDifference.default}
 \title{Estimate Correlation Difference}
 \description{Provides the confidence interval for a correlation difference for independent samples.}
 
 \usage{
-\method{estimateCorrelationDifference}(CorrEst1,CorrEst2,main=NULL,digits=3)
+\method{estimateCorrelationDifference}{default}(CorrEst1,CorrEst2,main=NULL,digits=3)
 }
 
 \arguments{
