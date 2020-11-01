@@ -1,11 +1,12 @@
 # Estimation Approach to Statistical Inference
 
-## EASI v4.201020
+## EASI v4.201101
 
 Notable Changes
 
 - Reimagined naming scheme
-- Added comparison and subset functions
+- Added mean comparison and subset functions
+- Added correlation differences and comparisons
 - Revised all vignettes, tutorials, and examples
 
 ## EASI v3.200620
