@@ -6,7 +6,7 @@
 estimateCorrelationsDifference <- estimateCorrelationDifference <- function(x,...) 
   UseMethod("estimateCorrelationDifference")
 
-estimateCorrelationDifference <- function(CorrEst1,CorrEst2,main=NULL,digits=3) {
+estimateCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,digits=3) {
   corr1 <- .unformatFrame(CorrEst1[[1]])[1,1]
   LL1 <- .unformatFrame(CorrEst1[[1]])[1,3]
   UL1 <- .unformatFrame(CorrEst1[[1]])[1,4]
@@ -29,7 +29,7 @@ estimateCorrelationDifference <- function(CorrEst1,CorrEst2,main=NULL,digits=3) 
 plotCorrelationsDifference <- plotCorrelationDifference <- function(x,...) 
   UseMethod("plotCorrelationDifference")
 
-plotCorrelationDifference <- function(CorrEst1,CorrEst2,main=NULL,ylab="Correlation",xlab="",values=TRUE,ylim=NULL,digits=3,pch=NULL,...) {
+plotCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,ylab="Correlation",xlab="",values=TRUE,ylim=NULL,digits=3,pch=NULL,...) {
   results <- .unformatFrame(estimateCorrelationDifference(CorrEst1,CorrEst2)[[1]][,c(1,2,3)])
   if(is.null(main)) {main="Confidence Interval for the Correlation Difference"}
   .cipMain(results,main,ylab=ylab,xlab=xlab,mu=NULL,rope=NULL,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=17)

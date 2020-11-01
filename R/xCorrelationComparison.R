@@ -17,7 +17,7 @@ estimateCorrelationComparison.default <- function(CorrEst1,CorrEst2,main=NULL,di
 plotCorrelationsComparison <- plotCorrelationComparison <- function(x,...) 
   UseMethod("plotCorrelationComparison")
 
-plotCorrelationComparison <- function(CorrEst1,CorrEst2,main=NULL,ylab="Outcome",xlab="",rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotCorrelationComparison.default <- function(CorrEst1,CorrEst2,main=NULL,ylab="Outcome",xlab="",rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateCorrelationComparison(CorrEst1,CorrEst2,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,3,4)]),.unformatFrame(results[[2]][,c(1,3,4)]),.unformatFrame(results[[3]][,c(1,2,3)]))
   if(is.null(main)) {main="Confidence Intervals for the Correlation Comparison"}
