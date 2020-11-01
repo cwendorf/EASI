@@ -2,20 +2,7 @@
 title: "One Sample Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{One Sample Tutorial with Summary Statistics}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
-
-
-
-
-
-
 
 ## One Sample Tutorial with Summary Statistics
 
@@ -26,6 +13,8 @@ vignette: >
   - [Confidence Interval for the Mean](#confidence-interval-for-the-mean)
   - [Significance Test for the Mean](#significance-test-for-the-mean)
   - [Standardized Effect Size for the Mean](#standardized-effect-size-for-the-mean)
+
+---
 
 ### Data Management
 

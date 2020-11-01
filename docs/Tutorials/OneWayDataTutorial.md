@@ -2,20 +2,7 @@
 title: "OneWay (Between-Subjects) Tutorial with Data"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{OneWay (Between-Subjects) Tutorial with Data}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
-
-
-
-
-
-
 
 ## OneWay (Between-Subjects) Tutorial with Data
 
@@ -43,6 +30,8 @@ vignette: >
   - [Confidence Intervals for the Pairwise Comparisons](#confidence-intervals-for-the-pairwise-comparisons)
   - [Significance Tests of the Pairwise Comparisons](#significance-tests-of-the-pairwise-comparisons)
   - [Effect Sizes for the Pairwise Comparisons](#effect-sizes-for-the-pairwise-comparisons)
+
+---
 
 ### Data Management
 

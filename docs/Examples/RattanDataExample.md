@@ -2,13 +2,6 @@
 title: "OneWay (Between-Subjects) Example with Rattan Data"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{OneWay (Between-Subjects) Example with Rattan Data}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ## OneWay (Between-Subjects) Example with Rattan Data
@@ -19,6 +12,8 @@ vignette: >
 - [Analyses of the Different Groups](#analyses-of-the-different-groups)
 - [Analysis of a Group Difference](#analysis-of-a-group-difference)
 - [Analysis of a Group Contrast](#analysis-of-a-group-contrast)
+
+---
 
 ### Data Management
 

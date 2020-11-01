@@ -2,13 +2,6 @@
 title: "Mixed Design Example with Holzel Summary Statistics"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Mixed Design Example with Holzel Summary Statistics}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 
@@ -18,6 +11,8 @@ vignette: >
 
 - [Data Management](#data-management)
 - [Analyses of the Differences within Conditions](#analyses-of-the-differences-within-conditions)
+
+---
 
 ### Data Management
 

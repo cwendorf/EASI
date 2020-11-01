@@ -2,13 +2,6 @@
 title: "Independent Groups Tutorial with Data"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Independent Groups Tutorial with Data}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ## Independent Groups Tutorial with Data
@@ -28,6 +21,8 @@ vignette: >
   - [Confidence Intervals for the Comparison](#confidence-intervals-for-the-comparison)
   - [Significance Test for a Mean Difference](#significance-test-for-a-mean-difference)
   - [Confidence Interval for the Standardized Effect Size](#confidence-interval-for-the-standardized-effect-size)
+
+---
 
 ### Data Management
 

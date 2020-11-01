@@ -2,13 +2,6 @@
 title: "Paired Samples Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Paired Samples Tutorial with Summary Statistics}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ## Paired Samples Tutorial with Summary Statistics
@@ -25,6 +18,8 @@ vignette: >
   - [Confidence Intervals for the Comparison](#confidence-intervals-for-the-comparison)
   - [Significance Test for the Mean Difference](#significance-test-for-the-mean-difference)
   - [Standardized Effect Size for the Mean Difference](#standardized-effect-size-for-the-mean-difference)
+
+---
 
 ### Data Management
 

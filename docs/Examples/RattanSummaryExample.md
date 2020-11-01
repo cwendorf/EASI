@@ -2,30 +2,18 @@
 title: "OneWay (Between-Subjects) Example with Rattan Summary Statistics"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{OneWay (Between-Subjects) Example with Rattan Summary Statistics}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
-
-
-
-
-
-
 
 ## OneWay (Between-Subjects) Example with Rattan Summary Statistics
 
 ### Table of Contents
 
-- [OneWay (Between-Subjects) Example with Rattan Summary Statistics](#oneway-(between-subjects)-example-with-rattan-summary-statistics)
-    - [Data Management](#data-management)
-    - [Analyses of the Different Groups](#analyses-of-the-different-groups)
-    - [Analysis of a Group Difference](#analysis-of-a-group-difference)
-    - [Analysis of a Group Contrast](#analysis-of-a-group-contrast)
+- [Data Management](#data-management)
+- [Analyses of the Different Groups](#analyses-of-the-different-groups)
+- [Analysis of a Group Difference](#analysis-of-a-group-difference)
+- [Analysis of a Group Contrast](#analysis-of-a-group-contrast)
+
+---
 
 ### Data Management
 

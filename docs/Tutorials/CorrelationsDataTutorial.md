@@ -2,15 +2,7 @@
 title: "Correlations Tutorial with Data"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Correlations Tutorial with Data}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
-
 
 ## Correlations Tutorial with Data
 
@@ -25,6 +17,8 @@ vignette: >
 - [Analyses of Several Correlations](#analyses-of-several-correlations)
   - [Confidence Intervals for the Correlations](#confidence-intervals-for-the-correlations)
   - [Significance Tests for the Correlations](#significance-tests-for-the-correlations)
+
+---
 
 ### Data Management
 

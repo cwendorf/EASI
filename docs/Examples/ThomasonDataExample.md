@@ -2,13 +2,6 @@
 title: "Paired Samples Example with Thomason Data"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Paired Samples Example with Thomason Data}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ## Paired Samples Example with Thomason Data
@@ -18,6 +11,8 @@ vignette: >
 - [Thomason1 Example](#thomason1-example)
 - [Thomason2 Example](#thomason2-example)
 - [Thomason3 Example](#thomason3-example)
+
+---
 
 ### Thomason1 Example
 
