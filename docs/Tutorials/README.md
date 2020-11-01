@@ -7,7 +7,7 @@
 - Tutorials show both the default output and the available options
 - Tutorials include estimates, plots, significance tests, and effect sizes
 
-### Included Tutorials
+### Tutorials for Means and Mean Differences
 
 The **OneSample** files analyze a tutorial for a single-group design:
 
@@ -44,10 +44,22 @@ The **Mixed** files analyze a tutorial for a two-factor mixed design (one betwee
 - [_MixedDataTutorial_](./MixedDataTutorial.md) uses raw data input.
 - [_MixedSummaryTutorial_](./MixedSummaryTutorial.md) uses summary statistics input.
 
-The **Correlations** files analyze a tutorial for a set of correlations among multiple variables:
+### Tutorials for Correlations and Correlation Differences
 
-- [_CorrelationsDataTutorial_](./CorrelationsDataTutorial.md) uses raw data input.
-- [_CorrelationsSummaryTutorial_](./CorrelationsSummaryTutorial.md) uses summary statistics input.
+The **PairedCorrelation** files analyze a tutorial for a correlation between two variables:
+
+- [_PairedCorrelationDataTutorial_](./PairedCorrelationDataTutorial.md) uses raw data input.
+- [_PairedCorrelationSummaryTutorial_](./PairedCorrelationSummaryTutorial.md) uses summary statistics input.
+
+The **RepeatedCorrelations** files analyze a tutorial for a set of correlations among multiple variables:
+
+- [_RepeatedCorrelationsDataTutorial_](./RepeatedCorrelationsDataTutorial.md) uses raw data input.
+- [_RepeatedCorrelationsSummaryTutorial_](./RepeatedCorrelationsSummaryTutorial.md) uses summary statistics input.
+
+The **MixedCorrelations** files analyze a tutorial for a set of correlations among multiple variables across levels of another (between-subjects) factor:
+
+- [_MixedCorrelationsDataTutorial_](./MixedCorrelationsDataTutorial.md) uses raw data input.
+- [_MixedCorrelationsSummaryTutorial_](./MixedCorrelationsSummaryTutorial.md) uses summary statistics input.
 
 ### References
 

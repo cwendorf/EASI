@@ -3,7 +3,7 @@
 
 ### Confidence Interval Functions
 
-estimateCorrlationsDifference <- estimateCorrelationDifference <- function(x,...) 
+estimateCorrelationsDifference <- estimateCorrelationDifference <- function(x,...) 
   UseMethod("estimateCorrelationDifference")
 
 estimateCorrelationDifference <- function(CorrEst1,CorrEst2,main=NULL,digits=3) {
