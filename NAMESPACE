@@ -243,3 +243,17 @@ export(plotCorrelations)
 S3method(testCorrelations,default)
 S3method(testCorrelations,wss)
 export(testCorrelations)
+
+### xCorrelationDifference
+
+S3method(estimateCorrelationDifference)
+export(estimateCorrelationDifference)
+
+S3method(plotCorrelationDifference)
+export(plotCorrelationDifference)
+
+S3method(estimateCorrelationComparison)
+S3method(estimateCorrelationComparison)
+
+S3method(plotCorrelationComparison)
+S3method(plotCorrelationComparison)
