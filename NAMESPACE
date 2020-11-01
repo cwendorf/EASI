@@ -252,6 +252,8 @@ export(estimateCorrelationDifference)
 S3method(plotCorrelationDifference)
 export(plotCorrelationDifference)
 
+### xCorrelationComparison
+
 S3method(estimateCorrelationComparison)
 S3method(estimateCorrelationComparison)
 
