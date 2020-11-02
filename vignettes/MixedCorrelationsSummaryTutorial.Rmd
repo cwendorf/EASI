@@ -218,3 +218,19 @@ This code produces a difference plot using the confidence intervals for the corr
 ```{r,MixedCorrComparison-A}
 plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 ```
+
+The code defaults to 95% confidence intervals. This can be changed if desired by first re-estimating the confidence intervals for each correlation.
+```{r}
+CorrEstimateL1 <- estimateCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99)
+CorrEstimateL2 <- estimateCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99)
+```
+
+Then we can estimate the correlations and the difference in the correlations.
+```{r}
+estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
+```
+
+Finally, we can re-plot the comparison.
+```{r,MixedCorrComparison-B}
+plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
+```

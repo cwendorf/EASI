@@ -391,3 +391,38 @@ plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 ```
 
 ![](figures/MixedCorrComparison-A-1.png)<!-- -->
+
+The code defaults to 95% confidence intervals. This can be changed if desired by first re-estimating the confidence intervals for each correlation.
+
+```r
+CorrEstimateL1 <- estimateCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99)
+CorrEstimateL2 <- estimateCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99)
+```
+
+Then we can estimate the correlations and the difference in the correlations.
+
+```r
+estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
+```
+
+```
+## $`Confidence Interval for the Correlation`
+##                           R      SE      LL      UL
+## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
+## 
+## $`Confidence Interval for the Correlation`
+##                           R      SE      LL      UL
+## Outcome1 & Outcome2   0.889   1.000  -0.821   0.999
+## 
+## $`Confidence Interval for the Correlation Difference`
+##               Diff      LL      UL
+## Difference   0.389  -1.081   2.169
+```
+
+Finally, we can re-plot the comparison.
+
+```r
+plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
+```
+
+![](figures/MixedCorrComparison-B-1.png)<!-- -->
