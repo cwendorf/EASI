@@ -361,7 +361,7 @@ First it is necessary to estimate the confidence intervals for each of the corre
 
 ```r
 CorrEstimateL1 <- estimateCorrelations(CompSummaryL1,CompCorrL1)
-CorrEstimateL2 <- estimateCorrelations(CompSummaryL1,CompCorrL1)
+CorrEstimateL2 <- estimateCorrelations(CompSummaryL2,CompCorrL2)
 ```
 
 Then we can estimate the correlations and the difference in the correlations.
@@ -377,11 +377,11 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 ## 
 ## $`Confidence Interval for the Correlation`
 ##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
+## Outcome1 & Outcome2   0.889   1.000  -0.495   0.998
 ## 
 ## $`Confidence Interval for the Correlation Difference`
 ##               Diff      LL      UL
-## Difference   0.000  -1.471   1.471
+## Difference   0.389  -1.003   1.856
 ```
 
 This code produces a difference plot using the confidence intervals for the correlations and the correlation difference.

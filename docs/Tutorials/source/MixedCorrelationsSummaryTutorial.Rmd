@@ -206,7 +206,7 @@ If you wish, you can get the confidence intervals for the correlations and the c
 First it is necessary to estimate the confidence intervals for each of the correlations.
 ```{r}
 CorrEstimateL1 <- estimateCorrelations(CompSummaryL1,CompCorrL1)
-CorrEstimateL2 <- estimateCorrelations(CompSummaryL1,CompCorrL1)
+CorrEstimateL2 <- estimateCorrelations(CompSummaryL2,CompCorrL2)
 ```
 
 Then we can estimate the correlations and the difference in the correlations.
