@@ -39,7 +39,7 @@
   val <- axTicks(4)-graph[1,1]+td
   loc <- axTicks(4)+td  
   axis(4,at=loc,labels=val,las=1)
-  mtext("Mean Difference",side=4,las=3,cex=1.3,line=3)
+# mtext("Mean Difference",side=4,las=3,cex=1.3,line=3)
   if(connect) {arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1)}
   if(!is.null(rope)) {rect(2.6,graphrope[1],3.6,graphrope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
   if(values) {
