@@ -6,7 +6,7 @@ Data for these examples are from the *[Introduction to the New Statistics](https
 
 > NOTE: The results of these analyses vary slightly from those presented in *ITNS* because the two make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.).
 
-### Tutorials for Means and Mean Differences
+### Examples of Means and Mean Differences
 
 The **PenLaptop** files analyze an example of a two-group between-subjects (independent-groups) design (see Ch. 7):
 
@@ -37,7 +37,7 @@ The **Holzel** files analyze an example of a two-factor mixed design (one betwee
 - [*HolzelDataExample*](./HolzelDataExample.md) uses raw data input.
 - [*HolzelSummaryExample*](./HolzelSummaryExample.md) uses summary statistics input.
 
-### Tutorials for Correlations and Correlation Differences
+### Examples of Correlations and Correlation Differences
 
 The **BodyWellOne** files analyze an example of a correlation in a single sample (see Ch. 11):
 
@@ -51,4 +51,4 @@ The **BodyWellTwo** files analyze an example of a correlation in two samples (se
 
 ### References
 
-Cumming, G., & Calin-Jageman, R. (2017). *Introduction to the new statistics.* Routledge.
+Cumming, G. & Calin-Jageman, R. (2017). *Introduction to the new statistics.* Routledge.
