@@ -17,4 +17,4 @@ This site includes the primary functions and available extensions, along with nu
 
 ### Citation
 
-> Wendorf, C.A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
+> Wendorf, C.A. (2019). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
