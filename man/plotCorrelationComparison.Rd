@@ -8,7 +8,7 @@
 \description{Provides a plot of the confidence intervals for the correlations and correlation difference for independent samples.}
 
 \usage{
-\method{plotCorrelationComparison}{default}(CorrEst1,CorrEst2,ylab="Outcome",xlab="",rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotCorrelationComparison}{default}(CorrEst1,CorrEst2,ylab="Outcome",xlab="",rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 }
 
 \arguments{
@@ -19,6 +19,7 @@
 \item{rope}{lower and upper values for a region of practical equivalence.}
 \item{values}{whether the points should be labeled with their values.}
 \item{main}{a custom title for the graph.}
+\item{labels}{custom labels for the correlations.}
 \item{ylim}{custom limits for the y axis.}
 \item{digits}{the specified number of decimal places.}
 }

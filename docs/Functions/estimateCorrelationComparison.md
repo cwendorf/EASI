@@ -7,7 +7,7 @@ Provides the confidence intervals for the correlations and correlation differenc
 ### Usage
 
 ```r
-estimateCorrelationComparison(CorrEst1,CorrEst2,main=NULL,digits=3)
+estimateCorrelationComparison(CorrEst1,CorrEst2,main=NULL,labels=NULL,digits=3)
 ```
 
 ### Arguments
@@ -17,6 +17,7 @@ Argument | Description
 ```CorrEst1``` | a matrix/frame of the correlation and its confidence interval in the first group.
 ```CorrEst2``` | a matrix/frame of the correlation and its confidence interval in the second group.
 ```main``` | a custom title for the table.
+```labels``` | custom labels for the correlations.
 ```digits``` | the specified number of decimal places.
 
 ### Details

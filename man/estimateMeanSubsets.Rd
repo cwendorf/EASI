@@ -11,13 +11,13 @@
 \description{Provides the confidence intervals for a mean contrast and the mean subsets that comprise that contrast.}
 
 \usage{
-\method{estimateMeanSubsets}{default}(\dots,contrast,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanSubsets}{default}(\dots,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
 
-\method{estimateMeanSubsets}{formula}(formula,contrast,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanSubsets}{formula}(formula,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
 
-\method{estimateMeanSubsets}{wss}(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanSubsets}{wss}(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
 
-\method{estimateMeanSubsets}{bss}(DescStats,contrast,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanSubsets}{bss}(DescStats,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
 }
 
 \arguments{
@@ -28,6 +28,7 @@
 \item{contrast}{a vector of codes for the contrast among all means.}
 \item{conf.level}{confidence level of the interval.}
 \item{main}{a custom title for the table.}
+\item{labels}{custom labels for the subsets.}
 \item{digits}{the specified number of decimal places.}
 }
 

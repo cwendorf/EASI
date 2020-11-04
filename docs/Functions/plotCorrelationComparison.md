@@ -7,7 +7,7 @@ Provides a plot of the confidence intervals for the correlations and correlation
 ### Usage
 
 ```r
-plotCorrelationComparison(CorrEst1,CorrEst2,ylab="Outcome",xlab="",rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotCorrelationComparison(CorrEst1,CorrEst2,ylab="Outcome",xlab="",rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 ```
 
 ### Arguments
@@ -19,6 +19,7 @@ Argument | Description
 ```rope``` | lower and upper values for a region of practical equivalence.
 ```values``` | whether the points should be labeled with their values.
 ```main``` | a custom title for the graph.
+```labels``` | custom labels for the correlations.
 ```ylim``` | custom limits for the y axis.
 ```digits``` | the specified number of decimal places.
 

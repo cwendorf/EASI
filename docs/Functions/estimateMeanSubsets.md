@@ -8,16 +8,16 @@ Provides the confidence intervals for a mean contrast and the mean subsets that 
 
 ```r
 ## Default S3 method
-estimateMeanSubsets(...,contrast,conf.level=.95,main=NULL,digits=3)
+estimateMeanSubsets(...,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
 
 ## S3 method for class 'formula'
-estimateMeanSubsets(formula,contrast,conf.level=.95,main=NULL,digits=3)
+estimateMeanSubsets(formula,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateMeanSubsets(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,digits=3)
+estimateMeanSubsets(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
 
 ## S3 method for class 'bss'
-estimateMeanSubsets(DescStats,contrast,conf.level=.95,main=NULL,digits=3)
+estimateMeanSubsets(DescStats,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
 ```
 
 ### Arguments
@@ -31,6 +31,7 @@ Argument | Description
 ```contrast``` | a vector of codes for the contrast among all means.
 ```conf.level``` | confidence level of the interval.
 ```main``` | a custom title for the table.
+```labels``` | custom labels for the subsets.
 ```digits``` | the specified number of decimal places.
 
 ### Details

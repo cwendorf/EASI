@@ -8,16 +8,16 @@ Provides the plot of the mean subsets and mean contrast confidence intervals.
 
 ```r
 ## Default S3 method
-plotMeanSubsets(...,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeanSubsets(...,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'
-plotMeanSubsets(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeanSubsets(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'
-plotMeanSubsets(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeanSubsets(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'bss'
-plotMeanSubsets(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeanSubsets(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 ```
 
 ### Arguments
@@ -32,6 +32,7 @@ Argument | Description
 ```mu``` | a number indicating the true/hypothesized value of the mean contrast.
 ```conf.level``` | confidence level of the interval.
 ```main``` | a custom title for the graph.
+```labels``` | custom labels for the subsets.
 ```ylim``` | custom limits for the y axis.
 ```digits``` | the specified number of decimal places.
 

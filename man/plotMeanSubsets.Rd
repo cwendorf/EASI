@@ -11,13 +11,13 @@
 \description{Provides the plot of the mean subsets and mean contrast confidence intervals.}
 
 \usage{
-\method{plotMeanSubsets}{default}(\dots,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotMeanSubsets}{default}(\dots,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 
-\method{plotMeanSubsets}{formula}(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotMeanSubsets}{formula}(formula,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 
-\method{plotMeanSubsets}{wss}(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotMeanSubsets}{wss}(DescStats,CorrStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 
-\method{plotMeanSubsets}{bss}(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotMeanSubsets}{bss}(DescStats,contrast,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
 }
 
 \arguments{
@@ -29,6 +29,7 @@
 \item{mu}{a number indicating the true/hypothesized value of the mean contrast.}
 \item{conf.level}{confidence level of the interval.}
 \item{main}{a custom title for the graph.}
+\item{labels}{custom labels for the subsets.}
 \item{ylim}{custom limits for the y axis.}
 \item{digits}{the specified number of decimal places.}
 }
