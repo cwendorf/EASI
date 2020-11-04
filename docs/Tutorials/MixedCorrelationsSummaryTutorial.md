@@ -371,13 +371,10 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 ```
 
 ```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
-## 
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.889   1.000  -0.495   0.998
+## $`Confidence Intervals for the Correlations`
+##                R      SE      LL      UL
+## CorrEst1   0.500   1.000  -0.888   0.987
+## CorrEst2   0.889   1.000  -0.495   0.998
 ## 
 ## $`Confidence Interval for the Correlation Difference`
 ##               Diff      LL      UL
@@ -406,13 +403,10 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 ```
 
 ```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
-## 
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.889   1.000  -0.821   0.999
+## $`Confidence Intervals for the Correlations`
+##                R      SE      LL      UL
+## CorrEst1   0.500   1.000  -0.966   0.996
+## CorrEst2   0.889   1.000  -0.821   0.999
 ## 
 ## $`Confidence Interval for the Correlation Difference`
 ##               Diff      LL      UL
