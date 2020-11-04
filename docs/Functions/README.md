@@ -57,7 +57,7 @@ Prefix | Description
 - [`testMeanDifference`](./testMeanDifference.md)
 - [`estimateStandardizedMeanDifference`](./estimateStandardizedMeanDifference.md)
 
-`MeanComparison` - functions that examine a comparison among two group or level means (combines the `Means' and 'MeanDifference" functions)
+`MeanComparison` - functions that examine a comparison among two group or level means (combines the `Means` and `MeanDifference` functions)
 
 - [`estimateMeanComparison`](./estimateMeanComparison.md)
 - [`plotMeanComparison`](./plotMeanComparison.md)
