@@ -19,7 +19,6 @@ date: "2020-10-20"
 
 Prior to analyses, enter the tables of summary statistics.
 
-
 ```r
 Pretest <- c(N=20,M=19.300,SD=5.904)
 Posttest <- c(N=20,M=23.600,SD=4.762)
