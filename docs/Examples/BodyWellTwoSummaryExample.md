@@ -61,14 +61,14 @@ CorrEstimateL2 <- estimateCorrelations(BodyWellTwoSummaryL2,BodyWellTwoCorrL2)
 Then we can estimate the correlations and the difference in the correlations.
 
 ```r
-estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Level1","Level2"))
+estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"))
 ```
 
 ```
 ## $`Confidence Intervals for the Correlations`
-##              R      SE      LL      UL
-## Level1   0.415   0.134   0.178   0.607
-## Level2   0.528   0.151   0.284   0.708
+##               R      SE      LL      UL
+## Females   0.415   0.134   0.178   0.607
+## Males     0.528   0.151   0.284   0.708
 ## 
 ## $`Confidence Interval for the Correlation Difference`
 ##               Diff      LL      UL
@@ -78,7 +78,7 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations f
 This code produces a difference plot using the confidence intervals for the correlations and the correlation difference.
 
 ```r
-plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Level1","Level2"),ylim=c(-1,1))
+plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1))
 ```
 
 ![](figures/BodyWellTwo-Comparison-1.png)<!-- -->
