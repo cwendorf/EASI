@@ -10,7 +10,7 @@ estimateCorrelationComparison.default <- function(CorrEst1,CorrEst2,main=NULL,la
   Est1 <- .unformatFrame(CorrEst1[[1]])
   Est2 <- .unformatFrame(CorrEst2[[1]])
   results <- rbind(Est1,Est2)
-  if(is.null(labels)) {rownames(results) <- c("CorrEst1","CorrEst2")} else {rownames(results) <- labels} 
+  if(is.null(labels)) {rownames(results) <- c("Correlation 1","Correlation 2")} else {rownames(results) <- labels} 
   results <- .formatList(list(results),digits=digits)
   names(results) <- "Confidence Intervals for the Correlations"     
   Diff <- estimateCorrelationDifference(CorrEst1,CorrEst2)
