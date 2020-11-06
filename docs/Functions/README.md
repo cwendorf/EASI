@@ -27,7 +27,7 @@ Prefix | Description
 `plot` | plot the desciptive statistics or the estimates
 `test` | test the estimates for statistical significance
 
-#### Functions for Data an Distribution Representation
+#### Functions for Data and Distribution Representations
 
 `Data` - functions that examine and plot the data for the groups or levels
 
