@@ -27,7 +27,7 @@ Prefix | Description
 `plot` | plot the desciptive statistics or the estimates
 `test` | test the estimates for statistical significance
 
-#### Available Functions
+#### Functions for Data an Distribution Representation
 
 `Data` - functions that examine and plot the data for the groups or levels
 
@@ -41,6 +41,8 @@ Prefix | Description
 `Violins` - functions that provide densities and violin plots for the groups or levels
 
 - [`plotViolins`](./plotViolins.md)
+
+#### Functions for Means and Mean Differences
 
 `Means` - functions that examine all individual group or level means
 
@@ -91,6 +93,8 @@ Prefix | Description
 - [`describeMeansOmnibus`](./describeMeansOmnibus.md)
 - [`testMeansOmnibus`](./testMeansOmnibus.md)
 - [`estimateMeansEffect`](./estimateMeansEffect.md)
+
+#### Functions for Correlations and Correlation Differences
 
 `Correlations` - functions that provide analyses of correlations among variables
 
