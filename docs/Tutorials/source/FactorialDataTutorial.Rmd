@@ -126,7 +126,7 @@ with(FactorialDataB1,estimateStandardizedMeans(Outcome~FactorA))
 with(FactorialDataB2,estimateStandardizedMeans(Outcome~FactorA))
 ```
 
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
 with(FactorialDataB1,estimateStandardizedMeans(Outcome~FactorA,mu=5,conf.level=.99))
 with(FactorialDataB1,estimateStandardizedMeans(Outcome~FactorA,mu=5,conf.level=.99))

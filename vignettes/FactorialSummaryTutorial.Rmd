@@ -107,7 +107,7 @@ estimateStandardizedMeans(FactorialSummaryB1)
 estimateStandardizedMeans(FactorialSummaryB2)
 ```
 
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
 estimateStandardizedMeans(FactorialSummaryB1,mu=5,conf.level=.99)
 estimateStandardizedMeans(FactorialSummaryB2,mu=5,conf.level=.99)

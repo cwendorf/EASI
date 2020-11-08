@@ -96,7 +96,7 @@ This code will produce a table of standardized mean differences separately for e
 estimateStandardizedMeans(PairedSummary)
 ```
 
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
 estimateStandardizedMeans(PairedSummary,mu=6,conf.level=.99)
 ```

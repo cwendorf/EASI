@@ -126,7 +126,7 @@ with(MixedDataL1,estimateStandardizedMeans(Outcome1,Outcome2,Outcome3))
 with(MixedDataL2,estimateStandardizedMeans(Outcome1,Outcome2,Outcome3))
 ```
 
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
 with(MixedDataL1,estimateStandardizedMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
 with(MixedDataL2,estimateStandardizedMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.level=.99))
