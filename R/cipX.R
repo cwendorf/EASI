@@ -5,7 +5,7 @@
 
 .cipMain <- function(results,main,ylab,xlab,mu,rope,values,ylim,digits,connect,pch=16) {
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))}
-  plot(results[,1],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.3,ylab=ylab,main=main,las=1,cex=1.5,pch=pch,bty="l")
+  plot(results[,1],xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.2,ylab=ylab,main=main,las=1,cex=1.5,pch=pch,bty="l")
   axis(1,1:nrow(results),row.names(results))
   for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2)
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1)}}
@@ -24,7 +24,7 @@
   graphrope <- rope+as.vector(results[1,1])
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(graph[,2]-.4)),ceiling(max(graph[,3])+.4))))}
   par(mar=c(5,5,5,5))  
-  plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylim,pch=c(16,16,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.3,bty="n")
+  plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylim,pch=c(16,16,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.2,bty="n")
   axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
   axis(1,2.6:3.6,labels=FALSE,lwd.tick=0)
   axis(1,at=c(1,2),labels=rownames(graph)[1:2])
@@ -57,7 +57,7 @@
   ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x["UL"])))))+1
   ylimrange <- range(c(ylimmin,ylimmax))
   xlimrange <- c(.5,nrow(results[[1]])+.5)
-  plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=xlimrange,ylim=ylimrange,ylab=ylab,xlab=xlab,cex.lab=1.3,main=main,bty="l")
+  plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=xlimrange,ylim=ylimrange,ylab=ylab,xlab=xlab,cex.lab=1.2,main=main,bty="l")
   axis(1, 1:nrow(results[[1]]), row.names(results[[1]])) 
   for (i in 1:length(results)) {
     if(length(col)==1) {tempcol=col} else {tempcol=col[i]}
