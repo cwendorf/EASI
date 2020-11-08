@@ -93,12 +93,12 @@ plotStandardizedMeansPairwise <- plotStandardizedMeanPairwise <- function(x,...)
 
 plotStandardizedMeansPairwise.default <- plotStandardizedMeansPairwise.bss <- plotStandardizedMeansPairwise.wss <- function(...,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateStandardizedMeansPairwise(...,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Standardized Mean Pairwise Comparisons"} else {main="Confidence Interval for the Standardized Mean Pairwise Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Standardized Mean Pairwise Comparisons"} else {main="Confidence Interval for the \n Standardized Mean Pairwise Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=24) 
 }
 
 plotStandardizedMeansPairwise.formula <- function(formula,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,mu=NA,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL,...) {
   results <- .unformatFrame(estimateStandardizedMeansPairwise(formula,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Standardized Mean Pairwise Comparisons"} else {main="Confidence Interval for the Standardized Mean Pairwise Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Standardized Mean Pairwise Comparisons"} else {main="Confidence Interval for the \n Standardized Mean Pairwise Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=24) 
 }
