@@ -89,6 +89,12 @@ S3method(estimateStandardizedMeanDifference,wss)
 S3method(estimateStandardizedMeanDifference,bss)
 export(estimateStandardizedMeanDifference)
 
+S3method(plotStandardizedMeanDifference,default)
+S3method(plotStandardizedMeanDifference,formula)
+S3method(plotStandardizedMeanDifference,wss)
+S3method(plotStandardizedMeanDifference,bss)
+export(plotStandardizedMeanDifference)
+
 ### xMeanComparison
 
 S3method(estimateMeanComparison,default)

@@ -75,26 +75,26 @@ estimateStandardizedMeanContrast.formula <- function(formula,contrast,mu=0,conf.
 plotStandardizedMeansContrast <- plotStandardizedMeanContrast <- function(x,...) 
   UseMethod("plotStandardizedMeanContrast")
 
-plotStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
+plotStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateStandardizedMeanContrast(DescStats,CorrStats,contrast=contrast,conf.level=conf.level,main=main,digits=digits)[[1]][c(1,3,4)])
   if(is.null(main)) {main="Confidence Interval for the Standardized Mean Contrast"}
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=24)
+  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=24)
 }
 
-plotStandardizedMeanContrast.bss <- function(DescStats,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
+plotStandardizedMeanContrast.bss <- function(DescStats,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateStandardizedMeanContrast(DescStats,contrast=contrast,conf.level=conf.level,main=main,digits=digits)[[1]][c(1,3,4)])
   if(is.null(main)) {main="Confidence Interval for the Standardized Mean Contrast"}
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=24)
+  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=24)
 }
 
-plotStandardizedMeanContrast.default <- function(...,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
+plotStandardizedMeanContrast.default <- function(...,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateStandardizedMeanContrast(...,contrast=contrast,conf.level=conf.level,main=main,digits=digits)[[1]][c(1,3,4)])
   if(is.null(main)) {main="Confidence Interval for the Standardized Mean Contrast"}
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=24)
+  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=24)
 }
 
-plotStandardizedMeanContrast.formula <- function(formula,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
+plotStandardizedMeanContrast.formula <- function(formula,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateStandardizedMeanContrast(formula,contrast=contrast,conf.level=conf.level,main=main,digits=digits)[[1]][c(1,3,4)])
   if(is.null(main)) {main="Confidence Interval for the Standardized Mean Contrast"}
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=24)
+  .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=24)
 }
