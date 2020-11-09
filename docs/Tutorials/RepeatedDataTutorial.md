@@ -2,20 +2,7 @@
 title: "Repeated Measures (Within-Subjects) Tutorial with Data"
 author: "Craig A. Wendorf"
 date: "2020-10-20"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Tutorial with Data}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
-
-
-
-
-
-
 
 ## Repeated Measures (Within-Subjects) Tutorial with Data
 
@@ -43,6 +30,8 @@ vignette: >
   - [Confidence Intervals for the Pairwise Comparisons](#confidence-intervals-for-the-pairwise-comparisons)
   - [Significance Tests of the Pairwise Comparisons](#significance-tests-of-the-pairwise-comparisons)
   - [Standardized Effect Sizes for the Pairwise Comparisons](#standardized-effect-sizes-for-the-pairwise-comparisons)
+
+---
 
 ### Data Management
 
