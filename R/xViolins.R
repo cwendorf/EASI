@@ -31,7 +31,7 @@ plotViolins.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",y
   mn <- min(sapply(z,`[`,1,1))
   mx <- max(sapply(z,`[`,,1))
   ylim <- range(pretty(c(mn,mx)))}
-  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,nvars+.5),ylim=ylim,cex.lab=1.3)
+  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,nvars+.5),ylim=ylim,cex.lab=1.15)
   axis(1,1:nvars,vars)}
   for(i in 1:nvars) {.vio(data[,i],i,offset=offset,scale=scale,border=border,col=col)}
 } 
@@ -49,7 +49,7 @@ plotViolins.formula <- function(formula,add=FALSE,main=NULL,ylab="Outcome",xlab=
   mn <- min(sapply(z,`[`,1,1))
   mx <- max(sapply(z,`[`,,1))
   ylim <- range(pretty(c(mn,mx)))}
-  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,ngroups+.5),ylim=ylim,cex.lab=1.3)
+  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,ngroups+.5),ylim=ylim,cex.lab=1.15)
   axis(1,1:ngroups,groups)}
   for(i in 1:ngroups) {with(subset(data,group==groups[i]),.vio(outcome,i,offset=offset,scale=scale,border=border,col=col))}
 }

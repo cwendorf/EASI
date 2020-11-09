@@ -20,7 +20,7 @@ plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offs
   mn <- 1+offset
   par(bty="l",xaxs="i",yaxs="i")
   if(is.null(main)) {main="Data for the Variables"}
-  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=jitter,col=col,pch=pch,cex.lab=1.3)
+  stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=jitter,col=col,pch=pch,cex.lab=1.15)
 } 
 
 plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",offset=0,method="jitter",jitter=.08,col="gray30",pch=1,...) {
@@ -34,5 +34,5 @@ plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",offse
   par(bty="l",xaxs="i",yaxs="i")
   if(is.null(main)) {main="Data for the Groups"}
   if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
-  stripchart(formula,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=jitter,col=col,pch=pch,cex.lab=1.3,...)
+  stripchart(formula,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=jitter,col=col,pch=pch,cex.lab=1.15,...)
 }
