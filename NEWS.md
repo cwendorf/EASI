@@ -2,7 +2,7 @@
 
 ## EASI v4.201101
 
-**Notable Changes**
+### Notable Changes
 
 - Reimagined naming scheme
 - Added mean comparison and subset functions
@@ -11,7 +11,7 @@
 
 ## EASI v3.200620
 
-**Notable Changes**
+###  Notable Changes
 
 - Updated for R 4.0
 - Updated naming scheme
@@ -22,7 +22,7 @@
 
 ## EASI v2.200512
 
-**Notable Changes**
+### Notable Changes
 
 - Added summary statistics input
 - Added contrast functions
@@ -33,7 +33,7 @@
 
 ## EASI v1.190801
 
-**Notable Changes**
+### Notable Changes
 
 - First functional release
 - Implmented aility to source from repository
