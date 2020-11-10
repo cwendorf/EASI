@@ -1,23 +1,27 @@
 ---
 title: "Repeated Measures (Within-Subjects) Example with Donohue Data"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Example with Donohue Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Repeated Measures (Within-Subjects) Example with Donohue Data
-
-### Table of Contents
-
-- [Data Management](#data-management)
-- [Analyses of the Different Variables](#analyses-of-the-different-variables)
-- [Analysis of a Variable Difference](#analysis-of-a-variable-difference)
-- [Analysis of a Variable Contrast](#analysis-of-a-variable-contrast)
-
----
 
 ### Data Management
 
 Prior to analyses, enter the data.
+
+
 ```r
 Pretest <- c(7,11,11,13,15,17,18,18,19,19,19,19,21,22,25,25,25,26,27,29)
 Posttest <- c(16,20,25,22,28,12,16,26,21,22,26,30,23,27,23,27,28,24,28,28)
@@ -28,6 +32,8 @@ DonohueData <- data.frame(Pretest,Posttest,Followup)
 ### Analyses of the Different Variables
 
 With multiple variables, it is useful to get descriptive statistics and confidence intervals for each variable.
+
+
 ```r
 estimateMeans(Pretest,Posttest,Followup)
 ```

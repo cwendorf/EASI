@@ -1,21 +1,21 @@
 ---
 title: "Paired Samples Correlation Tutorial with Data"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Paired Samples Correlation Tutorial with Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Paired Samples Correlation Tutorial with Data
-
-### Table of Contents
-
-- [Data Management](#data-management)
-  - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
-- [Analyses of a Correlation](#analyses-of-a-correlation)
-  - [Confidence Interval for the Correlation](#confidence-interval-for-the-correlation)
-  - [Significance Test for the Correlation](#significance-test-for-the-correlation)
-
----
 
 ### Data Management
 

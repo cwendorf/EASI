@@ -1,19 +1,21 @@
 ---
 title: "Correlation Example with BodyWell One Sample Data"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Correlation Example with BodyWell One Sample Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Correlation Example with BodyWell One Sample Data
-
-### Table of Contents
-
-- [Data Management](#data-management)
-  - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
-- [Analyses of a Correlation](#analyses-of-a-correlation)
-
----
 
 ### Data Management
 

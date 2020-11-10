@@ -1,23 +1,26 @@
 ---
 title: "Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics
-
-### Table of Contents
-
-- [Data Management](#data-management)
-- [Analyses of the Different Variables](#analyses-of-the-different-variables)
-- [Analysis of a Variable Difference](#analysis-of-a-variable-difference)
-- [Analysis of a Variable Contrast](#analysis-of-a-variable-contrast)
-
----
 
 ### Data Management
 
 Prior to analyses, enter the tables of summary statistics.
+
 
 ```r
 Pretest <- c(N=20,M=19.300,SD=5.904)

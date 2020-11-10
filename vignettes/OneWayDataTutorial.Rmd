@@ -1,7 +1,7 @@
 ---
 title: "OneWay (Between-Subjects) Tutorial with Data"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -10,11 +10,6 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-devtools::source_gist("c83e078bf8c81b035e32c3fc0cf04ee8",filename="render_toc.R")
-```
 
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
@@ -26,14 +21,6 @@ library(EASI)
 ```
 
 ## OneWay (Between-Subjects) Tutorial with Data
-
-### Table of Contents
-
-```{r toc, echo=FALSE}
-sourceDir <- getSrcDirectory(function(dummy) {dummy})
-setwd(sourceDir)
-render_toc("OneWayDataTutorial.Rmd")
-```
 
 ### Data Management
 

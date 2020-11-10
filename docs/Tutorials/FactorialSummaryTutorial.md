@@ -1,34 +1,21 @@
 ---
 title: "Factorial (Between-Subjects) Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Factorial (Between-Subjects) Tutorial with Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Factorial (Between-Subjects) Tutorial with Summary Statistics
-
-### Table of Contents
-
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-  - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
-  - [Significance Tests for the Means](#significance-tests-for-the-means)
-  - [Standardized Effect Sizes for the Means](#standardized-effect-sizes-for-the-means)
-- [Analyses of a Comparison](#analyses-of-a-comparison)
-  - [Confidence Interval for a Mean Difference](#confidence-interval-for-a-mean-difference)
-  - [Confidence Intervals for the Comparison](#confidence-intervals-for-the-comparison)
-  - [Significance Test of the Mean Difference](#significance-test-of-the-mean-difference)
-  - [Standardized Effect Size for the Mean Difference](#standardized-effect-size-for-the-mean-difference)
-- [Analyses of a Contrast](#analyses-of-a-contrast)
-  - [Confidence Interval for a Contrast](#confidence-interval-for-a-contrast)
-  - [Confidence Intervals for the Subsets](#confidence-intervals-for-the-subsets)
-  - [Significance Test for a Contrast](#significance-test-for-a-contrast)
-  - [Standardized Effect Size for a Contrast](#standardized-effect-size-for-a-contrast)
-- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-  - [Confidence Intervals for the Pairwise Comparisons](#confidence-intervals-for-the-pairwise-comparisons)
-  - [Significance Tests of the Pairwise Comparisons](#significance-tests-of-the-pairwise-comparisons)
-  - [Standardized Effect Sizes for the Pairwise Comparisons](#standardized-effect-sizes-for-the-pairwise-comparisons)
-
----
 
 ### Data Management
 
@@ -220,7 +207,7 @@ estimateStandardizedMeans(FactorialSummaryB2)
 ## A3   2.042   0.854   0.176   3.847
 ```
 
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 
 ```r
 estimateStandardizedMeans(FactorialSummaryB1,mu=5,conf.level=.99)

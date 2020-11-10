@@ -1,28 +1,21 @@
 ---
 title: "Paired Samples Tutorial with Data"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Paired Samples Tutorial with Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Paired Samples Tutorial with Data
-
-### Table of Contents
-
-- [Data Management](#data-management)
-  - [Data Entry](#data-entry)
-  - [Plot of the Data](#plot-of-the-data)
-  - [Descriptive Statistics](#descriptive-statistics)
-- [Analyses of the Means](#analyses-of-the-means)
-  - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
-  - [Significance Tests for the Means](#significance-tests-for-the-means)
-  - [Standardized Effect Sizes for the Means](#standardized-effect-sizes-for-the-means)
-- [Analyses of the Comparison](#analyses-of-the-comparison)
-  - [Confidence Interval for the Mean Difference](#confidence-interval-for-the-mean-difference)
-  - [Confidence Intervals for the Comparison](#confidence-intervals-for-the-comparison)
-  - [Significance Test for the Mean Difference](#significance-test-for-the-mean-difference)
-  - [Standardized Effect Size for the Mean Difference](#standardized-effect-size-for-the-mean-difference)
-
----
 
 ### Data Management
 
@@ -153,7 +146,7 @@ estimateStandardizedMeans(Outcome1,Outcome2)
 ## Outcome2   2.450   0.955   0.325   4.532
 ```
 
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 
 ```r
 estimateStandardizedMeans(Outcome1,Outcome2,mu=6,conf.level=.99)

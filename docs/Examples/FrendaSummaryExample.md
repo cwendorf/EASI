@@ -1,23 +1,21 @@
 ---
 title: "Factorial Between-Subjects Example with Frenda Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Factorial Between-Subjects Example with Frenda Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Factorial Between-Subjects Example with Frenda Summary Statistics
-
-### Table of Contents
-
-- [Data Management](#data-management)
-- [Analyses of the Different Groups](#analyses-of-the-different-groups)
-- [Analyses of the Marginal Means](#analyses-of-the-marginal-means)
-- [Analyses of the Factor A (Evening vs Morning) Main Effect](#analyses-of-the-factor-a-(evening-vs-morning)-main-effect)
-- [Analyses of the Factor B (Sleep vs NoSleep) Main Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-main-effect)
-- [Analyses of the Factor A x B Interaction](#analyses-of-the-factor-a-x-b-interaction)
-- [Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a1-(evening)-simple-effect)
-- [Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a2-(morning)-simple-effect)
-
----
 
 ### Data Management
 

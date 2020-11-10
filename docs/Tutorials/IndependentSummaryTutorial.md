@@ -1,25 +1,21 @@
 ---
 title: "Independent Groups Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Independent Groups Tutorial with Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Independent Groups Tutorial with Summary Statistics
-
-### Table of Contents
-
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-  - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
-  - [Significance Tests for the Means](#significance-tests-for-the-means)
-  - [Standardized Effect Sizes for the Means](#standardized-effect-sizes-for-the-means)
-- [Analyses of the Comparison](#analyses-of-the-comparison)
-  - [Confidence Interval for a Mean Difference](#confidence-interval-for-a-mean-difference)
-  - [Confidence Intervals for the Comparison](#confidence-intervals-for-the-comparison)
-  - [Significance Test for a Mean Difference](#significance-test-for-a-mean-difference)
-  - [Standardized Effect Size for the Mean Difference](#standardized-effect-size-for-the-mean-difference)
-
----
 
 ### Data Management
 
@@ -132,7 +128,7 @@ estimateStandardizedMeans(IndependentSummary)
 ## Level2   2.450   0.955   0.325   4.532
 ```
 
-Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the effect size.
+Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 
 ```r
 estimateStandardizedMeans(IndependentSummary,mu=5,conf.level=.99)
@@ -191,7 +187,7 @@ plotMeanDifference(IndependentSummary,conf.level=.99,rope=c(-2,2))
 
 ![](figures/Independent-DifferenceB-1.png)<!-- -->
 
-### Confidence Intervals for the Comparison
+#### Confidence Intervals for the Comparison
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 

@@ -1,20 +1,21 @@
 ---
 title: "One Sample Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{One Sample Tutorial with Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## One Sample Tutorial with Summary Statistics
-
-### Table of Contents
-
-- [Data Management](#data-management)
-- [Analyses of the Mean](#analyses-of-the-mean)
-  - [Confidence Interval for the Mean](#confidence-interval-for-the-mean)
-  - [Significance Test for the Mean](#significance-test-for-the-mean)
-  - [Standardized Effect Size for the Mean](#standardized-effect-size-for-the-mean)
-
----
 
 ### Data Management
 
@@ -112,7 +113,7 @@ estimateStandardizedMeans(OneSampleSummary)
 ## Outcome   1.283   0.482   0.304   2.217
 ```
 
-Here too it is possible to alter the width of the confidence interval and to establish a more plausible comparison value in calculating the effect size.
+Here too it is possible to alter the width of the confidence interval and to establish a more plausible comparison value for the mean.
 
 ```r
 estimateStandardizedMeans(OneSampleSummary,mu=5,conf.level=.99)

@@ -1,18 +1,21 @@
 ---
 title: "Indendent Groups Example with PenLaptop Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Indendent Groups Example with PenLaptop Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Indendent Groups Example with PenLaptop Summary Statistics
-
-### Table of Contents
-
-- [PenLaptop1 Example](#penlaptop1-example)
-- [PenLaptop2 Example](#penlaptop2-example)
-- [PenLaptop3 Example](#penlaptop3-example)
-
----
 
 ### PenLaptop1 Example
 

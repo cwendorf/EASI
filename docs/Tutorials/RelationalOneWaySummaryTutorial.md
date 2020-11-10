@@ -1,24 +1,21 @@
 ---
 title: "Relational OneWay (Between-Subjects) Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{OneWay (Relational Between-Subjects) Tutorial with Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Relational OneWay (Between-Subjects) Tutorial with Summary Statistics
-
-### Table of Contents
-
-- [Data Management](#data-management)
-- [Analyses of the Omnibus Effect](#analyses-of-the-omnibus-effect)
-  - [Confidence Intervals for the Means](#confidence-intervals-for-the-means)
-  - [Significance Tests for the Omnibus Effect](#significance-tests-for-the-omnibus-effect)
-- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-  - [Confidence Intervals for the Pairwise Comparisons](#confidence-intervals-for-the-pairwise-comparisons)
-  - [Significance Tests of the Pairwise Comparisons](#significance-tests-of-the-pairwise-comparisons)
-- [Analyses of the Pairwise Comparisons Using Relational Intervals](#analyses-of-the-pairwise-comparisons-using-relational-intervals)
-  - [Confidence and Relational Intervals for the Pairwise Comparisons](#confidence-and-relational-intervals-for-the-pairwise-comparisons)
-
----
 
 ### Data Management
 

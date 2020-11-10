@@ -1,25 +1,21 @@
 ---
 title: "Mixed Design Correlations Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-10-20"
+date: "2020-11-01"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Mixed Design Correlations Tutorial with Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
+
+
+
+
 
 ## Mixed Design Correlations Tutorial with Summary Statistics
-
-### Table of Contents
-
-- [Data Management](#data-management)
-- [Analyses of a Correlation](#analyses-of-a-correlation)
-  - [Confidence Interval for the Correlation](#confidence-interval-for-the-correlation)
-  - [Significance Test for the Correlation](#significance-test-for-the-correlation)
-- [Analyses of Several Correlations](#analyses-of-several-correlations)
-  - [Confidence Intervals for the Correlations](#confidence-intervals-for-the-correlations)
-  - [Significance Tests for the Correlations](#significance-tests-for-the-correlations)
-- [Analyses of a Correlation Difference](#analyses-of-a-correlation-difference)
-  - [Confidence Interval for a Correlation Difference](#confidence-interval-for-a-correlation-difference)
-  - [Confidence Intervals for the Correlation Comparison](#confidence-intervals-for-the-correlation-comparison)
-
----
 
 ### Data Management
 
@@ -372,9 +368,9 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 
 ```
 ## $`Confidence Intervals for the Correlations`
-##                R      SE      LL      UL
-## CorrEst1   0.500   1.000  -0.888   0.987
-## CorrEst2   0.889   1.000  -0.495   0.998
+##                     R      SE      LL      UL
+## Correlation 1   0.500   1.000  -0.888   0.987
+## Correlation 2   0.889   1.000  -0.495   0.998
 ## 
 ## $`Confidence Interval for the Correlation Difference`
 ##               Diff      LL      UL
@@ -404,9 +400,9 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 
 ```
 ## $`Confidence Intervals for the Correlations`
-##                R      SE      LL      UL
-## CorrEst1   0.500   1.000  -0.966   0.996
-## CorrEst2   0.889   1.000  -0.821   0.999
+##                     R      SE      LL      UL
+## Correlation 1   0.500   1.000  -0.966   0.996
+## Correlation 2   0.889   1.000  -0.821   0.999
 ## 
 ## $`Confidence Interval for the Correlation Difference`
 ##               Diff      LL      UL
