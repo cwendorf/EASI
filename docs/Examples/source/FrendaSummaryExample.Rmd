@@ -1,7 +1,7 @@
 ---
 title: "Factorial Between-Subjects Example with Frenda Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -21,6 +21,15 @@ library(EASI)
 ```
 
 ## Factorial Between-Subjects Example with Frenda Summary Statistics
+
+- [Data Management](#data-management)
+- [Analyses of the Different Groups](#analyses-of-the-different-groups)
+- [Analyses of the Marginal Means](#analyses-of-the-marginal-means)
+- [Analyses of the Main Effects](#analyses-of-the-main-effects)
+- [Analyses of the Interaction](#analyses-of-the-interaction)
+
+
+---
 
 ### Data Management
 
@@ -81,7 +90,9 @@ Nosleep <- c(0,.5,0,.5)
 estimateMeanContrast(FrendaSummary,contrast=Nosleep)
 ```
 
-### Analyses of the Factor A (Evening vs Morning) Main Effect
+### Analyses of Main Effects 
+
+#### Analyses of the Factor A (Evening vs Morning) Main Effect
 
 To analyze the main effect of Factor A, set a contrast code and plot the marginal means and the difference between them.
 
@@ -102,7 +113,7 @@ Finally, estimate the standardized effect size for the main effect.
 estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorA)
 ```
 
-### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
+#### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
 
 To analyze the main effect of Factor B, set a contrast code and plot the marginal means and the difference between them.
 
@@ -123,7 +134,7 @@ Finally, estimate the standardized effect size for the main effect.
 estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorB)
 ```
 
-### Analyses of the Factor A x B Interaction
+### Analyses of the Interaction
 
 To analyze the interaction, set a contrast code and estimate the effect.
 
@@ -138,7 +149,7 @@ Then test the interaction for statistical significance.
 testMeanContrast(FrendaSummary,contrast=Interaction)
 ```
 
-### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
+#### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
 
 More helpfully, analyze the simple effect by setting the appropriate contrast and plotting.
 
@@ -159,7 +170,7 @@ Finally, estimate the standardized effect size for the simple effect.
 estimateStandardizedMeanContrast(FrendaSummary,contrast=simpleBatA1)
 ```
 
-### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect
+#### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect
 
 Next, analyze the other simple effect by setting the appropriate contrast and plotting.
 

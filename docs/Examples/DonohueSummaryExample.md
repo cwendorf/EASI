@@ -1,7 +1,7 @@
 ---
 title: "Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -16,6 +16,13 @@ vignette: >
 
 
 ## Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics
+
+- [Data Management](#data-management)
+- [Analyses of the Different Variables](#analyses-of-the-different-variables)
+- [Analysis of a Variable Difference](#analysis-of-a-variable-difference)
+- [Analysis of a Variable Contrast](#analysis-of-a-variable-contrast)
+
+---
 
 ### Data Management
 

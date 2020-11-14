@@ -1,7 +1,7 @@
 ---
 title: "Paired Samples Correlation Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -16,6 +16,11 @@ vignette: >
 
 
 ## Paired Samples Correlation Tutorial with Summary Statistics
+
+- [Data Management](#data-management)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+
+---
 
 ### Data Management
 

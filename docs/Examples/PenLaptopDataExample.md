@@ -1,7 +1,7 @@
 ---
 title: "Independent Groups Example with PenLaptop Data"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -17,7 +17,13 @@ vignette: >
 
 ## Indendent Groups Example with PenLaptop Data
 
-### PenLaptop1 Example
+- [PenLaptop1 Sample](#penlaptop1-sample)
+- [PenLaptop2 Sample](#penlaptop2-sample)
+- [PenLaptop3 Sample](#penlaptop3-sample)
+
+---
+
+### PenLaptop1 Sample
 
 PenLaptop1 focuses on the difference between two groups in the first sample. First, enter the data.
 
@@ -50,7 +56,7 @@ estimateStandardizedMeanDifference(Transcription~Group)
 ## Comparison   0.928   0.270   0.398   1.458
 ```
 
-### PenLaptop2 Example
+### PenLaptop2 Sample
 
 PenLaptop2 focuses on the difference between two groups in the second sample. Thus, enter the data.
 
@@ -83,7 +89,7 @@ estimateStandardizedMeanDifference(Transcription~Group)
 ## Comparison   1.059   0.179   0.709   1.409
 ```
 
-### PenLaptop3 Example
+### PenLaptop3 Sample
 
 PenLaptop3 focuses on the difference between two groups in the third sample. Thus, enter the data.
 

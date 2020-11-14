@@ -1,7 +1,7 @@
 ---
 title: "One Sample Tutorial with Data"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -16,6 +16,11 @@ vignette: >
 
 
 ## One Sample Tutorial with Data
+
+- [Data Management](#data-management)
+- [Analyses of the Mean](#analyses-of-the-mean)
+
+---
 
 ### Data Management
 

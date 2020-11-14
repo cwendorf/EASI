@@ -1,7 +1,7 @@
 ---
 title: "Relational Repeated Measures (Within-Subjects) Tutorial with Data"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -16,6 +16,13 @@ vignette: >
 
 
 ## Relational Repeated Measures (Within-Subjects) Tutorial with Data
+
+- [Data Management](#data-management)
+- [Analyses of the Omnibus Effect](#analyses-of-the-omnibus-effect)
+- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
+- [Analyses of the Pairwise Comparisons Using Relational Intervals](#analyses-of-the-pairwise-comparisons-using-relational-intervals)
+
+---
 
 ### Data Management
 

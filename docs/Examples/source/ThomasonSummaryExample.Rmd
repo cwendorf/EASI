@@ -1,7 +1,7 @@
 ---
 title: "Paired Samples Example with Thomason Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -22,7 +22,13 @@ library(EASI)
 
 ## Paired Samples Example with Thomason Summary Statistics
 
-### Thomason1 Example
+- [Thomason1 Sample](#thomason1-sample)
+- [Thomason2 Sample](#thomason2-sample)
+- [Thomason3 Sample](#thomason3-sample)
+
+---
+
+### Thomason1 Sample
 
 Thomason1 focuses on the difference between pretest and postest in the first sample. First, create the tables of summary statistics.
 
@@ -47,7 +53,7 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 estimateStandardizedMeanDifference(Thomason1Summary,Thomason1Corr)
 ```
 
-### Thomason2 Example
+### Thomason2 Sample
 
 Thomason2 focuses on the difference between pretest and postest in the second sample. Thus, create the tables of summary statistics.
 
@@ -72,7 +78,7 @@ The secondary emphasis of the analysis is provide a standardized effect size for
 estimateStandardizedMeanDifference(Thomason2Summary,Thomason2Corr)
 ```
 
-### Thomason3 Example
+### Thomason3 Sample
 
 Thomason3 focuses on the difference between pretest and postest in the third sample. Thus, create the tables of summary statistics.
 

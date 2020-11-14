@@ -1,7 +1,7 @@
 ---
 title: "Repeated Measures (Within-Subjects) Correlations Tutorial with Data"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -16,6 +16,12 @@ vignette: >
 
 
 ## Repeated Measures (Within-Subjects) Correlations Tutorial with Data
+
+- [Data Management](#data-management)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+- [Analyses of Several Correlations](#analyses-of-several-correlations)
+
+---
 
 ### Data Management
 

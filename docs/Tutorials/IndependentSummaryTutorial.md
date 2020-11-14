@@ -1,7 +1,7 @@
 ---
 title: "Independent Groups Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -16,6 +16,12 @@ vignette: >
 
 
 ## Independent Groups Tutorial with Summary Statistics
+
+- [Data Management](#data-management)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of the Comparison](#analyses-of-the-comparison)
+
+---
 
 ### Data Management
 

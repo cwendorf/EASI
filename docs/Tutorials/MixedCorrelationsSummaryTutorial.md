@@ -1,7 +1,7 @@
 ---
 title: "Mixed Design Correlations Tutorial with Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -16,6 +16,13 @@ vignette: >
 
 
 ## Mixed Design Correlations Tutorial with Summary Statistics
+
+- [Data Management](#data-management)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+- [Analyses of Several Correlations](#analyses-of-several-correlations)
+- [Analyses of a Correlation Difference](#analyses-of-a-correlation-difference)
+
+---
 
 ### Data Management
 

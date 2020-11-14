@@ -1,7 +1,7 @@
 ---
 title: "OneWay (Between-Subjects) Tutorial with Data"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -16,6 +16,14 @@ vignette: >
 
 
 ## OneWay (Between-Subjects) Tutorial with Data
+
+- [Data Management](#data-management)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of a Comparison](#analyses-of-a-comparison)
+- [Analyses of a Contrast](#analyses-of-a-contrast)
+- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
+
+---
 
 ### Data Management
 

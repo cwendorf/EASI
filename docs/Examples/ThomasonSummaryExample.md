@@ -1,7 +1,7 @@
 ---
 title: "Paired Samples Example with Thomason Summary Statistics"
 author: "Craig A. Wendorf"
-date: "2020-11-01"
+date: "2020-11-15"
 output: 
   rmarkdown::html_vignette:
     keep_md: TRUE
@@ -17,7 +17,13 @@ vignette: >
 
 ## Paired Samples Example with Thomason Summary Statistics
 
-### Thomason1 Example
+- [Thomason1 Sample](#thomason1-sample)
+- [Thomason2 Sample](#thomason2-sample)
+- [Thomason3 Sample](#thomason3-sample)
+
+---
+
+### Thomason1 Sample
 
 Thomason1 focuses on the difference between pretest and postest in the first sample. First, create the tables of summary statistics.
 
@@ -53,7 +59,7 @@ estimateStandardizedMeanDifference(Thomason1Summary,Thomason1Corr)
 ## Comparison   0.536   0.181   0.180   0.891
 ```
 
-### Thomason2 Example
+### Thomason2 Sample
 
 Thomason2 focuses on the difference between pretest and postest in the second sample. Thus, create the tables of summary statistics.
 
@@ -89,7 +95,7 @@ estimateStandardizedMeanDifference(Thomason2Summary,Thomason2Corr)
 ## Comparison   0.356   0.155   0.052   0.659
 ```
 
-### Thomason3 Example
+### Thomason3 Sample
 
 Thomason3 focuses on the difference between pretest and postest in the third sample. Thus, create the tables of summary statistics.
 
