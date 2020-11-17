@@ -30,30 +30,30 @@ estimateMeanSubsets.default <- estimateMeanSubsets.formula <- estimateMeanSubset
 plotMeansSubsets <- plotMeanSubsets <- function(x,...) 
   UseMethod("plotMeanSubsets")
 
-plotMeanSubsets.wss <- function(CompStats,CorrStats,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeanSubsets.wss <- function(CompStats,CorrStats,contrast,main=NULL,ylab="Outcome",xlab="",slab="Mean Contrast",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateMeanSubsets(CompStats,CorrStats,contrast=contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,slab=slab)
 }
 
-plotMeanSubsets.bss <- function(CompStats,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeanSubsets.bss <- function(CompStats,contrast,main=NULL,ylab="Outcome",xlab="",slab="Mean Contrast",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateMeanSubsets(CompStats,contrast=contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab=slab)
 }
 
-plotMeanSubsets.default <- function(...,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeanSubsets.default <- function(...,contrast,main=NULL,ylab="Outcome",xlab="",slab="Mean Contrast",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateMeanSubsets(...,contrast=contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,slab=slab)
 }
 
-plotMeanSubsets.formula <- function(formula,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeanSubsets.formula <- function(formula,contrast,main=NULL,ylab="Outcome",xlab="",slab="Mean Contrast",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateMeanSubsets(formula,contrast=contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab=slab)
 }

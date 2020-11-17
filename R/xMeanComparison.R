@@ -19,30 +19,30 @@ estimateMeanComparison.default <- estimateMeanComparison.formula <- estimateMean
 plotMeansComparison <- plotMeanComparison <- function(x,...) 
   UseMethod("plotMeanComparison")
 
-plotMeanComparison.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeanComparison.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",slab="Mean Difference",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateMeanComparison(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Comparison"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,slab=slab)
 }
 
-plotMeanComparison.bss <- function(CompStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeanComparison.bss <- function(CompStats,main=NULL,ylab="Outcome",xlab="",slab="Mean Difference",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateMeanComparison(CompStats,conf.level=conf.level,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Comparison"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab=slab)
 }
 
-plotMeanComparison.default <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeanComparison.default <- function(...,main=NULL,ylab="Outcome",xlab="",slab="Mean Difference",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateMeanComparison(...,conf.level=conf.level,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Comparison"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,slab=slab)
 }
 
-plotMeanComparison.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotMeanComparison.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",slab="Mean Difference",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
   results <- estimateMeanComparison(formula,conf.level=conf.level,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Comparison"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab=slab)
 }
