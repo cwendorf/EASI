@@ -16,15 +16,20 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeans.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeans.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanDifference.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanComparison.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeanDifference.R")
 
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanComparison.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeanComparison.R")
+
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanContrast.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanSubsets.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeanContrast.R")
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanSubsets.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeanSubsets.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeansOmnibus.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeansEffect.R")
+
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeansPairwise.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeansPairwise.R")
 
