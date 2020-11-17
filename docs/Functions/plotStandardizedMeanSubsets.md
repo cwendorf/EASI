@@ -1,0 +1,41 @@
+## Plot Standardized Mean Subsets
+
+### Description
+
+Provides the plot of the confidence intervals for a standarized mean contrast and the standardized mean subsets that comprise that contrast.
+
+### Usage
+
+```r
+## Default S3 method
+plotStandardizedMeanSubsets(...,contrast,ylab="Standardized Mean Contrast",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+
+## S3 method for class 'formula'
+plotStandardizedMeanSubsets(formula,contrast,ylab="Standardized Mean Contrast",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+
+## S3 method for class 'wss'
+plotStandardizedMeanSubsets(DescStats,CorrStats,contrast,ylab="Standardized Mean Contrast",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+
+## S3 method for class 'bss'
+plotStandardizedMeanSubsets(DescStats,contrast,ylab="Standardized Mean Contrast",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+```
+
+### Arguments
+
+Argument | Description
+:-- | :--
+```...``` | a set of (non-empty) numeric vectors of data values.
+```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
+```DescStats``` | a matrix/frame of descriptive/summary statistics.
+```CorrStats``` | a matrix/frame of correlations among the measures.
+```contrast``` | a vector of codes for the contrast among all means.
+```mu``` | a number indicating the true/hypothesized value of the mean contrast.
+```conf.level``` | confidence level of the interval.
+```main``` | a custom title for the graph.
+```labels``` | custom labels for the subsets.
+```ylim``` | custom limits for the y axis.
+```digits``` | the specified number of decimal places.
+
+### Details
+
+Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

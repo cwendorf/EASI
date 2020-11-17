@@ -18,13 +18,13 @@
   for (i in 1:nrow(results)) text(i,as.numeric(results[,3][i]),results[,3][i],cex=.8,pos=2,offset=.5)}
 }
 
-.cipComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect) {
+.cipComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect,pch=c(16,16,17)) {
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(graph[,2]-.4)),ceiling(max(graph[,3])+.4))))}
   par(mar=c(5,5,5,5))  
-  plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylim,pch=c(16,16,17),cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.15,bty="n")
+  plot(c(1,2,3),graph[,1],xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylim,pch=pch,cex=1.5,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.15,bty="n")
   axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
   axis(1,2.6:3.6,labels=FALSE,lwd.tick=0)
   axis(1,at=c(1,2),labels=rownames(graph)[1:2])

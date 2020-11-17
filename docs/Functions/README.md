@@ -50,38 +50,64 @@ Prefix | Description
 - [`estimateMeans`](./estimateMeans.md)
 - [`plotMeans`](./plotMeans.md)
 - [`testMeans`](./testMeans.md)
+
+`StandardizedMeans` - functions that examine all individual standardized group or level means
+
 - [`estimateStandardizedMeans`](./estimateStandardizedMeans.md)
+- [`plotStandardizedMeans`](./plotStandardizedMeans.md)
 
 `MeanDifference` - functions that examine a difference among two group or level means
 
 - [`estimateMeanDifference`](./estimateMeanDifference.md)
 - [`plotMeanDifference`](./plotMeanDifference.md)
 - [`testMeanDifference`](./testMeanDifference.md)
+
+`StandardizedMeanDifference` - functions that examine a standardized difference among two group or level means
+
 - [`estimateStandardizedMeanDifference`](./estimateStandardizedMeanDifference.md)
+- [`plotStandardizedMeanDifference`](./plotStandardizedMeanDifference.md)
 
 `MeanComparison` - functions that examine a comparison among two group or level means (combines the `Means` and `MeanDifference` functions)
 
 - [`estimateMeanComparison`](./estimateMeanComparison.md)
 - [`plotMeanComparison`](./plotMeanComparison.md)
 
+`StandardizedMeanComparison` - functions that examine a standardized comparison among two group or level means (combines the `StandardizedMeans` and `StandardizedMeanDifference` functions)
+
+- [`estimateStandardizedMeanComparison`](./estimateStandardizedMeanComparison.md)
+- [`plotStandardizedMeanComparison`](./plotStandardizedMeanComparison.md)
+
 `MeanContrast` - functions that examine a contrast among all of the group or level means
 
 - [`estimateMeanContrast`](./estimateMeanContrast.md)
 - [`plotMeanContrast`](./plotMeanContrast.md)
 - [`testMeanContrast`](./testMeanContrast.md)
+
+`StandardizedMeanContrast` - functions that examine a standardized contrast among all of the group or level means
+
 - [`estimateStandardizedMeanContrast`](./estimateStandardizedMeanContrast.md) 
+- [`plotStandardizedMeanContrast`](./plotStandardizedMeanContrast.md) 
 
 `MeanSubsets` - functions that examine a subset contrast among all of the group or level means (combines the `Means` and `MeanContrast` functions)
 
 - [`estimateMeanSubsets`](./estimateMeanSubsets.md)
 - [`plotMeanSubsets`](./plotMeanSubsets.md)
 
+`StandardizedMeanSubsets` - functions that examine a standardized subset contrast among all of the group or level means (combines the `StandardizedMeans` and `StandardiedMeanContrast` functions)
+
+- [`estimateStandardizedMeanSubsets`](./estimateStandardizedMeanSubsets.md)
+- [`plotStandardizedMeanSubsets`](./plotStandardizedMeanSubsets.md)
+
 `MeansPairwise` - functions that examine all possible unadjusted pairwise comparisons among the group or levels means
 
 - [`estimateMeansPairwise`](./estimateMeansPairwise.md)
 - [`plotMeansPairwise`](./plotMeansPairwise.md)
 - [`testMeansPairwise`](./testMeansPairwise.md)
+
+`StandardizedMeansPairwise` - functions that examine all possible unadjusted standardized pairwise comparisons among the group or levels means
+
 - [`estimateStandardizedMeansPairwise`](./estimateStandardizedMeansPairwise.md)
+- [`plotStandardizedMeansPairwise`](./plotStandardizedMeansPairwise.md)
 
 `MeansRelational` - functions that provide both arelational (confidence) and relational (comparative) intervals 
 

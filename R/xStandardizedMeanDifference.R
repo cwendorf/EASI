@@ -24,7 +24,7 @@ estimateStandardizedMeanDifference.wss <- function(DescStats,CorrStats,mu=0,conf
   LL <- Est-z*SE
   UL <- Est+z*SE
   results <- as.data.frame(t(c(Est,SE,LL,UL)))
-  colnames(results) <- c("Est","SE","LL","UL")
+  colnames(results) <- c("d","SE","LL","UL")
   rownames(results) <- c("Comparison")
   if(is.null(main)) {main="Confidence Interval for the Standardized Mean Difference"}
   results <- .formatList(list(results),digits=digits)  
@@ -46,7 +46,7 @@ estimateStandardizedMeanDifference.bss <- function(DescStats,contrast,mu=0,conf.
   LL <- Est-z*SE
   UL <- Est+z*SE
   results <- as.data.frame(t(c(Est,SE,LL,UL)))
-  colnames(results) <- c("Est","SE","LL","UL")
+  colnames(results) <- c("d","SE","LL","UL")
   rownames(results) <- c("Comparison")
   if(is.null(main)) {main="Confidence Interval for the Standardized Mean Difference"}
   results <- .formatList(list(results),digits=digits)  
