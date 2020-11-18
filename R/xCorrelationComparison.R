@@ -18,6 +18,7 @@ estimateCorrelationComparison.default <- function(CorrEst1,CorrEst2,main=NULL,la
   return(results)
 }   
 
+
 ### Confidence Interval Plot Functions
 
 plotCorrelationsComparison <- plotCorrelationComparison <- function(x,...) 
