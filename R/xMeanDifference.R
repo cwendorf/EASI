@@ -125,23 +125,23 @@ plotMeanDifference <- plotMeanDifference <- function(x,...)
 plotMeanDifference.wss <- function(DescStats,CorrStats,main=NULL,ylab="Mean Difference",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateMeanDifference(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Difference"} 
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=17,slab="Mean Difference")
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=17)
 }
 
 plotMeanDifference.bss <- function(DescStats,main=NULL,ylab="Mean Difference",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateMeanDifference(DescStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Difference"}   
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=17,slab="Mean Difference")
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=17)
 }
 
 plotMeanDifference.default <- function(...,main=NULL,ylab="Mean Difference",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateMeanDifference(...,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Difference"} 
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=17,slab="Mean Difference")
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=17)
 }
 
 plotMeanDifference.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
   results <- .unformatFrame(estimateMeanDifference(formula,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Difference"}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=17,slab="Mean Difference")
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=17)
 }
