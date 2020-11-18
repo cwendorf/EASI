@@ -6,9 +6,9 @@
 
 ## An R Package for Estimation Statistics
 
-[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg)](https://cran.r-project.org/)
-[![CRAN](http://www.r-pkg.org/badges/version/report)](https://cran.r-project.org/package=report)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg?style=for-the-badge)](https://cran.r-project.org/)
+[![CRAN](http://www.r-pkg.org/badges/version/report?style=for-the-badge)](https://cran.r-project.org/package=report)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 ### Overview
 
