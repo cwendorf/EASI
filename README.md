@@ -6,6 +6,8 @@
 
 ## An R Package for Estimation Statistics
 
+[![CRAN](http://www.r-pkg.org/badges/version/report)](https://cran.r-project.org/package=report)
+
 ### Overview
 
 [**EASI**](https://cwendorf.github.io/EASI) is an R package that implements features of estimation statistics. Its primary functions calculate, test, and plot confidence intervals for between- and within-subjects single-factor, factorial, and mixed designs. Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparions among the groups and variables. All functions can take either raw data or summary statistics as input. 
