@@ -1,39 +1,11 @@
----
-title: "Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics"
-author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
+# Estimation Approach to Statistical Inference
 
-```{r,include=FALSE}
-#suppress the warnings and other messages from showing in the knitted file.
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-```
-
-```{r,include=FALSE}
 library(EASI)
-```
 
 ## Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics
 
-- [Data Management](#data-management)
-- [Analyses of the Different Variables](#analyses-of-the-different-variables)
-- [Analysis of a Variable Difference](#analysis-of-a-variable-difference)
-- [Analysis of a Variable Contrast](#analysis-of-a-variable-contrast)
-
----
-
 ### Data Management
 
-Prior to analyses, enter the tables of summary statistics.
-
-```{r}
 Pretest <- c(N=20,M=19.300,SD=5.904)
 Posttest <- c(N=20,M=23.600,SD=4.762)
 Followup <- c(N=20,M=23.400,SD=4.616)
@@ -45,53 +17,21 @@ DonohueCorr["Pretest","Posttest"] <- .493
 DonohueCorr["Pretest","Followup"] <- .536
 DonohueCorr["Posttest","Followup"] <- .743
 DonohueCorr <- fillCorrelations(DonohueCorr)
-```
 
 ### Analyses of the Different Variables
 
-With multiple variables, it is useful to get descriptive statistics and confidence intervals for each variable.
-
-```{r}
 estimateMeans(DonohueSummary)
-```
-
-It is also useful to view the means and confidence intervals of the groups in a plot.
-
-```{r,Donohue-Means}
 plotMeans(DonohueSummary,main="Critical Thinking Scores at Pretest, Posttest, and Followup")
-```
  
 ### Analysis of a Variable Difference
 
-The first research question is whether there is a difference between the posttest and followup occasions.
-
-First, set the comparison and obtain the difference plot for that comparison.
-
-```{r,Donohue-Comparison}
 PostvsFollowup <- DonohueSummary[c(2,3),]
 class(PostvsFollowup) <- "wss"
 plotMeanComparison(PostvsFollowup,DonohueCorr,main="Critical Thinking Scores of Posttest vs Followup")
-```
-
-Then, obtain the standardized effect size for that comparison.
-
-```{r}
 estimateStandardizedMeanDifference(PostvsFollowup,DonohueCorr)
-```
 
 ### Analysis of a Variable Contrast
 
-The second research question is whether the pretest differs from the posttest and followup combined.
-
-First, set the contrast and obtain a difference plot for the contrast.
-
-```{r,Donohue-Contrast}
 PrevsPostFollow <- c(-1,.5,.5)
 plotMeanSubsets(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking")
-```
-
-Then, estimate the standardized contrast.
-
-```{r}
 estimateStandardizedMeanContrast(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
-```

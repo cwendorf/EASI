@@ -1,0 +1,128 @@
+---
+title: "Estimation Approach to Statistical Inference"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Relational Repeated Measures (Within-Subjects) Tutorial with Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+library(EASI)
+```
+
+## Relational Repeated Measures (Within-Subjects) Tutorial with Data
+
+### Data Management
+
+#### Data Entry
+
+This code inputs the variable names and creates a viewable data frame.
+```{r}
+Outcome1 <- c(0,0,3,5)
+Outcome2 <- c(4,7,4,9)
+Outcome3 <- c(9,6,4,9)
+RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+```
+
+#### Plot of the Data
+
+```{r,Repeated-Violins}
+plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables")
+plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE)
+plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16)
+```
+
+#### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+describeMeans(Outcome1,Outcome2,Outcome3)
+```
+
+### Analyses of the Omnibus Effect
+
+This section produces analyses that are the traditional way to represent and test overall variable differences.
+
+#### Confidence Intervals
+
+This code will provide a table of confidence intervals for each of the variables.
+```{r}
+estimateMeans(Outcome1,Outcome2,Outcome3)
+```
+
+This code will produce a graph of the confidence intervals for each of the variables.
+```{r,RelationalRepeated-Means}
+plotMeans(Outcome1,Outcome2,Outcome3)
+```
+
+#### Significance Test
+
+This code provides an ANOVA source table for the omnibus effect.
+```{r}
+describeMeansOmnibus(Outcome1,Outcome2,Outcome3)
+testMeansOmnibus(Outcome1,Outcome2,Outcome3)
+```
+
+### Analyses of the Pairwise Comparisons
+
+This section provides analyses of all possible pairwise comparisons among the variables.
+
+#### Confidence Intervals
+
+This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
+
+```{r}
+estimateMeansPairwise(Outcome1,Outcome2,Outcome3)
+```
+
+This code will produce a graph of the confidence intervals for each of the pairwise comparisons.
+```{r,RelationalRepeated-Pairwise}
+plotMeansPairwise(Outcome1,Outcome2,Outcome3,mu=0)
+```
+
+#### Significance Tests
+
+This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
+```{r}
+testMeansPairwise(Outcome1,Outcome2,Outcome3)
+```
+
+### Analyses of the Pairwise Comparisons Using Relational Intervals
+
+This section provides analyses of all possible pairwise comparisons among the variables using relational intervals.
+
+#### Confidence and Relational Intervals
+
+This code will provide a table of confidence and relational intervals for each pairwise comparison.
+```{r}
+estimateMeansRelational(Outcome1,Outcome2,Outcome3)
+```
+
+This code will produce a graph of the confidence and relational intervals for each of the pairwise comparisons.
+```{r,RelationalRepeated-RelationalA}
+plotMeansRelational(Outcome1,Outcome2,Outcome3)
+```
+
+The code defaults to 95% confidence and relational intervals. This can be changed if desired.
+```{r}
+estimateMeansRelational(Outcome1,Outcome2,Outcome3,conf.level=.99)
+```
+
+For the graph, it is possible to change the confidence level.
+```{r,RelationalRepeated-RelationalB}
+plotMeansRelational(Outcome1,Outcome2,Outcome3,conf.level=.99)
+```

@@ -1,0 +1,187 @@
+---
+title: "Estimation Approach to Statistical Inference"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Factorial Between-Subjects Example with Frenda Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+library(EASI)
+```
+
+## Factorial Between-Subjects Example with Frenda Summary Statistics
+
+### Data Management
+
+Create a table of summary statistics for the study. Though the study is a factorial design, treat each level of the two factors as independent groups in a single factor.
+
+```{r}
+EveningSleep <- c(N=26,M=1.50,SD=1.38)
+EveningNosleep <- c(N=26,M=1.14,SD=0.96)
+MorningSleep <- c(N=25,M=1.38,SD=1.50)
+MorningNosleep <- c(N=26,M=2.22,SD=1.68)
+FrendaSummary <- rbind(EveningSleep,EveningNosleep,MorningSleep,MorningNosleep)
+class(FrendaSummary) <- "bss"
+```
+
+### Analyses of the Different Groups
+
+First, estimate the descriptive statistics and confidence intervals for all levels.
+
+```{r}
+estimateMeans(FrendaSummary)
+```
+
+Then plot those confidence intervals.
+
+```{r,Frenda-Means}
+plotMeans(FrendaSummary,ylab="False Memory")
+```
+
+### Analyses of the Marginal Means
+
+Then, use contrast codes to estimate the marginal means for each factor.
+
+First, for the Evening condition:
+
+```{r}
+Evening <- c(.5,.5,0,0)
+estimateMeanContrast(FrendaSummary,contrast=Evening)
+```
+
+Then for the Morning condition:
+
+```{r}
+Morning <- c(0,0,.5,.5)
+estimateMeanContrast(FrendaSummary,contrast=Morning)
+```
+
+Then for the Sleep condition:
+
+```{r}
+Sleep <- c(.5,0,.5,0)
+estimateMeanContrast(FrendaSummary,contrast=Sleep)
+```
+
+Finally for the NoSleep condition:
+
+```{r}
+Nosleep <- c(0,.5,0,.5)
+estimateMeanContrast(FrendaSummary,contrast=Nosleep)
+```
+
+### Analyses of Main Effects 
+
+#### Analyses of the Factor A (Evening vs Morning) Main Effect
+
+To analyze the main effect of Factor A, set a contrast code and plot the marginal means and the difference between them.
+
+```{r,Frenda-MainA}
+mainFactorA <- c(-.5,-.5,.5,.5)
+plotMeanSubsets(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory")
+```
+
+This main effect can be tested for statistical significance.
+
+```{r}
+testMeanContrast(FrendaSummary,contrast=mainFactorA)
+```
+
+Finally, estimate the standardized effect size for the main effect.
+
+```{r}
+estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorA)
+```
+
+#### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
+
+To analyze the main effect of Factor B, set a contrast code and plot the marginal means and the difference between them.
+
+```{r,Frenda-MainB}
+mainFactorB <- c(-.5,.5,-.5,.5)
+plotMeanSubsets(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory")
+```
+
+This main effect can be tested for statistical significance.
+
+```{r}
+testMeanContrast(FrendaSummary,contrast=mainFactorB)
+```
+
+Finally, estimate the standardized effect size for the main effect.
+
+```{r}
+estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorB)
+```
+
+### Analyses of the Interaction
+
+To analyze the interaction, set a contrast code and estimate the effect.
+
+```{r}
+Interaction <- c(1,-1,-1,1)
+estimateMeanContrast(FrendaSummary,contrast=Interaction)
+```
+
+Then test the interaction for statistical significance.
+
+```{r}
+testMeanContrast(FrendaSummary,contrast=Interaction)
+```
+
+#### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
+
+More helpfully, analyze the simple effect by setting the appropriate contrast and plotting.
+
+```{r,Frenda-SimpleA1}
+simpleBatA1 <- c(-1,1,0,0)
+plotMeanSubsets(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
+```
+
+Test the simple effect for statistical significance.
+
+```{r}
+testMeanContrast(FrendaSummary,contrast=simpleBatA1)
+```
+
+Finally, estimate the standardized effect size for the simple effect.
+
+```{r}
+estimateStandardizedMeanContrast(FrendaSummary,contrast=simpleBatA1)
+```
+
+#### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect
+
+Next, analyze the other simple effect by setting the appropriate contrast and plotting.
+
+```{r,Frenda-SimpleA2}
+simpleBatA2 <- c(0,0,-1,1)
+plotMeanSubsets(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
+```
+
+Test the simple effect for statistical significance.
+
+```{r}
+testMeanContrast(FrendaSummary,contrast=simpleBatA2)
+```
+
+Finally, estimate the standardized effect size for the simple effect.
+
+```{r}
+estimateStandardizedMeanContrast(FrendaSummary,contrast=simpleBatA2)
+```
