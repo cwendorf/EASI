@@ -2,8 +2,10 @@
 title: "Independent Groups Tutorial with Data"
 author: "Craig A. Wendorf"
 date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+output:
+  html_document:
+    toc: true
+    toc_float: true
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Independent Groups Tutorial with Data}
@@ -16,12 +18,6 @@ vignette: >
 
 
 ## Independent Groups Tutorial with Data
-
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-- [Analyses of the Comparison](#analyses-of-the-comparison)
-
----
 
 ### Data Management
 
@@ -302,7 +298,7 @@ estimateStandardizedMeanDifference(Outcome~Factor)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
 
@@ -314,6 +310,6 @@ estimateStandardizedMeanDifference(Outcome~Factor,conf.level=.99)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.943  -0.795   4.062
 ```
