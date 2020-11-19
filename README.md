@@ -30,7 +30,7 @@ library(EASI)
 
 If you do not wish a full install, the functions can be sourced instead:
 
-``` r
+```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 ```
 
