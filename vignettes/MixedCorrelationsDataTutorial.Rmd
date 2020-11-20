@@ -1,9 +1,15 @@
 ---
-title: "Mixed Design Correlations Tutorial with Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:   
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Mixed Design Correlations Tutorial with Data}
@@ -21,13 +27,6 @@ library(EASI)
 ```
 
 ## Mixed Design Tutorial with Data
-
-- [Data Management](#data-management)
-- [Analyses of a Correlation](#analyses-of-a-correlation)
-- [Analyses of Several Correlations](#analyses-of-several-correlations)
-- [Analyses of a Correlation Difference](#analyses-of-a-correlation-difference)
-
----
 
 ### Data Management
 
@@ -67,7 +66,7 @@ with(MixedDataL2,describeCorrelations(Outcome1,Outcome2,Outcome3))
 
 This section produces analyses of a single correlation in each of the frames.
 
-#### Confidence Interval for the Correlation
+#### Confidence Intervals
 
 This code will provide the confidence interval for the correlation.
 ```{r}
@@ -93,7 +92,7 @@ with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,conf.level=.99))
 with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,conf.level=.99))
 ```
 
-#### Significance Test for the Correlation
+#### Significance Tests
 
 This code will produce a table of NHST for the correlation (against a value of zero).
 ```{r}
@@ -105,7 +104,7 @@ with(MixedDataL2,testCorrelations(Outcome1,Outcome2))
 
 This section analyzes the correlations among multiple variables.
 
-#### Confidence Intervals for the Correlations
+#### Confidence Intervals
 
 This code will provide the confidence intervals for the correlations.
 ```{r}
@@ -131,7 +130,7 @@ with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99))
 with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99))
 ```
 
-#### Significance Tests for the Correlations
+#### Significance Tests
 
 This code will produce a table of NHST for the correlations (against a value of zero).
 ```{r}
@@ -143,7 +142,7 @@ with(MixedDataL2,testCorrelations(Outcome1,Outcome2,Outcome3))
 
 This section analyzes the difference in the correlations from the two frames.
 
-#### Confidence Interval for a Correlation Difference
+#### Confidence Intervals
 
 First it is necessary to estimate the confidence intervals for each of the correlations.
 ```{r}
@@ -177,8 +176,6 @@ Finally, we can re-plot the estimate.
 plotCorrelationDifference(CorrEstimateL1,CorrEstimateL2)
 ```
 
-#### Confidence Intervals for the Correlation Comparison
-
 If you wish, you can get the confidence intervals for the correlations and the correlation difference combined.
 
 First it is necessary to estimate the confidence intervals for each of the correlations.
@@ -208,7 +205,7 @@ Then we can estimate the correlations and the difference in the correlations.
 estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 ```
 
-Finally, we can re-plot the comparison,
+Finally, we can re-plot the comparison.
 ```{r,MixedCorrComparison-B}
 plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 ```

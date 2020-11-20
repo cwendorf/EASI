@@ -1,9 +1,15 @@
 ---
-title: "Mixed Design Tutorial with Summary Statistics"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Mixed Design Tutorial with Summary Statistics}
@@ -21,14 +27,6 @@ library(EASI)
 ```
 
 ## Mixed Design Tutorial with Summary Statistics
-
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-- [Analyses of a Comparison](#analyses-of-a-comparison)
-- [Analyses of a Contrast](#analyses-of-a-contrast)
-- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-
----
 
 ### Data Management
 
@@ -70,7 +68,7 @@ MixedCorrL2["Outcome3",] <- c(.778,.889,1.000)
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
-#### Confidence Intervals for the Means
+#### Confidence Intervals
 
 This code will provide tables of confidence intervals for each level of the factor.
 ```{r}
@@ -96,7 +94,7 @@ plotMeans(MixedSummaryL1,conf.level=.99,mu=5,rope=c(3,7))
 plotMeans(MixedSummaryL2,conf.level=.99,mu=5,rope=c(3,7))
 ```
 
-#### Significance Tests for the Means
+#### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```{r}
@@ -110,7 +108,7 @@ testMeans(MixedSummaryL1,mu=5)
 testMeans(MixedSummaryL2,mu=5)
 ```
 
-#### Standardized Effect Size for the Means
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
@@ -136,7 +134,7 @@ CompSummaryL2 <- MixedSummaryL2[c("Outcome1","Outcome2"),]
 class(CompSummaryL2) <- "wss"
 ```
 
-#### Confidence Interval for the Mean Difference
+#### Confidence Intervals
 
 This code identifies the two levels for comparison and estimates the confidence interval of the difference.
 ```{r}
@@ -162,8 +160,6 @@ plotMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99,rope=c(-2,2))
 plotMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99,rope=c(-2,2))
 ```
 
-#### Confidence Intervals for the Comparison
-
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 ```{r}
 estimateMeanComparison(CompSummaryL1,MixedCorrL1)
@@ -188,7 +184,7 @@ plotMeanComparison(CompSummaryL1,MixedCorrL1,conf.level=.99,rope=c(-2,2))
 plotMeanComparison(CompSummaryL2,MixedCorrL2,conf.level=.99,rope=c(-2,2))
 ```
 
-#### Significance Test for the Mean Difference
+#### Significance Tests
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```{r}
@@ -202,7 +198,7 @@ testMeanDifference(CompSummaryL1,MixedCorrL1,mu=-2)
 testMeanDifference(CompSummaryL2,MixedCorrL2,mu=-2)
 ```
 
-#### Standardized Effect Size for the Mean Difference
+#### Standardized Effect Sizes
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```{r}
@@ -225,7 +221,7 @@ This code identifies a contrast among the levels.
 O1vsOthers <- c(-1,.5,.5)
 ```
 
-#### Confidence Interval for the Contrast
+#### Confidence Intervals
 
 This code produces a confidence interval for that contrast.
 ```{r}
@@ -251,8 +247,6 @@ plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99,r
 plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2))
 ```
 
-#### Confidence Intervals for the Subsets
-
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 ```{r}
 estimateMeanSubsets(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers)
@@ -277,7 +271,7 @@ plotMeanSubsets(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,labels=c("Outcome
 plotMeanSubsets(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
-#### Significance Test for the Contrast
+#### Significance Tests
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
@@ -291,7 +285,7 @@ testMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,mu=4)
 testMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,mu=4)
 ```
 
-#### Standardized Effect Size for the Contrast
+#### Standardized Effect Sizes
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}
@@ -309,7 +303,7 @@ estimateStandardizedMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,
 
 This section provides analyses of all possible pairwise comparisons among the levels of the factor.
 
-#### Confidence Intervals for the Pairwise Comparisons
+#### Confidence Intervals
 
 This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 ```{r}
@@ -335,7 +329,7 @@ plotMeansPairwise(MixedSummaryL1,MixedCorrL1,mu=-2,conf.level=.99,rope=c(-4,0))
 plotMeansPairwise(MixedSummaryL2,MixedCorrL2,mu=-2,conf.level=.99,rope=c(-4,0))
 ```
 
-#### Significance Tests of the Pairwise Comparisons
+#### Significance Tests
 
 This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 ```{r}
@@ -349,7 +343,7 @@ testMeansPairwise(MixedSummaryL1,MixedCorrL1,mu=-2)
 testMeansPairwise(MixedSummaryL2,MixedCorrL2,mu=-2)
 ```
 
-#### Standardized Effect Sizes for the Pairwise Comparisons
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences for each pairwise comparison. 
 ```{r}

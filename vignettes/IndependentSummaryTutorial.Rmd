@@ -1,9 +1,15 @@
 ---
-title: "Independent Groups Tutorial with Summary Statistics"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Independent Groups Tutorial with Summary Statistics}
@@ -22,12 +28,6 @@ library(EASI)
 
 ## Independent Groups Tutorial with Summary Statistics
 
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-- [Analyses of the Comparison](#analyses-of-the-comparison)
-
----
-
 ### Data Management
 
 This code inputs the group summaries and creates a single summary table.
@@ -43,7 +43,7 @@ IndependentSummary
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
-#### Confidence Intervals for the Means
+#### Confidence Intervals
 
 This code will provide a table of confidence intervals for each level of the factor.
 ```{r}
@@ -65,7 +65,7 @@ For the graph, it is possible to add a comparison line to represent a population
 plotMeans(IndependentSummary,conf.level=.99,mu=5,rope=c(3,7))
 ```
 
-#### Significance Tests for the Means
+#### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```{r}
@@ -77,7 +77,7 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 testMeans(IndependentSummary,mu=5)
 ```
 
-#### Standardized Effect Sizes for the Means
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
@@ -93,7 +93,7 @@ estimateStandardizedMeans(IndependentSummary,mu=5,conf.level=.99)
 
 This section produces analyses that examine the difference among the two levels of the factor.
 
-#### Confidence Interval for a Mean Difference
+#### Confidence Intervals
 
 This code estimates the confidence interval of the difference.
 ```{r}
@@ -114,8 +114,6 @@ Once again, the confidence levels can be changed away from the default and a reg
 ```{r,Independent-DifferenceB}
 plotMeanDifference(IndependentSummary,conf.level=.99,rope=c(-2,2))
 ```
-
-#### Confidence Intervals for the Comparison
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -139,7 +137,7 @@ Once again, the confidence levels can be changed away from the default and a reg
 plotMeanComparison(IndependentSummary,conf.level=.99,rope=c(-2,2))
 ```
 
-#### Significance Test for a Mean Difference
+#### Significance Test
 
 This code produces NHST for the mean difference (using a default test value of zero).
 ```{r}
@@ -151,7 +149,7 @@ If the default value of zero is not plausible, it too can be changed.
 testMeanDifference(IndependentSummary,mu=2)
 ```
 
-#### Standardized Effect Size for the Mean Difference
+#### Standardized Effect Size
 
 This code calculates a standardized mean difference and its confidence interval.
 ```{r}
