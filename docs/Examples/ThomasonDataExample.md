@@ -1,9 +1,15 @@
 ---
-title: "Paired Samples Example with Thomason Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Paired Samples Example with Thomason Data}
@@ -16,12 +22,6 @@ vignette: >
 
 
 ## Paired Samples Example with Thomason Data
-
-- [Thomason1 Sample](#thomason1-sample)
-- [Thomason2 Sample](#thomason2-sample)
-- [Thomason3 Sample](#thomason3-sample)
-
----
 
 ### Thomason1 Sample
 
@@ -51,7 +51,7 @@ estimateStandardizedMeanDifference(Pretest,Posttest)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   0.536   0.181   0.180   0.891
 ```
 
@@ -83,7 +83,7 @@ estimateStandardizedMeanDifference(Pretest,Posttest)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   0.356   0.155   0.052   0.659
 ```
 
@@ -115,6 +115,6 @@ estimateStandardizedMeanDifference(Pretest,Posttest)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   0.652   0.161   0.338   0.967
 ```

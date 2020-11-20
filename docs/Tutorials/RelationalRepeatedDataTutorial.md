@@ -1,9 +1,15 @@
 ---
-title: "Relational Repeated Measures (Within-Subjects) Tutorial with Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Relational Repeated Measures (Within-Subjects) Tutorial with Data}
@@ -16,13 +22,6 @@ vignette: >
 
 
 ## Relational Repeated Measures (Within-Subjects) Tutorial with Data
-
-- [Data Management](#data-management)
-- [Analyses of the Omnibus Effect](#analyses-of-the-omnibus-effect)
-- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-- [Analyses of the Pairwise Comparisons Using Relational Intervals](#analyses-of-the-pairwise-comparisons-using-relational-intervals)
-
----
 
 ### Data Management
 
@@ -68,7 +67,7 @@ describeMeans(Outcome1,Outcome2,Outcome3)
 
 This section produces analyses that are the traditional way to represent and test overall variable differences.
 
-#### Confidence Intervals for the Means
+#### Confidence Intervals
 
 This code will provide a table of confidence intervals for each of the variables.
 
@@ -92,7 +91,7 @@ plotMeans(Outcome1,Outcome2,Outcome3)
 
 ![](figures/RelationalRepeated-Means-1.png)<!-- -->
 
-#### Significance Tests for the Omnibus Effect
+#### Significance Test
 
 This code provides an ANOVA source table for the omnibus effect.
 
@@ -122,7 +121,7 @@ testMeansOmnibus(Outcome1,Outcome2,Outcome3)
 
 This section provides analyses of all possible pairwise comparisons among the variables.
 
-#### Confidence Intervals for the Pairwise Comparisons
+#### Confidence Intervals
 
 This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 
@@ -147,7 +146,7 @@ plotMeansPairwise(Outcome1,Outcome2,Outcome3,mu=0)
 
 ![](figures/RelationalRepeated-Pairwise-1.png)<!-- -->
 
-#### Significance Tests of the Pairwise Comparisons
+#### Significance Tests
 
 This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 
@@ -167,7 +166,7 @@ testMeansPairwise(Outcome1,Outcome2,Outcome3)
 
 This section provides analyses of all possible pairwise comparisons among the variables using relational intervals.
 
-#### Confidence and Relational Intervals for the Pairwise Comparisons
+#### Confidence and Relational Intervals
 
 This code will provide a table of confidence and relational intervals for each pairwise comparison.
 

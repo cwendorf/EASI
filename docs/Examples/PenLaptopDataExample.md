@@ -1,9 +1,15 @@
 ---
-title: "Independent Groups Example with PenLaptop Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Independent Groups Example with PenLaptop Data}
@@ -16,12 +22,6 @@ vignette: >
 
 
 ## Indendent Groups Example with PenLaptop Data
-
-- [PenLaptop1 Sample](#penlaptop1-sample)
-- [PenLaptop2 Sample](#penlaptop2-sample)
-- [PenLaptop3 Sample](#penlaptop3-sample)
-
----
 
 ### PenLaptop1 Sample
 
@@ -52,7 +52,7 @@ estimateStandardizedMeanDifference(Transcription~Group)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   0.928   0.270   0.398   1.458
 ```
 
@@ -85,7 +85,7 @@ estimateStandardizedMeanDifference(Transcription~Group)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.059   0.179   0.709   1.409
 ```
 
@@ -118,6 +118,6 @@ estimateStandardizedMeanDifference(Transcription~Group)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.691   0.237   1.226   2.156
 ```

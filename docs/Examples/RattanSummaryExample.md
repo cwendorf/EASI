@@ -1,9 +1,15 @@
 ---
-title: "OneWay (Between-Subjects) Example with Rattan Summary Statistics"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{OneWay (Between-Subjects) Example with Rattan Summary Statistics}
@@ -16,13 +22,6 @@ vignette: >
 
 
 ## OneWay (Between-Subjects) Example with Rattan Summary Statistics
-
-- [Data Management](#data-management)
-- [Analyses of the Different Groups](#analyses-of-the-different-groups)
-- [Analysis of a Group Difference](#analysis-of-a-group-difference)
-- [Analysis of a Group Contrast](#analysis-of-a-group-contrast)
-
----
 
 ### Data Management
 
@@ -87,7 +86,7 @@ estimateStandardizedMeanDifference(ComfortvsChallenge)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.137   0.376   0.401   1.873
 ```
 

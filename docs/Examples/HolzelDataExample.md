@@ -1,9 +1,15 @@
 ---
-title: "Mixed Design Example with Holzel Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Mixed Design Example with Holzel Data}
@@ -16,11 +22,6 @@ vignette: >
 
 
 ## Mixed Design Example with Holzel Data
-
-- [Data Management](#data-management)
-- [Analyses of the Differences within Conditions](#analyses-of-the-differences-within-conditions)
-
----
 
 ### Data Management
 
@@ -68,7 +69,7 @@ with(HolzelSubsetControl,estimateStandardizedMeanDifference(Pretest,Posttest))
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   0.022   0.068  -0.110   0.155
 ```
 
@@ -78,6 +79,6 @@ with(HolzelSubsetMeditation,estimateStandardizedMeanDifference(Pretest,Posttest)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   0.151   0.041   0.070   0.232
 ```

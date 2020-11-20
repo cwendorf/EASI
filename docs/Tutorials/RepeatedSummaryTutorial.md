@@ -1,9 +1,15 @@
 ---
-title: "Repeated Measures (Within-Subjects) Tutorial with Summary Statistics"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Tutorial with Summary Statistics}
@@ -16,14 +22,6 @@ vignette: >
 
 
 ## Repeated Measures (Within-Subjects) Tutorial with Summary Statistics
-
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-- [Analyses of a Comparison](#analyses-of-a-comparison)
-- [Analyses of a Contrast](#analyses-of-a-contrast)
-- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-
----
 
 ### Data Management
 
@@ -51,7 +49,7 @@ RepeatedCorr <- fillCorrelations(RepeatedCorr)
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
-#### Confidence Intervals for the Means
+#### Confidence Intervals
 
 This code will provide a table of confidence intervals for each level of the factor.
 
@@ -97,7 +95,7 @@ plotMeans(RepeatedSummary,conf.level=.99,mu=5,rope=c(3,7))
 
 ![](figures/Repeated-MeansB-1.png)<!-- -->
 
-#### Significance Tests for the Means
+#### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 
@@ -127,7 +125,7 @@ testMeans(RepeatedSummary,mu=5)
 ## Outcome3   2.000   1.224   3.000   1.633   0.201
 ```
 
-#### Standardized Effect Sizes for the Means
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 
@@ -168,7 +166,7 @@ CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 ```
 
-#### Confidence Interval for the Mean Difference
+#### Confidence Intervals
 
 This code estimates the confidence interval of the difference.
 
@@ -209,8 +207,6 @@ plotMeanDifference(CompSummary,RepeatedCorr,conf.level=.99,rope=c(-2,2))
 ```
 
 ![](figures/Repeated-DifferenceB-1.png)<!-- -->
-
-#### Confidence Intervals for the Comparison
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -262,7 +258,7 @@ plotMeanComparison(CompSummary,RepeatedCorr,conf.level=.99,rope=c(-2,2))
 
 ![](figures/Repeated-ComparisonB-1.png)<!-- -->
 
-#### Significance Test for the Mean Difference
+#### Significance Test
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 
@@ -288,7 +284,7 @@ testMeanDifference(CompSummary,RepeatedCorr,mu=-2)
 ## Comparison   6.000   1.224   3.000   4.900   0.016
 ```
 
-#### Standardized Effect Size for the Mean Difference
+#### Standardized Effect Size
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 
@@ -298,7 +294,7 @@ estimateStandardizedMeanDifference(CompSummary,RepeatedCorr)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.782   0.101   3.166
 ```
 
@@ -310,7 +306,7 @@ estimateStandardizedMeanDifference(CompSummary,RepeatedCorr,conf.level=.99)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.782  -0.380   3.647
 ```
 
@@ -324,7 +320,7 @@ This code identifies a contrast among the levels.
 O1vsOthers <- c(-1,.5,.5)
 ```
 
-#### Confidence Interval for the Contrast
+#### Confidence Intervals
 
 This code produces a confidence interval for that contrast.
 
@@ -365,8 +361,6 @@ plotMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99
 ```
 
 ![](figures/Repeated-ContrastB-1.png)<!-- -->
-
-#### Confidence Intervals for the Subsets
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 
@@ -418,7 +412,7 @@ plotMeanSubsets(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outco
 
 ![](figures/Repeated-SubsetsB-1.png)<!-- -->
 
-#### Significance Test for the Contrast
+#### Significance Test
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 
@@ -444,7 +438,7 @@ testMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4)
 ## Contrast   0.500   1.307   3.000   0.383   0.727
 ```
 
-#### Standardized Effect Size for a Contrast
+#### Standardized Effect Size
 
 This code calculates a standardized contrast and its confidence interval.
 
@@ -474,7 +468,7 @@ estimateStandardizedMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOther
 
 This section provides analyses of all possible pairwise comparisons among the levels of the factor.
 
-#### Confidence Intervals for the Pairwise Comparisons
+#### Confidence Intervals
 
 This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 
@@ -520,7 +514,7 @@ plotMeansPairwise(RepeatedSummary,RepeatedCorr,mu=-2,conf.level=.99,rope=c(-4,0)
 
 ![](figures/Repeated-PairwiseB-1.png)<!-- -->
 
-#### Significance Tests of the Pairwise Comparisons
+#### Significance Tests
 
 This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 
@@ -549,7 +543,7 @@ testMeansPairwise(RepeatedSummary,RepeatedCorr,mu=-2)
 ## Outcome2 v Outcome3   3.000   1.354   3.000   2.216   0.113
 ```
 
-#### Standardized Effect Sizes for the Pairwise Comparisons
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences for each pairwise comparison. 
 

@@ -1,12 +1,18 @@
 ---
-title: "Relational OneWay (Between-Subjects) Tutorial with Summary Statistics"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{OneWay (Relational Between-Subjects) Tutorial with Summary Statistics}
+  %\VignetteIndexEntry{Relational OneWay (Between-Subjects) Tutorial with Summary Statistics}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -16,13 +22,6 @@ vignette: >
 
 
 ## Relational OneWay (Between-Subjects) Tutorial with Summary Statistics
-
-- [Data Management](#data-management)
-- [Analyses of the Omnibus Effect](#analyses-of-the-omnibus-effect)
-- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-- [Analyses of the Pairwise Comparisons Using Relational Intervals](#analyses-of-the-pairwise-comparisons-using-relational-intervals)
-
----
 
 ### Data Management
 
@@ -40,7 +39,7 @@ class(OneWaySummary) <- "bss"
 
 This section produces analyses that are the traditional way to represent and test overall group differences.
 
-#### Confidence Intervals for the Means
+#### Confidence Intervals
 
 This code will provide a table of confidence intervals for each level of the factor.
 
@@ -93,7 +92,7 @@ testMeansOmnibus(OneWaySummary)
 
 This section provides analyses of all possible pairwise comparisons among the levels of the factor.
 
-#### Confidence Intervals for the Pairwise Comparisons
+#### Confidence Intervals
 
 This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 
@@ -118,7 +117,7 @@ plotMeansPairwise(OneWaySummary,mu=0)
 
 ![](figures/RelationalOneWay-Pairwise-1.png)<!-- -->
 
-#### Significance Tests of the Pairwise Comparisons
+#### Significance Tests
 
 This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 
@@ -138,7 +137,7 @@ testMeansPairwise(OneWaySummary)
 
 This section provides analyses of all possible pairwise comparisons among the levels of the factor using relational intervals.
 
-#### Confidence and Relational Intervals for the Pairwise Comparisons
+#### Confidence and Relational Intervals
 
 This code will provide a table of confidence and relational intervals for each pairwise comparison.
 

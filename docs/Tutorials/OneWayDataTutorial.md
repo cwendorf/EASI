@@ -1,9 +1,15 @@
 ---
-title: "OneWay (Between-Subjects) Tutorial with Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{OneWay (Between-Subjects) Tutorial with Data}
@@ -16,14 +22,6 @@ vignette: >
 
 
 ## OneWay (Between-Subjects) Tutorial with Data
-
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-- [Analyses of a Comparison](#analyses-of-a-comparison)
-- [Analyses of a Contrast](#analyses-of-a-contrast)
-- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-
----
 
 ### Data Management
 
@@ -69,7 +67,7 @@ describeMeans(Outcome~Factor)
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
-#### Confidence Intervals for the Means
+#### Confidence Intervals
 
 This code will provide a table of confidence intervals for each level of the factor.
 
@@ -115,7 +113,7 @@ plotMeans(Outcome~Factor,conf.level=.99,mu=5,rope=c(3,7))
 
 ![](figures/OneWay-MeansB-1.png)<!-- -->
 
-#### Significance Tests for the Means
+#### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 
@@ -145,7 +143,7 @@ testMeans(Outcome~Factor,mu=5)
 ## Level3   2.000   1.224   3.000   1.633   0.201
 ```
 
-#### Standardized Effect Sizes for the Means
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 
@@ -185,7 +183,7 @@ This code creates a new factor that identifies the two levels for comparison.
 Comparison=factor(Factor,c("Level1","Level2"))
 ```
 
-#### Confidence Interval for a Mean Difference
+#### Confidence Intervals
 
 This code estimates the confidence interval of the difference.
 
@@ -226,8 +224,6 @@ plotMeanDifference(Outcome~Comparison,conf.level=.99,rope=c(-2,2))
 ```
 
 ![](figures/OneWay-DifferenceB-1.png)<!-- -->
-
-#### Confidence Intervals for the Comparison
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -279,7 +275,7 @@ plotMeanComparison(Outcome~Comparison,conf.level=.99,rope=c(-2,2))
 
 ![](figures/OneWay-ComparisonB-1.png)<!-- -->
 
-#### Significance Test for a Mean Difference
+#### Significance Test
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 
@@ -305,7 +301,7 @@ testMeanDifference(Outcome~Comparison,mu=-2)
 ## Comparison   6.000   1.732   6.000   3.465   0.013
 ```
 
-#### Standardized Effect Size for the Mean Difference
+#### Standardized Effect Size
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 
@@ -315,7 +311,7 @@ estimateStandardizedMeanDifference(Outcome~Comparison)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
 
@@ -327,7 +323,7 @@ estimateStandardizedMeanDifference(Outcome~Comparison,conf.level=.99)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.943  -0.795   4.062
 ```
 
@@ -341,7 +337,7 @@ This code identifies a contrast among the groups.
 L1vsOthers <- c(-1,.5,.5)
 ```
 
-#### Confidence Interval for a Contrast
+#### Confidence Intervals
 
 This code produces a confidence interval for that contrast.
 
@@ -382,8 +378,6 @@ plotMeanContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99,rope=c(-2,2))
 ```
 
 ![](figures/OneWay-ContrastB-1.png)<!-- -->
-
-#### Confidence Intervals for the Subsets
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 
@@ -435,7 +429,7 @@ plotMeanSubsets(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),c
 
 ![](figures/OneWay-SubsetsB-1.png)<!-- -->
 
-#### Significance Test for a Contrast
+#### Significance Test
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 
@@ -461,7 +455,7 @@ testMeanContrast(Outcome~Factor,contrast=L1vsOthers,mu=4)
 ## Contrast   0.500   1.500   6.000   0.333   0.750
 ```
 
-#### Standardized Effect Size for a Contrast
+#### Standardized Effect Size
 
 This code calculates a standardized contrast and its confidence interval.
 
@@ -491,7 +485,7 @@ estimateStandardizedMeanContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.
 
 This section provides analyses of all possible pairwise comparisons among the levels of the factor.
 
-#### Confidence Intervals for the Pairwise Comparisons
+#### Confidence Intervals
 
 This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 
@@ -538,7 +532,7 @@ plotMeansPairwise(Outcome~Factor,mu=-2,conf.level=.99,rope=c(-4,0))
 
 ![](figures/OneWay-PairwiseB-1.png)<!-- -->
 
-#### Significance Tests of the Pairwise Comparisons
+#### Significance Tests
 
 This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 
@@ -568,7 +562,7 @@ testMeansPairwise(Outcome~Factor,mu=-2)
 ## Level2 v Level3   3.000   1.732   6.000   1.732   0.134
 ```
 
-#### Effect Sizes for the Pairwise Comparisons
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences for each pairwise comparison. 
 

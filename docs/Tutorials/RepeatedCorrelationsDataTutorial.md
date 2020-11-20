@@ -1,9 +1,15 @@
 ---
-title: "Repeated Measures (Within-Subjects) Correlations Tutorial with Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Correlations Tutorial with Data}
@@ -16,12 +22,6 @@ vignette: >
 
 
 ## Repeated Measures (Within-Subjects) Correlations Tutorial with Data
-
-- [Data Management](#data-management)
-- [Analyses of a Correlation](#analyses-of-a-correlation)
-- [Analyses of Several Correlations](#analyses-of-several-correlations)
-
----
 
 ### Data Management
 
@@ -70,7 +70,7 @@ describeCorrelations(Outcome1,Outcome2,Outcome3)
 
 This section produces analyses of a single correlation.
 
-#### Confidence Interval for the Correlation
+#### Confidence Interval
 
 This code will provide the confidence interval for the correlation.
 
@@ -112,7 +112,7 @@ plotCorrelations(Outcome1,Outcome2,conf.level=.99)
 
 ![](figures/RepeatedCorrelation-B-1.png)<!-- -->
 
-#### Significance Test for the Correlation
+#### Significance Test
 
 This code will produce a table of NHST for the correlation (against a value of zero).
 
@@ -130,7 +130,7 @@ testCorrelations(Outcome1,Outcome2)
 
 This section analyzes the correlations among multiple variables.
 
-#### Confidence Intervals for the Correlations
+#### Confidence Intervals
 
 This code will provide the confidence intervals for the correlations.
 
@@ -176,7 +176,7 @@ plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99)
 
 ![](figures/RepeatedCorrelations-B-1.png)<!-- -->
 
-#### Significance Tests for the Correlations
+#### Significance Tests
 
 This code will produce a table of NHST for the correlations (against a value of zero).
 

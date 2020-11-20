@@ -1,9 +1,15 @@
 ---
-title: "Factorial Between-Subjects Example with Frenda Summary Statistics"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Factorial Between-Subjects Example with Frenda Summary Statistics}
@@ -16,15 +22,6 @@ vignette: >
 
 
 ## Factorial Between-Subjects Example with Frenda Summary Statistics
-
-- [Data Management](#data-management)
-- [Analyses of the Different Groups](#analyses-of-the-different-groups)
-- [Analyses of the Marginal Means](#analyses-of-the-marginal-means)
-- [Analyses of the Main Effects](#analyses-of-the-main-effects)
-- [Analyses of the Interaction](#analyses-of-the-interaction)
-
-
----
 
 ### Data Management
 

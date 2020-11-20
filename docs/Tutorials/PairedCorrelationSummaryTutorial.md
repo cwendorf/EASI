@@ -1,9 +1,15 @@
 ---
-title: "Paired Samples Correlation Tutorial with Summary Statistics"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Paired Samples Correlation Tutorial with Summary Statistics}
@@ -16,11 +22,6 @@ vignette: >
 
 
 ## Paired Samples Correlation Tutorial with Summary Statistics
-
-- [Data Management](#data-management)
-- [Analyses of a Correlation](#analyses-of-a-correlation)
-
----
 
 ### Data Management
 
@@ -44,7 +45,7 @@ PairedCorr["Outcome1","Outcome2"] <- .500
 
 This section produces analyses of the correlation.
 
-#### Confidence Interval for the Correlation
+#### Confidence Interval
 
 This code will provide the confidence interval for the correlation.
 
@@ -86,7 +87,7 @@ plotCorrelations(PairedSummary,PairedCorr,conf.level=.99)
 
 ![](figures/PairedCorrelation-B-1.png)<!-- -->
 
-#### Significance Test for the Correlation
+#### Significance Test
 
 This code will produce a table of NHST for the correlation (against a value of zero).
 

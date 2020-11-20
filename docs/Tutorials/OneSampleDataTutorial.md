@@ -1,9 +1,15 @@
 ---
-title: "One Sample Tutorial with Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{One Sample Tutorial with Data}
@@ -16,11 +22,6 @@ vignette: >
 
 
 ## One Sample Tutorial with Data
-
-- [Data Management](#data-management)
-- [Analyses of the Mean](#analyses-of-the-mean)
-
----
 
 ### Data Management
 
@@ -62,7 +63,7 @@ describeMeans(Outcome)
 
 This section produces analyses that are equivalent to one-sample analyses for the variable.
 
-#### Confidence Interval for the Mean
+#### Confidence Interval
 
 This code will provide a confidence interval for the variable.
 
@@ -104,7 +105,7 @@ plotMeans(Outcome,conf.level=.99,mu=5,rope=c(3,7))
 
 ![](figures/OneSample-MeansB-1.png)<!-- -->
 
-#### Significance Test for the Mean
+#### Significance Test
 
 This code will produce a table of NHST for the variable. In this case, the mean is tested against a value of zero.
 
@@ -130,7 +131,7 @@ testMeans(Outcome,mu=5)
 ## Outcome  -1.000   1.102   7.000  -0.907   0.394
 ```
 
-#### Standardized Effect Size for the Mean
+#### Standardized Effect Size
 
 This code will provide the standardized mean difference for the variable. In this case, the mean is compared to zero to form the effect size.
 

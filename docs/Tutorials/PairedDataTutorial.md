@@ -1,9 +1,15 @@
 ---
-title: "Paired Samples Tutorial with Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Paired Samples Tutorial with Data}
@@ -16,12 +22,6 @@ vignette: >
 
 
 ## Paired Samples Tutorial with Data
-
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-- [Analyses of the Comparison](#analyses-of-the-comparison)
-
----
 
 ### Data Management
 
@@ -65,7 +65,7 @@ describeMeans(Outcome1,Outcome2)
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
-#### Confidence Intervals for the Means
+#### Confidence Intervals
 
 This code will provide a table of confidence intervals for each level of the factor.
 
@@ -109,7 +109,7 @@ plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6,rope=c(4,8))
 
 ![](figures/Paired-MeansB-1.png)<!-- -->
 
-#### Significance Tests for the Means
+#### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 
@@ -137,7 +137,7 @@ testMeans(Outcome1,Outcome2,mu=6)
 ## Outcome2   0.000   1.224   3.000   0.000   1.000
 ```
 
-#### Standardized Effect Sizes for the Means
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 
@@ -169,7 +169,7 @@ estimateStandardizedMeans(Outcome1,Outcome2,mu=6,conf.level=.99)
 
 This section produces analyses that examine the difference among the two levels of the factor.
 
-#### Confidence Interval for the Mean Difference
+#### Confidence Intervals
 
 This code estimates the confidence interval of the difference.
 
@@ -210,8 +210,6 @@ plotMeanDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
 ```
 
 ![](figures/Paired-DifferenceB-1.png)<!-- -->
-
-#### Confidence Intervals for the Comparison
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -263,7 +261,7 @@ plotMeanComparison(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
 
 ![](figures/Paired-ComparisonB-1.png)<!-- -->
 
-#### Significance Test for the Mean Difference
+#### Significance Test
 
 This code produces NHST for the mean difference (using a default test value of zero).
 
@@ -289,7 +287,7 @@ testMeanDifference(Outcome1,Outcome2,mu=-2)
 ## Comparison   6.000   1.224   3.000   4.900   0.016
 ```
 
-#### Standardized Effect Size for the Mean Difference
+#### Standardized Effect Size
 
 This code calculates a standardized mean difference and its confidence interval.
 
@@ -299,7 +297,7 @@ estimateStandardizedMeanDifference(Outcome1,Outcome2)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.782   0.101   3.166
 ```
 
@@ -311,6 +309,6 @@ estimateStandardizedMeanDifference(Outcome1,Outcome2,conf.level=.99)
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.782  -0.380   3.647
 ```
