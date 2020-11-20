@@ -10,7 +10,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{OneWay (Relational Between-Subjects) Tutorial with Summary Statistics}
+  %\VignetteIndexEntry{Relational OneWay (Between-Subjects) Tutorial with Summary Statistics}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
