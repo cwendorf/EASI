@@ -1,9 +1,15 @@
 ---
-title: "Factorial (Between-Subjects) Tutorial with Data"
+title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-15"
-output: 
-  rmarkdown::html_vignette:
+date: "2020-11-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
     keep_md: TRUE
 vignette: >
   %\VignetteIndexEntry{Factorial (Between-Subjects) Tutorial with Data}
@@ -16,14 +22,6 @@ vignette: >
 
 
 ## Factorial (Between-Subjects) Tutorial with Data
-
-- [Data Management](#data-management)
-- [Analyses of the Means](#analyses-of-the-means)
-- [Analyses of a Comparison](#analyses-of-a-comparison)
-- [Analyses of a Contrast](#analyses-of-a-contrast)
-- [Analyses of the Pairwise Comparisons](#analyses-of-the-pairwise-comparisons)
-
----
 
 ### Data Management
 
@@ -98,7 +96,7 @@ with(FactorialDataB2,describeMeans(Outcome~FactorA))
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
-#### Confidence Intervals for the Means
+#### Confidence Intervals
 
 This code will provide tables of confidence intervals for each level of the factor.
 
@@ -180,7 +178,7 @@ with(FactorialDataB2,plotMeans(Outcome~FactorA,conf.level=.99,mu=5,rope=c(3,7)))
 
 ![](figures/Factorial-MeansB-2.png)<!-- -->
 
-#### Significance Tests for the Means
+#### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 
@@ -234,7 +232,7 @@ with(FactorialDataB2,testMeans(Outcome~FactorA,mu=5))
 ## A3   0.000   1.224   3.000   0.000   1.000
 ```
 
-#### Standardized Effect Sizes for the Means
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 
@@ -299,7 +297,7 @@ CompDataB1 <- with(FactorialDataB1,factor(FactorA,c("A1","A2")))
 CompDataB2 <- with(FactorialDataB2,factor(FactorA,c("A1","A2")))
 ```
 
-#### Confidence Interval for a Mean Difference
+#### Confidence Intervals
 
 This code estimates the confidence interval of the difference.
 
@@ -372,8 +370,6 @@ with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2,conf.level=.99,rope=c
 ```
 
 ![](figures/Factorial-DifferenceB-2.png)<!-- -->
-
-#### Confidence Intervals for the Comparison
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -467,7 +463,7 @@ with(FactorialDataB2,plotMeanComparison(Outcome~CompDataB2,conf.level=.99,rope=c
 
 ![](figures/Factorial-ComparisonB-2.png)<!-- -->
 
-#### Significance Test for the Mean Difference
+#### Significance Test
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 
@@ -513,7 +509,7 @@ with(FactorialDataB2,testMeanDifference(Outcome~CompDataB2,mu=-2))
 ## Comparison   2.000   1.732   6.000   1.155   0.292
 ```
 
-#### Standardized Effect Size for the Mean Difference
+#### Standardized Effect Size
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 
@@ -523,7 +519,7 @@ with(FactorialDataB1,estimateStandardizedMeanDifference(Outcome~CompDataB1))
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.943  -0.215   3.481
 ```
 
@@ -533,7 +529,7 @@ with(FactorialDataB2,estimateStandardizedMeanDifference(Outcome~CompDataB2))
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   0.000   0.816  -1.600   1.600
 ```
 
@@ -545,7 +541,7 @@ with(FactorialDataB1,estimateStandardizedMeanDifference(Outcome~CompDataB1,conf.
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   1.633   0.943  -0.795   4.062
 ```
 
@@ -555,7 +551,7 @@ with(FactorialDataB2,estimateStandardizedMeanDifference(Outcome~CompDataB2,conf.
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
-##                Est      SE      LL      UL
+##                  d      SE      LL      UL
 ## Comparison   0.000   0.816  -2.103   2.103
 ```
 
@@ -569,7 +565,7 @@ This code identifies a contrast among the groups.
 A1vsOthers <- c(-1,.5,.5)
 ```
 
-#### Confidence Interval for a Contrast
+#### Confidence Intervals
 
 This code produces a confidence interval for that contrast.
 
@@ -642,8 +638,6 @@ with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.l
 ```
 
 ![](figures/Factorial-ContrastB-2.png)<!-- -->
-
-#### Confidence Intervals for the Subsets
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 
@@ -737,7 +731,7 @@ with(FactorialDataB2,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,labels=
 
 ![](figures/Factorial-SubsetsB-2.png)<!-- -->
 
-#### Significance Test for a Contrast
+#### Significance Test
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 
@@ -783,7 +777,7 @@ with(FactorialDataB2,testMeanContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
 ## Contrast  -3.500   1.500   6.000  -2.334   0.058
 ```
 
-#### Standardized Effect Size for a Contrast
+#### Standardized Effect Size
 
 This code calculates a standardized contrast and its confidence interval.
 
@@ -833,7 +827,7 @@ with(FactorialDataB2,estimateStandardizedMeanContrast(Outcome~FactorA,contrast=A
 
 This section provides analyses of all possible pairwise comparisons among the levels of the factor.
 
-#### Confidence Intervals for the Pairwise Comparisons
+#### Confidence Intervals
 
 This code will provide a table of descriptive statistics and confidence intervals for each pairwise comparison.
 
@@ -915,7 +909,7 @@ with(FactorialDataB2,plotMeansPairwise(Outcome~FactorA,mu=-2,conf.level=.99,rope
 
 ![](figures/Factorial-PairwiseB-2.png)<!-- -->
 
-#### Significance Tests of the Pairwise Comparisons
+#### Significance Tests
 
 This code will produce a table of NHST for each of the pairwise comparisons. In this case, all the comparisons are tested against a value of zero.
 
@@ -969,7 +963,7 @@ with(FactorialDataB2,testMeansPairwise(Outcome~FactorA,mu=-2))
 ## A2 v A3   3.000   1.732   6.000   1.732   0.134
 ```
 
-#### Standardized Effect Sizes for the Pairwise Comparisons
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences for each pairwise comparison. 
 
