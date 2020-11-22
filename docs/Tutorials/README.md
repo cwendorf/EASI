@@ -2,7 +2,8 @@
 
 ### Overview of the Tutorials
 
-- Data for the tutorials are from [*Statistics for Social Science: A Sourcebook of Basic Statistical Methods*](https://cwendorf.github.io/Sourcebook/) (Wendorf, 2019)
+Data for the tutorials are from [*Statistics for Social Science: A Sourcebook of Basic Statistical Methods*](https://cwendorf.github.io/Sourcebook/) (Wendorf, 2019)
+
 - Tutorials for a variety of research designs are included
 - Tutorials show both the default output and the available options
 - Tutorials include estimates, plots, significance tests, and effect sizes
