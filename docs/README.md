@@ -22,9 +22,6 @@ If you do not wish a full install of the package, the functions can be sourced i
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 ```
 
-Complete tutorials and examples from published work are available:  
-[https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
-
 ### Citation
 
 Wendorf, C.A. (2019). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
