@@ -1,6 +1,6 @@
-## Examples from Textbooks and Other Published Work
+## Examples from Textbooks
 
-### Overview of the Examples from the *Introduction to the New Statistics*
+### Overview of the Examples
 
 Data for these examples are from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017).
 
