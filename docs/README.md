@@ -8,7 +8,7 @@
 
 <p align="center"><kbd><img src="easiComparison.jpg"></kbd></p>
 
-### Installation and Usage
+### Installation
 
 This package is not currently on CRAN, but can be installed directly from this repository:
 ```r
