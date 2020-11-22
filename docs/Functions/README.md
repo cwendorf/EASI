@@ -1,4 +1,4 @@
-## Overview of the EASI Functions
+## The EASI Functions
 
 ### About EASI
 

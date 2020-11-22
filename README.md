@@ -18,7 +18,7 @@
 <p align="center"><kbd><img src="docs/easiComparison.jpg"></kbd></p>
 </a>
 
-### Installation
+### Installation and Usage
 
 This package is not currently on CRAN, but can be installed directly from this repository:
 
@@ -39,7 +39,7 @@ Complete tutorials and examples from published work are available:
 
 ### Citation
 
-> Wendorf, C. A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://cwendorf.github.io/EASI](https://cwendorf.github.io/EASI)
+Wendorf, C. A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://cwendorf.github.io/EASI](https://cwendorf.github.io/EASI)
 
 ### Contact Me
 
