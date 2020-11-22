@@ -34,28 +34,8 @@ If you do not wish a full install, the functions can be sourced instead:
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 ```
 
-### Usage
-
 Complete tutorials and examples from published work are available:  
 [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
-
-This is the demo script for the cover image (using a tutorial data set):
-
-```r
-# Estimation Approach to Statistical Inference
-## OneWay (Between-Subjects) Tutorial with Data
-
-### Analyses of a Group Comparison
-
-attach(OneWayData)
-Comp1v2=factor(Factor,c("Level1","Level2"))
-
-estimateMeans(Outcome~Comp1v2)
-estimateMeanDifference(Outcome~Comp1v2)
-testMeanDifference(Outcome~Comp1v2)
-estimateStandardizedMeanDifference(Outcome~Comp1v2)
-plotMeanComparison(Outcome~Comp1v2)
-```
 
 ### Citation
 
