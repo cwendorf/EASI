@@ -4,7 +4,7 @@
 
 This package is not currently on CRAN, but can be installed directly from this repository:
 
-```{r}
+```r
 install.packages("devtools")
 devtools::install_github("cwendorf/EASI",build_vignettes=TRUE)
 library(EASI)
@@ -12,7 +12,7 @@ library(EASI)
 
 If you do not wish a full install of the package, the functions can be sourced instead:
 
-```{r}
+```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 ```
 
