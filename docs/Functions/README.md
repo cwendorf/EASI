@@ -2,8 +2,6 @@
 
 ### About EASI
 
-#### Goals of EASI
-
 EASI was designed to offer a simple, intuitive, and consistent way to implement estimation statistics in R. The following goals set the scope of the project:
 
 - Statistics are limited to means (and functions of means) and correlations
@@ -12,8 +10,6 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 - Calculations run on the same underlying functions regardless of type of input
 - Output utilizes a consistent layout across different types of analyses
 - Plots limit the amount of information in order to focus on interval estimates and to be publication-ready
-
-#### Calculations and Methods
 
 For unstandardized effects (means, mean differences, and mean contrasts):
 
@@ -27,8 +23,6 @@ For standardized effect sizes:
 - Confidence intervals for standardized comparisons and contrasts are based on Bonett's (2008) method
 
 ### Summary of the Functions
-
-#### General Statistical Procedures
 
 Prefix | Description
 :-- | :--
