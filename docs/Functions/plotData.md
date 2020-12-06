@@ -31,7 +31,3 @@ Argument | Description
 ```jitter``` | a value indicating how much jitter the data should have (if method is set to jitter)
 ```col``` | a value for the shaded color of the points.
 ```pch``` | a value indicating the symbol for the points.
-
-### Details
-
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

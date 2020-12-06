@@ -29,7 +29,3 @@
 \item{col}{a value for the shaded color of the points.}
 \item{pch}{a value indicating the symbol for the points.}
 }
-
-\details{
-Tutorials and examples from published work are available at \url{https://cwendorf.github.io/EASI/}
-}

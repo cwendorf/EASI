@@ -18,7 +18,3 @@ Argument | Description
 ```CorrEst2``` | a matrix/frame of the correlation and its confidence interval in the second group.
 ```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
-
-### Details
- 
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

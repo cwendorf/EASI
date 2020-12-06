@@ -20,7 +20,3 @@
 \item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
-
-\details{
-Tutorials and examples from published work are available at \url{https://cwendorf.github.io/EASI/}
-}

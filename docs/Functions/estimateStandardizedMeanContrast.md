@@ -20,7 +20,7 @@ estimateStandardizedMeanContrast(DescStats,CorrStats,contrast,mu=0,conf.level=.9
 estimateStandardizedMeanContrast(DescStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 ```
 
-## Arguments
+### Arguments
 
 Argument | Description
 :-- | :--
@@ -33,7 +33,3 @@ Argument | Description
 ```conf.level``` | confidence level of the interval.
 ```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
-
-## Details
-
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

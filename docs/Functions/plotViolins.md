@@ -30,7 +30,3 @@ Argument | Description
 ```scale``` | a value that indicates how wide the violin should be.
 ```col``` | a value for the shaded color of the violin.
 ```border``` | a value for the border color of the violin.
-
-### Details
-
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

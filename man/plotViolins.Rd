@@ -28,7 +28,3 @@
 \item{col}{a value for the shaded color of the violin.}
 \item{border}{a value for the border color of the violin.}
 }
-
-\details{
-Tutorials and examples from published work are available at \url{https://cwendorf.github.io/EASI/}
-}

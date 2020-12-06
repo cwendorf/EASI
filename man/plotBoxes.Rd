@@ -28,7 +28,3 @@
 \item{col}{a value for the shaded color of the boxplot.}
 \item{border}{a value for the border color of the boxplot.}
 }
-
-\details{
-Tutorials and examples from published work are available at \url{https://cwendorf.github.io/EASI/}
-}

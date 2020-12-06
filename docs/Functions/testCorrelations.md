@@ -23,7 +23,3 @@ Argument | Description
 ```CorrStats``` | a matrix/frame of correlations among the measures.
 ```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
-
-### Details
-
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

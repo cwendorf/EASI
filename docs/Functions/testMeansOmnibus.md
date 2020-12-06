@@ -29,7 +29,3 @@ Argument | Description
 ```DescStats``` | a matrix/frame of descriptive/summary statistics.
 ```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
-
-### Details
-
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

@@ -35,5 +35,3 @@ Argument | Description
 ### Details
 
 This function compares two groups or variables. As such, the supplied factor or table of summary statistics should contain only two groups or two variables.
- 
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

@@ -36,7 +36,3 @@
 \item{col}{a value for the shaded color of the relational plot.}
 \item{border}{a value for the border color of the relational plot.}
 }
-
-\details{
-Tutorials and examples from published work are available at \url{https://cwendorf.github.io/EASI/}
-}

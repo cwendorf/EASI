@@ -19,7 +19,3 @@ Argument | Description
 ```main``` | a custom title for the table.
 ```labels``` | custom labels for the correlations.
 ```digits``` | the specified number of decimal places.
-
-### Details
-
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

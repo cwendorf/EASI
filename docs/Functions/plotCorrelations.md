@@ -28,7 +28,3 @@ Argument | Description
 ```main``` | a custom title for the graph.
 ```ylim``` | custom limits for the y axis.
 ```digits``` | the specified number of decimal places.
-
-### Details
-
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 

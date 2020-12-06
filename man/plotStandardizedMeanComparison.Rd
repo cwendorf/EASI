@@ -38,6 +38,4 @@
 
 \details{
 This function compares two groups or variables. As such, the supplied factor or table of summary statistics should contain only two groups or two variables.
-
-Tutorials and examples from published work are available at \url{https://cwendorf.github.io/EASI/}
 }

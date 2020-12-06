@@ -32,7 +32,3 @@ Argument | Description
 ```mu``` | a number indicating the true/hypothesized value of the mean contrast.
 ```main``` | a custom title for the table.
 ```digits``` | the specified number of decimal places.
-
-### Details
-
-Tutorials and examples from published work are available at [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 
