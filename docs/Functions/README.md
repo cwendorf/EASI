@@ -20,7 +20,7 @@ Prefix | Description
 `plot` | plot the desciptive statistics or the estimates
 `test` | test the estimates for statistical significance
 
-Then the function calls add an object (the noun that indicates the class or object to be analzed).
+Then the function add an object (the noun that indicates the parameter or item to be analzed).
 
 #### Data and Distributions
 
