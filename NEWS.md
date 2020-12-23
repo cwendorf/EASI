@@ -27,5 +27,5 @@
 ## EASI v1.190801
 
 - First functional release
-- Implmented aility to source from repository
+- Implemented ability to source from repository
 - Provided basic tutorials
