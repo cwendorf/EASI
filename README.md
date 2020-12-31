@@ -18,7 +18,7 @@
 <p align="center"><kbd><img src="docs/easiComparison.jpg"></kbd></p>
 </a>
 
-### Installation and Usage
+### Installation
 
 This package is not currently on CRAN, but can be installed directly from this repository:
 
@@ -33,6 +33,8 @@ If you do not wish a full install, the functions can be sourced instead:
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 ```
+
+### Usage
 
 Complete tutorials and examples from published work are available:  
 [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
