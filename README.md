@@ -36,8 +36,12 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
 
 ### Usage
 
-Complete tutorials and examples from published work are available:  
+Complete documentation and vignettes are available:  
 [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
+
+- A full manual describing all functions, both required and optional parameters
+- Vingettes for fictional tutorial data that show the diversity of options
+- Vignettes for reanalyses of published textbook data
 
 ### Citation
 
