@@ -12,9 +12,20 @@
 }
 
 \arguments{
-\item{CorrEst1}{a matrix/frame of the correlation and its confidence interval in the first group.}
-\item{CorrEst2}{a matrix/frame of the correlation and its confidence interval in the second group.}
-\item{main}{a custom title for the table.}
-\item{labels}{custom labels for the correlations.}
-\item{digits}{the specified number of decimal places.}
+\item{CorrEst1}{a matrix/frame of the correlation and its confidence interval in the first group}
+\item{CorrEst2}{a matrix/frame of the correlation and its confidence interval in the second group}
+\item{main}{a custom title for the table}
+\item{labels}{custom labels for the correlations}
+\item{digits}{the specified number of decimal places}
+}
+
+\value{
+The returned list contains a two frames with the following components:    
+\item{R}{Correlations for the variables}
+\item{SE}{Standard Errors of the correlations}
+\item{LL}{Lower limit of the confidence interval for the correlations}
+\item{UL}{Upper limit of the confidence interval for the correlations}
+\item{Diff}{The difference between the two correlations}
+\item{LL}{Lower limit of the confidence interval for the difference}
+\item{UL}{Upper limit of the confidence interval for the difference}
 }

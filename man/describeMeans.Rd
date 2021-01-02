@@ -15,8 +15,15 @@
 }
 
 \arguments{
-\item{\dots}{a set of (non-empty) numeric vectors of data values.}
-\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
-\item{main}{a custom title for the table.}
-\item{digits}{the specified number of decimal places.}
+\item{\dots}{a set of (non-empty) numeric vectors of data values}
+\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
+\item{main}{a custom title for the table}
+\item{digits}{the specified number of decimal places}
+}
+
+\value{
+The returned list contains a single frame with the following components:    
+\item{N}{the number of individuals in for the variable or group}
+\item{M}{the mean for the variable or group}
+\item{SD}{the standard deviation for the variable or group}
 }

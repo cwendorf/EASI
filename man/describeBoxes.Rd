@@ -15,8 +15,17 @@
 }
 
 \arguments{
-\item{\dots}{a set of (non-empty) numeric vectors of data values.}
-\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
-\item{main}{a custom title for the table.}
-\item{digits}{the specified number of decimal places.}
+\item{\dots}{a set of (non-empty) numeric vectors of data values}
+\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
+\item{main}{a custom title for the table}
+\item{digits}{the specified number of decimal places}
+}
+
+\value{
+The returned list contains a single frame with the following components:
+\item{Min}{the minimum value of the data}
+\item{LQ}{the value of the lower quartile}
+\item{Mdn}{the median value}
+\item{UQ}{the value of the upper quartile}
+\item{Max}{the maximum value of the data}
 }

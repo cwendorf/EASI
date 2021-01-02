@@ -16,3 +16,7 @@
 \item{main}{a custom title for the table.}
 \item{digits}{the specified number of decimal places.}
 }
+
+\value{
+The returned list contains a single frame of the correlations among the variables.
+}
