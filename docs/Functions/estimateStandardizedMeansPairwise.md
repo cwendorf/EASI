@@ -42,3 +42,7 @@ Value | Description
 ```SE``` | the standard errors of the standardized mean differences
 ```LL``` | the lower limits of the confidence intervals of the standardized mean differences
 ```UL``` | the upper limits of the confidence intervals of the standardized mean differences
+
+### References
+
+Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. *Psychological Methods, 13*(2), 99-109.

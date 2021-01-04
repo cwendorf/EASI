@@ -41,3 +41,7 @@ The returned plot contains the following components:
 \item{UL}{the upper limits of the confidence intervals of the standardized means}
 \item{mu}{a horizontal line for the true/hypothesized value}
 }
+
+\references{
+Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. Psychological Methods, 13(2), 99-109.
+}

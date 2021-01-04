@@ -39,3 +39,7 @@ The returned list contains one frame with the following components:
 \item{LL}{the lower limit of the confidence interval of the standardized mean contrast}
 \item{UL}{the upper limit of the confidence interval of the standardized mean contrast}
 }
+
+\references{
+Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. Psychological Methods, 13(2), 99-109.
+}

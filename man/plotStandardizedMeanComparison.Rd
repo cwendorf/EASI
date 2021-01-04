@@ -51,3 +51,7 @@ The returned plot contains the following components:
 \item{mu}{a horizontal line for the true/hypothesized value}
 \item{rope}{a shaded region of practical equivalence}
 }
+
+\references{
+Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. Psychological Methods, 13(2), 99-109.
+}

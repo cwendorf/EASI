@@ -46,3 +46,7 @@ The returned list contains two frames with the following components:
 \item{LL}{the lower limit of the confidence interval of the standardized mean difference}
 \item{UL}{the upper limit of the confidence interval of the standardized mean difference}
 }
+
+\references{
+Bonett, D. G. (2008). Confidence intervals for standardized linear contrasts of means. Psychological Methods, 13(2), 99-109.
+}
