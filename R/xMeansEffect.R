@@ -9,7 +9,7 @@
 }
 
 estimateMeansEffect <- estimateMeanEffect <- function(x,...) 
-  UseMethod("effectMeanOmnibus")
+  UseMethod("estimateMeansEffect")
 
 estimateMeansEffect.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3) {
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
@@ -61,11 +61,11 @@ estimateMeansEffect.default <- function(...,mu=0,conf.level=.90,rope=NULL,main=N
   DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])  
-  effectMeanOmnibus(DescStats,CorrStats,main=main,digits=digits)
+  estimateMeansEffect(DescStats,CorrStats,main=main,digits=digits)
 }
 
 estimateMeansEffect.formula <- function(formula,mu=0,conf.level=.90,rope=NULL,main=NULL,digits=3) {
   DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
-  effectMeanOmnibus(DescStats,conf.level,main=main,digits=digits)
+  estimateMeansEffect(DescStats,conf.level,main=main,digits=digits)
 }
