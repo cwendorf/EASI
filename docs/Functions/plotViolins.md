@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides a violin plot for each group or level mean.
+Provides a violin plot for each group or variable.
 
 ### Usage
 

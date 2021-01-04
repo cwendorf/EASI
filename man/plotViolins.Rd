@@ -6,7 +6,7 @@
 \alias{plotViolins.default}
 \alias{plotViolins.formula}
 \title{Plot Violins}
-\description{Provides a violin plot for each group or level mean.}
+\description{Provides a violin plot for each group or variable.}
 
 \usage{
 \method{plotViolins}{default}(\dots,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="gray75",col="gray90")
