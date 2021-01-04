@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides a boxplot for each group or level mean.
+Provides a boxplot for each group or variable.
 
 ### Usage
 

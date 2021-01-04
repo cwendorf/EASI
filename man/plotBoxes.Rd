@@ -6,7 +6,7 @@
 \alias{plotBoxes.default}
 \alias{plotBoxes.formula}
 \title{Plot Boxes}
-\description{Provides a boxplot for each group or level mean.}
+\description{Provides a boxplot for each group or variable.}
 
 \usage{
 \method{plotBoxes}{default}(\dots,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col="white")
