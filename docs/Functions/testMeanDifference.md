@@ -1,23 +1,23 @@
-## Estimate Standardized Mean Difference
+## Test Mean Difference
 
 ### Description
 
-Provides the standardized effect size for the difference and its confidence interval.
+Provides a statistical significance test of the mean difference.
 
 ### Usage
 
 ```r
 ## Default S3 method
-estimateStandardizedMeanDifference(...,mu=0,conf.level=.95,main=NULL,digits=3)
+testMeanDifference(...,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-estimateStandardizedMeanDifference(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+testMeanDifference(formula,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedMeanDifference(CompStats,CorrStats,mu=0,conf.level=.95,main=NULL,digits=3)
+testMeanDifference(CompStats,CorrStats,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-estimateStandardizedMeanDifference(CompStats,mu=0,conf.level=.95,main=NULL,digits=3)
+testMeanDifference(CompStats,mu=0,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -29,7 +29,6 @@ Argument | Description
 ```CompStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations among the measures
 ```mu``` | a number indicating the true/hypothesized value of the mean difference
-```conf.level``` | confidence level of the interval
 ```main``` | a custom title for the table
 ```digits``` | the specified number of decimal places
 
@@ -43,7 +42,8 @@ The returned list contains one frame with the following components:
 
 Value | Description
 :-- | :--
-```d``` | the standardized mean difference
-```SE``` | the standard error of the standardized mean difference
-```LL``` | the lower limit of the confidence interval of the standardized mean difference
-```UL``` | the upper limit of the confidence interval of the standardized mean difference
+```Diff``` | the difference between the two means
+```SE``` | the standard error of the difference
+```df``` | the degrees of the freedom for the difference
+```t``` | the t value for the difference
+```p``` | the p value for the difference

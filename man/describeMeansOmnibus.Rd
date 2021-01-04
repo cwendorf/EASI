@@ -29,8 +29,8 @@
 }
 
 \value{
-The returned list contains a single frame with the following components:    
-\item{SS}{Sum of Squares for the various sources}
-\item{df}{Degrees of freedom for the various sources}
-\item{MS}{Mean Squares for the various sources}
+The returned list contains one frame with the following components:    
+\item{SS}{the sum of Squares for the various sources}
+\item{df}{the degrees of freedom for the various sources}
+\item{MS}{the mean squares for the various sources}
 }

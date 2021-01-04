@@ -22,8 +22,8 @@
 }
 
 \value{
-The returned list contains a single frame with the following components:    
-\item{N}{the number of individuals in for the variable or group}
-\item{M}{the mean for the variable or group}
-\item{SD}{the standard deviation for the variable or group}
+The returned list contains one frame with the following components:    
+\item{N}{the number of individuals for the variables or groups}
+\item{M}{the mean for the variables or groups}
+\item{SD}{the standard deviation for the variables or groups}
 }

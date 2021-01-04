@@ -22,7 +22,7 @@
 }
 
 \value{
-The returned list contains a single frame with the following components:
+The returned list contains one frame with the following components:
 \item{Min}{the minimum value of the data}
 \item{LQ}{the value of the lower quartile}
 \item{Mdn}{the median value}

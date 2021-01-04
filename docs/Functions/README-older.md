@@ -13,7 +13,7 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 
 For unstandardized effects (means, mean differences, and mean contrasts):
 
-- All calculations assume heterogenity of variance (with no options for homogeniety of variance or pooled error terms)
+- All calculations assume heterogeneity of variance (with no options for homogeneity of variance or pooled error terms)
 - Confidence intervals are calculated independent of each other (i.e., they are not simultaneous)
 - No corrections (Bonferroni, Tukey, etc.) for multiple intervals/contrasts are made
 
@@ -28,7 +28,7 @@ Prefix | Description
 :-- | :--
 `describe` | describe the data with summary statistics
 `estimate` | estimate the statistic and its confidence interval
-`plot` | plot the desciptive statistics or the estimates
+`plot` | plot the descriptive statistics or the estimates
 `test` | test the estimates for statistical significance
 
 #### Functions for Data and Distribution Representations

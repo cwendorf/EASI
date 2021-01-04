@@ -18,5 +18,5 @@
 }
 
 \value{
-The returned list contains a single frame of the correlations among the variables.
+The returned list contains one frame of the correlations among the variables.
 }

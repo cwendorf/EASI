@@ -21,9 +21,17 @@
 }
 
 \arguments{
-\item{\dots}{a set of (non-empty) numeric vectors of data values.}
-\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups.}
-\item{DescStats}{a matrix/frame of descriptive/summary statistics.}
-\item{main}{a custom title for the table.}
-\item{digits}{the specified number of decimal places.}
+\item{\dots}{a set of (non-empty) numeric vectors of data values}
+\item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
+\item{DescStats}{a matrix/frame of descriptive/summary statistics}
+\item{main}{a custom title for the table}
+\item{digits}{the specified number of decimal places}
+}
+
+\value{
+The returned list contains one frame with the following components:    
+\item{F}{the F value for the omnibus effect}
+\item{dfb}{the degrees of freedom for the omnibus effect}
+\item{dfw}{the degrees of freedom for the error term}
+\item{p}{the p value for the omnibus effect}
 }

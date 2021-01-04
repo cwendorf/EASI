@@ -18,7 +18,19 @@ describeBoxes(formula,main=NULL,digits=3)
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values.
-```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups.
-```main``` | a custom title for the table.
-```digits``` | the specified number of decimal places.
+```...``` | a set of (non-empty) numeric vectors of data values
+```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
+```main``` | a custom title for the table
+```digits``` | the specified number of decimal places
+
+### Values
+
+The returned list contains one frame with the following components:
+
+Value | Description
+:-- | :--
+```Min``` | the minimum value of the data
+```LQ``` | the value of the lower quartile
+```Mdn``` | the median value
+```UQ``` | the value of the upper quartile
+```Max``` | the maximum value of the data

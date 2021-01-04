@@ -20,12 +20,12 @@
 }
 
 \value{
-The returned list contains a two frames with the following components:    
-\item{R}{Correlations for the variables}
-\item{SE}{Standard Errors of the correlations}
-\item{LL}{Lower limit of the confidence interval for the correlations}
-\item{UL}{Upper limit of the confidence interval for the correlations}
-\item{Diff}{The difference between the two correlations}
-\item{LL}{Lower limit of the confidence interval for the difference}
-\item{UL}{Upper limit of the confidence interval for the difference}
+The returned list contains two frames with the following components:    
+\item{R}{the correlations for the variables}
+\item{SE}{the standard errors of the correlations}
+\item{LL}{the lower limit of the confidence interval for the correlations}
+\item{UL}{the upper limit of the confidence interval for the correlations}
+\item{Diff}{the difference between the two correlations}
+\item{LL}{the lower limit of the confidence interval for the difference}
+\item{UL}{the upper limit of the confidence interval for the difference}
 }

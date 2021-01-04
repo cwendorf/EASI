@@ -17,7 +17,7 @@ Prefix | Description
 :-- | :--
 `describe` | describe the data with summary statistics
 `estimate` | estimate the statistic and its confidence interval
-`plot` | plot the desciptive statistics or the estimates
+`plot` | plot the descriptive statistics or the estimates
 `test` | test the estimates for statistical significance
 
 Then the function add an object (the noun that indicates the parameter or item to be analzed).
@@ -88,7 +88,7 @@ Then the function add an object (the noun that indicates the parameter or item t
 - [`estimateMeanSubsets`](./estimateMeanSubsets.md)
 - [`plotMeanSubsets`](./plotMeanSubsets.md)
 
-`StandardizedMeanSubsets` - functions that examine a standardized subset contrast among all of the group or level means (combines the `StandardizedMeans` and `StandardiedMeanContrast` functions)
+`StandardizedMeanSubsets` - functions that examine a standardized subset contrast among all of the group or level means (combines the `StandardizedMeans` and `StandardizedMeanContrast` functions)
 
 - [`estimateStandardizedMeanSubsets`](./estimateStandardizedMeanSubsets.md)
 - [`plotStandardizedMeanSubsets`](./plotStandardizedMeanSubsets.md)
