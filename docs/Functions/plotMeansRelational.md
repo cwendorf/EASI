@@ -48,3 +48,7 @@ Value | Description
 ```RI.LL``` | the lower limit of the relational interval for the means
 ```RI.UL``` | the upper limit of the relational interval for the means
 ```mu``` | a horizontal line for the true/hypothesized value
+
+### References
+
+Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. *Methodology: European Journal of Research Methods for the Behavioral and Social Sciences, 8,* 125-133.
