@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Indendent Groups Example with PenLaptop Data
+## Independent Groups Example with PenLaptop Data
 
 ### PenLaptop1 Sample
 

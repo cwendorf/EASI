@@ -2,7 +2,7 @@
 
 library(EASI)
 
-## Indendent Groups Example with PenLaptop Summary Statistics
+## Independent Groups Example with PenLaptop Summary Statistics
 
 ### PenLaptop1 Sample
 
