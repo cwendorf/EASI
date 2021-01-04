@@ -32,10 +32,10 @@
 \value{
 The returned list contains one frame with the following components:    
 \item{M}{the means for the variables or groups}
-\item{CI.LL}{the lower limit of the confidence interval of the means}
-\item{CI.UL}{the upper limit of the confidence interval of the means}
-\item{RI.LL}{the lower limit of the relational interval for the means}
-\item{RI.UL}{the upper limit of the relational interval for the means}
+\item{CI.LL}{the lower limits of the confidence intervals of the means}
+\item{CI.UL}{the upper limits of the confidence intervals of the means}
+\item{RI.LL}{the lower limits of the relational intervals for the means}
+\item{RI.UL}{the upper limits of the relational intervals for the means}
 }
 
 \references{
