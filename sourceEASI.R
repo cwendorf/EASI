@@ -3,6 +3,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/cipX.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/formatX.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xDistributions.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xData.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xBoxes.R")
@@ -11,6 +12,10 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xViolins.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xCorrelations.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xCorrelationDifference.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xCorrelationComparison.R")
+
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xRegression.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xRegressionOmnibus.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xRegressionEffect.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeans.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeans.R")

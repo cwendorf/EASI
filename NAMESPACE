@@ -221,6 +221,12 @@ export(testMeansOmnibus)
 
 ### xMeansEffect
 
+S3method(describeMeansEffect,default)
+S3method(describeMeansEffect,formula)
+S3method(describeMeansEffect,wss)
+S3method(describeMeansEffect,bss)
+export(describeMeansEffect)
+
 S3method(estimateMeansEffect,default)
 S3method(estimateMeansEffect,formula)
 S3method(estimateMeansEffect,wss)
@@ -265,3 +271,37 @@ export(estimateCorrelationComparison)
 
 S3method(plotCorrelationComparison,default)
 export(plotCorrelationComparison)
+
+### xCoefficients
+
+S3method(estimateCoefficients,default)
+S3method(estimateCoefficients,wss)
+export(estimateCoefficients)
+
+S3method(plotCoefficients,default)
+S3method(plotCoefficients,wss)
+export(plotCoefficients)
+
+S3method(testCoefficients,default)
+S3method(testCoefficients,wss)
+export(testCoefficients)
+
+### xRegressionOmnibus
+
+S3method(describeRegressionOmnibus,default)
+S3method(describeRegressionOmnibus,wss)
+export(describeRegressionOmnibus)
+
+S3method(testRegressionOmnibus,default)
+S3method(testRegressionOmnibus,wss)
+export(testRegressionOmnibus)
+
+### xRegressionEffect
+
+S3method(describeRegressionEffect,default)
+S3method(describeRegressionEffect,wss)
+export(describeRegressionEffect)
+
+S3method(estimateRegressionEffect,default)
+S3method(estimateRegressionEffect,wss)
+export(estimateRegressionEffect)

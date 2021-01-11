@@ -1,5 +1,12 @@
 # Estimation Approach to Statistical Inference
 
+## EASI v4.210201
+
+- Added regression functions, tutorials, and examples
+- Added omnibus tests and effect sizes
+- Added standardized plots
+- Updated secondary axis labeling
+
 ## EASI v4.201115
 
 - Reimagined naming scheme
@@ -9,7 +16,7 @@
 
 ## EASI v3.200620
 
-- Updated for R 4.0
+- Updated for R 4.0+
 - Updated naming scheme
 - Updated to provide output as lists
 - Added box plots, violin plots, and data plots

@@ -14,7 +14,7 @@ describeCorrelations.default <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-#### Convert a Covariance Matrix to a Correlation Matrix
+#### Convert a Correlation Matrix to a Covariance Matrix
 
 .cortocov <- function(CorrStats,SD) {
   sdsquare <- SD %*% t(SD)
