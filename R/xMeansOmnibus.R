@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Omnibus (Analysis of Variance) Analyses
+## Functions for Mean Omnibus Analyses (Analysis of Variance)
 
 ### Descriptive Functions
 
@@ -31,7 +31,7 @@ describeMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...)
   colnames(results) <- c("SS","df","MS")
   rownames(results) <- c("Subject","Factor","Error")
   results <- .formatList(list(results),digits=digits)
-  if(is.null(main)) {names(results) <- "Analysis of Variance Source Table"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Source Table for the Factor"} else {names(results) <- main}
   return(results)
 }
 
@@ -51,7 +51,7 @@ describeMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3,...) {
   colnames(results) <- c("SS","df","MS")
   rownames(results) <- c("Between","Within")
   results <- .formatList(list(results),digits=digits)
-  if(is.null(main)) {names(results) <- "Analysis of Variance Source Table"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Source Table for the Factor"} else {names(results) <- main}
   return(results)
 }
 
@@ -85,9 +85,9 @@ testMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
   p <- 1-pf(F,dff,dfe)
   results <- cbind(F,dff,dfe,p)
   colnames(results) <- c("F","dff","dfe","p")
-  rownames(results) <- c("Omnibus")
+  rownames(results) <- c("Factor")
   results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Omnibus Effect"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Factor"} else {names(results) <- main}
   return(results)
 }
 
@@ -101,9 +101,9 @@ testMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3) {
   p <- 1-pf(F,dfb,dfw)
   results <- cbind(F,dfb,dfw,p)
   colnames(results) <- c("F","dfb","dfw","p")
-  rownames(results) <- c("Omnibus")  
+  rownames(results) <- c("Factor")  
   results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Omnibus Effect"} else {names(results) <- main}
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Factor"} else {names(results) <- main}
   return(results)
 }
 

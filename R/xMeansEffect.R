@@ -1,12 +1,60 @@
 # Estimation Approach to Statistical Inference
 ## Functions for Eta Squared
 
-### Omnibus Effect Size
 
-.ncpF <- function(x,df1,df2,prob,interval=c(0,10000),my.tol=0.000001) {
-  temp <- function(ncp) pf(x,df1,df2,ncp) - prob
-  return(uniroot(temp, interval, tol = my.tol)$root)
+### Descriptive Functions
+
+describeMeansEffect <- describeMeanEffect <- function(x,...) 
+  UseMethod("describeMeansEffect")
+
+describeMeansEffect.bss <- function(DescStats,main=NULL,digits=3) {
+  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
+  SSb <- temptab["Between","SS"]
+  SSw <- temptab["Within","SS"]
+  SSt <- SSb + SSw
+  dfb <- temptab["Between","df"]
+  dfw <- temptab["Within","df"] 
+  dft <- dfb + dfw
+  F <- (SSb/dfb)/(SSw/dfw) 
+  etasq <- SSb / SSt
+  results <- cbind(Est=etasq)
+  rownames(results) <- "Factor"
+  results <- .formatList(list(results),digits=digits) 
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
+  return(results)
 }
+
+describeMeansEffect.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
+  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
+  SSf <- temptab["Factor","SS"]
+  SSe <- temptab["Error","SS"]
+  SSt <- SSf + SSe
+  dff <- temptab["Factor","df"]
+  dfe <- temptab["Error","df"] 
+  dft <- dff + dfe
+  F <- (SSf/dff)/(SSe/dfe)
+  etasq <- SSf / SSt
+  results <- cbind(Est=etasq)
+  rownames(results) <- "Factor"
+  results <- .formatList(list(results),digits=digits) 
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
+  return(results)
+}
+
+describeMeansEffect.default <- function(...,main=NULL,digits=3) {
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  class(DescStats) <- "wss"
+  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])  
+  describeMeansEffect(DescStats,CorrStats,main=main,digits=digits)
+}
+
+describeMeansEffect.formula <- function(formula,main=NULL,digits=3) {
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  class(DescStats) <- "bss"
+  describeMeansEffect(DescStats,main=main,digits=digits)
+}
+
+### Confidence Interval Functions
 
 estimateMeansEffect <- estimateMeanEffect <- function(x,...) 
   UseMethod("estimateMeansEffect")
@@ -28,14 +76,14 @@ estimateMeansEffect.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3)
   etasq.lower <- delta.lower / (delta.lower + dfb + dfw + 1)
   etasq.upper <- delta.upper / (delta.upper + dfb + dfw + 1)
   results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
-  rownames(results) <- "Omnibus"
+  rownames(results) <- "Factor"
   results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For By the Omnibus Effect"} else {names(results) <- main}  
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
   return(results)
 }
 
 estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[]])
+  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
   SSf <- temptab["Factor","SS"]
   SSe <- temptab["Error","SS"]
   SSt <- SSf + SSe
@@ -51,9 +99,9 @@ estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL
   etasq.lower <- delta.lower / (delta.lower + dff + dfe + 1)
   etasq.upper <- delta.upper / (delta.upper + dff + dfe + 1)
   results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
-  rownames(results) <- "Omnibus"
+  rownames(results) <- "Factor"
   results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For By the Omnibus Effect"} else {names(results) <- main}  
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
   return(results)
 }
 
