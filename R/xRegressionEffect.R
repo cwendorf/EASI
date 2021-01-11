@@ -28,12 +28,12 @@ describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,main=NULL
 describeRegressionEffect.default <- function(Predictors,Criterion,main=NULL,digits=3) {
   if(ncol(Predictors)==1) {
     CorrStats <- cor(Predictors,Criterion)
-    R2 <- as.numeric(CorrStats*e)
+    R2 <- as.numeric(CorrStats*CorrStats)
   }
   if(ncol(Predictors)>1) {
-    d <- cor(Predictors)
-    e <- cor(Predictors,Criterion)
-    R2 <- as.numeric(t(e)%*%solve(d)%*%e)
+    PredCorr <- cor(Predictors)
+    CorrStats <- cor(Predictors,Criterion)
+    R2 <- as.numeric(t(CorrStats)%*%solve(PredCorr)%*%CorrStats)
   }
   df1 <- ncol(Predictors)
   df2 <- (nrow(Predictors)-df1-1)
