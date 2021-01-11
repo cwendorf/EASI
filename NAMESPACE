@@ -272,19 +272,19 @@ export(estimateCorrelationComparison)
 S3method(plotCorrelationComparison,default)
 export(plotCorrelationComparison)
 
-### xCoefficients
+### xRegression
 
-S3method(estimateCoefficients,default)
-S3method(estimateCoefficients,wss)
-export(estimateCoefficients)
+S3method(estimateRegression,default)
+S3method(estimateRegression,wss)
+export(estimateRegression)
 
-S3method(plotCoefficients,default)
-S3method(plotCoefficients,wss)
-export(plotCoefficients)
+S3method(plotRegression,default)
+S3method(plotRegression,wss)
+export(plotRegression)
 
-S3method(testCoefficients,default)
-S3method(testCoefficients,wss)
-export(testCoefficients)
+S3method(testRegression,default)
+S3method(testRegression,wss)
+export(testRegression)
 
 ### xRegressionOmnibus
 
