@@ -109,10 +109,14 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - [`estimateMeansRelational`](./estimateMeansRelational.md)
 - [`plotMeansRelational`](./plotMeansRelational.md)
 
-`MeansOmnibus` - functions that provide an analysis of omnibus effects (like an ANOVA)
+`MeansOmnibus` - functions that provide an analysis of variance
 
 - [`describeMeansOmnibus`](./describeMeansOmnibus.md)
 - [`testMeansOmnibus`](./testMeansOmnibus.md)
+
+`MeansEffect` - functions that obtain eta squared as an effect size
+
+- [`describeMeansEffect`](./describeMeansEffect.md)
 - [`estimateMeansEffect`](./estimateMeansEffect.md)
 
 #### Correlations and Correlation Differences
@@ -133,3 +137,21 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`estimateCorrelationComparison`](./estimateCorrelationComparison.md)
 - [`plotCorrelationComparison`](./plotCorrelationComparison.md)
+
+#### Regression Coefficients and Models
+
+`Regression` - functions that provide analyses of regression coefficients
+
+- [`estimateRegression`](./estimateRegression.md)
+- [`testRegression`](./testRegression.md)
+- [`plotRegression`](./plotRegression.md)
+
+`RegressionOmnibus` - functions that provide an analysis of variance
+
+- [`describeRegressionOmnibus`](./describeRegressionOmnibus.md)
+- [`testRegressionOmnibus`](./testRegressionOmnibus.md)
+
+`RegressionEffect` - functions that obtain R squared as an effect size
+
+- [`describeRegressionEffect`](./describeRegressionEffect.md)
+- [`estimateRegressionEffect`](./estimateRegressionEffect.md)
