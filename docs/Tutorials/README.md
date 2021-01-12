@@ -62,6 +62,13 @@ The **MixedCorrelations** files analyze a tutorial for a set of correlations amo
 - [*MixedCorrelationsDataTutorial*](./MixedCorrelationsDataTutorial.md) uses raw data input.
 - [*MixedCorrelationsSummaryTutorial*](./MixedCorrelationsSummaryTutorial.md) uses summary statistics input.
 
+### Tutorials for Regression Coefficients and Models
+
+The **Regression** files analyze a tutorial for bivariate and multiple regression models among variables:
+
+- [*RegressionDataTutorial*](./RegressionDataTutorial.md) uses raw data input.
+- [*RegressionSummaryTutorial*](./RegressionSummaryTutorial.md) uses summary statistics input.
+
 ### References
 
 Wendorf, C. A. (2019). *Statistics for social science: A sourcebook of basic statistical methods.* [https://cwendorf.github.io/Sourcebook/](https://cwendorf.github.io/Sourcebook/)
