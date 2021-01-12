@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
 
-## EASI v4.210201
+## EASI v4.210112
 
 - Added regression functions, tutorials, and examples
-- Added omnibus tests and effect sizes
+- Added omnibus tests and effect sizes for means
 - Added standardized plots
 - Updated secondary axis labeling
 
