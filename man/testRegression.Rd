@@ -11,7 +11,7 @@
 \usage{
 \method{testRegression}{default}(Predictors,Criterion,main=NULL,digits=3)
 
-\method{testRegression}{wss}(PredStats,CritStats,CorrStats,mu=0,ain=NULL,digits=3)
+\method{testRegression}{wss}(PredStats,CritStats,CorrStats,main=NULL,digits=3)
 }
 
 \arguments{

@@ -2,7 +2,7 @@
 
 ### Description
 
-Calculates the R Squared.
+Calculates R Squared.
 
 ### Usage
 

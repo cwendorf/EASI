@@ -11,7 +11,7 @@ Provides statistical significance tests for the regression coefficients.
 testRegression(Predictors,Criterion,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-testRegression(PredStats,CritStats,CorrStats,mu=0,ain=NULL,digits=3)
+testRegression(PredStats,CritStats,CorrStats,main=NULL,digits=3)
 ```
 
 ### Arguments
