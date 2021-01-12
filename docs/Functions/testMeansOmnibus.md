@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides a statistical significance test for for an Analysis of Variance.
+Provides a statistical significance test for an Analysis of Variance.
 
 ### Usage
 
@@ -14,7 +14,7 @@ testMeansOmnibus(...,main=NULL,digits=3)
 testMeansOmnibus(formula,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-testMeansOmnibus(DescStats,main=NULL,digits=3)
+testMeansOmnibus(DescStats,CorrStats,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
 testMeansOmnibus(DescStats,main=NULL,digits=3) 
@@ -27,6 +27,7 @@ Argument | Description
 ```...``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
+```CorrStats``` | a matrix/frame of correlations for the data set
 ```main``` | a custom title for the table
 ```digits``` | the specified number of decimal places
 
