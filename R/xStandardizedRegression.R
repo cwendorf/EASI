@@ -7,7 +7,8 @@ estimateStandardizedRegression <- function(x,...)
   UseMethod("estimateStandardizedRegression")
 
 estimateStandardizedRegression.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3) {
-  temptab <- .unformatFrame(estimateRegression(PredStats,CritStats,CorrStats,conf.level=conf.level)[[1]])[-1,]
+  temptab <- .unformatFrame(estimateRegression(PredStats,CritStats,CorrStats,conf.level=conf.level)[[1]])
+  temptab <- temptab[-1,]
   results <- temptab*(PredStats[,"SD"]/CritStats[,"SD"])
   results <- .formatList(list(results),digits=digits)  
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Regression Coefficients"} else {names(results) <- main}  
