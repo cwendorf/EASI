@@ -7,7 +7,7 @@ describeRegressionOmnibus <- function(x,...)
   UseMethod("describeRegressionOmnibus")
 
 describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,main=NULL,digits=3,...) {
-  R2 <- .unformatFrame(describeRegressionEffect(PredStats,CritStats,CorrStats)[[1]][1])
+  R2 <- .unformatFrame(describeRegressionEffect(PredStats,CritStats,CorrStats)[[1]]["RSq"])
   df1 <- nrow(PredStats)
   df2 <- (CritStats[,"N"]-df1-1)
   vt <- CritStats[,"SD"]^2
