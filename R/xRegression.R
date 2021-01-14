@@ -26,8 +26,8 @@ estimateRegression.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,
   s2 <- (YY - b %*% XY) / df
   SE <- sqrt(diag(solve(XX) * c(s2)))
   alpha.lower <- alpha.upper <- (1-conf.level)/2
-  LL=b+qt(alpha.lower,df)*SE
-  UL=b+qt(1-alpha.upper,df)*SE
+  LL <- b+qt(alpha.lower,df)*SE
+  UL <- b+qt(1-alpha.upper,df)*SE
   results <- cbind(Est=b,SE=SE,LL=LL,UL=UL)
   rownames(results)[1]="(Intercept)"
   results <- .formatList(list(results),digits=digits)  

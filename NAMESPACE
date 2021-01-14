@@ -286,6 +286,16 @@ S3method(testRegression,default)
 S3method(testRegression,wss)
 export(testRegression)
 
+### xStandardizedRegression
+
+S3method(estimateStandardizedRegression,default)
+S3method(estimateStandardizedRegression,wss)
+export(estimateStandardizedRegression)
+
+S3method(plotStandardizedRegression,default)
+S3method(plotStandardizedRegression,wss)
+export(plotStandardizedRegression)
+
 ### xRegressionOmnibus
 
 S3method(describeRegressionOmnibus,default)
