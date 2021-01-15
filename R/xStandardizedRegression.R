@@ -6,8 +6,6 @@
 estimateStandardizedRegression <- function(x,...) 
   UseMethod("estimateStandardizedRegression")
 
-  rownames(temptab) <- rownames(PredStats)
-
 estimateStandardizedRegression.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3) {
   temptab <- .unformatFrame(estimateRegression(PredStats,CritStats,CorrStats,conf.level=conf.level)[[1]])
   temptab <- rbind(temptab[-1,])
