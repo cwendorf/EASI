@@ -6,7 +6,7 @@
 \alias{describeRegressionEffect.default}
 \alias{describeRegressionEffect.wss}
 \title{Describe Regression Effect}
-\description{Calculates R Squared.}
+\description{Calculates fit indices for the regression model.}
 
 \usage{
 \method{describeRegressionEffect}{default}(Predictors,Criterion,main=NULL,digits=3)
@@ -25,6 +25,8 @@
 }
 
 \value{
-The returned list contains one frame with the following components:    
-\item{Est}{the proportion of variance accounted for}
+The returned list contains one frame with the following components:
+\item{R}{the multiple correlation for the model}   
+\item{RSq}{R Squared for the model}
+\item{AdjRSq}{Adjusted R Squared for the model}
 }
