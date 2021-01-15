@@ -36,6 +36,14 @@ plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,i
 
 testRegression(PredictorSummary,CriterionSummary,RegressionCorr)
 
+#### Confidence Intervals for the Standardized Regression Coefficient
+
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+
 #### Confidence Interval for the Overall Fit
 
 describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
@@ -64,6 +72,14 @@ plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,i
 #### Significance Tests for the Regression Coefficients
 
 testRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+
+#### Confidence Intervals for the Standardized Regression Coefficients
+
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
 
 #### Confidence Interval for the Overall Fit
 

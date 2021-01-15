@@ -27,6 +27,14 @@ plotRegression(cbind(Predictor1),Criterion,conf.level=.99,intercept=FALSE)
 
 testRegression(cbind(Predictor1),Criterion)
 
+#### Confidence Intervals for the Standardized Regression Coefficient
+
+estimateStandardizedRegression(cbind(Predictor1),Criterion)
+plotStandardizedRegression(cbind(Predictor1),Criterion)
+
+estimateStandardizedRegression(cbind(Predictor1),Criterion,conf.level=.99)
+plotStandardizedRegression(cbind(Predictor1),Criterion,conf.level=.99)
+
 #### Confidence Interval for the Overall Fit
 
 describeRegressionEffect(cbind(Predictor1),Criterion)
@@ -51,6 +59,14 @@ plotRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,intercept=F
 #### Significance Tests for the Regression Coefficients
 
 testRegression(cbind(Predictor1,Predictor2),Criterion)
+
+#### Confidence Intervals for the Standardized Regression Coefficients
+
+estimateStandardizedRegression(cbind(Predictor1,Predictor2),Criterion)
+plotStandardizedRegression(cbind(Predictor1,Predictor2),Criterion)
+
+estimateStandardizedRegression(cbind(Predictor1,Pedictor2),Criterion,conf.level=.99)
+plotStandardizedRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
 
 #### Confidence Interval for the Overall Fit
 

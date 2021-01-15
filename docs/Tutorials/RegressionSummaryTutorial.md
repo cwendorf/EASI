@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-01-10"
+date: "2021-01-15"
 output:
   html_document:
     toc: true
@@ -116,6 +116,48 @@ testRegression(PredictorSummary,CriterionSummary,RegressionCorr)
 ## Predictor1    0.056   0.706   0.079   0.944
 ```
 
+#### Confidence Intervals for the Standardized Regression Coefficient
+
+This code will provide a table of confidence intervals for the standardized coefficient.
+
+```r
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+```
+## $`Confidence Intervals for the Standardized Regression Coefficients`
+##                Est      SE      LL      UL
+## Predictor1   0.056   0.706  -2.982   3.094
+```
+
+This code will produce a graph of the confidence intervals for the standardized coefficient.
+
+```r
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+![](figures/Regression-BivariateStandardA-1.png)<!-- -->
+
+As in other places, the code defaults to a 95% confidence interval. This can be changed if desired.
+
+```r
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+```
+## $`Confidence Intervals for the Standardized Regression Coefficients`
+##                Est      SE      LL      UL
+## Predictor1   0.056   0.706  -6.951   7.063
+```
+
+For the graph, it is possible to change the confidence level.
+
+```r
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+![](figures/Regression-BivariateStandardB-1.png)<!-- -->
+
 #### Confidence Interval for the Overall Fit
 
 This code will calculate R Squared and Adjusted R Squared for the regression model.
@@ -125,9 +167,9 @@ describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
 ```
 
 ```
-## $`Proportion of Variance Accounted For by the Model`
-##           RSq  AdjRSq
-## Model   0.003  -0.495
+## $`Overall Fit of the Model`
+##             R     RSq  AdjRSq
+## Model   0.056   0.003  -0.495
 ```
 
 This code will produce the confidence interval for R Squared.
@@ -256,6 +298,50 @@ testRegression(PredictorSummary,CriterionSummary,RegressionCorr)
 ## Predictor2    0.481   1.048   0.459   0.726
 ```
 
+#### Confidence Intervals for the Standardized Regression Coefficient
+
+This code will provide a table of confidence intervals for each of the standardized coefficients.
+
+```r
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+```
+## $`Confidence Intervals for the Standardized Regression Coefficients`
+##                Est      SE      LL      UL
+## Predictor1  -0.185   1.048 -13.496  13.126
+## Predictor2   0.481   1.048 -12.830  13.792
+```
+
+This code will produce a graph of the confidence intervals for each of the standardized coefficients.
+
+```r
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+![](figures/Regression-MultipleStandardA-1.png)<!-- -->
+
+As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
+
+```r
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+```
+## $`Confidence Intervals for the Standardized Regression Coefficients`
+##                Est      SE      LL      UL
+## Predictor1  -0.185   1.048 -66.872  66.502
+## Predictor2   0.481   1.048 -66.206  67.168
+```
+
+For the graph, it is possible to change the confidence level.
+
+```r
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+![](figures/Regression-MultipleStandardB-1.png)<!-- -->
+
 #### Confidence Interval for the Overall Fit
 
 This code will calculate R Squared and Adjusted R Squared for the regression model.
@@ -265,9 +351,9 @@ describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
 ```
 
 ```
-## $`Proportion of Variance Accounted For by the Model`
-##           RSq  AdjRSq
-## Model   0.177  -1.469
+## $`Overall Fit of the Model`
+##             R     RSq  AdjRSq
+## Model   0.421   0.177  -1.469
 ```
 
 This code will produce the confidence interval for R Squared.

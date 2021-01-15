@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-01-10"
+date: "2021-01-15"
 output:
   html_document:
     toc: true
@@ -73,6 +73,28 @@ This code will produce a table of NHST separately for each of the regression coe
 testRegression(cbind(Predictor1),Criterion)
 ```
 
+#### Confidence Intervals for the Standardized Regression Coefficient
+
+This code will provide a table of confidence intervals for the standardized coefficient.
+```{r}
+estimateStandardizedRegression(cbind(Predictor1),Criterion)
+```
+
+This code will produce a graph of the confidence intervals for the standardized coefficient.
+```{r,Regression-BivariateStandardA}
+plotStandardizedRegression(cbind(Predictor1),Criterion)
+```
+
+As in other places, the code defaults to a 95% confidence interval. This can be changed if desired.
+```{r}
+estimateStandardizedRegression(cbind(Predictor1),Criterion,conf.level=.99)
+```
+
+For the graph, it is possible to change the confidence level.
+```{r,Regression-BivariateStandardB}
+plotStandardizedRegression(cbind(Predictor1),Criterion,conf.level=.99)
+```
+
 #### Confidence Interval for the Overall Fit
 
 This code will calculate R Squared and Adjusted R Squared for the regression model.
@@ -131,6 +153,28 @@ plotRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,intercept=F
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
 testRegression(cbind(Predictor1,Predictor2),Criterion)
+```
+
+#### Confidence Intervals for the Standardized Regression Coefficients
+
+This code will provide a table of confidence intervals for each of the standardized coefficients.
+```{r}
+estimateStandardizedRegression(cbind(Predictor1,Predictor2),Criterion)
+```
+
+This code will produce a graph of the confidence intervals for each of the standardized coefficients.
+```{r,Regression-MultipleStandardA}
+plotStandardizedRegression(cbind(Predictor1,Predictor2),Criterion)
+```
+
+As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
+```{r}
+estimateStandardizedRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
+```
+
+For the graph, it is possible to change the confidence level.
+```{r,Regression-MultipleStandardB}
+plotStandardizedRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
 ```
 
 #### Confidence Interval for the Overall Fit
