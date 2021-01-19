@@ -1,41 +1,41 @@
 # Estimation Approach to Statistical Inference
-## Source All Available EASI Functions
+## Source All Available Functions
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/cipX.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/formatX.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xDistributions.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/cipX.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/formatX.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDistributions.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xData.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xBoxes.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xViolins.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xData.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xBoxes.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xViolins.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xCorrelations.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xCorrelationDifference.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xCorrelationComparison.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelations.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationDifference.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationComparison.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xRegression.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xRegressionOmnibus.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xRegressionEffect.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegression.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegressionOmnibus.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegressionEffect.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeans.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeans.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeans.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedMeans.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanDifference.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeanDifference.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeanDifference.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedMeanDifference.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanComparison.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeanComparison.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeanComparison.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedMeanComparison.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanContrast.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeanContrast.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeanContrast.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedMeanContrast.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeanSubsets.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeanSubsets.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeanSubsets.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedMeanSubsets.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeansOmnibus.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeansEffect.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeansOmnibus.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeansEffect.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeansPairwise.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xStandardizedMeansPairwise.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeansPairwise.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedMeansPairwise.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/R/xMeansRelational.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeansRelational.R")
