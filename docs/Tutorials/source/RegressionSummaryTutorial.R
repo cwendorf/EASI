@@ -91,3 +91,4 @@ estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr,conf.l
 
 describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+

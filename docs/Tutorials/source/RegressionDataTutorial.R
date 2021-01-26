@@ -78,3 +78,4 @@ estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
 
 describeRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
 testRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
+
