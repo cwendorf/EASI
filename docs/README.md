@@ -10,16 +10,26 @@
 
 ### Installation
 
-This package is not currently on CRAN, but can be installed directly from this repository:
+This package is not currently on CRAN, but the latest stable release can be installed from GitHub:
+
 ```r
 install.packages("devtools")
-devtools::install_github("cwendorf/EASI",build_vignettes=TRUE)
+devtools::install_github("cwendorf/EASI@*release",build_vignettes=TRUE)
 library(EASI)
 ```
 
-If you do not wish a full install of the package, the functions can be sourced instead:
+To get a bug fix or to use the newest features, install the development version from GitHub:
+
+``` r
+install.packages("devtools")
+devtools::install_github("cwendorf/EASI")
+library(EASI)
+```
+
+If you do not wish a full install, the latest functions can be sourced directly from GitHub:
+
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/master/sourceEASI.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/sourceEASI.R")
 ```
 
 ### Citation
