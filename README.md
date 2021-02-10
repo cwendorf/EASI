@@ -24,7 +24,7 @@ This package is not currently on CRAN, but the latest stable release can be inst
 
 ```r
 install.packages("devtools")
-devtools::install_github("cwendorf/EASI@*release")
+devtools::install_github("cwendorf/EASI@*release",build_vignettes=TRUE)
 library(EASI)
 ```
 
