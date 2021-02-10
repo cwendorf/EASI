@@ -1,20 +1,18 @@
 # Estimation Approach to Statistical Inference
 
-## EASI v4.210112
+## EASI v4.21.0112
 
-- Added regression functions, tutorials, and examples
 - Added omnibus tests and effect sizes for means
 - Added standardized plots
 - Updated secondary axis labeling
 
-## EASI v4.201115
+## EASI v4.20.1115
 
 - Reimagined naming scheme
 - Added mean comparison and subset functions
 - Added correlation differences and comparisons
-- Revised all vignettes, tutorials, and examples
 
-## EASI v3.200620
+## EASI v3.20.0620
 
 - Updated for R 4.0+
 - Updated naming scheme
@@ -25,14 +23,13 @@
 - Added summary statistics input
 - Added examples from ITNS
 
-## EASI v2.200512
+## EASI v2.20.0512
 
 - Added contrast functions
 - Added pairwise comparison functions
 - Added ability to install as a package
 
-## EASI v1.190801
+## EASI v1.19.0801
 
 - First functional release
 - Implemented ability to source from repository
-- Provided basic tutorials
