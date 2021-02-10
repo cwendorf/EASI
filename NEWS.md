@@ -21,7 +21,6 @@
 - Added standardized contrasts
 - Added relational intervals
 - Added summary statistics input
-- Added examples from ITNS
 
 ## EASI v2.20.0512
 
