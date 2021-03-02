@@ -4,7 +4,7 @@
 
 EASI was designed to offer a simple, intuitive, and consistent way to implement estimation statistics in R. The following goals set the scope of the project:
 
-- Functions are generally limited to means (and functions of means) and correlations
+- Functions are generally limited to means (and functions of means), correlations, and regression coefficients
 - Analyses can be conducted using either raw data or summary statistics (means, standard deviations, and correlations)
 - Calculations run on the same underlying functions regardless of type of input
 - Output utilizes consistent layouts and labeling across different types of analyses
