@@ -93,6 +93,11 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - [`estimateStandardizedMeanSubsets`](./estimateStandardizedMeanSubsets.md)
 - [`plotStandardizedMeanSubsets`](./plotStandardizedMeanSubsets.md)
 
+`MeanComplex` - functions that examine two contrasts among all of the group or level means and the differences between those contrasts (combines separate `MeanContrast` functions and another `MeanContrast` function for the difference)
+
+- [`estimateMeanComplex`](./estimateMeanComplex.md)
+- [`plotMeanCommplex`](./plotMeanComplex.md)
+
 `MeansPairwise` - functions that examine all possible unadjusted pairwise comparisons among the group or levels means
 
 - [`estimateMeansPairwise`](./estimateMeansPairwise.md)

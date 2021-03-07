@@ -157,6 +157,20 @@ S3method(plotMeanSubsets,wss)
 S3method(plotMeanSubsets,bss)
 export(plotMeanSubsets)
 
+### xMeanSubsets
+
+S3method(estimateMeanComplex,default)
+S3method(estimateMeanComplex,formula)
+S3method(estimateMeanComplex,wss)
+S3method(estimateMeanComplex,bss)
+export(estimateMeanComplex)
+
+S3method(plotMeanComplex,default)
+S3method(plotMeanComplex,formula)
+S3method(plotMeanComplex,wss)
+S3method(plotMeanComplex,bss)
+export(plotMeanComplex)
+
 ### xMeansPairwise
 
 S3method(estimateMeansPairwise,default)

@@ -1,5 +1,10 @@
 # Estimation Approach to Statistical Inference
 
+## EASI 4.21.0307
+
+- Added ability to specify complex contrasts and their differences
+- Made small tweaks to naming and output
+
 ## EASI 4.21.0112
 
 - Added omnibus tests and effect sizes for means
