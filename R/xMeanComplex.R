@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Special Contrasts
+## Functions for Mean Complex Contrasts
 
 ### Confidence Interval Functions
 
-.easiMeanSpecial <- function(...,contrast1,contrast2,conf.level=.95,labels=NULL,main=NULL,digits=3) {
+.easiMeanComplex <- function(...,contrast1,contrast2,conf.level=.95,labels=NULL,main=NULL,digits=3) {
   res1 <- .unformatFrame(estimateMeanContrast(...,contrast=contrast1,conf.level=conf.level)[[1]])
   res2 <- .unformatFrame(estimateMeanContrast(...,contrast=contrast2,conf.level=conf.level)[[1]])
   results <- rbind(res1,res2)
@@ -13,45 +13,45 @@
   return(results)
 }
 
-estimateMeansSpecial <- estimateMeanSpecial <- function(x,...) 
-  UseMethod("estimateMeanSpecial")
+estimateMeansComplex <- estimateMeanComplex <- function(x,...) 
+  UseMethod("estimateMeanComplex")
 
-estimateMeanSpecial.default <- estimateMeanSpecial.formula <- estimateMeanSpecial.wss <- estimateMeanSpecial.bss <- function(...,contrast1,contrast2,conf.level=.95,labels=NULL,main=NULL,digits=3) {
-  Specials <- .easiMeanSpecial(...,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,digits=digits)
+estimateMeanComplex.default <- estimateMeanComplex.formula <- estimateMeanComplex.wss <- estimateMeanComplex.bss <- function(...,contrast1,contrast2,conf.level=.95,labels=NULL,main=NULL,digits=3) {
+  Complex <- .easiMeanComplex(...,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,digits=digits)
   contrast <- contrast2-contrast1
   Diff <- estimateMeanContrast(...,contrast=contrast,conf.level=conf.level,digits=digits)
-  results <- c(Specials,Diff)
+  results <- c(Complex,Diff)
   return(results)
 }
 
 ### Confidence Interval Plot Functions
 
-plotMeansSpecial <- plotMeanSpecial <- function(x,...) 
-  UseMethod("plotMeanSpecial")
+plotMeansComplex <- plotMeanComplex <- function(x,...) 
+  UseMethod("plotMeanComplex")
 
-plotMeanSpecial.wss <- function(CompStats,CorrStats,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
-  results <- estimateMeanSpecial(CompStats,CorrStats,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
+plotMeanComplex.wss <- function(CompStats,CorrStats,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+  results <- estimateMeanComplex(CompStats,CorrStats,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Contrasts"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,slab="Mean Contrast")
 }
 
-plotMeanSpecial.bss <- function(CompStats,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
-  results <- estimateMeanSpecial(CompStats,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
+plotMeanComplex.bss <- function(CompStats,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+  results <- estimateMeanComplex(CompStats,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Constrasts"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab="Mean Contrast")
 }
 
-plotMeanSpecial.default <- function(...,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
-  results <- estimateMeanSpecial(...,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
+plotMeanComplex.default <- function(...,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+  results <- estimateMeanComplex(...,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Contrasts"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,slab="Mean Contrast")
 }
 
-plotMeanSpecial.formula <- function(formula,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
-  results <- estimateMeanSpecial(formula,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
+plotMeanComplex.formula <- function(formula,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+  results <- estimateMeanComplex(formula,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Mean Contrasts"}
   .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab="Mean Contrast")

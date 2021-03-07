@@ -86,7 +86,7 @@ plotMeanContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99,rope=c(-2,2))
 estimateMeanSubsets(Outcome~Factor,contrast=L1vsOthers)
 plotMeanSubsets(Outcome~Factor,contrast=L1vsOthers)
 
-estimateMeanSubsets(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
+estimateMeanSubsets(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99)
 plotMeanSubsets(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 
 #### Significance Test

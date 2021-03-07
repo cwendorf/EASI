@@ -84,6 +84,9 @@ plotMeanSubsets(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),co
 testMeanContrast(OneWaySummary,contrast=L1vsOthers)
 testMeanContrast(OneWaySummary,contrast=L1vsOthers,mu=4)
 
+testMeanSubsets(OneWaySummary,contrast=L1vsOthers)
+testMeanSubsets(OneWaySummary,contrast=L1vsOthers,mu=4)
+
 #### Standardized Effect Size
 
 estimateStandardizedMeanContrast(OneWaySummary,contrast=L1vsOthers)

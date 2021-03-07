@@ -92,6 +92,9 @@ plotMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,labels=c("Outcome
 testMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 testMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4)
 
+testMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
+testMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,mu=4)
+
 #### Standardized Effect Size
 
 estimateStandardizedMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)

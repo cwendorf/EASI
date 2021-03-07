@@ -90,6 +90,9 @@ plotMeanSubsets(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,labels=c("Outco
 testMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
 testMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4)
 
+testMeanSubsets(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
+testMeanSubsets(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,mu=4)
+
 #### Standardized Effect Size
 
 estimateStandardizedMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
