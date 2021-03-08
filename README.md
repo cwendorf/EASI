@@ -1,6 +1,7 @@
 <a href="https://cwendorf.github.io/EASI">
 <img src="docs/logo.png" height="60px;" align="left;">
 </a>
+
 # Estimation Approach to Statistical Inference
 
 ## An R Package for Estimation Statistics
