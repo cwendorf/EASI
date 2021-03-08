@@ -21,7 +21,7 @@ estimateRegression(cbind(Predictor1),Criterion)
 plotRegression(cbind(Predictor1),Criterion)
 
 estimateRegression(cbind(Predictor1),Criterion,conf.level=.99)
-plotRegression(cbind(Predictor1),Criterion,conf.level=.99,intercept=FALSE)
+plotRegression(cbind(Predictor1),Criterion,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
 
 #### Significance Tests for the Regression Coefficients
 
@@ -54,7 +54,7 @@ estimateRegression(cbind(Predictor1,Predictor2),Criterion)
 plotRegression(cbind(Predictor1,Predictor2),Criterion)
 
 estimateRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
-plotRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,intercept=FALSE)
+plotRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,mu=0,intercept=FALSE)
 
 #### Significance Tests for the Regression Coefficients
 

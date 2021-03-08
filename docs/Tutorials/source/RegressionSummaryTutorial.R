@@ -30,7 +30,7 @@ estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr)
 plotRegression(PredictorSummary,CriterionSummary,RegressionCorr)
 
 estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,intercept=FALSE)
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
 
 #### Significance Tests for the Regression Coefficients
 
@@ -67,7 +67,7 @@ estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr)
 plotRegression(PredictorSummary,CriterionSummary,RegressionCorr)
 
 estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,intercept=FALSE)
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,intercept=FALSE)
 
 #### Significance Tests for the Regression Coefficients
 

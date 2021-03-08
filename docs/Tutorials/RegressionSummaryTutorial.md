@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-01-16"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -93,10 +93,10 @@ estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.
 ## Predictor1    0.056   0.706  -6.951   7.063
 ```
 
-For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
+For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
 
 ```r
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,intercept=FALSE)
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
 ```
 
 ![](figures/Regression-BivariateB-1.png)<!-- -->
@@ -277,7 +277,7 @@ estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 
 ```r
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,intercept=FALSE)
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,intercept=FALSE)
 ```
 
 ![](figures/Regression-MultipleB-1.png)<!-- -->
