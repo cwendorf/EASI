@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides a plot of the confidence intervals for the means and mean difference of a specified Complex.
+Provides the plot of the the confidence intervals for a mean contrasts and the difference between those contrasts.
 
 ### Usage
 
@@ -25,7 +25,7 @@ plotMeanComplex(CompStats,contrast1,contrast2,ylab="Mean Contrasts",xlab="",mu=0
 Argument | Description
 :-- | :--
 ```...``` | a set of (non-empty) numeric vectors of data values
-```formula``` | a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups
+```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations among the measures
 ```contrast1``` | a vector of codes for the first contrast among all means
