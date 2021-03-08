@@ -1,6 +1,6 @@
 <a href="https://cwendorf.github.io/EASI">
 <img src="docs/logo.png" height="60px;" align="left;">
-</a>
+</a> 
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.5.0-6666ff.svg)](https://cran.r-project.org/)
 [![CRAN](http://www.r-pkg.org/badges/version/report)](https://cran.r-project.org/package=report)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
