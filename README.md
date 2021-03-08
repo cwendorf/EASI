@@ -28,7 +28,7 @@ devtools::install_github("cwendorf/EASI@*release",build_vignettes=TRUE)
 library(EASI)
 ```
 
-To get a bug fix or to use the newest features, install the development version from GitHub:
+To get the newest features and bug fixes, install the development version from GitHub:
 
 ``` r
 install.packages("devtools")
