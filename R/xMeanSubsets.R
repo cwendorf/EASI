@@ -25,6 +25,30 @@ estimateMeanSubsets.default <- estimateMeanSubsets.formula <- estimateMeanSubset
   return(results)
 }
 
+### Null Hypothesis Significance Test Functions
+
+.nhstMeanSubsets <- function(...,contrast,labels=NULL,main=NULL,digits=3) {
+  con1 <- ifelse(contrast<0,0,contrast)
+  res1 <- .unformatFrame(testMeanContrast(...,contrast=con1)[[1]])
+  con2 <- ifelse(contrast>0,0,abs(contrast))
+  res2 <- .unformatFrame(testMeanContrast(...,contrast=con2)[[1]])
+  results <- rbind(res2,res1)
+  if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted")} else {rownames(results) <- labels}
+  results <- .formatList(list(results),digits=digits)
+  names(results) <- "Hypothesis Tests for the Mean Subsets"
+  return(results)
+}
+
+testMeansSubsets <- testMeanSubsets <- function(x,...) 
+  UseMethod("testMeanSubsets")
+
+testMeanSubsets.default <- testMeanSubsets.formula <- testMeanSubsets.wss <- testMeanSubsets.bss <- function(...,contrast,labels=NULL,main=NULL,digits=3) {
+  Subsets <- .nhstMeanSubsets(...,contrast=contrast,labels=labels,digits=digits)
+  Diff <- testMeanContrast(...,contrast=contrast,digits=digits)
+  results <- c(Subsets,Diff)
+  return(results)
+}
+
 ### Confidence Interval Plot Functions
 
 plotMeansSubsets <- plotMeanSubsets <- function(x,...) 

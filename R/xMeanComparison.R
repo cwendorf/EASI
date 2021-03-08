@@ -14,6 +14,19 @@ estimateMeanComparison.default <- estimateMeanComparison.formula <- estimateMean
   return(results)
 } 
 
+### Null Hypothesis Signifiance Test Functions
+
+testMeansComparison <- testMeanComparison <- function(x,...) 
+  UseMethod("testMeanComparison")
+
+testMeanComparison.default <- testMeanComparison.formula <- testMeanComparison.wss <- testMeanComparison.bss <- function(...,main=NULL,digits=3) {
+  Levels <- testMeans(...,digits=digits)
+  Levels[[1]] <- Levels[[1]][1:2,]
+  Diff <- testMeanDifference(...,digits=digits)
+  results <- c(Levels,Diff)
+  return(results)
+} 
+
 ### Confidence Interval Plot Functions
 
 plotMeansComparison <- plotMeanComparison <- function(x,...) 

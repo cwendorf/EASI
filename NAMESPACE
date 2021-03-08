@@ -103,6 +103,12 @@ S3method(estimateMeanComparison,wss)
 S3method(estimateMeanComparison,bss)
 export(estimateMeanComparison)
 
+S3method(testMeanComparison,default)
+S3method(testMeanComparison,formula)
+S3method(testMeanComparison,wss)
+S3method(testMeanComparison,bss)
+export(testMeanComparison)
+
 S3method(plotMeanComparison,default)
 S3method(plotMeanComparison,formula)
 S3method(plotMeanComparison,wss)
@@ -151,19 +157,31 @@ S3method(estimateMeanSubsets,wss)
 S3method(estimateMeanSubsets,bss)
 export(estimateMeanSubsets)
 
+S3method(testMeanSubsets,default)
+S3method(testMeanSubsets,formula)
+S3method(testMeanSubsets,wss)
+S3method(testMeanSubsets,bss)
+export(testMeanSubsets)
+
 S3method(plotMeanSubsets,default)
 S3method(plotMeanSubsets,formula)
 S3method(plotMeanSubsets,wss)
 S3method(plotMeanSubsets,bss)
 export(plotMeanSubsets)
 
-### xMeanSubsets
+### xMeanComplex
 
 S3method(estimateMeanComplex,default)
 S3method(estimateMeanComplex,formula)
 S3method(estimateMeanComplex,wss)
 S3method(estimateMeanComplex,bss)
 export(estimateMeanComplex)
+
+S3method(testMeanComplex,default)
+S3method(testMeanComplex,formula)
+S3method(testMeanComplex,wss)
+S3method(testMeanComplex,bss)
+export(testMeanComplex)
 
 S3method(plotMeanComplex,default)
 S3method(plotMeanComplex,formula)
@@ -179,17 +197,17 @@ S3method(estimateMeansPairwise,wss)
 S3method(estimateMeansPairwise,bss)
 export(estimateMeansPairwise)
 
-S3method(plotMeansPairwise,default)
-S3method(plotMeansPairwise,formula)
-S3method(plotMeansPairwise,wss)
-S3method(plotMeansPairwise,bss)
-export(plotMeansPairwise)
-
 S3method(testMeansPairwise,default)
 S3method(testMeansPairwise,formula)
 S3method(testMeansPairwise,wss)
 S3method(testMeansPairwise,bss)
 export(testMeansPairwise)
+
+S3method(plotMeansPairwise,default)
+S3method(plotMeansPairwise,formula)
+S3method(plotMeansPairwise,wss)
+S3method(plotMeansPairwise,bss)
+export(plotMeansPairwise)
 
 ### xStandardizedMeansPairwise
 
@@ -262,13 +280,13 @@ S3method(estimateCorrelations,default)
 S3method(estimateCorrelations,wss)
 export(estimateCorrelations)
 
-S3method(plotCorrelations,default)
-S3method(plotCorrelations,wss)
-export(plotCorrelations)
-
 S3method(testCorrelations,default)
 S3method(testCorrelations,wss)
 export(testCorrelations)
+
+S3method(plotCorrelations,default)
+S3method(plotCorrelations,wss)
+export(plotCorrelations)
 
 ### xCorrelationDifference
 
@@ -292,13 +310,13 @@ S3method(estimateRegression,default)
 S3method(estimateRegression,wss)
 export(estimateRegression)
 
-S3method(plotRegression,default)
-S3method(plotRegression,wss)
-export(plotRegression)
-
 S3method(testRegression,default)
 S3method(testRegression,wss)
 export(testRegression)
+
+S3method(plotRegression,default)
+S3method(plotRegression,wss)
+export(plotRegression)
 
 ### xStandardizedRegression
 

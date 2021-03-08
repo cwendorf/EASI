@@ -66,6 +66,7 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`estimateMeanComparison`](./estimateMeanComparison.md)
 - [`plotMeanComparison`](./plotMeanComparison.md)
+- [`testMeanComparison`](./testMeanComparison.md)
 
 `StandardizedMeanComparison` - functions that examine a standardized comparison among two group or level means (combines the `StandardizedMeans` and `StandardizedMeanDifference` functions)
 
@@ -87,6 +88,7 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`estimateMeanSubsets`](./estimateMeanSubsets.md)
 - [`plotMeanSubsets`](./plotMeanSubsets.md)
+- [`testMeanSubsets`](./testMeanSubsets.md)
 
 `StandardizedMeanSubsets` - functions that examine a standardized subset contrast among all of the group or level means (combines the `StandardizedMeans` and `StandardizedMeanContrast` functions)
 
@@ -97,6 +99,7 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`estimateMeanComplex`](./estimateMeanComplex.md)
 - [`plotMeanCommplex`](./plotMeanComplex.md)
+- [`testMeanCommplex`](./testMeanComplex.md)
 
 `MeansPairwise` - functions that examine all possible unadjusted pairwise comparisons among the group or levels means
 

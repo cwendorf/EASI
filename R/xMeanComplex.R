@@ -24,6 +24,29 @@ estimateMeanComplex.default <- estimateMeanComplex.formula <- estimateMeanComple
   return(results)
 }
 
+### Null Hypothesis Significance Test Functions
+
+.nhstMeanComplex <- function(...,contrast1,contrast2,labels=NULL,main=NULL,digits=3) {
+  res1 <- .unformatFrame(testMeanContrast(...,contrast=contrast1)[[1]])
+  res2 <- .unformatFrame(testMeanContrast(...,contrast=contrast2)[[1]])
+  results <- rbind(res1,res2)
+  if(is.null(labels)) {rownames(results) <- c("Contrast1","Contrast2")} else {rownames(results) <- labels}
+  results <- .formatList(list(results),digits=digits)
+  names(results) <- "Hypthesis Tests for the Mean Contrasts"
+  return(results)
+}
+
+testMeansComplex <- testMeanComplex <- function(x,...) 
+  UseMethod("testMeanComplex")
+
+testMeanComplex.default <- testMeanComplex.formula <- testMeanComplex.wss <- testMeanComplex.bss <- function(...,contrast1,contrast2,labels=NULL,main=NULL,digits=3) {
+  Complex <- .nhstMeanComplex(...,contrast1=contrast1,contrast2=contrast2,labels=labels,digits=digits)
+  contrast <- contrast2-contrast1
+  Diff <- testMeanContrast(...,contrast=contrast,digits=digits)
+  results <- c(Complex,Diff)
+  return(results)
+}
+
 ### Confidence Interval Plot Functions
 
 plotMeansComplex <- plotMeanComplex <- function(x,...) 

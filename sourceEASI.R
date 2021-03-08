@@ -32,6 +32,8 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedMeanC
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeanSubsets.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedMeanSubsets.R")
 
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeanComplex.R")
+
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeansOmnibus.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMeansEffect.R")
 

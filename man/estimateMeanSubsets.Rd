@@ -33,10 +33,15 @@
 }
 
 \value{
-The returned list contains one frame with the following components:    
+The returned list contains two frames with the following components:    
 \item{Est}{the subset means for the variables or groups}
 \item{SE}{the standard errors of the subset means for the variables or groups}
 \item{df}{the degrees of freedom of the subsets for the variables or groups}
 \item{LL}{the lower limit of the confidence interval of the subset means}
 \item{UL}{the upper limit of the confidence interval of the subset means}
+\item{Est}{the difference between the two subset means}
+\item{SE}{the standard error of the difference between the two subset means}
+\item{df}{the degrees of the freedom for the difference between the two subset means}
+\item{LL}{the lower limit of the confidence interval for the difference between the two subset means}
+\item{UL}{the upper limit of the confidence interval for the difference between the two subset means}
 }
