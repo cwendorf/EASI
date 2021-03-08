@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -357,16 +357,16 @@ with(FactorialDataB2,estimateMeanDifference(Outcome~CompDataB2,conf.level=.99))
 ## Comparison   0.000   1.732   6.000  -6.420   6.420
 ```
 
-Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
+Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1,conf.level=.99,rope=c(-2,2)))
+with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1,conf.level=.99,mu=0,rope=c(-2,2)))
 ```
 
 ![](figures/Factorial-DifferenceB-1.png)<!-- -->
 
 ```r
-with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2,conf.level=.99,rope=c(-2,2)))
+with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2,conf.level=.99,mu=0,rope=c(-2,2)))
 ```
 
 ![](figures/Factorial-DifferenceB-2.png)<!-- -->
@@ -625,16 +625,16 @@ with(FactorialDataB2,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers,co
 ## Contrast   0.500   1.500   6.000  -5.060   6.060
 ```
 
-The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added to the graph.
+The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,rope=c(-2,2)))
+with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,mu=0,rope=c(-2,2)))
 ```
 
 ![](figures/Factorial-ContrastB-1.png)<!-- -->
 
 ```r
-with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,rope=c(-2,2)))
+with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,mu=0,rope=c(-2,2)))
 ```
 
 ![](figures/Factorial-ContrastB-2.png)<!-- -->

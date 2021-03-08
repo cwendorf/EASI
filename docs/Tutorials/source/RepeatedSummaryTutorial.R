@@ -49,7 +49,7 @@ estimateMeanDifference(CompSummary,RepeatedCorr)
 plotMeanDifference(CompSummary,RepeatedCorr)
 
 estimateMeanDifference(CompSummary,RepeatedCorr,conf.level=.99)
-plotMeanDifference(CompSummary,RepeatedCorr,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(CompSummary,RepeatedCorr,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanComparison(CompSummary,RepeatedCorr)
 plotMeanComparison(CompSummary,RepeatedCorr)
@@ -77,7 +77,7 @@ estimateMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
 plotMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers) 
 
 estimateMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99)
-plotMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2))
+plotMeanContrast(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanSubsets(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)
 plotMeanSubsets(RepeatedSummary,RepeatedCorr,contrast=O1vsOthers)

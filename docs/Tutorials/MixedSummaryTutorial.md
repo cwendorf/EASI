@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -330,16 +330,16 @@ estimateMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99)
 ## Comparison   0.000   0.577   3.000  -3.370   3.370
 ```
 
-Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
+Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99,mu=0,rope=c(-2,2))
 ```
 
 ![](figures/Mixed-DifferenceB-1.png)<!-- -->
 
 ```r
-plotMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99,mu=0,rope=c(-2,2))
 ```
 
 ![](figures/Mixed-DifferenceB-2.png)<!-- -->
@@ -598,16 +598,16 @@ estimateMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.
 ## Contrast   0.500   0.645   3.000  -3.268   4.268
 ```
 
-The width of the confidence interval for the contrast can be altered and a region of practical equivalence can be added to the graph.
+The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2))
+plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
 ```
 
 ![](figures/Mixed-ContrastB-1.png)<!-- -->
 
 ```r
-plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2))
+plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
 ```
 
 ![](figures/Mixed-ContrastB-2.png)<!-- -->

@@ -29,7 +29,7 @@ plotMeans(PairedSummary,conf.level=.99,mu=6,rope=c(4,8))
 testMeans(PairedSummary)
 testMeans(PairedSummary,mu=6)
 
-#### Stadardized Effect Sizes
+#### Standardized Effect Sizes
 
 estimateStandardizedMeans(PairedSummary)
 estimateStandardizedMeans(PairedSummary,mu=6,conf.level=.99)
@@ -42,7 +42,7 @@ estimateMeanDifference(PairedSummary,PairedCorr)
 plotMeanDifference(PairedSummary,PairedCorr)
 
 estimateMeanDifference(PairedSummary,PairedCorr,conf.level=.99)
-plotMeanDifference(PairedSummary,PairedCorr,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(PairedSummary,PairedCorr,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanComparison(PairedSummary,PairedCorr)
 plotMeanComparison(PairedSummary,PairedCorr)

@@ -78,8 +78,8 @@ plotMeanDifference(CompSummaryL2,MixedCorrL2)
 estimateMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99)
 estimateMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99)
 
-plotMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99,rope=c(-2,2))
-plotMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanComparison(CompSummaryL1,MixedCorrL1)
 estimateMeanComparison(CompSummaryL2,MixedCorrL2)
@@ -124,8 +124,8 @@ plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers)
 estimateMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99)
 estimateMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99)
 
-plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2))
-plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2))
+plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanSubsets(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers)
 estimateMeanSubsets(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers)

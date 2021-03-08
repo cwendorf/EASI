@@ -80,8 +80,8 @@ with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2))
 with(FactorialDataB1,estimateMeanDifference(Outcome~CompDataB1,conf.level=.99))
 with(FactorialDataB2,estimateMeanDifference(Outcome~CompDataB2,conf.level=.99))
 
-with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1,conf.level=.99,rope=c(-2,2)))
-with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2,conf.level=.99,rope=c(-2,2)))
+with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1,conf.level=.99,mu=0,rope=c(-2,2)))
+with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2,conf.level=.99,mu=0,rope=c(-2,2)))
 
 with(FactorialDataB1,estimateMeanComparison(Outcome~CompDataB1))
 with(FactorialDataB2,estimateMeanComparison(Outcome~CompDataB2))
@@ -126,8 +126,8 @@ with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
 with(FactorialDataB1,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
 with(FactorialDataB2,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
 
-with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,rope=c(-2,2)))
-with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,rope=c(-2,2)))
+with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,mu=0,rope=c(-2,2)))
+with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,mu=0,rope=c(-2,2)))
 
 with(FactorialDataB1,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
 with(FactorialDataB2,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))

@@ -43,7 +43,7 @@ estimateMeanDifference(CompSummary)
 plotMeanDifference(CompSummary)
 
 estimateMeanDifference(CompSummary,conf.level=.99)
-plotMeanDifference(CompSummary,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(CompSummary,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanComparison(CompSummary)
 plotMeanComparison(CompSummary)
@@ -71,7 +71,7 @@ estimateMeanContrast(OneWaySummary,contrast=L1vsOthers)
 plotMeanContrast(OneWaySummary,contrast=L1vsOthers)
 
 estimateMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
-plotMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99,rope=c(-2,2))
+plotMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanSubsets(OneWaySummary,contrast=L1vsOthers)
 plotMeanSubsets(OneWaySummary,contrast=L1vsOthers)

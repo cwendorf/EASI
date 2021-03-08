@@ -40,7 +40,7 @@ estimateMeanDifference(IndependentSummary)
 plotMeanDifference(IndependentSummary)
 
 estimateMeanDifference(IndependentSummary,conf.level=.99)
-plotMeanDifference(IndependentSummary,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(IndependentSummary,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanComparison(IndependentSummary)
 plotMeanComparison(IndependentSummary)

@@ -51,7 +51,7 @@ estimateMeanDifference(Outcome~Factor)
 plotMeanDifference(Outcome~Factor)
 
 estimateMeanDifference(Outcome~Factor,conf.level=.99)
-plotMeanDifference(Outcome~Factor,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(Outcome~Factor,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanComparison(Outcome~Factor)
 plotMeanComparison(Outcome~Factor)

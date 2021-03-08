@@ -51,7 +51,7 @@ estimateMeanDifference(Outcome1,Outcome2)
 plotMeanDifference(Outcome1,Outcome2)
 
 estimateMeanDifference(Outcome1,Outcome2,conf.level=.99)
-plotMeanDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanComparison(Outcome1,Outcome2)
 plotMeanComparison(Outcome1,Outcome2)
@@ -79,7 +79,7 @@ estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 
 estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99)
-plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2))
+plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)
 plotMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers)

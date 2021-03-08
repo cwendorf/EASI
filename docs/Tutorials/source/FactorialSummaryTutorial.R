@@ -68,8 +68,8 @@ plotMeanDifference(CompSummaryB2)
 estimateMeanDifference(CompSummaryB1,conf.level=.99)
 estimateMeanDifference(CompSummaryB2,conf.level=.99)
 
-plotMeanDifference(CompSummaryB1,conf.level=.99,rope=c(-2,2))
-plotMeanDifference(CompSummaryB2,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(CompSummaryB1,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(CompSummaryB2,conf.level=.99,mu=0,rope=c(-2,2))
 
 estimateMeanComparison(CompSummaryB1)
 estimateMeanComparison(CompSummaryB2)

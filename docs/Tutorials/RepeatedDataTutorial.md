@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -211,10 +211,10 @@ estimateMeanDifference(Outcome1,Outcome2,conf.level=.99)
 ## Comparison   4.000   1.224   3.000  -3.152  11.152
 ```
 
-Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
+Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph..
 
 ```r
-plotMeanDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-2,2))
 ```
 
 ![](figures/Repeated-DifferenceB-1.png)<!-- -->
@@ -365,10 +365,10 @@ estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.
 ## Contrast   4.500   1.307   3.000  -3.131  12.131
 ```
 
-The width of the confidence interval for the contrast can be altered and a region of practice equivalence can be added to the graph.
+The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2))
+plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
 ```
 
 ![](figures/Repeated-ContrastB-1.png)<!-- -->

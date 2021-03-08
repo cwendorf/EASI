@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -185,10 +185,10 @@ estimateMeanDifference(IndependentSummary,conf.level=.99)
 ## Comparison   4.000   1.732   6.000  -2.420  10.420
 ```
 
-Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
+Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanDifference(IndependentSummary,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(IndependentSummary,conf.level=.99,mu=0,rope=c(-2,2))
 ```
 
 ![](figures/Independent-DifferenceB-1.png)<!-- -->

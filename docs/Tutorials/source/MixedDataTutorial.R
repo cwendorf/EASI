@@ -77,8 +77,8 @@ with(MixedDataL2,plotMeanDifference(Outcome1,Outcome2))
 with(MixedDataL1,estimateMeanDifference(Outcome1,Outcome2,conf.level=.99))
 with(MixedDataL2,estimateMeanDifference(Outcome1,Outcome2,conf.level=.99))
 
-with(MixedDataL1,plotMeanDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)))
-with(MixedDataL2,plotMeanDifference(Outcome1,Outcome2,conf.level=.99,rope=c(-2,2)))
+with(MixedDataL1,plotMeanDifference(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-2,2)))
+with(MixedDataL2,plotMeanDifference(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-2,2)))
 
 with(MixedDataL1,estimateMeanComparison(Outcome1,Outcome2))
 with(MixedDataL2,estimateMeanComparison(Outcome1,Outcome2))
@@ -123,8 +123,8 @@ with(MixedDataL2,plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers
 with(MixedDataL1,estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
 with(MixedDataL2,estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99))
 
-with(MixedDataL1,plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2)))
-with(MixedDataL2,plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99,rope=c(-2,2)))
+with(MixedDataL1,plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2)))
+with(MixedDataL2,plotMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2)))
 
 with(MixedDataL1,estimateMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))
 with(MixedDataL2,estimateMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers))

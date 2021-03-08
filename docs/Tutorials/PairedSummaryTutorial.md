@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -117,7 +117,7 @@ testMeans(PairedSummary,mu=6)
 ## Outcome2   0.000   1.224   3.000   0.000   1.000
 ```
 
-#### Stadardized Effect Sizes
+#### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 
@@ -183,10 +183,10 @@ estimateMeanDifference(PairedSummary,PairedCorr,conf.level=.99)
 ## Comparison   4.000   1.224   3.000  -3.152  11.152
 ```
 
-Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
+Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanDifference(PairedSummary,PairedCorr,conf.level=.99,rope=c(-2,2))
+plotMeanDifference(PairedSummary,PairedCorr,conf.level=.99,mu=0,rope=c(-2,2))
 ```
 
 ![](figures/Paired-DifferenceB-1.png)<!-- -->
