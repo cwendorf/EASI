@@ -144,13 +144,13 @@ testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 plotCorrelations <- function(x,...) 
   UseMethod("plotCorrelations")
 
-plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,...) {
+plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=c(-1.1,1.1),digits=3,...) {
   results <- .unformatFrame(estimateCorrelations(CompStats,CorrStats,conf.level=conf.level)[[1]][,c(1,3,4)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}}
   .cipMain(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE)
 }
 
-plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",mu=NULL,rope=NULL,conf.level=.95,labels=NULL,values=TRUE,ylim=NULL,digits=3) {
+plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",mu=NULL,rope=NULL,conf.level=.95,labels=NULL,values=TRUE,ylim=c(-1.1,1.1),digits=3) {
   CompStats <- .unformatFrame(describeMeans(...)[[1]])
   class(CompStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
