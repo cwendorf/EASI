@@ -39,8 +39,8 @@ with(MixedDataL2,plotCorrelations(Outcome1,Outcome2))
 with(MixedDataL1,estimateCorrelations(Outcome1,Outcome2,conf.level=.99))
 with(MixedDataL2,estimateCorrelations(Outcome1,Outcome2,conf.level=.99))
 
-with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,conf.level=.99))
-with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,conf.level=.99))
+with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-.2,.2)))
+with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-.2,.2)))
 
 #### Significance Tests
 
@@ -60,8 +60,8 @@ with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,Outcome3))
 with(MixedDataL1,estimateCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99))
 with(MixedDataL2,estimateCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99))
 
-with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99))
-with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99))
+with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=0,rope=c(-.2,.2)))
+with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=0,rope=c(-.2,.2)))
 
 #### Significance Tests
 

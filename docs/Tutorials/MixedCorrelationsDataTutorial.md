@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -163,16 +163,16 @@ with(MixedDataL2,estimateCorrelations(Outcome1,Outcome2,conf.level=.99))
 ## Outcome1 & Outcome2   0.889   1.000  -0.821   0.999
 ```
 
-Of course, it is possible to change from the default confidence level in the graph.
+Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 
 ```r
-with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,conf.level=.99))
+with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-.2,.2)))
 ```
 
 ![](figures/MixedCorrelation-B-1.png)<!-- -->
 
 ```r
-with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,conf.level=.99))
+with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-.2,.2)))
 ```
 
 ![](figures/MixedCorrelation-B-2.png)<!-- -->
@@ -273,16 +273,16 @@ with(MixedDataL2,estimateCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99)
 ## Outcome2 & Outcome3   0.889   1.000  -0.821   0.999
 ```
 
-Of course, it is possible to change from the default confidence level in the graph.
+Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 
 ```r
-with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99))
+with(MixedDataL1,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=0,rope=c(-.2,.2)))
 ```
 
 ![](figures/MixedCorrelations-B-1.png)<!-- -->
 
 ```r
-with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99))
+with(MixedDataL2,plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=0,rope=c(-.2,.2)))
 ```
 
 ![](figures/MixedCorrelations-B-2.png)<!-- -->
@@ -340,7 +340,7 @@ estimateCorrelationDifference(CorrEstimateL1,CorrEstimateL2)
 ## Difference   0.389  -1.003   1.856
 ```
 
-Of course, it is also possile to the plot this estimate.
+Of course, it is also possible to the plot this estimate.
 
 ```r
 plotCorrelationDifference(CorrEstimateL1,CorrEstimateL2)

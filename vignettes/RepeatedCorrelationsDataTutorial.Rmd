@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -73,9 +73,9 @@ The code defaults to 95% confidence intervals. This can be changed if desired.
 estimateCorrelations(Outcome1,Outcome2,conf.level=.99)
 ```
 
-Of course, it is possible to change from the default confidence level in the graph.
+Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,RepeatedCorrelation-B}
-plotCorrelations(Outcome1,Outcome2,conf.level=.99)
+plotCorrelations(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-.2,.2))
 ```
 
 #### Significance Test
@@ -106,9 +106,9 @@ The code defaults to 95% confidence intervals. This can be changed if desired.
 estimateCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99)
 ```
 
-Of course, it is possible to change from the default confidence level in the graph.
+Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,RepeatedCorrelations-B}
-plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99)
+plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=0,rope=c(-.2,.2))
 ```
 
 #### Significance Tests

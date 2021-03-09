@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-07"
 output:
   html_document:
     toc: true
@@ -91,10 +91,10 @@ estimateCorrelations(CompSummary,CompCorr,conf.level=.99)
 ## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
 ```
 
-Of course, it is possible to change from the default confidence level in the graph.
+Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 
 ```r
-plotCorrelations(CompSummary,CompCorr,conf.level=.99)
+plotCorrelations(CompSummary,CompCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
 ```
 
 ![](figures/RepeatedCorrelation-B-1.png)<!-- -->
@@ -155,10 +155,10 @@ estimateCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99)
 ## Outcome2 & Outcome3   0.389   1.000  -0.974   0.995
 ```
 
-Of course, it is possible to change from the default confidence level in the graph.
+Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 
 ```r
-plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99)
+plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
 ```
 
 ![](figures/RepeatedCorrelations-B-1.png)<!-- -->

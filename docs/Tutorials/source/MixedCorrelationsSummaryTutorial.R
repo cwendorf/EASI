@@ -49,8 +49,8 @@ plotCorrelations(CompSummaryL2,CompCorrL2)
 estimateCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99)
 estimateCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99)
 
-plotCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99)
-plotCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99)
+plotCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99,mu=0,rope=c(-.2,.2))
 
 #### Significance Tests
 
@@ -70,8 +70,8 @@ plotCorrelations(MixedSummaryL2,MixedCorrL2)
 estimateCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99)
 estimateCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99)
 
-plotCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99)
-plotCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99)
+plotCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99,mu=0,rope=c(-.2,.2))
 
 #### Significance Tests
 

@@ -30,7 +30,7 @@ estimateCorrelations(CompSummary,CompCorr)
 plotCorrelations(CompSummary,CompCorr)
 
 estimateCorrelations(CompSummary,CompCorr,conf.level=.99)
-plotCorrelations(CompSummary,CompCorr,conf.level=.99)
+plotCorrelations(CompSummary,CompCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
 
 #### Significance Test
 
@@ -44,7 +44,7 @@ estimateCorrelations(RepeatedSummary,RepeatedCorr)
 plotCorrelations(RepeatedSummary,RepeatedCorr)
 
 estimateCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99)
-plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99)
+plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
 
 #### Significance Tests
 

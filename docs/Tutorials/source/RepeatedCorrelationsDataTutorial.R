@@ -26,7 +26,7 @@ estimateCorrelations(Outcome1,Outcome2)
 plotCorrelations(Outcome1,Outcome2)
 
 estimateCorrelations(Outcome1,Outcome2,conf.level=.99)
-plotCorrelations(Outcome1,Outcome2,conf.level=.99)
+plotCorrelations(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-.2,.2))
 
 #### Significance Test
 
@@ -40,7 +40,7 @@ estimateCorrelations(Outcome1,Outcome2,Outcome3)
 plotCorrelations(Outcome1,Outcome2,Outcome3)
 
 estimateCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99)
-plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99)
+plotCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=0,rope=c(-.2,.2))
 
 #### Significance Tests
 
