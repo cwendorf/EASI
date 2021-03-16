@@ -3,7 +3,7 @@
 
 ### Plot Functions
 
-.dots <- function(var,loc,offset=0,jitter=0,col="gray0",pch=1) {
+.dots <- function(var,loc,offset=0,jitter=0,col=rgb(0,0,0,.3),pch=16) {
   newx <- NULL
   for(i in 1:length(var)) {newx[i] <- loc+runif(1,min=-(jitter/2),max=(jitter/2))+offset}
   points(newx,var,col=col,pch=pch)
@@ -12,7 +12,7 @@
 plotData <- function(x,...)
   UseMethod("plotData")
 
-plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=0,method="jitter",jitter=.08,col="gray30",pch=1) {
+plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=0,method="jitter",jitter=.05,col=rgb(0,0,0,.3),pch=16) {
   data <- data.frame(...)
   ylimrange <- range(pretty(c(floor(min(data-.4)),ceiling(max(data)+.4))))
   xlimrange <- c(.5,ncol(data)+.5)
@@ -23,7 +23,7 @@ plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offs
   stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=jitter,col=col,pch=pch,cex.lab=1.15)
 } 
 
-plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",offset=0,method="jitter",jitter=.08,col="gray30",pch=1,...) {
+plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",offset=0,method="jitter",jitter=.05,col=rgb(0,0,0,.3),pch=16,...) {
   x <- eval(formula[[3]])
   adjustX <- as.numeric(x)+offset
   mn <- min(adjustX,na.rm=TRUE)
