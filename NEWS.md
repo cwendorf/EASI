@@ -3,7 +3,7 @@
 ## EASI 4.21.0316
 
 - Added ability to specify complex contrasts and their differences
-- Reworked box plots, data plots, and density plot options
+- Reworked box plots, data plots, and density plots
 - Made small tweaks to naming and output
 
 ## EASI 4.21.0112
