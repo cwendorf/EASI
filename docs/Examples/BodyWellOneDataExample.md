@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -44,7 +44,7 @@ describeMeans(BodySatisfaction,Wellbeing)
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Variables`
 ##                        N       M      SD
 ## BodySatisfaction 106.000   3.605   0.659
 ## Wellbeing        106.000   5.055   1.162

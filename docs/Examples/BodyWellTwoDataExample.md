@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -52,7 +52,7 @@ with(BodyWellTwoDataL1,describeMeans(BodySatisfaction,Wellbeing))
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Variables`
 ##                        N       M      SD
 ## BodySatisfaction  59.000   3.434   0.668
 ## Wellbeing         59.000   4.934   1.250
@@ -63,7 +63,7 @@ with(BodyWellTwoDataL2,describeMeans(BodySatisfaction,Wellbeing))
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Variables`
 ##                        N       M      SD
 ## BodySatisfaction  47.000   3.819   0.587
 ## Wellbeing         47.000   5.206   1.033
