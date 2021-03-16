@@ -12,8 +12,9 @@ describeMeans.default <- function(...,main=NULL,digits=3) {
   M <- sapply(data,mean,na.rm=TRUE)
   SD <- sapply(data,sd,na.rm=TRUE)
   results <- cbind(N=N,M=M,SD=SD)
+  if(is.null(main)) {if(nrow(results)>1) {main="Descriptive Statistics for the Variables"} else {main="Descriptive Statistics for the Variable"}}  
   results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
+  names(results) <- main 
   return(results)
 }
 
@@ -22,8 +23,9 @@ describeMeans.formula <- function(formula,main=NULL,digits=3) {
   rn <- results[,1]
   results <- Reduce(rbind,results[[2]])
   rownames(results) <- rn
+  if(is.null(main)) {if(nrow(results)>1) {main="Descriptive Statistics for the Groups"} else {main="Descriptive Statistics for the Group"}}  
   results <- list(results)
-  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
+  names(results) <- main   
   return(results)
 }
 
