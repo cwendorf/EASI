@@ -3,19 +3,19 @@
 
 ### Plot Functions
 
-.violin <- function(var,loc,type="fullvio",offset=0,scale=.8,border="gray80",col="gray80") {
+.violin <- function(var,loc,type="right",offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1)) {
   y <- density(var)
   y1 <- loc+(y$y*scale)+offset
   y2 <- loc-(y$y*scale)+offset
-  if(type=="fullvio") polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border=border,col=col)
-  if(type=="rightvio") polygon(c(y1,seq(from=loc+offset,to=loc+offset,length.out=length(y1))),c(y$x,rev(y$x)),border=border,col=col)
-  if(type=="leftvio") polygon(c(y2,seq(from=loc+offset,to=loc+offset,length.out=length(y2))),c(y$x,rev(y$x)),border=border,col=col)
+  if(type=="full") polygon(c(y1,rev(y2)),c(y$x,rev(y$x)),border=border,col=col)
+  if(type=="right") polygon(c(y1,seq(from=loc+offset,to=loc+offset,length.out=length(y1))),c(y$x,rev(y$x)),border=border,col=col)
+  if(type=="left") polygon(c(y2,seq(from=loc+offset,to=loc+offset,length.out=length(y2))),c(y$x,rev(y$x)),border=border,col=col)
 }
 
 plotViolins <- function(x,...) 
   UseMethod("plotViolins")
 
-plotViolins.default <- function(...,type="fullvio",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.8,border="gray80",col="gray80") {
+plotViolins.default <- function(...,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1)) {
   if(is.null(main)) {main="Violin Plots for the Variables"}
   data <- data.frame(...)
   vars <- colnames(data)
@@ -30,7 +30,7 @@ plotViolins.default <- function(...,type="fullvio",add=FALSE,main=NULL,ylab="Out
   for(i in 1:nvars) {.violin(data[,i],i,type=type,offset=offset,scale=scale,border=border,col=col)}
 } 
 
-plotViolins.formula <- function(formula,type="fullvio",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.8,border="gray80",col="gray80") {
+plotViolins.formula <- function(formula,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1)) {
   if(is.null(main)) {main="Violin Plots for the Groups"}
   group <- eval(formula[[3]])
   outcome <- eval(formula[[2]])
@@ -39,7 +39,7 @@ plotViolins.formula <- function(formula,type="fullvio",add=FALSE,main=NULL,ylab=
   ngroups <- nlevels(group)
   if(!add) {  
   if(is.null(ylim)) {
-  z <- tapply(Outcome,Factor,FUN=function(x) cbind(x=density(x)$x,y=density(x)$y))[[1]]
+  z <- tapply(outcome,group,FUN=function(x) cbind(x=density(x)$x,y=density(x)$y))[[1]]
   rm <- c(min(z[,1]),max(z[,1]))
   ylim <- range(pretty(rm))}
   plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,ngroups+.5),ylim=ylim,cex.lab=1.15)
