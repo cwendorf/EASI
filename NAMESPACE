@@ -17,11 +17,11 @@ S3method(plotBoxes,default)
 S3method(plotBoxes,formula)
 export(plotBoxes)
 
-### xViolins
+### xDensity
 
-S3method(plotViolins,default)
-S3method(plotViolins,formula)
-export(plotViolins)
+S3method(plotDensity,default)
+S3method(plotDensity,formula)
+export(plotDensity)
 
 ### xCateyes
 

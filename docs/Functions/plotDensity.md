@@ -1,17 +1,17 @@
-## Plot Violins
+## Plot Density
 
 ### Description
 
-Provides a violin plot for each group or variable.
+Provides a density plot for each group or variable.
 
 ### Usage
 
 ```r
 ## Default S3 method
-plotViolins(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="gray75",col="gray90")
+plotDensity(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1))
 
 ## S3 method for class 'formula'
-plotViolins(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="gray75",col="gray90")
+plotDensity(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1))
 ```
 
 ### Arguments
@@ -26,10 +26,10 @@ Argument | Description
 ```xlab``` | a label for the x-axis
 ```main``` | a custom title for the graph
 ```ylim``` | custom limits for the y axis
-```offset``` | a value indicating the offset of the violin
-```scale``` | a value that indicates how width the violin
-```col``` | a value for the shaded color of the violin
-```border``` | a value for the border color of the violin
+```offset``` | a value indicating the offset of the plot
+```scale``` | a value that indicates how width the plot
+```col``` | a value for the shaded color of the plot
+```border``` | a value for the border color of the plot
 
 ### Values
 

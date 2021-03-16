@@ -1,8 +1,9 @@
 # Estimation Approach to Statistical Inference
 
-## EASI 4.21.0307
+## EASI 4.21.0316
 
 - Added ability to specify complex contrasts and their differences
+- Reworked box plots, data plots, and density plot options
 - Made small tweaks to naming and output
 
 ## EASI 4.21.0112

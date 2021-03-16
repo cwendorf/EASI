@@ -24,18 +24,18 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 #### Data and Distributions
 
-`Data` - functions that examine and plot the data for the groups or levels
+`Data` - functions that plot the data for the groups or levels
 
 - [`plotData`](./plotData.md)
+
+`Density` - functions that plot densities for the groups or levels
+
+- [`plotDensity`](./plotDensity.md)
 
 `Boxes` - functions that summarize and provide boxplots for the groups or levels
 
 - [`describeBoxes`](./describeBoxes.md)
 - [`plotBoxes`](./plotBoxes.md)
-
-`Violins` - functions that provide densities and violin plots for the groups or levels
-
-- [`plotViolins`](./plotViolins.md)
 
 #### Means and Mean Differences
 

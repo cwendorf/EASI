@@ -9,9 +9,9 @@
 \description{Provides a boxplot for each group or variable.}
 
 \usage{
-\method{plotBoxes}{default}(\dots,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col="white")
+\method{plotBoxes}{default}(\dots,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.8,border="black",col=rgb(0,0,0,0),values=TRUE)
 
-\method{plotBoxes}{formula}(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col="white")
+\method{plotBoxes}{formula}(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.8,border="black",col=rgb(0,0,0,0),values=TRUE)
 }
 
 \arguments{
@@ -27,13 +27,15 @@
 \item{scale}{a value that indicates the width of the boxplot}
 \item{col}{a value for the shaded color of the boxplot}
 \item{border}{a value for the border color of the boxplot}
+\item{values}{whether the values should be added to the boxplot}
+\item{digits}{the specified number of decimal places}
 }
 
 \value{
 The returned plot contains the following components:
-\item{Min}{the minimum value of the data}
-\item{LQ}{the value of the lower quartile}
+\item{LW}{the lower whisker}
+\item{LH}{the lower hinge}
 \item{Mdn}{the median value}
-\item{UQ}{the value of the upper quartile}
-\item{Max}{the maximum value of the data}
+\item{UH}{the upper hinge}
+\item{UW}{the upper whisker}
 }

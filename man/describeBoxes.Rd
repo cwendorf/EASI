@@ -6,7 +6,7 @@
 \alias{describeBoxes.default}
 \alias{describeBoxes.formula}
 \title{Describe Boxes}
-\description{Provides a five number summary (median and quartile information) for a data set.}
+\description{Provides a five number summary for a data set.}
 
 \usage{
 \method{describeBoxes}{default}(\dots,main=NULL,digits=3)
@@ -23,9 +23,9 @@
 
 \value{
 The returned list contains one frame with the following components:
-\item{Min}{the minimum value of the data}
-\item{LQ}{the value of the lower quartile}
+\item{LW}{the lower whisker}
+\item{LH}{the lower hinge}
 \item{Mdn}{the median value}
-\item{UQ}{the value of the upper quartile}
-\item{Max}{the maximum value of the data}
+\item{UH}{the upper hinge}
+\item{UW}{the upper whisker}
 }

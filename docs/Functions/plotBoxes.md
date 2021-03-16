@@ -8,10 +8,10 @@ Provides a boxplot for each group or variable.
 
 ```r
 ## Default S3 method
-plotBoxes(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col="white")
+plotBoxes(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3)
 
 ## S3 method for class 'formula'
-plotBoxes(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col="white")
+plotBoxes(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3)
 ```
 
 ### Arguments
@@ -30,6 +30,8 @@ Argument | Description
 ```scale``` | a value that indicates the width of the boxplot
 ```col``` | a value for the shaded color of the boxplot
 ```border``` | a value for the border color of the boxplot
+```values``` | whether the points should be labeled with their values
+```digits``` | the specified number of decimal places
 
 ### Values
 
@@ -37,8 +39,8 @@ The returned plot contains the following components:
 
 Value | Description
 :-- | :--
-```Min``` | the minimum value of the data
-```LQ``` | the value of the lower quartile
+```LW``` | the lower whisker
+```LH``` | the lower hinge
 ```Mdn``` | the median value
-```UQ``` | the value of the upper quartile
-```Max``` | the maximum value of the data
+```UH``` | the upper hinge
+```UW``` | the upper whisker

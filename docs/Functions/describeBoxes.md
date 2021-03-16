@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides a five number summary (median and quartile information) for a data set.
+Provides a five number summary  for a data set.
 
 ### Usage
 
@@ -29,8 +29,8 @@ The returned list contains one frame with the following components:
 
 Value | Description
 :-- | :--
-```Min``` | the minimum value of the data
-```LQ``` | the value of the lower quartile
+```LW``` | the lower whisker
+```LH``` | the lower hinge
 ```Mdn``` | the median value
-```UQ``` | the value of the upper quartile
-```Max``` | the maximum value of the data
+```UH``` | the upper hinge
+```UW``` | the upper whisker
