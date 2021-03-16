@@ -15,9 +15,9 @@ IndependentData <- data.frame(Factor,Outcome)
 
 #### Plot of the Data
 
-plotViolins(Outcome~Factor,main="Summaries of the Groups")
-plotBoxes(Outcome~Factor,add=TRUE)
-plotData(Outcome~Factor,add=TRUE,method="stack",pch=16)
+plotBoxes(Outcome~Factor)
+plotDensity(Outcome~Factor,add=TRUE)
+plotData(Outcome~Factor,add=TRUE)
 
 #### Descriptive Statistics
 

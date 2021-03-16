@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-07"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -49,20 +49,20 @@ MixedDataL2 <- subset(MixedData,Factor=="Level2")
 
 
 ```r
-with(MixedDataL1,plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables"))
-with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16))
+with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3))
+with(MixedDataL1,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
 ```
 
-![](figures/Mixed-Violins-1.png)<!-- -->
+![](figures/Mixed-Boxes-1.png)<!-- -->
 
 ```r
-with(MixedDataL2,plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables"))
-with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16))
+with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3))
+with(MixedDataL2,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
 ```
 
-![](figures/Mixed-Violins-2.png)<!-- -->
+![](figures/Mixed-Boxes-2.png)<!-- -->
 
 #### Descriptive Statistics
 
@@ -73,7 +73,7 @@ with(MixedDataL1,describeMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Variables`
 ##                N       M      SD
 ## Outcome1   4.000   2.000   2.449
 ## Outcome2   4.000   6.000   2.449
@@ -85,7 +85,7 @@ with(MixedDataL2,describeMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Variables`
 ##                N       M      SD
 ## Outcome1   4.000   4.000   2.449
 ## Outcome2   4.000   4.000   2.449

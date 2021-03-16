@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-07"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -45,7 +45,7 @@ describeMeans(Outcome1,Outcome2,Outcome3)
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Variables`
 ##                N       M      SD
 ## Outcome1   4.000   2.000   2.449
 ## Outcome2   4.000   6.000   2.449

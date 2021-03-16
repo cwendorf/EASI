@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -38,12 +38,12 @@ OneSampleData <- data.frame(Outcome)
 
 
 ```r
-plotViolins(Outcome,main="Summary of the Variable")
-plotBoxes(Outcome,add=TRUE)
-plotData(Outcome,add=TRUE,method="stack",pch=16)
+plotBoxes(Outcome)
+plotDensity(Outcome,add=TRUE)
+plotData(Outcome,add=TRUE)
 ```
 
-![](figures/OneSample-Violins-1.png)<!-- -->
+![](figures/OneSample-Boxes-1.png)<!-- -->
 
 #### Descriptive Statistics
 
@@ -54,7 +54,7 @@ describeMeans(Outcome)
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Variable`
 ##               N       M      SD
 ## Outcome   8.000   4.000   3.117
 ```

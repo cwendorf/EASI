@@ -13,9 +13,9 @@ OneSampleData <- data.frame(Outcome)
 
 #### Plot of the Data
 
-plotViolins(Outcome,main="Summary of the Variable")
-plotBoxes(Outcome,add=TRUE)
-plotData(Outcome,add=TRUE,method="stack",pch=16)
+plotBoxes(Outcome)
+plotDensity(Outcome,add=TRUE)
+plotData(Outcome,add=TRUE)
 
 #### Descriptive Statistics
 

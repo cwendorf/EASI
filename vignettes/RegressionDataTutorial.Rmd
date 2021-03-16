@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-07"
+date: "2021-03-16"
 output:
   html_document:
     toc: true

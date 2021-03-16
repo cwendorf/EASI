@@ -15,9 +15,9 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 #### Plot of the Data
 
-plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables")
-plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE)
-plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16)
+plotBoxes(Outcome1,Outcome2,Outcome3)
+plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE)
+plotData(Outcome1,Outcome2,Outcome3,add=TRUE)
 
 #### Descriptive Statistics
 

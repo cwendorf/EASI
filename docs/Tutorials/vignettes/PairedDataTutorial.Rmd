@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-07"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -41,10 +41,10 @@ PairedData <- data.frame(Outcome1,Outcome2)
 
 #### Plot of the Data
 
-```{r,Paired-Violins}
-plotViolins(Outcome1,Outcome2,main="Summaries of the Variables")
-plotBoxes(Outcome1,Outcome2,add=TRUE)
-plotData(Outcome1,Outcome2,add=TRUE,method="stack",pch=16)
+```{r,Paired-Boxes}
+plotBoxes(Outcome1,Outcome2)
+plotDensity(Outcome1,Outcome2,add=TRUE)
+plotData(Outcome1,Outcome2,add=TRUE)
 ```
 
 #### Descriptive Statistics

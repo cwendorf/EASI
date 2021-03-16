@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-07"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -49,20 +49,20 @@ FactorialDataB2 <- subset(FactorialData,FactorB=="B2")
 
 
 ```r
-with(FactorialDataB1,plotViolins(Outcome~FactorA,main="Summaries of the Groups"))
-with(FactorialDataB1,plotBoxes(Outcome~FactorA,add=TRUE))
-with(FactorialDataB1,plotData(Outcome~FactorA,add=TRUE,method="stack",pch=16))
+with(FactorialDataB1,plotBoxes(Outcome~FactorA))
+with(FactorialDataB1,plotDensity(Outcome~FactorA,add=TRUE))
+with(FactorialDataB1,plotData(Outcome~FactorA,add=TRUE))
 ```
 
-![](figures/Factorial-Violins-1.png)<!-- -->
+![](figures/Factorial-Boxes-1.png)<!-- -->
 
 ```r
-with(FactorialDataB2,plotViolins(Outcome~FactorA,main="Summaries of the Groups"))
-with(FactorialDataB2,plotBoxes(Outcome~FactorA,add=TRUE))
-with(FactorialDataB2,plotData(Outcome~FactorA,add=TRUE,method="stack",pch=16))
+with(FactorialDataB2,plotBoxes(Outcome~FactorA))
+with(FactorialDataB2,plotDensity(Outcome~FactorA,add=TRUE))
+with(FactorialDataB2,plotData(Outcome~FactorA,add=TRUE))
 ```
 
-![](figures/Factorial-Violins-2.png)<!-- -->
+![](figures/Factorial-Boxes-2.png)<!-- -->
 
 #### Descriptive Statistics
 
@@ -73,7 +73,7 @@ with(FactorialDataB1,describeMeans(Outcome~FactorA))
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Groups`
 ##          N       M      SD
 ## A1   4.000   2.000   2.449
 ## A2   4.000   6.000   2.449
@@ -85,7 +85,7 @@ with(FactorialDataB2,describeMeans(Outcome~FactorA))
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Groups`
 ##          N       M      SD
 ## A1   4.000   4.000   2.449
 ## A2   4.000   4.000   2.449

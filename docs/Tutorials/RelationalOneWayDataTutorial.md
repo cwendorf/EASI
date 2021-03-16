@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -40,12 +40,12 @@ OneWayData <- data.frame(Factor,Outcome)
 
 
 ```r
-plotViolins(Outcome~Factor,main="Summaries of the Groups")
-plotBoxes(Outcome~Factor,add=TRUE)
-plotData(Outcome~Factor,add=TRUE,method="stack",pch=16)
+plotBoxes(Outcome~Factor)
+plotDensity(Outcome~Factor,add=TRUE)
+plotData(Outcome~Factor,add=TRUE)
 ```
 
-![](figures/OneWay-Violins-1.png)<!-- -->
+![](figures/OneWay-Boxes-1.png)<!-- -->
 
 #### Descriptive Statistics
 
@@ -56,7 +56,7 @@ describeMeans(Outcome~Factor)
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Groups`
 ##              N       M      SD
 ## Level1   4.000   2.000   2.449
 ## Level2   4.000   6.000   2.449
@@ -100,7 +100,7 @@ describeMeansOmnibus(Outcome~Factor)
 ```
 
 ```
-## $`Analysis of Variance Source Table`
+## $`Source Table for the Factor`
 ##              SS      df      MS
 ## Between  56.000   2.000  28.000
 ## Within   53.978   9.000   5.998
@@ -111,9 +111,9 @@ testMeansOmnibus(Outcome~Factor)
 ```
 
 ```
-## $`Hypothesis Test for the Omnibus Effect`
-##               F     dfb     dfw       p
-## Omnibus   4.668   2.000   9.000   0.041
+## $`Hypothesis Test for the Factor`
+##              F     dfb     dfw       p
+## Factor   4.668   2.000   9.000   0.041
 ```
 
 ### Analyses of the Pairwise Comparisons

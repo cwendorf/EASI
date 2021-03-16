@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2020-11-20"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -82,7 +82,7 @@ describeMeansOmnibus(RepeatedSummary,RepeatedCorr)
 ```
 
 ```
-## $`Analysis of Variance Source Table`
+## $`Source Table for the Factor`
 ##              SS      df      MS
 ## Subject  29.328   3.000   9.776
 ## Factor   56.000   2.000  28.000
@@ -94,9 +94,9 @@ testMeansOmnibus(RepeatedSummary,RepeatedCorr)
 ```
 
 ```
-## $`Hypothesis Test for the Omnibus Effect`
-##               F     dff     dfe       p
-## Omnibus   6.816   2.000   6.000   0.029
+## $`Hypothesis Test for the Factor`
+##              F     dff     dfe       p
+## Factor   6.816   2.000   6.000   0.029
 ```
 
 ### Analyses of the Pairwise Comparisons

@@ -20,12 +20,12 @@ MixedDataL2 <- subset(MixedData,Factor=="Level2")
 
 #### Plot of the Data
 
-with(MixedDataL1,plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables"))
-with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16))
-with(MixedDataL2,plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables"))
-with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16))
+with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3))
+with(MixedDataL1,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3))
+with(MixedDataL2,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
 
 #### Descriptive Statistics
 

@@ -14,9 +14,9 @@ PairedData <- data.frame(Outcome1,Outcome2)
 
 #### Plot of the Data
 
-plotViolins(Outcome1,Outcome2,main="Summaries of the Variables")
-plotBoxes(Outcome1,Outcome2,add=TRUE)
-plotData(Outcome1,Outcome2,add=TRUE,method="stack",pch=16)
+plotBoxes(Outcome1,Outcome2)
+plotDensity(Outcome1,Outcome2,add=TRUE)
+plotData(Outcome1,Outcome2,add=TRUE)
 
 #### Descriptive Statistics
 

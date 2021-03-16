@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-07"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -50,13 +50,13 @@ MixedDataL2 <- subset(MixedData,Factor=="Level2")
 
 #### Plot of the Data
 
-```{r,Mixed-Violins}
-with(MixedDataL1,plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables"))
-with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16))
-with(MixedDataL2,plotViolins(Outcome1,Outcome2,Outcome3,main="Summaries of the Variables"))
-with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE,method="stack",pch=16))
+```{r,Mixed-Boxes}
+with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3))
+with(MixedDataL1,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3))
+with(MixedDataL2,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
+with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
 ```
 
 #### Descriptive Statistics

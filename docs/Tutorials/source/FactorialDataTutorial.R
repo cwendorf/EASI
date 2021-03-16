@@ -20,12 +20,12 @@ FactorialDataB2 <- subset(FactorialData,FactorB=="B2")
 
 #### Plot of the Data
 
-with(FactorialDataB1,plotViolins(Outcome~FactorA,main="Summaries of the Groups"))
-with(FactorialDataB1,plotBoxes(Outcome~FactorA,add=TRUE))
-with(FactorialDataB1,plotData(Outcome~FactorA,add=TRUE,method="stack",pch=16))
-with(FactorialDataB2,plotViolins(Outcome~FactorA,main="Summaries of the Groups"))
-with(FactorialDataB2,plotBoxes(Outcome~FactorA,add=TRUE))
-with(FactorialDataB2,plotData(Outcome~FactorA,add=TRUE,method="stack",pch=16))
+with(FactorialDataB1,plotBoxes(Outcome~FactorA))
+with(FactorialDataB1,plotDensity(Outcome~FactorA,add=TRUE))
+with(FactorialDataB1,plotData(Outcome~FactorA,add=TRUE))
+with(FactorialDataB2,plotBoxes(Outcome~FactorA))
+with(FactorialDataB2,plotDensity(Outcome~FactorA,add=TRUE))
+with(FactorialDataB2,plotData(Outcome~FactorA,add=TRUE))
 
 #### Descriptive Statistics
 

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-07"
+date: "2021-03-16"
 output:
   html_document:
     toc: true
@@ -40,12 +40,12 @@ OneWayData <- data.frame(Factor,Outcome)
 
 
 ```r
-plotViolins(Outcome~Factor,main="Summaries of the Groups")
-plotBoxes(Outcome~Factor,add=TRUE)
-plotData(Outcome~Factor,add=TRUE,method="stack",pch=16)
+plotBoxes(Outcome~Factor)
+plotDensity(Outcome~Factor,add=TRUE)
+plotData(Outcome~Factor,add=TRUE)
 ```
 
-![](figures/OneWay-Violins-1.png)<!-- -->
+![](figures/OneWay-Boxes-1.png)<!-- -->
 
 #### Descriptive Statistics
 
@@ -56,7 +56,7 @@ describeMeans(Outcome~Factor)
 ```
 
 ```
-## $`Descriptive Statistics for the Data`
+## $`Descriptive Statistics for the Groups`
 ##              N       M      SD
 ## Level1   4.000   2.000   2.449
 ## Level2   4.000   6.000   2.449
