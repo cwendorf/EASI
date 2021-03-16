@@ -12,7 +12,7 @@
 plotData <- function(x,...)
   UseMethod("plotData")
 
-plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=0,method="jitter",jitter=.05,col=rgb(0,0,0,.3),pch=16) {
+plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.1,method="stack",jitter=.05,col=rgb(0,0,0,.3),pch=16) {
   data <- data.frame(...)
   ylimrange <- range(pretty(c(floor(min(data-.4)),ceiling(max(data)+.4))))
   xlimrange <- c(.5,ncol(data)+.5)
@@ -23,7 +23,7 @@ plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offs
   stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=jitter,col=col,pch=pch,cex.lab=1.15)
 } 
 
-plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",offset=0,method="jitter",jitter=.05,col=rgb(0,0,0,.3),pch=16,...) {
+plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",offset=.1,method="stack",jitter=.05,col=rgb(0,0,0,.3),pch=16,...) {
   x <- eval(formula[[3]])
   adjustX <- as.numeric(x)+offset
   mn <- min(adjustX,na.rm=TRUE)
