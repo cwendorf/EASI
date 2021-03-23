@@ -29,7 +29,7 @@ describeMeans.default <- function(...,trim=0,main=NULL,digits=3) {
 }
 
 describeMeans.formula <- function(formula,trim=0,main=NULL,digits=3) {
-  results <- aggregate(formula,FUN=describeTrims,trim=trim)
+  results <- aggregate(formula,FUN=describeMeans,trim=trim)
   rn <- results[,1]
   results <- Reduce(rbind,results[[2]])
   rownames(results) <- rn
