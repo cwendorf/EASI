@@ -3,15 +3,26 @@
 
 ### Descriptive Functions
 
-.trim <- function(x, trim=0, na.rm=TRUE, ...) {
+.trim <- function(x, trim=.2, na.rm=TRUE, ...) {
   if(na.rm) x <- x[!is.na(x)]
-  n <- length(x)
-  if(trim > 0 && n > 0) {
-     lo <- floor(n * trim) + 1
-     hi <- n + 1 - lo
-     x <- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+  N <- length(x)
+  Nw <- N
+  M <- mean(x,trim)
+  qtrim <- quantile(x,c(trim,.5, 1-trim))
+  xbot <- qtrim[1]
+  xtop <- qtrim[3]
+  if(trim<.5) { 
+    x[x < xbot] <- xbot
+    x[x > xtop] <- xtop} 
+  else {x[!is.na(x)] <- qtrim[2]}
+  SD <- sd(x)
+  if(trim > 0 && N > 0) {
+    lo <- floor(N * trim) + 1
+    hi <- N + 1 - lo
+    y <- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+    Nw <- length(y)
   }
-  c(length(x),mean(x),sd(x))
+  c(Nw,M,SD)
 }
 
 describeMeans <- function(x,...) 
