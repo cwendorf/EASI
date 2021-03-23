@@ -3,23 +3,33 @@
 
 ### Descriptive Functions
 
-describeMeans <- describeMean <- function(x,...) 
-  UseMethod("describeMeans")
+.trim <- function(x, trim=0, na.rm=TRUE, ...) {
+  if(na.rm) x <- x[!is.na(x)]
+  n <- length(x)
+  if(trim > 0 && n > 0) {
+     lo <- floor(n * trim) + 1
+     hi <- n + 1 - lo
+     x <- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
+  }
+  c(length(x),mean(x),sd(x))
+}
 
-describeMeans.default <- function(...,main=NULL,digits=3) {
+describeMeans <- function(x,...) 
+  UseMethod("describeTrims")
+
+describeMeans.default <- function(...,trim=0,main=NULL,digits=3) {
   data <- data.frame(...)
-  N <- sapply(data,length)
-  M <- sapply(data,mean,na.rm=TRUE)
-  SD <- sapply(data,sd,na.rm=TRUE)
-  results <- cbind(N=N,M=M,SD=SD)
+  results <- sapply(data,.trim,trim=trim)
+  results <- t(results)
+  colnames(results) <- c("N","M","SD")
   if(is.null(main)) {if(nrow(results)>1) {main="Descriptive Statistics for the Variables"} else {main="Descriptive Statistics for the Variable"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
 }
 
-describeMeans.formula <- function(formula,main=NULL,digits=3) {
-  results <- aggregate(formula,FUN=describeMeans)
+describeMeans.formula <- function(formula,trim=0,main=NULL,digits=3) {
+  results <- aggregate(formula,FUN=describeTrims,trim=trim)
   rn <- results[,1]
   results <- Reduce(rbind,results[[2]])
   rownames(results) <- rn

@@ -14,3 +14,13 @@
 .unformatFrame <- function(results) {
   return(apply(results,c(1,2),FUN=as.numeric))
 }
+
+.unformatList <- function(results) {
+  return(lapply(results,.unformatFrame))
+}
+
+simplify <- function(results) {
+  if(length(results)==1) {.unformatFrame(results[[1]])}
+  else {.unformatList(results)}
+}
+
