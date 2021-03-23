@@ -15,7 +15,7 @@
 }
 
 describeMeans <- function(x,...) 
-  UseMethod("describeTrims")
+  UseMethod("describeMeans")
 
 describeMeans.default <- function(...,trim=0,main=NULL,digits=3) {
   data <- data.frame(...)
