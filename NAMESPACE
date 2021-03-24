@@ -11,16 +11,6 @@ S3method(plotData,default)
 S3method(plotData,formula)
 export(plotData)
 
-### xBoxes
-
-S3method(describeBoxes,default)
-S3method(describeBoxes,formula)
-export(describeBoxes)
-
-S3method(plotBoxes,default)
-S3method(plotBoxes,formula)
-export(plotBoxes)
-
 ### xDensity
 
 S3method(plotDensity,default)
@@ -34,6 +24,30 @@ S3method(plotCateyes,formula)
 S3method(plotCateyes,bss)
 S3method(plotCateyes,wss)
 export(plotCateyes)
+
+### xBoxes
+
+S3method(describeBoxes,default)
+S3method(describeBoxes,formula)
+export(describeBoxes)
+
+S3method(plotBoxes,default)
+S3method(plotBoxes,formula)
+export(plotBoxes)
+
+### xMedians
+
+S3method(describeMedians,default)
+S3method(describeMedians,formula)
+export(describeMedians)
+
+S3method(estimateMedians,default)
+S3method(estimateMedians,formula)
+export(estimateMedians)
+
+S3method(plotMedians,default)
+S3method(plotMedians,formula)
+export(plotMedians)
 
 ### xMeans
 

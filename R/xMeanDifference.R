@@ -119,7 +119,7 @@ testMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,mai
 
 ### Confidence Interval Plot Functions
 
-plotMeanDifference <- plotMeanDifference <- function(x,...) 
+plotMeanDifference <- function(x,...) 
   UseMethod("plotMeanDifference")
 
 plotMeanDifference.wss <- function(DescStats,CorrStats,main=NULL,ylab="Mean Difference",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
