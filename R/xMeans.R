@@ -3,50 +3,27 @@
 
 ### Descriptive Functions
 
-.trim <- function(x, trim=.2, na.rm=TRUE, ...) {
-  if(na.rm) x <- x[!is.na(x)]
-  N <- length(x)
-  Nw <- N
-  M <- mean(x,trim)
-  qtrim <- quantile(x,c(trim,.5, 1-trim))
-  xbot <- qtrim[1]
-  xtop <- qtrim[3]
-  if(trim<.5) { 
-    x[x < xbot] <- xbot
-    x[x > xtop] <- xtop} 
-  else {x[!is.na(x)] <- qtrim[2]}
-  SD <- sd(x)
-  if(trim > 0 && N > 0) {
-    lo <- floor(N * trim) + 1
-    hi <- N + 1 - lo
-    y <- sort.int(x, partial = unique(c(lo, hi)))[lo:hi]
-    Nw <- length(y)
-  }
-  c(Nw,M,SD)
-}
-
-describeMeans <- function(x,...) 
+describeMeans <- describeMean <- function(x,...) 
   UseMethod("describeMeans")
 
-describeMeans.default <- function(...,trim=0,main=NULL,digits=3) {
+describeMeans.default <- function(...,main=NULL,digits=3) {
   data <- data.frame(...)
-  results <- sapply(data,.trim,trim=trim)
-  results <- t(results)
-  colnames(results) <- c("N","M","SD")
-  if(is.null(main)) {if(nrow(results)>1) {main="Descriptive Statistics for the Variables"} else {main="Descriptive Statistics for the Variable"}}  
+  N <- sapply(data,length)
+  M <- sapply(data,mean,na.rm=TRUE)
+  SD <- sapply(data,sd,na.rm=TRUE)
+  results <- cbind(N=N,M=M,SD=SD)
   results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
   return(results)
 }
 
-describeMeans.formula <- function(formula,trim=0,main=NULL,digits=3) {
-  results <- aggregate(formula,FUN=describeMeans,trim=trim)
+describeMeans.formula <- function(formula,main=NULL,digits=3) {
+  results <- aggregate(formula,FUN=describeMeans)
   rn <- results[,1]
   results <- Reduce(rbind,results[[2]])
   rownames(results) <- rn
-  if(is.null(main)) {if(nrow(results)>1) {main="Descriptive Statistics for the Groups"} else {main="Descriptive Statistics for the Group"}}  
   results <- list(results)
-  names(results) <- main   
+  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
   return(results)
 }
 
@@ -122,26 +99,26 @@ testMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,di
 plotMeans <- plotMean <- function(x,...) 
   UseMethod("plotMeans")
 
-plotMeans.wss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,add=FALSE,values=TRUE,ylim=NULL,digits=3) {
+plotMeans.wss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
   results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,add=add)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE)
 }
 
-plotMeans.bss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,add=FALSE,values=TRUE,ylim=NULL,digits=3) {
+plotMeans.bss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
   results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE)
 }
 
-plotMeans.default <- function(...,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,add=FALSE,values=TRUE,ylim=NULL,digits=3) {
+plotMeans.default <- function(...,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
   results <- .unformatFrame(estimateMeans(...,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,add=add)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE)
 }
 
-plotMeans.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,add=FALSE,values=TRUE,ylim=NULL,digits=3) {
+plotMeans.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
   results <- .unformatFrame(estimateMeans(formula=formula,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE)
 }
