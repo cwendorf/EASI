@@ -3,21 +3,16 @@
 
 ### Confidence Intervals
 
-.easiMeanComplex <- function(...,contrast1,contrast2,conf.level=.95,labels=NULL,main=NULL,digits=3) {
-  res1 <- .unformatFrame(estimateMeanContrast(...,contrast=contrast1,conf.level=conf.level)[[1]])
-  res2 <- .unformatFrame(estimateMeanContrast(...,contrast=contrast2,conf.level=conf.level)[[1]])
-  results <- rbind(res1,res2)
-  if(is.null(labels)) {rownames(results) <- c("Contrast1","Contrast2")} else {rownames(results) <- labels}
-  results <- .formatList(list(results),digits=digits)
-  names(results) <- "Confidence Intervals for the Mean Contrasts"
-  return(results)
-}
-
 estimateMeanComplex <- function(x,...) 
   UseMethod("estimateMeanComplex")
 
 estimateMeanComplex.default <- estimateMeanComplex.formula <- estimateMeanComplex.wss <- estimateMeanComplex.bss <- function(...,contrast1,contrast2,conf.level=.95,labels=NULL,main=NULL,digits=3) {
-  Complex <- .easiMeanComplex(...,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,digits=digits)
+  res1 <- .unformatFrame(estimateMeanContrast(...,contrast=contrast1,conf.level=conf.level)[[1]])
+  res2 <- .unformatFrame(estimateMeanContrast(...,contrast=contrast2,conf.level=conf.level)[[1]])
+  Complex <- rbind(res1,res2)
+  if(is.null(labels)) {rownames(Complex) <- c("Contrast1","Contrast2")} else {rownames(Complex) <- labels}
+  Complex <- .formatList(list(Complex),digits=digits)
+  names(Complex) <- "Confidence Intervals for the Mean Contrasts"
   contrast <- contrast2-contrast1
   Diff <- estimateMeanContrast(...,contrast=contrast,conf.level=conf.level,digits=digits)
   results <- c(Complex,Diff)
@@ -26,21 +21,16 @@ estimateMeanComplex.default <- estimateMeanComplex.formula <- estimateMeanComple
 
 ### Null Hypothesis Significance Tests
 
-.nhstMeanComplex <- function(...,contrast1,contrast2,labels=NULL,main=NULL,digits=3) {
-  res1 <- .unformatFrame(testMeanContrast(...,contrast=contrast1)[[1]])
-  res2 <- .unformatFrame(testMeanContrast(...,contrast=contrast2)[[1]])
-  results <- rbind(res1,res2)
-  if(is.null(labels)) {rownames(results) <- c("Contrast1","Contrast2")} else {rownames(results) <- labels}
-  results <- .formatList(list(results),digits=digits)
-  names(results) <- "Hypthesis Tests for the Mean Contrasts"
-  return(results)
-}
-
 testMeanComplex <- function(x,...) 
   UseMethod("testMeanComplex")
 
 testMeanComplex.default <- testMeanComplex.formula <- testMeanComplex.wss <- testMeanComplex.bss <- function(...,contrast1,contrast2,labels=NULL,main=NULL,digits=3) {
-  Complex <- .nhstMeanComplex(...,contrast1=contrast1,contrast2=contrast2,labels=labels,digits=digits)
+  res1 <- .unformatFrame(testMeanContrast(...,contrast=contrast1)[[1]])
+  res2 <- .unformatFrame(testMeanContrast(...,contrast=contrast2)[[1]])
+  Complex <- rbind(res1,res2)
+  if(is.null(labels)) {rownames(Complex) <- c("Contrast1","Contrast2")} else {rownames(Complex) <- labels}
+  results <- .formatList(list(Complex),digits=digits)
+  names(Complex) <- "Hypthesis Tests for the Mean Contrasts"
   contrast <- contrast2-contrast1
   Diff <- testMeanContrast(...,contrast=contrast,digits=digits)
   results <- c(Complex,Diff)
