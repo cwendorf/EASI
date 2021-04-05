@@ -14,11 +14,11 @@
 }
 
 .unformatFrame <- function(results) {
-    apply(results,c(1,2),FUN=as.numeric))
+    apply(results,c(1,2),FUN=as.numeric)
 }
 
 .unformatList <- function(results) {
-    lapply(results,.unformatFrame))
+    lapply(results,.unformatFrame)
 }
 
 simplify <- function(results) {
