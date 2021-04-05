@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Correlations
+## Correlations
 
-### Correlate/Covary Functions for Mutiple Variables
+### Correlate/Covary for Mutiple Variables
 
 describeCorrelations <- function(x,...) 
   UseMethod("describeCorrelations")
@@ -62,7 +62,7 @@ fillCorrelations.default <- function(mat) {
   return(results)
 }
 
-### Confidence Interval Functions
+### Confidence Intervals
 
 estimateCorrelations <- function(x,...) 
   UseMethod("estimateCorrelations")
@@ -102,7 +102,7 @@ estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
   estimateCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
 testCorrelations <- function(x,...) 
   UseMethod("testCorrelations")
@@ -139,7 +139,7 @@ testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
   testCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
 plotCorrelations <- function(x,...) 
   UseMethod("plotCorrelations")

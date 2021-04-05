@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Relational Intervals
+## Mean Relational Intervals
 
-### Relational Interval Function
+### Relational Intervals
 
-estimateMeansRelational <- estimateMeanRelational <- function(x,...) 
+estimateMeansRelational <- function(x,...) 
   UseMethod("estimateMeansRelational")
 
 estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...) {
@@ -53,9 +53,9 @@ estimateMeansRelational.formula <- function(formula,conf.level=.95,main=NULL,dig
   estimateMeansRelational(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Plot Confidence and Relational Intervals
+### Confidence and Relational Interval Plots
 
-plotMeansRelational <- plotMeanRelational <- function(x,...) 
+plotMeansRelational <- function(x,...) 
   UseMethod("plotMeansRelational")
 
 plotMeansRelational.wss <- function(DescStats,CorrStats,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA,...) {

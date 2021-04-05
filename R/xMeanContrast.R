@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Contrasts
+## Mean Contrasts
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateMeansContrast <- estimateMeanContrast <- function(x,...) 
+estimateMeanContrast <- function(x,...) 
   UseMethod("estimateMeanContrast")
 
 estimateMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -60,9 +60,9 @@ estimateMeanContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,ro
   estimateMeanContrast(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
-testMeansContrast <- testMeanContrast <- function(x,...) 
+testMeanContrast <- function(x,...) 
   UseMethod("testMeanContrast")
   
 testMeanContrast.bss <- function(DescStats,contrast,mu=0,rope=NULL,main=NULL,digits=3,...) {
@@ -117,9 +117,9 @@ testMeanContrast.formula <- function(formula,contrast,mu=0,rope=NULL,main=NULL,d
   testMeanContrast(DescStats,contrast,mu=mu,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotMeansContrast <- plotMeanContrast <- function(x,...) 
+plotMeanContrast <- function(x,...) 
   UseMethod("plotMeanContrast")
 
 plotMeanContrast.wss <- function(DescStats,CorrStats,contrast,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=NULL) {

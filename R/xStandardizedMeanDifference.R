@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Standardized Mean Differences
+## Standardized Mean Differences
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateStandardizedMeansDifference <- estimateStandardizedMeanDifference <- function(x,...) 
+estimateStandardizedMeanDifference <- function(x,...) 
   UseMethod("estimateStandardizedMeanDifference")
 
 estimateStandardizedMeanDifference.wss <- function(DescStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -67,9 +67,9 @@ estimateStandardizedMeanDifference.formula <- function(formula,contrast,mu=0,con
   estimateStandardizedMeanDifference(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotStandardizedMeansDifference <- plotStandardizedMeanDifference <- function(x,...) 
+plotStandardizedMeanDifference <- function(x,...) 
   UseMethod("plotStandardizedMeanDifference")
 
 plotStandardizedMeanDifference.wss <- function(DescStats,CorrStats,contrast,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {

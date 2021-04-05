@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Cateye Plots
+## Cateye Plots
 
-### Plot Functions
+### Plots
 
 .cateye <- function(results,loc,type="righteye",offset=0,scale=.6,border="gray80",col="gray80") {
   y <- density(0,from=-4.5,to=4.5,bw=1,kernel="gaussian")

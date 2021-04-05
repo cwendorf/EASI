@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Regression Omnibus Analyses (Analysis of Variance)
+## Regression Omnibus Analyses (Analysis of Variance)
 
-### Descriptive Functions
+### Descriptives
 
 describeRegressionOmnibus <- function(x,...) 
   UseMethod("describeRegressionOmnibus")
@@ -35,7 +35,7 @@ describeRegressionOmnibus.default <- function(Predictors,Criterion,main=NULL,dig
   describeRegressionOmnibus(PredStats,CritStats,CorrStats,main=main,digits=digits)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
 testRegressionOmnibus <- function(x,...) 
   UseMethod("testRegressionOmnibus")

@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Standardized Mean Pairwise Comparisons
+## Standardized Mean Pairwise Comparisons
 
-### Standardized Mean Difference Functions
+### Confidence Intervals
 
-estimateStandardizedMeansPairwise <- estimateStandardizedMeanPairwise <- function(x,...) 
+estimateStandardizedMeansPairwise <- function(x,...) 
   UseMethod("estimateStandardizedMeansPairwise")
 
 estimateStandardizedMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -86,9 +86,9 @@ estimateStandardizedMeansPairwise.formula <- function(formula,conf.level=.95,mai
   estimateStandardizedMeansPairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotStandardizedMeansPairwise <- plotStandardizedMeanPairwise <- function(x,...) 
+plotStandardizedMeansPairwise <- function(x,...) 
   UseMethod("plotStandardizedMeansPairwise")
 
 plotStandardizedMeansPairwise.default <- plotStandardizedMeansPairwise.bss <- plotStandardizedMeansPairwise.wss <- function(...,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {

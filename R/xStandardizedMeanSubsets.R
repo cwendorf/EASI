@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Standardized Mean Subsets
+## Standardized Mean Subsets
 
-### Confidence Interval Functions
+### Confidence Intervals
 
 .easiStandardizedMeanSubsets <- function(...,contrast,conf.level=.95,labels=NULL,main=NULL,digits=3) {
   con1 <- ifelse(contrast<0,0,contrast)
@@ -15,7 +15,7 @@
   return(results)
 }
 
-estimateStandardizedMeansSubsets <- estimateStandardizedMeanSubsets <- function(x,...) 
+estimateStandardizedMeanSubsets <- function(x,...) 
   UseMethod("estimateStandardizedMeanSubsets")
 
 estimateStandardizedMeanSubsets.default <- estimateStandardizedMeanSubsets.formula <- estimateStandardizedMeanSubsets.wss <- estimateStandardizedMeanSubsets.bss <- function(...,contrast,conf.level=.95,labels=NULL,main=NULL,digits=3) {
@@ -25,9 +25,9 @@ estimateStandardizedMeanSubsets.default <- estimateStandardizedMeanSubsets.formu
   return(results)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotStandardizedMeansSubsets <- plotStandardizedMeanSubsets <- function(x,...) 
+plotStandardizedMeanSubsets <- function(x,...) 
   UseMethod("plotStandardizedMeanSubsets")
 
 plotStandardizedMeanSubsets.wss <- function(CompStats,CorrStats,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24)) {

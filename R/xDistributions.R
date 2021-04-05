@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Functions for Distributions
+## Distributions
 
 ### Noncentrality Parameters
 

@@ -1,10 +1,10 @@
 # Estimation Approach to Statistical Inference
-## Functions for Eta Squared
+## Eta Squared
 
 
-### Descriptive Functions
+### Descriptives
 
-describeMeansEffect <- describeMeanEffect <- function(x,...) 
+describeMeansEffect <- function(x,...) 
   UseMethod("describeMeansEffect")
 
 describeMeansEffect.bss <- function(DescStats,main=NULL,digits=3) {
@@ -54,9 +54,9 @@ describeMeansEffect.formula <- function(formula,main=NULL,digits=3) {
   describeMeansEffect(DescStats,main=main,digits=digits)
 }
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateMeansEffect <- estimateMeanEffect <- function(x,...) 
+estimateMeansEffect <- function(x,...) 
   UseMethod("estimateMeansEffect")
 
 estimateMeansEffect.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3) {

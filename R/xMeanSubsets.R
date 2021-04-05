@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Subsets
+## Mean Subsets
 
 ### Confidence Interval Functions
 
@@ -15,7 +15,7 @@
   return(results)
 }
 
-estimateMeansSubsets <- estimateMeanSubsets <- function(x,...) 
+estimateMeanSubsets <- function(x,...) 
   UseMethod("estimateMeanSubsets")
 
 estimateMeanSubsets.default <- estimateMeanSubsets.formula <- estimateMeanSubsets.wss <- estimateMeanSubsets.bss <- function(...,contrast,conf.level=.95,labels=NULL,main=NULL,digits=3) {
@@ -25,7 +25,7 @@ estimateMeanSubsets.default <- estimateMeanSubsets.formula <- estimateMeanSubset
   return(results)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
 .nhstMeanSubsets <- function(...,contrast,labels=NULL,main=NULL,digits=3) {
   con1 <- ifelse(contrast<0,0,contrast)
@@ -39,7 +39,7 @@ estimateMeanSubsets.default <- estimateMeanSubsets.formula <- estimateMeanSubset
   return(results)
 }
 
-testMeansSubsets <- testMeanSubsets <- function(x,...) 
+testMeanSubsets <- function(x,...) 
   UseMethod("testMeanSubsets")
 
 testMeanSubsets.default <- testMeanSubsets.formula <- testMeanSubsets.wss <- testMeanSubsets.bss <- function(...,contrast,labels=NULL,main=NULL,digits=3) {
@@ -49,9 +49,9 @@ testMeanSubsets.default <- testMeanSubsets.formula <- testMeanSubsets.wss <- tes
   return(results)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotMeansSubsets <- plotMeanSubsets <- function(x,...) 
+plotMeanSubsets <- function(x,...) 
   UseMethod("plotMeanSubsets")
 
 plotMeanSubsets.wss <- function(CompStats,CorrStats,contrast,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {

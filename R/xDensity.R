@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Density Plots
+## Density Plots
 
-### Plot Functions
+### Plots
 
 .density <- function(var,loc,type="right",offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1)) {
   y <- density(var)

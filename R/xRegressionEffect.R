@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for R Squared
+## R Squared
 
-### Describe Functions
+### Descriptives
 
 describeRegressionEffect <- function(x,...) 
   UseMethod("describeRegressionEffect")
@@ -47,7 +47,7 @@ describeRegressionEffect.default <- function(Predictors,Criterion,main=NULL,digi
   return(results)
 }
 
-### Confidence Interval Functions
+### Confidence Intervals
 
 estimateRegressionEffect <- function(x,...) 
   UseMethod("estimateRegressionEffect")

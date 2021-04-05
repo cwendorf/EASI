@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Boxplots
+## Boxplots
 
-### Descriptive Functions
+### Descriptives
 
 describeBoxes <- function(x,...)
   UseMethod("describeBoxes")
@@ -27,7 +27,7 @@ describeBoxes.formula <- function(formula,main=NULL,digits=3) {
   return(results)
 }
 
-### Plot Functions
+### Plots
 
 .bp <- function(results,main,ylab,xlab,values,ylim,digits,connect,add,border,col,offset,scale) {
   if(!add) {

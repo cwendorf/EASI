@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## General Plot Functions
+## General Plots
 
-### Basic Confidence Interval Plot Functions
+### Confidence Interval Plots
 
 .cipMain <- function(results,main,ylab,xlab,mu,rope,values,ylim,digits,connect,pch=16,slab=NULL,add=FALSE) {
   if(!add) {

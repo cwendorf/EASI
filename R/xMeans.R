@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Means
+## Means
 
-### Descriptive Functions
+### Descriptives
 
-describeMeans <- describeMean <- function(x,...) 
+describeMeans <- function(x,...) 
   UseMethod("describeMeans")
 
 describeMeans.default <- function(...,main=NULL,digits=3) {
@@ -27,9 +27,9 @@ describeMeans.formula <- function(formula,main=NULL,digits=3) {
   return(results)
 }
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateMeans <- estimateMean <- function(x,...) 
+estimateMeans <- function(x,...) 
   UseMethod("estimateMeans")
 
 estimateMeans.wss <- estimateMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -61,9 +61,9 @@ estimateMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NUL
   estimateMeans(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
-testMeans <- testMean <- function(x,...) 
+testMeans <- function(x,...) 
   UseMethod("testMeans")
   
 testMeans.wss <- testMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -94,9 +94,9 @@ testMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,di
   testMeans(DescStats,mu=mu,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotMeans <- plotMean <- function(x,...) 
+plotMeans <- function(x,...) 
   UseMethod("plotMeans")
 
 plotMeans.wss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {

@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Differences
+## Mean Differences
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateMeansDifference <- estimateMeanDifference <- function(x,...) 
+estimateMeanDifference <- function(x,...) 
   UseMethod("estimateMeanDifference")
   
 estimateMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -60,9 +60,9 @@ estimateMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL
   estimateMeanDifference(CompStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
-testMeansDifference <- testMeanDifference <- function(x,...) 
+testMeanDifference <- function(x,...) 
   UseMethod("testMeanDifference")
   
 testMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -117,7 +117,7 @@ testMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,mai
   testMeanDifference(CompStats,mu=mu,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
 plotMeanDifference <- function(x,...) 
   UseMethod("plotMeanDifference")

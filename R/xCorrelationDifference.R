@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Correlation Difference
+## Correlation Difference
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateCorrelationsDifference <- estimateCorrelationDifference <- function(x,...) 
+estimateCorrelationDifference <- function(x,...) 
   UseMethod("estimateCorrelationDifference")
 
 estimateCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,digits=3) {
@@ -24,9 +24,9 @@ estimateCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,di
   return(results)  
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotCorrelationsDifference <- plotCorrelationDifference <- function(x,...) 
+plotCorrelationDifference <- function(x,...) 
   UseMethod("plotCorrelationDifference")
 
 plotCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,mu=NULL,rope=NULL,ylab="Correlation",xlab="",values=TRUE,ylim=NULL,digits=3,pch=NULL,...) {

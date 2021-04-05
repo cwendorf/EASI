@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Comparisons
+## Mean Comparisons
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateMeansComparison <- estimateMeanComparison <- function(x,...) 
+estimateMeanComparison <- function(x,...) 
   UseMethod("estimateMeanComparison")
 
 estimateMeanComparison.default <- estimateMeanComparison.formula <- estimateMeanComparison.wss <- estimateMeanComparison.bss <- function(...,conf.level=.95,main=NULL,digits=3) {
@@ -14,9 +14,9 @@ estimateMeanComparison.default <- estimateMeanComparison.formula <- estimateMean
   return(results)
 } 
 
-### Null Hypothesis Signifiance Test Functions
+### Null Hypothesis Signifiance Tests
 
-testMeansComparison <- testMeanComparison <- function(x,...) 
+testMeanComparison <- function(x,...) 
   UseMethod("testMeanComparison")
 
 testMeanComparison.default <- testMeanComparison.formula <- testMeanComparison.wss <- testMeanComparison.bss <- function(...,main=NULL,digits=3) {
@@ -27,9 +27,9 @@ testMeanComparison.default <- testMeanComparison.formula <- testMeanComparison.w
   return(results)
 } 
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotMeansComparison <- plotMeanComparison <- function(x,...) 
+plotMeanComparison <- function(x,...) 
   UseMethod("plotMeanComparison")
 
 plotMeanComparison.wss <- function(CompStats,CorrStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {

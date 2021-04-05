@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Pairwise Comparisons
+## Pairwise Comparisons
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateMeansPairwise <- estimateMeanPairwise <- function(x,...) 
+estimateMeansPairwise <- function(x,...) 
   UseMethod("estimateMeansPairwise")
 
 estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
@@ -75,9 +75,9 @@ estimateMeansPairwise.formula <- function(formula,conf.level=.95,main=NULL,digit
   estimateMeansPairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Null Hypothesis Significance Test Functions 
+### Null Hypothesis Significance Tests 
 
-testMeansPairwise <- testMeanPairwise <- function(x,...) 
+testMeansPairwise <- function(x,...) 
   UseMethod("testMeansPairwise")
 
 testMeansPairwise.wss <- function(SumStats,CorrStats,mu=0,main=NULL,digits=3,...){
@@ -147,9 +147,9 @@ testMeansPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
   testMeansPairwise(SumStats,mu=mu,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotMeansPairwise <- plotMeanPairwise <- function(x,...) 
+plotMeansPairwise <- function(x,...) 
   UseMethod("plotMeansPairwise")
 
 plotMeansPairwise.default <- plotMeansPairwise.bss <- plotMeansPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {

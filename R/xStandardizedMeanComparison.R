@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Standardized Mean Comparisons
+## Standardized Mean Comparisons
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateStandardizedMeansComparison <- estimateStandardizedMeanComparison <- function(x,...) 
+estimateStandardizedMeanComparison <- function(x,...) 
   UseMethod("estimateStandardizedMeanComparison")
 
 estimateStandardizedMeanComparison.default <- estimateStandardizedMeanComparison.formula <- estimateStandardizedMeanComparison.wss <- estimateStandardizedMeanComparison.bss <- function(...,conf.level=.95,mu=0,main=NULL,digits=3) {
@@ -14,9 +14,9 @@ estimateStandardizedMeanComparison.default <- estimateStandardizedMeanComparison
   return(results)
 } 
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotStandardizedMeansComparison <- plotStandardizedMeanComparison <- function(x,...) 
+plotStandardizedMeanComparison <- function(x,...) 
   UseMethod("plotStandardizedMeanComparison")
 
 plotStandardizedMeanComparison.wss <- function(CompStats,CorrStats,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24)) {

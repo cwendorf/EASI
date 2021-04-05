@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Omnibus Analyses (Analysis of Variance)
+## Mean Omnibus Analyses (Analysis of Variance)
 
-### Descriptive Functions
+### Descriptives
 
-describeMeansOmnibus <- describeMeanOmnibus <- function(x,...) 
+describeMeansOmnibus <- function(x,...) 
   UseMethod("describeMeansOmnibus")
 
 describeMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...) {
@@ -70,9 +70,9 @@ describeMeansOmnibus.formula <- function(formula,main=NULL,digits=3,...) {
   return(results)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
-testMeansOmnibus <- testMeanOmnibus <- function(x,...) 
+testMeansOmnibus <- function(x,...) 
   UseMethod("testMeansOmnibus")
 
 testMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {

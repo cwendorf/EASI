@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Means Contrasts
+##  Mean Contrasts
 
-### Standardized Mean Difference Functions
+### Confidence Intervals
 
-estimateStandardizedMeansContrast <- estimateStandardizedMeanContrast <- function(x,...) 
+estimateStandardizedMeanContrast <- function(x,...) 
   UseMethod("estimateStandardizedMeanContrast")
 
 estimateStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
@@ -70,9 +70,9 @@ estimateStandardizedMeanContrast.formula <- function(formula,contrast,mu=0,conf.
   estimateStandardizedMeanContrast(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotStandardizedMeansContrast <- plotStandardizedMeanContrast <- function(x,...) 
+plotStandardizedMeanContrast <- function(x,...) 
   UseMethod("plotStandardizedMeanContrast")
 
 plotStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=NULL,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=NULL) {

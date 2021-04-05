@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Functions for Regression Coefficients
+## Regression Coefficients
 
-### Confidence Interval Functions
+### Confidence Intervals
 
-estimateRegression <- estimateRegrssionCoefficients <- function(x,...) 
+estimateRegression <- function(x,...) 
   UseMethod("estimateRegression")
 
 estimateRegression.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3) {
@@ -45,9 +45,9 @@ estimateRegression.default <- function(Predictors,Criterion,conf.level=.95,main=
   estimateRegression(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
-testRegression <- testRegresssionCoefficients <- function(x,...) 
+testRegression <- function(x,...) 
   UseMethod("testRegression")
 
 testRegression.wss <- function(PredStats,CritStats,CorrStats,main=NULL,digits=3) {
@@ -88,9 +88,9 @@ testRegression.default <- function(Predictors,Criterion,main=NULL,digits=3) {
   testRegression(PredStats,CritStats,CorrStats,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotRegression <- plotRegressionCoefficients <- function(x,...) 
+plotRegression <- function(x,...) 
   UseMethod("plotRegression")
 
 plotRegression.wss <- function(PredStats,CritStats,CorrStats,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {

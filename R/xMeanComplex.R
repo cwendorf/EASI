@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Mean Complex Contrasts
+## Mean Complex Contrasts
 
-### Confidence Interval Functions
+### Confidence Intervals
 
 .easiMeanComplex <- function(...,contrast1,contrast2,conf.level=.95,labels=NULL,main=NULL,digits=3) {
   res1 <- .unformatFrame(estimateMeanContrast(...,contrast=contrast1,conf.level=conf.level)[[1]])
@@ -13,7 +13,7 @@
   return(results)
 }
 
-estimateMeansComplex <- estimateMeanComplex <- function(x,...) 
+estimateMeanComplex <- function(x,...) 
   UseMethod("estimateMeanComplex")
 
 estimateMeanComplex.default <- estimateMeanComplex.formula <- estimateMeanComplex.wss <- estimateMeanComplex.bss <- function(...,contrast1,contrast2,conf.level=.95,labels=NULL,main=NULL,digits=3) {
@@ -24,7 +24,7 @@ estimateMeanComplex.default <- estimateMeanComplex.formula <- estimateMeanComple
   return(results)
 }
 
-### Null Hypothesis Significance Test Functions
+### Null Hypothesis Significance Tests
 
 .nhstMeanComplex <- function(...,contrast1,contrast2,labels=NULL,main=NULL,digits=3) {
   res1 <- .unformatFrame(testMeanContrast(...,contrast=contrast1)[[1]])
@@ -36,7 +36,7 @@ estimateMeanComplex.default <- estimateMeanComplex.formula <- estimateMeanComple
   return(results)
 }
 
-testMeansComplex <- testMeanComplex <- function(x,...) 
+testMeanComplex <- function(x,...) 
   UseMethod("testMeanComplex")
 
 testMeanComplex.default <- testMeanComplex.formula <- testMeanComplex.wss <- testMeanComplex.bss <- function(...,contrast1,contrast2,labels=NULL,main=NULL,digits=3) {
@@ -47,9 +47,9 @@ testMeanComplex.default <- testMeanComplex.formula <- testMeanComplex.wss <- tes
   return(results)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotMeansComplex <- plotMeanComplex <- function(x,...) 
+plotMeanComplex <- function(x,...) 
   UseMethod("plotMeanComplex")
 
 plotMeanComplex.wss <- function(CompStats,CorrStats,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3) {

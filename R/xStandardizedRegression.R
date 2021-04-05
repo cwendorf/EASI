@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Functions for Regression Coefficients
+## Standardized Regression Coefficients
 
-### Confidence Interval Functions
+### Confidence Intervals
 
 estimateStandardizedRegression <- function(x,...) 
   UseMethod("estimateStandardizedRegression")
@@ -27,9 +27,9 @@ estimateStandardizedRegression.default <- function(Predictors,Criterion,conf.lev
   estimateStandardizedRegression(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-### Confidence Interval Plot Functions
+### Confidence Interval Plots
 
-plotStandardizedRegression <- plotStandardizedRegressionCoefficients <- function(x,...) 
+plotStandardizedRegression <- function(x,...) 
   UseMethod("plotStandardizedRegression")
 
 plotStandardizedRegression.wss <- function(PredStats,CritStats,CorrStats,main=NULL,ylab="Standardized Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
