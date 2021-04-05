@@ -35,20 +35,6 @@ S3method(plotBoxes,default)
 S3method(plotBoxes,formula)
 export(plotBoxes)
 
-### xMedians
-
-S3method(describeMedians,default)
-S3method(describeMedians,formula)
-export(describeMedians)
-
-S3method(estimateMedians,default)
-S3method(estimateMedians,formula)
-export(estimateMedians)
-
-S3method(plotMedians,default)
-S3method(plotMedians,formula)
-export(plotMedians)
-
 ### xMeans
 
 S3method(describeMeans,default)
