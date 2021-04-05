@@ -1,9 +1,8 @@
 # Estimation Approach to Statistical Inference
 
-## EASI 4.21.0324
+## EASI 4.21.0405
 
 - Added ability to specify complex mean contrasts and their differences
-- Added median and median difference confidence intervals
 - Reworked box plots, data plots, and density plots
 
 ## EASI 4.21.0112
