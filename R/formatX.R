@@ -4,7 +4,7 @@
 ### Formatting
 
 .formatFrame <- function(results,digits=3) {
-    format(as.data.frame(round(results,digits=digits)),width=7,trim=T,nsmall=digits))
+    format(as.data.frame(round(results,digits=digits)),width=7,trim=T,nsmall=digits)
 }
 
 .formatList <- function(results,main=NULL,digits=3) {
