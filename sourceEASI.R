@@ -10,10 +10,6 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDistributions.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCateyes.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xBoxes.R")
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMedians.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMedianDifference.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xMedianComparison.R")
-
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelations.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationDifference.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationComparison.R")
