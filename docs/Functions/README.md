@@ -136,12 +136,12 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - [`testCorrelations`](./testCorrelations.md)
 - [`plotCorrelations`](./plotCorrelations.md)
 
-`CorrelationDifference` - functions that examine the difference between correlations across two independent samples
+`CorrelationDifference` - functions that examine the difference between correlations from two independent samples
 
 - [`estimateCorrelationDifference`](./estimateCorrelationDifference.md)
 - [`plotCorrelationDifference`](./plotCorrelationDifference.md)
 
-`CorrelationComparison` - functions that examine a comparison among correlations from two independent sample (combines the `Correlations` and `CorrelationDifference` functions)
+`CorrelationComparison` - functions that examine a comparison of correlations from two independent samples (combines the `Correlations` and `CorrelationDifference` functions)
 
 - [`estimateCorrelationComparison`](./estimateCorrelationComparison.md)
 - [`plotCorrelationComparison`](./plotCorrelationComparison.md)
