@@ -16,7 +16,7 @@ plotDensity <- function(x,...)
   UseMethod("plotDensity")
 
 plotDensity.default <- function(...,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1)) {
-  if(is.null(main)) {main="Violin Plots for the Variables"}
+  if(is.null(main)) {main="Density Plots for the Variables"}
   data <- data.frame(...)
   vars <- colnames(data)
   nvars <- length(data)
@@ -31,7 +31,7 @@ plotDensity.default <- function(...,type="right",add=FALSE,main=NULL,ylab="Outco
 } 
 
 plotDensity.formula <- function(formula,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1)) {
-  if(is.null(main)) {main="Violin Plots for the Groups"}
+  if(is.null(main)) {main="Density Plots for the Groups"}
   group <- eval(formula[[3]])
   outcome <- eval(formula[[2]])
   data <- data.frame(group,outcome)
