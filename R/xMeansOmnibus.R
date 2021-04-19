@@ -111,11 +111,11 @@ testMeansOmnibus.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL
   DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]]) 
-  testMeanOmnibus(DescStats,CorrStats,main=main,digits=digits)
+  testMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)
 }
 
 testMeansOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
   DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
-  testMeanOmnibus(DescStats,main=main,digits=digits)
+  testMeansOmnibus(DescStats,main=main,digits=digits)
 }
