@@ -27,7 +27,7 @@ Argument | Description
 ```main``` | a custom title for the graph
 ```ylim``` | custom limits for the y axis
 ```offset``` | a value indicating the offset of the plot
-```scale``` | a value that indicates how width the plot
+```scale``` | a value that indicates the width of the plot
 ```col``` | a value for the shaded color of the plot
 ```border``` | a value for the border color of the plot
 
