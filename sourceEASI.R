@@ -9,6 +9,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDensity.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDistributions.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCateyes.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xBoxes.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xScatter.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelations.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationDifference.R")
