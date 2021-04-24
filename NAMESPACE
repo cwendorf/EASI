@@ -17,6 +17,12 @@ S3method(plotDensity,default)
 S3method(plotDensity,formula)
 export(plotDensity)
 
+### xScatter
+
+S3method(plotScatter,default)
+S3method(plotScatter,wss)
+export(plotScatter)
+
 ### xCateyes
 
 S3method(plotCateyes,default)
