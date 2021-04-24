@@ -27,28 +27,6 @@ describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,main=NULL
 }
 
 describeRegressionEffect.default <- function(Predictors,Criterion,main=NULL,digits=3) {
-  if(ncol(Predictors)==1) {
-    CorrStats <- cor(Predictors,Criterion)
-    R2 <- as.numeric(CorrStats*CorrStats)
-  }
-  if(ncol(Predictors)>1) {
-    PredCorr <- cor(Predictors)
-    CorrStats <- cor(Predictors,Criterion)
-    R2 <- as.numeric(t(CorrStats)%*%solve(PredCorr)%*%CorrStats)
-  }
-  df1 <- ncol(Predictors)
-  df2 <- (nrow(Predictors)-df1-1)
-  R <- sqrt(R2)
-  adjR2 <- 1-((1-R2)*(nrow(Predictors)-1))/df2
-  results <- cbind(R=R,RSq=R2,AdjRSq=adjR2)
-  rownames(results) <- "Model"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Overall Fit of the Model"} else {names(results) <- main}  
-  return(results)
-}
-
-
-describeRegressionEffect.default <- function(Predictors,Criterion,main=NULL,digits=3) {
   Predictors=cbind(Predictors)
   if(ncol(Predictors)==1) {
     CorrStats <- cor(Predictors,Criterion)
