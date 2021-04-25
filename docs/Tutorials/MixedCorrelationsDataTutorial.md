@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-16"
+date: "2021-04-25"
 output:
   html_document:
     toc: true
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Mixed Design Tutorial with Data
+## Mixed Design Correlations Tutorial with Data
 
 ### Data Management
 
@@ -54,7 +54,7 @@ with(MixedDataL1,describeMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 ```
-## $`Descriptive Statistics for the Variables`
+## $`Descriptive Statistics for the Data`
 ##                N       M      SD
 ## Outcome1   4.000   2.000   2.449
 ## Outcome2   4.000   6.000   2.449
@@ -66,7 +66,7 @@ with(MixedDataL2,describeMeans(Outcome1,Outcome2,Outcome3))
 ```
 
 ```
-## $`Descriptive Statistics for the Variables`
+## $`Descriptive Statistics for the Data`
 ##                N       M      SD
 ## Outcome1   4.000   4.000   2.449
 ## Outcome2   4.000   4.000   2.449

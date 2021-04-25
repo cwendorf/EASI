@@ -1,0 +1,137 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Bivariate Regression Tutorial with Summary Statistics}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+library(EASI)
+```
+
+## Bivariate Regression Tutorial with Summary Statistics
+
+### Data Management
+
+This code inputs the variable summaries and creates a summary table.
+```{r}
+Predictor <- c(N=4,M=2.000,SD=2.449)
+Criterion <- c(N=4,M=7.000,SD=2.449)
+BivariateSummary <- rbind(Predictor,Criterion)
+class(BivariateSummary) <- "wss"
+```
+
+This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
+```{r}
+RegressionCorr <- declareCorrelations("Predictor","Criterion")
+RegressionCorr["Predictor","Criterion"] <- .056
+RegressionCorr <- fillCorrelations(RegressionCorr)
+```
+
+### Analyses of a Bivariate Regression Model
+
+This section produces analyses of a regression model with only one predictor.
+
+This code creates new tables that identify the specific variables used in the regression model.
+```{r}
+PredictorSummary <- rbind(Predictor)
+class(PredictorSummary) <- "wss"
+CriterionSummary <- rbind(Criterion)
+```
+
+#### Confidence Intervals for the Regression Coefficients
+
+This code will provide a table of confidence intervals for each of the regression coefficients.
+```{r}
+estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+This code will produce a graph of the confidence intervals for each of the regression coefficients.
+```{r,Regression-BivariateA}
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
+```{r}
+estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
+```{r,Regression-BivariateB}
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
+```
+
+#### Significance Tests for the Regression Coefficients
+
+This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
+```{r}
+testRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+#### Confidence Intervals for the Standardized Regression Coefficient
+
+This code will provide a table of confidence intervals for the standardized coefficient.
+```{r}
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+This code will produce a graph of the confidence intervals for the standardized coefficient.
+```{r,Regression-BivariateStandardA}
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+As in other places, the code defaults to a 95% confidence interval. This can be changed if desired.
+```{r}
+estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+For the graph, it is possible to change the confidence level.
+```{r,Regression-BivariateStandardB}
+plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+#### Confidence Interval for the Overall Fit
+
+This code will calculate R Squared and Adjusted R Squared for the regression model.
+```{r}
+describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+This code will produce the confidence interval for R Squared.
+```{r}
+estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+The code defaults to 90% confidence intervals. This can be changed if desired.
+```{r}
+estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+```
+
+#### Significance Test for the Overall Fit
+
+This code will produce a source table associated with the regression model.
+```{r}
+describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+This code will calculate NHST for the regression model.
+```{r}
+testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+```

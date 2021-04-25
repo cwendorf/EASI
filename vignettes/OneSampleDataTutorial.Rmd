@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-16"
+date: "`r Sys.Date()`"
 output:
   html_document:
     toc: true
@@ -40,6 +40,7 @@ OneSampleData <- data.frame(Outcome)
 
 #### Plot of the Data
 
+This code provides a boxplot, stacked data, and a density plot.
 ```{r,OneSample-Boxes}
 plotBoxes(Outcome)
 plotDensity(Outcome,add=TRUE)

@@ -1,5 +1,10 @@
 # Estimation Approach to Statistical Inference
 
+## EASI 4.21.0501
+
+- Added scatterplot and regression line functions
+- Updated vignettes and examples
+
 ## EASI 4.21.0405
 
 - Added ability to specify complex mean contrasts and their differences

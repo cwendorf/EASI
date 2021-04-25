@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-16"
+date: "2021-04-24"
 output:
   html_document:
     toc: true
@@ -38,6 +38,7 @@ OneWayData <- data.frame(Factor,Outcome)
 
 #### Plot of the Data
 
+This code provides a boxplot, stacked data, and a density plot for each level.
 
 ```r
 plotBoxes(Outcome~Factor)
@@ -56,7 +57,7 @@ describeMeans(Outcome~Factor)
 ```
 
 ```
-## $`Descriptive Statistics for the Groups`
+## $`Descriptive Statistics for the Data`
 ##              N       M      SD
 ## Level1   4.000   2.000   2.449
 ## Level2   4.000   6.000   2.449

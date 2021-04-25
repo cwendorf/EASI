@@ -1,8 +1,8 @@
-## Examples from Textbooks
+## Examples from ITNS
 
 ### Overview of the Examples
 
-Data for these examples are from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017).
+Data and summary statistics for these examples are from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017).
 
 > NOTE: The results of these analyses vary slightly from those presented in *ITNS* because the two make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.).
 
