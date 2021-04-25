@@ -32,6 +32,10 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`plotDensity`](./plotDensity.md)
 
+`Scatter` - functions that plot scatterplots and regression lines
+
+- [`plotScatter`](./plotScatter.md)
+
 `Boxes` - functions that summarize and provide boxplots for the groups or levels
 
 - [`describeBoxes`](./describeBoxes.md)
