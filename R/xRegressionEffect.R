@@ -27,7 +27,7 @@ describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,main=NULL
 }
 
 describeRegressionEffect.default <- function(Predictors,Criterion,main=NULL,digits=3) {
-  Predictors=cbind(Predictors)
+  Predictors <- cbind(Predictors)
   if(ncol(Predictors)==1) {
     CorrStats <- cor(Predictors,Criterion)
     R2 <- as.numeric(CorrStats*CorrStats)
