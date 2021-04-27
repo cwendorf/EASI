@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-25"
+date: "2021-04-27"
 output:
   html_document:
     toc: true
@@ -76,7 +76,7 @@ estimateRegression(Predictor,Criterion)
 ## $`Confidence Intervals for the Regression Coefficients`
 ##                 Est      SE      LL      UL
 ## (Intercept)   6.888   2.058  -1.967  15.743
-## Predictors    0.056   0.706  -2.982   3.094
+## Predictor     0.056   0.706  -2.982   3.094
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
@@ -97,7 +97,7 @@ estimateRegression(Predictor,Criterion,conf.level=.99)
 ## $`Confidence Intervals for the Regression Coefficients`
 ##                 Est      SE      LL      UL
 ## (Intercept)   6.888   2.058 -13.538  27.314
-## Predictors    0.056   0.706  -6.951   7.063
+## Predictor     0.056   0.706  -6.951   7.063
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
@@ -120,7 +120,7 @@ testRegression(Predictor,Criterion)
 ## $`Hypothesis Tests for the Regression Coefficients`
 ##                 Est      SE       t       p
 ## (Intercept)   6.888   2.058   3.347   0.079
-## Predictors    0.056   0.706   0.079   0.944
+## Predictor     0.056   0.706   0.079   0.944
 ```
 
 #### Confidence Intervals for the Standardized Regression Coefficient
@@ -133,8 +133,8 @@ estimateStandardizedRegression(Predictor,Criterion)
 
 ```
 ## $`Confidence Intervals for the Standardized Regression Coefficients`
-##                Est      SE      LL      UL
-## Predictors   0.056   0.706  -2.982   3.094
+##               Est      SE      LL      UL
+## Predictor   0.056   0.706  -2.982   3.094
 ```
 
 This code will produce a graph of the confidence intervals for the standardized coefficient.
@@ -153,8 +153,8 @@ estimateStandardizedRegression(Predictor,Criterion,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Regression Coefficients`
-##                Est      SE      LL      UL
-## Predictors   0.056   0.706  -6.951   7.063
+##               Est      SE      LL      UL
+## Predictor   0.056   0.706  -6.951   7.063
 ```
 
 For the graph, it is possible to change the confidence level.
