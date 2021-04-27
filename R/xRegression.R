@@ -36,11 +36,13 @@ estimateRegression.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,
 }
 
 estimateRegression.default <- function(Predictors,Criterion,conf.level=.95,main=NULL,digits=3) {
-  PredStats <- .unformatFrame(describeMeans(Predictors)[[1]])
+  Pred <- cbind(Predictors)
+  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
+  PredStats <- .unformatFrame(describeMeans(Pred)[[1]])
   class(PredStats) <- "wss"
   CritStats <- .unformatFrame(describeMeans(Criterion)[[1]])
   class(CritStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(Predictors,Criterion)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(Pred,Criterion)[[1]])
   class(CorrStats) <- "wss"
   estimateRegression(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
@@ -79,11 +81,13 @@ testRegression.wss <- function(PredStats,CritStats,CorrStats,main=NULL,digits=3)
 }
 
 testRegression.default <- function(Predictors,Criterion,main=NULL,digits=3) {
-  PredStats <- .unformatFrame(describeMeans(Predictors)[[1]])
+  Pred <- cbind(Predictors)
+  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
+  PredStats <- .unformatFrame(describeMeans(Pred)[[1]])
   class(PredStats) <- "wss"
   CritStats <- .unformatFrame(describeMeans(Criterion)[[1]])
   class(CritStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(Predictors,Criterion)[[1]])
+  CorrStats <- .unformatFrame(describeCorrelations(Pred,Criterion)[[1]])
   class(CorrStats) <- "wss"
   testRegression(PredStats,CritStats,CorrStats,main=main,digits=digits)
 }
