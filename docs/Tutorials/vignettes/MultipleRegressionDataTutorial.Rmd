@@ -40,9 +40,51 @@ Criterion <- c(9,6,4,9)
 RegressionData <- data.frame(Predictor1,Predictor2,Criterion)
 ```
 
-### Analyses of of a Multiple Regression Model
+#### Descriptive Statistics
 
-#### Confidence Intervals for the Regression Coefficients
+This code obtains the descriptive statistics for the data frame.
+```{r}
+describeMeans(Predictor1,Predictor2,Criterion)
+```
+
+### Analyses of the Overall Model Fit
+
+This section produces analyses of the overall fit of the model.
+
+#### Confidence Interval
+
+This code will calculate R Squared and Adjusted R Squared for the regression model.
+```{r}
+describeRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
+```
+
+This code will produce the confidence interval for R Squared.
+```{r}
+estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
+```
+
+The code defaults to 90% confidence intervals. This can be changed if desired.
+```{r}
+estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
+```
+
+#### Significance Test
+
+This code will produce a source table associated with the regression model.
+```{r}
+describeRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
+```
+
+This code will calculate NHST for the regression model.
+```{r}
+testRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
+```
+
+### Analyses of the Regression Coefficients
+
+This section analyses the regression coefficients obtained from the overall model.
+
+#### Confidence Intervals 
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
@@ -64,14 +106,14 @@ For the graph, it is possible to plot just coefficients for the predictors (minu
 plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,mu=0,intercept=FALSE)
 ```
 
-#### Significance Tests for the Regression Coefficients
+#### Significance Tests
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
 testRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 ```
 
-#### Confidence Intervals for the Standardized Regression Coefficients
+#### Standardized Coefficients
 
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 ```{r}
@@ -91,33 +133,4 @@ estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterio
 For the graph, it is possible to change the confidence level.
 ```{r,Regression-MultipleStandardB}
 plotStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
-```
-
-#### Confidence Interval for the Overall Fit
-
-This code will calculate R Squared and Adjusted R Squared for the regression model.
-```{r}
-describeRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
-```
-
-This code will produce the confidence interval for R Squared.
-```{r}
-estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
-```
-
-The code defaults to 90% confidence intervals. This can be changed if desired.
-```{r}
-estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
-```
-
-#### Significance Test for the Overall Fit
-
-This code will produce a source table associated with the regression model.
-```{r}
-describeRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
-```
-
-This code will calculate NHST for the regression model.
-```{r}
-testRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
 ```

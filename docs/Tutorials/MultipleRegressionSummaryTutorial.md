@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-25"
+date: "2021-04-29"
 output:
   html_document:
     toc: true
@@ -45,10 +45,6 @@ RegressionCorr["Predictor2","Criterion"] <- .389
 RegressionCorr <- fillCorrelations(RegressionCorr)
 ```
 
-### Analyses of a Multiple Regression Model
-
-This section produces analyses of a regression model with multiple predictors.
-
 This code creates new tables that identify the specific variables used in the regression model.
 
 ```r
@@ -57,113 +53,11 @@ class(PredictorSummary) <- "wss"
 CriterionSummary <- rbind(Criterion)
 ```
 
-#### Confidence Intervals for the Regression Coefficients
+### Analyses of the Overall Model Fit
 
-This code will provide a table of confidence intervals for each of the regression coefficients.
+This section produces analyses of the overall fit of the model.
 
-```r
-estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr)
-```
-
-```
-## $`Confidence Intervals for the Regression Coefficients`
-##                 Est      SE      LL      UL
-## (Intercept)   4.481   5.868 -70.077  79.039
-## Predictor1   -0.185   1.048 -13.496  13.126
-## Predictor2    0.481   1.048 -12.830  13.792
-```
-
-This code will produce a graph of the confidence intervals for each of the regression coefficients.
-
-```r
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr)
-```
-
-![](figures/Regression-MultipleA-1.png)<!-- -->
-
-The code defaults to 95% confidence intervals. This can be changed if desired.
-
-```r
-estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-```
-
-```
-## $`Confidence Intervals for the Regression Coefficients`
-##                 Est      SE       LL      UL
-## (Intercept)   4.481   5.868 -369.047 378.009
-## Predictor1   -0.185   1.048  -66.872  66.502
-## Predictor2    0.481   1.048  -66.206  67.168
-```
-
-For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
-
-```r
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,intercept=FALSE)
-```
-
-![](figures/Regression-MultipleB-1.png)<!-- -->
-
-#### Significance Tests for the Regression Coefficients
-
-This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
-
-```r
-testRegression(PredictorSummary,CriterionSummary,RegressionCorr)
-```
-
-```
-## $`Hypothesis Tests for the Regression Coefficients`
-##                 Est      SE       t       p
-## (Intercept)   4.481   5.868   0.764   0.585
-## Predictor1   -0.185   1.048  -0.176   0.889
-## Predictor2    0.481   1.048   0.459   0.726
-```
-
-#### Confidence Intervals for the Standardized Regression Coefficient
-
-This code will provide a table of confidence intervals for each of the standardized coefficients.
-
-```r
-estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
-```
-
-```
-## $`Confidence Intervals for the Standardized Regression Coefficients`
-##                Est      SE      LL      UL
-## Predictor1  -0.185   1.048 -13.496  13.126
-## Predictor2   0.481   1.048 -12.830  13.792
-```
-
-This code will produce a graph of the confidence intervals for each of the standardized coefficients.
-
-```r
-plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
-```
-
-![](figures/Regression-MultipleStandardA-1.png)<!-- -->
-
-As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
-
-```r
-estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-```
-
-```
-## $`Confidence Intervals for the Standardized Regression Coefficients`
-##                Est      SE      LL      UL
-## Predictor1  -0.185   1.048 -66.872  66.502
-## Predictor2   0.481   1.048 -66.206  67.168
-```
-
-For the graph, it is possible to change the confidence level.
-
-```r
-plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-```
-
-![](figures/Regression-MultipleStandardB-1.png)<!-- -->
-
-#### Confidence Interval for the Overall Fit
+#### Confidence Interval
 
 This code will calculate R Squared and Adjusted R Squared for the regression model.
 
@@ -201,7 +95,7 @@ estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr,conf.l
 ## Model   0.177   0.000   0.432
 ```
 
-#### Significance Test for the Overall Fit
+#### Significance Test
 
 This code will produce a source table associated with the regression model.
 
@@ -228,3 +122,113 @@ testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 ##             F     df1     df2       p
 ## Model   0.108   2.000   1.000   0.907
 ```
+
+### Analyses of the Regression Coefficients
+
+This section analyses the regression coefficients obtained from the overall model.
+
+#### Confidence Intervals
+
+This code will provide a table of confidence intervals for each of the regression coefficients.
+
+```r
+estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+```
+## $`Confidence Intervals for the Regression Coefficients`
+##                 Est      SE      LL      UL
+## (Intercept)   4.481   5.868 -70.077  79.039
+## Predictor1   -0.185   1.048 -13.496  13.126
+## Predictor2    0.481   1.048 -12.830  13.792
+```
+
+This code will produce a graph of the confidence intervals for each of the regression coefficients.
+
+```r
+plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+![](figures/Regression-MultipleA-1.png)<!-- -->
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
+
+```r
+estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+```
+## $`Confidence Intervals for the Regression Coefficients`
+##                 Est      SE       LL      UL
+## (Intercept)   4.481   5.868 -369.047 378.009
+## Predictor1   -0.185   1.048  -66.872  66.502
+## Predictor2    0.481   1.048  -66.206  67.168
+```
+
+For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
+
+```r
+plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,intercept=FALSE)
+```
+
+![](figures/Regression-MultipleB-1.png)<!-- -->
+
+#### Significance Tests
+
+This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
+
+```r
+testRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+```
+## $`Hypothesis Tests for the Regression Coefficients`
+##                 Est      SE       t       p
+## (Intercept)   4.481   5.868   0.764   0.585
+## Predictor1   -0.185   1.048  -0.176   0.889
+## Predictor2    0.481   1.048   0.459   0.726
+```
+
+#### Standardized Coefficient
+
+This code will provide a table of confidence intervals for each of the standardized coefficients.
+
+```r
+estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+```
+## $`Confidence Intervals for the Standardized Regression Coefficients`
+##                Est      SE      LL      UL
+## Predictor1  -0.185   1.048 -13.496  13.126
+## Predictor2   0.481   1.048 -12.830  13.792
+```
+
+This code will produce a graph of the confidence intervals for each of the standardized coefficients.
+
+```r
+plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+```
+
+![](figures/Regression-MultipleStandardA-1.png)<!-- -->
+
+As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
+
+```r
+estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+```
+## $`Confidence Intervals for the Standardized Regression Coefficients`
+##                Est      SE      LL      UL
+## Predictor1  -0.185   1.048 -66.872  66.502
+## Predictor2   0.481   1.048 -66.206  67.168
+```
+
+For the graph, it is possible to change the confidence level.
+
+```r
+plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+```
+
+![](figures/Regression-MultipleStandardB-1.png)<!-- -->

@@ -15,13 +15,26 @@ RegressionCorr <- declareCorrelations("Predictor","Criterion")
 RegressionCorr["Predictor","Criterion"] <- .056
 RegressionCorr <- fillCorrelations(RegressionCorr)
 
-### Analyses of a Bivariate Regression Model
-
 PredictorSummary <- rbind(Predictor)
 class(PredictorSummary) <- "wss"
 CriterionSummary <- rbind(Criterion)
 
-#### Confidence Intervals for the Regression Coefficients
+### Analyses of the Overall Model Fit
+
+#### Confidence Interval
+
+describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+
+#### Significance Test
+
+describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+
+### Analyses of the Regression Coefficients
+
+#### Confidence Intervals
 
 estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
@@ -29,11 +42,11 @@ plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
 plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
 
-#### Significance Tests for the Regression Coefficients
+#### Significance Tests
 
 testRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 
-#### Confidence Intervals for the Standardized Regression Coefficient
+#### Standardized Coefficients
 
 estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
@@ -41,13 +54,14 @@ plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,Regress
 estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
 plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
 
-#### Confidence Interval for the Overall Fit
+### Analyses of Regression Values
 
-describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
-estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
-estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+#### Regression Line
 
-#### Hypothesis Test for the Overall Fit
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,interval="none")
 
-describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
-testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+#### Confidence and Prediction Intervals
+
+estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4)
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4,interval="confidence")
+plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4,interval="prediction")

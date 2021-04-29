@@ -12,17 +12,26 @@ Predictor <- c(0,0,3,5)
 Criterion <- c(9,6,4,9)
 BivariateData <- data.frame(Predictor,Criterion)
 
-#### Plot of the Data
-
-plotScatter(Predictor,Criterion)
-
 #### Descriptive Statistics
 
 describeMeans(Predictor,Criterion)
 
-### Analyses of of a Bivariate Regression Model
+### Analyses of the Overall Model Fit
 
-#### Confidence Intervals for the Regression Coefficients
+#### Confidence Interval
+
+describeRegressionEffect(Predictor,Criterion)
+estimateRegressionEffect(Predictor,Criterion)
+estimateRegressionEffect(Predictor,Criterion,conf.level=.95)
+
+#### Significance Test
+
+describeRegressionOmnibus(Predictor,Criterion)
+testRegressionOmnibus(Predictor,Criterion)
+
+### Analyses of the Regression Coefficients
+
+#### Confidence Intervals
 
 estimateRegressionCoefficients(Predictor,Criterion)
 plotRegressionCoefficients(Predictor,Criterion)
@@ -30,11 +39,11 @@ plotRegressionCoefficients(Predictor,Criterion)
 estimateRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 plotRegressionCoefficients(Predictor,Criterion,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
 
-#### Significance Tests for the Regression Coefficients
+#### Significance Tests
 
 testRegressionCoefficients(Predictor,Criterion)
 
-#### Confidence Intervals for the Standardized Regression Coefficient
+#### Standardized Coefficients
 
 estimateStandardizedRegressionCoefficients(Predictor,Criterion)
 plotStandardizedRegressionCoefficients(Predictor,Criterion)
@@ -42,13 +51,15 @@ plotStandardizedRegressionCoefficients(Predictor,Criterion)
 estimateStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 plotStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 
-#### Confidence Interval for the Overall Fit
+### Analyses of Regression Values
 
-describeRegressionEffect(Predictor,Criterion)
-estimateRegressionEffect(Predictor,Criterion)
-estimateRegressionEffect(Predictor,Criterion,conf.level=.95)
+#### Regression Line
 
-#### Hypothesis Test for the Overall Fit
+plotRegression(Predictor,Criterion,interval="none")
+plotRegression(Predictor,Criterion,interval="none",points=TRUE)
 
-describeRegressionOmnibus(Predictor,Criterion)
-testRegressionOmnibus(Predictor,Criterion)
+#### Confidence and Prediction Intervals
+
+estimateRegression(Predictor,Criterion,value=4)
+plotRegression(Predictor,Criterion,value=4,interval="confidence")
+plotRegression(Predictor,Criterion,value=4,interval="prediction")
