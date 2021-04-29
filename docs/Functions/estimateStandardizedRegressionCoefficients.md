@@ -1,17 +1,17 @@
-## Estimate Regression
+## Estimate Standardized Regression Coefficients
 
 ### Description
 
-Provides a table of regression coefficients and their confidence intervals.
+Provides a table of standardized regression coefficients and their confidence intervals.
 
 ### Usage
 
 ```r
 ## Default S3 method
-estimateRegression(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedRegressionCoefficients(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateRegression(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -33,8 +33,7 @@ The returned list contains one frame with the following components:
 
 Value | Description
 :-- | :--
-```Est``` | the regression coefficients
-```SE``` | the standard errors for the regression coefficients
-```df``` | the degrees of freedom for the regression coefficients
-```LL``` | the lower limits of the confidence intervals for the regression coefficients
-```UL``` | the upper limits of the confidence intervals for the regression coefficients
+```Est``` | the standardized regression coefficients
+```SE``` | the standard errors for the standardized regression coefficients
+```LL``` | the lower limits of the confidence intervals for the standardized regression coefficients
+```UL``` | the upper limits of the confidence intervals for the standardizedregression coefficients

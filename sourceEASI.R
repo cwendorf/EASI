@@ -9,14 +9,14 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDensity.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDistributions.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCateyes.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xBoxes.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xScatter.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelations.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationDifference.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationComparison.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegression.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedRegression.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegressionCoefficients.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedRegressionCoefficients.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegressionOmnibus.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegressionEffect.R")

@@ -26,23 +26,23 @@ CriterionSummary <- rbind(Criterion)
 
 #### Confidence Intervals for the Regression Coefficients
 
-estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr)
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 
-estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,intercept=FALSE)
+estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,intercept=FALSE)
 
 #### Significance Tests for the Regression Coefficients
 
-testRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+testRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 
 #### Confidence Intervals for the Standardized Regression Coefficients
 
-estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
-plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 
-estimateStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotStandardizedRegression(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
 
 #### Confidence Interval for the Overall Fit
 

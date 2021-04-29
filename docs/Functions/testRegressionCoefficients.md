@@ -1,17 +1,17 @@
-## Estimate Standardized Regression
+## Test Regression Coefficients
 
 ### Description
 
-Provides a table of standardized regression coefficients and their confidence intervals.
+Provides statistical significance tests for the regression coefficients.
 
 ### Usage
 
 ```r
 ## Default S3 method
-estimateStandardizedRegression(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
+testRegressionCoefficients(Predictors,Criterion,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedRegression(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+testRegressionCoefficients(PredStats,CritStats,CorrStats,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -23,7 +23,6 @@ Argument | Description
 ```PredStats``` | a matrix/frame of descriptive/summary statistics for the predictors
 ```CritStats``` | a matrix/frame of descriptive/summary statistics for the criterion
 ```CorrStats``` | a matrix/frame of correlations for the data set
-```conf.level``` | confidence level of the interval
 ```main``` | a custom title for the table
 ```digits``` | the specified number of decimal places
 
@@ -33,7 +32,8 @@ The returned list contains one frame with the following components:
 
 Value | Description
 :-- | :--
-```Est``` | the standardized regression coefficients
-```SE``` | the standard errors for the standardized regression coefficients
-```LL``` | the lower limits of the confidence intervals for the standardized regression coefficients
-```UL``` | the upper limits of the confidence intervals for the standardizedregression coefficients
+```Est``` | the regression coefficients
+```SE``` | the standard errors for the regression coefficients
+```df``` | the degrees of freedom for the regression coefficients
+```t``` | the t values for the regression coefficients
+```p``` | the p values for the regression coefficients

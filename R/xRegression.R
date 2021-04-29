@@ -1,114 +1,148 @@
 # Estimation Approach to Statistical Inference
-## Regression Coefficients
+## Bivariate Regression
 
 ### Confidence Intervals
 
-estimateRegression <- function(x,...) 
-  UseMethod("estimateRegression")
-
-estimateRegression.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3) {
-  DescStats <- rbind(PredStats,CritStats)
-  rn <- rownames(DescStats)
-  CorrStats <- CorrStats[rn,rn]
-  M <- DescStats[,"M"]
-  V <- .cortocov(CorrStats,DescStats[,"SD"])
-  N <- DescStats[1,"N"]
-  k <- nrow(DescStats)-1
-  M <- M * N
-  V <- V * (N-1)
-  V <- V + outer(M, M)/N
-  V <- rbind(c(N, M), cbind(M, V))
-  XX <- V[-(k+2), -(k+2)]
-  XY <- V[-(k+2), k+2]
-  YY <- V[k+2, k+2]
-  b <- solve(XX, XY)
-  df <- N-k-1
-  s2 <- (YY - b %*% XY) / df
-  SE <- sqrt(diag(solve(XX) * c(s2)))
-  alpha.lower <- alpha.upper <- (1-conf.level)/2
-  LL <- b+qt(alpha.lower,df)*SE
-  UL <- b+qt(1-alpha.upper,df)*SE
-  results <- cbind(Est=b,SE=SE,LL=LL,UL=UL)
-  rownames(results)[1]="(Intercept)"
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Confidence Intervals for the Regression Coefficients"} else {names(results) <- main}  
-  return(results)
+.eR <- function(dM,eR,dRO,value,conf.level) {
+  N <- dM[1]
+  M <- dM[2]
+  SD <- dM[3]
+  SSx <- (SD^2)*(N-1)
+  intercept <- eR[1,1]
+  slope <- eR[2,1]
+  MSres <- dRO[2,3]
+  tval <- qt((1-conf.level)/2, df=N-2)
+  fit <- slope*value + intercept
+  cill <- sqrt(MSres * (1/N + (value - M)^2/SSx)) * tval + fit
+  ciul <- sqrt(MSres * (1/N + (value - M)^2/SSx)) * tval * (-1) + fit
+  pill <- sqrt(MSres * (1 + 1/N + (value - M)^2/SSx)) * tval + fit
+  piul <- sqrt(MSres * (1 + 1/N + (value - M)^2/SSx)) * tval * (-1) + fit
+  intervals <- cbind(Est=fit,CI.LL=cill,CI.UL=ciul,PI.LL=pill,PI.UL=piul)
+  rownames(intervals) <- value
+  intervals
 }
 
-estimateRegression.default <- function(Predictors,Criterion,conf.level=.95,main=NULL,digits=3) {
-  Pred <- cbind(Predictors)
-  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
-  PredStats <- .unformatFrame(describeMeans(Pred)[[1]])
-  class(PredStats) <- "wss"
-  CritStats <- .unformatFrame(describeMeans(Criterion)[[1]])
-  class(CritStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(Pred,Criterion)[[1]])
-  class(CorrStats) <- "wss"
-  estimateRegression(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+.estimateRegression <- function(x,...) 
+  UseMethod(".estimateRegression")
+
+.estimateRegression.default <- function(Predictor,Criterion,value,conf.level=.95) {
+  dM <- .unformatFrame(describeMeans(Predictor)[[1]])
+  eR <- .unformatFrame(estimateRegressionCoefficients(Predictor,Criterion)[[1]])
+  dRO <- .unformatFrame(describeRegressionOmnibus(Predictor,Criterion)[[1]])
+  .eR(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
-### Null Hypothesis Significance Tests
-
-testRegression <- function(x,...) 
-  UseMethod("testRegression")
-
-testRegression.wss <- function(PredStats,CritStats,CorrStats,main=NULL,digits=3) {
-  DescStats <- rbind(PredStats,CritStats)
-  rn <- rownames(DescStats)
-  CorrStats <- CorrStats[rn,rn]
-  M <- DescStats[,"M"]
-  V <- .cortocov(CorrStats,DescStats[,"SD"])
-  N <- DescStats[1,"N"]
-  k <- nrow(DescStats)-1
-  M <- M * N
-  V <- V * (N-1)
-  V <- V + outer(M, M)/N
-  V <- rbind(c(N, M), cbind(M, V))
-  XX <- V[-(k+2), -(k+2)]
-  XY <- V[-(k+2), k+2]
-  YY <- V[k+2, k+2]
-  b <- solve(XX, XY)
-  df <- N-k-1
-  s2 <- (YY - b %*% XY) / df
-  SE <- sqrt(diag(solve(XX) * c(s2)))
-  t <- b/SE
-  p <- 2*pt(abs(t),df,lower.tail = FALSE)
-  results <- cbind(Est=b,SE=SE,t=t,p=p)
-  rownames(results)[1]="(Intercept)"
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Hypothesis Tests for the Regression Coefficients"} else {names(results) <- main}  
-  return(results)
+.estimateRegression.wss <- function(PredStats,CritStats,CorrStats,value,conf.level=.95) {
+  dM <- PredStats
+  eR <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats)[[1]])
+  dRO <- .unformatFrame(describeRegressionOmnibus(PredStats,CritStats,CorrStats)[[1]])
+  .eR(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
-testRegression.default <- function(Predictors,Criterion,main=NULL,digits=3) {
-  Pred <- cbind(Predictors)
-  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
-  PredStats <- .unformatFrame(describeMeans(Pred)[[1]])
-  class(PredStats) <- "wss"
-  CritStats <- .unformatFrame(describeMeans(Criterion)[[1]])
-  class(CritStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(Pred,Criterion)[[1]])
-  class(CorrStats) <- "wss"
-  testRegression(PredStats,CritStats,CorrStats,main=main,digits=digits)
+estimateRegression <- function(...,value=NULL,conf.level=.95,main=NULL,digits=3) {
+  results <- .estimateRegression(...,value=value,conf.level=conf.level)
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence and Prediction Intervals for the Regression Line"} else {main="Confidence and Prediction Intervals for the Regression Value"}} 
+  .formatList(list(results),main=main,digits=digits)  
+}
+
+### Scatter Plots
+
+plotScatter <- function(x,...) 
+  UseMethod("plotScatter")
+
+plotScatter.default <- function(Predictor,Criterion,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,points=TRUE,cross=FALSE,col="black") {
+  if(!add) {
+  if(is.null(xlab)) xlab=deparse(substitute(Predictor))
+  if(is.null(ylab)) ylab=deparse(substitute(Criterion))
+  if(is.null(xlim)) {
+    xmin = min(Predictor)
+    xmax = max(Predictor)
+    xlim = c(xmin,xmax)}
+  else {xlim=xlim}
+  if(is.null(ylim)) {
+    ymin = min(Criterion)
+    ymax = max(Criterion)
+    ylim = c(ymin,ymax)} 
+  else {ylim=ylim}  
+  plot(NULL,bty="l",main=main,pch=pch,xlab=xlab,ylab=ylab,cex.lab=1.15,xlim=xlim,ylim=ylim,col=.colorTransparent(col,100))}
+  if(cross) {
+    abline(v=mean(Predictor),col=.colorTransparent(col,50))
+    abline(h=mean(Criterion),col=.colorTransparent(col,50))}
+  if(points) {points(Predictor,Criterion,pch=pch,col=.colorTransparent(col,100))}
 }
 
 ### Confidence Interval Plots
 
+.pR <- function(intervals,results=NULL,interval="both",values=TRUE,conf.level=.95,digits=3,col="black") {
+  newx <- as.numeric(rownames(intervals))
+  if(interval=="prediction" || interval=="both") {  
+    lines(newx,intervals$PI.LL,col=.colorTransparent(col,100),lty=2)
+    lines(newx,intervals$PI.UL,col=.colorTransparent(col,100),lty=2)}
+  if(interval=="confidence" || interval=="both") {
+    lines(newx,intervals$CI.LL,col=.colorTransparent(col,200),lty=2)
+    lines(newx,intervals$CI.UL,col=.colorTransparent(col,200),lty=2)}
+  if(!is.null(results)) {
+    value <- as.numeric(rownames(results))
+    labels <- .formatFrame(results,digits=digits)
+    if(interval=="confidence" || interval=="prediction" || interval=="both") {
+      if(values) text(value,results[1],labels[1],cex=.8,pos=2,offset=.5,font=2,col=col)}
+    if(interval=="confidence" || interval=="both") {
+      lines(x=c(value,value),y=c(results[2],results[3]),lwd=2,col=col)
+      if(values) {for (i in 2:3) text(value,results[i],labels[i],cex=.8,pos=2,offset=.5,font=2,col=col)}}
+    if(interval=="prediction" || interval=="both") {
+      lines(x=c(value,value),y=c(results[4],results[5]),lwd=1,col=col)
+      if(values) {for (i in 4:5) text(value,results[i],labels[i],cex=.8,pos=2,offset=.5,font=2,col=col)}}}
+}
+
 plotRegression <- function(x,...) 
   UseMethod("plotRegression")
 
-plotRegression.wss <- function(PredStats,CritStats,CorrStats,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
-  results <- .unformatFrame(estimateRegression(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
-  if(intercept=="FALSE") {results <- tail(results,-1)}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Regression Coefficients"} else {main="Confidence Intervals for the Regression Coefficient"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=15)
+plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,range=NULL,interval="both",values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
+  if(is.null(xlab)) xlab=deparse(substitute(Predictor))
+  if(is.null(ylab)) ylab=deparse(substitute(Criterion))
+  if(is.null(xlim)) {
+    xmin = min(Predictor)
+    xmax = max(Predictor)
+    xlim = c(xmin,xmax)}
+  else {
+    xlim=xlim
+    xmin=xlim[1]
+    xmax=xlim[2]}
+  if(is.null(range)) {range <- seq(xmin-.25,xmax+.25,by=.05)} else {range <- seq(range[1],range[2],by=.05)}
+  intervals <- as.data.frame(.estimateRegression(Predictor,Criterion,value=range,conf.level))
+  if(is.null(ylim)) {ylim <- c(min(intervals),max(intervals))}
+  if(!add) {plotScatter(Predictor,Criterion,xlim=xlim,ylim=ylim,main=main,xlab=xlab,ylab=ylab,points=points,pch=pch)}
+  if(cross) {
+    abline(v=mean(Predictor),col=.colorTransparent(col,50))
+    abline(h=mean(Criterion),col=.colorTransparent(col,50))}
+  if(line) {
+    Est <- .unformatFrame(estimateRegressionCoefficients(Predictor,Criterion)[[1]])[,"Est"]
+    abline(Est[1],Est[2],col=col)}  
+  if(!is.null(value)) {results <- .estimateRegression(Predictor,Criterion,value=value,conf.level=conf.level)} else {results=NULL}
+  .pR(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }
 
-plotRegression.default <- function(Predictors,Criterion,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
-  Pred <- cbind(Predictors)
-  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
-  results <- .unformatFrame(estimateRegression(Pred,Criterion,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
-  if(intercept=="FALSE") {results <- tail(results,-1)}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Regression Coefficients"} else {main="Confidence Intervals for the Regression Coefficient"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=15)
+plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NULL,range=NULL,interval="both",values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
+  if(is.null(xlab)) xlab=rownames(PredStats)
+  if(is.null(ylab)) ylab=rownames(CritStats)
+  if(is.null(xlim)) {
+    xmin = PredStats[,"M"]-2*PredStats[,"SD"]
+    xmax = PredStats[,"M"]+2*PredStats[,"SD"]
+    xlim = c(xmin,xmax)}
+  else {
+    xlim=xlim
+    xmin=xlim[1]
+    xmax=xlim[2]}    
+  if(is.null(range)) {range <- seq(xmin-.25,xmax+.25,by=.05)} else {range <- seq(range[1],range[2],by=.05)}
+  intervals <- as.data.frame(.estimateRegression(PredStats,CritStats,CorrStats,value=range,conf.level))
+  if(is.null(ylim)) {ylim <- c(min(intervals),max(intervals))}
+  if(!add) plot(NULL,bty="l",xlim=xlim,ylim=ylim,main=main,pch=pch,xlab=xlab,ylab=ylab,cex.lab=1.15)
+  if(cross) {
+    abline(v=PredStats[,"M"],col=.colorTransparent(col,50))
+    abline(h=CritStats[,"M"],col=.colorTransparent(col,50))}
+  if(line) {
+    Est <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats)[[1]])[,"Est"]
+    abline(Est[1],Est[2],col=col)} 
+  if(!is.null(value)) {results <- .estimateRegression(PredStats,CritStats,CorrStats,value=value,conf.level=conf.level)} else {results=NULL}
+  .pR(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }

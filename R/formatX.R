@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Basic Formatting
+## Formatting
 
-### Formatting
+### Frames and Lists
 
 .formatFrame <- function(results,digits=3) {
     format(as.data.frame(round(results,digits=digits)),width=7,trim=T,nsmall=digits)
@@ -21,7 +21,14 @@
     lapply(results,.unformatFrame)
 }
 
-simplify <- function(results) {
+unformat <- function(results) {
     if(length(results)==1) {.unformatFrame(results[[1]])}
     else {.unformatList(results)}
+}
+
+### Colors
+
+.colorTransparent <- function(someColor,alpha=100) {
+  newColor <- col2rgb(someColor)
+  apply(newColor,2,function(curcoldata) {rgb(red=curcoldata[1],green=curcoldata[2],blue=curcoldata[3],alpha=alpha,maxColorValue=255)})
 }

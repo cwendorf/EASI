@@ -1,17 +1,17 @@
-% File man/testRegression.Rd
+% File man/testRegressionCoefficients.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{testRegression}
-\alias{testRegression}
-\alias{testRegression.default}
-\alias{testRegression.wss}
-\title{Test Regression}
+\name{testRegressionCoefficients}
+\alias{testRegressionCoefficients}
+\alias{testRegressionCoefficients.default}
+\alias{testRegressionCoefficients.wss}
+\title{Test Regression Coefficients}
 \description{Provides statistical significance tests for the regression coefficients.}
 
 \usage{
-\method{testRegression}{default}(Predictors,Criterion,main=NULL,digits=3)
+\method{testRegressionCoefficients}{default}(Predictors,Criterion,main=NULL,digits=3)
 
-\method{testRegression}{wss}(PredStats,CritStats,CorrStats,main=NULL,digits=3)
+\method{testRegressionCoefficients}{wss}(PredStats,CritStats,CorrStats,main=NULL,digits=3)
 }
 
 \arguments{

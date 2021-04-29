@@ -24,23 +24,23 @@ describeMeans(Predictor,Criterion)
 
 #### Confidence Intervals for the Regression Coefficients
 
-estimateRegression(Predictor,Criterion)
-plotRegression(Predictor,Criterion)
+estimateRegressionCoefficients(Predictor,Criterion)
+plotRegressionCoefficients(Predictor,Criterion)
 
-estimateRegression(Predictor,Criterion,conf.level=.99)
-plotRegression(Predictor,Criterion,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
+estimateRegressionCoefficients(Predictor,Criterion,conf.level=.99)
+plotRegressionCoefficients(Predictor,Criterion,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
 
 #### Significance Tests for the Regression Coefficients
 
-testRegression(Predictor,Criterion)
+testRegressionCoefficients(Predictor,Criterion)
 
 #### Confidence Intervals for the Standardized Regression Coefficient
 
-estimateStandardizedRegression(Predictor,Criterion)
-plotStandardizedRegression(Predictor,Criterion)
+estimateStandardizedRegressionCoefficients(Predictor,Criterion)
+plotStandardizedRegressionCoefficients(Predictor,Criterion)
 
-estimateStandardizedRegression(Predictor,Criterion,conf.level=.99)
-plotStandardizedRegression(Predictor,Criterion,conf.level=.99)
+estimateStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
+plotStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 
 #### Confidence Interval for the Overall Fit
 

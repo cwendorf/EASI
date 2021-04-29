@@ -17,23 +17,23 @@ RegressionData <- data.frame(Predictor1,Predictor2,Criterion)
 
 #### Confidence Intervals for the Regression Coefficients
 
-estimateRegression(cbind(Predictor1,Predictor2),Criterion)
-plotRegression(cbind(Predictor1,Predictor2),Criterion)
+estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 
-estimateRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
-plotRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,mu=0,intercept=FALSE)
+estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
+plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,mu=0,intercept=FALSE)
 
 #### Significance Tests for the Regression Coefficients
 
-testRegression(cbind(Predictor1,Predictor2),Criterion)
+testRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 
 #### Confidence Intervals for the Standardized Regression Coefficients
 
-estimateStandardizedRegression(cbind(Predictor1,Predictor2),Criterion)
-plotStandardizedRegression(cbind(Predictor1,Predictor2),Criterion)
+estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+plotStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 
-estimateStandardizedRegression(cbind(Predictor1,Pedictor2),Criterion,conf.level=.99)
-plotStandardizedRegression(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
+estimateStandardizedRegressionCoefficients(cbind(Predictor1,Pedictor2),Criterion,conf.level=.99)
+plotStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
 
 #### Confidence Interval for the Overall Fit
 

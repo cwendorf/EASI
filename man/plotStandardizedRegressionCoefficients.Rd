@@ -1,17 +1,17 @@
-% File man/plotRegression.Rd
+% File man/plotStandardizedRegressionCoefficients.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{plotRegression}
-\alias{plotRegression}
-\alias{plotRegression.default}
-\alias{plotRegression.wss}
-\title{Plot Regression}
-\description{Provides a plot of the regression coefficients and their confidence intervals.}
+\name{plotStandardizedRegressionCoefficients}
+\alias{plotStandardizedRegressionCoefficients}
+\alias{plotStandardizedRegressionCoefficients.default}
+\alias{plotStandardizedRegressionCoefficients.wss}
+\title{Plot Standardized Regression Coefficients}
+\description{Provides a plot of the standardized regression coefficients and their confidence intervals.}
 
 \usage{
-\method{plotRegression}{default}(Predictors,Criterion,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotStandardizedRegressionCoefficients}{default}(Predictors,Criterion,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
-\method{plotRegression}{wss}(PredStats,CritStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotStandardizedRegressionCoefficients}{wss}(PredStats,CritStats,CorrStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 }
 
 \arguments{
@@ -33,9 +33,9 @@
 
 \value{
 The returned plot contains the following components:
-\item{Est}{the regression coefficients}
-\item{LL}{the lower limits of the confidence intervals for the regression coefficients}
-\item{UL}{the upper limits of the confidence intervals for the regression coefficients}
+\item{Est}{the standardized regression coefficients}
+\item{LL}{the lower limits of the confidence intervals for the standardized regression coefficients}
+\item{UL}{the upper limits of the confidence intervals for the standardized regression coefficients}
 \item{mu}{a horizontal line for the true/hypothesized value}
 \item{rope}{a shaded region of practical equivalence}
 }

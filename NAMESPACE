@@ -3,7 +3,7 @@
 
 ### xFormat
 
-export(simplify)
+export(unformat)
 
 ### xData
 
@@ -16,12 +16,6 @@ export(plotData)
 S3method(plotDensity,default)
 S3method(plotDensity,formula)
 export(plotDensity)
-
-### xScatter
-
-S3method(plotScatter,default)
-S3method(plotScatter,wss)
-export(plotScatter)
 
 ### xCateyes
 
@@ -324,27 +318,40 @@ export(plotCorrelationComparison)
 
 ### xRegression
 
+S3method(plotScatter,default)
+export(plotScatter)
+
 S3method(estimateRegression,default)
 S3method(estimateRegression,wss)
 export(estimateRegression)
-
-S3method(testRegression,default)
-S3method(testRegression,wss)
-export(testRegression)
 
 S3method(plotRegression,default)
 S3method(plotRegression,wss)
 export(plotRegression)
 
-### xStandardizedRegression
+### xRegressionCoefficients
 
-S3method(estimateStandardizedRegression,default)
-S3method(estimateStandardizedRegression,wss)
-export(estimateStandardizedRegression)
+S3method(estimateRegressionCoefficients,default)
+S3method(estimateRegressionCoefficients,wss)
+export(estimateRegressionCoefficients)
 
-S3method(plotStandardizedRegression,default)
-S3method(plotStandardizedRegression,wss)
-export(plotStandardizedRegression)
+S3method(testRegressionCoefficients,default)
+S3method(testRegressionCoefficients,wss)
+export(testRegressionCoefficients)
+
+S3method(plotRegressionCoefficients,default)
+S3method(plotRegressionCoefficients,wss)
+export(plotRegressionCoefficients)
+
+### xStandardizedRegressionCoefficients
+
+S3method(estimateStandardizedRegressionCoefficients,default)
+S3method(estimateStandardizedRegressionCoefficients,wss)
+export(estimateStandardizedRegressionCoefficients)
+
+S3method(plotStandardizedRegressionCoefficients,default)
+S3method(plotStandardizedRegressionCoefficients,wss)
+export(plotStandardizedRegressionCoefficients)
 
 ### xRegressionOmnibus
 

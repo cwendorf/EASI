@@ -1,8 +1,14 @@
 # Estimation Approach to Statistical Inference
 
+## 4.4.210505
+
+- Added regression line confidence and prediction interval functions
+- Revised regression coefficient estimation
+- Added and reworked vignettes and examples
+
 ## EASI 4.3.210501
 
-- Added scatterplot and regression line functions
+- Added scatterplot function
 - Updated vignettes and examples
 
 ## EASI 4.2.210405

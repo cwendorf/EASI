@@ -32,7 +32,7 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`plotDensity`](./plotDensity.md)
 
-`Scatter` - functions that plot scatterplots and regression lines
+`Scatter` - functions that create scatterplots
 
 - [`plotScatter`](./plotScatter.md)
 
@@ -152,11 +152,27 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 #### Regression Coefficients and Models
 
-`Regression` - functions that provide analyses of regression coefficients
+`Regression` - functions that provide analyses of regression lines and intervals
 
 - [`estimateRegression`](./estimateRegression.md)
-- [`testRegression`](./testRegression.md)
 - [`plotRegression`](./plotRegression.md)
+
+`RegressionCoefficients` - functions that provide analyses of regression coefficients
+
+- [`estimateRegressionCoefficients`](./estimateRegressionCoefficients.md)
+- [`testRegressionCoefficients`](./testRegressionCoefficients.md)
+- [`plotRegressionCoefficients`](./plotRegressionCoefficients.md)
+
+`RegressionCoefficients` - functions that provide analyses of regression coefficients
+
+- [`estimateRegressionCoefficients`](./estimateRegressionCoefficients.md)
+- [`testRegressionCoefficients`](./testRegressionCoefficients.md)
+- [`plotRegressionCoefficients`](./plotRegressionCoefficients.md)
+
+`StandardizedRegressionCoefficients` - functions that provide analyses of standardized regression coefficients
+
+- [`estimateStandardizedRegressionCoefficients`](./estimateStandardizedRegressionCoefficients.md)
+- [`plotStandardizedRegressionCoefficients`](./plotStandardizedRegressionCoefficients.md)
 
 `RegressionOmnibus` - functions that provide an analysis of variance
 

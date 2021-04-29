@@ -1,17 +1,17 @@
-% File man/estimateRegression.Rd
+% File man/estimateRegressionCoefficients.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{estimateRegression}
-\alias{estimateRegression}
-\alias{estimateRegression.default}
-\alias{estimateRegression.wss}
-\title{Estimate Regression}
+\name{estimateRegressionCoefficients}
+\alias{estimateRegressionCoefficients}
+\alias{estimateRegressionCoefficients.default}
+\alias{estimateRegressionCoefficients.wss}
+\title{Estimate Regression Coefficients}
 \description{Provides a table of regression coefficients and their confidence intervals.}
 
 \usage{
-\method{estimateRegression}{default}(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
+\method{estimateRegressionCoefficients}{default}(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateRegression}{wss}(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateRegressionCoefficients}{wss}(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
 }
 
 \arguments{

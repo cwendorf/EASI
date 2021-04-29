@@ -8,10 +8,7 @@ Provides a scatterplot and regression line.
 
 ```r
 ## Default S3 method
-plotScatter(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,points=TRUE,line=TRUE,col="black",pch=16)
-
-## S3 method for class 'wss'
-plotScatter(PredStats,CritStats,CorrStats,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,points=FALSE,line=TRUE,col="black",pch=16)
+plotScatter(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,points=TRUE,col="black",pch=16)
 ```
 
 ### Arguments
@@ -29,10 +26,9 @@ Argument | Description
 ```xlim```| custom limits for the x axis
 ```ylim``` | custom limits for the y axis
 ```points``` | whether the data points should be plotted
-```line``` | whether the regression line should be plotted
 ```col``` | a value for the shaded color of the points
 ```pch``` | a value indicating the symbol for the points
 
 ### Values
 
-The returned plot contains the scatterplot and optional regression line.
+The returned plot contains the scatterplot.

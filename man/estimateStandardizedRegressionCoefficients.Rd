@@ -1,17 +1,17 @@
-% File man/estimateStandardizedRegression.Rd
+% File man/estimateStandardizedRegressionCoefficients.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{estimateStandardizedRegression}
-\alias{estimateStandardizedRegression}
-\alias{estimateStandardizedRegression.default}
-\alias{estimateStandardizedRegression.wss}
-\title{Estimate StandardizedRegression}
+\name{estimateStandardizedRegressionCoefficients}
+\alias{estimateStandardizedRegressionCoefficients}
+\alias{estimateStandardizedRegressionCoefficients.default}
+\alias{estimateStandardizedRegressionCoefficients.wss}
+\title{Estimate Standardized Regression Coefficients}
 \description{Provides a table of standardized regression coefficients and their confidence intervals.}
 
 \usage{
-\method{estimateStandardizedRegression}{default}(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedRegressionCoefficients}{default}(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateStandardizedRegression}{wss}(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedRegressionCoefficients}{wss}(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
 }
 
 \arguments{

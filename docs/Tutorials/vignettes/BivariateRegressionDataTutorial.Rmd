@@ -61,51 +61,51 @@ This section produces analyses of a regression with only one predictor.
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
-estimateRegression(Predictor,Criterion)
+estimateRegressionCoefficients(Predictor,Criterion)
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 ```{r,Regression-BivariateA}
-plotRegression(Predictor,Criterion)
+plotRegressionCoefficients(Predictor,Criterion)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegression(Predictor,Criterion,conf.level=.99)
+estimateRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
 ```{r,Regression-BivariateB}
-plotRegression(Predictor,Criterion,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
+plotRegressionCoefficients(Predictor,Criterion,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
 ```
 
 #### Significance Tests for the Regression Coefficients
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
-testRegression(Predictor,Criterion)
+testRegressionCoefficients(Predictor,Criterion)
 ```
 
 #### Confidence Intervals for the Standardized Regression Coefficient
 
 This code will provide a table of confidence intervals for the standardized coefficient.
 ```{r}
-estimateStandardizedRegression(Predictor,Criterion)
+estimateStandardizedRegressionCoefficients(Predictor,Criterion)
 ```
 
 This code will produce a graph of the confidence intervals for the standardized coefficient.
 ```{r,Regression-BivariateStandardA}
-plotStandardizedRegression(Predictor,Criterion)
+plotStandardizedRegressionCoefficients(Predictor,Criterion)
 ```
 
 As in other places, the code defaults to a 95% confidence interval. This can be changed if desired.
 ```{r}
-estimateStandardizedRegression(Predictor,Criterion,conf.level=.99)
+estimateStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 ```
 
 For the graph, it is possible to change the confidence level.
 ```{r,Regression-BivariateStandardB}
-plotStandardizedRegression(Predictor,Criterion,conf.level=.99)
+plotStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 ```
 
 #### Confidence Interval for the Overall Fit
