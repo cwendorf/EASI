@@ -41,9 +41,9 @@ PairedData <- data.frame(Outcome1,Outcome2)
 
 #### Plot of the Data
 
-This code provides a scatterplot for the bivariate relationship (and suppresses the regression line).
+This code provides a scatterplot for the bivariate relationship.
 ```{r,PairedCorrelation-Scatter}
-plotScatter(Outcome1,Outcome2,line=FALSE)
+plotScatter(Outcome1,Outcome2)
 ```
 
 #### Descriptive Statistics

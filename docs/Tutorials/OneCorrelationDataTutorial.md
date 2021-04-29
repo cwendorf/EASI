@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-25"
+date: "2021-04-29"
 output:
   html_document:
     toc: true
@@ -37,10 +37,10 @@ PairedData <- data.frame(Outcome1,Outcome2)
 
 #### Plot of the Data
 
-This code provides a scatterplot for the bivariate relationship (and suppresses the regression line).
+This code provides a scatterplot for the bivariate relationship.
 
 ```r
-plotScatter(Outcome1,Outcome2,line=FALSE)
+plotScatter(Outcome1,Outcome2)
 ```
 
 ![](figures/PairedCorrelation-Scatter-1.png)<!-- -->

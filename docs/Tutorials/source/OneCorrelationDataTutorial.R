@@ -14,7 +14,7 @@ PairedData <- data.frame(Outcome1,Outcome2)
 
 #### Plot of the Data
 
-plotScatter(Outcome1,Outcome2,line=FALSE)
+plotScatter(Outcome1,Outcome2)
 
 #### Descriptive Statistics
 
