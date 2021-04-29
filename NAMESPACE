@@ -321,8 +321,6 @@ export(plotCorrelationComparison)
 S3method(plotScatter,default)
 export(plotScatter)
 
-S3method(estimateRegression,default)
-S3method(estimateRegression,wss)
 export(estimateRegression)
 
 S3method(plotRegression,default)
