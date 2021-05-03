@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-library(EASI)
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/sourceEASI.R")
 
 ## OneWay (Between-Subjects) Example with Rattan Summary Statistics
 

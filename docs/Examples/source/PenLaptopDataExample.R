@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-library(EASI)
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/sourceEASI.R")
 
 ## Independent Groups Example with PenLaptop Data
 

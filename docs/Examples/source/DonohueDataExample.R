@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-library(EASI)
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/sourceEASI.R")
 
 ## Repeated Measures (Within-Subjects) Example with Donohue Data
 
