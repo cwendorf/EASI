@@ -65,7 +65,7 @@ describeCorrelations(BodySatisfaction,Wellbeing)
 
 ### Analyses of the Regression Line
 
-First, we can get a display of the regression line (with the confidence interval suppressed).
+Importantly, we can get a display of the regression line (with the confidence interval suppressed).
 
 ```r
 plotRegression(BodySatisfaction,Wellbeing,interval="none",xlim=c(1,5),points=TRUE)
@@ -94,7 +94,7 @@ plotRegressionCoefficients(BodySatisfaction,Wellbeing)
 
 ### Analyses of Regression Values
 
-Finally, we get the confidence interval of the mean of Wellbeing at a BodySatisfaction score of 2.
+Finally, we get the confidence and prediction intervals of Wellbeing at a BodySatisfaction score of 2.
 
 ```r
 estimateRegression(BodySatisfaction,Wellbeing,value=2)
@@ -107,7 +107,7 @@ estimateRegression(BodySatisfaction,Wellbeing,value=2)
 ```
 
 ```r
-plotRegression(BodySatisfaction,Wellbeing,interval="confidence",value=2,xlim=c(1,5))
+plotRegression(BodySatisfaction,Wellbeing,interval="both",value=2,xlim=c(1,5))
 ```
 
 ![](figures/Regression-Value-1.png)<!-- -->

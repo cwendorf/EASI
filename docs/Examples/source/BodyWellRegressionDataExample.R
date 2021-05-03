@@ -27,4 +27,4 @@ plotRegressionCoefficients(BodySatisfaction,Wellbeing)
 ### Analyses of Regression Values
 
 estimateRegression(BodySatisfaction,Wellbeing,value=2)
-plotRegression(BodySatisfaction,Wellbeing,interval="confidence",value=2,xlim=c(1,5))
+plotRegression(BodySatisfaction,Wellbeing,interval="both",value=2,xlim=c(1,5))

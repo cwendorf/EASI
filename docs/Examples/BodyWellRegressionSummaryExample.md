@@ -52,7 +52,7 @@ CriterionSummary <- rbind(Wellbeing)
 
 ### Analyses of the Regression Line
 
-First, we can get a display of the regression line (with the confidence interval suppressed).
+Importantly, we can get a display of the regression line (with the confidence interval suppressed).
 
 ```r
 plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
@@ -81,7 +81,7 @@ plotRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr)
 
 ### Analyses of Regression Values
 
-Finally, we get the confidence interval of the mean of Wellbeing at a BodySatisfaction score of 2.
+Finally, we get the confidence and prediction intervals of Wellbeing at a BodySatisfaction score of 2.
 
 ```r
 estimateRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,value=2)
@@ -94,7 +94,7 @@ estimateRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,value=2)
 ```
 
 ```r
-plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="confidence",value=2,xlim=c(1,5))
+plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))
 ```
 
 ![](figures/Regression-Value-1.png)<!-- -->
