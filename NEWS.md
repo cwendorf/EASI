@@ -4,7 +4,7 @@
 
 - Added regression line confidence and prediction interval functions
 - Revised regression coefficient estimation
-- Added and reworked vignettes and examples
+- Added and reworked regression vignettes and examples
 
 ## EASI 4.3.210501
 
