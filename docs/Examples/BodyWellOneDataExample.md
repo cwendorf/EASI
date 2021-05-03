@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-16"
+date: "2021-05-03"
 output:
   html_document:
     toc: true
@@ -44,7 +44,7 @@ describeMeans(BodySatisfaction,Wellbeing)
 ```
 
 ```
-## $`Descriptive Statistics for the Variables`
+## $`Descriptive Statistics for the Data`
 ##                        N       M      SD
 ## BodySatisfaction 106.000   3.605   0.659
 ## Wellbeing        106.000   5.055   1.162
@@ -65,7 +65,7 @@ describeCorrelations(BodySatisfaction,Wellbeing)
 
 ### Analyses of a Correlation
 
-More importantly, we can get the confidence interval for the correlation.
+We can get the confidence interval for the correlation.
 
 ```r
 estimateCorrelations(BodySatisfaction,Wellbeing)

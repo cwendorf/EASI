@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-16"
+date: "2021-05-03"
 output:
   html_document:
     toc: true
@@ -43,7 +43,7 @@ BodyWellOneCorr["BodySatisfaction","Wellbeing"] <- .467
 
 ### Analyses of the Correlation
 
-More importantly, we can get the confidence interval for the correlation.
+We can get the confidence interval for the correlation.
 
 ```r
 estimateCorrelations(BodyWellOneSummary,BodyWellOneCorr)
