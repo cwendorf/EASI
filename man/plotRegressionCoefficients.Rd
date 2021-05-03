@@ -5,7 +5,7 @@
 \alias{plotRegressionCoefficients}
 \alias{plotRegressionCoefficients.default}
 \alias{plotRegressionCoefficients.wss}
-\title{Plot Regression}
+\title{Plot Regression Coefficients}
 \description{Provides a plot of the regression coefficients and their confidence intervals.}
 
 \usage{

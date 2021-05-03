@@ -35,7 +35,7 @@ Argument | Description
 
 ### Values
 
-The returned list contains one frame with the following components:
+The returned plot contains the following components:
 
 Value | Description
 :-- | :--
