@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-03-16"
+date: "2021-05-03"
 output:
   html_document:
     toc: true
@@ -97,7 +97,7 @@ First, set the contrast and obtain a difference plot for the contrast.
 
 ```r
 ComfortvsOthers <- c(-1,.5,.5)
-plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs Other Types of Feedback on Motivation",ylab="Motivation")
+plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation")
 ```
 
 ![](figures/Rattan-Contrast-1.png)<!-- -->
