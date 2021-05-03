@@ -46,7 +46,7 @@ BodyWellOneCorr["BodySatisfaction","Wellbeing"] <- .467
 
 ### Analyses of the Correlation
 
-More importantly, we can get the confidence interval for the correlation.
+We can get the confidence interval for the correlation.
 ```{r}
 estimateCorrelations(BodyWellOneSummary,BodyWellOneCorr)
 ```

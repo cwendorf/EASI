@@ -53,7 +53,7 @@ describeCorrelations(BodySatisfaction,Wellbeing)
 
 ### Analyses of a Correlation
 
-More importantly, we can get the confidence interval for the correlation.
+We can get the confidence interval for the correlation.
 ```{r}
 estimateCorrelations(BodySatisfaction,Wellbeing)
 ```
