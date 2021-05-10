@@ -21,9 +21,21 @@
     lapply(results,.unformatFrame)
 }
 
-unformat <- function(results) {
-    if(length(results)==1) {.unformatFrame(results[[1]])}
-    else {.unformatList(results)}
+.deList <- function(results) {
+  out <- results[[1]]
+  colnames(out)[1]="Est" 
+  if(length(results)>1) {
+    for (i in 2:length(results)) {
+      colnames(results[[i]])[1]="Est"
+      out=rbind(out,results[[i]])}}
+  return(out)
+}
+
+.collapseList <- function(results,main=NULL) {
+  if(is.null(main)) {main=names(results)[1]} else {main=main}
+  out=list(.deList(results))
+  names(out) <- main   
+  return(out)
 }
 
 ### Colors

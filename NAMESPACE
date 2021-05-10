@@ -1,10 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Operations to Make Function Available
 
-### xFormat
-
-export(unformat)
-
 ### xData
 
 S3method(plotData,default)
