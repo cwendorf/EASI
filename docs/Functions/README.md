@@ -11,7 +11,7 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 
 ### Summary of the Functions
 
-EASI offers a general syntax for function calls. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted).
+EASI offers a general syntax for function calls. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted) and then the object (the noun that indicates the parameter or item to be analyzed).
 
 Prefix | Description
 :-- | :--
@@ -19,8 +19,6 @@ Prefix | Description
 `estimate` | estimate the statistic and its confidence interval
 `plot` | plot the descriptive statistics or the estimates
 `test` | test the estimates for statistical significance
-
-Then the functions add an object (the noun that indicates the parameter or item to be analyzed).
 
 #### Data and Distributions
 
