@@ -7,7 +7,6 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/formatX.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xData.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDensity.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDistributions.R")
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCateyes.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xBoxes.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelations.R")

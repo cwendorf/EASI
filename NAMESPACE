@@ -13,14 +13,6 @@ S3method(plotDensity,default)
 S3method(plotDensity,formula)
 export(plotDensity)
 
-### xCateyes
-
-S3method(plotCateyes,default)
-S3method(plotCateyes,formula)
-S3method(plotCateyes,bss)
-S3method(plotCateyes,wss)
-export(plotCateyes)
-
 ### xBoxes
 
 S3method(describeBoxes,default)
