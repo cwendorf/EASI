@@ -1,13 +1,15 @@
 # Estimation Approach to Statistical Inference
 ## Data Plots
 
-### Plots
+### Basic Function
 
 .dots <- function(var,loc,offset=0,jitter=0,col=rgb(0,0,0,.3),pch=16) {
   newx <- NULL
   for(i in 1:length(var)) {newx[i] <- loc+runif(1,min=-(jitter/2),max=(jitter/2))+offset}
   points(newx,var,col=col,pch=pch)
 }
+
+### Main Effect Plot
 
 plotData <- function(x,...)
   UseMethod("plotData")

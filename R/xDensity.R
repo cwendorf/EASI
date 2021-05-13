@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Density Plots
 
-### Plots
+### Basic Function
 
 .density <- function(var,loc,type="right",offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1)) {
   y <- density(var)
@@ -11,6 +11,8 @@
   if(type=="right") polygon(c(y1,seq(from=loc+offset,to=loc+offset,length.out=length(y1))),c(y$x,rev(y$x)),border=border,col=col)
   if(type=="left") polygon(c(y2,seq(from=loc+offset,to=loc+offset,length.out=length(y2))),c(y$x,rev(y$x)),border=border,col=col)
 }
+
+### Main Effect Plot
 
 plotDensity <- function(x,...) 
   UseMethod("plotDensity")

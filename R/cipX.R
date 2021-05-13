@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## General Confidence Interval Plots
+## Confidence Interval Plots
 
-### Plots
+### Main Effect Plot
 
 .cipMain <- function(results,main,ylab,xlab,mu,rope,values,ylim,digits,connect,pch=16,slab=NULL,add=FALSE) {
   if(!add) {
@@ -19,6 +19,8 @@
   for (i in 1:nrow(results)) text(i,as.numeric(results[i,2]),results[i,2],cex=.8,pos=2,offset=.5)  
   for (i in 1:nrow(results)) text(i,as.numeric(results[i,3]),results[i,3],cex=.8,pos=2,offset=.5)}
 }
+
+### Comparison Plot
 
 .cipComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect,pch=c(16,16,17),slab=NULL,add=FALSE) {
   graph <- results
@@ -56,6 +58,8 @@
   text(3,graph[3,2],results[3,2],cex=.8,pos=4,offset=.5)  
   text(3,graph[3,3],results[3,3],cex=.8,pos=4,offset=.5)}
 }
+
+### Interaction Plot
 
 .cipAll <- function(results,main,ylab,xlab,col) {
   ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x["LL"])))))-1
