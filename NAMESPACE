@@ -23,6 +23,11 @@ S3method(plotBoxes,default)
 S3method(plotBoxes,formula)
 export(plotBoxes)
 
+### xPlausible
+
+export(plotIntervals)
+export(plotPlausible)
+
 ### xMeans
 
 S3method(describeMeans,default)
