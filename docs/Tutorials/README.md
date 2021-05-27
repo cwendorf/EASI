@@ -32,8 +32,8 @@ The **OneWay** files analyze a tutorial for a single-factor between-subjects (on
 
 The **RepeatedMeasures** files analyze a tutorial for a single-factor within-subjects (repeated measures) design:
 
-- [*RepeatedMeasuresDataTutorial*](./RepeatedDataTutorial.md) uses raw data input.
-- [*RepeatedMeasuresSummaryTutorial*](./RepeatedSummaryTutorial.md) uses summary statistics input.
+- [*RepeatedMeasuresDataTutorial*](./RepeatedMeasuresDataTutorial.md) uses raw data input.
+- [*RepeatedMeasuresSummaryTutorial*](./RepeatedMeasuresSummaryTutorial.md) uses summary statistics input.
 
 The **FactorialDesign** files analyze a tutorial for a two-factor between-subjects (factorial) design:
 
