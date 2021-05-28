@@ -52,6 +52,6 @@ plotIntervals <- function(results,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=
   if(length(results)==2) {
     if(is.null(main)) main=names(results[2])
     results=.unformatFrame(.deList(results)[,c(1,4,5)])
-    .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab="Mean Difference")
+    .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,slab="Difference")
     }
 }
