@@ -309,10 +309,13 @@ export(estimateCorrelationComparison)
 S3method(plotCorrelationComparison,default)
 export(plotCorrelationComparison)
 
-### xRegression
+### xScatter
 
 S3method(plotScatter,default)
+S3method(plotScatter,wss)
 export(plotScatter)
+
+### xRegression
 
 export(estimateRegression)
 

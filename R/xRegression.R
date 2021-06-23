@@ -45,35 +45,9 @@ estimateRegression <- function(...,value=NULL,conf.level=.95,main=NULL,digits=3)
   .formatList(list(results),main=main,digits=digits)  
 }
 
-### Scatter Plots
-
-plotScatter <- function(x,...) 
-  UseMethod("plotScatter")
-
-plotScatter.default <- function(Predictor,Criterion,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,points=TRUE,cross=FALSE,col="black") {
-  if(!add) {
-  if(is.null(xlab)) xlab=deparse(substitute(Predictor))
-  if(is.null(ylab)) ylab=deparse(substitute(Criterion))
-  if(is.null(xlim)) {
-    xmin = min(Predictor)
-    xmax = max(Predictor)
-    xlim = c(xmin,xmax)}
-  else {xlim=xlim}
-  if(is.null(ylim)) {
-    ymin = min(Criterion)
-    ymax = max(Criterion)
-    ylim = c(ymin,ymax)} 
-  else {ylim=ylim}  
-  plot(NULL,bty="l",main=main,pch=pch,xlab=xlab,ylab=ylab,cex.lab=1.15,xlim=xlim,ylim=ylim,col=.colorTransparent(col,100))}
-  if(cross) {
-    abline(v=mean(Predictor),col=.colorTransparent(col,50))
-    abline(h=mean(Criterion),col=.colorTransparent(col,50))}
-  if(points) {points(Predictor,Criterion,pch=pch,col=.colorTransparent(col,100))}
-}
-
 ### Confidence Interval Plots
 
-.pR <- function(intervals,results=NULL,interval="both",values=TRUE,conf.level=.95,digits=3,col="black") {
+.pR <- function(intervals,results=NULL,interval=FALSE,values=TRUE,conf.level=.95,digits=3,col="black") {
   newx <- as.numeric(rownames(intervals))
   if(interval=="prediction" || interval=="both") {  
     lines(newx,intervals$PI.LL,col=.colorTransparent(col,100),lty=2)
@@ -97,7 +71,7 @@ plotScatter.default <- function(Predictor,Criterion,main="Scatter Plot for the V
 plotRegression <- function(x,...) 
   UseMethod("plotRegression")
 
-plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,range=NULL,interval="both",values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
+plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,range=NULL,interval=FALSE,values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
   if(is.null(xlab)) xlab=deparse(substitute(Predictor))
   if(is.null(ylab)) ylab=deparse(substitute(Criterion))
   if(is.null(xlim)) {

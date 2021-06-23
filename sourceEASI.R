@@ -14,6 +14,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelations.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationDifference.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xCorrelationComparison.R")
 
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xScatter.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegression.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xRegressionCoefficients.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xStandardizedRegressionCoefficients.R")
