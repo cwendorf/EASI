@@ -42,8 +42,18 @@ PairedData <- data.frame(Outcome1,Outcome2)
 #### Plot of the Data
 
 This code provides a scatterplot for the bivariate relationship.
-```{r,PairedCorrelation-Scatter}
+```{r,PairedCorrelation-ScatterA}
 plotScatter(Outcome1,Outcome2)
+```
+
+This code provides a scatterplot along with a 95% confidence ellipse for the data.
+```{r,PairedCorrelation-ScatterB}
+plotScatter(Outcome1,Outcome2,interval=TRUE)
+```
+
+The ellipse can be altered for different confidence levels.
+```{r,PairedCorrelation-ScatterC}
+plotScatter(Outcome1,Outcome2,interval=TRUE,conf.level=.99)
 ```
 
 #### Descriptive Statistics

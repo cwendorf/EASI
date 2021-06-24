@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-29"
+date: "2021-06-24"
 output:
   html_document:
     toc: true
@@ -43,7 +43,23 @@ This code provides a scatterplot for the bivariate relationship.
 plotScatter(Outcome1,Outcome2)
 ```
 
-![](figures/PairedCorrelation-Scatter-1.png)<!-- -->
+![](figures/PairedCorrelation-ScatterA-1.png)<!-- -->
+
+This code provides a scatterplot along with a 95% confidence ellipse for the data.
+
+```r
+plotScatter(Outcome1,Outcome2,interval=TRUE)
+```
+
+![](figures/PairedCorrelation-ScatterB-1.png)<!-- -->
+
+The ellipse can be altered for different confidence levels.
+
+```r
+plotScatter(Outcome1,Outcome2,interval=TRUE,conf.level=.99)
+```
+
+![](figures/PairedCorrelation-ScatterC-1.png)<!-- -->
 
 #### Descriptive Statistics
 
