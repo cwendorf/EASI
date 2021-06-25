@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides a scatterplot and regression line.
+Provides a scatterplot and/or confidence ellipse.
 
 ### Usage
 

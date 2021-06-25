@@ -6,7 +6,7 @@
 \alias{plotScatter.default}
 \alias{plotScatter.wss}
 \title{Plot Scatter}
-\description{Provides a scatterplot.}
+\description{Provides a scatterplot and/or confidence ellipse.}
 
 \usage{
 \method{plotScatter}{default}(\dots,add=FALSE,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,ellipse=FALSE,conf.level=.95,points=TRUE,col="black",pch=16,add=FALSE)
