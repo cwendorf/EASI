@@ -44,17 +44,18 @@ This code creates a correlation matrix and enters single correlation.
 ```{r}
 PairedCorr <- declareCorrelations("Outcome1","Outcome2")
 PairedCorr["Outcome1","Outcome2"] <- .500
+PairedCorr <- fillCorrelations(PairedCorr)
 ```
 
 #### Plot of the Data
 
 This code provides a confidence ellipse for the bivariate relationship. Because there is no raw data, no data points are visible and the code defaults instead to an ellipse.
-```{r,PairedCorrelation-ScatterC}
+```{r,PairedCorrelation-ScatterD}
 plotScatter(PairedSummary,PairedCorr)
 ```
 
 The ellipse can be altered for different confidence levels.
-```{r,PairedCorrelation-ScatterD}
+```{r,PairedCorrelation-ScatterE}
 plotScatter(PairedSummary,PairedCorr,conf.level=.99)
 ```
 

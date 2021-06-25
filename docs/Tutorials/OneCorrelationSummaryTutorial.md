@@ -52,7 +52,7 @@ This code provides a confidence ellipse for the bivariate relationship. Because 
 plotScatter(PairedSummary,PairedCorr)
 ```
 
-![](figures/PairedCorrelation-ScatterC-1.png)<!-- -->
+![](figures/PairedCorrelation-ScatterD-1.png)<!-- -->
 
 The ellipse can be altered for different confidence levels.
 
@@ -60,7 +60,7 @@ The ellipse can be altered for different confidence levels.
 plotScatter(PairedSummary,PairedCorr,conf.level=.99)
 ```
 
-![](figures/PairedCorrelation-ScatterD-1.png)<!-- -->
+![](figures/PairedCorrelation-ScatterE-1.png)<!-- -->
 
 ### Analyses of a Correlation
 
