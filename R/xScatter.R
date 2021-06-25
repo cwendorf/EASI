@@ -42,8 +42,8 @@ plotScatter.default <- function(Predictor,Criterion,main="Scatter Plot for the V
   if(interval) {lines(transM,col=.colorTransparent(col,100))}
 }
 
-plotScatter.wss <- function(PredStats,CritStats,CorrStats,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,interval=FALSE,conf.level=.95,cross=FALSE,col="black") {
-  mu <- c(PredStats[1,2],CritStats[1,2])
+plotScatter.wss <- function(DescStats,CorrStats,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,interval=TRUE,conf.level=.95,cross=FALSE,col="black") {
+  mu <- DescStats[1:2,2]
   P <- CorrStats
   evals <- eigen(P)$values
   evecs <- eigen(P)$vectors
@@ -58,8 +58,8 @@ plotScatter.wss <- function(PredStats,CritStats,CorrStats,main="Scatter Plot for
   transM[,1] <- transM[,1]+mu[1]
   transM[,2] <- transM[,2]+mu[2]
   if(!add) {
-  if(is.null(xlab)) xlab=rownames(PredStats)
-  if(is.null(ylab)) ylab=rownames(CritStats)
+  if(is.null(xlab)) xlab=rownames(DescStats)[1]
+  if(is.null(ylab)) ylab=rownames(DescStats)[2]
   if(is.null(xlim)) {
     rmx=c(min(transM[,1]),max(transM[,1]))
     xlim <- range(pretty(rmx))}
@@ -70,7 +70,6 @@ plotScatter.wss <- function(PredStats,CritStats,CorrStats,main="Scatter Plot for
   else {ylim=ylim} 
   plot(NULL,bty="l",main=main,pch=pch,xlab=xlab,ylab=ylab,cex.lab=1.15,xlim=xlim,ylim=ylim,col=.colorTransparent(col,100))}
   if(cross) {
-    abline(v=mean(Predictor),col=.colorTransparent(col,50))
-    abline(h=mean(Criterion),col=.colorTransparent(col,50))}
+}
   if(interval) {lines(transM,col=.colorTransparent(col,100))}  
 }
