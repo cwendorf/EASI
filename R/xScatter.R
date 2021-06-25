@@ -6,7 +6,7 @@
 plotScatter <- function(x,...) 
   UseMethod("plotScatter")
 
-plotScatter.default <- function(Predictor,Criterion,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,points=TRUE,interval=FALSE,conf.level=.95,cross=FALSE,col="black") {
+plotScatter.default <- function(Predictor,Criterion,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,points=TRUE,ellipse=FALSE,conf.level=.95,cross=FALSE,col="black") {
   data <- data.frame(Predictor,Criterion)
   sigma2 <- cov(data)
   mu <- sapply(data,mean,na.rm=TRUE)
@@ -42,7 +42,7 @@ plotScatter.default <- function(Predictor,Criterion,main="Scatter Plot for the V
   if(interval) {lines(transM,col=.colorTransparent(col,100))}
 }
 
-plotScatter.wss <- function(DescStats,CorrStats,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,interval=TRUE,conf.level=.95,cross=FALSE,col="black") {
+plotScatter.wss <- function(DescStats,CorrStats,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,ellipse=TRUE,conf.level=.95,cross=FALSE,col="black") {
   mu <- DescStats[1:2,2]
   P <- CorrStats
   evals <- eigen(P)$values
