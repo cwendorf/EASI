@@ -1,5 +1,11 @@
 # Estimation Approach to Statistical Inference
 
+## 4.4.210625
+
+- Added confidence ellipse to scatterplots
+- Added scatter function with ellipse default for summary statistics input
+- Updated correlation tutorials accordingly
+
 ## 4.4.210505
 
 - Added regression line confidence and prediction interval functions

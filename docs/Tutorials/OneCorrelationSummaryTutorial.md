@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-25"
+date: "2021-06-25"
 output:
   html_document:
     toc: true
@@ -25,6 +25,8 @@ vignette: >
 
 ### Data Management
 
+#### Data Entry
+
 This code inputs the variable summaries and creates a summary table.
 
 ```r
@@ -39,8 +41,27 @@ This code creates a correlation matrix and enters single correlation.
 ```r
 PairedCorr <- declareCorrelations("Outcome1","Outcome2")
 PairedCorr["Outcome1","Outcome2"] <- .500
+PairedCorr <- fillCorrelations(PairedCorr)
 ```
- 
+
+#### Plot of the Data
+
+This code provides a confidence ellipse for the bivariate relationship. Because there is no raw data, no data points are visible and the code defaults instead to an ellipse.
+
+```r
+plotScatter(PairedSummary,PairedCorr)
+```
+
+![](figures/PairedCorrelation-ScatterC-1.png)<!-- -->
+
+The ellipse can be altered for different confidence levels.
+
+```r
+plotScatter(PairedSummary,PairedCorr,conf.level=.99)
+```
+
+![](figures/PairedCorrelation-ScatterD-1.png)<!-- -->
+
 ### Analyses of a Correlation
 
 This section produces analyses of the correlation.

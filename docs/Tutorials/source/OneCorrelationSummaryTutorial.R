@@ -6,6 +6,8 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/sourceEASI.R")
 
 ### Data Management
 
+#### Data Entry
+
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
 Outcome2 <- c(N=4,M=6.000,SD=2.449)
 PairedSummary <- rbind(Outcome1,Outcome2)
@@ -13,7 +15,13 @@ class(PairedSummary) <- "wss"
 
 PairedCorr <- declareCorrelations("Outcome1","Outcome2")
 PairedCorr["Outcome1","Outcome2"] <- .500
- 
+PairedCorr <- fillCorrelations(PairedCorr)
+
+#### Plot of the Data
+
+plotScatter(PairedSummary,PairedCorr)
+plotScatter(PairedSummary,PairedCorr,conf.level=.99)
+
 ### Analyses of a Correlation
 
 #### Confidence Interval
