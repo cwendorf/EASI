@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-06-24"
+date: "2021-06-25"
 output:
   html_document:
     toc: true
@@ -48,7 +48,7 @@ plotScatter(Outcome1,Outcome2)
 This code provides a scatterplot along with a 95% confidence ellipse for the data.
 
 ```r
-plotScatter(Outcome1,Outcome2,interval=TRUE)
+plotScatter(Outcome1,Outcome2,ellipse=TRUE)
 ```
 
 ![](figures/PairedCorrelation-ScatterB-1.png)<!-- -->
@@ -56,7 +56,7 @@ plotScatter(Outcome1,Outcome2,interval=TRUE)
 The ellipse can be altered for different confidence levels.
 
 ```r
-plotScatter(Outcome1,Outcome2,interval=TRUE,conf.level=.99)
+plotScatter(Outcome1,Outcome2,ellipse=TRUE,conf.level=.99)
 ```
 
 ![](figures/PairedCorrelation-ScatterC-1.png)<!-- -->
