@@ -80,7 +80,7 @@ PrevsPostFollow <- c(-1,.5,.5)
 plotMeanSubsets(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score")
 ```
 
-then, estimate the standardized contrast.
+Then, estimate the standardized contrast.
 
 ```{r}
 estimateStandardizedMeanContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)

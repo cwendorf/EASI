@@ -101,7 +101,7 @@ plotMeanSubsets(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pre
 
 ![](figures/Donohue-Contrast-1.png)<!-- -->
 
-then, estimate the standardized contrast.
+Then, estimate the standardized contrast.
 
 
 ```r
