@@ -39,7 +39,7 @@ plotScatter.default <- function(Predictor,Criterion,main="Scatter Plot for the V
     abline(v=mean(Predictor),col=.colorTransparent(col,50))
     abline(h=mean(Criterion),col=.colorTransparent(col,50))}
   if(points) {points(Predictor,Criterion,pch=pch,col=.colorTransparent(col,100))}
-  if(interval) {lines(transM,col=.colorTransparent(col,100))}
+  if(ellipse) {lines(transM,col=.colorTransparent(col,100))}
 }
 
 plotScatter.wss <- function(DescStats,CorrStats,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,ellipse=TRUE,conf.level=.95,cross=FALSE,col="black") {
@@ -71,5 +71,5 @@ plotScatter.wss <- function(DescStats,CorrStats,main="Scatter Plot for the Varia
   plot(NULL,bty="l",main=main,pch=pch,xlab=xlab,ylab=ylab,cex.lab=1.15,xlim=xlim,ylim=ylim,col=.colorTransparent(col,100))}
   if(cross) {
 }
-  if(interval) {lines(transM,col=.colorTransparent(col,100))}  
+  if(ellipse) {lines(transM,col=.colorTransparent(col,100))}  
 }
