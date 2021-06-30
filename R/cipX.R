@@ -12,7 +12,7 @@
     points(results[,1],pch=pch,cex=1.5,col=col)
     for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2,col=col)}
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1,col=col)}}
-  if(!is.null(mu)) {abline(h=mu,lty=2)}
+  if(!is.null(mu)) {abline(h=mu,lty=2,col=col)}
   if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
