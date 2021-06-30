@@ -3,6 +3,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/cipX.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/formatX.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/combineX.R")
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xData.R")
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/R/xDensity.R")
