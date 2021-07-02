@@ -62,14 +62,14 @@ estimateStandardizedMeans.formula <- function(formula,mu=0,conf.level=.95,rope=N
 plotStandardizedMeans <- function(x,...) 
   UseMethod("plotStandardizedMeans")
 
-plotStandardizedMeans.default <- plotStandardizedMeans.bss <- plotStandardizedMeans.wss <- function(...,main=NULL,ylab="Standardized Mean Difference",xlab="",mu=0,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
+plotStandardizedMeans.default <- plotStandardizedMeans.bss <- plotStandardizedMeans.wss <- function(...,main=NULL,ylab="Standardized Mean Difference",xlab="",mu=0,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=24,col="black") {
   results <- .unformatFrame(estimateStandardizedMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Standardized Means"} else {main="Confidence Interval for the \n Standardized Mean"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=24)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
 }
 
-plotStandardizedMeans.formula <- function(formula,main=NULL,ylab="Standardized Mean Difference",xlab="",mu=0,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=NULL) {
+plotStandardizedMeans.formula <- function(formula,main=NULL,ylab="Standardized Mean Difference",xlab="",mu=0,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=24,col="black") {
   results <- .unformatFrame(estimateStandardizedMeans(formula=formula,mu=mu,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Standardized Means"} else {main="Confidence Interval for the \n Standardized Mean"}}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=24)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=0,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }

@@ -30,30 +30,30 @@ estimateStandardizedMeanSubsets.default <- estimateStandardizedMeanSubsets.formu
 plotStandardizedMeanSubsets <- function(x,...) 
   UseMethod("plotStandardizedMeanSubsets")
 
-plotStandardizedMeanSubsets.wss <- function(CompStats,CorrStats,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24)) {
+plotStandardizedMeanSubsets.wss <- function(CompStats,CorrStats,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24),col="black") {
   results <- estimateStandardizedMeanSubsets(CompStats,CorrStats,contrast=contrast,conf.level=conf.level,mu=mu,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,3,4)]),.unformatFrame(results[[2]][,c(1,3,4)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Standardized Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
 }
 
-plotStandardizedMeanSubsets.bss <- function(CompStats,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24)) {
+plotStandardizedMeanSubsets.bss <- function(CompStats,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24),col="black") {
   results <- estimateStandardizedMeanSubsets(CompStats,contrast=contrast,conf.level=conf.level,mu=mu,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,3,4)]),.unformatFrame(results[[2]][,c(1,3,4)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Standardized Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
 
-plotStandardizedMeanSubsets.default <- function(...,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24)) {
+plotStandardizedMeanSubsets.default <- function(...,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24),col="black") {
   results <- estimateStandardizedMeanSubsets(...,contrast=contrast,conf.level=conf.level,mu=mu,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,3,4)]),.unformatFrame(results[[2]][,c(1,3,4)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Standardized Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
 }
 
-plotStandardizedMeanSubsets.formula <- function(formula,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24)) {
+plotStandardizedMeanSubsets.formula <- function(formula,contrast,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,mu=0,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(24,24,24),col="black") {
   results <- estimateStandardizedMeanSubsets(formula,contrast=contrast,conf.level=conf.level,mu=mu,main=main,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,3,4)]),.unformatFrame(results[[2]][,c(1,3,4)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Standardized Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch)
+  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }

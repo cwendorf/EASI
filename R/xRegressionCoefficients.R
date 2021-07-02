@@ -97,18 +97,18 @@ testRegressionCoefficients.default <- function(Predictors,Criterion,main=NULL,di
 plotRegressionCoefficients <- function(x,...) 
   UseMethod("plotRegressionCoefficients")
 
-plotRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
+plotRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=15,col="black") {
   results <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
   if(intercept=="FALSE") {results <- tail(results,-1)}
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Regression Coefficients"} else {main="Confidence Intervals for the Regression Coefficient"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=15)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
 
-plotRegressionCoefficients.default <- function(Predictors,Criterion,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
+plotRegressionCoefficients.default <- function(Predictors,Criterion,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=15,col="black") {
   Pred <- cbind(Predictors)
   if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
   results <- .unformatFrame(estimateRegressionCoefficients(Pred,Criterion,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
   if(intercept=="FALSE") {results <- tail(results,-1)}
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Regression Coefficients"} else {main="Confidence Intervals for the Regression Coefficient"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=15)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }

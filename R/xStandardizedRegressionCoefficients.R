@@ -34,16 +34,16 @@ estimateStandardizedRegressionCoefficients.default <- function(Predictors,Criter
 plotStandardizedRegressionCoefficients <- function(x,...) 
   UseMethod("plotStandardizedRegressionCoefficients")
 
-plotStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,main=NULL,ylab="Standardized Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
+plotStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,main=NULL,ylab="Standardized Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=22,col="black") {
   results <- .unformatFrame(estimateStandardizedRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Standardized Regression Coefficients"} else {main="Confidence Interval for the \n Standardized Regression Coefficient"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=22)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
 
-plotStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,main=NULL,ylab="Standardized Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3) {
+plotStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,main=NULL,ylab="Standardized Coefficient",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=22,col="black") {
   Pred <- cbind(Predictors)
   if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
   results <- .unformatFrame(estimateStandardizedRegressionCoefficients(Pred,Criterion,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Standardized Regression Coefficients"} else {main="Confidence Interval for the \n Standardized Regression Coefficient"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=22)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
