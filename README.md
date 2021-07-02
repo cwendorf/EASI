@@ -48,7 +48,7 @@ Complete documentation and vignettes are available:
 
 - A full manual describing all functions, including required and optional parameters
 - Vingettes for tutorial data that show the diversity of options
-- Vignettes for reanalyses of published textbook data
+- Reanalyses of published textbook examples highlighting the estimation approach
 
 ### Citation
 
