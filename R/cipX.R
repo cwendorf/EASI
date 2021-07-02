@@ -13,13 +13,15 @@
     for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2,col=col)}
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1,col=col)}}
   if(!is.null(mu)) {abline(h=mu,lty=2,col=col)}
-  if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
+  if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent(col,15),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
     for (i in 1:nrow(results)) text(i,as.numeric(results[i,1]),results[i,1],cex=.8,pos=2,offset=.5,font=2,col=col)
     for (i in 1:nrow(results)) text(i,as.numeric(results[i,2]),results[i,2],cex=.8,pos=2,offset=.5,col=col)  
     for (i in 1:nrow(results)) text(i,as.numeric(results[i,3]),results[i,3],cex=.8,pos=2,offset=.5,col=col)}
 }
+
+
 
 ### Comparison Plot
 
@@ -50,7 +52,7 @@
     arrows(1,graph[1,1],4.5,graph[1,1],code=3,length=0,lty=2,col=col)  
     arrows(2,graph[2,1],4.5,graph[2,1],code=3,length=0,lty=2,col=col)}
   if(connect) {arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1,col=col)}
-  if(!is.null(rope)) {rect(2.6,graphrope[1],3.6,graphrope[2],col=rgb(.5,.5,.5,.07),border=NA)} 
+  if(!is.null(rope)) {rect(2.6,graphrope[1],3.6,graphrope[2],col=.colorTransparent(col,15),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
     for (i in 1:2) text(i,graph[i,1],results[i,1],cex=.8,pos=2,offset=.5,font=2,col=col)
