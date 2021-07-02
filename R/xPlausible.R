@@ -3,7 +3,7 @@
 
 ### Basic Function
 
-.plausible <- function(results,loc,side="right",offset=0,scale=.6,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1)) {
+.plausible <- function(results,loc,side="right",offset=0,scale=.6,border="black",col="black") {
   y <- density(0,from=-4.5,to=4.5,bw=1,kernel="gaussian")
   y$x <- (y$x*results[2])+results[1]  
   y1 <- loc+(y$y*scale)+offset
@@ -18,7 +18,9 @@
 plotPlausible <- function(x,...) 
   UseMethod("plotPlausible")
 
-plotPlausible.list <- function(results,conf.level=.95,element=3,side="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,offset=0,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1),digits=3) {
+plotPlausible.list <- function(results,conf.level=.95,element=3,side="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,offset=0,scale=.8,border="black",col="black",digits=3) {
+  border <- .colorTransparent(col,50)
+  col <- .colorTransparent(col,35)
   if(length(results)==1) {
     results <- .unformatFrame(results[[1]])
     if(!add) {  
