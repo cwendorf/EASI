@@ -21,8 +21,6 @@
     for (i in 1:nrow(results)) text(i,as.numeric(results[i,3]),results[i,3],cex=.8,pos=2,offset=.5,col=col)}
 }
 
-
-
 ### Comparison Plot
 
 .cipComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect,pch=c(16,16,17),slab=NULL,add=FALSE,points=TRUE,col="black") {
