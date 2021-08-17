@@ -29,7 +29,7 @@ library(EASI)
 If you do not wish a full install, the latest functions can be sourced directly from GitHub:
 
 ```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/sourceEASI.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 ```
 
 ### Citation

@@ -1,5 +1,10 @@
 # Estimation Approach to Statistical Inference
 
+## 4.4.210701
+
+- Improved color handling for plots
+- Support for plotting intervals with native pipe operator
+
 ## 4.4.210625
 
 - Added confidence ellipse to scatterplots
