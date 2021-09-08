@@ -25,7 +25,7 @@
       #logo {display: block; height: 50px; padding: 0px; margin: 0px; background: none;}
 
       #nav {display: inline-block; font-weight: bold; font-size: 18px; margin: 12px 0px;}
-      #nav a {text-decoration: none; margin: 10px 0px; padding: 12px 10px; color: black;}
+      #nav a {text-decoration: none; margin: 12px 0px; padding: 12px 10px; color: black;}
       #nav a:hover {background: #ddd; color: #028fbe; }
      
       #repository {float: right; padding: 0px 0px;}
@@ -98,6 +98,7 @@
       </div>      
 
       <div id=nav>
+        <a href="{{ "/" | absolute_url }}" alt="Home">Home</a>
         <a href="{{ "/Functions/" | prepend: site.baseurl }}" alt="Functions">Functions</a> 
         <a href="{{ "/Tutorials/" | prepend: site.baseurl }}" alt="Tutorials">Tutorials</a>  
         <a href="{{ "/Examples/" | prepend: site.baseurl }}" alt="Examples">Examples</a>
@@ -109,6 +110,7 @@
     <div id=dropdown>
 
       <ul>
+        <li class=""><a href="{{ "/" | absolute_url }}" alt="Home">Home</a></li>
         <li class=""><a href="{{ "/Functions/" | prepend: site.baseurl }}" alt="Functions" class="">Functions</a></li>  
         <li class=""><a href="{{ "/Tutorials/" | prepend: site.baseurl }}" alt="Tutorials" class="">Tutorials</a></li>  
         <li class=""><a href="{{ "/Examples/" | prepend: site.baseurl }}" alt="Examples" class="">Examples</a></li>
