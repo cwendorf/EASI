@@ -1,12 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Operations to Make Function Available
 
-### xCombine
-
-S3method(combine,default)
-S3method(combine,formula)
-export(combine)
-
 ### xData
 
 S3method(plotData,default)
