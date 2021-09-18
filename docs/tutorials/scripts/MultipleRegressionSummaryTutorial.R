@@ -1,21 +1,24 @@
 # Estimation Approach to Statistical Inference
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/sourceEASI.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Bivariate Regression Tutorial with Summary Statistics
+## Multiple Regression Tutorial with Summary Statistics
 
 ### Data Management
 
-Predictor <- c(N=4,M=2.000,SD=2.449)
+Predictor1 <- c(N=4,M=2.000,SD=2.449)
+Predictor2 <- c(N=4,M=6.000,SD=2.449)
 Criterion <- c(N=4,M=7.000,SD=2.449)
-BivariateSummary <- rbind(Predictor,Criterion)
-class(BivariateSummary) <- "wss"
+RegressionSummary <- rbind(Predictor1,Predictor2,Criterion)
+class(RegressionSummary) <- "wss"
 
-RegressionCorr <- declareCorrelations("Predictor","Criterion")
-RegressionCorr["Predictor","Criterion"] <- .056
+RegressionCorr <- declareCorrelations("Predictor1","Predictor2","Criterion")
+RegressionCorr["Predictor1","Predictor2"] <- .500
+RegressionCorr["Predictor1","Criterion"] <- .056
+RegressionCorr["Predictor2","Criterion"] <- .389
 RegressionCorr <- fillCorrelations(RegressionCorr)
 
-PredictorSummary <- rbind(Predictor)
+PredictorSummary <- rbind(Predictor1,Predictor2)
 class(PredictorSummary) <- "wss"
 CriterionSummary <- rbind(Criterion)
 
@@ -34,13 +37,13 @@ testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 
 ### Analyses of the Regression Coefficients
 
-#### Confidence Intervals
+#### Confidence Intervals 
 
 estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 
 estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
+plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,mu=0,intercept=FALSE)
 
 #### Significance Tests
 
@@ -53,15 +56,3 @@ plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,Regress
 
 estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
 plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-
-### Analyses of Regression Values
-
-#### Regression Line
-
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,interval="none")
-
-#### Confidence and Prediction Intervals
-
-estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4)
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4,interval="confidence")
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4,interval="prediction")

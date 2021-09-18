@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/sourceEASI.R")
+source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ## Mixed Design Tutorial with Summary Statistics
 
