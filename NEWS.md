@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-## 4.4.210701
+## Upcoming
 
 - Improved color handling for plots
 - Support for plotting intervals with native pipe operator
