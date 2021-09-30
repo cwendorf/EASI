@@ -2,3 +2,5 @@
 ^source-EASI.R
 docs/
 ^logo.png
+^.*\.Rproj$
+^\.Rproj\.user$
