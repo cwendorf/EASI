@@ -8,7 +8,7 @@
 \alias{estimateStandardizedMeansPairwise.wss}
 \alias{estimateStandardizedMeansPairwise.bss}
 \title{Estimate Standardized Means Pairwise}
-\description{Provides standardized effect sizes and their confidence interval for all unadjusted pairwise comparisons.}
+\description{Provides standardized effect sizes and their confidence intervals for all unadjusted pairwise comparisons.}
 
 \usage{
 \method{estimateStandardizedMeansPairwise}{default}(\dots,mu=0,conf.level=.95,main=NULL,digits=3)

@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides a standardized effect size and its confidence interval for all unadjusted pairwise comparisons.
+Provides standardized effect sizes and their confidence intervals for all unadjusted pairwise comparisons.
 
 ### Usage
 
