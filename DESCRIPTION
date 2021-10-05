@@ -3,7 +3,7 @@ Type: Package
 Title: Estimation Approach to Statistical Inference
 Description: An R package to estimate, test, and plot confidence intervals 
 Version: 4.4.210505
-Depends: R (>= 3.5.0)
+Depends: R (>= 3.6.2)
 Author: Craig A Wendorf <cwendorf@uwsp.edu>
 Maintainer: Craig A Wendorf <cwendorf@uwsp.edu>
 License: MIT + file LICENSE
