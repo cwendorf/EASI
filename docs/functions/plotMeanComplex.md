@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides the plot of the the confidence intervals for a mean contrasts and the difference between those contrasts.
+Provides the plot of the confidence intervals for mean contrasts and the difference between those contrasts.
 
 ### Usage
 

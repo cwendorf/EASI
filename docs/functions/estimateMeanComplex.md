@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides the confidence intervals for a mean contrasts and the difference between those contrasts.
+Provides the confidence intervals for mean contrasts and the difference between those contrasts.
 
 ### Usage
 

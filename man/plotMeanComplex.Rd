@@ -8,7 +8,7 @@
 \alias{plotMeanComplex.wss}
 \alias{plotMeanComplex.bss}
 \title{Plot Mean Complex}
-\description{Provides the plot of the the confidence intervals for a mean contrasts and the difference between those contrasts.}
+\description{Provides the plot of the confidence intervals for mean contrasts and the difference between those contrasts.}
 
 \usage{
 \method{plotMeanComplex}{default}(\dots,contrast,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)

@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides the statistical significance tests for a mean contrasts and the difference between those contrasts.
+Provides the statistical significance tests for mean contrasts and the difference between those contrasts.
 
 ### Usage
 
