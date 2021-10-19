@@ -58,7 +58,7 @@ estimateMeansRelational.formula <- function(formula,conf.level=.95,main=NULL,dig
 plotMeansRelational <- function(x,...) 
   UseMethod("plotMeansRelational")
 
-plotMeansRelational.wss <- function(DescStats,CorrStats,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA,...) {
+plotMeansRelational.wss <- function(DescStats,CorrStats,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA,...) {
   if(is.null(main)) {main="Confidence and Relational Intervals for the Means"}
   results <- .unformatFrame(estimateMeansRelational(DescStats,CorrStats,conf.level=conf.level,...)[[1]])
   if(!add) {
@@ -68,14 +68,14 @@ plotMeansRelational.wss <- function(DescStats,CorrStats,add=FALSE,main=NULL,ylab
   for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=border)
 }
 
-plotMeansRelational.bss <- function(DescStats,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA,...) {
+plotMeansRelational.bss <- function(DescStats,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA,...) {
   if(is.null(main)) {main="Confidence and Relational Intervals for the Means"}
   results <- .unformatFrame(estimateMeansRelational(DescStats,conf.level=conf.level,...)[[1]])
   if(!add) {.cipMain(results[,c(1,2,3)],main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE)}
   for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=border)
 }
 
-plotMeansRelational.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",mu=NULL,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA) {
+plotMeansRelational.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA) {
   if(is.null(main)) {main="Confidence and Relational Intervals for the Means"}
   results <- .unformatFrame(estimateMeansRelational(...,conf.level=conf.level)[[1]])
   if(!add) {
@@ -85,7 +85,7 @@ plotMeansRelational.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",x
   for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=border)
 }
 
-plotMeansRelational.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",conf.level=.95,mu=NULL,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA,...) {
+plotMeansRelational.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA,...) {
   if(is.null(main)) {main="Confidence and Relational Intervals for the Means"}
   if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
   results <- .unformatFrame(estimateMeansRelational(formula,conf.level=conf.level,...)[[1]])
