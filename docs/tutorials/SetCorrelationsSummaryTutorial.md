@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-25"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -94,7 +94,7 @@ estimateCorrelations(CompSummary,CompCorr,conf.level=.99)
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 
 ```r
-plotCorrelations(CompSummary,CompCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(CompSummary,CompCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 ![](figures/RepeatedCorrelation-B-1.png)<!-- -->
@@ -158,7 +158,7 @@ estimateCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99)
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 
 ```r
-plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 ![](figures/RepeatedCorrelations-B-1.png)<!-- -->

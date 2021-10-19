@@ -142,8 +142,8 @@ estimateCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99)
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,MixedCorrelations-B}
-plotCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99,mu=0,rope=c(-.2,.2))
-plotCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99,line=0,rope=c(-.2,.2))
+plotCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 #### Significance Tests

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-29"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -163,7 +163,7 @@ estimateRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
 
 ```r
-plotRegressionCoefficients(Predictor,Criterion,conf.level=.99,mu=0,rope=c(-2,2),intercept=FALSE)
+plotRegressionCoefficients(Predictor,Criterion,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
 ```
 
 ![](figures/Regression-BivariateCoeffB-1.png)<!-- -->

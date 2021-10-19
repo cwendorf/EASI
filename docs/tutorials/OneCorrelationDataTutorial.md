@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-06-25"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -130,7 +130,7 @@ estimateCorrelations(Outcome1,Outcome2,conf.level=.99)
 Of course, it is possible to change from the default confidence level and to add a comparison line and a region of practical equivalence to the graph.
 
 ```r
-plotCorrelations(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(Outcome1,Outcome2,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 ![](figures/PairedCorrelation-B-1.png)<!-- -->

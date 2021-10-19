@@ -309,8 +309,8 @@ estimateMeansPairwise(FactorialSummaryB2,conf.level=.99)
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r,Factorial-PairwiseB}
-plotMeansPairwise(FactorialSummaryB1,mu=-2,conf.level=.99,rope=c(-4,0))
-plotMeansPairwise(FactorialSummaryB2,mu=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(FactorialSummaryB1,line=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(FactorialSummaryB2,line=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 #### Significance Tests

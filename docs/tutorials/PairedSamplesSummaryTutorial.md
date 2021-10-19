@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-24"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -84,7 +84,7 @@ estimateMeans(PairedSummary,conf.level=.99)
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 
 ```r
-plotMeans(PairedSummary,conf.level=.99,mu=6,rope=c(4,8))
+plotMeans(PairedSummary,conf.level=.99,line=6,rope=c(4,8))
 ```
 
 ![](figures/Paired-MeansB-1.png)<!-- -->
@@ -186,7 +186,7 @@ estimateMeanDifference(PairedSummary,PairedCorr,conf.level=.99)
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanDifference(PairedSummary,PairedCorr,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(PairedSummary,PairedCorr,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Paired-DifferenceB-1.png)<!-- -->

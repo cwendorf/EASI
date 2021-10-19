@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-24"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -120,13 +120,13 @@ estimateMeans(FactorialSummaryB2,conf.level=.99)
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 
 ```r
-plotMeans(FactorialSummaryB1,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(FactorialSummaryB1,conf.level=.99,line=5,rope=c(3,7))
 ```
 
 ![](figures/Factorial-MeansB-1.png)<!-- -->
 
 ```r
-plotMeans(FactorialSummaryB2,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(FactorialSummaryB2,conf.level=.99,line=5,rope=c(3,7))
 ```
 
 ![](figures/Factorial-MeansB-2.png)<!-- -->
@@ -315,13 +315,13 @@ estimateMeanDifference(CompSummaryB2,conf.level=.99)
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanDifference(CompSummaryB1,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(CompSummaryB1,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Factorial-DifferenceB-1.png)<!-- -->
 
 ```r
-plotMeanDifference(CompSummaryB2,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(CompSummaryB2,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Factorial-DifferenceB-2.png)<!-- -->
@@ -583,13 +583,13 @@ estimateMeanContrast(FactorialSummaryB2,contrast=A1vsOthers,conf.level=.99)
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanContrast(FactorialSummaryB1,contrast=A1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanContrast(FactorialSummaryB1,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Factorial-ContrastB-1.png)<!-- -->
 
 ```r
-plotMeanContrast(FactorialSummaryB2,contrast=A1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanContrast(FactorialSummaryB2,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Factorial-ContrastB-2.png)<!-- -->
@@ -853,13 +853,13 @@ estimateMeansPairwise(FactorialSummaryB2,conf.level=.99)
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeansPairwise(FactorialSummaryB1,mu=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(FactorialSummaryB1,line=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 ![](figures/Factorial-PairwiseB-1.png)<!-- -->
 
 ```r
-plotMeansPairwise(FactorialSummaryB2,mu=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(FactorialSummaryB2,line=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 ![](figures/Factorial-PairwiseB-2.png)<!-- -->
@@ -928,7 +928,7 @@ estimateStandardizedMeansPairwise(FactorialSummaryB1)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##             Est      SE      LL      UL
+##               d      SE      LL      UL
 ## A1 v A2   1.633   0.943  -0.215   3.481
 ## A1 v A3   2.042   1.007   0.068   4.015
 ## A2 v A3   0.408   0.825  -1.209   2.025
@@ -940,7 +940,7 @@ estimateStandardizedMeansPairwise(FactorialSummaryB2)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##             Est      SE      LL      UL
+##               d      SE      LL      UL
 ## A1 v A2   0.000   0.816  -1.600   1.600
 ## A1 v A3   0.408   0.825  -1.209   2.025
 ## A2 v A3   0.408   0.825  -1.209   2.025
@@ -954,7 +954,7 @@ estimateStandardizedMeansPairwise(FactorialSummaryB1,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##             Est      SE      LL      UL
+##               d      SE      LL      UL
 ## A1 v A2   1.633   0.943  -0.795   4.062
 ## A1 v A3   2.042   1.007  -0.552   4.635
 ## A2 v A3   0.408   0.825  -1.717   2.533
@@ -966,7 +966,7 @@ estimateStandardizedMeansPairwise(FactorialSummaryB2,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##             Est      SE      LL      UL
+##               d      SE      LL      UL
 ## A1 v A2   0.000   0.816  -2.103   2.103
 ## A1 v A3   0.408   0.825  -1.717   2.533
 ## A2 v A3   0.408   0.825  -1.717   2.533

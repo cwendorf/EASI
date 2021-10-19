@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-24"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -138,13 +138,13 @@ estimateMeans(MixedSummaryL2,conf.level=.99)
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 
 ```r
-plotMeans(MixedSummaryL1,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(MixedSummaryL1,conf.level=.99,line=5,rope=c(3,7))
 ```
 
 ![](figures/Mixed-MeansB-1.png)<!-- -->
 
 ```r
-plotMeans(MixedSummaryL2,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(MixedSummaryL2,conf.level=.99,line=5,rope=c(3,7))
 ```
 
 ![](figures/Mixed-MeansB-2.png)<!-- -->
@@ -333,13 +333,13 @@ estimateMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99)
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Mixed-DifferenceB-1.png)<!-- -->
 
 ```r
-plotMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Mixed-DifferenceB-2.png)<!-- -->
@@ -601,13 +601,13 @@ estimateMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Mixed-ContrastB-1.png)<!-- -->
 
 ```r
-plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/Mixed-ContrastB-2.png)<!-- -->
@@ -871,13 +871,13 @@ estimateMeansPairwise(MixedSummaryL2,MixedCorrL2,conf.level=.99)
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeansPairwise(MixedSummaryL1,MixedCorrL1,mu=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(MixedSummaryL1,MixedCorrL1,line=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 ![](figures/Mixed-PairwiseB-1.png)<!-- -->
 
 ```r
-plotMeansPairwise(MixedSummaryL2,MixedCorrL2,mu=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(MixedSummaryL2,MixedCorrL2,line=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 ![](figures/Mixed-PairwiseB-2.png)<!-- -->
@@ -946,7 +946,7 @@ estimateStandardizedMeansPairwise(MixedSummaryL1,MixedCorrL1)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##                         Est      SE      LL      UL
+##                           d      SE      LL      UL
 ## Outcome1 v Outcome2   1.633   0.782   0.101   3.166
 ## Outcome1 v Outcome3   2.042   0.876   0.325   3.759
 ## Outcome2 v Outcome3   0.408   0.592  -0.752   1.569
@@ -958,7 +958,7 @@ estimateStandardizedMeansPairwise(MixedSummaryL2,MixedCorrL2)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##                         Est      SE      LL      UL
+##                           d      SE      LL      UL
 ## Outcome1 v Outcome2   0.000   0.272  -0.533   0.533
 ## Outcome1 v Outcome3   0.408   0.314  -0.208   1.025
 ## Outcome2 v Outcome3   0.408   0.314  -0.208   1.025
@@ -972,7 +972,7 @@ estimateStandardizedMeansPairwise(MixedSummaryL1,MixedCorrL1,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##                         Est      SE      LL      UL
+##                           d      SE      LL      UL
 ## Outcome1 v Outcome2   1.633   0.782  -0.380   3.647
 ## Outcome1 v Outcome3   2.042   0.876  -0.215   4.298
 ## Outcome2 v Outcome3   0.408   0.592  -1.117   1.934
@@ -984,7 +984,7 @@ estimateStandardizedMeansPairwise(MixedSummaryL2,MixedCorrL2,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##                         Est      SE      LL      UL
+##                           d      SE      LL      UL
 ## Outcome1 v Outcome2   0.000   0.272  -0.701   0.701
 ## Outcome1 v Outcome3   0.408   0.314  -0.402   1.218
 ## Outcome2 v Outcome3   0.408   0.314  -0.402   1.218

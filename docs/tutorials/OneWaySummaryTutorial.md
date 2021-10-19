@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-24"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -80,7 +80,7 @@ estimateMeans(OneWaySummary,conf.level=.99)
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 
 ```r
-plotMeans(OneWaySummary,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(OneWaySummary,conf.level=.99,line=5,rope=c(3,7))
 ```
 
 ![](figures/OneWay-MeansB-1.png)<!-- -->
@@ -193,7 +193,7 @@ estimateMeanDifference(CompSummary,conf.level=.99)
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanDifference(CompSummary,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(CompSummary,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/OneWay-DifferenceB-1.png)<!-- -->
@@ -347,7 +347,7 @@ estimateMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 ![](figures/OneWay-ContrastB-1.png)<!-- -->
@@ -499,7 +499,7 @@ estimateMeansPairwise(OneWaySummary,conf.level=.99)
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 
 ```r
-plotMeansPairwise(OneWaySummary,mu=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(OneWaySummary,line=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 ![](figures/OneWay-PairwiseB-1.png)<!-- -->
@@ -544,7 +544,7 @@ estimateStandardizedMeansPairwise(OneWaySummary)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##                     Est      SE      LL      UL
+##                       d      SE      LL      UL
 ## Level1 v Level2   1.633   0.943  -0.215   3.481
 ## Level1 v Level3   2.042   1.007   0.068   4.015
 ## Level2 v Level3   0.408   0.825  -1.209   2.025
@@ -558,7 +558,7 @@ estimateStandardizedMeansPairwise(OneWaySummary,conf.level=.99)
 
 ```
 ## $`Confidence Intervals for the Standardized Mean Pairwise Comparisons`
-##                     Est      SE      LL      UL
+##                       d      SE      LL      UL
 ## Level1 v Level2   1.633   0.943  -0.795   4.062
 ## Level1 v Level3   2.042   1.007  -0.552   4.635
 ## Level2 v Level3   0.408   0.825  -1.717   2.533

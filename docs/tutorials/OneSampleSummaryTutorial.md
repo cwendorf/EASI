@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-24"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -74,7 +74,7 @@ estimateMeans(OneSampleSummary,conf.level=.99)
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 
 ```r
-plotMeans(OneSampleSummary,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(OneSampleSummary,conf.level=.99,line=5,rope=c(3,7))
 ```
 
 ![](figures/OneSample-MeansB-1.png)<!-- -->

@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-25"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -146,13 +146,13 @@ estimateCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99)
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 
 ```r
-plotCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 ![](figures/MixedCorrelation-B-1.png)<!-- -->
 
 ```r
-plotCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 ![](figures/MixedCorrelation-B-2.png)<!-- -->
@@ -256,13 +256,13 @@ estimateCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99)
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 
 ```r
-plotCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 ![](figures/MixedCorrelations-B-1.png)<!-- -->
 
 ```r
-plotCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 ![](figures/MixedCorrelations-B-2.png)<!-- -->

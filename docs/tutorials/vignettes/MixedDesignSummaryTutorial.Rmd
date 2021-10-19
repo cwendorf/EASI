@@ -325,8 +325,8 @@ estimateMeansPairwise(MixedSummaryL2,MixedCorrL2,conf.level=.99)
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r,Mixed-PairwiseB}
-plotMeansPairwise(MixedSummaryL1,MixedCorrL1,mu=-2,conf.level=.99,rope=c(-4,0))
-plotMeansPairwise(MixedSummaryL2,MixedCorrL2,mu=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(MixedSummaryL1,MixedCorrL1,line=-2,conf.level=.99,rope=c(-4,0))
+plotMeansPairwise(MixedSummaryL2,MixedCorrL2,line=-2,conf.level=.99,rope=c(-4,0))
 ```
 
 #### Significance Tests

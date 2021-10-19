@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-04-29"
+date: "2021-10-19"
 output:
   html_document:
     toc: true
@@ -167,7 +167,7 @@ estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 
 ```r
-plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,mu=0,intercept=FALSE)
+plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,line=0,intercept=FALSE)
 ```
 
 ![](figures/Regression-MultipleB-1.png)<!-- -->
