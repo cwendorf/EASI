@@ -13,7 +13,7 @@ estimateMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,r
   SD <- CompStats[,"SD"]
   rn <- rownames(CompStats)
   R <- CorrStats[rn[1],rn[2]]
-  MD <- M[2]-M[1]
+  MD <- M[2]-M[1]-mu
   SE <- SD/sqrt(N)
   SE <- sqrt(SE[1]^2+SE[2]^2-2*R*SE[1]*SE[2])
   df <- min(N)-1
@@ -33,7 +33,7 @@ estimateMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,m
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
   SD <- CompStats[,"SD"]
-  MD <- M[2]-M[1]
+  MD <- M[2]-M[1]-mu
   SE <- sqrt( (SD[1]^2/N[1]) + (SD[2]^2/N[2]) )
   df <- ((SD[1]^2/N[1] + SD[2]^2/N[2])^2 )/( (SD[1]^2/N[1])^2/(N[1]-1) + (SD[2]^2/N[2])^2/(N[2]-1) )
   tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
