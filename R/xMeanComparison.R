@@ -6,10 +6,10 @@
 estimateMeanComparison <- function(x,...) 
   UseMethod("estimateMeanComparison")
 
-estimateMeanComparison.default <- estimateMeanComparison.formula <- estimateMeanComparison.wss <- estimateMeanComparison.bss <- function(...,conf.level=.95,main=NULL,digits=3) {
-  Levels <- estimateMeans(...,conf.level=conf.level,digits=digits)
+estimateMeanComparison.default <- estimateMeanComparison.formula <- estimateMeanComparison.wss <- estimateMeanComparison.bss <- function(...,conf.level=.95,mu=0,main=NULL,digits=3) {
+  Levels <- estimateMeans(...,conf.level=conf.level,mu=0,digits=digits)
   Levels[[1]] <- Levels[[1]][1:2,]
-  Diff <- estimateMeanDifference(...,conf.level=conf.level,digits=digits)
+  Diff <- estimateMeanDifference(...,conf.level=conf.level,mu=0,digits=digits)
   results <- c(Levels,Diff)
   return(results)
 } 
