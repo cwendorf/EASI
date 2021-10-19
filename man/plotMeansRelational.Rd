@@ -28,6 +28,7 @@
 \item{xlab}{a label for the x-axis}
 \item{mu}{a number indicating the true/hypothesized value of the mean}
 \item{conf.level}{confidence level of the interval}
+\item{line}{a number for a horizontal reference line}
 \item{add}{whether the plot should added to the existing plot}
 \item{values}{whether the points should be labeled with their values}
 \item{main}{a custom title for the graph}

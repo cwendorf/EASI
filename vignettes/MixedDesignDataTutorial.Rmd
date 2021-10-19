@@ -94,8 +94,8 @@ with(MixedDataL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 ```{r,Mixed-MeansB}
-with(MixedDataL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)))
-with(MixedDataL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,mu=5,rope=c(3,7)))
+with(MixedDataL1,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,line=5,rope=c(3,7)))
+with(MixedDataL2,plotMeans(Outcome1,Outcome2,Outcome3,conf.level=.99,line=5,rope=c(3,7)))
 ```
 
 #### Significance Tests

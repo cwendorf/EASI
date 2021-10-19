@@ -78,7 +78,7 @@ estimateCorrelations(CompSummary,CompCorr,conf.level=.99)
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,RepeatedCorrelation-B}
-plotCorrelations(CompSummary,CompCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(CompSummary,CompCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 #### Significance Test
@@ -111,7 +111,7 @@ estimateCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99)
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,RepeatedCorrelations-B}
-plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 #### Significance Tests

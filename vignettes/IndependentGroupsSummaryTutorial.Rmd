@@ -62,7 +62,7 @@ estimateMeans(IndependentSummary,conf.level=.99)
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 ```{r,Independent-MeansB}
-plotMeans(IndependentSummary,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(IndependentSummary,conf.level=.99,line=5,rope=c(3,7))
 ```
 
 #### Significance Tests
@@ -112,7 +112,7 @@ estimateMeanDifference(IndependentSummary,conf.level=.99)
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r,Independent-DifferenceB}
-plotMeanDifference(IndependentSummary,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(IndependentSummary,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.

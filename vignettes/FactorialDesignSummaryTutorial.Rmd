@@ -74,8 +74,8 @@ estimateMeans(FactorialSummaryB2,conf.level=.99)
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 ```{r,Factorial-MeansB}
-plotMeans(FactorialSummaryB1,conf.level=.99,mu=5,rope=c(3,7))
-plotMeans(FactorialSummaryB2,conf.level=.99,mu=5,rope=c(3,7))
+plotMeans(FactorialSummaryB1,conf.level=.99,line=5,rope=c(3,7))
+plotMeans(FactorialSummaryB2,conf.level=.99,line=5,rope=c(3,7))
 ```
 
 #### Significance Tests

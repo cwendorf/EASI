@@ -78,7 +78,7 @@ estimateMeans(Outcome1,Outcome2,conf.level=.99)
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 ```{r,Paired-MeansB}
-plotMeans(Outcome1,Outcome2,conf.level=.99,mu=6,rope=c(4,8))
+plotMeans(Outcome1,Outcome2,conf.level=.99,line=6,rope=c(4,8))
 ```
 
 #### Significance Tests
@@ -128,7 +128,7 @@ estimateMeanDifference(Outcome1,Outcome2,conf.level=.99)
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r,Paired-DifferenceB}
-plotMeanDifference(Outcome1,Outcome2,conf.level=.99,mu=0,rope=c(-2,2))
+plotMeanDifference(Outcome1,Outcome2,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.

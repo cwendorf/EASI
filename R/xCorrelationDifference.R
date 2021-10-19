@@ -29,8 +29,8 @@ estimateCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,di
 plotCorrelationDifference <- function(x,...) 
   UseMethod("plotCorrelationDifference")
 
-plotCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,mu=NULL,rope=NULL,ylab="Correlation",xlab="",values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+plotCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,mu=NULL,line=NULL,rope=NULL,ylab="Correlation",xlab="",values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateCorrelationDifference(CorrEst1,CorrEst2)[[1]][,c(1,2,3)])
   if(is.null(main)) {main="Confidence Interval for the \n Correlation Difference"}
-  .cipMain(results,main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
+  .cipMain(results,main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }

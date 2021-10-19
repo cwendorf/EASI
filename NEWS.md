@@ -2,6 +2,7 @@
 
 ## Upcoming
 
+- Separated reference line from mu for plotting
 - Improved color handling for plots
 - Support for plotting intervals with native pipe operator
 

@@ -3,7 +3,7 @@
 
 ### Main Effect Plot
 
-.cipMain <- function(results,main,ylab,xlab,mu,rope,values,ylim,digits,connect,pch=16,slab=NULL,add=FALSE,points=TRUE,col="black") {
+.cipMain <- function(results,main,ylab,xlab,line,rope,values,ylim,digits,connect,pch=16,slab=NULL,add=FALSE,points=TRUE,col="black") {
   if(!add) {
     if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))}
     plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
@@ -12,7 +12,7 @@
     points(results[,1],pch=pch,cex=1.5,col=col)
     for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2,col=col)}
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1,col=col)}}
-  if(!is.null(mu)) {abline(h=mu,lty=2,col=col)}
+  if(!is.null(line)) {abline(h=line,lty=2,col=col)}
   if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent(col,15),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
@@ -63,7 +63,7 @@
 
 ### Interaction Plot
 
-.cipAll <- function(results,main,ylab,xlab,col) {
+.cipInter <- function(results,main,ylab,xlab,col) {
   ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x["LL"])))))-1
   ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x["UL"])))))+1
   ylimrange <- range(c(ylimmin,ylimmax))
