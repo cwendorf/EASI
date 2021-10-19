@@ -105,14 +105,14 @@ estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL
   return(results)
 }
 
-estimateMeansEffect.default <- function(...,mu=0,conf.level=.90,rope=NULL,main=NULL,digits=3) {
+estimateMeansEffect.default <- function(...,conf.level=.90,rope=NULL,main=NULL,digits=3) {
   DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])  
   estimateMeansEffect(DescStats,CorrStats,main=main,digits=digits)
 }
 
-estimateMeansEffect.formula <- function(formula,mu=0,conf.level=.90,rope=NULL,main=NULL,digits=3) {
+estimateMeansEffect.formula <- function(formula,conf.level=.90,rope=NULL,main=NULL,digits=3) {
   DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   estimateMeansEffect(DescStats,conf.level,main=main,digits=digits)

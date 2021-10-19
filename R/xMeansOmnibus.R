@@ -107,14 +107,14 @@ testMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3) {
   return(results)
 }
 
-testMeansOmnibus.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
+testMeansOmnibus.default <- function(...,conf.level=.95,rope=NULL,main=NULL,digits=3) {
   DescStats <- .unformatFrame(describeMeans(...)[[1]])
   class(DescStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]]) 
   testMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)
 }
 
-testMeansOmnibus.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
+testMeansOmnibus.formula <- function(formula,conf.level=.95,rope=NULL,main=NULL,digits=3) {
   DescStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(DescStats) <- "bss"
   testMeansOmnibus(DescStats,main=main,digits=digits)

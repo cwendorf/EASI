@@ -122,27 +122,27 @@ testMeanContrast.formula <- function(formula,contrast,mu=0,rope=NULL,main=NULL,d
 plotMeanContrast <- function(x,...) 
   UseMethod("plotMeanContrast")
 
-plotMeanContrast.wss <- function(DescStats,CorrStats,contrast,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+plotMeanContrast.wss <- function(DescStats,CorrStats,contrast,main=NULL,ylab="Outcome",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateMeanContrast(DescStats,CorrStats,contrast=contrast,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Contrast"} 
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
 }
 
-plotMeanContrast.bss <- function(DescStats,contrast,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+plotMeanContrast.bss <- function(DescStats,contrast,main=NULL,ylab="Outcome",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateMeanContrast(DescStats,contrast=contrast,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Contrast"}   
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
 
-plotMeanContrast.default <- function(...,contrast,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+plotMeanContrast.default <- function(...,contrast,main=NULL,ylab="Outcome",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateMeanContrast(...,contrast=contrast,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Contrast"} 
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
 }
 
-plotMeanContrast.formula <- function(formula,contrast,main=NULL,ylab="Outcome",xlab="",mu=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+plotMeanContrast.formula <- function(formula,contrast,main=NULL,ylab="Outcome",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateMeanContrast(formula,contrast=contrast,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Contrast"}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,mu=mu,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
 
