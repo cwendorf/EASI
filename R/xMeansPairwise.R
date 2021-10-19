@@ -6,7 +6,7 @@
 estimateMeansPairwise <- function(x,...) 
   UseMethod("estimateMeansPairwise")
 
-estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
   N <- SumStats[,"N"]
   M <- SumStats[,"M"]
   SD <- SumStats[,"SD"]
@@ -20,7 +20,7 @@ estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NUL
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[j]]-M[rn[i]]
+    MD <- M[rn[j]]-M[rn[i]]-mu
     SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
     df <- min(N)-1
     tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
@@ -34,7 +34,7 @@ estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NUL
   return(results)
 }
 
-estimateMeansPairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,...){
+estimateMeansPairwise.bss <- function(SumStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
   N <- SumStats[,"N"]
   M <- SumStats[,"M"]
   SD <- SumStats[,"SD"]
@@ -48,7 +48,7 @@ estimateMeansPairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[j]]-M[rn[i]]
+    MD <- M[rn[j]]-M[rn[i]]-mu
     SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
     df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
     tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
@@ -62,14 +62,14 @@ estimateMeansPairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3
   return(results)
 }
 
-estimateMeansPairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
+estimateMeansPairwise.default <- function(...,conf.level=.95,mu=0,main=NULL,digits=3){
   SumStats <- .unformatFrame(describeMeans(...)[[1]])
   class(SumStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
   estimateMeansPairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
-estimateMeansPairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
+estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0,main=NULL,digits=3,...){
   SumStats <- .unformatFrame(describeMeans(formula)[[1]])
   class(SumStats) <- "bss"
   estimateMeansPairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
