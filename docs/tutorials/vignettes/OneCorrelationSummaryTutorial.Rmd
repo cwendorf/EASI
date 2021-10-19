@@ -82,7 +82,7 @@ estimateCorrelations(PairedSummary,PairedCorr,conf.level=.99)
 
 Of course, it is possible to change from the default confidence level and to add a comparison line and a region of practical equivalence to the graph.
 ```{r,PairedCorrelation-B}
-plotCorrelations(PairedSummary,PairedCorr,conf.level=.99,mu=0,rope=c(-.2,.2))
+plotCorrelations(PairedSummary,PairedCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 #### Significance Test

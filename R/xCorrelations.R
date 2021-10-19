@@ -150,10 +150,10 @@ plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation
   .cipMain(results,main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
 
-plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",line=NULL,rope=NULL,conf.level=.95,labels=NULL,values=TRUE,ylim=c(-1.1,1.1),digits=3,pch=16,col="black") {
+plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=c(-1.1,1.1),digits=3,pch=16,col="black") {
   CompStats <- .unformatFrame(describeMeans(...)[[1]])
   class(CompStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
-  plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,line=line,conf.level=conf.level,rope=rope,labels=labels,values=values,ylim=ylim,digits=digits,pch=pch,col=col)
+  plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,line=line,conf.level=conf.level,rope=rope,values=values,ylim=ylim,digits=digits,pch=pch,col=col)
 }
 
