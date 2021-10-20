@@ -1,10 +1,10 @@
 # Estimation Approach to Statistical Inference
 
-## Upcoming
+## 4.5.211020
 
 - Separated reference line from mu for plotting
 - Improved color handling for plots
-- Support for plotting intervals with native pipe operator
+- Support for plotting intervals and plausibility with native pipe operator
 
 ## 4.4.210625
 
