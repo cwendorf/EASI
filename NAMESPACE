@@ -13,6 +13,17 @@ S3method(plotDensity,default)
 S3method(plotDensity,formula)
 export(plotDensity)
 
+### xPlausible
+
+export(plotIntervals)
+export(plotPlausible)
+
+### xFrequencies
+
+S3method(describeFrequencies,default)
+S3method(describeFrequencies,formula)
+export(describeFrequencies)
+
 ### xBoxes
 
 S3method(describeBoxes,default)
@@ -22,11 +33,6 @@ export(describeBoxes)
 S3method(plotBoxes,default)
 S3method(plotBoxes,formula)
 export(plotBoxes)
-
-### xPlausible
-
-export(plotIntervals)
-export(plotPlausible)
 
 ### xMeans
 
