@@ -73,11 +73,11 @@ estimateRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,conf.leve
 }
 
 estimateRegressionEffect.default <- function(Predictors,Criterion,conf.level=.90,main=NULL,digits=3) {
-  PredStats <- .unformatFrame(describeMeans(Predictors)[[1]])
+  PredStats <- .describeMeans(Predictors)
   class(PredStats) <- "wss"
-  CritStats <- .unformatFrame(describeMeans(Criterion)[[1]])
+  CritStats <- .describeMeans(Criterion)
   class(CritStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(Predictors,Criterion)[[1]])
+  CorrStats <- .describeCorrelations(Predictors,Criterion)
   class(CorrStats) <- "wss"
   estimateRegressionEffect(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }

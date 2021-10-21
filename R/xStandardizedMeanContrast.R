@@ -58,14 +58,14 @@ estimateStandardizedMeanContrast.bss <- function(DescStats,contrast,mu=0,conf.le
 }
 
 estimateStandardizedMeanContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   estimateStandardizedMeanContrast(DescStats,CorrStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateStandardizedMeanContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   estimateStandardizedMeanContrast(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }

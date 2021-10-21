@@ -63,14 +63,14 @@ estimateMeansPairwise.bss <- function(SumStats,conf.level=.95,mu=0,main=NULL,dig
 }
 
 estimateMeansPairwise.default <- function(...,conf.level=.95,mu=0,main=NULL,digits=3){
-  SumStats <- .unformatFrame(describeMeans(...)[[1]])
+  SumStats <- .describeMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   estimateMeansPairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0,main=NULL,digits=3,...){
-  SumStats <- .unformatFrame(describeMeans(formula)[[1]])
+  SumStats <- .describeMeans(formula)
   class(SumStats) <- "bss"
   estimateMeansPairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
 }
@@ -135,14 +135,14 @@ testMeansPairwise.bss <- function(SumStats,mu=0,main=NULL,digits=3,...){
 }
 
 testMeansPairwise.default <- function(...,mu=0,main=NULL,digits=3){
-  SumStats <- .unformatFrame(describeMeans(...)[[1]])
+  SumStats <- .describeMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   testMeansPairwise(SumStats,CorrStats,mu=mu,main=main,digits=digits)
 }
 
 testMeansPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
-  SumStats <- .unformatFrame(describeMeans(formula)[[1]])
+  SumStats <- .describeMeans(formula)
   class(SumStats) <- "bss"
   testMeansPairwise(SumStats,mu=mu,main=main,digits=digits)
 }

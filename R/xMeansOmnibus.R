@@ -56,15 +56,15 @@ describeMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3,...) {
 }
 
 describeMeansOmnibus.default <- function(...,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]]) 
+  CorrStats <- .describeCorrelations(...)
   results <- describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)
   return(results)
 }
 
 describeMeansOmnibus.formula <- function(formula,main=NULL,digits=3,...) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   results <- describeMeansOmnibus(DescStats,main=main,digits=digits)
   return(results)
@@ -108,14 +108,14 @@ testMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3) {
 }
 
 testMeansOmnibus.default <- function(...,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]]) 
+  CorrStats <- .describeCorrelations(...)
   testMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)
 }
 
 testMeansOmnibus.formula <- function(formula,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   testMeansOmnibus(DescStats,main=main,digits=digits)
 }

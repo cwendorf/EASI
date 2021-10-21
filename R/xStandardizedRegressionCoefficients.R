@@ -20,11 +20,11 @@ estimateStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,C
 estimateStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95,main=NULL,digits=3) {
   Pred <- cbind(Predictors)
   if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
-  PredStats <- .unformatFrame(describeMeans(Pred)[[1]])
+  PredStats <- .describeMeans(Pred)
   class(PredStats) <- "wss"
-  CritStats <- .unformatFrame(describeMeans(Criterion)[[1]])
+  CritStats <- .describeMeans(Criterion)
   class(CritStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(Pred,Criterion)[[1]])
+  CorrStats <- .describeCorrelations(Pred,Criterion)
   class(CorrStats) <- "wss"
   estimateStandardizedRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }

@@ -36,8 +36,9 @@ export(plotBoxes)
 
 ### xMeans
 
-S3method(describeMeans,default)
-S3method(describeMeans,formula)
+S3method(.describeMeans,default)
+S3method(.describeMeans,formula)
+export(.describeMeans)
 export(describeMeans)
 
 S3method(estimateMeans,default)
@@ -284,7 +285,8 @@ export(declareCorrelations)
 S3method(fillCorrelations,default)
 export(fillCorrelations)
 
-S3method(describeCorrelations,default)
+S3method(.describeCorrelations,default)
+export(.describeCorrelations)
 export(describeCorrelations)
 
 S3method(describeCovariances,default)

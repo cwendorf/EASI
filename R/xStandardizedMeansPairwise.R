@@ -74,14 +74,14 @@ estimateStandardizedMeansPairwise.bss <- function(SumStats,conf.level=.95,main=N
 }
 
 estimateStandardizedMeansPairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .unformatFrame(describeMeans(...)[[1]])
+  SumStats <- .describeMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   estimateStandardizedMeansPairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateStandardizedMeansPairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
-  SumStats <- .unformatFrame(describeMeans(formula)[[1]])
+  SumStats <- .describeMeans(formula)
   class(SumStats) <- "bss"
   estimateStandardizedMeansPairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
 }

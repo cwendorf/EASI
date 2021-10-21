@@ -48,14 +48,14 @@ estimateMeanContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope
 }
 
 estimateMeanContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   estimateMeanContrast(DescStats,CorrStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateMeanContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   estimateMeanContrast(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }
@@ -105,14 +105,14 @@ testMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,rope=NULL,mai
 }
 
 testMeanContrast.default <- function(...,contrast,mu=0,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   testMeanContrast(DescStats,CorrStats,contrast,mu=mu,main=main,digits=digits)
 }
 
 testMeanContrast.formula <- function(formula,contrast,mu=0,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   testMeanContrast(DescStats,contrast,mu=mu,main=main,digits=digits)
 }

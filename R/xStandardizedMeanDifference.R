@@ -55,14 +55,14 @@ estimateStandardizedMeanDifference.bss <- function(DescStats,contrast,mu=0,conf.
 }
 
 estimateStandardizedMeanDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  CompStats <- .unformatFrame(describeMeans(...)[[1]])
+  CompStats <- .describeMeans(...)
   class(CompStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   estimateStandardizedMeanDifference(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateStandardizedMeanDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   estimateStandardizedMeanDifference(DescStats,contrast,conf.level=conf.level,main=main,digits=digits)
 }

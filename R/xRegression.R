@@ -26,7 +26,7 @@
   UseMethod(".estimateRegression")
 
 .estimateRegression.default <- function(Predictor,Criterion,value,conf.level=.95) {
-  dM <- .unformatFrame(describeMeans(Predictor)[[1]])
+  dM <- .describeMeans(Predictor)
   eR <- .unformatFrame(estimateRegressionCoefficients(Predictor,Criterion)[[1]])
   dRO <- .unformatFrame(describeRegressionOmnibus(Predictor,Criterion)[[1]])
   .eR(dM,eR,dRO,value=value,conf.level=conf.level)

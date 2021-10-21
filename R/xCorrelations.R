@@ -45,12 +45,17 @@ fillCorrelations.default <- function(mat) {
 
 #### Descriptives
 
-describeCorrelations <- function(x,...) 
-  UseMethod("describeCorrelations")
+.describeCorrelations <- function(x,...) 
+  UseMethod(".describeCorrelations")
 
-describeCorrelations.default <- function(...,main=NULL,digits=3) {
+.describeCorrelations.default <- function(...) {
   data <- data.frame(...)
   results <- cor(data)
+  return(results)
+}
+
+describeCorrelations <- function(...,main=NULL,digits=3) {
+  results <- .describeCorrelations(...)
   results <- .formatList(list(results),digits=digits)  
   if(is.null(main)) {names(results) <- "Correlation Matrix for the Variables"} else {names(results) <- main}  
   return(results)
@@ -117,9 +122,9 @@ estimateCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL
 }
 
 estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .unformatFrame(describeMeans(...)[[1]])
+  SumStats <- .describeMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   estimateCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
@@ -154,9 +159,9 @@ testCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,dig
 }
 
 testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .unformatFrame(describeMeans(...)[[1]])
+  SumStats <- .describeMeans(...)
   class(SumStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
+  CorrStats <- .describeCorrelations(...)
   testCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 

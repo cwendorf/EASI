@@ -43,10 +43,10 @@ kurtosis <- function(x, na.rm = FALSE, type = 2) {
 
 ### Descriptives
 
-describeMeans <- function(x,...) 
-  UseMethod("describeMeans")
+.describeMeans <- function(x,...) 
+  UseMethod(".describeMeans")
 
-describeMeans.default <- function(...,main=NULL,digits=3) {
+.describeMeans.default <- function(...) {
   data <- data.frame(...)
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
@@ -54,17 +54,21 @@ describeMeans.default <- function(...,main=NULL,digits=3) {
   Skew <- sapply(data,skewness,na.rm=TRUE)
   Kurt <- sapply(data,kurtosis,na.rm=TRUE)
   results <- cbind(N=N,M=M,SD=SD,Skew=Skew,Kurt=Kurt)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
   return(results)
 }
 
-describeMeans.formula <- function(formula,main=NULL,digits=3) {
-  results <- aggregate(formula,FUN=describeMeans)
+.describeMeans.formula <- function(formula) {
+  results <- aggregate(formula,FUN=.describeMeans)
   rn <- results[,1]
-  results <- Reduce(rbind,results[[2]])
+  results <- results[[2]]
   rownames(results) <- rn
-  results <- list(results)
+  colnames(results) <- c("N","M","SD","Skew","Kurt")
+  return(results)
+}
+
+describeMeans <- function(...,main=NULL,digits=3) {
+  results <- .describeMeans(...)
+  results <- .formatList(list(results),digits=digits)   
   if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
   return(results)
 }
@@ -94,13 +98,13 @@ estimateMeans.wss <- estimateMeans.bss <- function(DescStats,mu=0,conf.level=.95
 }
 
 estimateMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
   estimateMeans(DescStats,conf.level=conf.level,mu=mu,main=main,digits=digits)
 }
 
 estimateMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   estimateMeans(DescStats,conf.level=conf.level,mu=mu,main=main,digits=digits)
 }
@@ -127,13 +131,13 @@ testMeans.wss <- testMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NU
 }
 
 testMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
   testMeans(DescStats,mu=mu,main=main,digits=digits)
 }
 
 testMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   testMeans(DescStats,mu=mu,main=main,digits=digits)
 }

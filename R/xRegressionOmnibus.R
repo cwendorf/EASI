@@ -26,11 +26,11 @@ describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,main=NUL
 }
 
 describeRegressionOmnibus.default <- function(Predictors,Criterion,main=NULL,digits=3) {
-  PredStats <- .unformatFrame(describeMeans(Predictors)[[1]])
+  PredStats <- .describeMeans(Predictors)
   class(PredStats) <- "wss"
-  CritStats <- .unformatFrame(describeMeans(Criterion)[[1]])
+  CritStats <- .describeMeans(Criterion)
   class(CritStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(Predictors,Criterion)[[1]])
+  CorrStats <- .describeCorrelations(Predictors,Criterion)
   class(CorrStats) <- "wss"
   describeRegressionOmnibus(PredStats,CritStats,CorrStats,main=main,digits=digits)
 }
@@ -57,11 +57,11 @@ testRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,main=NULL,di
 }
 
 testRegressionOmnibus.default <- function(Predictors,Criterion,main=NULL,digits=3) {
-  PredStats <- .unformatFrame(describeMeans(Predictors)[[1]])
+  PredStats <- .describeMeans(Predictors)
   class(PredStats) <- "wss"
-  CritStats <- .unformatFrame(describeMeans(Criterion)[[1]])
+  CritStats <- .describeMeans(Criterion)
   class(CritStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(Predictors,Criterion)[[1]])
+  CorrStats <- .describeCorrelations(Predictors,Criterion)
   class(CorrStats) <- "wss"
   testRegressionOmnibus(PredStats,CritStats,CorrStats,main=main,digits=digits)
 }

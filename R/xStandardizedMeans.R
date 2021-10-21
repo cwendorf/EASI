@@ -46,13 +46,13 @@ estimateStandardizedMeans.wss <- estimateStandardizedMeans.bss <- function(DescS
 }
 
 estimateStandardizedMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
   estimateStandardizedMeans(DescStats,mu=mu,conf.level=conf.level,mainmain=main,digits=digits)
 }
 
 estimateStandardizedMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   estimateStandardizedMeans(DescStats,mu=mu,conf.level=conf.level,main=main,digits=digits)
 }

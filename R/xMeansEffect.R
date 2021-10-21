@@ -42,14 +42,14 @@ describeMeansEffect.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
 }
 
 describeMeansEffect.default <- function(...,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])  
+  CorrStats <- .describeCorrelations(...)
   describeMeansEffect(DescStats,CorrStats,main=main,digits=digits)
 }
 
 describeMeansEffect.formula <- function(formula,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   describeMeansEffect(DescStats,main=main,digits=digits)
 }
@@ -106,14 +106,14 @@ estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL
 }
 
 estimateMeansEffect.default <- function(...,conf.level=.90,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  DescStats <- .describeMeans(...)
   class(DescStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])  
+  CorrStats <- .describeCorrelations(...)
   estimateMeansEffect(DescStats,CorrStats,main=main,digits=digits)
 }
 
 estimateMeansEffect.formula <- function(formula,conf.level=.90,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  DescStats <- .describeMeans(formula)
   class(DescStats) <- "bss"
   estimateMeansEffect(DescStats,conf.level,main=main,digits=digits)
 }
