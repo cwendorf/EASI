@@ -1,5 +1,10 @@
 # Estimation Approach to Statistical Inference
 
+## Next Release
+
+- Added skewness and kurtosis to descriptives
+- Added frequency distribution tables
+
 ## 4.5.211020
 
 - Separated reference line from mu for plotting
