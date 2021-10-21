@@ -4,6 +4,7 @@
 
 - Added skewness and kurtosis to descriptives
 - Added frequency distribution tables
+- Added support for plotting factorial designs
 
 ## 4.5.211020
 

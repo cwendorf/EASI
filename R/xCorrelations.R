@@ -3,25 +3,6 @@
 
 ### Correlate/Covary for Mutiple Variables
 
-describeCorrelations <- function(x,...) 
-  UseMethod("describeCorrelations")
-
-describeCorrelations.default <- function(...,main=NULL,digits=3) {
-  data <- data.frame(...)
-  results <- cor(data)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Correlation Matrix for the Variables"} else {names(results) <- main}  
-  return(results)
-}
-
-#### Convert a Correlation Matrix to a Covariance Matrix
-
-.cortocov <- function(CorrStats,SD) {
-  sdsquare <- SD %*% t(SD)
-  covstats <- sdsquare * CorrStats
-  return(covstats)
-}
-
 #### Declare and Fill Blanks in Matrix
 
 declareCorrelations <- function(x,...) 
@@ -59,6 +40,46 @@ fillCorrelations.default <- function(mat) {
   }
   }
   diag(results) <- 1.000
+  return(results)
+}
+
+#### Descriptives
+
+describeCorrelations <- function(x,...) 
+  UseMethod("describeCorrelations")
+
+describeCorrelations.default <- function(...,main=NULL,digits=3) {
+  data <- data.frame(...)
+  results <- cor(data)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results) <- "Correlation Matrix for the Variables"} else {names(results) <- main}  
+  return(results)
+}
+
+#### Convert Correlations to Covariances
+
+.cortocov <- function(CorrStats,SD) {
+  sdsquare <- SD %*% t(SD)
+  covstats <- sdsquare * CorrStats
+  return(covstats)
+}
+
+describeCovariances <- function(x,...) 
+  UseMethod("describeCovariances")
+
+describeCovariances.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...) {
+  SD <- DescStats[,"SD"]
+  results <- .cortocov(CorrStats,SD)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results) <- "Covariance Matrix for the Variables"} else {names(results) <- main}  
+  return(results)
+}
+
+describeCovariances.default <- function(...,main=NULL,digits=3) {
+  data <- data.frame(...)
+  results <- cov(data)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results) <- "Covariance Matrix for the Variables"} else {names(results) <- main}  
   return(results)
 }
 

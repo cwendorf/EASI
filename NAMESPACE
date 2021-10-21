@@ -287,6 +287,10 @@ export(fillCorrelations)
 S3method(describeCorrelations,default)
 export(describeCorrelations)
 
+S3method(describeCovariances,default)
+S3method(describeCovariances,wss)
+export(describeCovariances)
+
 S3method(estimateCorrelations,default)
 S3method(estimateCorrelations,wss)
 export(estimateCorrelations)
