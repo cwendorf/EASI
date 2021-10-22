@@ -24,6 +24,13 @@ S3method(describeFrequencies,default)
 S3method(describeFrequencies,formula)
 export(describeFrequencies)
 
+### xFrequencies
+
+S3method(.describePercentiles,default)
+S3method(.describePercentiles,formula)
+export(.describePercentiles)
+export(describePercentiles)
+
 ### xBoxes
 
 S3method(describeBoxes,default)
