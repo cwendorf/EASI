@@ -25,7 +25,7 @@ estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,mu=0,pos
     df <- min(N)-1
     tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
     if(!is.null(posthoc)) {
-      df <- (length(M)-1)*(N[[1]]-1)
+  
       tcrit <- qtukey(conf.level,2,df=df)/sqrt(2)}
     LL <- MD-tcrit*SEd
     UL <- MD+tcrit*SEd
@@ -106,7 +106,7 @@ testMeansPairwise.wss <- function(SumStats,CorrStats,mu=0,posthoc=NULL,main=NULL
     t <- MD/SEd
     p <- 2*(1 - pt(abs(t),df))
     if(!is.null(posthoc)) {
-      df <- (length(M)-1)*(N[[1]]-1)
+ 
       p <- 1- ptukey(abs(t)*sqrt(2),2,df=df)}
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
