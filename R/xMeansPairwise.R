@@ -23,8 +23,8 @@ estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,mu=0,pos
     MD <- M[rn[j]]-M[rn[i]]-mu
     SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
     df <- min(N)-1
-    if(posthoc="LSD") (tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE))
-    if(posthoc="HSD") (tcrit <- qtukey(conf.level,2,df=df)/sqrt(2))
+    if(posthoc=="LSD") (tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE))
+    if(posthoc=="HSD") (tcrit <- qtukey(conf.level,2,df=df)/sqrt(2))
     LL <- MD-tcrit*SEd
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
@@ -52,8 +52,8 @@ estimateMeansPairwise.bss <- function(SumStats,conf.level=.95,mu=0,posthoc="LSD"
     MD <- M[rn[j]]-M[rn[i]]-mu
     SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
     df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
-    if(posthoc="LSD") (tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE))
-    if(posthoc="HSD") (tcrit <- qtukey(conf.level,2,df)/sqrt(2))
+    if(posthoc=="LSD") (tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE))
+    if(posthoc=="HSD") (tcrit <- qtukey(conf.level,2,df)/sqrt(2))
     LL <- MD-tcrit*SEd
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
@@ -100,8 +100,8 @@ testMeansPairwise.wss <- function(SumStats,CorrStats,mu=0,posthoc="LSD",main=NUL
     SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
     df <- min(N)-1
     t <- MD/SEd
-    if(posthoc="LSD") (p <- 2*(1 - pt(abs(t),df)))
-    if(posthoc="HSD") (p <- ptukey(abs(t)*sqrt(2),2,df=df))
+    if(posthoc=="LSD") (p <- 2*(1 - pt(abs(t),df)))
+    if(posthoc=="HSD") (p <- ptukey(abs(t)*sqrt(2),2,df=df))
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
   if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Pairwise Mean Comparisons"} else {main="Hypothesis Test for the Pairwise Mean Comparison"}}  
@@ -128,8 +128,8 @@ testMeansPairwise.bss <- function(SumStats,mu=0,posthoc="LSD",main=NULL,digits=3
     SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
     df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
     t <- MD/SEd
-    if(posthoc="LSD") (p <- 2*(1 - pt(abs(t),df)))
-    if(posthoc="HSD") (p <- ptukey(abs(t)*sqrt(2),2,df=df))
+    if(posthoc=="LSD") (p <- 2*(1 - pt(abs(t),df)))
+    if(posthoc=="HSD") (p <- ptukey(abs(t)*sqrt(2),2,df=df))
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
   if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Pairwise Mean Comparisons"} else {main="Hypothesis Test for the Pairwise Mean Comparison"}}  
