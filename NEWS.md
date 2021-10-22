@@ -4,6 +4,7 @@
 
 - Added skewness and kurtosis to descriptives
 - Added frequency distribution tables and percentiles
+- Added Tukey HSD to mean pairwise comparisons
 
 ## 4.5.211020
 
