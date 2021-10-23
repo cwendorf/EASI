@@ -9,12 +9,8 @@ estimateMeansPosthoc <- function(x,...)
 estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
 
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
-  SSf <- temptab["Factor","SS"]
-  SSe <- temptab["Error","SS"]
-  SSt <- SSf + SSe
-  dff <- temptab["Factor","df"]
   dfe <- temptab["Error","df"] 
-
+  MSe <- temptab["Error","MS"]
 
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
@@ -49,8 +45,6 @@ estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,dig
   MSw <- temptab["Within","MS"]
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
-  SD <- DescStats[,"SD"]
-  SE <- SD/sqrt(N)
   rn <- rownames(DescStats)
   nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
@@ -95,12 +89,8 @@ testMeansPosthoc <- function(x,...)
 testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,...){
 
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
-  SSf <- temptab["Factor","SS"]
-  SSe <- temptab["Error","SS"]
-  SSt <- SSf + SSe
-  dff <- temptab["Factor","df"]
   dfe <- temptab["Error","df"] 
-
+  MSe <- temptab["Error","MS"]
 
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
@@ -130,15 +120,11 @@ testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,...
 }
 
 testMeansPosthoc.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
-
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
   dfw <- temptab["Within","df"] 
   MSw <- temptab["Within","MS"]
-  
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
-  SD <- DescStats[,"SD"]
-  SE <- SD/sqrt(N)
   rn <- rownames(DescStats)
   nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
@@ -149,11 +135,9 @@ testMeansPosthoc.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
     MD <- M[rn[j]]-M[rn[i]]-mu
-    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
-    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
+    SEd <- sqrt( (Msw/N[rn[i]]) + (MSw/N[rn[j]]) )
     t <- MD/SEd
-    p <- 2*(1 - pt(abs(t),df))
-    df <- sum(N) - length(M)
+    df <- dfw
     p <- 1- ptukey(abs(t)*sqrt(2),nr,df=df)
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
