@@ -1,28 +1,10 @@
 # Estimation Approach to Statistical Inference
 ## Eta Squared
 
-
 ### Descriptives
 
 describeMeansEffect <- function(x,...) 
   UseMethod("describeMeansEffect")
-
-describeMeansEffect.bss <- function(DescStats,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
-  SSb <- temptab["Between","SS"]
-  SSw <- temptab["Within","SS"]
-  SSt <- SSb + SSw
-  dfb <- temptab["Between","df"]
-  dfw <- temptab["Within","df"] 
-  dft <- dfb + dfw
-  F <- (SSb/dfb)/(SSw/dfw) 
-  etasq <- SSb / SSt
-  results <- cbind(Est=etasq)
-  rownames(results) <- "Factor"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
-  return(results)
-}
 
 describeMeansEffect.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
@@ -34,6 +16,23 @@ describeMeansEffect.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
   dft <- dff + dfe
   F <- (SSf/dff)/(SSe/dfe)
   etasq <- SSf / SSt
+  results <- cbind(Est=etasq)
+  rownames(results) <- "Factor"
+  results <- .formatList(list(results),digits=digits) 
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
+  return(results)
+}
+
+describeMeansEffect.bss <- function(DescStats,main=NULL,digits=3) {
+  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
+  SSb <- temptab["Between","SS"]
+  SSw <- temptab["Within","SS"]
+  SSt <- SSb + SSw
+  dfb <- temptab["Between","df"]
+  dfw <- temptab["Within","df"] 
+  dft <- dfb + dfw
+  F <- (SSb/dfb)/(SSw/dfw) 
+  etasq <- SSb / SSt
   results <- cbind(Est=etasq)
   rownames(results) <- "Factor"
   results <- .formatList(list(results),digits=digits) 
@@ -59,29 +58,6 @@ describeMeansEffect.formula <- function(formula,main=NULL,digits=3) {
 estimateMeansEffect <- function(x,...) 
   UseMethod("estimateMeansEffect")
 
-estimateMeansEffect.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
-  SSb <- temptab["Between","SS"]
-  SSw <- temptab["Within","SS"]
-  SSt <- SSb + SSw
-  dfb <- temptab["Between","df"]
-  dfw <- temptab["Within","df"] 
-  dft <- dfb + dfw
-  F <- (SSb/dfb)/(SSw/dfw) 
-  etasq <- SSb / SSt
-  delta.lower <- delta.upper <- numeric(length(etasq))
-  delta.lower <- try(.ncpF(F,dfb,dfw,prob=(1+conf.level)/2),silent=TRUE)
-  delta.upper <- try(.ncpF(F,dfb,dfw,prob=(1-conf.level)/2),silent=TRUE)
-  if(is.character(delta.lower)) {delta.lower <- 0}
-  etasq.lower <- delta.lower / (delta.lower + dfb + dfw + 1)
-  etasq.upper <- delta.upper / (delta.upper + dfb + dfw + 1)
-  results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
-  rownames(results) <- "Factor"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
-  return(results)
-}
-
 estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL,digits=3) {
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
   SSf <- temptab["Factor","SS"]
@@ -98,6 +74,29 @@ estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL
   if(is.character(delta.lower)) {delta.lower <- 0}
   etasq.lower <- delta.lower / (delta.lower + dff + dfe + 1)
   etasq.upper <- delta.upper / (delta.upper + dff + dfe + 1)
+  results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
+  rownames(results) <- "Factor"
+  results <- .formatList(list(results),digits=digits) 
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
+  return(results)
+}
+
+estimateMeansEffect.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3) {
+  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
+  SSb <- temptab["Between","SS"]
+  SSw <- temptab["Within","SS"]
+  SSt <- SSb + SSw
+  dfb <- temptab["Between","df"]
+  dfw <- temptab["Within","df"] 
+  dft <- dfb + dfw
+  F <- (SSb/dfb)/(SSw/dfw) 
+  etasq <- SSb / SSt
+  delta.lower <- delta.upper <- numeric(length(etasq))
+  delta.lower <- try(.ncpF(F,dfb,dfw,prob=(1+conf.level)/2),silent=TRUE)
+  delta.upper <- try(.ncpF(F,dfb,dfw,prob=(1-conf.level)/2),silent=TRUE)
+  if(is.character(delta.lower)) {delta.lower <- 0}
+  etasq.lower <- delta.lower / (delta.lower + dfb + dfw + 1)
+  etasq.upper <- delta.upper / (delta.upper + dfb + dfw + 1)
   results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
   rownames(results) <- "Factor"
   results <- .formatList(list(results),digits=digits) 
