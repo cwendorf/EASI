@@ -135,7 +135,7 @@ testMeansPosthoc.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
     MD <- M[rn[j]]-M[rn[i]]-mu
-    SEd <- sqrt( (Msw/N[rn[i]]) + (MSw/N[rn[j]]) )
+    SEd <- sqrt( (MSw/N[rn[i]]) + (MSw/N[rn[j]]) )
     t <- MD/SEd
     df <- dfw
     p <- 1- ptukey(abs(t)*sqrt(2),nr,df=df)
