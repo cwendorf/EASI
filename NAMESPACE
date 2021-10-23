@@ -242,6 +242,40 @@ S3method(plotStandardizedMeansPairwise,wss)
 S3method(plotStandardizedMeansPairwise,bss)
 export(plotStandardizedMeansPairwise)
 
+### xMeansPosthoc
+
+S3method(estimateMeansPosthoc,default)
+S3method(estimateMeansPosthoc,formula)
+S3method(estimateMeansPosthoc,wss)
+S3method(estimateMeansPosthoc,bss)
+export(estimateMeansPosthoc)
+
+S3method(testMeansPosthoc,default)
+S3method(testMeansPosthoc,formula)
+S3method(testMeansPosthoc,wss)
+S3method(testMeansPosthoc,bss)
+export(testMeansPosthoc)
+
+S3method(plotMeansPosthoc,default)
+S3method(plotMeansPosthoc,formula)
+S3method(plotMeansPosthoc,wss)
+S3method(plotMeansPosthoc,bss)
+export(plotMeansPosthoc)
+
+### xStandardizedMeansPosthoc
+
+S3method(estimateStandardizedMeansPosthoc,default)
+S3method(estimateStandardizedMeansPosthoc,formula)
+S3method(estimateStandardizedMeansPosthoc,wss)
+S3method(estimateStandardizedMeansPosthoc,bss)
+export(estimateStandardizedMeansPosthoc)
+
+S3method(plotStandardizedMeansPosthoc,default)
+S3method(plotStandardizedMeansPosthoc,formula)
+S3method(plotStandardizedMeansPosthoc,wss)
+S3method(plotStandardizedMeansPosthoc,bss)
+export(plotStandardizedMeansPosthoc)
+
 ### xMeansRelational
 
 S3method(estimateMeansRelational,default)
