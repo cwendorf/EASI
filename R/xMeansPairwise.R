@@ -28,7 +28,7 @@ estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,ma
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Mean Pairwise Comparisons"} else {main="Confidence Interval for the Mean Pairwise Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Mean Comparisons"} else {main="Confidence Interval for the Pairwise Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -56,7 +56,7 @@ estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,di
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Mean Pairwise Comparisons"} else {main="Confidence Interval for the Mean Pairwise Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Mean Comparisons"} else {main="Confidence Interval for the Pairwise Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -101,7 +101,7 @@ testMeansPairwise.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,..
     p <- 2*(1 - pt(abs(t),df))
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Mean Pairwise Comparisons"} else {main="Hypothesis Test for the Mean Pairwise Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Pairwise Mean Comparisons"} else {main="Hypothesis Test for the Pairwise Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -128,7 +128,7 @@ testMeansPairwise.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
     p <- 2*(1 - pt(abs(t),df))
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Mean Pairwise Comparisons"} else {main="Hypothesis Test for the Mean Pairwise Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Pairwise Mean Comparisons"} else {main="Hypothesis Test for the Pairwise Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -154,12 +154,12 @@ plotMeansPairwise <- function(x,...)
 
 plotMeansPairwise.default <- plotMeansPairwise.bss <- plotMeansPairwise.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=0,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateMeansPairwise(...,conf.level=conf.level,mu=mu)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Mean Pairwise Comparisons"} else {main="Confidence Interval for the \n Mean Pairwise Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Pairwise Mean Comparisons"} else {main="Confidence Interval for the \n Pairwise Mean Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
 }
 
 plotMeansPairwise.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=0,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateMeansPairwise(formula,conf.level=conf.level,mu=mu)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Mean Pairwise Comparisons"} else {main="Confidence Interval for the \n Mean Pairwise Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Pairwise Mean Comparisons"} else {main="Confidence Interval for the \n Pairwise Mean Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
 }

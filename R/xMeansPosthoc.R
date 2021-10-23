@@ -33,7 +33,7 @@ estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,mai
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Mean Posthoc Comparisons"} else {main="Confidence Interval for the Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Mean Comparisons"} else {main="Confidence Interval for the Posthoc Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -62,7 +62,7 @@ estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,dig
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Mean Posthoc Comparisons"} else {main="Confidence Interval for the Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Mean Comparisons"} else {main="Confidence Interval for the Posthoc Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -109,11 +109,10 @@ testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,...
     SEd <- sqrt(SE[rn[i]]^2+SE[rn[j]]^2-2*CorrStats[rn[i],rn[j]]*SE[rn[i]]*SE[rn[j]])
     df <- min(N)-1
     t <- MD/SEd
-    p <- 2*(1 - pt(abs(t),df))
     p <- 1- ptukey(abs(t)*sqrt(2),nr,df=df)
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Mean Posthoc Comparisons"} else {main="Hypothesis Test for the Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Posthoc Mean Comparisons"} else {main="Hypothesis Test for the Posthoc Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -141,7 +140,7 @@ testMeansPosthoc.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
     p <- 1- ptukey(abs(t)*sqrt(2),nr,df=df)
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Mean Posthoc Comparisons"} else {main="Hypothesis Test for the Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Posthoc Mean Comparisons"} else {main="Hypothesis Test for the Posthoc Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -167,12 +166,12 @@ plotMeansPosthoc <- function(x,...)
 
 plotMeansPosthoc.default <- plotMeansPosthoc.bss <- plotMeansPosthoc.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=0,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateMeansPosthoc(...,conf.level=conf.level,mu=mu,posthoc=posthoc)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Mean Posthoc Comparisons"} else {main="Confidence Interval for the \n Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Posthoc Mean Comparisons"} else {main="Confidence Interval for the \n Posthoc Mean Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
 }
 
 plotMeansPosthoc.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=0,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateMeansPosthoc(formula,conf.level=conf.level,mu=mu,posthoc=posthoc)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Mean Posthoc Comparisons"} else {main="Confidence Interval for the \n Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Posthoc Mean Comparisons"} else {main="Confidence Interval for the \n Posthoc Mean Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
 }

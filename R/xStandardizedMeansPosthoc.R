@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Standardized Mean Posthoc Comparisons
+## Posthoc Standardized Mean Comparisons
 
 ### Confidence Intervals
 
@@ -35,7 +35,7 @@ estimateStandardizedMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=
     UL <- Est+z*SE
     results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Standardized Mean Posthoc Comparisons"} else {main="Confidence Interval for the Standardized Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the Posthoc Standardized Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -67,7 +67,7 @@ estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95,main=N
     UL <- Est+z*SE  
     results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Standardized Mean Posthoc Comparisons"} else {main="Confidence Interval for the Standardized Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the Posthoc Standardized Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
@@ -93,12 +93,12 @@ plotStandardizedMeansPosthoc <- function(x,...)
 
 plotStandardizedMeansPosthoc.default <- plotStandardizedMeansPosthoc.bss <- plotStandardizedMeansPosthoc.wss <- function(...,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=24,col="black") {
   results <- .unformatFrame(estimateStandardizedMeansPosthoc(...,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Standardized Mean Posthoc Comparisons"} else {main="Confidence Interval for the \n Standardized Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the \n Posthoc Standardized Mean Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
 }
 
 plotStandardizedMeansPosthoc.formula <- function(formula,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=24,col="black") {
   results <- .unformatFrame(estimateStandardizedMeansPosthoc(formula,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Standardized Mean Posthoc Comparisons"} else {main="Confidence Interval for the \n Standardized Mean Posthoc Comparison"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the \n Posthoc Standardized Mean Comparison"}}  
   .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
 }
