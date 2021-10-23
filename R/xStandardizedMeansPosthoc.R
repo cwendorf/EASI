@@ -6,12 +6,12 @@
 estimateStandardizedMeansPosthoc <- function(x,...) 
   UseMethod("estimateStandardizedMeansPosthoc")
 
-estimateStandardizedMeansPosthoc.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+estimateStandardizedMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results)<- c("d","SE","LL","UL")
@@ -41,12 +41,12 @@ estimateStandardizedMeansPosthoc.wss <- function(SumStats,CorrStats,conf.level=.
   return(results)
 }
 
-estimateStandardizedMeansPosthoc.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results)<- c("d","SE","LL","UL")
@@ -74,16 +74,16 @@ estimateStandardizedMeansPosthoc.bss <- function(SumStats,conf.level=.95,main=NU
 }
 
 estimateStandardizedMeansPosthoc.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .describeMeans(...)
-  class(SumStats) <- "wss"
+  DescStats <- .describeMeans(...)
+  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateStandardizedMeansPosthoc(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  estimateStandardizedMeansPosthoc(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateStandardizedMeansPosthoc.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
-  SumStats <- .describeMeans(formula)
-  class(SumStats) <- "bss"
-  estimateStandardizedMeansPosthoc(SumStats,conf.level=conf.level,main=main,digits=digits)
+  DescStats <- .describeMeans(formula)
+  class(DescStats) <- "bss"
+  estimateStandardizedMeansPosthoc(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Confidence Interval Plots

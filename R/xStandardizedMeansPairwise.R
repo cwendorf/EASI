@@ -6,12 +6,12 @@
 estimateStandardizedMeansPairwise <- function(x,...) 
   UseMethod("estimateStandardizedMeansPairwise")
 
-estimateStandardizedMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results)<- c("d","SE","LL","UL")
@@ -41,12 +41,12 @@ estimateStandardizedMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=
   return(results)
 }
 
-estimateStandardizedMeansPairwise.bss <- function(SumStats,conf.level=.95,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+estimateStandardizedMeansPairwise.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results)<- c("d","SE","LL","UL")
@@ -74,16 +74,16 @@ estimateStandardizedMeansPairwise.bss <- function(SumStats,conf.level=.95,main=N
 }
 
 estimateStandardizedMeansPairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .describeMeans(...)
-  class(SumStats) <- "wss"
+  DescStats <- .describeMeans(...)
+  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateStandardizedMeansPairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  estimateStandardizedMeansPairwise(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateStandardizedMeansPairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
-  SumStats <- .describeMeans(formula)
-  class(SumStats) <- "bss"
-  estimateStandardizedMeansPairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
+  DescStats <- .describeMeans(formula)
+  class(DescStats) <- "bss"
+  estimateStandardizedMeansPairwise(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Confidence Interval Plots

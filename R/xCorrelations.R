@@ -93,10 +93,10 @@ describeCovariances.default <- function(...,main=NULL,digits=3) {
 estimateCorrelations <- function(x,...) 
   UseMethod("estimateCorrelations")
 
-estimateCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+estimateCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=4,nrow=ncomp))
   colnames(results) <- c("R","SE","LL","UL")
@@ -122,10 +122,10 @@ estimateCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL
 }
 
 estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .describeMeans(...)
-  class(SumStats) <- "wss"
+  DescStats <- .describeMeans(...)
+  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  estimateCorrelations(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Null Hypothesis Significance Tests
@@ -133,10 +133,10 @@ estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
 testCorrelations <- function(x,...) 
   UseMethod("testCorrelations")
 
-testCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+testCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("R","SE","df","t","p")
@@ -159,10 +159,10 @@ testCorrelations.wss <- function(SumStats,CorrStats,conf.level=.95,main=NULL,dig
 }
 
 testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  SumStats <- .describeMeans(...)
-  class(SumStats) <- "wss"
+  DescStats <- .describeMeans(...)
+  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  testCorrelations(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  testCorrelations(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Confidence Interval Plots

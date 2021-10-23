@@ -6,7 +6,7 @@
 estimateMeansPosthoc <- function(x,...) 
   UseMethod("estimateMeansPosthoc")
 
-estimateMeansPosthoc.wss <- function(SumStats,CorrStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
+estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
 
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
   SSf <- temptab["Factor","SS"]
@@ -16,12 +16,12 @@ estimateMeansPosthoc.wss <- function(SumStats,CorrStats,conf.level=.95,mu=0,main
   dfe <- temptab["Error","df"] 
 
 
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","LL","UL")
@@ -43,22 +43,16 @@ estimateMeansPosthoc.wss <- function(SumStats,CorrStats,conf.level=.95,mu=0,main
   return(results)
 }
 
-estimateMeansPosthoc.bss <- function(SumStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
-
+estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
-  SSb <- temptab["Between","SS"]
-  SSw <- temptab["Within","SS"]
-  SSt <- SSb + SSw
-  dfb <- temptab["Between","df"]
   dfw <- temptab["Within","df"] 
-  dft <- dfb + dfw
-
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+  MSw <- temptab["Within","MS"]
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","LL","UL")
@@ -67,10 +61,8 @@ estimateMeansPosthoc.bss <- function(SumStats,conf.level=.95,mu=0,main=NULL,digi
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
     MD <- M[rn[j]]-M[rn[i]]-mu
-    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
-    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
-    tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
-    df <- sum(N) - length(M)
+    SEd <- sqrt( (MSw/N[rn[i]]) + (MSw/N[rn[j]]) )
+    df <- dfw
     tcrit <- qtukey(conf.level,nr,df=df)/sqrt(2)
     LL <- MD-tcrit*SEd
     UL <- MD+tcrit*SEd
@@ -83,16 +75,16 @@ estimateMeansPosthoc.bss <- function(SumStats,conf.level=.95,mu=0,main=NULL,digi
 }
 
 estimateMeansPosthoc.default <- function(...,conf.level=.95,mu=0,main=NULL,digits=3){
-  SumStats <- .describeMeans(...)
-  class(SumStats) <- "wss"
+  DescStats <- .describeMeans(...)
+  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateMeansPosthoc(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  estimateMeansPosthoc(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateMeansPosthoc.formula <- function(formula,conf.level=.95,mu=0,main=NULL,digits=3,...){
-  SumStats <- .describeMeans(formula)
-  class(SumStats) <- "bss"
-  estimateMeansPosthoc(SumStats,conf.level=conf.level,main=main,digits=digits)
+  DescStats <- .describeMeans(formula)
+  class(DescStats) <- "bss"
+  estimateMeansPosthoc(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Null Hypothesis Significance Tests 
@@ -100,7 +92,7 @@ estimateMeansPosthoc.formula <- function(formula,conf.level=.95,mu=0,main=NULL,d
 testMeansPosthoc <- function(x,...) 
   UseMethod("testMeansPosthoc")
 
-testMeansPosthoc.wss <- function(SumStats,CorrStats,mu=0,main=NULL,digits=3,...){
+testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,...){
 
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
   SSf <- temptab["Factor","SS"]
@@ -110,12 +102,12 @@ testMeansPosthoc.wss <- function(SumStats,CorrStats,mu=0,main=NULL,digits=3,...)
   dfe <- temptab["Error","df"] 
 
 
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","t","p")
@@ -137,22 +129,18 @@ testMeansPosthoc.wss <- function(SumStats,CorrStats,mu=0,main=NULL,digits=3,...)
   return(results)
 }
 
-testMeansPosthoc.bss <- function(SumStats,mu=0,main=NULL,digits=3,...){
+testMeansPosthoc.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
 
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
-  SSb <- temptab["Between","SS"]
-  SSw <- temptab["Within","SS"]
-  SSt <- SSb + SSw
-  dfb <- temptab["Between","df"]
   dfw <- temptab["Within","df"] 
-  dft <- dfb + dfw
-
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+  MSw <- temptab["Within","MS"]
+  
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","t","p")
@@ -176,16 +164,16 @@ testMeansPosthoc.bss <- function(SumStats,mu=0,main=NULL,digits=3,...){
 }
 
 testMeansPosthoc.default <- function(...,mu=0,main=NULL,digits=3){
-  SumStats <- .describeMeans(...)
-  class(SumStats) <- "wss"
+  DescStats <- .describeMeans(...)
+  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  testMeansPosthoc(SumStats,CorrStats,mu=mu,main=main,digits=digits)
+  testMeansPosthoc(DescStats,CorrStats,mu=mu,main=main,digits=digits)
 }
 
 testMeansPosthoc.formula <- function(formula,mu=0,main=NULL,digits=3,...){
-  SumStats <- .describeMeans(formula)
-  class(SumStats) <- "bss"
-  testMeansPosthoc(SumStats,mu=mu,main=main,digits=digits)
+  DescStats <- .describeMeans(formula)
+  class(DescStats) <- "bss"
+  testMeansPosthoc(DescStats,mu=mu,main=main,digits=digits)
 }
 
 ### Confidence Interval Plots

@@ -6,13 +6,13 @@
 estimateMeansPairwise <- function(x,...) 
   UseMethod("estimateMeansPairwise")
 
-estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","LL","UL")
@@ -34,13 +34,13 @@ estimateMeansPairwise.wss <- function(SumStats,CorrStats,conf.level=.95,mu=0,mai
   return(results)
 }
 
-estimateMeansPairwise.bss <- function(SumStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","LL","UL")
@@ -63,16 +63,16 @@ estimateMeansPairwise.bss <- function(SumStats,conf.level=.95,mu=0,main=NULL,dig
 }
 
 estimateMeansPairwise.default <- function(...,conf.level=.95,mu=0,main=NULL,digits=3){
-  SumStats <- .unformatFrame(describeMeans(...)[[1]])
-  class(SumStats) <- "wss"
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  class(DescStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
-  estimateMeansPairwise(SumStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  estimateMeansPairwise(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0,main=NULL,digits=3,...){
-  SumStats <- .unformatFrame(describeMeans(formula)[[1]])
-  class(SumStats) <- "bss"
-  estimateMeansPairwise(SumStats,conf.level=conf.level,main=main,digits=digits)
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  class(DescStats) <- "bss"
+  estimateMeansPairwise(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Null Hypothesis Significance Tests 
@@ -80,13 +80,13 @@ estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0,main=NULL,
 testMeansPairwise <- function(x,...) 
   UseMethod("testMeansPairwise")
 
-testMeansPairwise.wss <- function(SumStats,CorrStats,mu=0,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+testMeansPairwise.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","t","p")
@@ -107,13 +107,13 @@ testMeansPairwise.wss <- function(SumStats,CorrStats,mu=0,main=NULL,digits=3,...
   return(results)
 }
 
-testMeansPairwise.bss <- function(SumStats,mu=0,main=NULL,digits=3,...){
-  N <- SumStats[,"N"]
-  M <- SumStats[,"M"]
-  SD <- SumStats[,"SD"]
+testMeansPairwise.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
+  N <- DescStats[,"N"]
+  M <- DescStats[,"M"]
+  SD <- DescStats[,"SD"]
   SE <- SD/sqrt(N)
-  rn <- rownames(SumStats)
-  nr <- nrow(SumStats)
+  rn <- rownames(DescStats)
+  nr <- nrow(DescStats)
   ncomp <- (nr)*(nr-1)/2
   results <- data.frame(matrix(ncol=5,nrow=ncomp))
   colnames(results) <- c("Diff","SE","df","t","p")
@@ -135,16 +135,16 @@ testMeansPairwise.bss <- function(SumStats,mu=0,main=NULL,digits=3,...){
 }
 
 testMeansPairwise.default <- function(...,mu=0,main=NULL,digits=3){
-  SumStats <- .unformatFrame(describeMeans(...)[[1]])
-  class(SumStats) <- "wss"
+  DescStats <- .unformatFrame(describeMeans(...)[[1]])
+  class(DescStats) <- "wss"
   CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
-  testMeansPairwise(SumStats,CorrStats,mu=mu,main=main,digits=digits)
+  testMeansPairwise(DescStats,CorrStats,mu=mu,main=main,digits=digits)
 }
 
 testMeansPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
-  SumStats <- .unformatFrame(describeMeans(formula)[[1]])
-  class(SumStats) <- "bss"
-  testMeansPairwise(SumStats,mu=mu,main=main,digits=digits)
+  DescStats <- .unformatFrame(describeMeans(formula)[[1]])
+  class(DescStats) <- "bss"
+  testMeansPairwise(DescStats,mu=mu,main=main,digits=digits)
 }
 
 ### Confidence Interval Plots
