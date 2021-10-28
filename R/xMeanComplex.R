@@ -29,7 +29,7 @@ testMeanComplex.default <- testMeanComplex.formula <- testMeanComplex.wss <- tes
   res2 <- .unformatFrame(testMeanContrast(...,contrast=contrast2)[[1]])
   Complex <- rbind(res1,res2)
   if(is.null(labels)) {rownames(Complex) <- c("Contrast1","Contrast2")} else {rownames(Complex) <- labels}
-  results <- .formatList(list(Complex),digits=digits)
+  Complex <- .formatList(list(Complex),digits=digits)
   names(Complex) <- "Hypthesis Tests for the Mean Contrasts"
   contrast <- contrast2-contrast1
   Diff <- testMeanContrast(...,contrast=contrast,digits=digits)
