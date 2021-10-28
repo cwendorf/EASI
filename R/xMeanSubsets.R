@@ -32,7 +32,7 @@ testMeanSubsets.default <- testMeanSubsets.formula <- testMeanSubsets.wss <- tes
   res2 <- .unformatFrame(testMeanContrast(...,contrast=con2)[[1]])
   Subsets <- rbind(res2,res1)
   if(is.null(labels)) {rownames(Subsets) <- c("Neg Weighted","Pos Weighted")} else {rownames(Subsets) <- labels}
-  results <- .formatList(list(Subsets),digits=digits)
+  Subsets <- .formatList(list(Subsets),digits=digits)
   names(Subsets) <- "Hypothesis Tests for the Mean Subsets"
   Diff <- testMeanContrast(...,contrast=contrast,digits=digits)
   results <- c(Subsets,Diff)
