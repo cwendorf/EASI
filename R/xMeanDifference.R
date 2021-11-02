@@ -6,7 +6,7 @@
 estimateMeanDifference <- function(x,...) 
   UseMethod("estimateMeanDifference")
   
-estimateMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
+estimateMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -21,14 +21,14 @@ estimateMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,r
   LL <- MD-tcrit*SE
   UL <- MD+tcrit*SE
   results <- data.frame(Diff=MD,SE=SE,df=df,LL=LL,UL=UL)
-  rownames(results) <- c("Comparison")
+  if(is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
   if(is.null(main)) {main="Confidence Interval for the Mean Difference"}
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
 }
 
-estimateMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
+estimateMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -40,24 +40,24 @@ estimateMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,m
   LL <- MD-tcrit*SE
   UL <- MD+tcrit*SE
   results <- data.frame(Diff=MD,SE=SE,df=df,LL=LL,UL=UL)
-  rownames(results) <- c("Comparison")
+  if(is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
   if(is.null(main)) {main="Confidence Interval for the Mean Difference"}
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main
   return(results)
 }
 
-estimateMeanDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
+estimateMeanDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3) {
   CompStats <- .describeMeans(...)
   class(CompStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateMeanDifference(CompStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  estimateMeanDifference(CompStats,CorrStats,conf.level=conf.level,labels=labels,main=main,digits=digits)
 }
 
-estimateMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
+estimateMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
   CompStats <- .describeMeans(formula)
   class(CompStats) <- "bss"
-  estimateMeanDifference(CompStats,conf.level=conf.level,main=main,digits=digits)
+  estimateMeanDifference(CompStats,conf.level=conf.level,labels=labels,main=main,digits=digits)
 }
 
 ### Null Hypothesis Significance Tests
@@ -65,7 +65,7 @@ estimateMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL
 testMeanDifference <- function(x,...) 
   UseMethod("testMeanDifference")
   
-testMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
+testMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -79,14 +79,14 @@ testMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,rope=
   t <- MD/SE
   p <- 2*(1 - pt(abs(t),df))
   results <- data.frame(Diff=MD,SE=SE,df=df,t=t,p=p)
-  rownames(results) <- c("Comparison")
+  if(is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
   if(is.null(main)) {main="Hypothesis Test for the Mean Difference"}
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main
   return(results)
 }
 
-testMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
+testMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -97,24 +97,24 @@ testMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,main=
   t <- MD/SE
   p <- 2*(1 - pt(abs(t),df))
   results <- data.frame(Diff=MD,SE=SE,df=df,t=t,p=p)
-  rownames(results) <- c("Comparison")
+  if(is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
   if(is.null(main)) {main="Hypothesis Test for the Mean Difference"}
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main
   return(results)
 }
 
-testMeanDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
+testMeanDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,labels=MULL,main=NULL,digits=3) {
   CompStats <- .describeMeans(...)
   class(CompStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  testMeanDifference(CompStats,CorrStats,mu=mu,main=main,digits=digits)
+  testMeanDifference(CompStats,CorrStats,mu=mu,labels=labels,main=main,digits=digits)
 }
 
-testMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
+testMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
   CompStats <- .describeMeans(formula)
   class(CompStats) <- "bss"
-  testMeanDifference(CompStats,mu=mu,main=main,digits=digits)
+  testMeanDifference(CompStats,mu=mu,labels=labels,main=main,digits=digits)
 }
 
 ### Confidence Interval Plots
@@ -122,26 +122,26 @@ testMeanDifference.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,mai
 plotMeanDifference <- function(x,...) 
   UseMethod("plotMeanDifference")
 
-plotMeanDifference.wss <- function(DescStats,CorrStats,main=NULL,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
-  results <- .unformatFrame(estimateMeanDifference(DescStats,CorrStats,conf.level=conf.level,mu=mu,main=main,digits=digits)[[1]][,c(1,4,5)])
+plotMeanDifference.wss <- function(DescStats,CorrStats,main=NULL,ylab="Mean Difference",xlab="",labels=NULL,mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+  results <- .unformatFrame(estimateMeanDifference(DescStats,CorrStats,conf.level=conf.level,mu=mu,labels=labels,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Difference"} 
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
 }
 
-plotMeanDifference.bss <- function(DescStats,main=NULL,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
-  results <- .unformatFrame(estimateMeanDifference(DescStats,conf.level=conf.level,mu=mu,main=main,digits=digits)[[1]][,c(1,4,5)])
+plotMeanDifference.bss <- function(DescStats,main=NULL,ylab="Mean Difference",xlab="",labels=NULL,mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+  results <- .unformatFrame(estimateMeanDifference(DescStats,conf.level=conf.level,mu=mu,labels=labels,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Difference"}   
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
 
-plotMeanDifference.default <- function(...,main=NULL,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
-  results <- .unformatFrame(estimateMeanDifference(...,conf.level=conf.level,mu=mu,main=main,digits=digits)[[1]][,c(1,4,5)])
+plotMeanDifference.default <- function(...,main=NULL,ylab="Mean Difference",xlab="",labels=NULL,mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+  results <- .unformatFrame(estimateMeanDifference(...,conf.level=conf.level,mu=mu,labels=labels,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Difference"} 
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,pch=pch,col=col)
 }
 
-plotMeanDifference.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
-  results <- .unformatFrame(estimateMeanDifference(formula,conf.level=conf.level,mu=mu,main=main,digits=digits)[[1]][,c(1,4,5)])
+plotMeanDifference.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",labels=NULL,mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
+  results <- .unformatFrame(estimateMeanDifference(formula,conf.level=conf.level,mu=mu,labels=labels,main=main,digits=digits)[[1]][,c(1,4,5)])
   if(is.null(main)) {main="Confidence Interval for the \n Mean Difference"}  
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }
