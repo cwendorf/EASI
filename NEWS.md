@@ -5,6 +5,7 @@
 - Added skewness and kurtosis to descriptives
 - Added frequency distribution tables and percentiles
 - Added Tukey HSD as mean posthoc comparisons
+- Updated labeling for mean contrasts
 
 ## 4.5.211020
 
