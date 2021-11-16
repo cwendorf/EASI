@@ -3,13 +3,6 @@
 
 ## Basic Functions
 
-moment <- function(x, order = 1, center = FALSE, absolute = FALSE, na.rm = FALSE) {
-  if (na.rm) x <- x[!is.na(x)]
-  if (center) x <- x - mean(x)
-  if (absolute) x <- abs(x)
-  sum(x ^ order) / length(x)
-}
-
 skewness <- function(x, na.rm = FALSE, type = 2) {
   if(any(ina <- is.na(x))) {
     if(na.rm) x <- x[!ina]
@@ -75,10 +68,10 @@ describeMeans <- function(...,main=NULL,digits=3) {
 
 ### Confidence Intervals
 
-estimateMeans <- function(x,...) 
-  UseMethod("estimateMeans")
+.estimateMeans <- function(x,...) 
+  UseMethod(".estimateMeans")
 
-estimateMeans.wss <- estimateMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
+.estimateMeans.wss <- .estimateMeans.bss <- function(DescStats,mu=0,conf.level=.95,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -91,30 +84,33 @@ estimateMeans.wss <- estimateMeans.bss <- function(DescStats,mu=0,conf.level=.95
   results <- data.frame(Diff=Diff,SE=SE,df=df,LL=LL,UL=UL)
   if(mu==0) colnames(results)[1]="M"
   rownames(results) <- rownames(DescStats)
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main   
   return(results)
 }
 
-estimateMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
-  estimateMeans(DescStats,conf.level=conf.level,mu=mu,main=main,digits=digits)
+.estimateMeans.default <- function(...,mu=0,conf.level=.95) {
+  DescStats <- .describeMeans.default(...)
+  .estimateMeans.wss(DescStats,conf.level=conf.level,mu=mu)
 }
 
-estimateMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateMeans(DescStats,conf.level=conf.level,mu=mu,main=main,digits=digits)
+.estimateMeans.formula <- function(formula,mu=0,conf.level=.95,...) {
+  DescStats <- .describeMeans.formula(formula)
+  .estimateMeans.bss(DescStats,conf.level=conf.level,mu=mu)
+}
+
+estimateMeans <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeans(...)
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
+  results <- .formatList(list(results),digits=digits)  
+  names(results) <- main 
+  return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-testMeans <- function(x,...) 
-  UseMethod("testMeans")
+.testMeans <- function(x,...) 
+  UseMethod(".testMeans")
   
-testMeans.wss <- testMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
+.testMeans.wss <- .testMeans.bss <- function(DescStats,mu=0,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SE <- DescStats[,"SD"]/sqrt(N)
@@ -124,22 +120,25 @@ testMeans.wss <- testMeans.bss <- function(DescStats,mu=0,conf.level=.95,rope=NU
   p <- 2*(1 - pt(abs(t),df))
   results <- data.frame(Diff=Diff,SE=SE,df=df,t=t,p=p)
   rownames(results) <- rownames(DescStats)
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Means"} else {main="Hypothesis Test for the Mean"}}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main   
   return(results)
 }
 
-testMeans.default <- function(...,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3) {
-  DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
-  testMeans(DescStats,mu=mu,main=main,digits=digits)
+.testMeans.default <- function(...,mu=0) {
+  DescStats <- .describeMeans.default(...)
+  .testMeans.wss(DescStats,mu=mu,main=main,digits=digits)
 }
 
-testMeans.formula <- function(formula,mu=0,conf.level=.95,rope=NULL,main=NULL,digits=3,...) {
-  DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  testMeans(DescStats,mu=mu,main=main,digits=digits)
+.testMeans.formula <- function(formula,mu=0,...) {
+  DescStats <- .describeMeans.formula(formula)
+  .testMeans.bss(DescStats,mu=mu,main=main,digits=digits)
+}
+
+testMeans <- function(...,main=NULL,digits=3) {
+  results <- .testMeans(...)
+  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Means"} else {main="Hypothesis Test for the Mean"}}  
+  results <- .formatList(list(results),digits=digits)  
+  names(results) <- main 
+  return(results)
 }
 
 ### Confidence Interval Plots
