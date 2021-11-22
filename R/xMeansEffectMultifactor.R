@@ -8,18 +8,22 @@
 
 .describeMeansEffectMultifactor.default <- function(...,by) {
   x <- .describeMeansOmnibusMultifactor(...,by=by)
+  byname <- deparse(substitute(by))
+  intxname <- paste("Measures",byname,sep=":")  
   results <- x[[1]]
   results[,2] <- results[,1]/sum(results[,1])
   results[,3] <- results[,1]/(results[,1]+tail(results[,1],1))
   results[length(results[,2]),2:3] <- NA
   results1 <- results[1,2:3]
   colnames(results1) <- c("EtaSq","ParEtaSq")
+  rownames(results1) <- byname
   results <- x[[2]]
   results[,2] <- results[,1]/sum(results[,1])
   results[,3] <- results[,1]/(results[,1]+tail(results[,1],1))
   results[length(results[,2]),2:3] <- NA
   results2 <- results[1:2,2:3]
   colnames(results2) <- c("EtaSq","ParEtaSq")
+  rownames(results2) <- c("Measures",intxname)
   results <- list(results1,results2)
   names(results) <- c("Between Subjects","Within Subjects")
   return(results)
@@ -27,12 +31,16 @@
 
 .describeMeansEffectMultifactor.formula <- function(formula,by,...) {
   x <- .describeMeansOmnibusMultifactor(formula=formula,by=by)
+  byname <- deparse(substitute(by))
+  groupname <- deparse(formula[[3]])  
+  intxname <- paste(groupname,byname,sep=":")  
   results <- x[[1]]
   results[,2] <- results[,1]/sum(results[,1])
   results[,3] <- results[,1]/(results[,1]+tail(results[,1],1))
   results[length(results[,2]),2:3] <- NA
   results <- results[1:3,2:3]
   colnames(results) <- c("EtaSq","ParEtaSq")
+  rownames(results) <- c(groupname,byname,intxname)
   results <- list(results)
   names(results) <- "Between Subjects"
   return(results)
