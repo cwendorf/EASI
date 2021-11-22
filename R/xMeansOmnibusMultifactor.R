@@ -65,11 +65,13 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   object <- aov(Outcome~Factor+(Measures*Factor)+Error(Subjects/Measures),data=dataLong)
   w <- summary(object)
   x <- w[[1]][[1]]
-  results1 <- cbind(x[2],x[1],x[3],x[4],x[5])
-  colnames(results1) <- c("SS","df","MS","F","p")
+  results1 <- cbind(x[4],x[5])
+  results1 <- results1[1,]
+  colnames(results1) <- c("F","p")
   y <- w[[2]][[1]]
-  results2 <- cbind(y[2],y[1],y[3],y[4],y[5])
-  colnames(results2) <- c("SS","df","MS","F","p")
+  results2 <- cbind(y[4],y[5])
+  results2 <- results2[1:2,]
+  colnames(results2) <- c("F","p")
   results <- list(results1,results2)
   names(results) <- c("Between Subjects","Within Subjects")
   return(results)
@@ -81,8 +83,9 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   Factor <- by
   object <- aov(Outcome~Group+Factor+(Group*Factor))
   x <- summary(object)[[1]]
-  results <- cbind(x[2],x[1],x[3],x[4],x[5])
-  colnames(results) <- c("SS","df","MS","F","p")
+  results <- cbind(x[4],x[5])
+  results <- results[1:3,]
+  colnames(results) <- c("F","p")
   results <- list(results)
   names(results) <- "Between Subjects"
   return(results)

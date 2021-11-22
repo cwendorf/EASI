@@ -12,13 +12,13 @@
   results[,2] <- results[,1]/sum(results[,1])
   results[,3] <- results[,1]/(results[,1]+tail(results[,1],1))
   results[length(results[,2]),2:3] <- NA
-  results1 <- results[,2:3]
+  results1 <- results[1,2:3]
   colnames(results1) <- c("EtaSq","ParEtaSq")
   results <- x[[2]]
   results[,2] <- results[,1]/sum(results[,1])
   results[,3] <- results[,1]/(results[,1]+tail(results[,1],1))
   results[length(results[,2]),2:3] <- NA
-  results2 <- results[,2:3]
+  results2 <- results[1:2,2:3]
   colnames(results2) <- c("EtaSq","ParEtaSq")
   results <- list(results1,results2)
   names(results) <- c("Between Subjects","Within Subjects")
@@ -31,7 +31,7 @@
   results[,2] <- results[,1]/sum(results[,1])
   results[,3] <- results[,1]/(results[,1]+tail(results[,1],1))
   results[length(results[,2]),2:3] <- NA
-  results <- results[,2:3]
+  results <- results[1:3,2:3]
   colnames(results) <- c("EtaSq","ParEtaSq")
   results <- list(results)
   names(results) <- "Between Subjects"
