@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <style>
+      .markdown-body h1 {border-bottom: 0px solid #eaecef; color: #006400; margin: 0px;}
+      div.custom {background: #ddd; width: 100%;}
+      div#header {padding: 15px 0px;}
+      div#footer {padding: 15px 0px;}
+      div#site {float: left; }
+      div#nav {float: right; font-weight: bold; font-size: 1.1em; padding: 10px 0px 10px 10px;}
+      img#logo {display: inline-block; vertical-align: middle; background: none; height: 50px; padding: 0px; }
+    </style>
+    
+  </head>
+  
+  <body>
+
+    <div class="custom">
+    <div id=header class="container-lg px-3 markdown-body">
+            
+      <div id=site>
+      {% if site.title and site.title != page.title %}
+        <a href="{{ "/" | absolute_url }}" style="text-decoration: none;">
+          <img id=logo src="{{ "/logo.png" | prepend: site.baseurl }}" alt="{{ site.title }}">
+        </a> 
+      {% endif %}
+      </div>
+      
+      <div id=nav>
+      {% if site.title and site.title != page.title %}
+        <a href="{{ "/" | absolute_url }}">Home Page</a> | 
+      {% endif %}
+      {% if site.github.is_project_page %}
+        <a href="{{ site.github.repository_url }}">Repository</a>
+      {% endif %}
+      </div>
+        
+    </div>
+    </div>
+    
+   <div class="container-lg px-3 my-5 markdown-body" >
+           
+      {{ content }}
+
+      {% if site.github.private != true and site.github.license %}
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. {% github_edit_link "Improve this page" %}.
+      </div>
+      {% endif %}
+      
+    </div>
+    
+    <div class="custom">
+    <div id=footer class="container-lg px-3 markdown-body">
+      {% if site.github.is_project_page %}
+      Maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a> | 
+      {% endif %}
+      <a href="mailto:cwendorf@uwsp.edu">cwendorf@uwsp.edu</a>    
+    </div>
+    </div>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+    {% if site.google_analytics %}
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
+    {% endif %}
+  </body>
+</html>
+
