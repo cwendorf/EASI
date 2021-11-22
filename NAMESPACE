@@ -48,10 +48,11 @@ S3method(.describeMeans,formula)
 export(.describeMeans)
 export(describeMeans)
 
-S3method(estimateMeans,default)
-S3method(estimateMeans,formula)
-S3method(estimateMeans,wss)
-S3method(estimateMeans,bss)
+S3method(.estimateMeans,default)
+S3method(.estimateMeans,formula)
+S3method(.estimateMeans,wss)
+S3method(.estimateMeans,bss)
+export(.estimateMeans)
 export(estimateMeans)
 
 S3method(plotMeans,default)
@@ -60,10 +61,11 @@ S3method(plotMeans,wss)
 S3method(plotMeans,bss)
 export(plotMeans)
 
-S3method(testMeans,default)
-S3method(testMeans,formula)
-S3method(testMeans,wss)
-S3method(testMeans,bss)
+S3method(.testMeans,default)
+S3method(.testMeans,formula)
+S3method(.testMeans,wss)
+S3method(.testMeans,bss)
+export(.testMeans)
 export(testMeans)
 
 ### xStandardizedMeans
@@ -419,3 +421,55 @@ export(describeRegressionEffect)
 S3method(estimateRegressionEffect,default)
 S3method(estimateRegressionEffect,wss)
 export(estimateRegressionEffect)
+
+### xMeansBy
+
+S3method(.describeMeansBy,default)
+S3method(.describeMeansBy,formula)
+export(.describeMeansBy)
+export(describeMeansBy)
+
+S3method(.estimateMeansBy,default)
+S3method(.estimateMeansBy,formula)
+S3method(.estimateMeansBy,wss)
+S3method(.estimateMeansBy,bss)
+export(.estimateMeansBy)
+export(estimateMeansBy)
+
+S3method(plotMeansBy,default)
+S3method(plotMeansBy,formula)
+S3method(plotMeansBy,wss)
+S3method(plotMeansBy,bss)
+export(plotMeansBy)
+
+S3method(.testMeansBy,default)
+S3method(.testMeansBy,formula)
+S3method(.testMeansBy,wss)
+S3method(.testMeansBy,bss)
+export(.testMeansBy)
+export(testMeansBy)
+
+### xMeansOmnibusMultifactor
+
+S3method(.describeMeansOmnibusMultifactor,default)
+S3method(.describeMeansOmnibusMultifactor,formula)
+export(.describeMeansOmnibusMultifactor)
+export(describeMeansOmnibusMultifactor)
+
+S3method(.testMeansOmnibusMultifactor,default)
+S3method(.testMeansOmnibusMultifactor,formula)
+export(.testMeansOmnibusMultifactor)
+export(testMeansOmnibusMultifactor)
+
+### xMeansEffectMultifactor
+
+S3method(.describeMeansEffectMultifactor,default)
+S3method(.describeMeansEffectMultifactor,formula)
+export(.describeMeansEffectMultifactor)
+export(describeMeansEffectMultifactor)
+
+### xCorrelationsBy
+
+S3method(.describeCorrelationsBy,default)
+export(.describeCorrelationsBy)
+export(describeCorrelationsBy)

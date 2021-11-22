@@ -8,16 +8,16 @@ describeMeansEffect <- function(x,...)
 
 describeMeansEffect.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
-  SSf <- temptab["Factor","SS"]
+  SSf <- temptab["Measures","SS"]
   SSe <- temptab["Error","SS"]
   SSt <- SSf + SSe
-  dff <- temptab["Factor","df"]
+  dff <- temptab["Measures","df"]
   dfe <- temptab["Error","df"] 
   dft <- dff + dfe
   F <- (SSf/dff)/(SSe/dfe)
   etasq <- SSf / SSt
   results <- cbind(Est=etasq)
-  rownames(results) <- "Factor"
+  rownames(results) <- "Measures"
   results <- .formatList(list(results),digits=digits) 
   if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
   return(results)
@@ -60,10 +60,10 @@ estimateMeansEffect <- function(x,...)
 
 estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL,digits=3) {
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
-  SSf <- temptab["Factor","SS"]
+  SSf <- temptab["Measures","SS"]
   SSe <- temptab["Error","SS"]
   SSt <- SSf + SSe
-  dff <- temptab["Factor","df"]
+  dff <- temptab["Measures","df"]
   dfe <- temptab["Error","df"] 
   dft <- dff + dfe
   F <- (SSf/dff)/(SSe/dfe)
@@ -75,7 +75,7 @@ estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL
   etasq.lower <- delta.lower / (delta.lower + dff + dfe + 1)
   etasq.upper <- delta.upper / (delta.upper + dff + dfe + 1)
   results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
-  rownames(results) <- "Factor"
+  rownames(results) <- "Measures"
   results <- .formatList(list(results),digits=digits) 
   if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
   return(results)

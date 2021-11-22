@@ -21,5 +21,3 @@ describeCorrelationsBy <- function(...,main=NULL,digits=3) {
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }
-
-

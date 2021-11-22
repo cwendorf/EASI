@@ -29,7 +29,7 @@ describeMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...)
   MSs <- SSs/dfs
   results <- rbind(c(SSs,dfs,MSs),c(SSa,dfa,MSa),c(SSas,dfas,MSas))
   colnames(results) <- c("SS","df","MS")
-  rownames(results) <- c("Subject","Factor","Error")
+  rownames(results) <- c("Subjects","Measures","Error")
   results <- .formatList(list(results),digits=digits)
   if(is.null(main)) {names(results) <- "Source Table for the Factor"} else {names(results) <- main}
   return(results)
@@ -77,15 +77,15 @@ testMeansOmnibus <- function(x,...)
 
 testMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
   temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
-  MSf <- temptab["Factor","MS"]
+  MSf <- temptab["Measures","MS"]
   MSe <- temptab["Error","MS"]
-  dff <- temptab["Factor","df"]
+  dff <- temptab["Measures","df"]
   dfe <- temptab["Error","df"]
   F <- MSf/MSe
   p <- 1-pf(F,dff,dfe)
   results <- cbind(F,dff,dfe,p)
   colnames(results) <- c("F","dff","dfe","p")
-  rownames(results) <- c("Factor")
+  rownames(results) <- c("Measures")
   results <- .formatList(list(results),digits=digits) 
   if(is.null(main)) {names(results) <- "Hypothesis Test for the Factor"} else {names(results) <- main}
   return(results)
