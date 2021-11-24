@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Correlations for Factorial and Mixed Designs
+## Correlations (with By Option)
 
 ### Descriptives
 
