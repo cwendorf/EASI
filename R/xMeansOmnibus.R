@@ -3,10 +3,10 @@
 
 ### Descriptives
 
-describeMeansOmnibus <- function(x,...) 
-  UseMethod("describeMeansOmnibus")
+.describeMeansOmnibus <- function(x,...) 
+  UseMethod(".describeMeansOmnibus")
 
-describeMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...) {
+.describeMeansOmnibus.wss <- function(DescStats,CorrStats) {
   n <- DescStats[,"N"]
   m <- DescStats[,"M"]
   sd <- DescStats[,"SD"]
@@ -30,12 +30,10 @@ describeMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...)
   results <- rbind(c(SSs,dfs,MSs),c(SSa,dfa,MSa),c(SSas,dfas,MSas))
   colnames(results) <- c("SS","df","MS")
   rownames(results) <- c("Subjects","Measures","Error")
-  results <- .formatList(list(results),digits=digits)
-  if(is.null(main)) {names(results) <- "Source Table for the Factor"} else {names(results) <- main}
   return(results)
 }
 
-describeMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3,...) {
+.describeMeansOmnibus.bss <- function(DescStats) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -50,33 +48,36 @@ describeMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3,...) {
   results <- rbind(c(SSb,dfb,MSb),c(SSw,dfw,MSw))
   colnames(results) <- c("SS","df","MS")
   rownames(results) <- c("Between","Within")
-  results <- .formatList(list(results),digits=digits)
-  if(is.null(main)) {names(results) <- "Source Table for the Factor"} else {names(results) <- main}
   return(results)
 }
 
-describeMeansOmnibus.default <- function(...,main=NULL,digits=3) {
+.describeMeansOmnibus.default <- function(...) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  results <- describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)
+  results <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   return(results)
 }
 
-describeMeansOmnibus.formula <- function(formula,main=NULL,digits=3,...) {
+.describeMeansOmnibus.formula <- function(formula) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  results <- describeMeansOmnibus(DescStats,main=main,digits=digits)
+  results <- .describeMeansOmnibus.bss(DescStats)
+  return(results)
+}
+
+describeMeansOmnibus <- function(...,main=NULL,digits=3) {
+  results <- .describeMeansOmnibus(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Source Table for the Factor"} else {names(results) <- main} 
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-testMeansOmnibus <- function(x,...) 
-  UseMethod("testMeansOmnibus")
+.testMeansOmnibus <- function(x,...) 
+  UseMethod(".testMeansOmnibus")
 
-testMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
+.testMeansOmnibus.wss <- function(DescStats,CorrStats) {
+  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   MSf <- temptab["Measures","MS"]
   MSe <- temptab["Error","MS"]
   dff <- temptab["Measures","df"]
@@ -84,15 +85,13 @@ testMeansOmnibus.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
   F <- MSf/MSe
   p <- 1-pf(F,dff,dfe)
   results <- cbind(F,dff,dfe,p)
-  colnames(results) <- c("F","dff","dfe","p")
+  colnames(results) <- c("F","df1","df2","p")
   rownames(results) <- c("Measures")
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Factor"} else {names(results) <- main}
   return(results)
 }
 
-testMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
+.testMeansOmnibus.bss <- function(DescStats) {
+  temptab <- .describeMeansOmnibus.bss(DescStats)
   MSb <- temptab["Between","MS"]
   MSw <- temptab["Within","MS"]
   dfb <- temptab["Between","df"]
@@ -100,22 +99,25 @@ testMeansOmnibus.bss <- function(DescStats,main=NULL,digits=3) {
   F <- MSb/MSw
   p <- 1-pf(F,dfb,dfw)
   results <- cbind(F,dfb,dfw,p)
-  colnames(results) <- c("F","dfb","dfw","p")
+  colnames(results) <- c("F","df1","df2","p")
   rownames(results) <- c("Factor")  
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Factor"} else {names(results) <- main}
   return(results)
 }
 
-testMeansOmnibus.default <- function(...,conf.level=.95,rope=NULL,main=NULL,digits=3) {
+.testMeansOmnibus.default <- function(...) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  testMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)
+  .testMeansOmnibus.wss(DescStats,CorrStats)
 }
 
-testMeansOmnibus.formula <- function(formula,conf.level=.95,rope=NULL,main=NULL,digits=3) {
+.testMeansOmnibus.formula <- function(formula) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  testMeansOmnibus(DescStats,main=main,digits=digits)
+  .testMeansOmnibus.bss(DescStats)
+}
+
+testMeansOmnibus <- function(...,main=NULL,digits=3) {
+  results <- .testMeansOmnibus(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Hypothesis Test for the Factor"} else {names(results) <- main} 
+  return(results)
 }

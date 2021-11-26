@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Means for Factorial and Mixed Designs
+## Means (with By Option)
 
 #### Descriptives
 
@@ -147,36 +147,4 @@ plotMeansBy.formula <- function(formula,by,main=NULL,ylab="Outcome",xlab="",mu=0
     par(ask=TRUE)
   }
   par(ask=FALSE) 
-}
-
-plotMeansInter <- function(...) 
-  UseMethod("plotMeansInter")
-
-plotMeansInter.wss <- function(ListDescStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,col="black") {
-  if(is.null(main)) {main="Confidence Intervals for the Means"}
-  results <- .estimateMeansBy(ListDescStats,conf.level=conf.level)
-  class(results) <- "wss"  
-  .cipInter(results,main=main,ylab=ylab,xlab=xlab,col=col)
-}
-
-plotMeansInter.bss <- function(ListDescStats,main=NULL,ylab="Outcome",xlab="",conf.level=.95,col="black") {
-  if(is.null(main)) {main="Confidence Intervals for the Means"}
-  results <- .estimateMeansBy(ListDescStats,conf.level=conf.level)
-  class(results) <- "bss"  
-  .cipInter(results,main=main,ylab=ylab,xlab=xlab,col=col)
-}
-
-plotMeansInter.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",conf.level=.95,col="black") {
-  if(is.null(main)) {main="Confidence Intervals for the Means"}
-  results <- .estimateMeansBy(...,by=by,conf.level=conf.level)
-  class(results) <- "wss"
-  .cipInter(results,main=main,ylab=ylab,xlab=xlab,col=col)
-}
-
-plotMeansInter.formula <- function(formula,by,main=NULL,ylab=NULL,xlab="",conf.level=.95,col="black") {
-  if(is.null(main)) {main="Confidence Intervals for the Means"}
-  if(is.null(ylab)) {ylab=all.vars(formula)[1]}  
-  results <- .estimateMeansBy(formula,by=by,conf.level=conf.level)
-  class(results) <- "bss"
-  .cipInter(results,main=main,ylab=ylab,xlab=xlab,col=col)
 }

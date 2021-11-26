@@ -7,6 +7,7 @@
 - Added Tukey HSD as mean posthoc comparisons
 - Added 'by' options for factorial and mixed designs
 - Updated labeling for mean contrasts
+- Refactored code for better precision of calculations
 
 ## 4.5.211020
 
