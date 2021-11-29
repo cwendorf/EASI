@@ -64,7 +64,7 @@
   ListSourceStats <- .describeMeansOmnibusBy.bss(ListDescStats)
   error <- .error.list(ListSourceStats)
   out <- rbind(main[1:3,],error[-1,])
-  rownames(out) <- c("Blocks","Factor","Factor:Blocks","Residual")
+  rownames(out) <- c("Factor","Blocks","Factor:Blocks","Residual")
   results <- list(out)
   names(results) <- "Between Subjects"
   return(results)
@@ -85,7 +85,7 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .describeMeansOmnibusMultifactor(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Source Table for the Effects"} 
+  if(is.null(main)) {main <- "Source Table"} 
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }
@@ -107,7 +107,7 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
     colnames(out[[i]]) <- c("F","df1","df2","p")
   }
   out[[1]]=rbind(out[[1]][-2,])
-  rownames(out[[1]])="Block"
+  rownames(out[[1]])="Blocks"
   out[[2]]=as.data.frame(out[[2]][-3,])
   return(out)
 }
@@ -140,7 +140,7 @@ testMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibusMultifactor(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Hypothesis Tests for the Effects"} 
+  if(is.null(main)) {main <- "Hypothesis Tests"} 
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }
