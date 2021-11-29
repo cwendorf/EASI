@@ -35,7 +35,7 @@
   results <- list(results1,results2)
   names(results) <- c("Between Subjects","Within Subjects")
   results[[1]]=rbind(results[[1]][-2,5:7])
-  rownames(results[[1]])="Block"
+  rownames(results[[1]])="Blocks"
   results[[2]]=as.data.frame(results[[2]][-3,5:7])
   return(results)
 }
