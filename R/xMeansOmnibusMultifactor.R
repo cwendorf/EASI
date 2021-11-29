@@ -51,7 +51,7 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .describeMeansOmnibusMultifactor(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Source Table for the Effects"} 
+  if(is.null(main)) {main <- "Source Table"} 
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }
@@ -109,7 +109,7 @@ testMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibusMultifactor(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Hypothesis Tests for the Effects"} 
+  if(is.null(main)) {main <- "Hypothesis Tests"} 
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }

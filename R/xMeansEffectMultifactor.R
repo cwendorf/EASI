@@ -68,7 +68,7 @@ estimateMeansEffectMultifactor <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansEffectMultifactor(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted for by the Effects"} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted"} 
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }
