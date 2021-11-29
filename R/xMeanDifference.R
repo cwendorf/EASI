@@ -104,7 +104,7 @@ testMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,rope=NULL,label
   return(results)
 }
 
-testMeanDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,labels=MULL,main=NULL,digits=3) {
+testMeanDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3) {
   CompStats <- .describeMeans(...)
   class(CompStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
