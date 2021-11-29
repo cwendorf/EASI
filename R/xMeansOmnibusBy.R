@@ -39,7 +39,7 @@ describeMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   results <- .describeMeansOmnibusBy(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Source Table for the Factor"} 
+  if(is.null(main)) {main <- "Source Table"} 
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }
@@ -82,7 +82,7 @@ testMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibusBy(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Hypothesis Test for the Factor"}
+  if(is.null(main)) {main <- "Hypothesis Test"}
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }
