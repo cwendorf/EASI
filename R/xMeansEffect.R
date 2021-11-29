@@ -3,11 +3,11 @@
 
 ### Descriptives
 
-describeMeansEffect <- function(x,...) 
-  UseMethod("describeMeansEffect")
+.describeMeansEffect <- function(x,...) 
+  UseMethod(".describeMeansEffect")
 
-describeMeansEffect.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
+.describeMeansEffect.wss <- function(DescStats,CorrStats) {
+  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   SSf <- temptab["Measures","SS"]
   SSe <- temptab["Error","SS"]
   SSt <- SSf + SSe
@@ -18,13 +18,11 @@ describeMeansEffect.wss <- function(DescStats,CorrStats,main=NULL,digits=3) {
   etasq <- SSf / SSt
   results <- cbind(Est=etasq)
   rownames(results) <- "Measures"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
   return(results)
 }
 
-describeMeansEffect.bss <- function(DescStats,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
+.describeMeansEffect.bss <- function(DescStats) {
+  temptab <- .describeMeansOmnibus.bss(DescStats)
   SSb <- temptab["Between","SS"]
   SSw <- temptab["Within","SS"]
   SSt <- SSb + SSw
@@ -35,31 +33,34 @@ describeMeansEffect.bss <- function(DescStats,main=NULL,digits=3) {
   etasq <- SSb / SSt
   results <- cbind(Est=etasq)
   rownames(results) <- "Factor"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
   return(results)
 }
 
-describeMeansEffect.default <- function(...,main=NULL,digits=3) {
+.describeMeansEffect.default <- function(...) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  describeMeansEffect(DescStats,CorrStats,main=main,digits=digits)
+  .describeMeansEffect.wss(DescStats,CorrStats)
 }
 
-describeMeansEffect.formula <- function(formula,main=NULL,digits=3) {
+.describeMeansEffect.formula <- function(formula) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  describeMeansEffect(DescStats,main=main,digits=digits)
+  .describeMeansEffect.bss(DescStats)
+}
+
+describeMeansEffect <- function(...,main=NULL,digits=3) {
+  results <- .describeMeansEffect(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main} 
+  return(results)
 }
 
 ### Confidence Intervals
 
-estimateMeansEffect <- function(x,...) 
-  UseMethod("estimateMeansEffect")
+.estimateMeansEffect <- function(x,...) 
+  UseMethod(".estimateMeansEffect")
 
-estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
+.estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90) {
+  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   SSf <- temptab["Measures","SS"]
   SSe <- temptab["Error","SS"]
   SSt <- SSf + SSe
@@ -76,13 +77,11 @@ estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,main=NULL
   etasq.upper <- delta.upper / (delta.upper + dff + dfe + 1)
   results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
   rownames(results) <- "Measures"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
   return(results)
 }
 
-estimateMeansEffect.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
+.estimateMeansEffect.bss <- function(DescStats,conf.level=.90) {
+  temptab <- .describeMeansOmnibus.bss(DescStats)
   SSb <- temptab["Between","SS"]
   SSw <- temptab["Within","SS"]
   SSt <- SSb + SSw
@@ -99,20 +98,23 @@ estimateMeansEffect.bss <- function(DescStats,conf.level=.90,main=NULL,digits=3)
   etasq.upper <- delta.upper / (delta.upper + dfb + dfw + 1)
   results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
   rownames(results) <- "Factor"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main}  
   return(results)
 }
 
-estimateMeansEffect.default <- function(...,conf.level=.90,rope=NULL,main=NULL,digits=3) {
+.estimateMeansEffect.default <- function(...,conf.level=.90) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateMeansEffect(DescStats,CorrStats,main=main,digits=digits)
+  .estimateMeansEffect.wss(DescStats,CorrStats,conf.level)
 }
 
-estimateMeansEffect.formula <- function(formula,conf.level=.90,rope=NULL,main=NULL,digits=3) {
+.estimateMeansEffect.formula <- function(formula,conf.level=.90) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateMeansEffect(DescStats,conf.level,main=main,digits=digits)
+  .estimateMeansEffect.bss(DescStats,conf.level)
+}
+
+estimateMeansEffect <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeansEffect(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Factor"} else {names(results) <- main} 
+  return(results)
 }
