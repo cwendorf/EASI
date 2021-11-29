@@ -17,16 +17,16 @@ MixedCorrL1["Outcome1",] <- c(1.000,.500,.389)
 MixedCorrL1["Outcome2",] <- c(.500,1.000,.889)
 MixedCorrL1["Outcome3",] <- c(.389,.889,1.000)
 
-Outcome1 <- c(N=4,M=4.000,SD=2.449)
-Outcome2 <- c(N=4,M=4.000,SD=2.449)
-Outcome3 <- c(N=4,M=5.000,SD=2.449)
+Outcome1 <- c(N=4,M=7.000,SD=2.449)
+Outcome2 <- c(N=4,M=5.000,SD=2.449)
+Outcome3 <- c(N=4,M=6.000,SD=2.449)
 MixedSummaryL2 <- rbind(Outcome1,Outcome2,Outcome3)
 class(MixedSummaryL2) <- "wss"
 
 MixedCorrL2 <- declareCorrelations("Outcome1","Outcome2","Outcome3")
-MixedCorrL2["Outcome1",] <- c(1.000,.889,.778)
-MixedCorrL2["Outcome2",] <- c(.889,1.000,.889)
-MixedCorrL2["Outcome3",] <- c(.778,.889,1.000)
+MixedCorrL2["Outcome1",] <- c(1.000,.889,.500)
+MixedCorrL2["Outcome2",] <- c(.889,1.000,.389)
+MixedCorrL2["Outcome3",] <- c(.500,.389,1.000)
 
 ### Analyses of the Means
 

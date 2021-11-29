@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-10-23"
+date: "2021-11-29"
 output:
   html_document:
     toc: true
@@ -32,7 +32,7 @@ This code inputs the variable names and creates a viewable data frame.
 ```r
 FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)
 FactorB <- c(1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2)
-Outcome <- c(0,0,3,5,4,7,4,9,4,9,6,9,3,1,6,6,2,2,5,7,2,4,7,7)
+Outcome <- c(0,0,3,5,4,7,4,9,4,9,6,9,9,4,6,9,6,3,3,8,5,3,8,8)
 FactorA <- factor(FactorA,levels=c(1,2,3),labels=c("A1","A2","A3"))
 FactorB <- factor(FactorB,levels=c(1,2),labels=c("B1","B2"))
 FactorialData <- data.frame(FactorA,FactorB,Outcome)
@@ -88,9 +88,9 @@ with(FactorialDataB2,describeMeans(Outcome~FactorA))
 ```
 ## $`Descriptive Statistics for the Data`
 ##          N       M      SD    Skew    Kurt
-## A1   4.000   4.000   2.449  -0.544  -2.944
-## A2   4.000   4.000   2.449   0.544  -2.944
-## A3   4.000   5.000   2.449  -0.544  -2.944
+## A1   4.000   7.000   2.449  -0.544  -2.944
+## A2   4.000   5.000   2.449   0.544  -2.944
+## A3   4.000   6.000   2.449  -0.544  -2.944
 ```
 
 ### Analyses of the Means
@@ -120,9 +120,9 @@ with(FactorialDataB2,estimateMeans(Outcome~FactorA))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   4.000   1.225   3.000   0.102   7.898
-## A2   4.000   1.225   3.000   0.102   7.898
-## A3   5.000   1.225   3.000   1.102   8.898
+## A1   7.000   1.225   3.000   3.102  10.898
+## A2   5.000   1.225   3.000   1.102   8.898
+## A3   6.000   1.225   3.000   2.102   9.898
 ```
 
 This code will produce a graph of the confidence intervals for each level of the factor.
@@ -160,9 +160,9 @@ with(FactorialDataB2,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   4.000   1.225   3.000  -3.154  11.154
-## A2   4.000   1.225   3.000  -3.154  11.154
-## A3   5.000   1.225   3.000  -2.154  12.154
+## A1   7.000   1.225   3.000  -0.154  14.154
+## A2   5.000   1.225   3.000  -2.154  12.154
+## A3   6.000   1.225   3.000  -1.154  13.154
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
@@ -202,9 +202,9 @@ with(FactorialDataB2,testMeans(Outcome~FactorA))
 ```
 ## $`Hypothesis Tests for the Means`
 ##       Diff      SE      df       t       p
-## A1   4.000   1.225   3.000   3.266   0.047
-## A2   4.000   1.225   3.000   3.266   0.047
-## A3   5.000   1.225   3.000   4.082   0.027
+## A1   7.000   1.225   3.000   5.715   0.011
+## A2   5.000   1.225   3.000   4.082   0.027
+## A3   6.000   1.225   3.000   4.899   0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -228,9 +228,9 @@ with(FactorialDataB2,testMeans(Outcome~FactorA,mu=5))
 ```
 ## $`Hypothesis Tests for the Means`
 ##       Diff      SE      df       t       p
-## A1  -1.000   1.225   3.000  -0.816   0.474
-## A2  -1.000   1.225   3.000  -0.816   0.474
-## A3   0.000   1.225   3.000   0.000   1.000
+## A1   2.000   1.225   3.000   1.633   0.201
+## A2   0.000   1.225   3.000   0.000   1.000
+## A3   1.000   1.225   3.000   0.816   0.474
 ```
 
 #### Standardized Effect Sizes
@@ -256,9 +256,9 @@ with(FactorialDataB2,estimateStandardizedMeans(Outcome~FactorA))
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##          d      SE      LL      UL
-## A1   1.633   0.761   0.013   3.177
-## A2   1.633   0.761   0.013   3.177
-## A3   2.041   0.854   0.176   3.846
+## A1   2.858   1.063   0.464   5.226
+## A2   2.041   0.854   0.176   3.846
+## A3   2.449   0.955   0.325   4.531
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
@@ -319,7 +319,7 @@ with(FactorialDataB2,estimateMeanDifference(Outcome~CompDataB2))
 ```
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   1.732   6.000  -4.238   4.238
+## Comparison  -2.000   1.732   6.000  -6.238   2.238
 ```
 
 This code obtains and plots the confidence intervals for the mean difference in the identified comparison.
@@ -355,7 +355,7 @@ with(FactorialDataB2,estimateMeanDifference(Outcome~CompDataB2,conf.level=.99))
 ```
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   1.732   6.000  -6.421   6.421
+## Comparison  -2.000   1.732   6.000  -8.421   4.421
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
@@ -396,12 +396,12 @@ with(FactorialDataB2,estimateMeanComparison(Outcome~CompDataB2))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   4.000   1.225   3.000   0.102   7.898
-## A2   4.000   1.225   3.000   0.102   7.898
+## A1   7.000   1.225   3.000   3.102  10.898
+## A2   5.000   1.225   3.000   1.102   8.898
 ## 
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   1.732   6.000  -4.238   4.238
+## Comparison  -2.000   1.732   6.000  -6.238   2.238
 ```
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
@@ -442,12 +442,12 @@ with(FactorialDataB2,estimateMeanComparison(Outcome~CompDataB2,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   4.000   1.225   3.000  -3.154  11.154
-## A2   4.000   1.225   3.000  -3.154  11.154
+## A1   7.000   1.225   3.000  -0.154  14.154
+## A2   5.000   1.225   3.000  -2.154  12.154
 ## 
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   1.732   6.000  -6.421   6.421
+## Comparison  -2.000   1.732   6.000  -8.421   4.421
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
@@ -485,7 +485,7 @@ with(FactorialDataB2,testMeanDifference(Outcome~CompDataB2))
 ```
 ## $`Hypothesis Test for the Mean Difference`
 ##               Diff      SE      df       t       p
-## Comparison   0.000   1.732   6.000   0.000   1.000
+## Comparison  -2.000   1.732   6.000  -1.155   0.292
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -507,7 +507,7 @@ with(FactorialDataB2,testMeanDifference(Outcome~CompDataB2,mu=-2))
 ```
 ## $`Hypothesis Test for the Mean Difference`
 ##               Diff      SE      df       t       p
-## Comparison   2.000   1.732   6.000   1.155   0.292
+## Comparison   0.000   1.732   6.000   0.000   1.000
 ```
 
 #### Standardized Effect Size
@@ -531,7 +531,7 @@ with(FactorialDataB2,estimateStandardizedMeanDifference(Outcome~CompDataB2))
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
 ##                  d      SE      LL      UL
-## Comparison   0.000   0.816  -1.600   1.600
+## Comparison  -0.816   0.850  -2.482   0.849
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -553,7 +553,7 @@ with(FactorialDataB2,estimateStandardizedMeanDifference(Outcome~CompDataB2,conf.
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
 ##                  d      SE      LL      UL
-## Comparison   0.000   0.816  -2.103   2.103
+## Comparison  -0.816   0.850  -3.006   1.373
 ```
 
 ### Analyses of a Contrast
@@ -587,7 +587,7 @@ with(FactorialDataB2,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   1.500   6.000  -3.170   4.170
+## Contrast  -1.500   1.500   6.000  -5.170   2.170
 ```
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
@@ -623,7 +623,7 @@ with(FactorialDataB2,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers,co
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   1.500   6.000  -5.061   6.061
+## Contrast  -1.500   1.500   6.000  -7.061   4.061
 ```
 
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
@@ -664,12 +664,12 @@ with(FactorialDataB2,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
 ```
 ## $`Confidence Intervals for the Mean Subsets`
 ##                  Est      SE      df      LL      UL
-## Neg Weighted   4.000   1.225   3.000   0.102   7.898
-## Pos Weighted   4.500   0.866   6.000   2.381   6.619
+## Neg Weighted   7.000   1.225   3.000   3.102  10.898
+## Pos Weighted   5.500   0.866   6.000   3.381   7.619
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   1.500   6.000  -3.170   4.170
+## Contrast  -1.500   1.500   6.000  -5.170   2.170
 ```
 
 This code produces a difference plot using the confidence intervals for the mean subsets and the mean contrast.
@@ -710,12 +710,12 @@ with(FactorialDataB2,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,con
 ```
 ## $`Confidence Intervals for the Mean Subsets`
 ##                  Est      SE      df      LL      UL
-## Neg Weighted   4.000   1.225   3.000  -3.154  11.154
-## Pos Weighted   4.500   0.866   6.000   1.289   7.711
+## Neg Weighted   7.000   1.225   3.000  -0.154  14.154
+## Pos Weighted   5.500   0.866   6.000   2.289   8.711
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   1.500   6.000  -5.061   6.061
+## Contrast  -1.500   1.500   6.000  -7.061   4.061
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
@@ -753,7 +753,7 @@ with(FactorialDataB2,testMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 ## $`Hypothesis Test for the Mean Contrast`
 ##              Est      SE      df       t       p
-## Contrast   0.500   1.500   6.000   0.333   0.750
+## Contrast  -1.500   1.500   6.000  -1.000   0.356
 ```
 
 If desired, the contrast can be tested against other values.
@@ -775,7 +775,7 @@ with(FactorialDataB2,testMeanContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
 ```
 ## $`Hypothesis Test for the Mean Contrast`
 ##              Est      SE      df       t       p
-## Contrast  -3.500   1.500   6.000  -2.333   0.058
+## Contrast  -5.500   1.500   6.000  -3.667   0.010
 ```
 
 #### Standardized Effect Size
@@ -799,7 +799,7 @@ with(FactorialDataB2,estimateStandardizedMeanContrast(Outcome~FactorA,contrast=A
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast`
 ##              Est      SE      LL      UL
-## Contrast   0.204   0.709  -1.185   1.593
+## Contrast  -0.612   0.722  -2.027   0.802
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -821,5 +821,5 @@ with(FactorialDataB2,estimateStandardizedMeanContrast(Outcome~FactorA,contrast=A
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast`
 ##              Est      SE      LL      UL
-## Contrast   0.204   0.709  -1.621   2.030
+## Contrast  -0.612   0.722  -2.471   1.247
 ```

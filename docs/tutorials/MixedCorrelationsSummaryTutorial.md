@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-10-19"
+date: "2021-11-29"
 output:
   html_document:
     toc: true
@@ -47,9 +47,9 @@ MixedCorrL1["Outcome3",] <- c(.389,.889,1.000)
 And repeat the process to create the second subset.
 
 ```r
-Outcome1 <- c(N=4,M=2.000,SD=2.449)
-Outcome2 <- c(N=4,M=6.000,SD=2.449)
-Outcome3 <- c(N=4,M=7.000,SD=2.449)
+Outcome1 <- c(N=4,M=7.000,SD=2.449)
+Outcome2 <- c(N=4,M=5.000,SD=2.449)
+Outcome3 <- c(N=4,M=6.000,SD=2.449)
 MixedSummaryL2 <- rbind(Outcome1,Outcome2,Outcome3)
 class(MixedSummaryL2) <- "wss"
 ```
@@ -58,9 +58,9 @@ And for the correlation matrix of the second subset.
 
 ```r
 MixedCorrL2 <- declareCorrelations("Outcome1","Outcome2","Outcome3")
-MixedCorrL2["Outcome1",] <- c(1.000,.889,.778)
-MixedCorrL2["Outcome2",] <- c(.889,1.000,.889)
-MixedCorrL2["Outcome3",] <- c(.778,.889,1.000)
+MixedCorrL2["Outcome1",] <- c(1.000,.889,.500)
+MixedCorrL2["Outcome2",] <- c(.889,1.000,.389)
+MixedCorrL2["Outcome3",] <- c(.500,.389,1.000)
 ```
 
 ### Analyses of a Correlation
@@ -209,8 +209,8 @@ estimateCorrelations(MixedSummaryL2,MixedCorrL2)
 ## $`Confidence Intervals for the Correlations`
 ##                           R      SE      LL      UL
 ## Outcome1 & Outcome2   0.889   1.000  -0.495   0.998
-## Outcome1 & Outcome3   0.778   1.000  -0.726   0.995
-## Outcome2 & Outcome3   0.889   1.000  -0.495   0.998
+## Outcome1 & Outcome3   0.500   1.000  -0.888   0.987
+## Outcome2 & Outcome3   0.389   1.000  -0.914   0.983
 ```
 
 This code will produce a graph of the confidence intervals for the correlations.
@@ -249,8 +249,8 @@ estimateCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99)
 ## $`Confidence Intervals for the Correlations`
 ##                           R      SE      LL      UL
 ## Outcome1 & Outcome2   0.889   1.000  -0.821   0.999
-## Outcome1 & Outcome3   0.778   1.000  -0.911   0.999
-## Outcome2 & Outcome3   0.889   1.000  -0.821   0.999
+## Outcome1 & Outcome3   0.500   1.000  -0.966   0.996
+## Outcome2 & Outcome3   0.389   1.000  -0.974   0.995
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
@@ -291,8 +291,8 @@ testCorrelations(MixedSummaryL2,MixedCorrL2)
 ## $`Hypothesis Tests for the Correlations`
 ##                           R      SE      df       t       p
 ## Outcome1 & Outcome2   0.889   0.324   2.000   2.746   0.111
-## Outcome1 & Outcome3   0.778   0.444   2.000   1.751   0.222
-## Outcome2 & Outcome3   0.889   0.324   2.000   2.746   0.111
+## Outcome1 & Outcome3   0.500   0.612   2.000   0.816   0.500
+## Outcome2 & Outcome3   0.389   0.651   2.000   0.597   0.611
 ```
 
 ### Analyses of a Correlation Difference

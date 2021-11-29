@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-10-19"
+date: "2021-11-29"
 output:
   html_document:
     toc: true
@@ -31,9 +31,9 @@ This code inputs the variable names and creates a viewable data frame.
 
 ```r
 Factor <- c(1,1,1,1,2,2,2,2)
-Outcome1 <- c(0,0,3,5,3,1,6,6)
-Outcome2 <- c(4,7,4,9,2,2,5,7)
-Outcome3 <- c(4,9,6,9,2,4,7,7)
+Outcome1 <- c(0,0,3,5,9,4,6,9)
+Outcome2 <- c(4,7,4,9,6,3,3,8)
+Outcome3 <- c(4,9,6,9,5,3,8,8)
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 ```
@@ -55,10 +55,10 @@ with(MixedDataL1,describeMeans(Outcome1,Outcome2,Outcome3))
 
 ```
 ## $`Descriptive Statistics for the Data`
-##                N       M      SD
-## Outcome1   4.000   2.000   2.449
-## Outcome2   4.000   6.000   2.449
-## Outcome3   4.000   7.000   2.449
+##                N       M      SD    Skew    Kurt
+## Outcome1   4.000   2.000   2.449   0.544  -2.944
+## Outcome2   4.000   6.000   2.449   0.544  -2.944
+## Outcome3   4.000   7.000   2.449  -0.544  -2.944
 ```
 
 ```r
@@ -67,10 +67,10 @@ with(MixedDataL2,describeMeans(Outcome1,Outcome2,Outcome3))
 
 ```
 ## $`Descriptive Statistics for the Data`
-##                N       M      SD
-## Outcome1   4.000   4.000   2.449
-## Outcome2   4.000   4.000   2.449
-## Outcome3   4.000   5.000   2.449
+##                N       M      SD    Skew    Kurt
+## Outcome1   4.000   7.000   2.449  -0.544  -2.944
+## Outcome2   4.000   5.000   2.449   0.544  -2.944
+## Outcome3   4.000   6.000   2.449  -0.544  -2.944
 ```
 
 This code obtains a table of correlations for the two data frames.
@@ -94,9 +94,9 @@ with(MixedDataL2,describeCorrelations(Outcome1,Outcome2,Outcome3))
 ```
 ## $`Correlation Matrix for the Variables`
 ##          Outcome1 Outcome2 Outcome3
-## Outcome1    1.000    0.889    0.778
-## Outcome2    0.889    1.000    0.889
-## Outcome3    0.778    0.889    1.000
+## Outcome1    1.000    0.889    0.500
+## Outcome2    0.889    1.000    0.389
+## Outcome3    0.500    0.389    1.000
 ```
 
 ### Analyses of a Correlation
@@ -124,7 +124,7 @@ with(MixedDataL2,estimateCorrelations(Outcome1,Outcome2))
 ```
 ## $`Confidence Interval for the Correlation`
 ##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.889   1.000  -0.495   0.998
+## Outcome1 & Outcome2   0.889   1.000  -0.496   0.998
 ```
 
 This code will produce a graph of the confidence interval for the correlation.
@@ -198,7 +198,7 @@ with(MixedDataL2,testCorrelations(Outcome1,Outcome2))
 ```
 ## $`Hypothesis for the Correlation`
 ##                           R      SE      df       t       p
-## Outcome1 & Outcome2   0.889   0.324   2.000   2.746   0.111
+## Outcome1 & Outcome2   0.889   0.324   2.000   2.744   0.111
 ```
 
 ### Analyses of Several Correlations
@@ -218,7 +218,7 @@ with(MixedDataL1,estimateCorrelations(Outcome1,Outcome2,Outcome3))
 ##                           R      SE      LL      UL
 ## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
 ## Outcome1 & Outcome3   0.389   1.000  -0.914   0.983
-## Outcome2 & Outcome3   0.889   1.000  -0.495   0.998
+## Outcome2 & Outcome3   0.889   1.000  -0.496   0.998
 ```
 
 ```r
@@ -228,9 +228,9 @@ with(MixedDataL2,estimateCorrelations(Outcome1,Outcome2,Outcome3))
 ```
 ## $`Confidence Intervals for the Correlations`
 ##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.889   1.000  -0.495   0.998
-## Outcome1 & Outcome3   0.778   1.000  -0.726   0.995
-## Outcome2 & Outcome3   0.889   1.000  -0.495   0.998
+## Outcome1 & Outcome2   0.889   1.000  -0.496   0.998
+## Outcome1 & Outcome3   0.500   1.000  -0.888   0.987
+## Outcome2 & Outcome3   0.389   1.000  -0.914   0.983
 ```
 
 This code will produce a graph of the confidence intervals for the correlations.
@@ -269,8 +269,8 @@ with(MixedDataL2,estimateCorrelations(Outcome1,Outcome2,Outcome3,conf.level=.99)
 ## $`Confidence Intervals for the Correlations`
 ##                           R      SE      LL      UL
 ## Outcome1 & Outcome2   0.889   1.000  -0.821   0.999
-## Outcome1 & Outcome3   0.778   1.000  -0.911   0.999
-## Outcome2 & Outcome3   0.889   1.000  -0.821   0.999
+## Outcome1 & Outcome3   0.500   1.000  -0.966   0.996
+## Outcome2 & Outcome3   0.389   1.000  -0.974   0.995
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
@@ -300,7 +300,7 @@ with(MixedDataL1,testCorrelations(Outcome1,Outcome2,Outcome3))
 ##                           R      SE      df       t       p
 ## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
 ## Outcome1 & Outcome3   0.389   0.651   2.000   0.597   0.611
-## Outcome2 & Outcome3   0.889   0.324   2.000   2.746   0.111
+## Outcome2 & Outcome3   0.889   0.324   2.000   2.744   0.111
 ```
 
 ```r
@@ -310,9 +310,9 @@ with(MixedDataL2,testCorrelations(Outcome1,Outcome2,Outcome3))
 ```
 ## $`Hypothesis Tests for the Correlations`
 ##                           R      SE      df       t       p
-## Outcome1 & Outcome2   0.889   0.324   2.000   2.746   0.111
-## Outcome1 & Outcome3   0.778   0.444   2.000   1.751   0.222
-## Outcome2 & Outcome3   0.889   0.324   2.000   2.746   0.111
+## Outcome1 & Outcome2   0.889   0.324   2.000   2.744   0.111
+## Outcome1 & Outcome3   0.500   0.612   2.000   0.816   0.500
+## Outcome2 & Outcome3   0.389   0.651   2.000   0.597   0.611
 ```
 
 ### Analyses of a Correlation Difference
@@ -337,7 +337,7 @@ estimateCorrelationDifference(CorrEstimateL1,CorrEstimateL2)
 ```
 ## $`Confidence Interval for the Correlation Difference`
 ##               Diff      LL      UL
-## Difference   0.389  -1.003   1.856
+## Difference   0.389  -1.003   1.857
 ```
 
 Of course, it is also possible to the plot this estimate.
@@ -394,11 +394,11 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 ## $`Confidence Intervals for the Correlations`
 ##                     R      SE      LL      UL
 ## Correlation 1   0.500   1.000  -0.888   0.987
-## Correlation 2   0.889   1.000  -0.495   0.998
+## Correlation 2   0.889   1.000  -0.496   0.998
 ## 
 ## $`Confidence Interval for the Correlation Difference`
 ##               Diff      LL      UL
-## Difference   0.389  -1.003   1.856
+## Difference   0.389  -1.003   1.857
 ```
 
 This code produces a difference plot using the confidence intervals for the correlations and the correlation difference.

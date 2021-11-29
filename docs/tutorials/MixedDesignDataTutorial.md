@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-10-23"
+date: "2021-11-29"
 output:
   html_document:
     toc: true
@@ -31,9 +31,9 @@ This code inputs the variable names and creates a viewable data frame.
 
 ```r
 Factor <- c(1,1,1,1,2,2,2,2)
-Outcome1 <- c(0,0,3,5,3,1,6,6)
-Outcome2 <- c(4,7,4,9,2,2,5,7)
-Outcome3 <- c(4,9,6,9,2,4,7,7)
+Outcome1 <- c(0,0,3,5,9,4,6,9)
+Outcome2 <- c(4,7,4,9,6,3,3,8)
+Outcome3 <- c(4,9,6,9,5,3,8,8)
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 ```
@@ -88,9 +88,9 @@ with(MixedDataL2,describeMeans(Outcome1,Outcome2,Outcome3))
 ```
 ## $`Descriptive Statistics for the Data`
 ##                N       M      SD    Skew    Kurt
-## Outcome1   4.000   4.000   2.449  -0.544  -2.944
-## Outcome2   4.000   4.000   2.449   0.544  -2.944
-## Outcome3   4.000   5.000   2.449  -0.544  -2.944
+## Outcome1   4.000   7.000   2.449  -0.544  -2.944
+## Outcome2   4.000   5.000   2.449   0.544  -2.944
+## Outcome3   4.000   6.000   2.449  -0.544  -2.944
 ```
 
 ### Analyses of the Means
@@ -120,9 +120,9 @@ with(MixedDataL2,estimateMeans(Outcome1,Outcome2,Outcome3))
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   4.000   1.225   3.000   0.102   7.898
-## Outcome2   4.000   1.225   3.000   0.102   7.898
-## Outcome3   5.000   1.225   3.000   1.102   8.898
+## Outcome1   7.000   1.225   3.000   3.102  10.898
+## Outcome2   5.000   1.225   3.000   1.102   8.898
+## Outcome3   6.000   1.225   3.000   2.102   9.898
 ```
 
 This code will produce a graph of the confidence intervals for each level of the factor.
@@ -160,9 +160,9 @@ with(MixedDataL2,estimateMeans(Outcome1,Outcome2,Outcome3,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   4.000   1.225   3.000  -3.154  11.154
-## Outcome2   4.000   1.225   3.000  -3.154  11.154
-## Outcome3   5.000   1.225   3.000  -2.154  12.154
+## Outcome1   7.000   1.225   3.000  -0.154  14.154
+## Outcome2   5.000   1.225   3.000  -2.154  12.154
+## Outcome3   6.000   1.225   3.000  -1.154  13.154
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
@@ -202,9 +202,9 @@ with(MixedDataL2,testMeans(Outcome1,Outcome2,Outcome3))
 ```
 ## $`Hypothesis Tests for the Means`
 ##             Diff      SE      df       t       p
-## Outcome1   4.000   1.225   3.000   3.266   0.047
-## Outcome2   4.000   1.225   3.000   3.266   0.047
-## Outcome3   5.000   1.225   3.000   4.082   0.027
+## Outcome1   7.000   1.225   3.000   5.715   0.011
+## Outcome2   5.000   1.225   3.000   4.082   0.027
+## Outcome3   6.000   1.225   3.000   4.899   0.016
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
@@ -228,9 +228,9 @@ with(MixedDataL2,testMeans(Outcome1,Outcome2,Outcome3,mu=5))
 ```
 ## $`Hypothesis Tests for the Means`
 ##             Diff      SE      df       t       p
-## Outcome1  -1.000   1.225   3.000  -0.816   0.474
-## Outcome2  -1.000   1.225   3.000  -0.816   0.474
-## Outcome3   0.000   1.225   3.000   0.000   1.000
+## Outcome1   2.000   1.225   3.000   1.633   0.201
+## Outcome2   0.000   1.225   3.000   0.000   1.000
+## Outcome3   1.000   1.225   3.000   0.816   0.474
 ```
 
 #### Standardized Effect Sizes
@@ -256,9 +256,9 @@ with(MixedDataL2,estimateStandardizedMeans(Outcome1,Outcome2,Outcome3))
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##                d      SE      LL      UL
-## Outcome1   1.633   0.761   0.013   3.177
-## Outcome2   1.633   0.761   0.013   3.177
-## Outcome3   2.041   0.854   0.176   3.846
+## Outcome1   2.858   1.063   0.464   5.226
+## Outcome2   2.041   0.854   0.176   3.846
+## Outcome3   2.449   0.955   0.325   4.531
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
@@ -282,9 +282,9 @@ with(MixedDataL2,estimateStandardizedMeans(Outcome1,Outcome2,Outcome3,mu=5,conf.
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##                d      SE      LL      UL
-## Outcome1  -0.408   0.574  -1.734   0.969
-## Outcome2  -0.408   0.574  -1.734   0.969
-## Outcome3   0.000   0.559  -1.288   1.288
+## Outcome1   0.816   0.616  -0.732   2.319
+## Outcome2   0.000   0.559  -1.288   1.288
+## Outcome3   0.408   0.574  -0.969   1.734
 ```
 
 ### Analyses of a Comparison
@@ -312,7 +312,7 @@ with(MixedDataL2,estimateMeanDifference(Outcome1,Outcome2))
 ```
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   0.577   3.000  -1.837   1.837
+## Comparison  -2.000   0.577   3.000  -3.837  -0.163
 ```
 
 This code obtains and plots the confidence intervals for the mean difference in the identified comparison.
@@ -348,7 +348,7 @@ with(MixedDataL2,estimateMeanDifference(Outcome1,Outcome2,conf.level=.99))
 ```
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   0.577   3.000  -3.372   3.372
+## Comparison  -2.000   0.577   3.000  -5.372   1.372
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
@@ -389,12 +389,12 @@ with(MixedDataL2,estimateMeanComparison(Outcome1,Outcome2))
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   4.000   1.225   3.000   0.102   7.898
-## Outcome2   4.000   1.225   3.000   0.102   7.898
+## Outcome1   7.000   1.225   3.000   3.102  10.898
+## Outcome2   5.000   1.225   3.000   1.102   8.898
 ## 
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   0.577   3.000  -1.837   1.837
+## Comparison  -2.000   0.577   3.000  -3.837  -0.163
 ```
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
@@ -435,12 +435,12 @@ with(MixedDataL2,estimateMeanComparison(Outcome1,Outcome2,conf.level=.99))
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   4.000   1.225   3.000  -3.154  11.154
-## Outcome2   4.000   1.225   3.000  -3.154  11.154
+## Outcome1   7.000   1.225   3.000  -0.154  14.154
+## Outcome2   5.000   1.225   3.000  -2.154  12.154
 ## 
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   0.577   3.000  -3.372   3.372
+## Comparison  -2.000   0.577   3.000  -5.372   1.372
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
@@ -478,7 +478,7 @@ with(MixedDataL2,testMeanDifference(Outcome1,Outcome2))
 ```
 ## $`Hypothesis Test for the Mean Difference`
 ##               Diff      SE      df       t       p
-## Comparison   0.000   0.577   3.000   0.000   1.000
+## Comparison  -2.000   0.577   3.000  -3.464   0.041
 ```
 
 If the default value of zero is not plausible, it too can be changed.
@@ -500,7 +500,7 @@ with(MixedDataL2,testMeanDifference(Outcome1,Outcome2,mu=-2))
 ```
 ## $`Hypothesis Test for the Mean Difference`
 ##               Diff      SE      df       t       p
-## Comparison   2.000   0.577   3.000   3.464   0.041
+## Comparison   0.000   0.577   3.000   0.000   1.000
 ```
 
 #### Standardized Effect Sizes
@@ -524,7 +524,7 @@ with(MixedDataL2,estimateStandardizedMeanDifference(Outcome1,Outcome2))
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
 ##                  d      SE      LL      UL
-## Comparison   0.000   0.272  -0.533   0.533
+## Comparison  -0.816   0.417  -1.633   0.000
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -546,7 +546,7 @@ with(MixedDataL2,estimateStandardizedMeanDifference(Outcome1,Outcome2,conf.level
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
 ##                  d      SE      LL      UL
-## Comparison   0.000   0.272  -0.701   0.701
+## Comparison  -0.816   0.417  -1.889   0.257
 ```
 
 ### Analyses of a Contrast
@@ -580,7 +580,7 @@ with(MixedDataL2,estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOt
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   0.645   3.000  -1.554   2.554
+## Contrast  -1.500   0.677   3.000  -3.655   0.655
 ```
 
 This code obtains and plots the confidence intervals for the mean difference in the identified contrast.
@@ -616,7 +616,7 @@ with(MixedDataL2,estimateMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOt
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   0.645   3.000  -3.270   4.270
+## Contrast  -1.500   0.677   3.000  -5.454   2.454
 ```
 
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
@@ -657,12 +657,12 @@ with(MixedDataL2,estimateMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOth
 ```
 ## $`Confidence Intervals for the Mean Subsets`
 ##                  Est      SE      df      LL      UL
-## Neg Weighted   4.000   1.225   3.000   0.102   7.898
-## Pos Weighted   4.500   1.190   3.000   0.712   8.288
+## Neg Weighted   7.000   1.225   3.000   3.102  10.898
+## Pos Weighted   5.500   1.021   3.000   2.252   8.748
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   0.645   3.000  -1.554   2.554
+## Contrast  -1.500   0.677   3.000  -3.655   0.655
 ```
 
 This code produces a difference plot using the confidence intervals for the mean subsets and the mean contrast.
@@ -703,12 +703,12 @@ with(MixedDataL2,estimateMeanSubsets(Outcome1,Outcome2,Outcome3,contrast=O1vsOth
 ```
 ## $`Confidence Intervals for the Mean Subsets`
 ##                  Est      SE      df      LL      UL
-## Neg Weighted   4.000   1.225   3.000  -3.154  11.154
-## Pos Weighted   4.500   1.190   3.000  -2.452  11.452
+## Neg Weighted   7.000   1.225   3.000  -0.154  14.154
+## Pos Weighted   5.500   1.021   3.000  -0.461  11.461
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   0.645   3.000  -3.270   4.270
+## Contrast  -1.500   0.677   3.000  -5.454   2.454
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
@@ -746,7 +746,7 @@ with(MixedDataL2,testMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers
 ```
 ## $`Hypothesis Test for the Mean Contrast`
 ##              Est      SE      df       t       p
-## Contrast   0.500   0.645   3.000   0.775   0.495
+## Contrast  -1.500   0.677   3.000  -2.216   0.114
 ```
 
 If desired, the contrast can be tested against other values.
@@ -768,7 +768,7 @@ with(MixedDataL2,testMeanContrast(Outcome1,Outcome2,Outcome3,contrast=O1vsOthers
 ```
 ## $`Hypothesis Test for the Mean Contrast`
 ##              Est      SE      df       t       p
-## Contrast  -3.500   0.645   3.000  -5.422   0.012
+## Contrast  -5.500   0.677   3.000  -8.124   0.004
 ```
 
 #### Standardized Effect Sizes
@@ -792,7 +792,7 @@ with(MixedDataL2,estimateStandardizedMeanContrast(Outcome1,Outcome2,Outcome3,con
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast`
 ##              Est      SE      LL      UL
-## Contrast   0.204   0.279  -0.344   0.752
+## Contrast  -0.612   0.482  -1.556   0.331
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
@@ -814,5 +814,5 @@ with(MixedDataL2,estimateStandardizedMeanContrast(Outcome1,Outcome2,Outcome3,con
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast`
 ##              Est      SE      LL      UL
-## Contrast   0.204   0.279  -0.516   0.924
+## Contrast  -0.612   0.482  -1.853   0.628
 ```

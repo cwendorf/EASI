@@ -12,9 +12,9 @@ A3 <- c(N=4,M=7.000,SD=2.449)
 FactorialSummaryB1 <- rbind(A1,A2,A3)
 class(FactorialSummaryB1) <- "bss"
 
-A1 <- c(N=4,M=4.000,SD=2.449)
-A2 <- c(N=4,M=4.000,SD=2.449)
-A3 <- c(N=4,M=5.000,SD=2.449)
+A1 <- c(N=4,M=7.000,SD=2.449)
+A2 <- c(N=4,M=5.000,SD=2.449)
+A3 <- c(N=4,M=6.000,SD=2.449)
 FactorialSummaryB2 <- rbind(A1,A2,A3)
 class(FactorialSummaryB2) <- "bss"
 
