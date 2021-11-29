@@ -67,7 +67,7 @@
 describeMeansOmnibus <- function(...,main=NULL,digits=3) {
   results <- .describeMeansOmnibus(...)
   results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Source Table for the Factor"} else {names(results) <- main} 
+  if(is.null(main)) {names(results) <- "Source Table"} else {names(results) <- main} 
   return(results)
 }
 
@@ -118,6 +118,6 @@ describeMeansOmnibus <- function(...,main=NULL,digits=3) {
 testMeansOmnibus <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibus(...)
   results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Factor"} else {names(results) <- main} 
+  if(is.null(main)) {names(results) <- "Hypothesis Test"} else {names(results) <- main} 
   return(results)
 }
