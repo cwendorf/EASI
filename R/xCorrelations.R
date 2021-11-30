@@ -161,11 +161,10 @@ estimateCorrelations <- function(...,main=NULL,digits=3) {
     p <- 2*(1 - pt(abs(t),df))
     results[comp,] <- c(R,SE,df,t,p)
    	comp <- comp+1}}
-
   return(results)
 }
 
-testCorrelations.default <- function(...,conf.level=.95){
+.testCorrelations.default <- function(...,conf.level=.95){
   DescStats <- .describeMeans(...)
   CorrStats <- .describeCorrelations(...)
   .testCorrelations.wss(DescStats,CorrStats,conf.level=conf.level)

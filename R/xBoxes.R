@@ -25,7 +25,8 @@ describeBoxes <- function(...,main=NULL,digits=3) {
   results <- .describeBoxes(...)
   if(is.null(main)) {if(nrow(results)>1) {main="Boxplot Statistics for the Variables"} else {main="Boxplot Statistics for the Variable"}}  
   results <- .formatList(list(results),digits=digits)  
-  names(results) <- main  return(results)
+  names(results) <- main
+  return(results)
 }
 
 ### Plots
