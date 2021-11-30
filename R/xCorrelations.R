@@ -123,7 +123,7 @@ describeCovariances <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-estimateCorrelations.default <- function(...,conf.level=.95){
+.estimateCorrelations.default <- function(...,conf.level=.95){
   DescStats <- .describeMeans(...)
   CorrStats <- .describeCorrelations(...)
   .estimateCorrelations.wss(DescStats,CorrStats,conf.level=conf.level)
