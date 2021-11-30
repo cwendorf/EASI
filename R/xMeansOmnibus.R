@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Mean Omnibus Analyses (Analysis of Variance)
+## Mean Omnibus (Analysis of Variance)
 
 ### Descriptives
 
@@ -119,5 +119,70 @@ testMeansOmnibus <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibus(...)
   results <- .formatList(list(results),digits=digits)   
   if(is.null(main)) {names(results) <- "Hypothesis Test"} else {names(results) <- main} 
+  return(results)
+}
+
+### Confidence Intervals
+
+.estimateMeansOmnibus <- function(x,...) 
+  UseMethod(".estimateMeansOmnibus")
+
+.estimateMeansOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90) {
+  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
+  SSf <- temptab["Measures","SS"]
+  SSe <- temptab["Error","SS"]
+  SSt <- SSf + SSe
+  dff <- temptab["Measures","df"]
+  dfe <- temptab["Error","df"] 
+  dft <- dff + dfe
+  F <- (SSf/dff)/(SSe/dfe)
+  etasq <- SSf / SSt
+  delta.lower <- delta.upper <- numeric(length(etasq))
+  delta.lower <- try(.ncpF(F,dff,dfe,prob=(1+conf.level)/2),silent=TRUE)
+  delta.upper <- try(.ncpF(F,dff,dfe,prob=(1-conf.level)/2),silent=TRUE)
+  if(is.character(delta.lower)) {delta.lower <- 0}
+  etasq.lower <- delta.lower / (delta.lower + dff + dfe + 1)
+  etasq.upper <- delta.upper / (delta.upper + dff + dfe + 1)
+  results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
+  rownames(results) <- "Measures"
+  return(results)
+}
+
+.estimateMeansOmnibus.bss <- function(DescStats,conf.level=.90) {
+  temptab <- .describeMeansOmnibus.bss(DescStats)
+  SSb <- temptab["Between","SS"]
+  SSw <- temptab["Within","SS"]
+  SSt <- SSb + SSw
+  dfb <- temptab["Between","df"]
+  dfw <- temptab["Within","df"] 
+  dft <- dfb + dfw
+  F <- (SSb/dfb)/(SSw/dfw) 
+  etasq <- SSb / SSt
+  delta.lower <- delta.upper <- numeric(length(etasq))
+  delta.lower <- try(.ncpF(F,dfb,dfw,prob=(1+conf.level)/2),silent=TRUE)
+  delta.upper <- try(.ncpF(F,dfb,dfw,prob=(1-conf.level)/2),silent=TRUE)
+  if(is.character(delta.lower)) {delta.lower <- 0}
+  etasq.lower <- delta.lower / (delta.lower + dfb + dfw + 1)
+  etasq.upper <- delta.upper / (delta.upper + dfb + dfw + 1)
+  results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
+  rownames(results) <- "Factor"
+  return(results)
+}
+
+.estimateMeansOmnibus.default <- function(...,conf.level=.90) {
+  DescStats <- .describeMeans(...)
+  CorrStats <- .describeCorrelations(...)
+  .estimateMeansOmnibus.wss(DescStats,CorrStats,conf.level)
+}
+
+.estimateMeansOmnibus.formula <- function(formula,conf.level=.90) {
+  DescStats <- .describeMeans(formula)
+  .estimateMeansOmnibus.bss(DescStats,conf.level)
+}
+
+estimateMeansOmnibus <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeansOmnibus(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For"} else {names(results) <- main} 
   return(results)
 }

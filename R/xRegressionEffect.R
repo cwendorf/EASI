@@ -3,10 +3,10 @@
 
 ### Descriptives
 
-describeRegressionEffect <- function(x,...) 
-  UseMethod("describeRegressionEffect")
+.describeRegressionEffect <- function(x,...) 
+  UseMethod(".describeRegressionEffect")
 
-describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,main=NULL,digits=3) {
+.describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats) {
   rn <- rownames(PredStats)
   PredCorr <- CorrStats[rn,rn]
   DescStats <- rbind(PredStats,CritStats)
@@ -21,12 +21,10 @@ describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,main=NULL
   adjR2 <- 1-((1-R2)*(CritStats[,"N"]-1))/df2
   results <- cbind(R=R,RSq=R2,AdjRSq=adjR2)
   rownames(results) <- "Model"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Overall Fit of the Model"} else {names(results) <- main}  
   return(results)
 }
 
-describeRegressionEffect.default <- function(Predictors,Criterion,main=NULL,digits=3) {
+.describeRegressionEffect.default <- function(Predictors,Criterion) {
   Predictors <- cbind(Predictors)
   if(ncol(Predictors)==1) {
     CorrStats <- cor(Predictors,Criterion)
@@ -43,18 +41,23 @@ describeRegressionEffect.default <- function(Predictors,Criterion,main=NULL,digi
   adjR2 <- 1-((1-R2)*(nrow(Predictors)-1))/df2
   results <- cbind(R=R,RSq=R2,AdjRSq=adjR2)
   rownames(results) <- "Model"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Overall Fit of the Model"} else {names(results) <- main}  
+  return(results)
+}
+
+describeRegressionEffect <- function(...,main=NULL,digits=3) {
+  results <- .describeRegressionEffect(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Overall Fit of the Model"} else {names(results) <- main} 
   return(results)
 }
 
 ### Confidence Intervals
 
-estimateRegressionEffect <- function(x,...) 
-  UseMethod("estimateRegressionEffect")
+.estimateRegressionEffect <- function(x,...) 
+  UseMethod(".estimateRegressionEffect")
 
-estimateRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeRegressionOmnibus(PredStats,CritStats,CorrStats)[[1]])
+.estimateRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90) {
+  temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
   df1 <- temptab["Model","df"]
   df2 <- temptab["Error","df"]
   F <- temptab["Model","MS"]/temptab["Error","MS"]
@@ -67,17 +70,19 @@ estimateRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,conf.leve
   R2.upper <- delta.upper / (delta.upper + df1 + df2 + 1)
   results <- cbind(Est=R2,LL=R2.lower,UL=R2.upper)
   rownames(results) <- "Model"
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For by the Model"} else {names(results) <- main}  
   return(results)
 }
 
-estimateRegressionEffect.default <- function(Predictors,Criterion,conf.level=.90,main=NULL,digits=3) {
+.estimateRegressionEffect.default <- function(Predictors,Criterion,conf.level=.90) {
   PredStats <- .describeMeans(Predictors)
-  class(PredStats) <- "wss"
   CritStats <- .describeMeans(Criterion)
-  class(CritStats) <- "wss"
   CorrStats <- .describeCorrelations(Predictors,Criterion)
-  class(CorrStats) <- "wss"
-  estimateRegressionEffect(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  .estimateRegressionEffect.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
+}
+
+estimateRegressionEffect <- function(...,main=NULL,digits=3) {
+  results <- .estimateRegressionEffect(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For"} else {names(results) <- main} 
+  return(results)
 }

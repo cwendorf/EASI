@@ -1,13 +1,14 @@
 # Estimation Approach to Statistical Inference
-## Regression Omnibus Analyses (Analysis of Variance)
+## Regression Omnibus (Analysis of Variance)
 
 ### Descriptives
 
-describeRegressionOmnibus <- function(x,...) 
-  UseMethod("describeRegressionOmnibus")
+.describeRegressionOmnibus <- function(x,...) 
+  UseMethod(".describeRegressionOmnibus")
 
-describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,main=NULL,digits=3,...) {
-  R2 <- .unformatFrame(describeRegressionEffect(PredStats,CritStats,CorrStats)[[1]]["RSq"])
+.describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats) {
+  R2 <- .describeRegressionEffect.wss(PredStats,CritStats,CorrStats)[,"RSq"]
+  print(R2)
   df1 <- nrow(PredStats)
   df2 <- (CritStats[,"N"]-df1-1)
   vt <- CritStats[,"SD"]^2
@@ -20,28 +21,30 @@ describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,main=NUL
   MS <- SS/df
   results <- cbind(SS,df,MS)
   rownames(results)=c("Model","Error","Total")
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Source Table for the Regression Model"} else {names(results) <- main}  
   return(results)
 }
 
-describeRegressionOmnibus.default <- function(Predictors,Criterion,main=NULL,digits=3) {
+.describeRegressionOmnibus.default <- function(Predictors,Criterion) {
   PredStats <- .describeMeans(Predictors)
-  class(PredStats) <- "wss"
   CritStats <- .describeMeans(Criterion)
-  class(CritStats) <- "wss"
   CorrStats <- .describeCorrelations(Predictors,Criterion)
-  class(CorrStats) <- "wss"
-  describeRegressionOmnibus(PredStats,CritStats,CorrStats,main=main,digits=digits)
+  .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
+}
+
+describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
+  results <- .describeRegressionOmnibus(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Source Table"} else {names(results) <- main} 
+  return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-testRegressionOmnibus <- function(x,...) 
-  UseMethod("testRegressionOmnibus")
+.testRegressionOmnibus <- function(x,...) 
+  UseMethod(".testRegressionOmnibus")
 
-testRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,main=NULL,digits=3) {
-  temptab <- .unformatFrame(describeRegressionOmnibus(PredStats,CritStats,CorrStats,main=main,digits=digits)[[1]])
+.testRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats) {
+  temptab <- .describeRegressionOmnibus(PredStats,CritStats,CorrStats)
   MSf <- temptab["Model","MS"]
   MSe <- temptab["Error","MS"]
   df1 <- temptab["Model","df"]
@@ -51,17 +54,55 @@ testRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,main=NULL,di
   results <- cbind(F,df1,df2,p)
   colnames(results) <- c("F","df1","df2","p")
   rownames(results) <- c("Model")
-  results <- .formatList(list(results),digits=digits) 
-  if(is.null(main)) {names(results) <- "Hypothesis Test for the Regression Model"} else {names(results) <- main}
   return(results)
 }
 
-testRegressionOmnibus.default <- function(Predictors,Criterion,main=NULL,digits=3) {
+.testRegressionOmnibus.default <- function(Predictors,Criterion) {
   PredStats <- .describeMeans(Predictors)
-  class(PredStats) <- "wss"
   CritStats <- .describeMeans(Criterion)
-  class(CritStats) <- "wss"
   CorrStats <- .describeCorrelations(Predictors,Criterion)
-  class(CorrStats) <- "wss"
-  testRegressionOmnibus(PredStats,CritStats,CorrStats,main=main,digits=digits)
+  .testRegressionOmnibus(PredStats,CritStats,CorrStats)
+}
+
+testRegressionOmnibus <- function(...,main=NULL,digits=3) {
+  results <- .testRegressionOmnibus(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Hypothesis Test"} else {names(results) <- main} 
+  return(results)
+}
+
+### Confidence Intervals
+
+.estimateRegressionOmnibus <- function(x,...) 
+  UseMethod(".estimateRegressionOmnibus")
+
+.estimateRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90) {
+  temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
+  df1 <- temptab["Model","df"]
+  df2 <- temptab["Error","df"]
+  F <- temptab["Model","MS"]/temptab["Error","MS"]
+  R2 <- temptab["Model","SS"]/temptab["Total","SS"]
+  delta.lower <- delta.upper <- numeric(length(R2))
+  delta.lower <- try(.ncpF(F,df1,df2,prob=(1+conf.level)/2),silent=TRUE)
+  delta.upper <- try(.ncpF(F,df1,df2,prob=(1-conf.level)/2),silent=TRUE)
+  if(is.character(delta.lower)) {delta.lower <- 0}
+  R2.lower <- delta.lower / (delta.lower + df1 + df2 + 1)
+  R2.upper <- delta.upper / (delta.upper + df1 + df2 + 1)
+  results <- cbind(Est=R2,LL=R2.lower,UL=R2.upper)
+  rownames(results) <- "Model"
+  return(results)
+}
+
+.estimateRegressionOmnibus.default <- function(Predictors,Criterion,conf.level=.90) {
+  PredStats <- .describeMeans(Predictors)
+  CritStats <- .describeMeans(Criterion)
+  CorrStats <- .describeCorrelations(Predictors,Criterion)
+  .estimateRegressionOmnibus.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
+}
+
+estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
+  results <- .estimateRegressionOmnibus(...)
+  results <- .formatList(list(results),digits=digits)   
+  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For"} else {names(results) <- main} 
+  return(results)
 }
