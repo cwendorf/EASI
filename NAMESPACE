@@ -308,6 +308,13 @@ S3method(.testMeansOmnibus,bss)
 export(.testMeansOmnibus)
 export(testMeansOmnibus)
 
+S3method(.estimateMeansOmnibus,default)
+S3method(.estimateMeansOmnibus,formula)
+S3method(.estimateMeansOmnibus,wss)
+S3method(.estimateMeansOmnibus,bss)
+export(.estimateMeansOmnibus)
+export(estimateMeansOmnibus)
+
 ### xMeansEffect
 
 S3method(.describeMeansEffect,default)
@@ -408,22 +415,31 @@ export(plotStandardizedRegressionCoefficients)
 
 ### xRegressionOmnibus
 
-S3method(describeRegressionOmnibus,default)
-S3method(describeRegressionOmnibus,wss)
+S3method(.describeRegressionOmnibus,default)
+S3method(.describeRegressionOmnibus,wss)
+export(.describeRegressionOmnibus)
 export(describeRegressionOmnibus)
 
-S3method(testRegressionOmnibus,default)
-S3method(testRegressionOmnibus,wss)
+S3method(.testRegressionOmnibus,default)
+S3method(.testRegressionOmnibus,wss)
+export(.testRegressionOmnibus)
 export(testRegressionOmnibus)
+
+S3method(.estimateRegressionOmnibus,default)
+S3method(.estimateRegressionOmnibus,wss)
+export(.estimateRegressionOmnibus)
+export(estimateRegressionOmnibus)
 
 ### xRegressionEffect
 
-S3method(describeRegressionEffect,default)
-S3method(describeRegressionEffect,wss)
+S3method(.describeRegressionEffect,default)
+S3method(.describeRegressionEffect,wss)
+export(.describeRegressionEffect)
 export(describeRegressionEffect)
 
-S3method(estimateRegressionEffect,default)
-S3method(estimateRegressionEffect,wss)
+S3method(.estimateRegressionEffect,default)
+S3method(.estimateRegressionEffect,wss)
+export(.estimateRegressionEffect)
 export(estimateRegressionEffect)
 
 ### xMeansBy
