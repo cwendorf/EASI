@@ -5,7 +5,7 @@
 - Added skewness and kurtosis to descriptives
 - Added frequency distribution tables and percentiles
 - Added Tukey HSD as mean posthoc comparisons
-- Added 'by' options for factorial and mixed designs
+- Added 'by' options to accommodate factorial and mixed designs
 - Updated labeling for mean contrasts
 - Refactored code for better precision of calculations
 
