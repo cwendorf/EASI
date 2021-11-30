@@ -69,31 +69,35 @@ describeCorrelations <- function(...,main=NULL,digits=3) {
   return(covstats)
 }
 
-describeCovariances <- function(x,...) 
-  UseMethod("describeCovariances")
+.describeCovariances <- function(x,...) 
+  UseMethod(".describeCovariances")
 
-describeCovariances.wss <- function(DescStats,CorrStats,main=NULL,digits=3,...) {
+.describeCovariances.wss <- function(DescStats,CorrStats) {
   SD <- DescStats[,"SD"]
   results <- .cortocov(CorrStats,SD)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Covariance Matrix for the Variables"} else {names(results) <- main}  
   return(results)
 }
 
-describeCovariances.default <- function(...,main=NULL,digits=3) {
+.describeCovariances.default <- function(...) {
   data <- data.frame(...)
   results <- cov(data)
+  return(results)
+}
+
+describeCovariances <- function(...,main=NULL,digits=3) {
+  results <- .describeCovariances(...)
   results <- .formatList(list(results),digits=digits)  
   if(is.null(main)) {names(results) <- "Covariance Matrix for the Variables"} else {names(results) <- main}  
+  names(results) <- main
   return(results)
 }
 
 ### Confidence Intervals
 
-estimateCorrelations <- function(x,...) 
-  UseMethod("estimateCorrelations")
+.estimateCorrelations <- function(x,...) 
+  UseMethod(".estimateCorrelations")
 
-estimateCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+.estimateCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95){
   N <- DescStats[,"N"]
   rn <- rownames(DescStats)
   nr <- nrow(DescStats)
@@ -115,25 +119,30 @@ estimateCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,main=NUL
     UL <- (exp(2*UL0)-1)/(exp(2*UL0)+1)
     results[comp,] <- c(R,SE,LL,UL)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+
   return(results)
 }
 
-estimateCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
+estimateCorrelations.default <- function(...,conf.level=.95){
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateCorrelations(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  .estimateCorrelations.wss(DescStats,CorrStats,conf.level=conf.level)
+}
+
+estimateCorrelations <- function(...,main=NULL,digits=3) {
+  results <- .estimateCorrelations(...)
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}}  
+  results <- .formatList(list(results),digits=digits)  
+  names(results) <- main
+  return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-testCorrelations <- function(x,...) 
-  UseMethod("testCorrelations")
+.testCorrelations <- function(x,...) 
+  UseMethod(".testCorrelations")
 
-testCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+.testCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95){
   N <- DescStats[,"N"]
   rn <- rownames(DescStats)
   nr <- nrow(DescStats)
@@ -152,17 +161,22 @@ testCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,di
     p <- 2*(1 - pt(abs(t),df))
     results[comp,] <- c(R,SE,df,t,p)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Correlations"} else {main="Hypothesis for the Correlation"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+
   return(results)
 }
 
-testCorrelations.default <- function(...,conf.level=.95,main=NULL,digits=3){
+testCorrelations.default <- function(...,conf.level=.95){
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  testCorrelations(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  .testCorrelations.wss(DescStats,CorrStats,conf.level=conf.level)
+}
+
+testCorrelations <- function(...,main=NULL,digits=3) {
+  results <- .testCorrelations(...)
+  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Correlations"} else {main="Hypothesis for the Correlation"}}  
+  results <- .formatList(list(results),digits=digits)  
+  names(results) <- main
+  return(results)
 }
 
 ### Confidence Interval Plots

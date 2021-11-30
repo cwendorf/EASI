@@ -33,8 +33,9 @@ export(describePercentiles)
 
 ### xBoxes
 
-S3method(describeBoxes,default)
-S3method(describeBoxes,formula)
+S3method(.describeBoxes,default)
+S3method(.describeBoxes,formula)
+export(.describeBoxes)
 export(describeBoxes)
 
 S3method(plotBoxes,default)
@@ -343,16 +344,19 @@ S3method(.describeCorrelations,default)
 export(.describeCorrelations)
 export(describeCorrelations)
 
-S3method(describeCovariances,default)
-S3method(describeCovariances,wss)
+S3method(.describeCovariances,default)
+S3method(.describeCovariances,wss)
+export(.describeCovariances)
 export(describeCovariances)
 
-S3method(estimateCorrelations,default)
-S3method(estimateCorrelations,wss)
+S3method(.estimateCorrelations,default)
+S3method(.estimateCorrelations,wss)
+export(.estimateCorrelations)
 export(estimateCorrelations)
 
-S3method(testCorrelations,default)
-S3method(testCorrelations,wss)
+S3method(.testCorrelations,default)
+S3method(.testCorrelations,wss)
+export(.testCorrelations)
 export(testCorrelations)
 
 S3method(plotCorrelations,default)

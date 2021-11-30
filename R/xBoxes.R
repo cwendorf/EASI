@@ -3,28 +3,29 @@
 
 ### Descriptives
 
-describeBoxes <- function(x,...)
-  UseMethod("describeBoxes")
+.describeBoxes <- function(x,...)
+  UseMethod(".describeBoxes")
 
-describeBoxes.default <- function(...,main=NULL,digits=3) {
+.describeBoxes.default <- function(...) {
   data <- data.frame(...)
   results <- do.call(rbind,lapply(data,function(x) boxplot.stats(x)$stats))
   colnames(results) <- c("LW","LH","Mdn","UH","UW")
-  if(is.null(main)) {if(nrow(results)>1) {main="Boxplot Statistics for the Variables"} else {main="Boxplot Statistics for the Variable"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-describeBoxes.formula <- function(formula,main=NULL,digits=3) {
+.describeBoxes.formula <- function(formula) {
   results <- aggregate(formula,FUN=describeBoxes)
   rn <- results[,1]
   results <- Reduce(rbind,results[[2]])
   rownames(results) <- rn
-  if(is.null(main)) {if(nrow(results)>1) {main="Boxplot Statistics for the Groups"} else {main="Boxplot Statistics for the Group"}}  
-  results <- list(results)
-  names(results) <- main  
   return(results)
+}
+
+describeBoxes <- function(...,main=NULL,digits=3) {
+  results <- .describeBoxes(...)
+  if(is.null(main)) {if(nrow(results)>1) {main="Boxplot Statistics for the Variables"} else {main="Boxplot Statistics for the Variable"}}  
+  results <- .formatList(list(results),digits=digits)  
+  names(results) <- main  return(results)
 }
 
 ### Plots
