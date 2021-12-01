@@ -20,8 +20,9 @@ export(plotPlausible)
 
 ### xFrequencies
 
-S3method(describeFrequencies,default)
-S3method(describeFrequencies,formula)
+S3method(.describeFrequencies,default)
+S3method(.describeFrequencies,formula)
+export(.describeFrequencies)
 export(describeFrequencies)
 
 ### xFrequencies
