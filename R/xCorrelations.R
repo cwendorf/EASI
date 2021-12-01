@@ -87,8 +87,7 @@ describeCorrelations <- function(...,main=NULL,digits=3) {
 describeCovariances <- function(...,main=NULL,digits=3) {
   results <- .describeCovariances(...)
   results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Covariance Matrix for the Variables"} else {names(results) <- main}  
-  names(results) <- main
+  if(is.null(main)) {names(results) <- "Covariance Matrix for the Variables"} else {names(results) <- main} 
   return(results)
 }
 
@@ -119,7 +118,6 @@ describeCovariances <- function(...,main=NULL,digits=3) {
     UL <- (exp(2*UL0)-1)/(exp(2*UL0)+1)
     results[comp,] <- c(R,SE,LL,UL)
    	comp <- comp+1}}
-
   return(results)
 }
 

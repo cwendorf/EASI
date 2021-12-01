@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-estimateMeanContrast <- function(x,...) 
-  UseMethod("estimateMeanContrast")
+.estimateMeanContrast <- function(x,...) 
+  UseMethod(".estimateMeanContrast")
 
-estimateMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateMeanContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,labels=NULL) {
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -20,13 +20,10 @@ estimateMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.leve
   results <- as.data.frame(t(c(Est,SE,df,LL,UL)))
   colnames(results) <- c("Est","SE","df","LL","UL")
   if(is.null(labels)) {rownames(results) <- c("Contrast")} else {rownames(results) <- labels}
-  if(is.null(main)) {main="Confidence Interval for the Mean Contrast"}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateMeanContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateMeanContrast.bss <- function(DescStats,contrast,conf.level=.95,labels=NULL) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -41,31 +38,33 @@ estimateMeanContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope
   results <- as.data.frame(t(c(Est,SE,df,LL,UL)))
   colnames(results) <- c("Est","SE","df","LL","UL")
   if(is.null(labels)) {rownames(results) <- c("Contrast")} else {rownames(results) <- labels}
-  if(is.null(main)) {main="Confidence Interval for the Mean Contrast"}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateMeanContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3) {
+.estimateMeanContrast.default <- function(...,contrast,conf.level=.95,labels=NULL) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateMeanContrast(DescStats,CorrStats,contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
+  .estimateMeanContrast.wss(DescStats,CorrStats,contrast,conf.level=conf.level,labels=labels)
 }
 
-estimateMeanContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateMeanContrast.formula <- function(formula,contrast,conf.level=.95,labels=NULL) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateMeanContrast(DescStats,contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
+  .estimateMeanContrast.bss(DescStats,contrast,conf.level=conf.level,labels=labels)
+}
+
+estimateMeanContrast <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeanContrast(...)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results)="Confidence Interval for the Mean Contrast"} else {names(results) <- main}
+  return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-testMeanContrast <- function(x,...) 
-  UseMethod("testMeanContrast")
+.testMeanContrast <- function(x,...) 
+  UseMethod(".testMeanContrast")
   
-testMeanContrast.bss <- function(DescStats,contrast,mu=0,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.testMeanContrast.bss <- function(DescStats,contrast,mu=0,labels=NULL) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -79,13 +78,10 @@ testMeanContrast.bss <- function(DescStats,contrast,mu=0,rope=NULL,labels=NULL,m
   results <- as.data.frame(t(c(Est,SE,df,t,p)))
   colnames(results) <- c("Est","SE","df","t","p")
   if(is.null(labels)) {rownames(results) <- c("Contrast")} else {rownames(results) <- labels}
-  if(is.null(main)) {main="Hypothesis Test for the Mean Contrast"}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-testMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.testMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,labels=NULL) {
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -98,23 +94,25 @@ testMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,rope=NULL,lab
   results <- as.data.frame(t(c(Est,SE,df,t,p)))
   colnames(results) <- c("Est","SE","df","t","p")
   if(is.null(labels)) {rownames(results) <- c("Contrast")} else {rownames(results) <- labels}
-  if(is.null(main)) {main="Hypothesis Test for the Mean Contrast"}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-testMeanContrast.default <- function(...,contrast,mu=0,rope=NULL,labels=NULL,main=NULL,digits=3) {
+.testMeanContrast.default <- function(...,contrast,mu=0,labels=NULL) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  testMeanContrast(DescStats,CorrStats,contrast,mu=mu,labels=labels,main=main,digits=digits)
+  .testMeanContrast.wss(DescStats,CorrStats,contrast,mu=mu,labels=labels)
 }
 
-testMeanContrast.formula <- function(formula,contrast,mu=0,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.testMeanContrast.formula <- function(formula,contrast,mu=0,labels=NULL) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  testMeanContrast(DescStats,contrast,mu=mu,labels=labels,main=main,digits=digits)
+  .testMeanContrast.bss(DescStats,contrast,mu=mu,labels=labels)
+}
+
+testMeanContrast <- function(...,main=NULL,digits=3) {
+  results <- .testMeanContrast(...)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results)="Hypothesis Test for the Mean Contrast"} else {names(results) <- main}
+  return(results)
 }
 
 ### Confidence Interval Plots

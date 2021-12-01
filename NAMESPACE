@@ -25,7 +25,7 @@ S3method(.describeFrequencies,formula)
 export(.describeFrequencies)
 export(describeFrequencies)
 
-### xFrequencies
+### xPercentiles
 
 S3method(.describePercentiles,default)
 S3method(.describePercentiles,formula)
@@ -86,16 +86,18 @@ export(plotStandardizedMeans)
 
 ### xMeanDifference
 
-S3method(estimateMeanDifference,default)
-S3method(estimateMeanDifference,formula)
-S3method(estimateMeanDifference,wss)
-S3method(estimateMeanDifference,bss)
+S3method(.estimateMeanDifference,default)
+S3method(.estimateMeanDifference,formula)
+S3method(.estimateMeanDifference,wss)
+S3method(.estimateMeanDifference,bss)
+export(.estimateMeanDifference)
 export(estimateMeanDifference)
 
-S3method(testMeanDifference,default)
-S3method(testMeanDifference,formula)
-S3method(testMeanDifference,wss)
-S3method(testMeanDifference,bss)
+S3method(.testMeanDifference,default)
+S3method(.testMeanDifference,formula)
+S3method(.testMeanDifference,wss)
+S3method(.testMeanDifference,bss)
+export(.testMeanDifference)
 export(testMeanDifference)
 
 S3method(plotMeanDifference,default)
@@ -140,16 +142,18 @@ export(plotMeanComparison)
 
 ### xMeanContrast
 
-S3method(estimateMeanContrast,default)
-S3method(estimateMeanContrast,formula)
-S3method(estimateMeanContrast,wss)
-S3method(estimateMeanContrast,bss)
+S3method(.estimateMeanContrast,default)
+S3method(.estimateMeanContrast,formula)
+S3method(.estimateMeanContrast,wss)
+S3method(.estimateMeanContrast,bss)
+export(.estimateMeanContrast)
 export(estimateMeanContrast)
 
-S3method(testMeanContrast,default)
-S3method(testMeanContrast,formula)
-S3method(testMeanContrast,wss)
-S3method(testMeanContrast,bss)
+S3method(.testMeanContrast,default)
+S3method(.testMeanContrast,formula)
+S3method(.testMeanContrast,wss)
+S3method(.testMeanContrast,bss)
+export(.testMeanContrast)
 export(testMeanContrast)
 
 S3method(plotMeanContrast,default)

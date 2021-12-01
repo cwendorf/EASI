@@ -32,7 +32,7 @@ describeFrequencies <- function(...,main=NULL,digits=3) {
   results <- .describeFrequencies(...) 
   nm = names(results)
   results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Frequency Distribution"} 
+  if(is.null(main)) {main <- "Frequency Distribution for the Data"} 
   names(results) = paste(main,nm,sep=": ")
   return(results)
 }
