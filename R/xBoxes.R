@@ -14,16 +14,17 @@
 }
 
 .describeBoxes.formula <- function(formula) {
-  results <- aggregate(formula,FUN=describeBoxes)
+  results <- aggregate(formula,FUN=.describeBoxes.default)
   rn <- results[,1]
-  results <- Reduce(rbind,results[[2]])
+  results <- results[[2]]
   rownames(results) <- rn
+  colnames(results) <- c("LW","LH","Mdn","UH","UW")  
   return(results)
 }
 
 describeBoxes <- function(...,main=NULL,digits=3) {
   results <- .describeBoxes(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Boxplot Statistics for the Variables"} else {main="Boxplot Statistics for the Variable"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Boxplot Statistics"} else {main="Boxplot Statistics"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main
   return(results)
