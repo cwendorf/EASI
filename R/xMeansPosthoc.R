@@ -66,7 +66,7 @@
   .estimateMeansPosthoc.wss(DescStats,CorrStats,conf.level=conf.level,mu=mu)
 }
 
-estimateMeansPosthoc.formula <- function(formula,conf.level=.95,mu=0) {
+.estimateMeansPosthoc.formula <- function(formula,conf.level=.95,mu=0) {
   DescStats <- .describeMeans(formula)
   .estimateMeansPosthoc.bss(DescStats,conf.level=conf.level,mu=mu)
 }
