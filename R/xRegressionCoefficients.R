@@ -39,7 +39,7 @@
   PredStats <- .describeMeans(Pred)
   CritStats <- .describeMeans(Criterion)
   CorrStats <- .describeCorrelations(Pred,Criterion)
-  .estimateRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  .estimateRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
 }
 
 estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
@@ -80,13 +80,13 @@ estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testRegressionCoefficients.default <- function(Predictors,Criterion.) {
+.testRegressionCoefficients.default <- function(Predictors,Criterion) {
   Pred <- cbind(Predictors)
   if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
   PredStats <- .describeMeans(Pred)
   CritStats <- .describeMeans(Criterion)
   CorrStats <- .describeCorrelations(Pred,Criterion)
-  .testRegressionCoefficients(PredStats,CritStats,CorrStats,main=main,digits=digits)
+  .testRegressionCoefficients(PredStats,CritStats,CorrStats)
 }
 
 testRegressionCoefficients <- function(...,main=NULL,digits=3) {
