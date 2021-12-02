@@ -67,7 +67,7 @@
   return(results)
 }
 
-.estimateStandardizedMeansPairwise.default <- function(...,conf.level=.95.) {
+.estimateStandardizedMeansPairwise.default <- function(...,conf.level=.95) {
   DescStats <- .describeMeans(...)
   CorrStats <- .describeCorrelations(...)
   .estimateStandardizedMeansPairwise.wss(DescStats,CorrStats,conf.level=conf.level)
