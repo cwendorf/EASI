@@ -3,30 +3,32 @@
 
 ### Confidence Intervals
 
-estimateStandardizedRegressionCoefficients <- function(x,...) 
-  UseMethod("estimateStandardizedRegressionCoefficients")
+.estimateStandardizedRegressionCoefficients <- function(x,...) 
+  UseMethod(".estimateStandardizedRegressionCoefficients")
 
-estimateStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3) {
-  temptab <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level)[[1]])
+.estimateStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95) {
+  temptab <- ..estimateRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level)
   temptab <- rbind(temptab[-1,])
   rownames(temptab) <- rownames(PredStats)
   std <- PredStats[,"SD"]/CritStats[,"SD"]
   results <- rbind(temptab*std)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Regression Coefficients"} else {names(results) <- main}  
   return(results)
 }
 
-estimateStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95,main=NULL,digits=3) {
+.estimateStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95) {
   Pred <- cbind(Predictors)
   if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
   PredStats <- .describeMeans(Pred)
-  class(PredStats) <- "wss"
   CritStats <- .describeMeans(Criterion)
-  class(CritStats) <- "wss"
   CorrStats <- .describeCorrelations(Pred,Criterion)
-  class(CorrStats) <- "wss"
-  estimateStandardizedRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  .estimateStandardizedRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
+}
+
+estimateStandardizedRegressionCoefficients <- function(...,main=NULL,digits=3) {
+  results <- .estimateStandardizedRegressionCoefficients(...)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Regression Coefficients"} else {names(results) <- main}  
+  return(results)
 }
 
 ### Confidence Interval Plots

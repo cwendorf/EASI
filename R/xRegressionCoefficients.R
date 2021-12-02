@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-estimateRegressionCoefficients <- function(x,...) 
-  UseMethod("estimateRegressionCoefficients")
+.estimateRegressionCoefficients <- function(x,...) 
+  UseMethod(".estimateRegressionCoefficients")
 
-estimateRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3) {
+.estimateRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95) {
   DescStats <- rbind(PredStats,CritStats)
   rn <- rownames(DescStats)
   CorrStats <- CorrStats[rn,rn]
@@ -30,29 +30,31 @@ estimateRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,con
   UL <- b+qt(1-alpha.upper,df)*SE
   results <- cbind(Est=b,SE=SE,LL=LL,UL=UL)
   rownames(results)[1]="(Intercept)"
+  return(results)
+}
+
+.estimateRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95) {
+  Pred <- cbind(Predictors)
+  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
+  PredStats <- .describeMeans(Pred)
+  CritStats <- .describeMeans(Criterion)
+  CorrStats <- .describeCorrelations(Pred,Criterion)
+  .estimateRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+}
+
+estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
+  results <- .estimateRegressionCoefficients(...)
   results <- .formatList(list(results),digits=digits)  
   if(is.null(main)) {names(results) <- "Confidence Intervals for the Regression Coefficients"} else {names(results) <- main}  
   return(results)
 }
 
-estimateRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95,main=NULL,digits=3) {
-  Pred <- cbind(Predictors)
-  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
-  PredStats <- .describeMeans(Pred)
-  class(PredStats) <- "wss"
-  CritStats <- .describeMeans(Criterion)
-  class(CritStats) <- "wss"
-  CorrStats <- .describeCorrelations(Pred,Criterion)
-  class(CorrStats) <- "wss"
-  estimateRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
-}
-
 ### Null Hypothesis Significance Tests
 
-testRegressionCoefficients <- function(x,...) 
-  UseMethod("testRegressionCoefficients")
+.testRegressionCoefficients <- function(x,...) 
+  UseMethod(".testRegressionCoefficients")
 
-testRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,main=NULL,digits=3) {
+.testRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats) {
   DescStats <- rbind(PredStats,CritStats)
   rn <- rownames(DescStats)
   CorrStats <- CorrStats[rn,rn]
@@ -75,21 +77,23 @@ testRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,main=NU
   p <- 2*pt(abs(t),df,lower.tail = FALSE)
   results <- cbind(Est=b,SE=SE,t=t,p=p)
   rownames(results)[1]="(Intercept)"
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Hypothesis Tests for the Regression Coefficients"} else {names(results) <- main}  
   return(results)
 }
 
-testRegressionCoefficients.default <- function(Predictors,Criterion,main=NULL,digits=3) {
+.testRegressionCoefficients.default <- function(Predictors,Criterion.) {
   Pred <- cbind(Predictors)
   if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
   PredStats <- .describeMeans(Pred)
-  class(PredStats) <- "wss"
   CritStats <- .describeMeans(Criterion)
-  class(CritStats) <- "wss"
   CorrStats <- .describeCorrelations(Pred,Criterion)
-  class(CorrStats) <- "wss"
-  testRegressionCoefficients(PredStats,CritStats,CorrStats,main=main,digits=digits)
+  .testRegressionCoefficients(PredStats,CritStats,CorrStats,main=main,digits=digits)
+}
+
+testRegressionCoefficients <- function(...,main=NULL,digits=3) {
+  results <- .testRegressionCoefficients(...)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results) <- "Hypothesis Tests for the Regression Coefficients"} else {names(results) <- main}  
+  return(results)
 }
 
 ### Confidence Interval Plots

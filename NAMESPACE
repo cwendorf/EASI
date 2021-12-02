@@ -401,6 +401,9 @@ export(plotScatter)
 
 ### xRegression
 
+S3method(.estimateRegression,default)
+S3method(.estimateRegression,wss)
+export(.estimateRegression)
 export(estimateRegression)
 
 S3method(plotRegression,default)
@@ -409,12 +412,14 @@ export(plotRegression)
 
 ### xRegressionCoefficients
 
-S3method(estimateRegressionCoefficients,default)
-S3method(estimateRegressionCoefficients,wss)
+S3method(.estimateRegressionCoefficients,default)
+S3method(.estimateRegressionCoefficients,wss)
+export.(estimateRegressionCoefficients)
 export(estimateRegressionCoefficients)
 
-S3method(testRegressionCoefficients,default)
-S3method(testRegressionCoefficients,wss)
+S3method(.testRegressionCoefficients,default)
+S3method(.testRegressionCoefficients,wss)
+export(.testRegressionCoefficients)
 export(testRegressionCoefficients)
 
 S3method(plotRegressionCoefficients,default)
@@ -423,8 +428,9 @@ export(plotRegressionCoefficients)
 
 ### xStandardizedRegressionCoefficients
 
-S3method(estimateStandardizedRegressionCoefficients,default)
-S3method(estimateStandardizedRegressionCoefficients,wss)
+S3method(.estimateStandardizedRegressionCoefficients,default)
+S3method(.estimateStandardizedRegressionCoefficients,wss)
+export(.estimateStandardizedRegressionCoefficients)
 export(estimateStandardizedRegressionCoefficients)
 
 S3method(plotStandardizedRegressionCoefficients,default)

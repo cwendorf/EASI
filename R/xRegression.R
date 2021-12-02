@@ -27,15 +27,15 @@
 
 .estimateRegression.default <- function(Predictor,Criterion,value,conf.level=.95) {
   dM <- .describeMeans(Predictor)
-  eR <- .unformatFrame(estimateRegressionCoefficients(Predictor,Criterion)[[1]])
-  dRO <- .unformatFrame(describeRegressionOmnibus(Predictor,Criterion)[[1]])
+  eR <- .estimateRegressionCoefficients(Predictor,Criterion)
+  dRO <- .describeRegressionOmnibus(Predictor,Criterion)
   .eR(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
 .estimateRegression.wss <- function(PredStats,CritStats,CorrStats,value,conf.level=.95) {
   dM <- PredStats
-  eR <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats)[[1]])
-  dRO <- .unformatFrame(describeRegressionOmnibus(PredStats,CritStats,CorrStats)[[1]])
+  eR <- .estimateRegressionCoefficients(PredStats,CritStats,CorrStats)
+  dRO <- .describeRegressionOmnibus(PredStats,CritStats,CorrStats)
   .eR(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
