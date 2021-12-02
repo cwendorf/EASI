@@ -8,7 +8,6 @@
 
 .describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats) {
   R2 <- .describeRegressionEffect.wss(PredStats,CritStats,CorrStats)[,"RSq"]
-  print(R2)
   df1 <- nrow(PredStats)
   df2 <- (CritStats[,"N"]-df1-1)
   vt <- CritStats[,"SD"]^2
@@ -44,7 +43,7 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
   UseMethod(".testRegressionOmnibus")
 
 .testRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats) {
-  temptab <- .describeRegressionOmnibus(PredStats,CritStats,CorrStats)
+  temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
   MSf <- temptab["Model","MS"]
   MSe <- temptab["Error","MS"]
   df1 <- temptab["Model","df"]
@@ -61,7 +60,7 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
   PredStats <- .describeMeans(Predictors)
   CritStats <- .describeMeans(Criterion)
   CorrStats <- .describeCorrelations(Predictors,Criterion)
-  .testRegressionOmnibus(PredStats,CritStats,CorrStats)
+  .testRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
 }
 
 testRegressionOmnibus <- function(...,main=NULL,digits=3) {
