@@ -86,7 +86,7 @@ estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
   PredStats <- .describeMeans(Pred)
   CritStats <- .describeMeans(Criterion)
   CorrStats <- .describeCorrelations(Pred,Criterion)
-  .testRegressionCoefficients(PredStats,CritStats,CorrStats)
+  .testRegressionCoefficients.wss(PredStats,CritStats,CorrStats)
 }
 
 testRegressionCoefficients <- function(...,main=NULL,digits=3) {
