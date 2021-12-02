@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-estimateStandardizedMeanDifference <- function(x,...) 
-  UseMethod("estimateStandardizedMeanDifference")
+.estimateStandardizedMeanDifference <- function(x,...) 
+  UseMethod(".estimateStandardizedMeanDifference")
 
-estimateStandardizedMeanDifference.wss <- function(DescStats,CorrStats,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateStandardizedMeanDifference.wss <- function(DescStats,CorrStats,conf.level=.95,labels=NULL) {
   CompStats <- DescStats[1:2,]
   N <- min(CompStats[1:2,"N"])
   M <- CompStats[1:2,"M"]
@@ -26,13 +26,10 @@ estimateStandardizedMeanDifference.wss <- function(DescStats,CorrStats,mu=0,conf
   results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("d","SE","LL","UL")
   if(is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
-  if(is.null(main)) {main="Confidence Interval for the Standardized Mean Difference"}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main
   return(results)
 }
 
-estimateStandardizedMeanDifference.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateStandardizedMeanDifference.bss <- function(DescStats,contrast,conf.level=.95,labels=NULL) {
   CompStats <- DescStats[1:2,]
   N <- CompStats[1:2,"N"]
   M <- CompStats[1:2,"M"]
@@ -48,23 +45,25 @@ estimateStandardizedMeanDifference.bss <- function(DescStats,contrast,mu=0,conf.
   results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("d","SE","LL","UL")
   if(is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
-  if(is.null(main)) {main="Confidence Interval for the Standardized Mean Difference"}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main
   return(results)
 }
 
-estimateStandardizedMeanDifference.default <- function(...,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3) {
+.estimateStandardizedMeanDifference.default <- function(...,conf.level=.95,labels=NULL) {
   CompStats <- .describeMeans(...)
-  class(CompStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateStandardizedMeanDifference(CompStats,CorrStats,conf.level=conf.level,labels=labels,main=main,digits=digits)
+  .estimateStandardizedMeanDifference.wss(CompStats,CorrStats,conf.level=conf.level,labels=labels)
 }
 
-estimateStandardizedMeanDifference.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateStandardizedMeanDifference.formula <- function(formula,contrast,conf.level=.95,labels=NULL) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateStandardizedMeanDifference(DescStats,contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
+  .estimateStandardizedMeanDifference.bss(DescStats,contrast,conf.level=conf.level,labels=labels)
+}
+
+estimateStandardizedMeanDifference <- function(...,main=NULL,digits=3) {
+  results <- .estimateStandardizedMeanDifference(...)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results)="Confidence Interval for the Standardized Mean Difference"} else {names(results) <- main}
+  return(results)
 }
 
 ### Confidence Interval Plots

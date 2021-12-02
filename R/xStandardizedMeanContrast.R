@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-estimateStandardizedMeanContrast <- function(x,...) 
-  UseMethod("estimateStandardizedMeanContrast")
+.estimateStandardizedMeanContrast <- function(x,...) 
+  UseMethod(".estimateStandardizedMeanContrast")
 
-estimateStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,labels=NULL) {
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -27,13 +27,10 @@ estimateStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,mu
   results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("Est","SE","LL","UL")
   if(is.null(labels)) {rownames(results) <- c("Contrast")} else {rownames(results) <- labels}
-  if(is.null(main)) {main="Confidence Interval for the Standardized Mean Contrast"}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateStandardizedMeanContrast.bss <- function(DescStats,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateStandardizedMeanContrast.bss <- function(DescStats,contrast,conf.level=.95,labels=NULL) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -51,23 +48,25 @@ estimateStandardizedMeanContrast.bss <- function(DescStats,contrast,mu=0,conf.le
   results <- as.data.frame(t(c(Est,SE,LL,UL)))
   colnames(results) <- c("Est","SE","LL","UL")
   if(is.null(labels)) {rownames(results) <- c("Contrast")} else {rownames(results) <- labels}
-  if(is.null(main)) {main="Confidence Interval for the Standardized Mean Contrast"}
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateStandardizedMeanContrast.default <- function(...,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3) {
+.estimateStandardizedMeanContrast.default <- function(...,contrast,conf.level=.95,labels=NULL) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateStandardizedMeanContrast(DescStats,CorrStats,contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
+  .estimateStandardizedMeanContrast.wss(DescStats,CorrStats,contrast,conf.level=conf.level,labels=labels)
 }
 
-estimateStandardizedMeanContrast.formula <- function(formula,contrast,mu=0,conf.level=.95,rope=NULL,labels=NULL,main=NULL,digits=3,...) {
+.estimateStandardizedMeanContrast.formula <- function(formula,contrast,conf.level=.95,labels=NULL) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateStandardizedMeanContrast(DescStats,contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
+  .estimateStandardizedMeanContrast.bss(DescStats,contrast,conf.level=conf.level,labels=labels)
+}
+
+estimateStandardizedMeanContrast <- function(...,main=NULL,digits=3) {
+  results <- .estimateStandardizedMeanContrast(...)
+  results <- .formatList(list(results),digits=digits)  
+  if(is.null(main)) {names(results)="Confidence Interval for the Standardized Mean Contrast"} else {names(results) <- main}
+  return(results)
 }
 
 ### Confidence Interval Plots

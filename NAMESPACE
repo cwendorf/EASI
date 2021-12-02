@@ -72,10 +72,11 @@ export(testMeans)
 
 ### xStandardizedMeans
 
-S3method(estimateStandardizedMeans,default)
-S3method(estimateStandardizedMeans,formula)
-S3method(estimateStandardizedMeans,wss)
-S3method(estimateStandardizedMeans,bss)
+S3method(.estimateStandardizedMeans,default)
+S3method(.estimateStandardizedMeans,formula)
+S3method(.estimateStandardizedMeans,wss)
+S3method(.estimateStandardizedMeans,bss)
+export(.estimateStandardizedMeans)
 export(estimateStandardizedMeans)
 
 S3method(plotStandardizedMeans,default)
@@ -108,10 +109,11 @@ export(plotMeanDifference)
 
 ### xStandardizedMeanDifference
 
-S3method(estimateStandardizedMeanDifference,default)
-S3method(estimateStandardizedMeanDifference,formula)
-S3method(estimateStandardizedMeanDifference,wss)
-S3method(estimateStandardizedMeanDifference,bss)
+S3method(.estimateStandardizedMeanDifference,default)
+S3method(.estimateStandardizedMeanDifference,formula)
+S3method(.estimateStandardizedMeanDifference,wss)
+S3method(.estimateStandardizedMeanDifference,bss)
+export(.estimateStandardizedMeanDifference)
 export(estimateStandardizedMeanDifference)
 
 S3method(plotStandardizedMeanDifference,default)
@@ -164,10 +166,11 @@ export(plotMeanContrast)
 
 ### xStandardizedMeanContrast
 
-S3method(estimateStandardizedMeanContrast,default)
-S3method(estimateStandardizedMeanContrast,formula)
-S3method(estimateStandardizedMeanContrast,wss)
-S3method(estimateStandardizedMeanContrast,bss)
+S3method(.estimateStandardizedMeanContrast,default)
+S3method(.estimateStandardizedMeanContrast,formula)
+S3method(.estimateStandardizedMeanContrast,wss)
+S3method(.estimateStandardizedMeanContrast,bss)
+export(.estimateStandardizedMeanContrast)
 export(estimateStandardizedMeanContrast)
 
 S3method(plotStandardizedMeanContrast,default)
