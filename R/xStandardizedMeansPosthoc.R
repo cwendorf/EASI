@@ -38,7 +38,7 @@
   return(results)
 }
 
-.estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95.) {
+.estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
