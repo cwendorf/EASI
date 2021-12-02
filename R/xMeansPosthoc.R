@@ -3,15 +3,13 @@
 
 ### Confidence Intervals
 
-estimateMeansPosthoc <- function(x,...) 
-  UseMethod("estimateMeansPosthoc")
+.estimateMeansPosthoc <- function(x,...) 
+  UseMethod(".estimateMeansPosthoc")
 
-estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
-
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
+.estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0) {
+  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   dfe <- temptab["Error","df"] 
   MSe <- temptab["Error","MS"]
-
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -33,14 +31,11 @@ estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,mai
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Mean Comparisons"} else {main="Confidence Interval for the Posthoc Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
+.estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0) {
+  temptab <- .describeMeansOmnibus.bss(DescStats)
   dfw <- temptab["Within","df"] 
   MSw <- temptab["Within","MS"]
   N <- DescStats[,"N"]
@@ -62,36 +57,37 @@ estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,dig
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
    	comp <- comp+1}}
+  return(results)
+}
+
+.estimateMeansPosthoc.default <- function(...,conf.level=.95,mu=0) {
+  DescStats <- .describeMeans(...)
+  CorrStats <- .describeCorrelations(...)
+  .estimateMeansPosthoc.wss(DescStats,CorrStats,conf.level=conf.level,mu=mu)
+}
+
+estimateMeansPosthoc.formula <- function(formula,conf.level=.95,mu=0) {
+  DescStats <- .describeMeans(formula)
+  .estimateMeansPosthoc.bss(DescStats,conf.level=conf.level,mu=mu)
+}
+
+estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeansPairwise(...)
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Mean Comparisons"} else {main="Confidence Interval for the Posthoc Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
-}
-
-estimateMeansPosthoc.default <- function(...,conf.level=.95,mu=0,main=NULL,digits=3){
-  DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
-  CorrStats <- .describeCorrelations(...)
-  estimateMeansPosthoc(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
-}
-
-estimateMeansPosthoc.formula <- function(formula,conf.level=.95,mu=0,main=NULL,digits=3,...){
-  DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateMeansPosthoc(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Null Hypothesis Significance Tests 
 
-testMeansPosthoc <- function(x,...) 
-  UseMethod("testMeansPosthoc")
+.testMeansPosthoc <- function(x,...) 
+  UseMethod(".testMeansPosthoc")
 
-testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,...){
-
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,main=main,digits=digits)[[1]])
+.testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0) {
+  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   dfe <- temptab["Error","df"] 
   MSe <- temptab["Error","MS"]
-
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -112,14 +108,11 @@ testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,...
     p <- 1- ptukey(abs(t)*sqrt(2),nr,df=df)
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Posthoc Mean Comparisons"} else {main="Hypothesis Test for the Posthoc Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-testMeansPosthoc.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
-  temptab <- .unformatFrame(describeMeansOmnibus(DescStats,main=main,digits=digits)[[1]])
+.testMeansPosthoc.bss <- function(DescStats,mu=0.) {
+  temptab <- .describeMeansOmnibus.bss(DescStats)
   dfw <- temptab["Within","df"] 
   MSw <- temptab["Within","MS"]
   N <- DescStats[,"N"]
@@ -140,23 +133,26 @@ testMeansPosthoc.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
     p <- 1- ptukey(abs(t)*sqrt(2),nr,df=df)
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Posthoc Mean Comparisons"} else {main="Hypothesis Test for the Posthoc Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-testMeansPosthoc.default <- function(...,mu=0,main=NULL,digits=3){
+.testMeansPosthoc.default <- function(...,mu=0) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  testMeansPosthoc(DescStats,CorrStats,mu=mu,main=main,digits=digits)
+  .testMeansPosthoc.wss(DescStats,CorrStats,mu=mu)
 }
 
-testMeansPosthoc.formula <- function(formula,mu=0,main=NULL,digits=3,...){
+.testMeansPosthoc.formula <- function(formula,mu=0) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  testMeansPosthoc(DescStats,mu=mu,main=main,digits=digits)
+  .testMeansPosthoc.bss(DescStats,mu=mu)
+}
+
+testMeansPosthoc <- function(...,main=NULL,digits=3) {
+  results <- .testMeansPosthoc(...)
+  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Posthoc Mean Comparisons"} else {main="Hypothesis Test for the Posthoc Mean Comparison"}}  
+  results <- .formatList(list(results),digits=digits)  
+  names(results) <- main
+  return(results)
 }
 
 ### Confidence Interval Plots

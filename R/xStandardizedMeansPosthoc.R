@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-estimateStandardizedMeansPosthoc <- function(x,...) 
-  UseMethod("estimateStandardizedMeansPosthoc")
+.estimateStandardizedMeansPosthoc <- function(x,...) 
+  UseMethod(".estimateStandardizedMeansPosthoc")
 
-estimateStandardizedMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+.estimateStandardizedMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -35,13 +35,10 @@ estimateStandardizedMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=
     UL <- Est+z*SE
     results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the Posthoc Standardized Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,...){
+.estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95.) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -67,23 +64,26 @@ estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95,main=N
     UL <- Est+z*SE  
     results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the Posthoc Standardized Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateStandardizedMeansPosthoc.default <- function(...,conf.level=.95,main=NULL,digits=3){
+.estimateStandardizedMeansPosthoc.default <- function(...,conf.level=.95) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateStandardizedMeansPosthoc(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  .estimateStandardizedMeansPosthoc.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
-estimateStandardizedMeansPosthoc.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
+.estimateStandardizedMeansPosthoc.formula <- function(formula,conf.level=.95) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateStandardizedMeansPosthoc(DescStats,conf.level=conf.level,main=main,digits=digits)
+  .estimateStandardizedMeansPosthoc.bss(DescStats,conf.level=conf.level)
+}
+
+estimateStandardizedMeansPairwise <- function(...,main=NULL,digits=3) {
+  results <- .estimateStandardizedMeansPosthoc(...)
+  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the Posthoc Standardized Mean Comparison"}}  
+  results <- .formatList(list(results),digits=digits)  
+  names(results) <- main
+  return(results)
 }
 
 ### Confidence Interval Plots

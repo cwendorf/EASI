@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-estimateStandardizedMeansPairwise <- function(x,...) 
-  UseMethod("estimateStandardizedMeansPairwise")
+.estimateStandardizedMeansPairwise <- function(x,...) 
+  UseMethod(".estimateStandardizedMeansPairwise")
 
-estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...){
+.estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95.) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -35,13 +35,10 @@ estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level
     UL <- Est+z*SE
     results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Standardized Mean Comparisons"} else {main="Confidence Interval for the Pairwise Standardized Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateStandardizedMeansPairwise.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,...){
+.estimateStandardizedMeansPairwise.bss <- function(DescStats,conf.level=.95) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -67,23 +64,26 @@ estimateStandardizedMeansPairwise.bss <- function(DescStats,conf.level=.95,main=
     UL <- Est+z*SE  
     results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1}}
+  return(results)
+}
+
+.estimateStandardizedMeansPairwise.default <- function(...,conf.level=.95.) {
+  DescStats <- .describeMeans(...)
+  CorrStats <- .describeCorrelations(...)
+  .estimateStandardizedMeansPairwise.wss(DescStats,CorrStats,conf.level=conf.level)
+}
+
+.estimateStandardizedMeansPairwise.formula <- function(formula,conf.level=.95) {
+  DescStats <- .describeMeans(formula)
+  .estimateStandardizedMeansPairwise.bss(DescStats,conf.level=conf.level)
+}
+
+estimateStandardizedMeansPairwise <- function(...,main=NULL,digits=3) {
+  results <- .estimateStandardizedMeansPairwise(...)
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Standardized Mean Comparisons"} else {main="Confidence Interval for the Pairwise Standardized Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
-}
-
-estimateStandardizedMeansPairwise.default <- function(...,conf.level=.95,main=NULL,digits=3){
-  DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
-  CorrStats <- .describeCorrelations(...)
-  estimateStandardizedMeansPairwise(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
-}
-
-estimateStandardizedMeansPairwise.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...){
-  DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateStandardizedMeansPairwise(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Confidence Interval Plots

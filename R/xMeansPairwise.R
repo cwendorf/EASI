@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-estimateMeansPairwise <- function(x,...) 
-  UseMethod("estimateMeansPairwise")
+.estimateMeansPairwise <- function(x,...) 
+  UseMethod(".estimateMeansPairwise")
 
-estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
+.estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0){
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -28,13 +28,10 @@ estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,ma
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Mean Comparisons"} else {main="Confidence Interval for the Pairwise Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,digits=3,...){
+.estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0){
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -56,31 +53,34 @@ estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0,main=NULL,di
     UL <- MD+tcrit*SEd
     results[comp,] <- c(MD,SEd,df,LL,UL)
    	comp <- comp+1}}
+  return(results)
+}
+
+.estimateMeansPairwise.default <- function(...,conf.level=.95,mu=0){
+  DescStats <- .describeMeans(...)
+  CorrStats <- .describeCorrelations(...)
+  .estimateMeansPairwise.wss(DescStats,CorrStats,conf.level=conf.level,mu=mu)
+}
+
+.estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0){
+  DescStats <- .describeMeans(formula)
+  .estimateMeansPairwise.bss(DescStats,conf.level=conf.level,mu=mu)
+}
+
+estimateMeansPairwise <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeansPairwise(...)
   if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Mean Comparisons"} else {main="Confidence Interval for the Pairwise Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
-}
-
-estimateMeansPairwise.default <- function(...,conf.level=.95,mu=0,main=NULL,digits=3){
-  DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
-  CorrStats <- .describeCorrelations(...)
-  estimateMeansPairwise(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
-}
-
-estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0,main=NULL,digits=3,...){
-  DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateMeansPairwise(DescStats,conf.level=conf.level,main=main,digits=digits)
 }
 
 ### Null Hypothesis Significance Tests 
 
-testMeansPairwise <- function(x,...) 
-  UseMethod("testMeansPairwise")
+.testMeansPairwise <- function(x,...) 
+  UseMethod(".testMeansPairwise")
 
-testMeansPairwise.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,...){
+.testMeansPairwise.wss <- function(DescStats,CorrStats,mu=0) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -101,13 +101,10 @@ testMeansPairwise.wss <- function(DescStats,CorrStats,mu=0,main=NULL,digits=3,..
     p <- 2*(1 - pt(abs(t),df))
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Pairwise Mean Comparisons"} else {main="Hypothesis Test for the Pairwise Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
   return(results)
 }
 
-testMeansPairwise.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
+.testMeansPairwise.bss <- function(DescStats,mu=0) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -128,23 +125,26 @@ testMeansPairwise.bss <- function(DescStats,mu=0,main=NULL,digits=3,...){
     p <- 2*(1 - pt(abs(t),df))
     results[comp,] <- c(MD,SEd,df,t,p)
    	comp <- comp+1}}
+  return(results)
+}
+
+.testMeansPairwise.default <- function(...,mu=03) {
+  DescStats <- .describeMeans(...)
+  CorrStats <- .describeCorrelations(...)
+  .testMeansPairwise.wss(DescStats,CorrStats,mu=mu)
+}
+
+.testMeansPairwise.formula <- function(formula,mu=0) {
+  DescStats <- .describeMeans(formula)
+  .testMeansPairwise.bss(DescStats,mu=mu)
+}
+
+testMeansPairwise <- function(...,main=NULL,digits=3) {
+  results <- .testMeansPairwise(...)
   if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Pairwise Mean Comparisons"} else {main="Hypothesis Test for the Pairwise Mean Comparison"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
   return(results)
-}
-
-testMeansPairwise.default <- function(...,mu=0,main=NULL,digits=3){
-  DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
-  CorrStats <- .describeCorrelations(...)
-  testMeansPairwise(DescStats,CorrStats,mu=mu,main=main,digits=digits)
-}
-
-testMeansPairwise.formula <- function(formula,mu=0,main=NULL,digits=3,...){
-  DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  testMeansPairwise(DescStats,mu=mu,main=main,digits=digits)
 }
 
 ### Confidence Interval Plots
