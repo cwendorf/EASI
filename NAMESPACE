@@ -414,7 +414,7 @@ export(plotRegression)
 
 S3method(.estimateRegressionCoefficients,default)
 S3method(.estimateRegressionCoefficients,wss)
-export.(estimateRegressionCoefficients)
+export(.estimateRegressionCoefficients)
 export(estimateRegressionCoefficients)
 
 S3method(.testRegressionCoefficients,default)
