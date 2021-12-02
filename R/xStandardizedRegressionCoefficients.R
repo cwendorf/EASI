@@ -7,7 +7,7 @@
   UseMethod(".estimateStandardizedRegressionCoefficients")
 
 .estimateStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95) {
-  temptab <- ..estimateRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level)
+  temptab <- .estimateRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
   temptab <- rbind(temptab[-1,])
   rownames(temptab) <- rownames(PredStats)
   std <- PredStats[,"SD"]/CritStats[,"SD"]
