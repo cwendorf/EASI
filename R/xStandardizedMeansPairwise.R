@@ -6,7 +6,7 @@
 .estimateStandardizedMeansPairwise <- function(x,...) 
   UseMethod(".estimateStandardizedMeansPairwise")
 
-.estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95.) {
+.estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
