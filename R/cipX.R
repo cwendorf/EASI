@@ -4,6 +4,7 @@
 ### Main Effect Plot
 
 .cipMain <- function(results,main,ylab,xlab,line,rope,values,ylim,digits,connect,pch=16,slab=NULL,add=FALSE,points=TRUE,col="black") {
+  main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   if(!add) {
     if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))}
     plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
@@ -24,6 +25,7 @@
 ### Comparison Plot
 
 .cipComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect,pch=c(16,16,17),slab=NULL,add=FALSE,points=TRUE,col="black") {
+  main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
@@ -64,6 +66,7 @@
 ### Interaction Plot
 
 .cipInter <- function(results,main,ylab,xlab,col) {
+  main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x["LL"])))))-1
   ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x["UL"])))))+1
   ylimrange <- range(c(ylimmin,ylimmax))

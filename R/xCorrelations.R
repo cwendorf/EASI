@@ -174,19 +174,9 @@ testCorrelations <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotCorrelations <- function(x,...) 
-  UseMethod("plotCorrelations")
-
-plotCorrelations.wss <- function(CompStats,CorrStats,main=NULL,ylab="Correlation",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=c(-1.1,1.1),digits=3,pch=16,col="black") {
-  results <- .unformatFrame(estimateCorrelations(CompStats,CorrStats,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}}
-  .cipMain(results,main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
+plotCorrelations <- function(...,main=NULL,digits=3,ylab="Correlation",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=c(-1.1,1.1),add=FALSE,pch=16,col="black") {
+  results <- estimateCorrelations(...,main=main,digits=digits)
+  if(is.null(main)) {main=names(results)} 
+  results <- .unformatFrame(results[[1]][,c(1,3,4)])
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
 }
-
-plotCorrelations.default <- function(...,main=NULL,ylab="Correlation",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=c(-1.1,1.1),digits=3,pch=16,col="black") {
-  CompStats <- .unformatFrame(describeMeans(...)[[1]])
-  class(CompStats) <- "wss"
-  CorrStats <- .unformatFrame(describeCorrelations(...)[[1]])
-  plotCorrelations(CompStats,CorrStats,main=main,ylab=ylab,xlab=xlab,line=line,conf.level=conf.level,rope=rope,values=values,ylim=ylim,digits=digits,pch=pch,col=col)
-}
-

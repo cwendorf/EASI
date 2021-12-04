@@ -141,29 +141,10 @@ testMeans <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeans <- function(x,...) 
-  UseMethod("plotMeans")
-
-plotMeans.wss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
-  results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,mu=mu,main=main,digits=digits)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,add=add,pch=pch,col=col)
-}
-
-plotMeans.bss <- function(DescStats,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
-  results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,mu=mu,main=main,digits=digits)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
-}
-
-plotMeans.default <- function(...,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
-  results <- .unformatFrame(estimateMeans(...,conf.level=conf.level,mu=mu,main=main,digits=digits)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,add=add,pch=pch,col=col)
-}
-
-plotMeans.formula <- function(formula,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
-  results <- .unformatFrame(estimateMeans(formula=formula,conf.level=conf.level,mu=mu,main=main,digits=digits)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
+plotMeans <- function(...,main=NULL,digits=3,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=16,col="black") {
+  results <- estimateMeans(...,main=main,digits=digits)
+  if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
+  if(is.null(main)) {main=names(results)} 
+  results <- .unformatFrame(results[[1]][,c(1,4,5)])
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,add=add,pch=pch,col=col)
 }

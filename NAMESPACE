@@ -57,10 +57,6 @@ S3method(.estimateMeans,bss)
 export(.estimateMeans)
 export(estimateMeans)
 
-S3method(plotMeans,default)
-S3method(plotMeans,formula)
-S3method(plotMeans,wss)
-S3method(plotMeans,bss)
 export(plotMeans)
 
 S3method(.testMeans,default)
@@ -410,8 +406,6 @@ S3method(.testCorrelations,wss)
 export(.testCorrelations)
 export(testCorrelations)
 
-S3method(plotCorrelations,default)
-S3method(plotCorrelations,wss)
 export(plotCorrelations)
 
 ### xCorrelationDifference
