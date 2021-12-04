@@ -510,6 +510,10 @@ S3method(.testMeansOmnibusBy,bss)
 export(.testMeansOmnibusBy)
 export(testMeansOmnibusBy)
 
+### xMeansMultifactor
+
+export(plotMeansMultifactor)
+
 ### xMeansOmnibusMultifactor
 
 S3method(.describeMeansOmnibusMultifactor,default)
