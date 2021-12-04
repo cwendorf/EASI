@@ -57,14 +57,14 @@ S3method(.estimateMeans,bss)
 export(.estimateMeans)
 export(estimateMeans)
 
-export(plotMeans)
-
 S3method(.testMeans,default)
 S3method(.testMeans,formula)
 S3method(.testMeans,wss)
 S3method(.testMeans,bss)
 export(.testMeans)
 export(testMeans)
+
+export(plotMeans)
 
 ### xStandardizedMeans
 
@@ -75,10 +75,6 @@ S3method(.estimateStandardizedMeans,bss)
 export(.estimateStandardizedMeans)
 export(estimateStandardizedMeans)
 
-S3method(plotStandardizedMeans,default)
-S3method(plotStandardizedMeans,formula)
-S3method(plotStandardizedMeans,wss)
-S3method(plotStandardizedMeans,bss)
 export(plotStandardizedMeans)
 
 ### xMeanDifference
@@ -97,10 +93,6 @@ S3method(.testMeanDifference,bss)
 export(.testMeanDifference)
 export(testMeanDifference)
 
-S3method(plotMeanDifference,default)
-S3method(plotMeanDifference,formula)
-S3method(plotMeanDifference,wss)
-S3method(plotMeanDifference,bss)
 export(plotMeanDifference)
 
 ### xStandardizedMeanDifference
@@ -112,10 +104,6 @@ S3method(.estimateStandardizedMeanDifference,bss)
 export(.estimateStandardizedMeanDifference)
 export(estimateStandardizedMeanDifference)
 
-S3method(plotStandardizedMeanDifference,default)
-S3method(plotStandardizedMeanDifference,formula)
-S3method(plotStandardizedMeanDifference,wss)
-S3method(plotStandardizedMeanDifference,bss)
 export(plotStandardizedMeanDifference)
 
 ### xMeanComparison
@@ -134,10 +122,6 @@ S3method(.testMeanComparison,bss)
 export(.testMeanComparison)
 export(testMeanComparison)
 
-S3method(plotMeanComparison,default)
-S3method(plotMeanComparison,formula)
-S3method(plotMeanComparison,wss)
-S3method(plotMeanComparison,bss)
 export(plotMeanComparison)
 
 ### xStandardizedMeanComparison
@@ -149,10 +133,6 @@ S3method(.estimateStandardizedMeanComparison,bss)
 export(.estimateStandardizedMeanComparison)
 export(estimateStandardizedMeanComparison)
 
-S3method(plotStandardizedMeanComparison,default)
-S3method(plotStandardizedMeanComparison,formula)
-S3method(plotStandardizedMeanComparison,wss)
-S3method(plotStandardizedMeanComparison,bss)
 export(plotStandardizedMeanComparison)
 
 ### xMeanContrast
@@ -171,10 +151,6 @@ S3method(.testMeanContrast,bss)
 export(.testMeanContrast)
 export(testMeanContrast)
 
-S3method(plotMeanContrast,default)
-S3method(plotMeanContrast,formula)
-S3method(plotMeanContrast,wss)
-S3method(plotMeanContrast,bss)
 export(plotMeanContrast)
 
 ### xStandardizedMeanContrast
@@ -186,10 +162,6 @@ S3method(.estimateStandardizedMeanContrast,bss)
 export(.estimateStandardizedMeanContrast)
 export(estimateStandardizedMeanContrast)
 
-S3method(plotStandardizedMeanContrast,default)
-S3method(plotStandardizedMeanContrast,formula)
-S3method(plotStandardizedMeanContrast,wss)
-S3method(plotStandardizedMeanContrast,bss)
 export(plotStandardizedMeanContrast)
 
 ### xMeanSubsets
@@ -208,10 +180,6 @@ S3method(.testMeanSubsets,bss)
 export(.testMeanSubsets)
 export(testMeanSubsets)
 
-S3method(plotMeanSubsets,default)
-S3method(plotMeanSubsets,formula)
-S3method(plotMeanSubsets,wss)
-S3method(plotMeanSubsets,bss)
 export(plotMeanSubsets)
 
 ### xStandardizedMeanSubsets
@@ -223,10 +191,6 @@ S3method(.estimateStandardizedMeanSubsets,bss)
 export(.estimateStandardizedMeanSubsets)
 export(estimateStandardizedMeanSubsets)
 
-S3method(plotStandardizedMeanSubsets,default)
-S3method(plotStandardizedMeanSubsets,formula)
-S3method(plotStandardizedMeanSubsets,wss)
-S3method(plotStandardizedMeanSubsets,bss)
 export(plotStandardizedMeanSubsets)
 
 ### xMeanComplex
@@ -245,10 +209,6 @@ S3method(.testMeanComplex,bss)
 export(.testMeanComplex)
 export(testMeanComplex)
 
-S3method(plotMeanComplex,default)
-S3method(plotMeanComplex,formula)
-S3method(plotMeanComplex,wss)
-S3method(plotMeanComplex,bss)
 export(plotMeanComplex)
 
 ### xMeansPairwise
@@ -267,10 +227,6 @@ S3method(.testMeansPairwise,bss)
 export(.testMeansPairwise)
 export(testMeansPairwise)
 
-S3method(plotMeansPairwise,default)
-S3method(plotMeansPairwise,formula)
-S3method(plotMeansPairwise,wss)
-S3method(plotMeansPairwise,bss)
 export(plotMeansPairwise)
 
 ### xStandardizedMeansPairwise
@@ -282,10 +238,6 @@ S3method(.estimateStandardizedMeansPairwise,bss)
 export(.estimateStandardizedMeansPairwise)
 export(estimateStandardizedMeansPairwise)
 
-S3method(plotStandardizedMeansPairwise,default)
-S3method(plotStandardizedMeansPairwise,formula)
-S3method(plotStandardizedMeansPairwise,wss)
-S3method(plotStandardizedMeansPairwise,bss)
 export(plotStandardizedMeansPairwise)
 
 ### xMeansPosthoc
@@ -304,10 +256,6 @@ S3method(.testMeansPosthoc,bss)
 export(.testMeansPosthoc)
 export(testMeansPosthoc)
 
-S3method(plotMeansPosthoc,default)
-S3method(plotMeansPosthoc,formula)
-S3method(plotMeansPosthoc,wss)
-S3method(plotMeansPosthoc,bss)
 export(plotMeansPosthoc)
 
 ### xStandardizedMeansPosthoc
@@ -319,10 +267,6 @@ S3method(.estimateStandardizedMeansPosthoc,bss)
 export(.estimateStandardizedMeansPosthoc)
 export(estimateStandardizedMeansPosthoc)
 
-S3method(plotStandardizedMeansPosthoc,default)
-S3method(plotStandardizedMeansPosthoc,formula)
-S3method(plotStandardizedMeansPosthoc,wss)
-S3method(plotStandardizedMeansPosthoc,bss)
 export(plotStandardizedMeansPosthoc)
 
 ### xMeansRelational
@@ -334,10 +278,6 @@ S3method(.estimateMeansRelational,bss)
 export(.estimateMeansRelational)
 export(estimateMeansRelational)
 
-S3method(plotMeansRelational,default)
-S3method(plotMeansRelational,formula)
-S3method(plotMeansRelational,wss)
-S3method(plotMeansRelational,bss)
 export(plotMeansRelational)
 
 ### xMeansOmnibus
@@ -455,8 +395,6 @@ S3method(.testRegressionCoefficients,wss)
 export(.testRegressionCoefficients)
 export(testRegressionCoefficients)
 
-S3method(plotRegressionCoefficients,default)
-S3method(plotRegressionCoefficients,wss)
 export(plotRegressionCoefficients)
 
 ### xStandardizedRegressionCoefficients
@@ -466,8 +404,6 @@ S3method(.estimateStandardizedRegressionCoefficients,wss)
 export(.estimateStandardizedRegressionCoefficients)
 export(estimateStandardizedRegressionCoefficients)
 
-S3method(plotStandardizedRegressionCoefficients,default)
-S3method(plotStandardizedRegressionCoefficients,wss)
 export(plotStandardizedRegressionCoefficients)
 
 ### xRegressionOmnibus
@@ -513,18 +449,14 @@ S3method(.estimateMeansBy,bss)
 export(.estimateMeansBy)
 export(estimateMeansBy)
 
-S3method(plotMeansBy,default)
-S3method(plotMeansBy,formula)
-S3method(plotMeansBy,wss)
-S3method(plotMeansBy,bss)
-export(plotMeansBy)
-
 S3method(.testMeansBy,default)
 S3method(.testMeansBy,formula)
 S3method(.testMeansBy,wss)
 S3method(.testMeansBy,bss)
 export(.testMeansBy)
 export(testMeansBy)
+
+export(plotMeansBy)
 
 ### xMeansOmnibusBy
 

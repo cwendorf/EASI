@@ -88,17 +88,9 @@ estimateStandardizedMeansPosthoc <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotStandardizedMeansPosthoc <- function(x,...) 
-  UseMethod("plotStandardizedMeansPosthoc")
-
-plotStandardizedMeansPosthoc.default <- plotStandardizedMeansPosthoc.bss <- plotStandardizedMeansPosthoc.wss <- function(...,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=24,col="black") {
-  results <- .unformatFrame(estimateStandardizedMeansPosthoc(...,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the \n Posthoc Standardized Mean Comparison"}}  
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
-}
-
-plotStandardizedMeansPosthoc.formula <- function(formula,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=24,col="black") {
-  results <- .unformatFrame(estimateStandardizedMeansPosthoc(formula,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the \n Posthoc Standardized Mean Comparison"}}  
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
+plotStandardizedMeansPosthoc <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=24,col="black") {
+  results <- estimateStandardizedMeansPosthoc(...,conf.level=conf.level,main=main,digits=digits)
+  if(is.null(main)) {main=names(results)} 
+  results <- .unformatFrame(results[[1]][,c(1,3,4)])
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
 }

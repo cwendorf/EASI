@@ -101,49 +101,13 @@ testMeansBy <- function(...,mu=0,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeansBy <- function(...) 
-  UseMethod("plotMeansBy")
-
-plotMeansBy.wss <- function(ListDescStats,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
-  results <- estimateMeansBy(ListDescStats,conf.level=conf.level)
-  for (i in 1:nlevels(by)) {
-    title=names(results[i])
-    temp <- .unformatFrame(results[[i]][,c(1,4,5)])
-    .cipMain(results=temp,main=title,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,add=add,pch=pch,col=col)
-    par(ask=TRUE)
-  }
-  par(ask=FALSE)
-}
-
-plotMeansBy.bss <- function(ListDescStats,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
-  results <- estimateMeansBy(ListDescStats,conf.level=conf.level)
-  print(results)
-  for (i in 1:length(results)) {
-    title=names(results[i])
-    temp <- .unformatFrame(results[[i]][,c(1,4,5)])
-    .cipMain(results=temp,main=title,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
-    par(ask=TRUE)
-  }
-  par(ask=FALSE)
-}
-
-plotMeansBy.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
+plotMeansBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
   results <- estimateMeansBy(...,by=by,conf.level=conf.level)
+  if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   for (i in 1:nlevels(by)) {
-    title=names(results[i])
+    title <- names(results[i])
     temp <- .unformatFrame(results[[i]][,c(1,4,5)])
-    .cipMain(results=temp,main=title,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,add=add,pch=pch,col=col)
-    par(ask=TRUE)
-  }
-  par(ask=FALSE) 
-}
-
-plotMeansBy.formula <- function(formula,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
-  results <- estimateMeansBy(formula,by=by,conf.level=conf.level)
-  for (i in 1:nlevels(by)) {
-    title=names(results[i])
-    temp <- .unformatFrame(results[[i]][,c(1,4,5)])
-    .cipMain(results=temp,main=title,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
+    .cipMain(results=temp,main=title,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,add=add,pch=pch,col=col)
     par(ask=TRUE)
   }
   par(ask=FALSE) 

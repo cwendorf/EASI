@@ -98,21 +98,10 @@ testRegressionCoefficients <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotRegressionCoefficients <- function(x,...) 
-  UseMethod("plotRegressionCoefficients")
-
-plotRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=15,col="black") {
-  results <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
-  if(intercept=="FALSE") {results <- tail(results,-1)}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Regression Coefficients"} else {main="Confidence Interval for the \n Regression Coefficient"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
-}
-
-plotRegressionCoefficients.default <- function(Predictors,Criterion,intercept=TRUE,main=NULL,ylab="Coefficient",xlab="",line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,digits=3,pch=15,col="black") {
-  Pred <- cbind(Predictors)
-  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
-  results <- .unformatFrame(estimateRegressionCoefficients(Pred,Criterion,conf.level=conf.level,main=main,digits=digits)[[1]][,c(1,3,4)])
-  if(intercept=="FALSE") {results <- tail(results,-1)}
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Regression Coefficients"} else {main="Confidence Interval for the \n Regression Coefficient"}}
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
+plotRegressionCoefficients <- function(...,intercept=TRUE,main=NULL,digits=3,ylab="Regression Coefficient",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=15,col="black") {
+  results <- estimateRegressionCoefficients(...,conf.level=conf.level,main=main,digits=digits)
+  if(is.null(main)) {main=names(results)} 
+  results <- .unformatFrame(results[[1]][,c(1,3,4)])
+  if(intercept=="FALSE") {results <- tail(results,-1)}  
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
 }

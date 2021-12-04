@@ -88,17 +88,9 @@ estimateStandardizedMeansPairwise <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotStandardizedMeansPairwise <- function(x,...) 
-  UseMethod("plotStandardizedMeansPairwise")
-
-plotStandardizedMeansPairwise.default <- plotStandardizedMeansPairwise.bss <- plotStandardizedMeansPairwise.wss <- function(...,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=24,col="black") {
-  results <- .unformatFrame(estimateStandardizedMeansPairwise(...,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Pairwise Standardized Mean Comparisons"} else {main="Confidence Interval for the \n Pairwise Standardized Mean Comparison"}}  
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
-}
-
-plotStandardizedMeansPairwise.formula <- function(formula,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=24,col="black") {
-  results <- .unformatFrame(estimateStandardizedMeansPairwise(formula,conf.level=conf.level)[[1]][,c(1,3,4)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Pairwise Standardized Mean Comparisons"} else {main="Confidence Interval for the \n Pairwise Standardized Mean Comparison"}}  
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
+plotStandardizedMeansPairwise <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=24,col="black") {
+  results <- estimateStandardizedMeansPairwise(...,conf.level=conf.level,main=main,digits=digits)
+  if(is.null(main)) {main=names(results)} 
+  results <- .unformatFrame(results[[1]][,c(1,3,4)])
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
 }

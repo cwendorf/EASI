@@ -157,17 +157,9 @@ testMeansPosthoc <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeansPosthoc <- function(x,...) 
-  UseMethod("plotMeansPosthoc")
-
-plotMeansPosthoc.default <- plotMeansPosthoc.bss <- plotMeansPosthoc.wss <- function(...,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=0,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
-  results <- .unformatFrame(estimateMeansPosthoc(...,conf.level=conf.level,mu=mu,posthoc=posthoc)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Posthoc Mean Comparisons"} else {main="Confidence Interval for the \n Posthoc Mean Comparison"}}  
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
-}
-
-plotMeansPosthoc.formula <- function(formula,main=NULL,ylab="Mean Difference",xlab="",conf.level=.95,mu=0,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
-  results <- .unformatFrame(estimateMeansPosthoc(formula,conf.level=conf.level,mu=mu,posthoc=posthoc)[[1]][,c(1,4,5)])
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the \n Posthoc Mean Comparisons"} else {main="Confidence Interval for the \n Posthoc Mean Comparison"}}  
-  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col) 
+plotMeansPosthoc <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=17,col="black") {
+  results <- estimateMeansPosthoc(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
+  if(is.null(main)) {main=names(results)} 
+  results <- .unformatFrame(results[[1]][,c(1,4,5)])
+ .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
 }
