@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Plausibility Plots
 
-### Basic Function
+### Plausibility Plot
 
 .plausible <- function(results,loc,side="right",offset=0,scale=.6,border="black",col="black") {
   y <- density(0,from=-4.5,to=4.5,bw=1,kernel="gaussian")
@@ -12,8 +12,6 @@
   if(side=="right") polygon(c(y1,seq(from=loc+offset,to=loc+offset,length.out=length(y1))),c(y$x,rev(y$x)),border=border,col=col)
   if(side=="left") polygon(c(y2,seq(from=loc+offset,to=loc+offset,length.out=length(y2))),c(y$x,rev(y$x)),border=border,col=col)
 }
-
-### Plot Plausibility
 
 plotPlausible <- function(x,...) 
   UseMethod("plotPlausible")

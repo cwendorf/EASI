@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Eta Squared (Multifactor Designs)
 
-### Helper
+### Confidence Intervals
 
 .ciEta <- function(F,dff,dfe,etasq,conf.level) {
   delta.lower <- delta.upper <- numeric(length(etasq))
@@ -13,8 +13,6 @@
   results <- cbind(Est=etasq,LL=etasq.lower,UL=etasq.upper)
   results
 }
-
-### Confidence Intervals
 
 .estimateMeansEffectMultifactor <- function(x,...) 
   UseMethod(".estimateMeansEffectMultifactor")

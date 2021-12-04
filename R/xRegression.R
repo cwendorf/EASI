@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.eR <- function(dM,eR,dRO,value,conf.level) {
+.regression <- function(dM,eR,dRO,value,conf.level) {
   N <- dM[1]
   M <- dM[2]
   SD <- dM[3]
@@ -29,14 +29,14 @@
   dM <- .describeMeans(Predictor)
   eR <- .estimateRegressionCoefficients(Predictor,Criterion)
   dRO <- .describeRegressionOmnibus(Predictor,Criterion)
-  .eR(dM,eR,dRO,value=value,conf.level=conf.level)
+  .regression(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
 .estimateRegression.wss <- function(PredStats,CritStats,CorrStats,value,conf.level=.95) {
   dM <- PredStats
   eR <- .estimateRegressionCoefficients(PredStats,CritStats,CorrStats)
   dRO <- .describeRegressionOmnibus(PredStats,CritStats,CorrStats)
-  .eR(dM,eR,dRO,value=value,conf.level=conf.level)
+  .regression(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
 estimateRegression <- function(...,value=NULL,conf.level=.95,main=NULL,digits=3) {
@@ -47,7 +47,7 @@ estimateRegression <- function(...,value=NULL,conf.level=.95,main=NULL,digits=3)
 
 ### Confidence Interval Plots
 
-.pR <- function(intervals,results=NULL,interval=FALSE,values=TRUE,conf.level=.95,digits=3,col="black") {
+.prediction <- function(intervals,results=NULL,interval=FALSE,values=TRUE,conf.level=.95,digits=3,col="black") {
   newx <- as.numeric(rownames(intervals))
   if(interval=="prediction" || interval=="both") {  
     lines(newx,intervals$PI.LL,col=.colorTransparent(col,100),lty=2)
@@ -93,7 +93,7 @@ plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,rang
     Est <- .unformatFrame(estimateRegressionCoefficients(Predictor,Criterion)[[1]])[,"Est"]
     abline(Est[1],Est[2],col=col)}  
   if(!is.null(value)) {results <- .estimateRegression(Predictor,Criterion,value=value,conf.level=conf.level)} else {results=NULL}
-  .pR(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
+  .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }
 
 plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NULL,range=NULL,interval="both",values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
@@ -118,5 +118,5 @@ plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NUL
     Est <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats)[[1]])[,"Est"]
     abline(Est[1],Est[2],col=col)} 
   if(!is.null(value)) {results <- .estimateRegression(PredStats,CritStats,CorrStats,value=value,conf.level=conf.level)} else {results=NULL}
-  .pR(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
+  .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }

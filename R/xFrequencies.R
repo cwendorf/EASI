@@ -3,7 +3,7 @@
 
 ### Descriptives
 
-.descFreq <- function(x) {
+.frequencies <- function(x) {
   Freq <- table(x)
   Perc <- prop.table(table(x))
   CumFreq <- cumsum(table(x))
@@ -17,14 +17,14 @@
 
 .describeFrequencies.default <- function(...) {
   data <- data.frame(...)
-  results <- lapply(data,FUN=.descFreq)
+  results <- lapply(data,FUN=.frequencies)
   return(results)
 }
 
 .describeFrequencies.formula <- function(formula) {
   group <- eval(formula[[3]])
   outcome <- eval(formula[[2]])
-  results <- tapply(outcome,group,FUN=.descFreq)
+  results <- tapply(outcome,group,FUN=.frequencies)
   return(results)
 }
 

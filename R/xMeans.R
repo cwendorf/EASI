@@ -1,9 +1,9 @@
 # Estimation Approach to Statistical Inference
 ## Means
 
-## Basic Functions
+### Descriptives
 
-skewness <- function(x, na.rm = FALSE, type = 2) {
+.skewness <- function(x, na.rm = FALSE, type = 2) {
   if(any(ina <- is.na(x))) {
     if(na.rm) x <- x[!ina]
     else return(NA)}
@@ -18,7 +18,7 @@ skewness <- function(x, na.rm = FALSE, type = 2) {
   y
 }
 
-kurtosis <- function(x, na.rm = FALSE, type = 2) {
+.kurtosis <- function(x, na.rm = FALSE, type = 2) {
   if(any(ina <- is.na(x))) {
     if(na.rm) x <- x[!ina]
     else return(NA)}
@@ -34,8 +34,6 @@ kurtosis <- function(x, na.rm = FALSE, type = 2) {
   y
 }
 
-### Descriptives
-
 .describeMeans <- function(x,...) 
   UseMethod(".describeMeans")
 
@@ -44,8 +42,8 @@ kurtosis <- function(x, na.rm = FALSE, type = 2) {
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
   SD <- sapply(data,sd,na.rm=TRUE)
-  Skew <- sapply(data,skewness,na.rm=TRUE)
-  Kurt <- sapply(data,kurtosis,na.rm=TRUE)
+  Skew <- sapply(data,.skewness,na.rm=TRUE)
+  Kurt <- sapply(data,.kurtosis,na.rm=TRUE)
   results <- cbind(N=N,M=M,SD=SD,Skew=Skew,Kurt=Kurt)
   return(results)
 }

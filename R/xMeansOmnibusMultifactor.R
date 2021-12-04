@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Mean Omnibus Analysis (Multifactor Designs)
 
-### Helper
+### Descriptives
 
 .error.list <- function(sourceby) {
   source <- sourceby[[1]]+sourceby[[2]]
@@ -40,8 +40,6 @@
   colnames(out) <- c("SS","df","MS")
   return(out)
 }
-
-### Descriptives
 
 .describeMeansOmnibusMultifactor <- function(x,...) 
   UseMethod(".describeMeansOmnibusMultifactor")
