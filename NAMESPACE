@@ -458,6 +458,42 @@ export(testMeansBy)
 
 export(plotMeansBy)
 
+### xMeanDifferenceBy
+
+S3method(.estimateMeanDifferenceBy,default)
+S3method(.estimateMeanDifferenceBy,formula)
+S3method(.estimateMeanDifferenceBy,wss)
+S3method(.estimateMeanDifferenceBy,bss)
+export(.estimateMeanDifferenceBy)
+export(estimateMeanDifferenceBy)
+
+S3method(.testMeanDifferenceBy,default)
+S3method(.testMeanDifferenceBy,formula)
+S3method(.testMeanDifferenceBy,wss)
+S3method(.testMeanDifferenceBy,bss)
+export(.testMeanDifferenceBy)
+export(testMeanDifferenceBy)
+
+export(plotMeanDifferenceBy)
+
+### xMeanContrastBy
+
+S3method(.estimateMeanContrastBy,default)
+S3method(.estimateMeanContrastBy,formula)
+S3method(.estimateMeanContrastBy,wss)
+S3method(.estimateMeanContrastBy,bss)
+export(.estimateMeanContrastBy)
+export(estimateMeanContrastBy)
+
+S3method(.testMeanContrastBy,default)
+S3method(.testMeanContrastBy,formula)
+S3method(.testMeanContrastBy,wss)
+S3method(.testMeanContrastBy,bss)
+export(.testMeanContrastBy)
+export(testMeanContrastBy)
+
+export(plotMeanContrastBy)
+
 ### xMeansOmnibusBy
 
 S3method(.describeMeansOmnibusBy,default)
