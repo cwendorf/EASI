@@ -166,7 +166,7 @@ estimateCorrelations <- function(...,main=NULL,digits=3) {
 
 testCorrelations <- function(...,main=NULL,digits=3) {
   results <- .testCorrelations(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Correlations"} else {main="Hypothesis for the Correlation"}}  
+  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Correlations"} else {main="Hypothesis Test for the Correlation"}}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main
   return(results)
