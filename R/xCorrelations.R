@@ -1,9 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Correlations
 
-### Correlate/Covary for Mutiple Variables
-
-#### Declare and Fill Blanks in Matrix
+### Declare and Fill Blanks in Matrices
 
 declareCorrelations <- function(x,...) 
   UseMethod("declareCorrelations")
@@ -43,7 +41,7 @@ fillCorrelations.default <- function(mat) {
   return(results)
 }
 
-#### Descriptives
+### Descriptives
 
 .describeCorrelations <- function(x,...) 
   UseMethod(".describeCorrelations")
@@ -60,8 +58,6 @@ describeCorrelations <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {names(results) <- "Correlation Matrix for the Variables"} else {names(results) <- main}  
   return(results)
 }
-
-#### Convert Correlations to Covariances
 
 .cortocov <- function(CorrStats,SD) {
   sdsquare <- SD %*% t(SD)
