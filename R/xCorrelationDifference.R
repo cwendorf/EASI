@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-estimateCorrelationDifference <- function(x,...) 
-  UseMethod("estimateCorrelationDifference")
+.estimateCorrelationDifference <- function(x,...) 
+  UseMethod(".estimateCorrelationDifference")
 
-estimateCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,digits=3) {
+.estimateCorrelationDifference.list <- function(CorrEst1,CorrEst2) {
   corr1 <- .unformatFrame(CorrEst1[[1]])[1,1]
   LL1 <- .unformatFrame(CorrEst1[[1]])[1,3]
   UL1 <- .unformatFrame(CorrEst1[[1]])[1,4]
@@ -18,10 +18,15 @@ estimateCorrelationDifference.default <- function(CorrEst1,CorrEst2,main=NULL,di
   UL <- corr2-corr1+sqrt((UL1-corr1)^2+(corr2-LL2)^2)
   results <- data.frame(Diff=Diff,LL=LL,UL=UL)
   rownames(results)="Difference"
+  return(results)  
+}
+
+estimateCorrelationDifference <- function(...,main=NULL,digits=3) {
+  results <- .estimateCorrelationDifference(...)
   if(is.null(main)) {main="Confidence Interval for the Correlation Difference"}  
   results <- .formatList(list(results),digits=digits)  
   names(results) <- main 
-  return(results)  
+  return(results)
 }
 
 ### Confidence Interval Plots
