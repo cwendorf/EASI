@@ -3,12 +3,12 @@
 
 ### Relational Intervals
 
-estimateMeansRelational <- function(x,...) 
-  UseMethod("estimateMeansRelational")
+.estimateMeansRelational <- function(x,...) 
+  UseMethod(".estimateMeansRelational")
 
-estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3,...) {
-  results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,...)[[1]])
-  mymodel <- .unformatFrame(describeMeansOmnibus(DescStats,CorrStats,...)[[1]])
+.estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95) {
+  results <- .estimateMeans.wss(DescStats,conf.level=conf.level)
+  mymodel <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   dfe <- mymodel[3,2]
   mse <- mymodel[3,3]
   ntilde <- 1/mean(1/DescStats[,1]) 
@@ -18,14 +18,12 @@ estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95,main=
   riul <- results[,1]+a1*a2/2
   results <- data.frame(results[,c(1,4,5)],rill,riul)
   colnames(results) <- c("M","CI.LL","CI.UL","RI.LL","RI.UL")
-  results <- .formatList(list(results),digits=digits)
-  if(is.null(main)) {names(results) <- "Confidence and Relational Intervals for the Means"} else {names(results) <- main}  
   return(results)
 }
 
-estimateMeansRelational.bss <- function(DescStats,conf.level=.95,main=NULL,digits=3,...) {
-  results <- .unformatFrame(estimateMeans(DescStats,conf.level=conf.level,...)[[1]])
-  mymodel <- .unformatFrame(describeMeansOmnibus(DescStats,...)[[1]])
+.estimateMeansRelational.bss <- function(DescStats,conf.level=.95) {
+  results <- .estimateMeans.bss(DescStats,conf.level=conf.level)
+  mymodel <- .describeMeansOmnibus.bss(DescStats)
   dfe <- mymodel[2,2]
   mse <- mymodel[2,3]
   ntilde <- 1/mean(1/DescStats[,1]) 
@@ -35,22 +33,25 @@ estimateMeansRelational.bss <- function(DescStats,conf.level=.95,main=NULL,digit
   riul <- results[,1]+a1*a2/2
   results <- data.frame(results[,c(1,4,5)],rill,riul)
   colnames(results) <- c("M","CI.LL","CI.UL","RI.LL","RI.UL")
-  results <- .formatList(list(results),digits=digits)
-  if(is.null(main)) {names(results) <- "Confidence and Relational Intervals for the Means"} else {names(results) <- main}  
   return(results)
 }
 
-estimateMeansRelational.default <- function(...,conf.level=.95,main=NULL,digits=3) {
+.estimateMeansRelational.default <- function(...,conf.level=.95) {
   DescStats <- .describeMeans(...)
-  class(DescStats) <- "wss"
   CorrStats <- .describeCorrelations(...)
-  estimateMeansRelational(DescStats,CorrStats,conf.level=conf.level,main=main,digits=digits)
+  .estimateMeansRelational.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
-estimateMeansRelational.formula <- function(formula,conf.level=.95,main=NULL,digits=3,...) {
+.estimateMeansRelational.formula <- function(formula,conf.level=.95) {
   DescStats <- .describeMeans(formula)
-  class(DescStats) <- "bss"
-  estimateMeansRelational(DescStats,conf.level=conf.level,main=main,digits=digits)
+  .estimateMeansRelational.bss(DescStats,conf.level=conf.level)
+}
+
+estimateMeansRelational <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeansRelational(...)
+  results <- .formatList(list(results),digits=digits)
+  if(is.null(main)) {names(results) <- "Confidence and Relational Intervals for the Means"} else {names(results) <- main}  
+  return(results)
 }
 
 ### Confidence and Relational Interval Plots
