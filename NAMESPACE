@@ -124,16 +124,18 @@ export(plotStandardizedMeanDifference)
 
 ### xMeanComparison
 
-S3method(estimateMeanComparison,default)
-S3method(estimateMeanComparison,formula)
-S3method(estimateMeanComparison,wss)
-S3method(estimateMeanComparison,bss)
+S3method(.estimateMeanComparison,default)
+S3method(.estimateMeanComparison,formula)
+S3method(.estimateMeanComparison,wss)
+S3method(.estimateMeanComparison,bss)
+export(.estimateMeanComparison)
 export(estimateMeanComparison)
 
-S3method(testMeanComparison,default)
-S3method(testMeanComparison,formula)
-S3method(testMeanComparison,wss)
-S3method(testMeanComparison,bss)
+S3method(.testMeanComparison,default)
+S3method(.testMeanComparison,formula)
+S3method(.testMeanComparison,wss)
+S3method(.testMeanComparison,bss)
+export(.testMeanComparison)
 export(testMeanComparison)
 
 S3method(plotMeanComparison,default)
@@ -141,6 +143,21 @@ S3method(plotMeanComparison,formula)
 S3method(plotMeanComparison,wss)
 S3method(plotMeanComparison,bss)
 export(plotMeanComparison)
+
+### xStandardizedMeanComparison
+
+S3method(.estimateStandardizedMeanComparison,default)
+S3method(.estimateStandardizedMeanComparison,formula)
+S3method(.estimateStandardizedMeanComparison,wss)
+S3method(.estimateStandardizedMeanComparison,bss)
+export(.estimateStandardizedMeanComparison)
+export(estimateStandardizedMeanComparison)
+
+S3method(plotStandardizedMeanComparison,default)
+S3method(plotStandardizedMeanComparison,formula)
+S3method(plotStandardizedMeanComparison,wss)
+S3method(plotStandardizedMeanComparison,bss)
+export(plotStandardizedMeanComparison)
 
 ### xMeanContrast
 
@@ -181,16 +198,18 @@ export(plotStandardizedMeanContrast)
 
 ### xMeanSubsets
 
-S3method(estimateMeanSubsets,default)
-S3method(estimateMeanSubsets,formula)
-S3method(estimateMeanSubsets,wss)
-S3method(estimateMeanSubsets,bss)
+S3method(.estimateMeanSubsets,default)
+S3method(.estimateMeanSubsets,formula)
+S3method(.estimateMeanSubsets,wss)
+S3method(.estimateMeanSubsets,bss)
+export(.estimateMeanSubsets)
 export(estimateMeanSubsets)
 
-S3method(testMeanSubsets,default)
-S3method(testMeanSubsets,formula)
-S3method(testMeanSubsets,wss)
-S3method(testMeanSubsets,bss)
+S3method(.testMeanSubsets,default)
+S3method(.testMeanSubsets,formula)
+S3method(.testMeanSubsets,wss)
+S3method(.testMeanSubsets,bss)
+export(.testMeanSubsets)
 export(testMeanSubsets)
 
 S3method(plotMeanSubsets,default)
@@ -199,18 +218,35 @@ S3method(plotMeanSubsets,wss)
 S3method(plotMeanSubsets,bss)
 export(plotMeanSubsets)
 
+### xStandardizedMeanSubsets
+
+S3method(.estimateStandardizedMeanSubsets,default)
+S3method(.estimateStandardizedMeanSubsets,formula)
+S3method(.estimateStandardizedMeanSubsets,wss)
+S3method(.estimateStandardizedMeanSubsets,bss)
+export(.estimateStandardizedMeanSubsets)
+export(estimateStandardizedMeanSubsets)
+
+S3method(plotStandardizedMeanSubsets,default)
+S3method(plotStandardizedMeanSubsets,formula)
+S3method(plotStandardizedMeanSubsets,wss)
+S3method(plotStandardizedMeanSubsets,bss)
+export(plotStandardizedMeanSubsets)
+
 ### xMeanComplex
 
-S3method(estimateMeanComplex,default)
-S3method(estimateMeanComplex,formula)
-S3method(estimateMeanComplex,wss)
-S3method(estimateMeanComplex,bss)
+S3method(.estimateMeanComplex,default)
+S3method(.estimateMeanComplex,formula)
+S3method(.estimateMeanComplex,wss)
+S3method(.estimateMeanComplex,bss)
+export(.estimateMeanComplex)
 export(estimateMeanComplex)
 
-S3method(testMeanComplex,default)
-S3method(testMeanComplex,formula)
-S3method(testMeanComplex,wss)
-S3method(testMeanComplex,bss)
+S3method(.testMeanComplex,default)
+S3method(.testMeanComplex,formula)
+S3method(.testMeanComplex,wss)
+S3method(.testMeanComplex,bss)
+export(.testMeanComplex)
 export(testMeanComplex)
 
 S3method(plotMeanComplex,default)
@@ -295,10 +331,11 @@ export(plotStandardizedMeansPosthoc)
 
 ### xMeansRelational
 
-S3method(estimateMeansRelational,default)
-S3method(estimateMeansRelational,formula)
-S3method(estimateMeansRelational,wss)
-S3method(estimateMeansRelational,bss)
+S3method(.estimateMeansRelational,default)
+S3method(.estimateMeansRelational,formula)
+S3method(.estimateMeansRelational,wss)
+S3method(.estimateMeansRelational,bss)
+export(.estimateMeansRelational)
 export(estimateMeansRelational)
 
 S3method(plotMeansRelational,default)

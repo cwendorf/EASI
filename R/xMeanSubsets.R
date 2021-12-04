@@ -3,39 +3,59 @@
 
 ### Confidence Interval Functions
 
-estimateMeanSubsets <- function(x,...) 
-  UseMethod("estimateMeanSubsets")
+.estimateMeanSubsets <- function(x,...) 
+  UseMethod(".estimateMeanSubsets")
 
-estimateMeanSubsets.default <- estimateMeanSubsets.formula <- estimateMeanSubsets.wss <- estimateMeanSubsets.bss <- function(...,contrast,conf.level=.95,labels=NULL,main=NULL,digits=3) {
+.estimateMeanSubsets.default <- .estimateMeanSubsets.formula <- .estimateMeanSubsets.wss <- .estimateMeanSubsets.bss <- function(...,contrast,conf.level=.95,labels=NULL) {
   con1 <- ifelse(contrast<0,0,contrast)
-  res1 <- .unformatFrame(estimateMeanContrast(...,contrast=con1,conf.level=conf.level)[[1]])
+  res1 <- .estimateMeanContrast(...,contrast=con1,conf.level=conf.level)
   con2 <- ifelse(contrast>0,0,abs(contrast))
-  res2 <- .unformatFrame(estimateMeanContrast(...,contrast=con2,conf.level=conf.level)[[1]])
+  res2 <- .estimateMeanContrast(...,contrast=con2,conf.level=conf.level)
   Subsets <- rbind(res2,res1)
   if(is.null(labels)) {rownames(Subsets) <- c("Neg Weighted","Pos Weighted")} else {rownames(Subsets) <- labels}
-  Subsets <- .formatList(list(Subsets),digits=digits)
+  Subsets <- list(Subsets)
   names(Subsets) <- "Confidence Intervals for the Mean Subsets"
-  Diff <- estimateMeanContrast(...,contrast=contrast,conf.level=conf.level,digits=digits)
+  Diff <- .estimateMeanContrast(...,contrast=contrast,conf.level=conf.level)
+  Diff <- list(Diff)
+  names(Diff) <- "Confidence Interval for the Mean Contrast"  
   results <- c(Subsets,Diff)
+  return(results)
+}
+
+estimateMeanSubsets <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeanSubsets(...)
+  rn <- names(results)
+  results <- .formatList(results,digits=digits)
+  names(results) <- rn
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-testMeanSubsets <- function(x,...) 
-  UseMethod("testMeanSubsets")
+.testMeanSubsets <- function(x,...) 
+  UseMethod(".testMeanSubsets")
 
-testMeanSubsets.default <- testMeanSubsets.formula <- testMeanSubsets.wss <- testMeanSubsets.bss <- function(...,contrast,labels=NULL,main=NULL,digits=3) {
+.testMeanSubsets.default <- .testMeanSubsets.formula <- .testMeanSubsets.wss <- .testMeanSubsets.bss <- function(...,contrast,labels=NULL) {
   con1 <- ifelse(contrast<0,0,contrast)
-  res1 <- .unformatFrame(testMeanContrast(...,contrast=con1)[[1]])
+  res1 <- .testMeanContrast(...,contrast=con1)
   con2 <- ifelse(contrast>0,0,abs(contrast))
-  res2 <- .unformatFrame(testMeanContrast(...,contrast=con2)[[1]])
+  res2 <- .testMeanContrast(...,contrast=con2)
   Subsets <- rbind(res2,res1)
   if(is.null(labels)) {rownames(Subsets) <- c("Neg Weighted","Pos Weighted")} else {rownames(Subsets) <- labels}
-  Subsets <- .formatList(list(Subsets),digits=digits)
+  Subsets <- list(Subsets) 
   names(Subsets) <- "Hypothesis Tests for the Mean Subsets"
-  Diff <- testMeanContrast(...,contrast=contrast,digits=digits)
+  Diff <- .testMeanContrast(...,contrast=contrast)
+  Diff <- list(Diff)  
+  names(Diff) <- "Hypothesis Tests for the Mean Contrast"    
   results <- c(Subsets,Diff)
+  return(results)
+}
+
+testMeanSubsets <- function(...,main=NULL,digits=3) {
+  results <- .testMeanSubsets(...)
+  rn <- names(results)
+  results <- .formatList(results,digits=digits)
+  names(results) <- rn
   return(results)
 }
 

@@ -3,25 +3,30 @@
 
 ### Confidence Intervals
 
-.easiStandardizedMeanSubsets <- function(...,contrast,conf.level=.95,labels=NULL,main=NULL,digits=3) {
+.estimateStandardizedMeanSubsets <- function(x,...) 
+  UseMethod(".estimateStandardizedMeanSubsets")
+
+.estimateStandardizedMeanSubsets.default <- .estimateStandardizedMeanSubsets.formula <- .estimateStandardizedMeanSubsets.wss <- .estimateStandardizedMeanSubsets.bss <- function(...,contrast,conf.level=.95,labels=NULL) {
   con1 <- ifelse(contrast<0,0,contrast)
-  res1 <- .unformatFrame(estimateStandardizedMeanContrast(...,contrast=con1,conf.level=conf.level)[[1]])
+  res1 <- .estimateStandardizedMeanContrast(...,contrast=con1,conf.level=conf.level)
   con2 <- ifelse(contrast>0,0,abs(contrast))
-  res2 <- .unformatFrame(estimateStandardizedMeanContrast(...,contrast=con2,conf.level=conf.level)[[1]])
-  results <- rbind(res2,res1)
-  if(is.null(labels)) {rownames(results) <- c("Neg Weighted","Pos Weighted")} else {rownames(results) <- labels}
-  results <- .formatList(list(results),digits=digits)
-  names(results) <- "Confidence Intervals for the Standardized Mean Subsets"
+  res2 <- .estimateStandardizedMeanContrast(...,contrast=con2,conf.level=conf.level)
+  Subsets <- rbind(res2,res1)
+  if(is.null(labels)) {rownames(Subsets) <- c("Neg Weighted","Pos Weighted")} else {rownames(Subsets) <- labels}
+  Subsets <- list(Subsets)
+  names(Subsets) <- "Confidence Intervals for the Standardized Mean Subsets"
+  Diff <- .estimateStandardizedMeanContrast(...,contrast=contrast,conf.level=conf.level)
+  Diff <- list(Diff)
+  names(Diff) <- "Confidence Interval for the Standardized Mean Contrast"  
+  results <- c(Subsets,Diff)
   return(results)
 }
 
-estimateStandardizedMeanSubsets <- function(x,...) 
-  UseMethod("estimateStandardizedMeanSubsets")
-
-estimateStandardizedMeanSubsets.default <- estimateStandardizedMeanSubsets.formula <- estimateStandardizedMeanSubsets.wss <- estimateStandardizedMeanSubsets.bss <- function(...,contrast,conf.level=.95,labels=NULL,main=NULL,digits=3) {
-  Subsets <- .easiStandardizedMeanSubsets(...,contrast=contrast,conf.level=conf.level,labels=labels,digits=digits)
-  Diff <- estimateStandardizedMeanContrast(...,contrast=contrast,conf.level=conf.level,digits=digits)
-  results <- c(Subsets,Diff)
+estimateStandardizedMeanSubsets <- function(...,main=NULL,digits=3) {
+  results <- .estimateStandardizedMeanSubsets(...)
+  rn <- names(results)
+  results <- .formatList(results,digits=digits)
+  names(results) <- rn
   return(results)
 }
 

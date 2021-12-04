@@ -3,29 +3,54 @@
 
 ### Confidence Intervals
 
-estimateMeanComparison <- function(x,...) 
-  UseMethod("estimateMeanComparison")
+.estimateMeanComparison <- function(x,...) 
+  UseMethod(".estimateMeanComparison")
 
-estimateMeanComparison.default <- estimateMeanComparison.formula <- estimateMeanComparison.wss <- estimateMeanComparison.bss <- function(...,conf.level=.95,mu=0,main=NULL,digits=3) {
-  Levels <- estimateMeans(...,conf.level=conf.level,mu=0,digits=digits)
-  Levels[[1]] <- Levels[[1]][1:2,]
-  Diff <- estimateMeanDifference(...,conf.level=conf.level,mu=0,digits=digits)
+.estimateMeanComparison.default <- .estimateMeanComparison.formula <- .estimateMeanComparison.wss <- .estimateMeanComparison.bss <- function(...,conf.level=.95,mu=0) {
+  Levels <- .estimateMeans(...,conf.level=conf.level,mu=0)
+  Levels <- Levels[1:2,]
+  Levels <- list(Levels)
+  names(Levels) <- "Confidence Intervals for the Means"
+  Diff <- .estimateMeanDifference(...,conf.level=conf.level,mu=0)
+  Diff <- list(Diff)
+  names(Diff) <- "Confidence Interval for the Mean Difference"
   results <- c(Levels,Diff)
   return(results)
 } 
+
+estimateMeanComparison <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeanComparison(...)
+  rn <- names(results)
+  results <- .formatList(results,digits=digits)
+  names(results) <- rn
+  return(results)
+}
+
 
 ### Null Hypothesis Signifiance Tests
 
-testMeanComparison <- function(x,...) 
-  UseMethod("testMeanComparison")
+.testMeanComparison <- function(x,...) 
+  UseMethod(".testMeanComparison")
 
-testMeanComparison.default <- testMeanComparison.formula <- testMeanComparison.wss <- testMeanComparison.bss <- function(...,main=NULL,digits=3) {
-  Levels <- testMeans(...,digits=digits)
-  Levels[[1]] <- Levels[[1]][1:2,]
-  Diff <- testMeanDifference(...,digits=digits)
+.testMeanComparison.default <- .testMeanComparison.formula <- .testMeanComparison.wss <- .testMeanComparison.bss <- function(...) {
+  Levels <- .testMeans(...)
+  Levels <- Levels[1:2,]
+  Levels <- list(Levels)
+  names(Levels) <- "Hypothesis Tests for the Means"
+  Diff <- .testMeanDifference(...)
+  Diff <- list(Diff)
+  names(Diff) <- "Hypothesis Test for the Mean Difference"  
   results <- c(Levels,Diff)
   return(results)
 } 
+
+testMeanComparison <- function(...,main=NULL,digits=3) {
+  results <- .testMeanComparison(...)
+  rn <- names(results)
+  results <- .formatList(results,digits=digits)
+  names(results) <- rn
+  return(results)
+}
 
 ### Confidence Interval Plots
 
