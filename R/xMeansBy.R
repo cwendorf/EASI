@@ -36,11 +36,19 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
 .estimateMeansBy <- function(...) 
   UseMethod(".estimateMeansBy")
 
-.estimateMeansBy.wss <- .estimateMeansBy.bss <- function(ListDescStats,conf.level=.95) {
+.estimateMeansBy.wss <- function(ListDescStats,conf.level=.95) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeans.wss(ListDescStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
-  class(results) <- NULL
+  class(results) <- "wss"
+  return(results)
+}
+
+.estimateMeansBy.bss <- function(ListDescStats,conf.level=.95) {
+  results <- NULL
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeans.wss(ListDescStats[[i]],conf.level=conf.level)}
+  names(results) <- names(ListDescStats)  
+  class(results) <- "bss"
   return(results)
 }
 
