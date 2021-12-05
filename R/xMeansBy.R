@@ -64,8 +64,8 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-estimateMeansBy <- function(...,conf.level=.95,main=NULL,digits=3) {
-  results <- .estimateMeansBy(...,conf.level=conf.level)
+estimateMeansBy <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeansBy(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Confidence Intervals for the Means"} 
@@ -98,8 +98,8 @@ estimateMeansBy <- function(...,conf.level=.95,main=NULL,digits=3) {
   return(results)
 }
 
-testMeansBy <- function(...,mu=0,main=NULL,digits=3) {
-  results <- .testMeansBy(...,mu=mu)
+testMeansBy <- function(...,main=NULL,digits=3) {
+  results <- .testMeansBy(...)
   nm = names(results)
   results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Hypothesis Tests for the Means"} 
