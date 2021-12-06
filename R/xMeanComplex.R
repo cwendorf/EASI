@@ -23,9 +23,8 @@
 
 estimateMeanComplex <- function(...,main=NULL,digits=3) {
   results <- .estimateMeanComplex(...)
-  rn <- names(results)
-  results <- .formatList(results,digits=digits)
-  names(results) <- rn
+  if(is.null(main)) {main <- names(results)} 
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
@@ -51,9 +50,8 @@ estimateMeanComplex <- function(...,main=NULL,digits=3) {
 
 testMeanComplex <- function(...,main=NULL,digits=3) {
   results <- .testMeanComplex(...)
-  rn <- names(results)
-  results <- .formatList(results,digits=digits)
-  names(results) <- rn
+  if(is.null(main)) {main <- names(results)} 
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 

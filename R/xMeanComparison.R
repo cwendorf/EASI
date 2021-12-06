@@ -20,12 +20,10 @@
 
 estimateMeanComparison <- function(...,main=NULL,digits=3) {
   results <- .estimateMeanComparison(...)
-  rn <- names(results)
-  results <- .formatList(results,digits=digits)
-  names(results) <- rn
+  if(is.null(main)) {main <- names(results)}
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
-
 
 ### Null Hypothesis Signifiance Tests
 
@@ -46,9 +44,8 @@ estimateMeanComparison <- function(...,main=NULL,digits=3) {
 
 testMeanComparison <- function(...,main=NULL,digits=3) {
   results <- .testMeanComparison(...)
-  rn <- names(results)
-  results <- .formatList(results,digits=digits)
-  names(results) <- rn
+  if(is.null(main)) {main <- names(results)}
+  results <- .formatList(results,main-main,digits=digits)
   return(results)
 }
 

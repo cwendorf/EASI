@@ -44,8 +44,8 @@
 
 estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
   results <- .estimateRegressionCoefficients(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Confidence Intervals for the Regression Coefficients"} else {names(results) <- main}  
+  if(is.null(main)) {main <- "Confidence Intervals for the Regression Coefficients"}
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }
 
@@ -91,8 +91,8 @@ estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
 
 testRegressionCoefficients <- function(...,main=NULL,digits=3) {
   results <- .testRegressionCoefficients(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Hypothesis Tests for the Regression Coefficients"} else {names(results) <- main}  
+  if(is.null(main)) {main <- "Hypothesis Tests for the Regression Coefficients"}
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }
 

@@ -80,9 +80,8 @@
 
 estimateStandardizedMeansPairwise <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeansPairwise(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Standardized Mean Comparisons"} else {main="Confidence Interval for the Pairwise Standardized Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Pairwise Standardized Mean Comparisons"} else {main <- "Confidence Interval for the Pairwise Standardized Mean Comparison"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

@@ -54,8 +54,8 @@
 
 estimateMeanContrast <- function(...,main=NULL,digits=3) {
   results <- .estimateMeanContrast(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results)="Confidence Interval for the Mean Contrast"} else {names(results) <- main}
+  if(is.null(main)) {main <- "Confidence Interval for the Mean Contrast"}
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }
 
@@ -110,8 +110,8 @@ estimateMeanContrast <- function(...,main=NULL,digits=3) {
 
 testMeanContrast <- function(...,main=NULL,digits=3) {
   results <- .testMeanContrast(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results)="Hypothesis Test for the Mean Contrast"} else {names(results) <- main}
+  if(is.null(main)) {main <- "Hypothesis Test for the Mean Contrast"}
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

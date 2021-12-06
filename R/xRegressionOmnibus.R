@@ -32,8 +32,8 @@
 
 describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .describeRegressionOmnibus(...)
-  results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Source Table"} else {names(results) <- main} 
+  if(is.null(main)) {main <- "Source Table"}
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 
@@ -65,8 +65,8 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
 
 testRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .testRegressionOmnibus(...)
-  results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Hypothesis Test"} else {names(results) <- main} 
+  if(is.null(main)) {main <- "Hypothesis Test"} 
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }
 
@@ -101,7 +101,7 @@ testRegressionOmnibus <- function(...,main=NULL,digits=3) {
 
 estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .estimateRegressionOmnibus(...)
-  results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For"} else {names(results) <- main} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }

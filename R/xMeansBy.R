@@ -24,10 +24,9 @@
 
 describeMeansBy <- function(...,main=NULL,digits=3) {
   results <- .describeMeansBy(...)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Descriptive Statistics for the Data"} 
-  names(results) = paste(main,nm,sep=": ")
+  main <- paste(main,names(results),sep=": ")
+  results <- .formatList(results,mmain=main,digits=digits)
   return(results)
 }
 
@@ -66,10 +65,9 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
 
 estimateMeansBy <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansBy(...)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Confidence Intervals for the Means"} 
-  names(results) = paste(main,nm,sep=": ")
+  main <- paste(main,names(results),sep=": ")
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
@@ -100,10 +98,9 @@ estimateMeansBy <- function(...,main=NULL,digits=3) {
 
 testMeansBy <- function(...,main=NULL,digits=3) {
   results <- .testMeansBy(...)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Hypothesis Tests for the Means"} 
-  names(results) = paste(main,nm,sep=": ")
+  main <- paste(main,names(results),sep=": ")
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 

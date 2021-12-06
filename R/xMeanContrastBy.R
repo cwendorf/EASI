@@ -37,10 +37,9 @@
 
 estimateMeanContrastBy <- function(...,contrast,conf.level=.95,main=NULL,digits=3) {
   results <- .estimateMeanContrastBy(...,contrast=contrast,conf.level=conf.level)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Confidence Interval for the Mean Contrast"} 
-  names(results) = paste(main,nm,sep=": ")
+  main <-  paste(main,names(results),sep=": ")
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
@@ -80,10 +79,9 @@ estimateMeanContrastBy <- function(...,contrast,conf.level=.95,main=NULL,digits=
 
 testMeanContrastBy <- function(...,contrast,mu=0,main=NULL,digits=3) {
   results <- .testMeanContrastBy(...,contrast=contrast,mu=mu)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Hypothesis Test for the Mean Contrast"} 
-  names(results) = paste(main,nm,sep=": ")
+  main <- paste(main,names(results),sep=": ")
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 

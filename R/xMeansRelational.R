@@ -49,8 +49,8 @@
 
 estimateMeansRelational <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansRelational(...)
-  results <- .formatList(list(results),digits=digits)
-  if(is.null(main)) {names(results) <- "Confidence and Relational Intervals for the Means"} else {names(results) <- main}  
+  if(is.null(main)) {main <- "Confidence and Relational Intervals for the Means"} 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 

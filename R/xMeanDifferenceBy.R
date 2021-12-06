@@ -37,10 +37,9 @@
 
 estimateMeanDifferenceBy <- function(...,conf.level=.95,main=NULL,digits=3) {
   results <- .estimateMeanDifferenceBy(...,conf.level=conf.level)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
-  if(is.null(main)) {main <- "Confidence Interval for the Mean Difference"} 
-  names(results) = paste(main,nm,sep=": ")
+  if(is.null(main)) {main <- "Confidence Interval for the Mean Difference"}
+  main <- paste(main,names(results),sep=": ")
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
@@ -80,10 +79,9 @@ estimateMeanDifferenceBy <- function(...,conf.level=.95,main=NULL,digits=3) {
 
 testMeanDifferenceBy <- function(...,mu=0,main=NULL,digits=3) {
   results <- .testMeanDifferenceBy(...,mu=mu)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Hypothesis Test for the Mean Difference"} 
-  names(results) = paste(main,nm,sep=": ")
+  main <-  paste(main,names(results),sep=": ")
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 

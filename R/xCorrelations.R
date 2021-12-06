@@ -54,8 +54,8 @@ fillCorrelations.default <- function(mat) {
 
 describeCorrelations <- function(...,main=NULL,digits=3) {
   results <- .describeCorrelations(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Correlation Matrix for the Variables"} else {names(results) <- main}  
+   if(is.null(main)) {main <- "Correlation Matrix for the Variables"}  
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }
 
@@ -82,8 +82,8 @@ describeCorrelations <- function(...,main=NULL,digits=3) {
 
 describeCovariances <- function(...,main=NULL,digits=3) {
   results <- .describeCovariances(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Covariance Matrix for the Variables"} else {names(results) <- main} 
+  if(is.null(main)) {main <- "Covariance Matrix for the Variables"} 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -125,9 +125,8 @@ describeCovariances <- function(...,main=NULL,digits=3) {
 
 estimateCorrelations <- function(...,main=NULL,digits=3) {
   results <- .estimateCorrelations(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Correlations"} else {main="Confidence Interval for the Correlation"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Correlations"} else {main <- "Confidence Interval for the Correlation"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 
@@ -166,9 +165,8 @@ estimateCorrelations <- function(...,main=NULL,digits=3) {
 
 testCorrelations <- function(...,main=NULL,digits=3) {
   results <- .testCorrelations(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Correlations"} else {main="Hypothesis Test for the Correlation"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Hypothesis Tests for the Correlations"} else {main <- "Hypothesis Test for the Correlation"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

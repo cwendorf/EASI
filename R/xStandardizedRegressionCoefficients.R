@@ -26,8 +26,8 @@
 
 estimateStandardizedRegressionCoefficients <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedRegressionCoefficients(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results) <- "Confidence Intervals for the Standardized Regression Coefficients"} else {names(results) <- main}  
+  if(is.null(main)) {main <- "Confidence Intervals for the Standardized Regression Coefficients"}  
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }
 
@@ -39,4 +39,3 @@ plotStandardizedRegressionCoefficients <- function(...,main=NULL,digits=3,ylab="
   results <- .unformatFrame(results[[1]][,c(1,3,4)])
  .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
 }
-

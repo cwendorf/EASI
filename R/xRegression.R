@@ -41,8 +41,9 @@
 
 estimateRegression <- function(...,value=NULL,conf.level=.95,main=NULL,digits=3) {
   results <- .estimateRegression(...,value=value,conf.level=conf.level)
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence and Prediction Intervals for the Regression Line"} else {main="Confidence and Prediction Intervals for the Regression Value"}} 
-  .formatList(list(results),main=main,digits=digits)  
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence and Prediction Intervals for the Regression Line"} else {main <- "Confidence and Prediction Intervals for the Regression Value"}} 
+  results <- .formatList(list(results),main=main,digits=digits)
+  return(results)
 }
 
 ### Confidence Interval Plots

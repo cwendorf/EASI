@@ -54,9 +54,8 @@
 
 estimateStandardizedMeans <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeans(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Standardized Means"} else {main="Confidence Interval for the Standardized Mean"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Standardized Means"} else {main <- "Confidence Interval for the Standardized Mean"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

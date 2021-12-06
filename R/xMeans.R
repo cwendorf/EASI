@@ -59,8 +59,8 @@
 
 describeMeans <- function(...,main=NULL,digits=3) {
   results <- .describeMeans(...)
-  results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Descriptive Statistics for the Data"} else {names(results) <- main}  
+  if(is.null(main)) {main <- "Descriptive Statistics for the Data"} 
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }
 
@@ -97,9 +97,8 @@ describeMeans <- function(...,main=NULL,digits=3) {
 
 estimateMeans <- function(...,main=NULL,digits=3) {
   results <- .estimateMeans(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Means"} else {main="Confidence Interval for the Mean"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Means"} else {main <- "Confidence Interval for the Mean"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 
@@ -133,9 +132,8 @@ estimateMeans <- function(...,main=NULL,digits=3) {
 
 testMeans <- function(...,main=NULL,digits=3) {
   results <- .testMeans(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Means"} else {main="Hypothesis Test for the Mean"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Hypothesis Tests for the Means"} else {main <- "Hypothesis Test for the Mean"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

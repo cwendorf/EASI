@@ -54,8 +54,8 @@
 
 estimateMeanDifference <- function(...,main=NULL,digits=3) {
   results <- .estimateMeanDifference(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results)="Confidence Interval for the Mean Difference"} else {names(results) <- main}
+  if(is.null(main)) {main <- "Confidence Interval for the Mean Difference"}
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -110,8 +110,8 @@ estimateMeanDifference <- function(...,main=NULL,digits=3) {
 
 testMeanDifference <- function(...,main=NULL,digits=3) {
   results <- .testMeanDifference(...)
-  results <- .formatList(list(results),digits=digits)  
-  if(is.null(main)) {names(results)="Hypothesis Test for the Mean Difference"} else {names(results) <- main}
+  if(is.null(main)) {main <- "Hypothesis Test for the Mean Difference"}
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }
 

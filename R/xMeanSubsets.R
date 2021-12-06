@@ -24,9 +24,8 @@
 
 estimateMeanSubsets <- function(...,main=NULL,digits=3) {
   results <- .estimateMeanSubsets(...)
-  rn <- names(results)
-  results <- .formatList(results,digits=digits)
-  names(results) <- rn
+  if(is.null(main)) {main <- names(results)} 
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
@@ -53,9 +52,8 @@ estimateMeanSubsets <- function(...,main=NULL,digits=3) {
 
 testMeanSubsets <- function(...,main=NULL,digits=3) {
   results <- .testMeanSubsets(...)
-  rn <- names(results)
-  results <- .formatList(results,digits=digits)
-  names(results) <- rn
+  if(is.null(main)) {main <- names(results)} 
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 

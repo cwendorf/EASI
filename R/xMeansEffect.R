@@ -49,8 +49,8 @@
 
 describeMeansEffect <- function(...,main=NULL,digits=3) {
   results <- .describeMeansEffect(...)
-  results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For"} else {names(results) <- main} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  results <- .formatList(list(results),main-main,digits=digits)  
   return(results)
 }
 
@@ -114,7 +114,7 @@ describeMeansEffect <- function(...,main=NULL,digits=3) {
 
 estimateMeansEffect <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansEffect(...)
-  results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For"} else {names(results) <- main} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }

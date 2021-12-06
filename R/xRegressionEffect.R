@@ -46,8 +46,8 @@
 
 describeRegressionEffect <- function(...,main=NULL,digits=3) {
   results <- .describeRegressionEffect(...)
-  results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Overall Fit of the Model"} else {names(results) <- main} 
+  if(is.null(main)) {main <- "Overall Fit of the Model"} 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -82,7 +82,7 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
 
 estimateRegressionEffect <- function(...,main=NULL,digits=3) {
   results <- .estimateRegressionEffect(...)
-  results <- .formatList(list(results),digits=digits)   
-  if(is.null(main)) {names(results) <- "Proportion of Variance Accounted For"} else {names(results) <- main} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }

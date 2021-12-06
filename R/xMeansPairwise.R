@@ -69,9 +69,8 @@
 
 estimateMeansPairwise <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansPairwise(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Pairwise Mean Comparisons"} else {main="Confidence Interval for the Pairwise Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Pairwise Mean Comparisons"} else {main <- "Confidence Interval for the Pairwise Mean Comparison"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 
@@ -141,9 +140,8 @@ estimateMeansPairwise <- function(...,main=NULL,digits=3) {
 
 testMeansPairwise <- function(...,main=NULL,digits=3) {
   results <- .testMeansPairwise(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Hypothesis Tests for the Pairwise Mean Comparisons"} else {main="Hypothesis Test for the Pairwise Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Hypothesis Tests for the Pairwise Mean Comparisons"} else {main <- "Hypothesis Test for the Pairwise Mean Comparison"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

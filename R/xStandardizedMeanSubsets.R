@@ -24,9 +24,8 @@
 
 estimateStandardizedMeanSubsets <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeanSubsets(...)
-  rn <- names(results)
-  results <- .formatList(results,digits=digits)
-  names(results) <- rn
+  if(is.null(main)) {main <- names(results)} 
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 

@@ -24,8 +24,7 @@
 estimateCorrelationDifference <- function(...,main=NULL,digits=3) {
   results <- .estimateCorrelationDifference(...)
   if(is.null(main)) {main="Confidence Interval for the Correlation Difference"}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main 
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

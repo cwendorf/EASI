@@ -80,9 +80,8 @@
 
 estimateStandardizedMeansPosthoc <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeansPosthoc(...)
-  if(is.null(main)) {if(nrow(results)>1) {main="Confidence Intervals for the Posthoc Standardized Mean Comparisons"} else {main="Confidence Interval for the Posthoc Standardized Mean Comparison"}}  
-  results <- .formatList(list(results),digits=digits)  
-  names(results) <- main
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Posthoc Standardized Mean Comparisons"} else {main <- "Confidence Interval for the Posthoc Standardized Mean Comparison"}}  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

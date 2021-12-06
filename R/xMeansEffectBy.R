@@ -37,10 +37,9 @@
 
 describeMeansEffectBy <- function(...,main=NULL,digits=3) {
   results <- .describeMeansEffectBy(...)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
-  names(results) = paste(main,nm,sep=": ")
+  main <- paste(main,names(results),sep=": ")
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
@@ -80,9 +79,8 @@ describeMeansEffectBy <- function(...,main=NULL,digits=3) {
 
 estimateMeansEffectBy <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansEffectBy(...)
-  nm = names(results)
-  results <- .formatList(results,digits=digits)
   if(is.null(main)) {main <- "Proportion of Variance Accounted For"}
-  names(results) = paste(main,nm,sep=": ")
+  main <- paste(main,names(results),sep=": ")
+  results <- .formatList(results,digits=digits)
   return(results)
 }
