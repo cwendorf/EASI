@@ -131,8 +131,8 @@ Prefix | Description
 
 - [`describeCorrelations`](./describeCorrelations.md)
 - [`estimateCorrelations`](./estimateCorrelations.md)
-- [`testCorrelations`](./testCorrelations.md)
 - [`plotCorrelations`](./plotCorrelations.md)
+- [`testCorrelations`](./testCorrelations.md)
 
 `CorrelationDifference` - Functions that examine the difference between correlations from two independent samples
 
@@ -154,14 +154,14 @@ Prefix | Description
 `RegressionCoefficients` - Functions that provide analyses of regression coefficients
 
 - [`estimateRegressionCoefficients`](./estimateRegressionCoefficients.md)
-- [`testRegressionCoefficients`](./testRegressionCoefficients.md)
 - [`plotRegressionCoefficients`](./plotRegressionCoefficients.md)
+- [`testRegressionCoefficients`](./testRegressionCoefficients.md)
 
 `RegressionCoefficients` - Functions that provide analyses of regression coefficients
 
 - [`estimateRegressionCoefficients`](./estimateRegressionCoefficients.md)
-- [`testRegressionCoefficients`](./testRegressionCoefficients.md)
 - [`plotRegressionCoefficients`](./plotRegressionCoefficients.md)
+- [`testRegressionCoefficients`](./testRegressionCoefficients.md)
 
 `StandardizedRegressionCoefficients` - Functions that provide analyses of standardized regression coefficients
 
