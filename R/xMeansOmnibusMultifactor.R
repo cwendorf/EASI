@@ -87,7 +87,6 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-
 ### Confidence Intervals
 
 .estimateMeansOmnibusMultifactor <- function(x,...) 
