@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-10-19"
+date: "2021-12-07"
 output:
   html_document:
     toc: true
@@ -53,32 +53,20 @@ class(PredictorSummary) <- "wss"
 CriterionSummary <- rbind(Criterion)
 ```
 
-### Analyses of the Overall Model Fit
+### Analyses of the Overall Model
 
-This section produces analyses of the overall fit of the model.
+This section produces analyses of the overall regression model.
 
 #### Confidence Interval
-
-This code will calculate R Squared and Adjusted R Squared for the regression model.
-
-```r
-describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
-```
-
-```
-## $`Overall Fit of the Model`
-##             R     RSq  AdjRSq
-## Model   0.421   0.177  -1.469
-```
 
 This code will produce the confidence interval for R Squared.
 
 ```r
-estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 ```
 
 ```
-## $`Proportion of Variance Accounted For by the Model`
+## $`Proportion of Variance Accounted For by the Regression Model`
 ##           Est      LL      UL
 ## Model   0.177   0.000   0.263
 ```
@@ -86,13 +74,13 @@ estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
 The code defaults to 90% confidence intervals. This can be changed if desired.
 
 ```r
-estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
 ```
 
 ```
-## $`Proportion of Variance Accounted For by the Model`
+## $`Proportion of Variance Accounted For by the Regression Model`
 ##           Est      LL      UL
-## Model   0.177   0.000   0.432
+## Model   0.177   0.000   0.431
 ```
 
 #### Significance Test
@@ -106,8 +94,8 @@ describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 ```
 ## $`Source Table for the Regression Model`
 ##            SS      df      MS
-## Model   3.185   2.000   1.592
-## Error  14.808   1.000  14.808
+## Model   3.183   2.000   1.591
+## Error  14.810   1.000  14.810
 ## Total  17.993   3.000   5.998
 ```
 
@@ -120,7 +108,7 @@ testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 ```
 ## $`Hypothesis Test for the Regression Model`
 ##             F     df1     df2       p
-## Model   0.108   2.000   1.000   0.907
+## Model   0.107   2.000   1.000   0.907
 ```
 
 ### Analyses of the Regression Coefficients

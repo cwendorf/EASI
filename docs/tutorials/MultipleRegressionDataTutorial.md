@@ -1,7 +1,7 @@
 ---
 title: "Estimation Approach to Statistical Inference"
 author: "Craig A. Wendorf"
-date: "2021-10-19"
+date: "2021-12-07"
 output:
   html_document:
     toc: true
@@ -46,38 +46,26 @@ describeMeans(Predictor1,Predictor2,Criterion)
 
 ```
 ## $`Descriptive Statistics for the Data`
-##                  N       M      SD
-## Predictor1   4.000   2.000   2.449
-## Predictor2   4.000   6.000   2.449
-## Criterion    4.000   7.000   2.449
+##                  N       M      SD    Skew    Kurt
+## Predictor1   4.000   2.000   2.449   0.544  -2.944
+## Predictor2   4.000   6.000   2.449   0.544  -2.944
+## Criterion    4.000   7.000   2.449  -0.544  -2.944
 ```
 
-### Analyses of the Overall Model Fit
+### Analyses of the Overall Model
 
-This section produces analyses of the overall fit of the model.
+This section produces analyses of the overall regression model.
 
 #### Confidence Interval
-
-This code will calculate R Squared and Adjusted R Squared for the regression model.
-
-```r
-describeRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
-```
-
-```
-## $`Overall Fit of the Model`
-##             R     RSq  AdjRSq
-## Model   0.421   0.177  -1.469
-```
 
 This code will produce the confidence interval for R Squared.
 
 ```r
-estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
+estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
 ```
 
 ```
-## $`Proportion of Variance Accounted For by the Model`
+## $`Proportion of Variance Accounted For by the Regression Model`
 ##           Est      LL      UL
 ## Model   0.177   0.000   0.263
 ```
@@ -85,11 +73,11 @@ estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
 The code defaults to 90% confidence intervals. This can be changed if desired.
 
 ```r
-estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
+estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
 ```
 
 ```
-## $`Proportion of Variance Accounted For by the Model`
+## $`Proportion of Variance Accounted For by the Regression Model`
 ##           Est      LL      UL
 ## Model   0.177   0.000   0.432
 ```
@@ -105,9 +93,9 @@ describeRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
 ```
 ## $`Source Table for the Regression Model`
 ##            SS      df      MS
-## Model   3.185   2.000   1.592
-## Error  14.808   1.000  14.808
-## Total  17.993   3.000   5.998
+## Model   3.185   2.000   1.593
+## Error  14.815   1.000  14.815
+## Total  18.000   3.000   6.000
 ```
 
 This code will calculate NHST for the regression model.
@@ -137,9 +125,9 @@ estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 ```
 ## $`Confidence Intervals for the Regression Coefficients`
 ##                 Est      SE      LL      UL
-## (Intercept)   4.481   5.868 -70.077  79.039
-## Predictor1   -0.185   1.048 -13.496  13.126
-## Predictor2    0.481   1.048 -12.830  13.792
+## (Intercept)   4.481   5.868 -70.076  79.039
+## Predictor1   -0.185   1.048 -13.496  13.125
+## Predictor2    0.481   1.048 -12.829  13.792
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
@@ -159,9 +147,9 @@ estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level
 ```
 ## $`Confidence Intervals for the Regression Coefficients`
 ##                 Est      SE       LL      UL
-## (Intercept)   4.481   5.868 -369.047 378.009
-## Predictor1   -0.185   1.048  -66.872  66.502
-## Predictor2    0.481   1.048  -66.206  67.168
+## (Intercept)   4.481   5.868 -369.042 378.005
+## Predictor1   -0.185   1.048  -66.870  66.499
+## Predictor2    0.481   1.048  -66.203  67.166
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
@@ -184,8 +172,8 @@ testRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 ## $`Hypothesis Tests for the Regression Coefficients`
 ##                 Est      SE       t       p
 ## (Intercept)   4.481   5.868   0.764   0.585
-## Predictor1   -0.185   1.048  -0.176   0.889
-## Predictor2    0.481   1.048   0.459   0.726
+## Predictor1   -0.185   1.048  -0.177   0.889
+## Predictor2    0.481   1.048   0.460   0.726
 ```
 
 #### Standardized Coefficients
@@ -199,8 +187,8 @@ estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterio
 ```
 ## $`Confidence Intervals for the Standardized Regression Coefficients`
 ##                Est      SE      LL      UL
-## Predictor1  -0.185   1.048 -13.496  13.126
-## Predictor2   0.481   1.048 -12.830  13.792
+## Predictor1  -0.185   1.048 -13.496  13.125
+## Predictor2   0.481   1.048 -12.829  13.792
 ```
 
 This code will produce a graph of the confidence intervals for each of the standardized coefficients.
@@ -220,8 +208,8 @@ estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterio
 ```
 ## $`Confidence Intervals for the Standardized Regression Coefficients`
 ##                Est      SE      LL      UL
-## Predictor1  -0.185   1.048 -66.872  66.502
-## Predictor2   0.481   1.048 -66.206  67.168
+## Predictor1  -0.185   1.048 -66.870  66.499
+## Predictor2   0.481   1.048 -66.203  67.166
 ```
 
 For the graph, it is possible to change the confidence level.

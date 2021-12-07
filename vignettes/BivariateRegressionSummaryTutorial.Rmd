@@ -52,25 +52,20 @@ class(PredictorSummary) <- "wss"
 CriterionSummary <- rbind(Criterion)
 ```
 
-### Analyses of Overall Model Fit
+### Analyses of Overall Model
 
-This section produces analyses of the overall fit of the model.
+This section produces analyses of the overall regression model.
 
 #### Confidence Interval
 
-This code will calculate R Squared and Adjusted R Squared for the regression model.
-```{r}
-describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
-```
-
 This code will produce the confidence interval for R Squared.
 ```{r}
-estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
 ```
 
 #### Significance Test
