@@ -17,13 +17,12 @@ RegressionData <- data.frame(Predictor1,Predictor2,Criterion)
 
 describeMeans(Predictor1,Predictor2,Criterion)
 
-### Analyses of the Overall Model Fit
+### Analyses of the Overall Model
 
 #### Confidence Interval
 
-describeRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
-estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
-estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
+estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
+estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
 
 #### Significance Test
 

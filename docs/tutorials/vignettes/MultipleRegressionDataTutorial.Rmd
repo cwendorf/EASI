@@ -47,25 +47,20 @@ This code obtains the descriptive statistics for the data frame.
 describeMeans(Predictor1,Predictor2,Criterion)
 ```
 
-### Analyses of the Overall Model Fit
+### Analyses of the Overall Model
 
-This section produces analyses of the overall fit of the model.
+This section produces analyses of the overall regression model.
 
 #### Confidence Interval
 
-This code will calculate R Squared and Adjusted R Squared for the regression model.
-```{r}
-describeRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
-```
-
 This code will produce the confidence interval for R Squared.
 ```{r}
-estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion)
+estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionEffect(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
+estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
 ```
 
 #### Significance Test

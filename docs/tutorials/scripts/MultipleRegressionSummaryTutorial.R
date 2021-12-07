@@ -22,13 +22,12 @@ PredictorSummary <- rbind(Predictor1,Predictor2)
 class(PredictorSummary) <- "wss"
 CriterionSummary <- rbind(Criterion)
 
-### Analyses of the Overall Model Fit
+### Analyses of the Overall Model
 
 #### Confidence Interval
 
-describeRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
-estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr)
-estimateRegressionEffect(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
 
 #### Significance Test
 

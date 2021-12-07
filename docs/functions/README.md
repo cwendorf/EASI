@@ -122,12 +122,8 @@ Prefix | Description
 `MeansOmnibus` - Functions that provide an analysis of variance
 
 - [`describeMeansOmnibus`](./describeMeansOmnibus.md)
+- [`estimateMeansOmnibus`](./estimateMeansOmnibus.md)
 - [`testMeansOmnibus`](./testMeansOmnibus.md)
-
-`MeansEffect` - Functions that obtain eta squared as an effect size
-
-- [`describeMeansEffect`](./describeMeansEffect.md)
-- [`estimateMeansEffect`](./estimateMeansEffect.md)
 
 #### Correlations and Correlation Differences
 
@@ -175,9 +171,5 @@ Prefix | Description
 `RegressionOmnibus` - Functions that provide an analysis of variance
 
 - [`describeRegressionOmnibus`](./describeRegressionOmnibus.md)
+- [`estimateRegressionOmnibus`](./estimateRegressionOmnibus.md)
 - [`testRegressionOmnibus`](./testRegressionOmnibus.md)
-
-`RegressionEffect` - Functions that obtain R squared as an effect size
-
-- [`describeRegressionEffect`](./describeRegressionEffect.md)
-- [`estimateRegressionEffect`](./estimateRegressionEffect.md)

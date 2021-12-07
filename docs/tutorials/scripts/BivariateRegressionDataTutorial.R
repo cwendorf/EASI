@@ -16,13 +16,12 @@ BivariateData <- data.frame(Predictor,Criterion)
 
 describeMeans(Predictor,Criterion)
 
-### Analyses of the Overall Model Fit
+### Analyses of the Overall Model
 
 #### Confidence Interval
 
-describeRegressionEffect(Predictor,Criterion)
-estimateRegressionEffect(Predictor,Criterion)
-estimateRegressionEffect(Predictor,Criterion,conf.level=.95)
+estimateRegressionOmnibus(Predictor,Criterion)
+estimateRegressionOmnibus(Predictor,Criterion,conf.level=.95)
 
 #### Significance Test
 
