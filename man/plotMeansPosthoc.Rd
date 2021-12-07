@@ -1,23 +1,23 @@
-% File man/plotMeansPairwise.Rd
+% File man/plotMeansPosthoc.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{plotMeansPairwise}
-\alias{plotMeansPairwise}
-\alias{plotMeansPairwise.default}
-\alias{plotMeansPairwise.formula}
-\alias{plotMeansPairwise.wss}
-\alias{plotMeansPairwise.bss}
-\title{Plot Means Pairwise}
-\description{Provides a plot of all unadjusted pairwise comparisons and their confidence intervals.}
+\name{plotMeansPosthoc}
+\alias{plotMeansPosthoc}
+\alias{plotMeansPosthoc.default}
+\alias{plotMeansPosthoc.formula}
+\alias{plotMeansPosthoc.wss}
+\alias{plotMeansPosthoc.bss}
+\title{Plot Means Posthoc}
+\description{Provides a plot of all Tukey HSD comparisons and their confidence intervals.}
 
 \usage{
-\method{plotMeansPairwise}{default}(\dots,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotMeansPosthoc}{default}(\dots,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
-\method{plotMeansPairwise}{formula}(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotMeansPosthoc}{formula}(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
-\method{plotMeansPairwise}{wss}(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotMeansPosthoc}{wss}(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
-\method{plotMeansPairwise}{bss}(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotMeansPosthoc}{bss}(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 }
 
 \arguments{

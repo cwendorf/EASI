@@ -26,6 +26,10 @@ Prefix | Description
 
 - [`plotData`](./plotData.md)
 
+`Frequencies` - Functions that provide frequency distributions for the groups or levels
+
+- [`describeFrequencies`](./describeFrequencies.md)
+
 `Density` - Functions that plot densities for the groups or levels
 
 - [`plotDensity`](./plotDensity.md)
@@ -33,6 +37,10 @@ Prefix | Description
 `Scatter` - Functions that create scatterplots
 
 - [`plotScatter`](./plotScatter.md)
+
+`Percentiles` - Functions that provide common percentiles for the groups or levels
+
+- [`describePercentiles`](./describePercentiles.md)
 
 `Boxes` - Functions that summarize and provide boxplots for the groups or levels
 
@@ -103,21 +111,32 @@ Prefix | Description
 - [`plotMeanCommplex`](./plotMeanComplex.md)
 - [`testMeanCommplex`](./testMeanComplex.md)
 
-`MeansPairwise` - Functions that examine all possible unadjusted pairwise comparisons among the group or levels means
+`MeansRelational` - Functions that provide both arelational (confidence) and relational (comparative) intervals 
+
+- [`estimateMeansRelational`](./estimateMeansRelational.md)
+- [`plotMeansRelational`](./plotMeansRelational.md)
+
+`MeansPairwise` - Functions that examine all possible unadjusted pairwise comparisons among the group or level means
 
 - [`estimateMeansPairwise`](./estimateMeansPairwise.md)
 - [`plotMeansPairwise`](./plotMeansPairwise.md)
 - [`testMeansPairwise`](./testMeansPairwise.md)
 
-`StandardizedMeansPairwise` - Functions that examine all possible unadjusted standardized pairwise comparisons among the group or levels means
+`StandardizedMeansPairwise` - Functions that examine all possible unadjusted standardized pairwise comparisons among the group or level means
 
 - [`estimateStandardizedMeansPairwise`](./estimateStandardizedMeansPairwise.md)
 - [`plotStandardizedMeansPairwise`](./plotStandardizedMeansPairwise.md)
 
-`MeansRelational` - Functions that provide both arelational (confidence) and relational (comparative) intervals 
+`MeansPosthoc` - Functions that examine all possible Tukey HSD comparisons among the group or level means
 
-- [`estimateMeansRelational`](./estimateMeansRelational.md)
-- [`plotMeansRelational`](./plotMeansRelational.md)
+- [`estimateMeansPosthoc`](./estimateMeansPosthoc.md)
+- [`plotMeansPosthoc`](./plotMeansPosthoc.md)
+- [`testMeansPosthoc`](./testMeansPosthoc.md)
+
+`StandardizedMeansPosthoc` - Functions that examine all possible standardized Tukey HSD comparisons among the group or level means
+
+- [`estimateStandardizedMeansPosthoc`](./estimateStandardizedMeansPosthoc.md)
+- [`plotStandardizedMeansPosthoc`](./plotStandardizedMeansPosthoc.md)
 
 `MeansOmnibus` - Functions that provide an analysis of variance
 

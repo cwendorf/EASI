@@ -1,23 +1,23 @@
-## Plot Means Pairwise
+## Plot Standardized Means Posthoc
 
 ### Description
 
-Provides a plot of all unadjusted pairwise comparisons and their confidence intervals.
+Provides a plot of the standardized effect sizes and their confidence intervals for all unadjusted Posthoc comparisons.
 
 ### Usage
 
 ```r
 ## Default S3 method
-plotMeansPairwise(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotStandardizedMeansPosthoc(...,ylab="Standardized Mean Difference",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'
-plotMeansPairwise(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotStandardizedMeansPosthoc(formula,ylab="Standardized Mean Difference",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'
-plotMeansPairwise(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotStandardizedMeansPosthoc(DescStats,ylab="Standardized Mean Difference",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'bss'
-plotMeansPairwise(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotStandardizedMeansPosthoc(DescStats,ylab="Standardized Mean Difference",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
 ```
 
 ### Arguments
@@ -29,7 +29,7 @@ Argument | Description
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```ylab``` | a label for the y-axis
 ```xlab``` | a label for the x-axis
-```mu``` | a number indicating the true/hypothesized value of the mean
+```mu``` | a number indicating the true/hypothesized value of the mean difference
 ```conf.level``` | confidence level of the interval
 ```rope``` | lower and upper values for a region of practical equivalence
 ```values``` | whether the points should be labeled with their values
@@ -43,8 +43,8 @@ The returned plot contains the following components:
 
 Value | Description
 :-- | :--
-```Diff``` | the differences between the pairs of means
-```LL``` | the lower limits of the confidence intervals for the differences
-```UL``` | the upper limits of the confidence intervals for the differences
+```d``` | the standardized mean differences
+```LL``` | the lower limits of the confidence intervals of the standardized mean differences
+```UL``` | the upper limits of the confidence intervals of the standardized mean differences
 ```mu``` | a horizontal line for the true/hypothesized value
 ```rope``` | a shaded region of practical equivalence

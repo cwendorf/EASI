@@ -1,23 +1,23 @@
-% File man/estimateMeansPairwise.Rd
+% File man/estimateMeansPosthoc.Rd
 % Part of the EASI package, https://cwendorf.github.io/EASI
 
-\name{estimateMeansPairwise}
-\alias{estimateMeansPairwise}
-\alias{estimateMeansPairwise.default}
-\alias{estimateMeansPairwise.formula}
-\alias{estimateMeansPairwise.wss}
-\alias{estimateMeansPairwise.bss}
-\title{Estimate Means Pairwise}
-\description{Provides a table of confidence intervals for all unadjusted pairwise comparisons.}
+\name{estimateMeansPosthoc}
+\alias{estimateMeansPosthoc}
+\alias{estimateMeansPosthoc.default}
+\alias{estimateMeansPosthoc.formula}
+\alias{estimateMeansPosthoc.wss}
+\alias{estimateMeansPosthoc.bss}
+\title{Estimate Means Posthoc}
+\description{Provides a table of confidence intervals for all Tukey HSD comparisons.}
 
 \usage{
-\method{estimateMeansPairwise}{default}(\dots,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPosthoc}{default}(\dots,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateMeansPairwise}{formula}(formula,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPosthoc}{formula}(formula,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateMeansPairwise}{wss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPosthoc}{wss}(DescStats,conf.level=.95,main=NULL,digits=3)
 
-\method{estimateMeansPairwise}{bss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPosthoc}{bss}(DescStats,conf.level=.95,main=NULL,digits=3)
 }
 
 \arguments{

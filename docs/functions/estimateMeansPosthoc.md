@@ -1,23 +1,23 @@
-## Estimate Means Pairwise
+## Estimate Means Posthoc
 
 ### Description
 
-Provides a table of confidence intervals for all unadjusted pairwise comparisons.
+Provides a table of confidence intervals for all Tukey HSD comparisons.
 
 ### Usage
 
 ```r
 ## Default S3 method
-estimateMeansPairwise(...,conf.level=.95,main=NULL,digits=3)
+estimateMeansPosthoc(...,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-estimateMeansPairwise(formula,conf.level=.95,main=NULL,digits=3)
+estimateMeansPosthoc(formula,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateMeansPairwise(DescStats,conf.level=.95,main=NULL,digits=3)
+estimateMeansPosthoc(DescStats,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-estimateMeansPairwise(DescStats,conf.level=.95,main=NULL,digits=3)
+estimateMeansPosthoc(DescStats,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
