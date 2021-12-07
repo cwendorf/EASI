@@ -26,7 +26,7 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
   results <- .describeMeansBy(...)
   if(is.null(main)) {main <- "Descriptive Statistics for the Data"} 
   main <- paste(main,names(results),sep=": ")
-  results <- .formatList(results,mmain=main,digits=digits)
+  results <- .formatList(results,=main,digits=digits)
   return(results)
 }
 
