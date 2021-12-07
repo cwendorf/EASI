@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-## Next Release
+## 4.6.211207
 
 - Added skewness and kurtosis to descriptives
 - Added frequency distribution tables and percentiles
