@@ -7,7 +7,15 @@
   UseMethod(".describeRegressionOmnibus")
 
 .describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats) {
-  R2 <- .describeRegressionEffect.wss(PredStats,CritStats,CorrStats)[,"RSq"]
+  rn <- rownames(PredStats)
+  PredCorr <- CorrStats[rn,rn]
+  DescStats <- rbind(PredStats,CritStats)
+  rn <- rownames(DescStats)
+  CorrStats <- CorrStats[rn,rn]
+  CorrStats <- CorrStats[,ncol(CorrStats)]
+  CorrStats <- head(CorrStats,-1)
+  R2 <- as.numeric(t(CorrStats)%*%solve(PredCorr)%*%CorrStats)
+  R <- sqrt(R2)
   df1 <- nrow(PredStats)
   df2 <- (CritStats[,"N"]-df1-1)
   vt <- CritStats[,"SD"]^2
