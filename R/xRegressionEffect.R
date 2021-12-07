@@ -62,13 +62,7 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
   df2 <- temptab["Error","df"]
   F <- temptab["Model","MS"]/temptab["Error","MS"]
   R2 <- temptab["Model","SS"]/temptab["Total","SS"]
-  delta.lower <- delta.upper <- numeric(length(R2))
-  delta.lower <- try(.ncpF(F,df1,df2,prob=(1+conf.level)/2),silent=TRUE)
-  delta.upper <- try(.ncpF(F,df1,df2,prob=(1-conf.level)/2),silent=TRUE)
-  if(is.character(delta.lower)) {delta.lower <- 0}
-  R2.lower <- delta.lower / (delta.lower + df1 + df2 + 1)
-  R2.upper <- delta.upper / (delta.upper + df1 + df2 + 1)
-  results <- cbind(Est=R2,LL=R2.lower,UL=R2.upper)
+  results <- .ciR2(F=F,df1=df1,df2=df2,R2=R2,conf.level=conf.level)
   rownames(results) <- "Model"
   return(results)
 }

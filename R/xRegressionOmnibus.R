@@ -37,6 +37,47 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
+### Confidence Intervals
+
+.ciR2 <- function(F,df1,df2,R2,conf.level) {
+  delta.lower <- delta.upper <- numeric(length(R2))
+  delta.lower <- try(.ncpF(F,df1,df2,prob=(1+conf.level)/2),silent=TRUE)
+  delta.upper <- try(.ncpF(F,df1,df2,prob=(1-conf.level)/2),silent=TRUE)
+  if(is.character(delta.lower)) {delta.lower <- 0}
+  R2.lower <- delta.lower / (delta.lower + df1 + df2 + 1)
+  R2.upper <- delta.upper / (delta.upper + df1 + df2 + 1)
+  results <- cbind(Est=R2,LL=R2.lower,UL=R2.upper)
+  results
+}
+
+.estimateRegressionOmnibus <- function(x,...) 
+  UseMethod(".estimateRegressionOmnibus")
+
+.estimateRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90) {
+  temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
+  df1 <- temptab["Model","df"]
+  df2 <- temptab["Error","df"]
+  F <- temptab["Model","MS"]/temptab["Error","MS"]
+  R2 <- temptab["Model","SS"]/temptab["Total","SS"]
+  results <- .ciR2(F=F,df1=df1,df2=df2,R2=R2,conf.level=conf.level)
+  rownames(results) <- "Model"
+  return(results)
+}
+
+.estimateRegressionOmnibus.default <- function(Predictors,Criterion,conf.level=.90) {
+  PredStats <- .describeMeans(Predictors)
+  CritStats <- .describeMeans(Criterion)
+  CorrStats <- .describeCorrelations(Predictors,Criterion)
+  .estimateRegressionOmnibus.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
+}
+
+estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
+  results <- .estimateRegressionOmnibus(...)
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  results <- .formatList(list(results),main=main,digits=digits)  
+  return(results)
+}
+
 ### Null Hypothesis Significance Tests
 
 .testRegressionOmnibus <- function(x,...) 
@@ -67,41 +108,5 @@ testRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .testRegressionOmnibus(...)
   if(is.null(main)) {main <- "Hypothesis Test"} 
   results <- .formatList(list(results),main=main,digits=digits) 
-  return(results)
-}
-
-### Confidence Intervals
-
-.estimateRegressionOmnibus <- function(x,...) 
-  UseMethod(".estimateRegressionOmnibus")
-
-.estimateRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90) {
-  temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
-  df1 <- temptab["Model","df"]
-  df2 <- temptab["Error","df"]
-  F <- temptab["Model","MS"]/temptab["Error","MS"]
-  R2 <- temptab["Model","SS"]/temptab["Total","SS"]
-  delta.lower <- delta.upper <- numeric(length(R2))
-  delta.lower <- try(.ncpF(F,df1,df2,prob=(1+conf.level)/2),silent=TRUE)
-  delta.upper <- try(.ncpF(F,df1,df2,prob=(1-conf.level)/2),silent=TRUE)
-  if(is.character(delta.lower)) {delta.lower <- 0}
-  R2.lower <- delta.lower / (delta.lower + df1 + df2 + 1)
-  R2.upper <- delta.upper / (delta.upper + df1 + df2 + 1)
-  results <- cbind(Est=R2,LL=R2.lower,UL=R2.upper)
-  rownames(results) <- "Model"
-  return(results)
-}
-
-.estimateRegressionOmnibus.default <- function(Predictors,Criterion,conf.level=.90) {
-  PredStats <- .describeMeans(Predictors)
-  CritStats <- .describeMeans(Criterion)
-  CorrStats <- .describeCorrelations(Predictors,Criterion)
-  .estimateRegressionOmnibus.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
-}
-
-estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
-  results <- .estimateRegressionOmnibus(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
-  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }

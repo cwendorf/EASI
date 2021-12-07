@@ -43,6 +43,48 @@ describeMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
+### Confidence Intervals
+
+.estimateMeansOmnibusBy <- function(x,...) 
+  UseMethod(".estimateMeansOmnibusBy")
+
+.estimateMeansOmnibusBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.90) {
+  results <- NULL
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeansOmnibus.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level)}
+  names(results) <- names(ListDescStats)  
+  class(results) <- NULL
+  return(results)
+}
+
+.estimateMeansOmnibusBy.bss <- function(ListDescStats,conf.level=.90) {
+  results <- NULL
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeansOmnibus.bss(ListDescStats[[i]],conf.level)}
+  names(results) <- names(ListDescStats)  
+  class(results) <- NULL
+  return(results)
+}
+
+.estimateMeansOmnibusBy.default <- function(...,by,conf.level=.90) {
+  ListDescStats <- .describeMeansBy(...,by=by)
+  ListCorrStats <- .describeCorrelationsBy(...,by=by)  
+  results <- .estimateMeansOmnibusBy.wss(ListDescStats,ListCorrStats,conf.level)
+  return(results)
+}
+
+.estimateMeansOmnibusBy.formula <- function(formula,by,conf.level=.90) {
+  ListDescStats <- .describeMeansBy(formula,by=by)
+  results <- .estimateMeansOmnibusBy.bss(ListDescStats,conf.level)
+  return(results)
+}
+
+estimateMeansOmnibustBy <- function(...,main=NULL,digits=3) {
+  results <- .estimateMeansOmnibusBy(...)
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"}
+  main <- paste(main,names(results),sep=": ")
+  results <- .formatList(results,digits=digits)
+  return(results)
+}
+
 ### Null Hypothesis Significance Tests
 
 .testMeansOmnibusBy <- function(x,...) 
