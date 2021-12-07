@@ -76,7 +76,7 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
 
 estimateRegressionEffect <- function(...,main=NULL,digits=3) {
   results <- .estimateRegressionEffect(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"} 
   results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }

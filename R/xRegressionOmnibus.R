@@ -40,7 +40,7 @@
 
 describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .describeRegressionOmnibus(...)
-  if(is.null(main)) {main <- "Source Table"}
+  if(is.null(main)) {main <- "Source Table for the Regression Model"}
   results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
@@ -81,7 +81,7 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
 
 estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .estimateRegressionOmnibus(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Regression Model"} 
   results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
@@ -114,7 +114,7 @@ estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
 
 testRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .testRegressionOmnibus(...)
-  if(is.null(main)) {main <- "Hypothesis Test"} 
+  if(is.null(main)) {main <- "Hypothesis Test for the Regression Model"} 
   results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
 }

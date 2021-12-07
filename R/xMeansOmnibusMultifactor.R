@@ -81,7 +81,7 @@
 
 describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .describeMeansOmnibusMultifactor(...)
-  if(is.null(main)) {main <- "Source Table"} 
+  if(is.null(main)) {main <- "Source Table for the Model"} 
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
@@ -140,7 +140,7 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
 
 estimateMeansEffectMultifactor <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansOmnibusMultifactor(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"} 
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
@@ -194,7 +194,7 @@ estimateMeansEffectMultifactor <- function(...,main=NULL,digits=3) {
 
 testMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibusMultifactor(...)
-  if(is.null(main)) {main <- "Hypothesis Tests"} 
+  if(is.null(main)) {main <- "Hypothesis Tests for the Model"} 
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)

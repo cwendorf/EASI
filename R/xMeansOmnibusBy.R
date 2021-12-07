@@ -37,7 +37,7 @@
 
 describeMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   results <- .describeMeansOmnibusBy(...)
-  if(is.null(main)) {main <- "Source Table"} 
+  if(is.null(main)) {main <- "Source Table for the Model"} 
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
@@ -79,7 +79,7 @@ describeMeansOmnibusBy <- function(...,main=NULL,digits=3) {
 
 estimateMeansOmnibustBy <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansOmnibusBy(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"}
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,digits=digits)
   return(results)
@@ -121,7 +121,7 @@ estimateMeansOmnibustBy <- function(...,main=NULL,digits=3) {
 
 testMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibusBy(...)
-  if(is.null(main)) {main <- "Hypothesis Test"}
+  if(is.null(main)) {main <- "Hypothesis Test for the Model"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
