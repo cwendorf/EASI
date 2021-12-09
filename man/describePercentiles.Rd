@@ -22,10 +22,10 @@
 }
 
 \value{
-The returned list contains one frame with the following components:    
-\item{0%}{the minimum values for the variables or groups}
-\item{25%}{the values of the 25th percentile for the variables or groups}
-\item{50%}{the values of the 50th percentile for the variables or groups}
-\item{75%}{the values of the 25th percentile for the variables or groups}
-\item{100%}{the maximum values for the variables or groups}
+The returned list contains one frame with the following components: 
+\item{0}{the minimum values for the variables or groups}
+\item{25}{the values of the 25th percentile for the variables or groups}
+\item{50}{the values of the 50th percentile for the variables or groups}
+\item{75}{the values of the 25th percentile for the variables or groups}
+\item{100}{the maximum values for the variables or groups}
 }
