@@ -3,7 +3,7 @@
 
 ### Main Effect Plot
 
-.cipMain <- function(results,main,ylab,xlab,line,rope,values,ylim,digits,connect,pch=16,slab=NULL,add=FALSE,points=TRUE,col="black") {
+.cipMain <- function(results,main,ylab,xlab,line,rope,values,ylim,digits,connect,pos=2,pch=16,slab=NULL,add=FALSE,points=TRUE,col="black") {
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   if(!add) {
     if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))}
@@ -17,9 +17,9 @@
   if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent(col,15),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
-    for (i in 1:nrow(results)) text(i,as.numeric(results[i,1]),results[i,1],cex=.8,pos=2,offset=.5,font=2,col=col)
-    for (i in 1:nrow(results)) text(i,as.numeric(results[i,2]),results[i,2],cex=.8,pos=2,offset=.5,col=col)  
-    for (i in 1:nrow(results)) text(i,as.numeric(results[i,3]),results[i,3],cex=.8,pos=2,offset=.5,col=col)}
+    for (i in 1:nrow(results)) text(i,as.numeric(results[i,1]),results[i,1],cex=.8,pos=pos,offset=.5,font=2,col=col)
+    for (i in 1:nrow(results)) text(i,as.numeric(results[i,2]),results[i,2],cex=.8,pos=pos,offset=.5,col=col)  
+    for (i in 1:nrow(results)) text(i,as.numeric(results[i,3]),results[i,3],cex=.8,pos=pos,offset=.5,col=col)}
 }
 
 ### Comparison Plot
