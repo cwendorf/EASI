@@ -57,7 +57,7 @@ describeBoxes <- function(...,main=NULL,digits=3) {
 plotBoxes <- function(x,...) 
   UseMethod("plotBoxes")
 
-plotBoxes.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.8,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3,pos=2) {
+plotBoxes.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3,pos=2) {
   data <- data.frame(...)
   if(is.null(ylim)) {
   z <- lapply(data,FUN=function(x) cbind(x=density(x)$x,y=density(x)$y))[[1]]
@@ -68,7 +68,7 @@ plotBoxes.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",yli
  .bp(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim,values=values,digits=digits,pos=pos,connect=TRUE,add=add,border=border,col=col,offset=offset,scale=scale)
 }
 
-plotBoxes.formula <- function(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.8,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3,pos=2) {
+plotBoxes.formula <- function(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3,pos=2) {
   group <- eval(formula[[3]])
   outcome <- eval(formula[[2]])
   if(is.null(ylim)) {
