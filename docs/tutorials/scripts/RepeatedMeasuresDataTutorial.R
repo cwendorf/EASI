@@ -13,12 +13,6 @@ Outcome2 <- c(4,7,4,9)
 Outcome3 <- c(9,6,4,9)
 RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
-#### Plot of the Data
-
-plotBoxes(Outcome1,Outcome2,Outcome3)
-plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE)
-plotData(Outcome1,Outcome2,Outcome3,add=TRUE)
-
 #### Descriptive Statistics
 
 describeMeans(Outcome1,Outcome2,Outcome3)

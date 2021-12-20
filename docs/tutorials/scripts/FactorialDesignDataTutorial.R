@@ -18,15 +18,6 @@ FactorialData <- data.frame(FactorA,FactorB,Outcome)
 FactorialDataB1 <- subset(FactorialData,FactorB=="B1")
 FactorialDataB2 <- subset(FactorialData,FactorB=="B2")
 
-#### Plot of the Data
-
-with(FactorialDataB1,plotBoxes(Outcome~FactorA))
-with(FactorialDataB1,plotDensity(Outcome~FactorA,add=TRUE))
-with(FactorialDataB1,plotData(Outcome~FactorA,add=TRUE))
-with(FactorialDataB2,plotBoxes(Outcome~FactorA))
-with(FactorialDataB2,plotDensity(Outcome~FactorA,add=TRUE))
-with(FactorialDataB2,plotData(Outcome~FactorA,add=TRUE))
-
 #### Descriptive Statistics
 
 with(FactorialDataB1,describeMeans(Outcome~FactorA))

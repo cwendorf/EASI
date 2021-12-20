@@ -38,15 +38,6 @@ Outcome <- c(0,0,3,5,4,7,4,9)
 OneSampleData <- data.frame(Outcome)
 ```
 
-#### Plot of the Data
-
-This code provides a boxplot, stacked data, and a density plot.
-```{r,OneSample-Boxes}
-plotBoxes(Outcome)
-plotDensity(Outcome,add=TRUE)
-plotData(Outcome,add=TRUE)
-```
-
 #### Descriptive Statistics
 
 This code obtains the descriptive statistics for the data frame.

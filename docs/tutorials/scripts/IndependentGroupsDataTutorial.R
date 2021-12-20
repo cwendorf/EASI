@@ -13,12 +13,6 @@ Outcome <- c(0,0,3,5,4,7,4,9)
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 IndependentData <- data.frame(Factor,Outcome)
 
-#### Plot of the Data
-
-plotBoxes(Outcome~Factor)
-plotDensity(Outcome~Factor,add=TRUE)
-plotData(Outcome~Factor,add=TRUE)
-
 #### Descriptive Statistics
 
 describeMeans(Outcome~Factor)

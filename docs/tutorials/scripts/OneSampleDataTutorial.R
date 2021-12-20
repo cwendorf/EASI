@@ -11,12 +11,6 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 Outcome <- c(0,0,3,5,4,7,4,9)
 OneSampleData <- data.frame(Outcome)
 
-#### Plot of the Data
-
-plotBoxes(Outcome)
-plotDensity(Outcome,add=TRUE)
-plotData(Outcome,add=TRUE)
-
 #### Descriptive Statistics
 
 describeMeans(Outcome)

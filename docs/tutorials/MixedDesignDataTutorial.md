@@ -45,26 +45,6 @@ MixedDataL1 <- subset(MixedData,Factor=="Level1")
 MixedDataL2 <- subset(MixedData,Factor=="Level2")
 ```
 
-#### Plot of the Data
-
-This code provides a boxplot, stacked data, and a density plot for each level.
-
-```r
-with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3))
-with(MixedDataL1,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
-```
-
-![](figures/Mixed-Boxes-1.png)<!-- -->
-
-```r
-with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3))
-with(MixedDataL2,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
-```
-
-![](figures/Mixed-Boxes-2.png)<!-- -->
-
 #### Descriptive Statistics
 
 This code obtains the descriptive statistics for the two data frames.

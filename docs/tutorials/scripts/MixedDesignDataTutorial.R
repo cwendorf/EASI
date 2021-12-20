@@ -18,15 +18,6 @@ MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 MixedDataL1 <- subset(MixedData,Factor=="Level1")
 MixedDataL2 <- subset(MixedData,Factor=="Level2")
 
-#### Plot of the Data
-
-with(MixedDataL1,plotBoxes(Outcome1,Outcome2,Outcome3))
-with(MixedDataL1,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL1,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL2,plotBoxes(Outcome1,Outcome2,Outcome3))
-with(MixedDataL2,plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE))
-with(MixedDataL2,plotData(Outcome1,Outcome2,Outcome3,add=TRUE))
-
 #### Descriptive Statistics
 
 with(MixedDataL1,describeMeans(Outcome1,Outcome2,Outcome3))

@@ -36,18 +36,6 @@ Outcome3 <- c(9,6,4,9)
 RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 ```
 
-#### Plot of the Data
-
-This code provides a boxplot, stacked data, and a density plot for each level.
-
-```r
-plotBoxes(Outcome1,Outcome2,Outcome3)
-plotDensity(Outcome1,Outcome2,Outcome3,add=TRUE)
-plotData(Outcome1,Outcome2,Outcome3,add=TRUE)
-```
-
-![](figures/Repeated-Boxes-1.png)<!-- -->
-
 #### Descriptive Statistics
 
 This code obtains the descriptive statistics for the data frame.

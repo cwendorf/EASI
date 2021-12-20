@@ -45,26 +45,6 @@ FactorialDataB1 <- subset(FactorialData,FactorB=="B1")
 FactorialDataB2 <- subset(FactorialData,FactorB=="B2")
 ```
 
-#### Plot of the Data
-
-This code provides a boxplot, stacked data, and a density plot for each level.
-
-```r
-with(FactorialDataB1,plotBoxes(Outcome~FactorA))
-with(FactorialDataB1,plotDensity(Outcome~FactorA,add=TRUE))
-with(FactorialDataB1,plotData(Outcome~FactorA,add=TRUE))
-```
-
-![](figures/Factorial-Boxes-1.png)<!-- -->
-
-```r
-with(FactorialDataB2,plotBoxes(Outcome~FactorA))
-with(FactorialDataB2,plotDensity(Outcome~FactorA,add=TRUE))
-with(FactorialDataB2,plotData(Outcome~FactorA,add=TRUE))
-```
-
-![](figures/Factorial-Boxes-2.png)<!-- -->
-
 #### Descriptive Statistics
 
 This code obtains the descriptive statistics for the two data frames.

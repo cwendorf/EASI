@@ -36,18 +36,6 @@ Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 IndependentData <- data.frame(Factor,Outcome)
 ```
 
-#### Plot of the Data
-
-This code provides a boxplot, stacked data, and a density plot for each level.
-
-```r
-plotBoxes(Outcome~Factor)
-plotDensity(Outcome~Factor,add=TRUE)
-plotData(Outcome~Factor,add=TRUE)
-```
-
-![](figures/Independent-Boxes-1.png)<!-- -->
-
 #### Descriptive Statistics
 
 This code obtains the descriptive statistics for the data frame.

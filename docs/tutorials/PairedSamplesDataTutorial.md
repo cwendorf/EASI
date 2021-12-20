@@ -35,18 +35,6 @@ Outcome2 <- c(4,7,4,9)
 PairedData <- data.frame(Outcome1,Outcome2)
 ```
 
-#### Plot of the Data
-
-This code provides a boxplot, stacked data, and a density plot for each level.
-
-```r
-plotBoxes(Outcome1,Outcome2)
-plotDensity(Outcome1,Outcome2,add=TRUE)
-plotData(Outcome1,Outcome2,add=TRUE)
-```
-
-![](figures/Paired-Boxes-1.png)<!-- -->
-
 #### Descriptive Statistics
 
 This code obtains the descriptive statistics for the data frame.
