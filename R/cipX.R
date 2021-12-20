@@ -11,20 +11,20 @@
     axis(1,1:nrow(results),row.names(results))}
   if(points) {
     points(results[,1],pch=pch,cex=1.5,col=col)
-    for (i in 1:nrow(results)) lines(x=c(i,i),y=c(results[,2][i],results[,3][i]),lwd=2,col=col)}
+    arrows(1:nrow(results),results[,2],1:nrow(results),results[,3],col=col,lwd=2,length=0)}
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1,col=col)}}
   if(!is.null(line)) {abline(h=line,lty=2,col=col)}
   if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent(col,15),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
-    for (i in 1:nrow(results)) text(i,as.numeric(results[i,1]),results[i,1],cex=.8,pos=pos,offset=.5,font=2,col=col)
-    for (i in 1:nrow(results)) text(i,as.numeric(results[i,2]),results[i,2],cex=.8,pos=pos,offset=.5,col=col)  
-    for (i in 1:nrow(results)) text(i,as.numeric(results[i,3]),results[i,3],cex=.8,pos=pos,offset=.5,col=col)}
+    text(1:nrow(results),as.numeric(results[,1]),results[,1],cex=.8,pos=pos,offset=.5,font=2,col=col)
+    text(1:nrow(results),as.numeric(results[,2]),results[,2],cex=.8,pos=pos,offset=.5,col=col)    
+    text(1:nrow(results),as.numeric(results[,3]),results[,3],cex=.8,pos=pos,offset=.5,col=col)}
 }
 
 ### Comparison Plot
 
-.cipComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect,pch=c(16,16,17),slab=NULL,add=FALSE,points=TRUE,col="black") {
+.cipComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect,pos=c(2,2,4),pch=c(16,16,17),slab=NULL,add=FALSE,points=TRUE,col="black") {
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
@@ -48,19 +48,15 @@
     mtext(slab,side=4,las=3,cex=1.15,line=3)}
   if(points) {
     points(c(1,2,3),graph[,1],pch=pch,cex=1.5,col=col)
-    for (i in 1:3) lines(x=c(i,i), y=c(graph[,2][i],graph[,3][i]),lwd=2,col=col)
-    arrows(1,graph[1,1],4.5,graph[1,1],code=3,length=0,lty=2,col=col)  
-    arrows(2,graph[2,1],4.5,graph[2,1],code=3,length=0,lty=2,col=col)}
+    arrows(1:3,graph[,2],1:3,graph[,3],col=col,lwd=2,length=0)
+    arrows(1:2,graph[1:2,1],4.5,graph[1:2,1],code=3,length=0,lty=2,col=col)}
   if(connect) {arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1,col=col)}
-  if(!is.null(rope)) {rect(2.6,graphrope[1],3.6,graphrope[2],col=.colorTransparent(col,15),border=NA)} 
+  if(!is.null(rope)) {rect(2.6,graphrope[1],3.6,graphrope[2],col=.colorTransparent("black",15),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
-    for (i in 1:2) text(i,graph[i,1],results[i,1],cex=.8,pos=2,offset=.5,font=2,col=col)
-    for (i in 1:2) text(i,graph[i,2],results[i,2],cex=.8,pos=2,offset=.5,col=col)  
-    for (i in 1:2) text(i,graph[i,3],results[i,3],cex=.8,pos=2,offset=.5,col=col)
-    text(3,graph[3,1],results[3,1],cex=.8,pos=4,offset=.5,font=2,col=col)
-    text(3,graph[3,2],results[3,2],cex=.8,pos=4,offset=.5,col=col)  
-    text(3,graph[3,3],results[3,3],cex=.8,pos=4,offset=.5,col=col)}
+    text(1:3,graph[,1],results[,1],cex=.8,pos=pos,offset=.5,font=2,col=col)
+    text(1:3,graph[,2],results[,2],cex=.8,pos=pos,offset=.5,col=col)  
+    text(1:3,graph[,3],results[,3],cex=.8,pos=pos,offset=.5,col=col)}
 }
 
 ### Interaction Plot
