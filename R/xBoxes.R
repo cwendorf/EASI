@@ -63,7 +63,7 @@ plotBoxes.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",yli
     ylim <- range(pretty(rm))}
   results <- .unformatFrame(describeBoxes(...,main=main,digits=digits)[[1]])
   if(is.null(main)) {if(nrow(results)>1) {main="Boxplots for the Variables"} else {main="Boxplot for the Variable"}}
- .bp(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim,values=values,digits=digits,pos=pos,connect=TRUE,add=add,col=col,offset=offset,scale=scale)
+ .bp(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim,values=values,digits=digits,pos=pos,connect=FALSE,add=add,col=col,offset=offset,scale=scale)
 }
 
 plotBoxes.formula <- function(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,col="black",values=TRUE,digits=3,pos=2) {
