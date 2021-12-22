@@ -6,7 +6,7 @@
 .cipMain <- function(results,main,ylab,xlab,line,rope,values,ylim,digits,connect,pos=2,pch=16,slab=NULL,add=FALSE,points=TRUE,col="black") {
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   if(!add) {
-    if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))}
+    if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5),ceiling(max(results)+.5))))}
     plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
     axis(1,1:nrow(results),row.names(results))}
   if(points) {
@@ -30,7 +30,7 @@
   graph[3,] <- results[3,]+results[1,1]
   graphrope <- rope+as.vector(results[1,1])
   if(!add) {
-    if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(graph[,2]-.4)),ceiling(max(graph[,3])+.4))))}
+    if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(graph[,2])-.5),ceiling(max(graph[,3])+.5))))}
     par(mar=c(5,5,5,5))  
     plot(NULL,xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylim,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.15,bty="n")
     axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
@@ -63,8 +63,8 @@
 
 .cipInter <- function(results,main,ylab,xlab,col) {
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
-  ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x["LL"])))))-1
-  ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x["UL"])))))+1
+  ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x["LL"])))))-.5
+  ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x["UL"])))))+.5
   ylimrange <- range(c(ylimmin,ylimmax))
   xlimrange <- c(.5,nrow(results[[1]])+.5)
   plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=xlimrange,ylim=ylimrange,ylab=ylab,xlab=xlab,cex.lab=1.15,main=main,bty="l")

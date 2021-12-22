@@ -1,5 +1,11 @@
 # Estimation Approach to Statistical Inference
 
+## Upcoming Release
+
+- Updated functions for exploratory data analyses
+- Implemented color vectorization for plots
+- Added and updated bean plots, raincloud plots, and violin plots
+
 ## 4.6.211207
 
 - Added skewness and kurtosis to descriptives

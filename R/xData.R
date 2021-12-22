@@ -12,9 +12,9 @@
 plotData <- function(x,...)
   UseMethod("plotData")
 
-plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.1,method="stack",jitter=.05,col="black",pch=16) {
+plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.12,method="stack",jitter=.05,col="black",pch=16) {
   data <- data.frame(...)
-  ylimrange <- range(pretty(c(floor(min(data-.4)),ceiling(max(data)+.4))))
+  ylimrange <- range(pretty(c(floor(min(data)-.5),ceiling(max(data)+.5))))
   xlimrange <- c(.5,ncol(data)+.5)
   mx <- ncol(data)+offset
   mn <- 1+offset
@@ -23,13 +23,13 @@ plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offs
   stripchart(data,add=add,xlim=xlimrange,ylim=ylimrange,at=mn:mx,vertical=TRUE,method=method,main=main,ylab=ylab,xlab=xlab,jitter=jitter,col=.colorTransparent(col,70),pch=pch,cex.lab=1.15)
 } 
 
-plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",offset=.1,method="stack",jitter=.05,col="black",pch=16,...) {
+plotData.formula <- function(formula,add=FALSE,main=NULL,ylab=NULL,xlab="",offset=.12,method="stack",jitter=.05,col="black",pch=16,...) {
   x <- eval(formula[[3]])
   adjustX <- as.numeric(x)+offset
   mn <- min(adjustX,na.rm=TRUE)
   mx <- max(adjustX,na.rm=TRUE)
   y <- eval(formula[[2]])
-  ylimrange <- range(pretty(c(floor(min(y-.4)),ceiling(max(y)+.4))))
+  ylimrange <- range(pretty(c(floor(min(y)-.5),ceiling(max(y)+.5))))
   xlimrange <- c(.5,nlevels(x)+.5)
   par(bty="l",xaxs="i",yaxs="i")
   if(is.null(main)) {main="Data for the Groups"}

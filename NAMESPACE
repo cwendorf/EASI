@@ -13,10 +13,23 @@ S3method(plotDensity,default)
 S3method(plotDensity,formula)
 export(plotDensity)
 
-### xPlausible
+### xBoxes
 
-export(plotIntervals)
-export(plotPlausible)
+S3method(.describeBoxes,default)
+S3method(.describeBoxes,formula)
+export(.describeBoxes)
+export(describeBoxes)
+
+S3method(plotBoxes,default)
+S3method(plotBoxes,formula)
+export(plotBoxes)
+
+### xEDA
+
+export(plotViolins)
+export(plotBeans)
+export(plotRainclouds)
+export(plotCombination)
 
 ### xFrequencies
 
@@ -32,16 +45,10 @@ S3method(.describePercentiles,formula)
 export(.describePercentiles)
 export(describePercentiles)
 
-### xBoxes
+### xPlausible
 
-S3method(.describeBoxes,default)
-S3method(.describeBoxes,formula)
-export(.describeBoxes)
-export(describeBoxes)
-
-S3method(plotBoxes,default)
-S3method(plotBoxes,formula)
-export(plotBoxes)
+export(plotIntervals)
+export(plotPlausible)
 
 ### xMeans
 

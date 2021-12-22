@@ -33,7 +33,7 @@ describeBoxes <- function(...,main=NULL,digits=3) {
 
 .bp <- function(results,main,ylab,xlab,ylim,values,digits,pos,connect,add,col,offset,scale) {
   if(!add) {
-    if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results-.4)),ceiling(max(results)+.4))))}
+    if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5),ceiling(max(results)+.5))))}
     plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
     axis(1,1:nrow(results),row.names(results))}
   rect(1:nrow(results)+offset-.03,results[,2],1:nrow(results)+offset+.03,results[,4],border=col,lwd=2,col=.colorTransparent(col,30))
@@ -58,9 +58,9 @@ plotBoxes <- function(x,...)
 plotBoxes.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,col="black",values=TRUE,digits=3,pos=2) {
   data <- data.frame(...)
   if(is.null(ylim)) {
-  z <- lapply(data,FUN=function(x) cbind(x=density(x)$x,y=density(x)$y))[[1]]
-  rm <- c(min(z[,1]),max(z[,1]))
-  ylim <- range(pretty(rm))}
+    z <- apply(data,2,density)
+    rm <- range(sapply(z,"[","x"))
+    ylim <- range(pretty(rm))}
   results <- .unformatFrame(describeBoxes(...,main=main,digits=digits)[[1]])
   if(is.null(main)) {if(nrow(results)>1) {main="Boxplots for the Variables"} else {main="Boxplot for the Variable"}}
  .bp(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim,values=values,digits=digits,pos=pos,connect=TRUE,add=add,col=col,offset=offset,scale=scale)
@@ -70,9 +70,9 @@ plotBoxes.formula <- function(formula,add=FALSE,main=NULL,ylab="Outcome",xlab=""
   group <- eval(formula[[3]])
   outcome <- eval(formula[[2]])
   if(is.null(ylim)) {
-  z <- tapply(outcome,group,FUN=function(x) cbind(x=density(x)$x,y=density(x)$y))[[1]]
-  rm <- c(min(z[,1]),max(z[,1]))
-  ylim <- range(pretty(rm))}
+    z <- tapply(outcome,group,density)
+    rm <- range(sapply(z,"[","x"))
+    ylim <- range(pretty(rm))}
   results <- .unformatFrame(describeBoxes(formula=formula,main=main,digits=digits)[[1]])
   if(is.null(main)) {if(nrow(results)>1) {main="Boxplots for the Groups"} else {main="Boxplot for the Group"}}  
  .bp(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim,values=values,digits=digits,pos=pos,connect=FALSE,add=add,col=col,offset=offset,scale=scale)
