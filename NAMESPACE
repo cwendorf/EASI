@@ -50,6 +50,10 @@ export(describePercentiles)
 export(plotIntervals)
 export(plotPlausible)
 
+### xDiamonds
+
+export(plotDiamonds)
+
 ### xMeans
 
 S3method(.describeMeans,default)
