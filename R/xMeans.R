@@ -140,7 +140,7 @@ testMeans <- function(...,main=NULL,digits=3) {
 ### Confidence Interval Plots
 
 plotMeans <- function(...,main=NULL,digits=3,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=16,col="black") {
-  results <- estimateMeans(...,mu=mu,main=main,digits=digits)
+  results <- estimateMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
   if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main=names(results)} 
   results <- .unformatFrame(results[[1]][,c(1,4,5)])
