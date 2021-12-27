@@ -3,7 +3,7 @@
 
 ### Density Plot
 
-.density <- function(dens,loc,type="right",offset=.1,scale=1,col="black") {
+.density <- function(dens,loc,type=NULL,offset=.1,scale=1,col="black") {
   y1 <- loc+(dens$y*scale)+offset
   y2 <- loc-(dens$y*scale)+offset
   if(type=="full") polygon(c(y1,rev(y2)),c(dens$x,rev(dens$x)),border=.colorTransparent(col,50),col=.colorTransparent(col,30))
