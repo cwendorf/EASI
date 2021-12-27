@@ -36,5 +36,5 @@ plotCorrelationComparison.list <- function(CorrEst1,CorrEst2,main=NULL,ylab="Cor
   results <- estimateCorrelationComparison(CorrEst1,CorrEst2,main=main,labels=labels,digits=digits)
   results <- rbind(.unformatFrame(results[[1]][,c(1,3,4)]),.unformatFrame(results[[2]][,c(1,2,3)]))
   if(is.null(main)) {main="Confidence Intervals for the \n Correlation Comparison"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,slab="Correlation Difference",col=col)
+  .intervalsComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=TRUE,slab="Correlation Difference",col=col)
 }

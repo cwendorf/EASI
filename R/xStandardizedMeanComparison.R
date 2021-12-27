@@ -32,5 +32,5 @@ plotStandardizedMeanComparison <- function(...,main=NULL,ylab="Standardized Mean
   results <- rbind(.unformatFrame(results[[1]][,c(1,3,4)]),.unformatFrame(results[[2]][,c(1,3,4)]))
   if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main="Confidence Intervals for the Standardized Mean Comparison"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,slab="Standardized Mean Difference",pch=pch,col=col)
+  .intervalsComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,slab="Standardized Mean Difference",pch=pch,col=col)
 }

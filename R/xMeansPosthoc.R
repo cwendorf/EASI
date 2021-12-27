@@ -159,5 +159,5 @@ plotMeansPosthoc <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab=
   results <- estimateMeansPosthoc(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
   if(is.null(main)) {main=names(results)} 
   results <- .unformatFrame(results[[1]][,c(1,4,5)])
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
+ .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
 }

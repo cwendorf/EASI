@@ -103,5 +103,5 @@ plotRegressionCoefficients <- function(...,intercept=TRUE,main=NULL,digits=3,yla
   if(is.null(main)) {main=names(results)} 
   results <- .unformatFrame(results[[1]][,c(1,3,4)])
   if(intercept=="FALSE") {results <- tail(results,-1)}  
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
+ .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
 }

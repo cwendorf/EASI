@@ -62,5 +62,5 @@ plotMeanComplex <- function(...,contrast1,contrast2,main=NULL,ylab="Mean Contras
   results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
   if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main="Confidence Intervals for the Mean Contrasts"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab="Mean Difference",pch=pch,col=col)
+  .intervalsComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,slab="Mean Difference",pch=pch,col=col)
 }

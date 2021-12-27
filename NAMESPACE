@@ -45,13 +45,19 @@ S3method(.describePercentiles,formula)
 export(.describePercentiles)
 export(describePercentiles)
 
+### xIntervals
+
+S3method(plotIntervals,list)
+export(plotIntervals)
+
 ### xPlausible
 
-export(plotIntervals)
+S3method(plotPlausible,list)
 export(plotPlausible)
 
 ### xDiamonds
 
+S3method(plotDiamonds,list)
 export(plotDiamonds)
 
 ### xMeans

@@ -76,5 +76,5 @@ plotStandardizedMeanContrast <- function(...,main=NULL,digits=3,ylab="Standardiz
   if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main=names(results)} 
   results <- .unformatFrame(results[[1]][,c(1,3,4)])
- .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,add=add,pch=pch,col=col)
+ .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,add=add,pch=pch,col=col)
 }

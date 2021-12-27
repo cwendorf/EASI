@@ -36,5 +36,5 @@ plotStandardizedMeanSubsets <- function(...,contrast,main=NULL,ylab="Standardize
   results <- rbind(.unformatFrame(results[[1]][,c(1,3,4)]),.unformatFrame(results[[2]][,c(1,3,4)]))
   if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main="Confidence Intervals for the Standardized Mean Subsets"}
-  .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,slab="Standardized Mean Difference",connect=FALSE,pch=pch,col=col)
+  .intervalsComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,slab="Standardized Mean Difference",connect=FALSE,pch=pch,col=col)
 }

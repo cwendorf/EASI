@@ -93,7 +93,7 @@ plotMeanDifferenceBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,li
   for (i in 1:nlevels(by)) {
     title <- names(results[i])
     temp <- .unformatFrame(results[[i]][,c(1,4,5)])
-    .cipMain(results=temp,main=title,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,add=add,pch=pch,col=col)
+    .intervalsMain(results=temp,main=title,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,add=add,pch=pch,col=col)
     par(ask=TRUE)
   }
   par(ask=FALSE) 

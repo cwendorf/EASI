@@ -36,5 +36,5 @@ plotCorrelationDifference <- function(x,...)
 plotCorrelationDifference.list <- function(CorrEst1,CorrEst2,main=NULL,line=NULL,rope=NULL,ylab="Correlation",xlab="",values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
   results <- .unformatFrame(estimateCorrelationDifference(CorrEst1,CorrEst2)[[1]][,c(1,2,3)])
   if(is.null(main)) {main="Confidence Interval for the \n Correlation Difference"}
-  .cipMain(results,main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
+  .intervalsMain(results,main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
 }

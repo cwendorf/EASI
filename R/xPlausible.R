@@ -29,21 +29,3 @@ plotPlausible.list <- function(results,conf.level=.95,add=TRUE,main="Plausibilit
     invisible(mapply(.density,z,loc=1:nrow(results),type=type,offset=offset,scale=1,col=col))
   }
 }
-
-### Intervals Plot
-
-plotIntervals <- function(x,...) 
-  UseMethod("plotIntervals")
-
-plotIntervals.list <- function(results,main=NULL,ylab="Outcome",xlab="",line=NULL,rope=NULL,values=TRUE,ylim=NULL,add=FALSE,digits=3,col="black") {
-  if(length(results)==1) {
-    if(is.null(main)) main=names(results[1])
-    results=.unformatFrame(.deList(results)[,c(1,4,5)])
-    .cipMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=16,col=col)
-    }
-  if(length(results)==2) {
-    if(is.null(main)) main=names(results[2])
-    results=.unformatFrame(.deList(results)[,c(1,4,5)])
-    .cipComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,slab="Difference",col=col)
-    }
-}

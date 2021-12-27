@@ -61,6 +61,6 @@ plotMeansRelational <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",c
   if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main=names(results)} 
   results <- .unformatFrame(results[[1]])
-  if(!add) {.cipMain(results[,c(1,2,3)],main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect)}
+  if(!add) {.intervalsMain(results[,c(1,2,3)],main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect)}
   for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=border)
 }

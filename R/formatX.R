@@ -4,23 +4,23 @@
 ### Frames
 
 .formatFrame <- function(results,digits=3) {
-    format(as.data.frame(round(results,digits=digits)),width=7,trim=T,nsmall=digits)
+  format(as.data.frame(round(results,digits=digits)),width=7,trim=T,nsmall=digits)
 }
 
 .unformatFrame <- function(results) {
-    apply(results,c(1,2),FUN=as.numeric)
+  apply(results,c(1,2),FUN=as.numeric)
 }
 
 ### Lists
 
 .formatList <- function(results,main=NULL,digits=3) {
-    results <- lapply(results,.formatFrame,digits)
-    names(results) <- main
-    results
+  results <- lapply(results,.formatFrame,digits)
+  names(results) <- main
+  results
 }
 
 .unformatList <- function(results) {
-    lapply(results,.unformatFrame)
+  lapply(results,.unformatFrame)
 }
 
 .deList <- function(results) {
@@ -29,13 +29,13 @@
   if(length(results)>1) {
     for (i in 2:length(results)) {
       colnames(results[[i]])[1]="Est"
-      out=rbind(out,results[[i]])}}
+      out <- rbind(out,results[[i]])}}
   return(out)
 }
 
 .collapseList <- function(results,main=NULL) {
   if(is.null(main)) {main=names(results)[1]} else {main=main}
-  out=list(.deList(results))
+  out <- list(.deList(results))
   names(out) <- main   
   return(out)
 }
