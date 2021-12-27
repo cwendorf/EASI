@@ -57,6 +57,7 @@ export(plotPlausible)
 
 ### xDiamonds
 
+S3Method(plotDiamonds,default)
 S3method(plotDiamonds,list)
 export(plotDiamonds)
 
