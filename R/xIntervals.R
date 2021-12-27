@@ -9,8 +9,8 @@
     points(results[,1],pch=pch,cex=1.5,col=col)
     arrows(1:nrow(results),results[,2],1:nrow(results),results[,3],col=col,lwd=2,length=0)}
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i,results[i,1],i+1,results[i+1,1],code=3,length=0,lty=1,col=col)}}
-  if(!is.null(line)) {abline(h=line,lty=2,col=col)}
-  if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent(col,15),border=NA)} 
+  if(!is.null(line)) {abline(h=line,lty=2,col="black")}
+  if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent("black",15),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
     text(1:nrow(results),as.numeric(results[,1]),results[,1],cex=.8,pos=pos,offset=.5,font=2,col=col)
