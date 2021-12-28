@@ -63,7 +63,7 @@ plotIntervals.list <- function(results,main=NULL,ylab="Outcome",xlab="",line=NUL
     results <- .unformatFrame(.deList(results)[,c(1,4,5)])
     .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=16,col=col)
     }
-  if(length(results)==2) {
+  if(length(results) == 2 && nrow(results[[1]] != nrow(results[[2]]))) {
     if(is.null(main)) main=names(results[2])
     results <- .unformatFrame(.deList(results)[,c(1,4,5)])
     .intervalsComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,slab="Difference",col=col)
