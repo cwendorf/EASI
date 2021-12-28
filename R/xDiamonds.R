@@ -35,7 +35,7 @@ plotDiamonds.list <- function(results,mu=0,conf.level=.95,add=FALSE,main=NULL,yl
     z <- asplit(results,1)
     invisible(mapply(.diamond,z,loc=1:nrow(results),col=col,hw=hw))
   }
-  if(length(results)==2) {
+  if(length(results) == 2 && nrow(results[[1]] != nrow(results[[2]]))) {
     if(is.null(main)) main=names(results[2])
     graph <- .unformatFrame(.deList(results))[,c("Est","LL","UL")]
     graph[3,1] <- graph[3,1]+graph[1,1]
