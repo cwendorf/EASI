@@ -12,6 +12,17 @@
 plotPlausible <- function(x,...) 
   UseMethod("plotPlausible")
 
+plotPlausible.default <- function(...,mu=0,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,line=NULL,rope=NULL,digits=3,type="right",offset=0,scale=1,col="black") {
+  results <- estimateMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
+  if(is.null(main)) {main=names(results)} 
+  results <- .unformatFrame(.deList(results))
+  if(!add) .plotMain(results[,c(1,4,5)],main=main,ylab=ylab,xlab=xlab,ylim=ylim)
+  if(!is.null(line)) {abline(h=line,lty=2,col="black")}
+  if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent("black",15),border=NA)} 
+  z <- apply(results,1,FUN=.plausible)
+  invisible(mapply(.density,z,loc=1:nrow(results),type=type,offset=offset,scale=1,col=col))
+}
+
 plotPlausible.list <- function(results,conf.level=.95,add=TRUE,main="Plausibility Plots",ylab="Outcome",xlab="",slab="Difference",ylim=NULL,type="right",offset=0,scale=1,col="black") {
   if(length(results)==1) {
     results <- .unformatFrame(.deList(results))

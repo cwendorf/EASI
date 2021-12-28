@@ -47,11 +47,13 @@ export(describePercentiles)
 
 ### xIntervals
 
+S3Method(plotIntervals,default)
 S3method(plotIntervals,list)
 export(plotIntervals)
 
 ### xPlausible
 
+S3Method(plotPlausible,default)
 S3method(plotPlausible,list)
 export(plotPlausible)
 
