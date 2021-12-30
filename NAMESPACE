@@ -24,13 +24,6 @@ S3method(plotBoxes,default)
 S3method(plotBoxes,formula)
 export(plotBoxes)
 
-### xEDA
-
-export(plotViolins)
-export(plotBeans)
-export(plotRainclouds)
-export(plotCombination)
-
 ### xFrequencies
 
 S3method(.describeFrequencies,default)
@@ -38,12 +31,23 @@ S3method(.describeFrequencies,formula)
 export(.describeFrequencies)
 export(describeFrequencies)
 
+S3method(plotFrequencies,default)
+S3method(plotFrequencies,formula)
+export(plotBoxes)
+
 ### xPercentiles
 
 S3method(.describePercentiles,default)
 S3method(.describePercentiles,formula)
 export(.describePercentiles)
 export(describePercentiles)
+
+### xEDA
+
+export(plotViolins)
+export(plotBeans)
+export(plotRainclouds)
+export(plotCombination)
 
 ### xIntervals
 

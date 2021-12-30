@@ -3,8 +3,8 @@
 ## Upcoming Release
 
 - Updated functions for exploratory data analyses
+- Added and updated frequency plots, bean plots, raincloud plots, and violin plots
 - Implemented color vectorization for plots
-- Added and updated bean plots, raincloud plots, and violin plots
 
 ## 4.6.211207
 

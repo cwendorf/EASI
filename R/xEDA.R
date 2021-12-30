@@ -27,4 +27,5 @@ plotCombination <- function(...,main=NULL,col="black") {
   plotBoxes(...,main=main,col=col)
   plotDensity(...,add=TRUE,offset=.1,col=col)
   plotData(...,add=TRUE,offset=.12,col=col)
+  plotFrequencies(...,add=TRUE,offset=.1,col=col)
 }
