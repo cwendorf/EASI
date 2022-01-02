@@ -3,14 +3,6 @@
 
 ### Density Plot
 
-.density <- function(dens,loc,type=NULL,offset=.1,scale=1,col="black") {
-  y1 <- loc+(dens$y*scale)+offset
-  y2 <- loc-(dens$y*scale)+offset
-  if(type=="full") polygon(c(y1,rev(y2)),c(dens$x,rev(dens$x)),border=.colorTransparent(col,50),col=.colorTransparent(col,30))
-  if(type=="right") polygon(c(y1,seq(from=loc+offset,to=loc+offset,length.out=length(y1))),c(dens$x,rev(dens$x)),border=.colorTransparent(col,50),col=.colorTransparent(col,30))
-  if(type=="left") polygon(c(y2,seq(from=loc+offset,to=loc+offset,length.out=length(y2))),c(dens$x,rev(dens$x)),border=.colorTransparent(col,50),col=.colorTransparent(col,30))
-}
-
 plotDensity <- function(x,...) 
   UseMethod("plotDensity")
 
@@ -26,7 +18,7 @@ plotDensity.default <- function(...,type="right",add=FALSE,main=NULL,ylab="Outco
     ylim <- range(pretty(rm))}
   plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,nvars+.5),ylim=ylim,cex.lab=1.15)
   axis(1,1:nvars,vars)}
-  invisible(mapply(.density,z,loc=1:nvars,type=type,offset=offset,scale=scale,col=col))
+  invisible(mapply(.plotCurve,z,loc=1:nvars,type=type,offset=offset,scale=scale,col=col))
 } 
 
 plotDensity.formula <- function(formula,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,scale=1,col="black") {
@@ -43,5 +35,5 @@ plotDensity.formula <- function(formula,type="right",add=FALSE,main=NULL,ylab="O
     ylim <- range(pretty(rm))}
   plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.5,ngroups+.5),ylim=ylim,cex.lab=1.15)
   axis(1,1:ngroups,groups)}
-  invisible(mapply(.density,z,loc=1:ngroups,type=type,offset=offset,scale=scale,col=col))
+  invisible(mapply(.plotCurve,z,loc=1:ngroups,type=type,offset=offset,scale=scale,col=col))
 }

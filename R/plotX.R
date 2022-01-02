@@ -31,3 +31,13 @@
   axis(4,at=loc,labels=val,las=1)
   mtext(slab,side=4,las=3,cex=1.15,line=3)
 }
+
+### Plot Shapes
+
+.plotCurve <- function(dens,loc,type=NULL,offset=.1,scale=1,col="black") {
+  y1 <- loc+(dens$y*scale)+offset
+  y2 <- loc-(dens$y*scale)+offset
+  if(type=="full") polygon(c(y1,rev(y2)),c(dens$x,rev(dens$x)),border=.colorTransparent(col,50),col=.colorTransparent(col,30))
+  if(type=="right") polygon(c(y1,seq(from=loc+offset,to=loc+offset,length.out=length(y1))),c(dens$x,rev(dens$x)),border=.colorTransparent(col,50),col=.colorTransparent(col,30))
+  if(type=="left") polygon(c(y2,seq(from=loc+offset,to=loc+offset,length.out=length(y2))),c(dens$x,rev(dens$x)),border=.colorTransparent(col,50),col=.colorTransparent(col,30))
+}
