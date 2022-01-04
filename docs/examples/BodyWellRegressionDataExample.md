@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Regression Example with BodyWell Data}
+  %\VignetteIndexEntry{BodyWell Regression Data Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Regression Example with BodyWell Data
+## BodyWell Regression Data Example
 
 ### Data Management
 

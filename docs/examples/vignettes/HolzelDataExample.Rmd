@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Mixed Design Example with Holzel Data}
+  %\VignetteIndexEntry{Holzel Data Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 library(EASI)
 ```
 
-## Mixed Design Example with Holzel Data
+## Holzel Data Example
 
 ### Data Management
 

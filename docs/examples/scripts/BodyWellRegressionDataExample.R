@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Regresion Example with BodyWell Data
+## BodyWell Regression Data Example
 
 ### Data Management
 

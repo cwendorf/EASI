@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Factorial Between-Subjects Example with Frenda Summary Statistics
+## Frenda Summary Statistics Example
 
 ### Data Management
 

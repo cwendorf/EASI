@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{One Sample Tutorial with Data}
+  %\VignetteIndexEntry{One Sample Data Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## One Sample Tutorial with Data
+## One Sample Data Tutorial
 
 ### Data Management
 

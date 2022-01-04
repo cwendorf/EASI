@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Repeated Measures (Within-Subjects) Tutorial with Summary Statistics
+## Repeated Measures (Within-Subjects) Summary Statistics Tutorial
 
 ### Data Management
 

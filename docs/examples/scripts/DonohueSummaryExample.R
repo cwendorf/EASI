@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Repeated Measures (Within-Subjects) Example with Donohue Summary Statistics
+## Donohue Summary Statistics Example
 
 ### Data Management
 

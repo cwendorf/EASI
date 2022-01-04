@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## One Correlation Tutorial with Summary Statistics
+## One Correlation Summary Statistics Tutorial
 
 ### Data Management
 

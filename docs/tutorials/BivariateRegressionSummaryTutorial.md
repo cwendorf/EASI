@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Bivariate Regression Tutorial with Summary Statistics}
+  %\VignetteIndexEntry{Bivariate Regression Summary Statistics Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Bivariate Regression Tutorial with Summary Statistics
+## Bivariate Regression Summary Statistics Tutorial
 
 ### Data Management
 

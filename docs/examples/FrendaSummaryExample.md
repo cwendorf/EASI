@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Factorial Between-Subjects Example with Frenda Summary Statistics}
+  %\VignetteIndexEntry{Frenda Summary Statistics Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Factorial Between-Subjects Example with Frenda Summary Statistics
+## Frenda Summary Statistics Example
 
 ### Data Management
 

@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Mixed Design Tutorial with Data
+## Mixed Design Data Tutorial
 
 ### Data Management
 

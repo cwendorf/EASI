@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## One Sample Tutorial with Summary Statistics
+## One Sample Summary Statistics Tutorial
 
 ### Data Management
 

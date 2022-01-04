@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Factorial (Between-Subjects) Design Tutorial with Data}
+  %\VignetteIndexEntry{Factorial (Between-Subjects) Data Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Factorial (Between-Subjects) Design Tutorial with Data
+## Factorial (Between-Subjects) Data Tutorial
 
 ### Data Management
 

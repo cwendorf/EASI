@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Multiple Regression Tutorial with Summary Statistics
+## Multiple Regression Summary Statistics Tutorial
 
 ### Data Management
 

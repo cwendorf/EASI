@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Factorial (Between-Subjects) Design Tutorial with Summary Statistics
+## Factorial (Between-Subjects) Summary Statistics Tutorial
 
 ### Data Management
 

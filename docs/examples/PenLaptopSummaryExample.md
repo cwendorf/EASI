@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Indendent Groups Example with PenLaptop Summary Statistics}
+  %\VignetteIndexEntry{PenLaptop Summary Statistics Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Independent Groups Example with PenLaptop Summary Statistics
+## PenLaptop Summary Statistics Example
 
 ### PenLaptop1 Sample
 

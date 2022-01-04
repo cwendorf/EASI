@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Paired Samples Tutorial with Data
+## Paired Samples Data Tutorial
 
 ### Data Management
 

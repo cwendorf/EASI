@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{OneWay (Between-Subjects) Example with Rattan Summary Statistics}
+  %\VignetteIndexEntry{Rattan Summary Statistics Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## OneWay (Between-Subjects) Example with Rattan Summary Statistics
+## Rattan Summary Statistics Example
 
 ### Data Management
 

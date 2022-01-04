@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## OneWay (Between-Subjects) Example with Rattan Data
+## Rattan Data Example
 
 ### Data Management
 

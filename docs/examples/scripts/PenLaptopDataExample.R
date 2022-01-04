@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Independent Groups Example with PenLaptop Data
+## PenLaptop Data Example
 
 ### PenLaptop1 Sample
 

@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Independent Groups Tutorial with Data
+## Independent Groups Data Tutorial
 
 ### Data Management
 

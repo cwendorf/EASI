@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Paired Samples Example with Thomason Summary Statistics}
+  %\VignetteIndexEntry{Thomason Summary Statistics Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Paired Samples Example with Thomason Summary Statistics
+## Thomason Summary Statistics Example
 
 ### Thomason1 Sample
 

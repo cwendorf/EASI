@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## OneWay (Between-Subjects) Tutorial with Summary Statistics
+## OneWay (Between-Subjects) Summary Statistics Tutorial
 
 ### Data Management
 

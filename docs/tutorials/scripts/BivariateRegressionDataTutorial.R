@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Bivariate Regression Tutorial with Data
+## Bivariate Regression Data Tutorial
 
 ### Data Management
 

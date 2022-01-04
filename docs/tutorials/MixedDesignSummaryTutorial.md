@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Mixed Design Tutorial with Summary Statistics}
+  %\VignetteIndexEntry{Mixed Design Summary Statistics Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Mixed Design Tutorial with Summary Statistics
+## Mixed Design Summary Statistics Tutorial
 
 ### Data Management
 

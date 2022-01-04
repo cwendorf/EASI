@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Example with Donohue Data}
+  %\VignetteIndexEntry{Donohue Data Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Repeated Measures (Within-Subjects) Example with Donohue Data
+## Donohue Data Example
 
 ### Data Management
 

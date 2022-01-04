@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Mixed Design Correlations Tutorial with Data
+## Mixed Design Correlations Data Tutorial
 
 ### Data Management
 

@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Multiple Regression Tutorial with Summary Statistics}
+  %\VignetteIndexEntry{Multiple Regression Summary Statistics Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Multiple Regression Tutorial with Summary Statistics
+## Multiple Regression Summary Statistics Tutorial
 
 ### Data Management
 

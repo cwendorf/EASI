@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{OneWay (Between-Subjects) Example with Rattan Data}
+  %\VignetteIndexEntry{Rattan Data Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## OneWay (Between-Subjects) Example with Rattan Data
+## Rattan Data Example
 
 ### Data Management
 

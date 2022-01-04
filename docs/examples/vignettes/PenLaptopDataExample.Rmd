@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Independent Groups Example with PenLaptop Data}
+  %\VignetteIndexEntry{PenLaptop Data Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 library(EASI)
 ```
 
-## Independent Groups Example with PenLaptop Data
+## PenLaptop Data Example
 
 ### PenLaptop1 Sample
 

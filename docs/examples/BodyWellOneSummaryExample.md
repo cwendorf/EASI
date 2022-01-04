@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Correlation Example with BodyWell One Sample Summary Statistics}
+  %\VignetteIndexEntry{BodyWell One Sample Summary Statistics Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Correlation Example with BodyWell One Sample Summary Statistics
+## BodyWell One Sample Summary Statistics Example
 
 ### Data Management
 

@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Paired Samples Tutorial with Summary Statistics}
+  %\VignetteIndexEntry{Paired Samples Summary Statistics Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Paired Samples Tutorial with Summary Statistics
+## Paired Samples Summary Statistics Tutorial
 
 ### Data Management
 

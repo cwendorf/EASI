@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Set of Correlations Tutorial with Data}
+  %\VignetteIndexEntry{Set of Correlations Data Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Set of Correlations Tutorial with Data
+## Set of Correlations Data Tutorial
 
 ### Data Management
 

@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Tutorial with Data}
+  %\VignetteIndexEntry{Repeated Measures (Within-Subjects) Data Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Repeated Measures (Within-Subjects) Tutorial with Data
+## Repeated Measures (Within-Subjects) Data Tutorial
 
 ### Data Management
 

@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Mixed Design Correlations Tutorial with Data}
+  %\VignetteIndexEntry{Mixed Design Correlations Data Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Mixed Design Correlations Tutorial with Data
+## Mixed Design Correlations Data Tutorial
 
 ### Data Management
 

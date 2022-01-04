@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Paired Samples Example with Thomason Summary Statistics
+## Thomason Summary Statistics Example
 
 ### Thomason1 Sample
 

@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Factorial (Between-Subjects) Design Tutorial with Data
+## Factorial (Between-Subjects) Data Tutorial
 
 ### Data Management
 

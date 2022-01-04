@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Mixed Design Example with Holzel Summary Statistics}
+  %\VignetteIndexEntry{Holzel Summary Statistics Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Mixed Design Example with Holzel Summary Statistics
+## Holzel Summary Statistics Example
 
 ### Data Management
 

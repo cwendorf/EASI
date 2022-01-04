@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Correlation Example with BodyWell Two Sample Data
+## BodyWell Two Sample Data Example
 
 ### Data Management
 

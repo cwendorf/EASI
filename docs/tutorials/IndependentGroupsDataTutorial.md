@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Independent Groups Tutorial with Data}
+  %\VignetteIndexEntry{Independent Groups Data Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -21,7 +21,7 @@ vignette: >
 
 
 
-## Independent Groups Tutorial with Data
+## Independent Groups Data Tutorial
 
 ### Data Management
 

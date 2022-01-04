@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
-## Mixed Design Example with Holzel Data
+## Holzel Data Example
 
 ### Data Management
 

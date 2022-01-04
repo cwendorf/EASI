@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{OneWay (Between-Subjects) Example with Rattan Summary Statistics}
+  %\VignetteIndexEntry{OneWay (Rattan Summary Statistics Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 library(EASI)
 ```
 
-## OneWay (Between-Subjects) Example with Rattan Summary Statistics
+## Rattan Summary Statistics Example
 
 ### Data Management
 
