@@ -137,7 +137,7 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   .estimateMeansOmnibusMultifactor.bss(ListDescStats,conf.level=conf.level)
 }
 
-estimateMeansEffectMultifactor <- function(...,main=NULL,digits=3) {
+estimateMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansOmnibusMultifactor(...)
   if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"} 
   main <- paste(main,names(results),sep=": ")
