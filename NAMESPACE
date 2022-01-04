@@ -565,6 +565,13 @@ S3method(.describeMeansOmnibusMultifactor,bss)
 export(.describeMeansOmnibusMultifactor)
 export(describeMeansOmnibusMultifactor)
 
+S3method(.estimateMeansOmnibusMultifactor,default)
+S3method(.estimateMeansOmnibusMultifactor,formula)
+S3method(.estimateMeansOmnibusMultifactor,wss)
+S3method(.estimateMeansOmnibusMultifactor,bss)
+export(.estimateMeansOmnibusMultifactor)
+export(estimateMeansOmnibusMultifactor)
+
 S3method(.testMeansOmnibusMultifactor,default)
 S3method(.testMeansOmnibusMultifactor,formula)
 S3method(.testMeansOmnibusMultifactor,wss)
