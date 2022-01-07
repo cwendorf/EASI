@@ -12,9 +12,9 @@
 }
 
 \arguments{
-\item{\dots}{a set of (non-empty) numeric vectors of data values.}
-\item{main}{a custom title for the table.}
-\item{digits}{the specified number of decimal places.}
+\item{\dots}{a set of (non-empty) numeric vectors of data values}
+\item{main}{a custom title for the table}
+\item{digits}{the specified number of decimal places}
 }
 
 \value{
