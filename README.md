@@ -46,12 +46,12 @@ Complete documentation and vignettes are available:
 - Vingettes for tutorial data that show the diversity of options
 - Reanalyses of published textbook examples highlighting the estimation approach
 
-### Citation
-
-Wendorf, C. A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://cwendorf.github.io/EASI](https://cwendorf.github.io/EASI)
-
 ### Contact Me
 
 - GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
 - Author Homepage: [https://cwendorf.github.io](https://cwendorf.github.io)
+
+### Citation
+
+Wendorf, C. A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://cwendorf.github.io/EASI](https://cwendorf.github.io/EASI)
