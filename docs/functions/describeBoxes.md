@@ -2,7 +2,7 @@
 
 ### Description
 
-Provides a five number summary  for a data set.
+Provides a five number summary for a data set.
 
 ### Usage
 
