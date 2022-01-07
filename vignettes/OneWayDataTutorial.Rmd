@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{OneWay (Between-Subjects) Tutorial with Data}
+  %\VignetteIndexEntry{OneWay (Between-Subjects) Data Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 library(EASI)
 ```
 
-## OneWay (Between-Subjects) Tutorial with Data
+## OneWay (Between-Subjects) Data Tutorial
 
 ### Data Management
 
