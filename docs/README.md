@@ -30,12 +30,6 @@ If you do not wish a full install, the latest functions can be sourced directly 
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 ```
 
-### Contact Me
-
-- GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
-- Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
-- Author Homepage: [https://cwendorf.github.io](https://cwendorf.github.io)
-
 ### Citation
 
 Wendorf, C.A. (2019). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
