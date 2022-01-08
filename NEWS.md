@@ -5,6 +5,7 @@
 - Updated functions for exploratory data analyses
 - Added and updated frequency plots, bean plots, raincloud plots, and violin plots
 - Implemented color vectorization for plots
+- Added linkages for data plots of repeated measures
 
 ## 4.6.211207
 
