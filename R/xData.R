@@ -12,7 +12,7 @@
 plotData <- function(x,...)
   UseMethod("plotData")
 
-plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.12,method="stack",jitter=.05,col="black",pch=16,lty="solid",connect=TRUE) {
+plotData.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.12,method="stack",jitter=.05,col="black",pch=16,lty="solid",connect=FALSE) {
   data <- data.frame(...)
   ylimrange <- range(pretty(c(floor(min(data)-.5),ceiling(max(data)+.5))))
   xlimrange <- c(.5,ncol(data)+.5)
