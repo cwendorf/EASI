@@ -6,7 +6,7 @@
 .plotMain <- function(results,main,ylab,xlab,ylim) {
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5),ceiling(max(results)+.5))))}
-  plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
+  plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.4,nrow(results)+.6),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
   axis(1,1:nrow(results),row.names(results))
 }
 
