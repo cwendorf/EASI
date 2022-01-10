@@ -17,7 +17,7 @@
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(graph[,2])-.5),ceiling(max(graph[,3])+.5))))}
   par(mar=c(5,5,5,5))  
   plot(NULL,xaxt="n",yaxt="n",xaxs="i",yaxs="i",xlim=c(.4,3.6),ylim=ylim,xlab=xlab,ylab=ylab,main=main,las=1,cex.lab=1.15,bty="n")
-  axis(1,.4:2.4,labels=FALSE,lwd.tick=0)
+  axis(1,.4:2.5,labels=FALSE,lwd.tick=0)
   axis(1,2.6:3.6,labels=FALSE,lwd.tick=0)
   axis(1,at=c(1,2),labels=rownames(graph)[1:2])
   axis(1,at=3,labels=rownames(graph)[3])
