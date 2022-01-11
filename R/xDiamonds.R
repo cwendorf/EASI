@@ -17,18 +17,6 @@
 plotDiamonds <- function(x,...) 
   UseMethod("plotDiamonds")
 
-plotDiamonds.default <- function(...,main=NULL,digits=3,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,ylim=NULL,add=FALSE,col="black",hw=.2,offset=0) {
-  results <- estimateMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
-  if(is.null(main)) {main=names(results)} 
-  results <- .unformatFrame(.deList(results))[,c("Est","LL","UL")]
-  if(!add) {
-    .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)
-    if(!is.null(line)) {abline(h=line,lty=2,col="black")}
-    if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent("black",15),border=NA)}}
-  z <- asplit(results,1)
-  invisible(mapply(.diamond,z,loc=1:nrow(results),col=col,hw=hw,offset=offset))
-}
-
 plotDiamonds.list <- function(results,mu=0,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,line=NULL,rope=NULL,col="black",hw=.2,offset=0) {
   if(length(results)==1) {
     if(is.null(main)) main=names(results[1])

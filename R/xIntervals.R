@@ -57,16 +57,6 @@
 plotIntervals <- function(x,...) 
   UseMethod("plotIntervals")
 
-plotIntervals.default <- function(...,mu=0,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,offset=0,col="black") {
-  results <- estimateMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
-  if(is.null(main)) main=names(results[1])
-  results <- .unformatFrame(.deList(results))[,c(1,4,5)]
-  if(!add) .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)
-  if(!is.null(line)) {abline(h=line,lty=2,col="black")}
-  if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent("black",15),border=NA)} 
-  .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=16,col=col)
-}
-
 plotIntervals.list <- function(results,main=NULL,ylab="Outcome",xlab="",line=NULL,rope=NULL,values=TRUE,ylim=NULL,add=FALSE,digits=3,col="black") {
   if(length(results)==1) {
     if(is.null(main)) main=names(results[1])

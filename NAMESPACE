@@ -51,19 +51,16 @@ export(plotCombination)
 
 ### xIntervals
 
-S3Method(plotIntervals,default)
 S3method(plotIntervals,list)
 export(plotIntervals)
 
 ### xPlausible
 
-S3Method(plotPlausible,default)
 S3method(plotPlausible,list)
 export(plotPlausible)
 
 ### xDiamonds
 
-S3Method(plotDiamonds,default)
 S3method(plotDiamonds,list)
 export(plotDiamonds)
 
