@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Interval Plots
 
-### Confidence Interval Plots
+### Interval Plots
 
 .intervalsMain <- function(results,main,ylab,xlab,line,rope,values,ylim,digits,connect,pos=2,pch=16,slab=NULL,add=FALSE,points=TRUE,col="black") {
   if(!add) .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)
@@ -52,7 +52,7 @@
   }
 }
 
-### Interval Plot
+### Confidence Interval Plot
 
 plotIntervals <- function(x,...) 
   UseMethod("plotIntervals")

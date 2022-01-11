@@ -17,7 +17,7 @@
   rn <- results[,1]
   results <- results[[2]]
   rownames(results) <- rn
-  colnames(results) <- c("0%","25%","50%","75%","100%")
+  colnames(results) <- c("Min","25%","50%","75%","Max")
   return(results)
 }
 

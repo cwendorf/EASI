@@ -7,33 +7,27 @@ plotDensity <- function(x,...)
   UseMethod("plotDensity")
 
 plotDensity.default <- function(...,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,scale=1,col="black") {
-  if(is.null(main)) {main="Density Plots for the Variables"}
   data <- data.frame(...)
-  vars <- colnames(data)
-  nvars <- length(data)
   z <- apply(data,2,density)
   if(!add) {
-  if(is.null(ylim)) {
-    rm <- range(sapply(z,"[","x"))
-    ylim <- range(pretty(rm))}
-  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.4,nvars+.6),ylim=ylim,cex.lab=1.15)
-  axis(1,1:nvars,vars)}
-  invisible(mapply(.plotCurve,z,loc=1:nvars,type=type,offset=offset,scale=scale,col=col))
+    if(is.null(main)) {main="Density Plots for the Variables"}
+    a <- sapply(z,"[","x")
+    b <- lapply(a,function(x) c(min(x),max(x)))
+    results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
+    rownames(results) <- names(z)
+    .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
+  invisible(mapply(.plotCurve,z,loc=1:length(data),type=type,offset=offset,scale=scale,col=col))
 } 
 
 plotDensity.formula <- function(formula,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,scale=1,col="black") {
-  if(is.null(main)) {main="Density Plots for the Groups"}
-  group <- eval(formula[[3]])
-  outcome <- eval(formula[[2]])
-  data <- data.frame(group,outcome)
-  groups <- levels(group)
-  ngroups <- nlevels(group)
-  z <- tapply(outcome,group,density)
-  if(!add) {  
-  if(is.null(ylim)) {
-    rm <- range(sapply(z,"[","x"))
-    ylim <- range(pretty(rm))}
-  plot(NULL,bty="l",xaxt="n",main=main,xlab=xlab,ylab=ylab,xlim=c(.4,ngroups+.6),ylim=ylim,cex.lab=1.15)
-  axis(1,1:ngroups,groups)}
-  invisible(mapply(.plotCurve,z,loc=1:ngroups,type=type,offset=offset,scale=scale,col=col))
+  data <- unstack(model.frame(formula))
+  if(typeof(data)=="list") {z <- lapply(data,density)} else {z <- apply(data,2,density)}
+  if(!add) {
+    if(is.null(main)) {main="Density Plots for the Groups"}
+    a <- sapply(z,"[","x")
+    b <- lapply(a,function(x) c(min(x),max(x)))
+    results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
+    rownames(results) <- names(z)
+    .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
+  invisible(mapply(.plotCurve,z,loc=1:length(data),type=type,offset=offset,scale=scale,col=col))
 }
