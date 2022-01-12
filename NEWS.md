@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-## Upcoming Release
+## 4.7.220111
 
 - Updated functions for exploratory data analyses
 - Added and updated frequency plots, bean plots, raincloud plots, and violin plots
