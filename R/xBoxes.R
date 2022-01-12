@@ -6,8 +6,9 @@
 .describeBoxes <- function(x,...)
   UseMethod(".describeBoxes")
 
-.describeBoxes.default <- function(...) {
-  data <- data.frame(...)
+.describeBoxes.default <- function(x,...) {
+  data <- data.frame(x)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
   results <- do.call(rbind,lapply(data,function(x) boxplot.stats(x)$stats))
   colnames(results) <- c("LW","LH","Mdn","UH","UW")
   return(results)
@@ -34,7 +35,7 @@ describeBoxes <- function(...,main=NULL,digits=3) {
 .bp <- function(results,main,ylab,xlab,ylim,values,digits,pos,connect,add,col,offset,scale) {
   if(!add) {
     if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5),ceiling(max(results)+.5))))}
-    plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.5,nrow(results)+.5),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
+    plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.4,nrow(results)+.6),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
     axis(1,1:nrow(results),row.names(results))}
   rect(1:nrow(results)+offset-.03,results[,2],1:nrow(results)+offset+.03,results[,4],border=col,lwd=2,col=.colorTransparent(col,30))
   arrows(1:nrow(results)+offset,results[,1],1:nrow(results)+offset,results[,2],length=0,lwd=2,col=col)
@@ -55,13 +56,14 @@ describeBoxes <- function(...,main=NULL,digits=3) {
 plotBoxes <- function(x,...) 
   UseMethod("plotBoxes")
 
-plotBoxes.default <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,col="black",values=TRUE,digits=3,pos=2) {
-  data <- data.frame(...)
+plotBoxes.default <- function(x,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,col="black",values=TRUE,digits=3,pos=2) {
+  data <- data.frame(x)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
   if(is.null(ylim)) {
     z <- apply(data,2,density)
     rm <- range(sapply(z,"[","x"))
     ylim <- range(pretty(rm))}
-  results <- .unformatFrame(describeBoxes(...,main=main,digits=digits)[[1]])
+  results <- .unformatFrame(describeBoxes(data,main=main,digits=digits)[[1]])
   if(is.null(main)) {if(nrow(results)>1) {main="Boxplots for the Variables"} else {main="Boxplot for the Variable"}}
  .bp(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim,values=values,digits=digits,pos=pos,connect=FALSE,add=add,col=col,offset=offset,scale=scale)
 }

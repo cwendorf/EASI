@@ -16,8 +16,8 @@
   a1 <- qt(1/2-conf.level/2,dfe,lower.tail=FALSE)
   rill <- results[,1]-a1*a2/2
   riul <- results[,1]+a1*a2/2
-  results <- data.frame(results[,c(1,4,5)],rill,riul)
-  colnames(results) <- c("M","CI.LL","CI.UL","RI.LL","RI.UL")
+  results <- data.frame(results[,1],rill,riul,results[,c(4,5)])
+  colnames(results) <- c("M","RI.LL","RI.UL","CI.LL","CI.UL")
   return(results)
 }
 
@@ -31,8 +31,8 @@
   a1 <- qt(1/2-conf.level/2,dfe,lower.tail=FALSE)
   rill <- results[,1]-a1*a2/2
   riul <- results[,1]+a1*a2/2
-  results <- data.frame(results[,c(1,4,5)],rill,riul)
-  colnames(results) <- c("M","CI.LL","CI.UL","RI.LL","RI.UL")
+  results <- data.frame(results[,1],rill,riul,results[,c(4,5)])
+  colnames(results) <- c("M","RI.LL","RI.UL","CI.LL","CI.UL")
   return(results)
 }
 
@@ -56,11 +56,10 @@ estimateMeansRelational <- function(...,main=NULL,digits=3) {
 
 ### Confidence and Relational Interval Plots
 
-plotMeansRelational <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA) {
+plotMeansRelational <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,pos=2,connect=FALSE,ylim=NULL,digits=3,col="black",border=NA) {
   results <- estimateMeansRelational(...,conf.level=conf.level)
   if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
-  if(is.null(main)) {main=names(results)} 
+  if(!add) {plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)}
   results <- .unformatFrame(results[[1]])
-  if(!add) {.intervalsMain(results[,c(1,2,3)],main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect)}
-  for (i in 1:nrow(results)) rect(i-.05,results[,4][i],i+.05,results[,5][i],col=col,border=border)
+  for (i in 1:nrow(results)) rect(i-.05,results[,2][i],i+.05,results[,3][i],col=.colorTransparent(col,50),border=border)
 }

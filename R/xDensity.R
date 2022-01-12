@@ -6,15 +6,17 @@
 plotDensity <- function(x,...) 
   UseMethod("plotDensity")
 
-plotDensity.default <- function(...,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,scale=1,col="black") {
-  data <- data.frame(...)
+plotDensity.default <- function(x,type="right",add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,scale=1,col="black") {
+  data <- data.frame(x)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
   z <- apply(data,2,density)
   if(!add) {
     if(is.null(main)) {main="Density Plots for the Variables"}
     a <- sapply(z,"[","x")
-    b <- lapply(a,function(x) c(min(x),max(x)))
+    b <- lapply(a,function(xx) c(min(xx),max(xx)))
     results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
     rownames(results) <- names(z)
+    results <- list(results)
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
   invisible(mapply(.plotCurve,z,loc=1:length(data),type=type,offset=offset,scale=scale,col=col))
 } 
@@ -25,9 +27,10 @@ plotDensity.formula <- function(formula,type="right",add=FALSE,main=NULL,ylab="O
   if(!add) {
     if(is.null(main)) {main="Density Plots for the Groups"}
     a <- sapply(z,"[","x")
-    b <- lapply(a,function(x) c(min(x),max(x)))
+    b <- lapply(a,function(xx) c(min(xx),max(xx)))
     results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
     rownames(results) <- names(z)
+    results <- list(results)
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
   invisible(mapply(.plotCurve,z,loc=1:length(data),type=type,offset=offset,scale=scale,col=col))
 }

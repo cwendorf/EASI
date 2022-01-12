@@ -33,8 +33,8 @@ estimateCorrelationDifference <- function(...,main=NULL,digits=3) {
 plotCorrelationDifference <- function(x,...) 
   UseMethod("plotCorrelationDifference")
 
-plotCorrelationDifference.list <- function(CorrEst1,CorrEst2,main=NULL,line=NULL,rope=NULL,ylab="Correlation",xlab="",values=TRUE,ylim=NULL,digits=3,pch=17,col="black") {
-  results <- .unformatFrame(estimateCorrelationDifference(CorrEst1,CorrEst2)[[1]][,c(1,2,3)])
+plotCorrelationDifference.list <- function(CorrEst1,CorrEst2,add=FALSE,main=NULL,line=NULL,rope=NULL,ylab="Correlation",xlab="",values=TRUE,pos=2,connect=FALSE,ylim=NULL,digits=3,pch=17,col="black") {
+  results <- estimateCorrelationDifference(CorrEst1,CorrEst2)
   if(is.null(main)) {main="Confidence Interval for the \n Correlation Difference"}
-  .intervalsMain(results,main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,pch=pch,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
 }

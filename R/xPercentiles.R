@@ -6,13 +6,14 @@
 .describePercentiles <- function(x,...) 
   UseMethod(".describePercentiles")
 
-.describePercentiles.default <- function(...) {
-  data <- data.frame(...)
+.describePercentiles.default <- function(x,...) {
+  data <- data.frame(x)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
   results <- t(sapply(data,quantile))
   return(results)
 }
 
-.describePercentiles.formula <- function(formula) {
+.describePercentiles.formula <- function(formula,...) {
   results <- aggregate(formula,FUN=.describePercentiles)
   rn <- results[,1]
   results <- results[[2]]

@@ -6,12 +6,14 @@
 plotData <- function(x,...)
   UseMethod("plotData")
 
-plotData.default <- function(...,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,lty="solid",connect=FALSE) {
-  data <- data.frame(...)
+plotData.default <- function(x,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,lty="solid",connect=FALSE) {
+  data <- data.frame(x)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
   loc <- (1:length(data))+offset
   if(!add) {
     if(is.null(main)) {main="Data for the Variables"}
-    results <- .describePercentiles(...)
+    results <- describePercentiles(data)
+    results[[1]] <- results[[1]][,c(1,5)]
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
   stripchart(data,add=TRUE,at=loc,vertical=TRUE,method=method,jitter=jitter,col=.colorTransparent(col,70),pch=pch)
   if(connect && method!="jitter") {
@@ -23,9 +25,9 @@ plotData.formula <- function(formula,add=FALSE,main=NULL,ylim=NULL,ylab=NULL,xla
   data <- unstack(model.frame(formula))
   loc <- (1:length(data))+offset
   if(!add) {
-    if(is.null(main)) {main="Data for the Groups"}
     if(is.null(ylab)) {ylab <- all.vars(formula)[1]}
-    results <- .describePercentiles(formula)
+    results <- describePercentiles(data)
+    results[[1]] <- results[[1]][,c(1,5)]
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
   stripchart(data,add=TRUE,at=loc,vertical=TRUE,method=method,jitter=jitter,col=.colorTransparent(col,70),pch=pch)
 }

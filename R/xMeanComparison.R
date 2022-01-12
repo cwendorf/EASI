@@ -30,12 +30,12 @@ estimateMeanComparison <- function(...,main=NULL,digits=3) {
 .testMeanComparison <- function(x,...) 
   UseMethod(".testMeanComparison")
 
-.testMeanComparison.default <- .testMeanComparison.formula <- .testMeanComparison.wss <- .testMeanComparison.bss <- function(...) {
+.testMeanComparison.default <- .testMeanComparison.formula <- .testMeanComparison.wss <- .testMeanComparison.bss <- function(...,mu=0) {
   Levels <- .testMeans(...)
   Levels <- Levels[1:2,]
   Levels <- list(Levels)
   names(Levels) <- "Hypothesis Tests for the Means"
-  Diff <- .testMeanDifference(...)
+  Diff <- .testMeanDifference(...,mu=mu)
   Diff <- list(Diff)
   names(Diff) <- "Hypothesis Test for the Mean Difference"  
   results <- c(Levels,Diff)
@@ -45,16 +45,15 @@ estimateMeanComparison <- function(...,main=NULL,digits=3) {
 testMeanComparison <- function(...,main=NULL,digits=3) {
   results <- .testMeanComparison(...)
   if(is.null(main)) {main <- names(results)}
-  results <- .formatList(results,main-main,digits=digits)
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
 ### Confidence Interval Plots
 
-plotMeanComparison <- function(...,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,pch=c(16,16,17),col="black") {
+plotMeanComparison <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,ylim=NULL,digits=3,connect=FALSE,pos=c(2,2,4),pch=c(16,16,17),col="black") {
   results <- estimateMeanComparison(...,conf.level=conf.level,main=main,digits=digits)
-  results <- rbind(.unformatFrame(results[[1]][,c(1,4,5)]),.unformatFrame(results[[2]][,c(1,4,5)]))
-  if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
+  if(typeof(...)=="list") {connect=TRUE}
   if(is.null(main)) {main="Confidence Intervals for the Mean Comparison"}
-  .intervalsComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,slab="Mean Difference",pch=pch,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
 }

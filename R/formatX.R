@@ -34,7 +34,7 @@
 }
 
 .collapseList <- function(results,main=NULL) {
-  if(is.null(main)) {main=names(results)[1]} else {main=main}
+  if(is.null(main)) {main=names(results)[2]} else {main=main}
   out <- list(.deList(results))
   names(out) <- main   
   return(out)

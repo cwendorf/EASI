@@ -87,13 +87,11 @@ testMeanContrastBy <- function(...,contrast,mu=0,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeanContrastBy <- function(...,by,contrast,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
+plotMeanContrastBy <- function(...,by,contrast,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=FALSE,pch=16,col="black") {
   results <- estimateMeanContrastBy(...,by=by,contrast=contrast,conf.level=conf.level)
-  if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   for (i in 1:nlevels(by)) {
-    title <- names(results[i])
-    temp <- .unformatFrame(results[[i]][,c(1,4,5)])
-    .intervalsMain(results=temp,main=title,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,add=add,pch=pch,col=col)
+    temp <- results[i]
+    plotIntervals(temp,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
     par(ask=TRUE)
   }
   par(ask=FALSE) 

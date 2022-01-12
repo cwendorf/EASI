@@ -15,13 +15,14 @@
 .describeFrequencies <- function(x,...) 
   UseMethod(".describeFrequencies")
 
-.describeFrequencies.default <- function(...) {
-  data <- data.frame(...)
+.describeFrequencies.default <- function(x,...) {
+  data <- data.frame(x)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
   results <- lapply(data,FUN=.frequencies)
   return(results)
 }
 
-.describeFrequencies.formula <- function(formula) {
+.describeFrequencies.formula <- function(formula,...) {
   group <- eval(formula[[3]])
   outcome <- eval(formula[[2]])
   results <- tapply(outcome,group,FUN=.frequencies)
@@ -47,15 +48,17 @@ describeFrequencies <- function(...,main=NULL,digits=3) {
 plotFrequencies <- function(x,...)
   UseMethod("plotFrequencies")
 
-plotFrequencies.default <- function(...,add=FALSE,ylim=NULL,main=NULL,ylab="Outcome",xlab="",offset=.1,col="black") {
-  data <- data.frame(...)
+plotFrequencies.default <- function(x,add=FALSE,ylim=NULL,main=NULL,ylab="Outcome",xlab="",offset=.1,col="black") {
+  data <- data.frame(x)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
   if(!add) {
     if(is.null(main)) {main="Frequencies for the Variables"}
     z <- apply(data,2,density)
     a <- sapply(z,"[","x")
-    b <- lapply(a,function(x) c(min(x),max(x)))
+    b <- lapply(a,function(xx) c(min(xx),max(xx)))
     results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
     rownames(results) <- names(data)
+    results <- list(results)
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
   invisible(mapply(.histogram,data,x=1:length(data),offset=offset,col=col))
 }
@@ -64,10 +67,12 @@ plotFrequencies.formula <- function(formula,add=FALSE,ylim=NULL,main=NULL,ylab=N
   data <- unstack(model.frame(formula))
   if(!add) {
     if(is.null(main)) {main="Frequencies for the Groups"}
+    if(typeof(data)=="list") {z <- lapply(data,density)} else {z <- apply(data,2,density)} 
     a <- sapply(z,"[","x")
-    b <- lapply(a,function(x) c(min(x),max(x)))
+    b <- lapply(a,function(xx) c(min(xx),max(xx)))
     results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
     rownames(results) <- names(data)
+    results <- list(results)
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
   invisible(mapply(.histogram,data,x=1:length(data),offset=offset,col=col))
 }

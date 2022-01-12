@@ -87,7 +87,7 @@ testMeanDifferenceBy <- function(...,mu=0,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeanDifferenceBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pch=16,col="black") {
+plotMeanDifferenceBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=FALSE,pch=16,col="black") {
   results <- estimateMeanDifferenceBy(...,by=by,conf.level=conf.level)
   if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
   for (i in 1:nlevels(by)) {

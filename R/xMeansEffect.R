@@ -50,7 +50,7 @@
 describeMeansEffect <- function(...,main=NULL,digits=3) {
   results <- .describeMeansEffect(...)
   if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
-  results <- .formatList(list(results),main-main,digits=digits)  
+  results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 

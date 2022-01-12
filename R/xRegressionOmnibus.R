@@ -32,9 +32,14 @@
 }
 
 .describeRegressionOmnibus.default <- function(Predictors,Criterion) {
-  PredStats <- .describeMeans(Predictors)
-  CritStats <- .describeMeans(Criterion)
-  CorrStats <- .describeCorrelations(Predictors,Criterion)
+  Pred <- data.frame(Predictors)
+  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
+  Crit <- data.frame(Criterion)
+  PredStats <- .describeMeans.default(Pred)
+  rownames(PredStats) <- colnames(Pred)
+  CritStats <- .describeMeans.default(Crit)
+  rownames(CritStats) <- colnames(Crit)
+  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
   .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
 }
 
@@ -73,9 +78,14 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
 }
 
 .estimateRegressionOmnibus.default <- function(Predictors,Criterion,conf.level=.90) {
-  PredStats <- .describeMeans(Predictors)
-  CritStats <- .describeMeans(Criterion)
-  CorrStats <- .describeCorrelations(Predictors,Criterion)
+  Pred <- data.frame(Predictors)
+  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
+  Crit <- data.frame(Criterion)
+  PredStats <- .describeMeans.default(Pred)
+  rownames(PredStats) <- colnames(Pred)
+  CritStats <- .describeMeans.default(Crit)
+  rownames(CritStats) <- colnames(Crit)
+  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
   .estimateRegressionOmnibus.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
 }
 
@@ -106,9 +116,14 @@ estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
 }
 
 .testRegressionOmnibus.default <- function(Predictors,Criterion) {
-  PredStats <- .describeMeans(Predictors)
-  CritStats <- .describeMeans(Criterion)
-  CorrStats <- .describeCorrelations(Predictors,Criterion)
+  Pred <- data.frame(Predictors)
+  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
+  Crit <- data.frame(Criterion)
+  PredStats <- .describeMeans.default(Pred)
+  rownames(PredStats) <- colnames(Pred)
+  CritStats <- .describeMeans.default(Crit)
+  rownames(CritStats) <- colnames(Crit)
+  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
   .testRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
 }
 

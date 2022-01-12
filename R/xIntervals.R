@@ -3,8 +3,8 @@
 
 ### Interval Plots
 
-.intervalsMain <- function(results,main,ylab,xlab,line,rope,values,ylim,digits,connect,pos=2,pch=16,slab=NULL,add=FALSE,points=TRUE,col="black") {
-  if(!add) .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)
+.intervalsMain <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=2,pch=16,points=TRUE,col="black") {
+  results <- .unformatFrame(results[[1]])
   if(points) {
     points(results[,1],pch=pch,cex=1.5,col=col)
     arrows(1:nrow(results),results[,2],1:nrow(results),results[,3],col=col,lwd=2,length=0)}
@@ -18,17 +18,18 @@
     text(1:nrow(results),as.numeric(results[,3]),results[,3],cex=.8,pos=pos,offset=.5,col=col)}
 }
 
-.intervalsComp <- function(results,main,ylab,xlab,rope,values,ylim,digits,connect,pos=c(2,2,4),pch=c(16,16,17),slab=NULL,add=FALSE,points=TRUE,col="black") {
-  if(!add) .plotComp(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim,slab=slab)
+.intervalsComp <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,slab=NULL,rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=c(2,2,4),pch=c(15,15,17),points=TRUE,col="black") {
+  results <- .unformatFrame(results[[1]])
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
-  graphrope <- rope+as.vector(results[1,1])
   if(points) {
     points(c(1,2,3),graph[,1],pch=pch,cex=1.5,col=col)
     arrows(1:3,graph[,2],1:3,graph[,3],col=col,lwd=2,length=0)
     arrows(1:2,graph[1:2,1],4.5,graph[1:2,1],code=3,length=0,lty=2,col=col)}
   if(connect) {arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1,col=col)}
-  if(!is.null(rope)) {rect(2.6,graphrope[1],3.6,graphrope[2],col=.colorTransparent("black",15),border=NA)} 
+  if(!is.null(rope)) {
+    graphrope <- rope+as.vector(results[1,1])
+    rect(2.6,graphrope[1],3.6,graphrope[2],col=.colorTransparent("black",15),border=NA)} 
   if(values) {
     results <- .formatFrame(results,digits=digits)
     text(1:3,graph[,1],results[,1],cex=.8,pos=pos,offset=.5,font=2,col=col)
@@ -41,7 +42,7 @@
   ylimmin <- floor(min(unlist(lapply(results,FUN=function(x) min(x["LL"])))))-.5
   ylimmax <- ceiling(max(unlist(lapply(results,FUN=function(x) max(x["UL"])))))+.5
   ylimrange <- range(c(ylimmin,ylimmax))
-  xlimrange <- c(.5,nrow(results[[1]])+.5)
+  xlimrange <- c(.4,nrow(results[[1]])+.6)
   plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=xlimrange,ylim=ylimrange,ylab=ylab,xlab=xlab,cex.lab=1.15,main=main,bty="l")
   axis(1, 1:nrow(results[[1]]), row.names(results[[1]])) 
   for (i in 1:length(results)) {
@@ -57,15 +58,16 @@
 plotIntervals <- function(x,...) 
   UseMethod("plotIntervals")
 
-plotIntervals.list <- function(results,main=NULL,ylab="Outcome",xlab="",line=NULL,rope=NULL,values=TRUE,ylim=NULL,add=FALSE,digits=3,col="black") {
+plotIntervals.list <- function(results,add=FALSE,...) {
   if(length(results)==1) {
-    if(is.null(main)) main=names(results[1])
-    results <- .unformatFrame(.deList(results)[,c(1,4,5)])
-    .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=16,col=col)
+    results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))]
+    if(!add) .plotMain(results,...)
+    .intervalsMain(results,...)
     }
   if(length(results) == 2 && nrow(results[[1]] != nrow(results[[2]]))) {
-    if(is.null(main)) main=names(results[2])
-    results <- .unformatFrame(.deList(results)[,c(1,4,5)])
-    .intervalsComp(results,main=main,ylab=ylab,xlab=xlab,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,slab="Difference",col=col)
+    results <- .collapseList(results)
+    results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))]    
+    if(!add) .plotComp(results,...)
+    .intervalsComp(results,...)
     }
 }

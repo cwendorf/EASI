@@ -46,8 +46,8 @@ fillCorrelations.default <- function(mat) {
 .describeCorrelations <- function(x,...) 
   UseMethod(".describeCorrelations")
 
-.describeCorrelations.default <- function(...) {
-  data <- data.frame(...)
+.describeCorrelations.default <- function(x,...) {
+  data <- data.frame(x)
   results <- cor(data)
   return(results)
 }
@@ -74,8 +74,8 @@ describeCorrelations <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.describeCovariances.default <- function(...) {
-  data <- data.frame(...)
+.describeCovariances.default <- function(x,...) {
+  data <- data.frame(x)
   results <- cov(data)
   return(results)
 }
@@ -172,9 +172,7 @@ testCorrelations <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotCorrelations <- function(...,main=NULL,digits=3,ylab="Correlation",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=c(-1.1,1.1),add=FALSE,pch=16,col="black") {
+plotCorrelations <- function(...,main=NULL,digits=3,ylab="Correlation",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=c(-1.1,1.1),add=FALSE,pch=16,connect=FALSE,col="black") {
   results <- estimateCorrelations(...,main=main,digits=digits)
-  if(is.null(main)) {main=names(results)} 
-  results <- .unformatFrame(results[[1]][,c(1,3,4)])
- .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
 }

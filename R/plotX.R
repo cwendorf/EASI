@@ -3,14 +3,18 @@
 
 ### Initialize Plots
 
-.plotMain <- function(results,main,ylab,xlab,ylim) {
+.plotMain <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=2,pch=16,points=TRUE,col="black") {
+  if(is.null(main)) {main=names(results)} 
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
+  results <- .unformatFrame(results[[1]])
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5),ceiling(max(results)+.5))))}
   plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.4,nrow(results)+.6),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
   axis(1,1:nrow(results),row.names(results))
 }
 
-.plotComp <- function(results,main,ylab,xlab,ylim,slab=NULL) {
+.plotComp <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,slab="Difference",rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=c(2,2,4),pch=c(15,15,17),points=TRUE,col="black") {
+  if(is.null(main)) main=names(results[1])
+  results <- .unformatFrame(results[[1]])
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   graph <- results
   graph[3,] <- results[3,]+results[1,1]

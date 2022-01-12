@@ -1,5 +1,13 @@
 # Estimation Approach to Statistical Inference
 
+## Developmental Version
+
+- Rebuilt within-subjects data input for all relevant functions
+- Refactored all functions to use common plotting methods
+- Added additional plotting options (colorization, positioning, etc.)
+- Improved functionality for use with pipe operators
+- Updated "by" functions for factorial and mixed designs
+
 ## 4.7.220111
 
 - Updated functions for exploratory data analyses

@@ -147,9 +147,7 @@ testMeansPairwise <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeansPairwise <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=17,col="black") {
+plotMeansPairwise <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=NULL,add=FALSE,connect=FALSE,pch=17,col="black") {
   results <- estimateMeansPairwise(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
-  if(is.null(main)) {main=names(results)} 
-  results <- .unformatFrame(results[[1]][,c(1,4,5)])
- .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
 }

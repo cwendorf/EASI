@@ -37,8 +37,9 @@
 .describeMeans <- function(x,...) 
   UseMethod(".describeMeans")
 
-.describeMeans.default <- function(...) {
-  data <- data.frame(...)
+.describeMeans.default <- function(x,...) {
+  data <- data.frame(x)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
   SD <- sapply(data,sd,na.rm=TRUE)
@@ -48,7 +49,7 @@
   return(results)
 }
 
-.describeMeans.formula <- function(formula) {
+.describeMeans.formula <- function(formula,...) {
   results <- aggregate(formula,FUN=.describeMeans)
   rn <- results[,1]
   results <- results[[2]]
@@ -126,7 +127,7 @@ estimateMeans <- function(...,main=NULL,digits=3) {
 }
 
 .testMeans.formula <- function(formula,mu=0,...) {
-  DescStats <- .describeMeans.formula(formula)
+  DescStats <- .describeMeans.formula(formula,...)
   .testMeans.bss(DescStats,mu=mu,main=main,digits=digits)
 }
 
@@ -139,10 +140,8 @@ testMeans <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeans <- function(...,main=NULL,digits=3,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=16,pos=2,col="black") {
+plotMeans <- function(...,mu=0,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,pos=2,pch=16,col="black",connect=FALSE) {
   results <- estimateMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
-  if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
-  if(is.null(main)) {main=names(results)} 
-  results <- .unformatFrame(results[[1]][,c(1,4,5)])
- .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=connect,add=add,pch=pch,col=col,pos=pos)
+  if(typeof(...)=="list") {connect=TRUE}
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
 }

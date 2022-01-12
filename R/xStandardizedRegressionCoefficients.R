@@ -16,11 +16,14 @@
 }
 
 .estimateStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95) {
-  Pred <- cbind(Predictors)
-  if(is.null(ncol(Predictors))) {colnames(Pred) <- deparse(substitute(Predictors))}
-  PredStats <- .describeMeans(Pred)
-  CritStats <- .describeMeans(Criterion)
-  CorrStats <- .describeCorrelations(Pred,Criterion)
+  Pred <- data.frame(Predictors)
+  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
+  Crit <- data.frame(Criterion)
+  PredStats <- .describeMeans.default(Pred)
+  rownames(PredStats) <- colnames(Pred)
+  CritStats <- .describeMeans.default(Crit)
+  rownames(CritStats) <- colnames(Crit)
+  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
   .estimateStandardizedRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
 }
 
@@ -33,9 +36,7 @@ estimateStandardizedRegressionCoefficients <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotStandardizedRegressionCoefficients <- function(...,main=NULL,digits=3,ylab="Standardized Regression Coefficient",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,pch=22,col="black") {
+plotStandardizedRegressionCoefficients <- function(...,main=NULL,digits=3,ylab="Standardized Regression Coefficient",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=22,col="black") {
   results <- estimateStandardizedRegressionCoefficients(...,conf.level=conf.level,main=main,digits=digits)
-  if(is.null(main)) {main=names(results)} 
-  results <- .unformatFrame(results[[1]][,c(1,3,4)])
- .intervalsMain(results,main=main,ylab=ylab,xlab=xlab,line=line,rope=rope,values=values,ylim=ylim,digits=digits,connect=FALSE,add=add,pch=pch,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
 }
