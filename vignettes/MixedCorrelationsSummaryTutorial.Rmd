@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Mixed Design Correlations Data Tutorial}
+  %\VignetteIndexEntry{Mixed Design Correlations Summary Statistics Tutorial}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,128 +26,144 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 library(EASI)
 ```
 
-## Mixed Design Correlations Data Tutorial
+## Mixed Design Correlations Summary Statistics Tutorial
 
 ### Data Management
 
-#### Data Entry
-
-This code inputs the variable names and creates a viewable data frame.
+This code inputs the variable summaries and creates a summary table.
 ```{r}
-Factor <- c(1,1,1,1,2,2,2,2)
-Outcome1 <- c(0,0,3,5,9,4,6,9)
-Outcome2 <- c(4,7,4,9,6,3,3,8)
-Outcome3 <- c(4,9,6,9,5,3,8,8)
-Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
-MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
+Outcome1 <- c(N=4,M=2.000,SD=2.449)
+Outcome2 <- c(N=4,M=6.000,SD=2.449)
+Outcome3 <- c(N=4,M=7.000,SD=2.449)
+MixedSummaryL1 <- rbind(Outcome1,Outcome2,Outcome3)
+class(MixedSummaryL1) <- "wss"
 ```
 
-This code subsets the data into two different data frames (for simple effects analysis).
+This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 ```{r}
-MixedDataL1 <- subset(MixedData,Factor=="Level1")
-MixedDataL2 <- subset(MixedData,Factor=="Level2")
+MixedCorrL1 <- declareCorrelations("Outcome1","Outcome2","Outcome3")
+MixedCorrL1["Outcome1",] <- c(1.000,.500,.389)
+MixedCorrL1["Outcome2",] <- c(.500,1.000,.889)
+MixedCorrL1["Outcome3",] <- c(.389,.889,1.000)
 ```
 
-#### Descriptive Statistics
-
-This code obtains the descriptive statistics for the two data frames.
+And repeat the process to create the second subset.
 ```{r}
-with(MixedDataL1,describeMeans(cbind(Outcome1,Outcome2,Outcome3)))
-with(MixedDataL2,describeMeans(cbind(Outcome1,Outcome2,Outcome3)))
+Outcome1 <- c(N=4,M=7.000,SD=2.449)
+Outcome2 <- c(N=4,M=5.000,SD=2.449)
+Outcome3 <- c(N=4,M=6.000,SD=2.449)
+MixedSummaryL2 <- rbind(Outcome1,Outcome2,Outcome3)
+class(MixedSummaryL2) <- "wss"
 ```
 
-This code obtains a table of correlations for the two data frames.
+And for the correlation matrix of the second subset.
 ```{r}
-with(MixedDataL1,describeCorrelations(cbind(Outcome1,Outcome2,Outcome3)))
-with(MixedDataL2,describeCorrelations(cbind(Outcome1,Outcome2,Outcome3)))
+MixedCorrL2 <- declareCorrelations("Outcome1","Outcome2","Outcome3")
+MixedCorrL2["Outcome1",] <- c(1.000,.889,.500)
+MixedCorrL2["Outcome2",] <- c(.889,1.000,.389)
+MixedCorrL2["Outcome3",] <- c(.500,.389,1.000)
 ```
 
 ### Analyses of a Correlation
 
-This section produces analyses of a single correlation in each of the frames.
+This section produces analyses of a single correlation in each of the subsets.
+
+This code creates a new table that identifies the two levels for comparison and repeats for the second subset.
+```{r}
+CompSummaryL1 <- MixedSummaryL1[c("Outcome1","Outcome2"),]
+class(CompSummaryL1) <- "wss"
+CompSummaryL2 <- MixedSummaryL2[c("Outcome1","Outcome2"),]
+class(CompSummaryL2) <- "wss"
+```
+
+This creates a separate correlation matrix for each of the two subsets of data.
+```{r}
+CompCorrL1 <- MixedCorrL1[c("Outcome1","Outcome2"),c("Outcome1","Outcome2")]
+CompCorrL2 <- MixedCorrL2[c("Outcome1","Outcome2"),c("Outcome1","Outcome2")]
+```
 
 #### Confidence Intervals
 
 This code will provide the confidence interval for the correlation.
 ```{r}
-with(MixedDataL1,estimateCorrelations(cbind(Outcome1,Outcome2)))
-with(MixedDataL2,estimateCorrelations(cbind(Outcome1,Outcome2)))
+estimateCorrelations(CompSummaryL1,CompCorrL1)
+estimateCorrelations(CompSummaryL2,CompCorrL2)
 ```
 
 This code will produce a graph of the confidence interval for the correlation.
 ```{r,MixedCorrelation-A}
-with(MixedDataL1,plotCorrelations(cbind(Outcome1,Outcome2)))
-with(MixedDataL2,plotCorrelations(cbind(Outcome1,Outcome2)))
+plotCorrelations(CompSummaryL1,CompCorrL1)
+plotCorrelations(CompSummaryL2,CompCorrL2)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-with(MixedDataL1,estimateCorrelations(cbind(Outcome1,Outcome2),conf.level=.99))
-with(MixedDataL2,estimateCorrelations(cbind(Outcome1,Outcome2),conf.level=.99))
+estimateCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99)
+estimateCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99)
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,MixedCorrelation-B}
-with(MixedDataL1,plotCorrelations(cbind(Outcome1,Outcome2),conf.level=.99,line=0,rope=c(-.2,.2)))
-with(MixedDataL2,plotCorrelations(cbind(Outcome1,Outcome2),conf.level=.99,line=0,rope=c(-.2,.2)))
+plotCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99,line=0,rope=c(-.2,.2))
+plotCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST for the correlation (against a value of zero).
 ```{r}
-with(MixedDataL1,testCorrelations(cbind(Outcome1,Outcome2)))
-with(MixedDataL2,testCorrelations(cbind(Outcome1,Outcome2)))
+testCorrelations(CompSummaryL1,CompCorrL1)
+testCorrelations(CompSummaryL2,CompCorrL2)
 ```
 
 ### Analyses of Several Correlations
 
-This section analyzes the correlations among multiple variables.
+This section analyzes the correlations among multiple variables in each of the subsets.
 
 #### Confidence Intervals
 
 This code will provide the confidence intervals for the correlations.
 ```{r}
-with(MixedDataL1,estimateCorrelations(cbind(Outcome1,Outcome2,Outcome3)))
-with(MixedDataL2,estimateCorrelations(cbind(Outcome1,Outcome2,Outcome3)))
+estimateCorrelations(MixedSummaryL1,MixedCorrL1)
+estimateCorrelations(MixedSummaryL2,MixedCorrL2)
 ```
 
 This code will produce a graph of the confidence intervals for the correlations.
 ```{r,MixedCorrelations-A}
-with(MixedDataL1,plotCorrelations(cbind(Outcome1,Outcome2,Outcome3)))
-with(MixedDataL2,plotCorrelations(cbind(Outcome1,Outcome2,Outcome3)))
+plotCorrelations(MixedSummaryL1,MixedCorrL1)
+plotCorrelations(MixedSummaryL2,MixedCorrL2)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-with(MixedDataL1,estimateCorrelations(cbind(Outcome1,Outcome2,Outcome3),conf.level=.99))
-with(MixedDataL2,estimateCorrelations(cbind(Outcome1,Outcome2,Outcome3),conf.level=.99))
+estimateCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99)
+estimateCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99)
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,MixedCorrelations-B}
-with(MixedDataL1,plotCorrelations(cbind(Outcome1,Outcome2,Outcome3),conf.level=.99,line=0,rope=c(-.2,.2)))
-with(MixedDataL2,plotCorrelations(cbind(Outcome1,Outcome2,Outcome3),conf.level=.99,line=0,rope=c(-.2,.2)))
+plotCorrelations(MixedSummaryL1,MixedCorrL1,conf.level=.99,line=0,rope=c(-.2,.2))
+plotCorrelations(MixedSummaryL2,MixedCorrL2,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST for the correlations (against a value of zero).
 ```{r}
-with(MixedDataL1,testCorrelations(cbind(Outcome1,Outcome2,Outcome3)))
-with(MixedDataL2,testCorrelations(cbind(Outcome1,Outcome2,Outcome3)))
+testCorrelations(MixedSummaryL1,MixedCorrL1)
+testCorrelations(MixedSummaryL2,MixedCorrL2)
 ```
 
 ### Analyses of a Correlation Difference
 
-This section analyzes the difference in the correlations from the two frames.
+This section analyzes the difference in the correlations from the two subsets.
 
 #### Confidence Intervals
 
 First it is necessary to estimate the confidence intervals for each of the correlations.
 ```{r}
-CorrEstimateL1 <- with(MixedDataL1,estimateCorrelations(cbind(Outcome1,Outcome2)))
-CorrEstimateL2 <- with(MixedDataL2,estimateCorrelations(cbind(Outcome1,Outcome2)))
+CorrEstimateL1 <- estimateCorrelations(CompSummaryL1,CompCorrL1)
+CorrEstimateL2 <- estimateCorrelations(CompSummaryL2,CompCorrL2)
 ```
 
 Then we can estimate the difference in the correlations and get its confidence interval.
@@ -162,8 +178,8 @@ plotCorrelationDifference(CorrEstimateL1,CorrEstimateL2)
 
 The code defaults to 95% confidence intervals. This can be changed if desired by first re-estimating the confidence intervals for each correlation.
 ```{r}
-CorrEstimateL1 <- with(MixedDataL1,estimateCorrelations(cbind(Outcome1,Outcome2),conf.level=.99))
-CorrEstimateL2 <- with(MixedDataL2,estimateCorrelations(cbind(Outcome1,Outcome2),conf.level=.99))
+CorrEstimateL1 <- estimateCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99)
+CorrEstimateL2 <- estimateCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99)
 ```
 
 Then we can estimate the difference in the correlations and get its confidence interval.
@@ -180,8 +196,8 @@ If you wish, you can get the confidence intervals for the correlations and the c
 
 First it is necessary to estimate the confidence intervals for each of the correlations.
 ```{r}
-CorrEstimateL1 <- with(MixedDataL1,estimateCorrelations(cbind(Outcome1,Outcome2)))
-CorrEstimateL2 <- with(MixedDataL2,estimateCorrelations(cbind(Outcome1,Outcome2)))
+CorrEstimateL1 <- estimateCorrelations(CompSummaryL1,CompCorrL1)
+CorrEstimateL2 <- estimateCorrelations(CompSummaryL2,CompCorrL2)
 ```
 
 Then we can estimate the correlations and the difference in the correlations.
@@ -196,8 +212,8 @@ plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2)
 
 The code defaults to 95% confidence intervals. This can be changed if desired by first re-estimating the confidence intervals for each correlation.
 ```{r}
-CorrEstimateL1 <- with(MixedDataL1,estimateCorrelations(cbind(Outcome1,Outcome2),conf.level=.99))
-CorrEstimateL2 <- with(MixedDataL2,estimateCorrelations(cbind(Outcome1,Outcome2),conf.level=.99))
+CorrEstimateL1 <- estimateCorrelations(CompSummaryL1,CompCorrL1,conf.level=.99)
+CorrEstimateL2 <- estimateCorrelations(CompSummaryL2,CompCorrL2,conf.level=.99)
 ```
 
 Then we can estimate the correlations and the difference in the correlations.
