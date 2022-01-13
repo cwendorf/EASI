@@ -108,7 +108,7 @@ testMeansBy <- function(...,main=NULL,digits=3) {
 
 plotMeansBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=NULL,pch=16,col="black") {
   results <- estimateMeansBy(...,by=by,conf.level=conf.level)
-  if(is.null(connect) & (typeof(...)=="list" | typeof(...)=="double" )) {connect=TRUE} else {connect=FALSE}
+  if(is.null(connect) & length(list(...))>1) {connect=TRUE} else {connect=FALSE}
   print(connect)
   for (i in 1:nlevels(by)) {
     temp <- results[i]
