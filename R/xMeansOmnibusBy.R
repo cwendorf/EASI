@@ -81,7 +81,7 @@ estimateMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansOmnibusBy(...)
   if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"}
   main <- paste(main,names(results),sep=": ")
-  results <- .formatList(results,digits=digits)
+  results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 

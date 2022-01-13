@@ -56,10 +56,10 @@ estimateMeansRelational <- function(...,main=NULL,digits=3) {
 
 ### Confidence and Relational Interval Plots
 
-plotMeansRelational <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,pos=2,connect=FALSE,ylim=NULL,digits=3,col="black",border=NA) {
+plotMeansRelational <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,pos=2,connect=NULL,ylim=NULL,digits=3,col="black",border=NA,offset=0) {
   results <- estimateMeansRelational(...,conf.level=conf.level)
-  if (length(list(...))>1) {connect=TRUE} else if (class(...)=="wss") {connect=TRUE} else {connect=FALSE}
+  if(is.null(connect) & typeof(...)=="list") {connect=TRUE} else {connect=FALSE}
   if(!add) {plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)}
   results <- .unformatFrame(results[[1]])
-  for (i in 1:nrow(results)) rect(i-.05,results[,2][i],i+.05,results[,3][i],col=.colorTransparent(col,50),border=border)
+  rect(1:nrow(results)+offset-.05,results[,2],1:nrow(results)+offset+.05,results[,3],border=border,col=.colorTransparent(col,50))
 }

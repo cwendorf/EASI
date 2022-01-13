@@ -27,9 +27,9 @@ estimateStandardizedMeanComparison <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotStandardizedMeanComparison <- function(...,add=FALSE,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,pos=c(2,2,4),connect=FALSE,ylim=NULL,digits=3,pch=c(24,24,24),col="black") {
+plotStandardizedMeanComparison <- function(...,add=FALSE,main=NULL,ylab="Standardized Mean Difference",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,pos=c(2,2,4),connect=NULL,ylim=NULL,digits=3,pch=c(24,24,24),col="black") {
   results <- estimateStandardizedMeanComparison(...,conf.level=conf.level,main=main,digits=digits)
-  if(typeof(...)=="list") {connect=TRUE}  
+  if(is.null(connect) & typeof(...)=="list") {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main="Confidence Intervals for the Standardized Mean Comparison"}
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
 }

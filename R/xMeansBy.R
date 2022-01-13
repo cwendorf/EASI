@@ -106,9 +106,10 @@ testMeansBy <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeansBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=FALSE,pch=16,col="black") {
+plotMeansBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=NULL,pch=16,col="black") {
   results <- estimateMeansBy(...,by=by,conf.level=conf.level)
-  if(typeof(...)=="list" | typeof(...)=="double" ) {connect=TRUE}
+  if(is.null(connect) & (typeof(...)=="list" | typeof(...)=="double" )) {connect=TRUE} else {connect=FALSE}
+  print(connect)
   for (i in 1:nlevels(by)) {
     temp <- results[i]
     plotIntervals(temp,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)

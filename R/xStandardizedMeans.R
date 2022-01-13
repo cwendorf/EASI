@@ -61,8 +61,8 @@ estimateStandardizedMeans <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotStandardizedMeans <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=16,col="black") {
+plotStandardizedMeans <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=NULL,ylim=NULL,add=FALSE,pch=16,col="black") {
   results <- estimateStandardizedMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
-  if(typeof(...)=="list") {connect=TRUE}
+  if(is.null(connect) & typeof(...)=="list") {connect=TRUE} else {connect=FALSE}
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
 }
