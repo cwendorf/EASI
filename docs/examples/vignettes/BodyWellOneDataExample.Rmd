@@ -43,22 +43,22 @@ BodyWellOneData <- data.frame(BodySatisfaction,Wellbeing)
 
 First, it's useful to get the means and standard deviations for the variables.
 ```{r}
-describeMeans(BodySatisfaction,Wellbeing)
+describeMeans(BodyWellOneData)
 ```
 
 Next, we can get the correlation among the variables.
 ```{r}
-describeCorrelations(BodySatisfaction,Wellbeing)
+describeCorrelations(BodyWellOneData)
 ```
 
 ### Analyses of a Correlation
 
 We can get the confidence interval for the correlation.
 ```{r}
-estimateCorrelations(BodySatisfaction,Wellbeing)
+estimateCorrelations(BodyWellOneData)
 ```
 
 This is the plot of correlation and its confidence interval.
 ```{r,BodyWellOne-Correlation}
-plotCorrelations(BodySatisfaction,Wellbeing,main="Correlation for the Entire Sample",ylim=c(-1,1))
+plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1))
 ```

@@ -18,16 +18,16 @@ BodyWellTwoDataL2 <- subset(BodyWellTwoData,Gender=="2")
 
 #### Descriptive Statistics
 
-with(BodyWellTwoDataL1,describeMeans(BodySatisfaction,Wellbeing))
-with(BodyWellTwoDataL2,describeMeans(BodySatisfaction,Wellbeing))
+with(BodyWellTwoDataL1,describeMeans(cbind(BodySatisfaction,Wellbeing)))
+with(BodyWellTwoDataL2,describeMeans(cbind(BodySatisfaction,Wellbeing)))
 
-with(BodyWellTwoDataL1,describeCorrelations(BodySatisfaction,Wellbeing))
-with(BodyWellTwoDataL2,describeCorrelations(BodySatisfaction,Wellbeing))
+with(BodyWellTwoDataL1,describeCorrelations(cbind(BodySatisfaction,Wellbeing)))
+with(BodyWellTwoDataL2,describeCorrelations(cbind(BodySatisfaction,Wellbeing)))
 
 ### Analyses of a Correlation Comparison
 
-CorrEstimateL1 <- with(BodyWellTwoDataL1,estimateCorrelations(BodySatisfaction,Wellbeing))
-CorrEstimateL2 <- with(BodyWellTwoDataL2,estimateCorrelations(BodySatisfaction,Wellbeing))
+CorrEstimateL1 <- with(BodyWellTwoDataL1,estimateCorrelations(cbind(BodySatisfaction,Wellbeing)))
+CorrEstimateL2 <- with(BodyWellTwoDataL2,estimateCorrelations(cbind(BodySatisfaction,Wellbeing)))
 
 estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"))
 plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1))

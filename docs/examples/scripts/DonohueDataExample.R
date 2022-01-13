@@ -13,16 +13,16 @@ DonohueData <- data.frame(Pretest,Posttest,Followup)
 
 ### Analyses of the Different Variables
 
-estimateMeans(Pretest,Posttest,Followup)
-plotMeans(Pretest,Posttest,Followup,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score")
+estimateMeans(DonohueData)
+plotMeans(DonohueData,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score")
  
 ### Analysis of a Variable Difference
 
-plotMeanComparison(Posttest,Followup,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score")
-estimateStandardizedMeanDifference(Posttest,Followup)
+plotMeanComparison(DonohueData,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score")
+estimateStandardizedMeanDifference(DonohueData)
 
 ### Analysis of a Variable Contrast
 
 PrevsPostFollow <- c(-1,.5,.5)
-plotMeanSubsets(Pretest,Posttest,Followup,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score")
-estimateStandardizedMeanContrast(Pretest,Posttest,Followup,contrast=PrevsPostFollow)
+plotMeanSubsets(DonohueData,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score")
+estimateStandardizedMeanContrast(DonohueData,contrast=PrevsPostFollow)
