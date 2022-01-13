@@ -4,6 +4,9 @@
 
 Data and summary statistics for these examples are from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017).
 
+- Examples for a variety of research designs are included
+- Examples provide results parallel to those provided in the book
+
 > NOTE: The results of these analyses vary slightly from those presented in *ITNS* because the two make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.).
 
 ### Examples of Means and Mean Differences

@@ -41,11 +41,11 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Usage
 
-Basic documentation and tutorials are available:  
-[https://github.com/cwendorf/EASI/tree/main/docs/](https://github.com/cwendorf/EASI/tree/main/docs)
+Vingettes for tutorial data that show the diversity of options are available:  
+[https://github.com/cwendorf/EASI/tree/main/docs/tutorials](https://github.com/cwendorf/EASI/tree/main/docs/tutorials)
 
-- Vingettes for tutorial data that show the diversity of options
-- Reanalyses of published textbook examples highlighting the estimation approach
+Reanalyses of published textbook examples highlighting the estimation approach are also available:  
+[https://github.com/cwendorf/EASI/tree/main/docs/examples](https://github.com/cwendorf/EASI/tree/main/docs/examples)
 
 ### Contact Me
 
