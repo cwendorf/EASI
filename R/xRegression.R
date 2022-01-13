@@ -72,31 +72,6 @@ estimateRegression <- function(...,value=NULL,conf.level=.95,main=NULL,digits=3)
 plotRegression <- function(x,...) 
   UseMethod("plotRegression")
 
-plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,range=NULL,interval=FALSE,values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
-  if(is.null(xlab)) xlab=deparse(substitute(Predictor))
-  if(is.null(ylab)) ylab=deparse(substitute(Criterion))
-  if(is.null(xlim)) {
-    xmin = min(Predictor)
-    xmax = max(Predictor)
-    xlim = c(xmin,xmax)}
-  else {
-    xlim=xlim
-    xmin=xlim[1]
-    xmax=xlim[2]}
-  if(is.null(range)) {range <- seq(xmin-.25,xmax+.25,by=.05)} else {range <- seq(range[1],range[2],by=.05)}
-  intervals <- as.data.frame(.estimateRegression(Predictor,Criterion,value=range,conf.level))
-  if(is.null(ylim)) {ylim <- c(min(intervals),max(intervals))}
-  if(!add) {plotScatter(Predictor,Criterion,xlim=xlim,ylim=ylim,main=main,xlab=xlab,ylab=ylab,points=points,pch=pch)}
-  if(cross) {
-    abline(v=mean(Predictor),col=.colorTransparent(col,50))
-    abline(h=mean(Criterion),col=.colorTransparent(col,50))}
-  if(line) {
-    Est <- .unformatFrame(estimateRegressionCoefficients(Predictor,Criterion)[[1]])[,"Est"]
-    abline(Est[1],Est[2],col=col)}  
-  if(!is.null(value)) {results <- .estimateRegression(Predictor,Criterion,value=value,conf.level=conf.level)} else {results=NULL}
-  .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
-}
-
 plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NULL,range=NULL,interval="both",values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
   if(is.null(xlab)) xlab=rownames(PredStats)
   if(is.null(ylab)) ylab=rownames(CritStats)
@@ -119,5 +94,32 @@ plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NUL
     Est <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats)[[1]])[,"Est"]
     abline(Est[1],Est[2],col=col)} 
   if(!is.null(value)) {results <- .estimateRegression(PredStats,CritStats,CorrStats,value=value,conf.level=conf.level)} else {results=NULL}
+  .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
+}
+
+plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,range=NULL,interval=FALSE,values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
+  if(is.null(xlab)) xlab=deparse(substitute(Predictor))
+  if(is.null(ylab)) ylab=deparse(substitute(Criterion))
+  if(is.null(xlim)) {
+    xmin = min(Predictor)
+    xmax = max(Predictor)
+    xlim = c(xmin,xmax)}
+  else {
+    xlim=xlim
+    xmin=xlim[1]
+    xmax=xlim[2]}
+  if(is.null(range)) {range <- seq(xmin-.25,xmax+.25,by=.05)} else {range <- seq(range[1],range[2],by=.05)}
+  intervals <- as.data.frame(.estimateRegression(Predictor,Criterion,value=range,conf.level))
+  if(is.null(ylim)) {ylim <- c(min(intervals),max(intervals))}
+  if(!add) {
+    data <- data.frame(Predictor,Criterion)
+    plotScatter(data,xlim=xlim,ylim=ylim,main=main,xlab=xlab,ylab=ylab,points=points,pch=pch)}
+  if(cross) {
+    abline(v=mean(Predictor),col=.colorTransparent(col,50))
+    abline(h=mean(Criterion),col=.colorTransparent(col,50))}
+  if(line) {
+    Est <- .unformatFrame(estimateRegressionCoefficients(Predictor,Criterion)[[1]])[,"Est"]
+    abline(Est[1],Est[2],col=col)}  
+  if(!is.null(value)) {results <- .estimateRegression(Predictor,Criterion,value=value,conf.level=conf.level)} else {results=NULL}
   .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }
