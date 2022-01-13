@@ -1,5 +1,5 @@
 <a href="https://github.com/cwendorf/EASI/">
-<img src="logo.png" height="60px;" align="left;" style="display: none; margin: 0px; padding: 0px;">
+<img src="./docs/logo.png" height="60px;" align="left;" style="display: none; margin: 0px; padding: 0px;">
 </a>
 
 ## Estimation Approach to Statistical Inference
