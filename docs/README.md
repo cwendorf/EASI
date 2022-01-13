@@ -1,35 +1,13 @@
 ## Estimation Approach to Statistical Inference
 
-### Overview
+### Overview of the Tutorials
 
-[**EASI**](https://cwendorf.github.io/EASI) is an R package that implements features of estimation statistics. Its primary functions calculate, test, and plot confidence intervals for between- and within-subjects single-factor, factorial, and mixed designs. Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparisons among the groups and variables. Most functions can take either raw data or summary statistics as input.
+Data and summary statistics for the tutorials are from [*Statistics for Social Science: A Sourcebook of Basic Statistical Methods*](https://cwendorf.github.io/Sourcebook/) (Wendorf, 2019)
 
-<p align="center"><kbd><img src="easiComparison.jpg"></kbd></p>
+- [*Tutorials*](./tutorials/) - Tutorials using both data and summary statistics
 
-### Installation
+### Overview of the Examples
 
-This package is not currently on CRAN, but the latest stable release can be installed from GitHub:
+Data and summary statistics for these examples are from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017).
 
-```r
-install.packages("devtools")
-devtools::install_github("cwendorf/EASI@*release",build_vignettes=TRUE)
-library(EASI)
-```
-
-To get the newest features and bug fixes, install the development version from GitHub:
-
-``` r
-install.packages("devtools")
-devtools::install_github("cwendorf/EASI")
-library(EASI)
-```
-
-If you do not wish a full install, the latest functions can be sourced directly from GitHub:
-
-```r
-source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
-```
-
-### Citation
-
-Wendorf, C.A. (2019). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
+- [*Examples*](./examples/) - Examples using both data and summary statistics
