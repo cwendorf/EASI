@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-## Developmental Version
+## 5.0.220113
 
 - Rebuilt within-subjects data input for all relevant functions
 - Refactored all functions to use common plotting methods
