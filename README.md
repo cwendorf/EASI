@@ -9,9 +9,9 @@
 
 ### Overview
 
-[**EASI**](https://cwendorf.github.io/EASI) is an R package that implements features of estimation statistics. Its primary functions calculate, test, and plot confidence intervals for between- and within-subjects single-factor, factorial, and mixed designs. Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparisons among the groups and variables. Most functions can take either raw data or summary statistics as input. 
+[**EASI**](https://github.com/cwendorf/EASI) is an R package that implements features of estimation statistics. Its primary functions calculate, test, and plot confidence intervals for between- and within-subjects single-factor, factorial, and mixed designs. Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparisons among the groups and variables. Most functions can take either raw data or summary statistics as input. 
 
-<a href="https://cwendorf.github.io/EASI">
+<a href="https://github.com/cwendorf/EASI">
 <p align="center"><kbd><img src="docs/easiComparison.jpg"></kbd></p>
 </a>
 
@@ -55,4 +55,4 @@ Reanalyses of published textbook examples highlighting the estimation approach a
 
 ### Citation
 
-Wendorf, C. A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://cwendorf.github.io/EASI](https://cwendorf.github.io/EASI)
+Wendorf, C. A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://github.com/cwendorf/EASI](https://github.com/cwendorf/EASI)
