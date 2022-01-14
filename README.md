@@ -47,6 +47,9 @@ Vingettes for tutorial data that show the diversity of options are available:
 Reanalyses of published textbook examples highlighting the estimation approach are also available:  
 [https://github.com/cwendorf/EASI/tree/main/docs/examples](https://github.com/cwendorf/EASI/tree/main/docs/examples)
 
+Advanced and experimental applications of the package can be viewed as well:  
+[https://github.com/cwendorf/EASI/tree/main/docs/advanced](https://github.com/cwendorf/EASI/tree/main/docs/advanced)
+
 ### Contact Me
 
 - GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
