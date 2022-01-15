@@ -26,12 +26,12 @@ The **EnhancedPlots** files analyze applications of confidence interval plots, d
 
 The **ComplexContrasts** files analyze complex contrasts (and their differences):
 
-- [*ComplexContrastsOneWayApplications*](./ComplexContrastsOneWayApplications.md) - Uses one-way (between-subjects) data
+- [*ComplexContrastsOneWayDataApplications*](./ComplexContrastsOneWayDataApplications.md) - Uses one-way (between-subjects) data
 - [*ComplexContrastsRepeatedMeasuresDataApplications*](./ComplexContrastsRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
 
 ### Relational Intervals
 
 The **RelationalIntervals** files examine the concept of relational and arelational intervals (Wendorf, 2012):
 
-- [*RelationalIntervalsOneWayDataExample*](./RelationalIntervalsOneWayDataExample.md) - Uses one-way (between-subjects) data
-- [*RelationalIntervalsRepeatedMeasuresDataExample*](./RelationalIntervalsRepeatedMeasuresDataExample.md) - Uses repeated measures (within-subjects) data
+- [*RelationalIntervalsOneWayDataApplications*](./RelationalIntervalsOneWayDataApplications.md) - Uses one-way (between-subjects) data
+- [*RelationalIntervalsRepeatedMeasuresDataApplications*](./RelationalIntervalsRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
