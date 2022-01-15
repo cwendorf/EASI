@@ -33,7 +33,7 @@ export(describeFrequencies)
 
 S3method(plotFrequencies,default)
 S3method(plotFrequencies,formula)
-export(plotBoxes)
+export(plotFrequencies)
 
 ### xPercentiles
 
