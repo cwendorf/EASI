@@ -48,7 +48,7 @@ Reanalyses of published textbook examples highlighting the estimation approach a
 [https://github.com/cwendorf/EASI/tree/main/docs/examples](https://github.com/cwendorf/EASI/tree/main/docs/examples)
 
 Advanced and experimental applications of the package can be viewed as well:  
-[https://github.com/cwendorf/EASI/tree/main/docs/advanced](https://github.com/cwendorf/EASI/tree/main/docs/advanced)
+[https://github.com/cwendorf/EASI/tree/main/docs/applications](https://github.com/cwendorf/EASI/tree/main/docs/applications)
 
 ### Contact Me
 

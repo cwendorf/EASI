@@ -28,6 +28,7 @@ plotData.formula <- function(formula,add=FALSE,main=NULL,ylim=NULL,ylab=NULL,xla
     if(is.null(ylab)) {ylab <- all.vars(formula)[1]}
     results <- describePercentiles(data)
     results[[1]] <- results[[1]][,c(1,5)]
+    if(is.null(main)) {main="Data for the Groups"}
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
   stripchart(data,add=TRUE,at=loc,vertical=TRUE,method=method,jitter=jitter,col=.colorTransparent(col,70),pch=pch)
 }
