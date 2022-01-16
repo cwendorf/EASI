@@ -6,7 +6,7 @@
 .estimateMeansEffectMultifactor <- function(x,...) 
   UseMethod(".estimateMeansEffectMultifactor")
 
-.estimateMeansEffectMultifactor.wss <- function(ListDescStats,ListCorrStats,conf.level=.90) {
+.estimateMeansEffectMultifactor.wss <- function(ListDescStats,ListCorrStats,conf.level=.90,...) {
   x <- .describeMeansOmnibusMultifactor.wss(ListDescStats,ListCorrStats)
   results <- cbind(x[[1]],F=NA,Est=NA,LL=NA,UL=NA)
   results[,4] <- results[,3]/tail(results[,3],1)
@@ -27,7 +27,7 @@
   return(results)
 }
 
-.estimateMeansEffectMultifactor.bss <- function(ListDescStats,conf.level=.90) {
+.estimateMeansEffectMultifactor.bss <- function(ListDescStats,conf.level=.90,...) {
   x <- .describeMeansOmnibusMultifactor.bss(ListDescStats)
   results <- cbind(x[[1]],F=NA,Est=NA,LL=NA,UL=NA)
   results[,4] <- results[,3]/tail(results[,3],1)
@@ -40,13 +40,15 @@
   return(results)
 }
 
-.estimateMeansEffectMultifactor.default <- function(...,by,conf.level=.90) {
-  ListDescStats <- .describeMeansBy.default(...,by=by)
-  ListCorrStats <- .describeCorrelationsBy.default(...,by=by)
+.estimateMeansEffectMultifactor.default <- function(frame,by,conf.level=.90,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy.default(data,by=by)
+  ListCorrStats <- .describeCorrelationsBy.default(data,by=by)
   .estimateMeansEffectMultifactor.wss(ListDescStats,ListCorrStats,conf.level=conf.level)
 }
 
-.estimateMeansEffectMultifactor.formula <- function(formula,by,conf.level=.90) {
+.estimateMeansEffectMultifactor.formula <- function(formula,by,conf.level=.90,...) {
   ListDescStats <- .describeMeansBy.formula(formula,by=by)
   .estimateMeansEffectMultifactor.bss(ListDescStats,conf.level=conf.level)
 }

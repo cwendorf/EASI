@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeansBy <- function(...) 
+.estimateStandardizedMeansBy <- function(x,...) 
   UseMethod(".estimateStandardizedMeansBy")
 
-.estimateStandardizedMeansBy.wss <- function(ListDescStats,conf.level=.95,mu=0) {
+.estimateStandardizedMeansBy.wss <- function(ListDescStats,conf.level=.95,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeans.wss(ListDescStats[[i]],conf.level=conf.level,mu=mu)}
   names(results) <- names(ListDescStats)  
@@ -14,7 +14,7 @@
   return(results)
 }
 
-.estimateStandardizedMeansBy.bss <- function(ListDescStats,conf.level=.95,mu=0) {
+.estimateStandardizedMeansBy.bss <- function(ListDescStats,conf.level=.95,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeans.bss(ListDescStats[[i]],conf.level=conf.level,mu=mu)}
   names(results) <- names(ListDescStats)
@@ -22,13 +22,15 @@
   return(results)
 }
 
-.estimateStandardizedMeansBy.default <- function(...,by,mu=0,conf.level=.95) {
-  ListDescStats <- .describeMeansBy(...,by=by)
+.estimateStandardizedMeansBy.default <- function(frame,by,mu=0,conf.level=.95,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(frame,by=by)
   results <- .estimateStandardizedMeansBy.wss(ListDescStats,mu=mu,conf.level=conf.level)
   return(results)
 }
 
-.estimateStandardizedMeansBy.formula <- function(formula,by,mu=0,conf.level=.95) {
+.estimateStandardizedMeansBy.formula <- function(formula,by,mu=0,conf.level=.95,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .estimateStandardizedMeansBy.bss(ListDescStats,mu=mu,conf.level=conf.level)
   return(results)

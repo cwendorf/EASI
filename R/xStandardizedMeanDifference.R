@@ -6,7 +6,7 @@
 .estimateStandardizedMeanDifference <- function(x,...) 
   UseMethod(".estimateStandardizedMeanDifference")
 
-.estimateStandardizedMeanDifference.wss <- function(DescStats,CorrStats,conf.level=.95,labels=NULL) {
+.estimateStandardizedMeanDifference.wss <- function(DescStats,CorrStats,conf.level=.95,labels=NULL,...) {
   CompStats <- DescStats[1:2,]
   N <- min(CompStats[1:2,"N"])
   M <- CompStats[1:2,"M"]
@@ -29,7 +29,7 @@
   return(results)
 }
 
-.estimateStandardizedMeanDifference.bss <- function(DescStats,contrast,conf.level=.95,labels=NULL) {
+.estimateStandardizedMeanDifference.bss <- function(DescStats,contrast,conf.level=.95,labels=NULL,...) {
   CompStats <- DescStats[1:2,]
   N <- CompStats[1:2,"N"]
   M <- CompStats[1:2,"M"]
@@ -48,13 +48,15 @@
   return(results)
 }
 
-.estimateStandardizedMeanDifference.default <- function(...,conf.level=.95,labels=NULL) {
-  CompStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateStandardizedMeanDifference.default <- function(frame,conf.level=.95,labels=NULL,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  CompStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateStandardizedMeanDifference.wss(CompStats,CorrStats,conf.level=conf.level,labels=labels)
 }
 
-.estimateStandardizedMeanDifference.formula <- function(formula,contrast,conf.level=.95,labels=NULL) {
+.estimateStandardizedMeanDifference.formula <- function(formula,contrast,conf.level=.95,labels=NULL,...) {
   DescStats <- .describeMeans(formula)
   .estimateStandardizedMeanDifference.bss(DescStats,contrast,conf.level=conf.level,labels=labels)
 }

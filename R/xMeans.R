@@ -37,9 +37,11 @@
 .describeMeans <- function(x,...) 
   UseMethod(".describeMeans")
 
-.describeMeans.default <- function(x,...) {
-  data <- data.frame(x)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
+.describeMeans.default <- function(frame,...) {
+  if(typeof(frame)=="double") {
+    data <- data.frame(frame)
+    if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}} 
+    else {data=frame}
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
   SD <- sapply(data,sd,na.rm=TRUE)
@@ -86,8 +88,10 @@ describeMeans <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeans.default <- function(...,mu=0,conf.level=.95) {
-  DescStats <- .describeMeans.default(...)
+.estimateMeans.default <- function(frame,mu=0,conf.level=.95,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans.default(data)
   .estimateMeans.wss(DescStats,conf.level=conf.level,mu=mu)
 }
 
@@ -121,8 +125,10 @@ estimateMeans <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeans.default <- function(...,mu=0) {
-  DescStats <- .describeMeans.default(...)
+.testMeans.default <- function(frame,mu=0,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}  
+  DescStats <- .describeMeans.default(data)
   .testMeans.wss(DescStats,mu=mu,main=main,digits=digits)
 }
 

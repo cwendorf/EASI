@@ -6,7 +6,7 @@
 .describeMeansOmnibusBy <- function(x,...) 
   UseMethod(".describeMeansOmnibusBy")
 
-.describeMeansOmnibusBy.wss <- function(ListDescStats,ListCorrStats) {
+.describeMeansOmnibusBy.wss <- function(ListDescStats,ListCorrStats,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .describeMeansOmnibus.wss(ListDescStats[[i]],ListCorrStats[[i]])}
   names(results) <- names(ListDescStats)  
@@ -14,7 +14,7 @@
   return(results)
 }
 
-.describeMeansOmnibusBy.bss <- function(ListDescStats) {
+.describeMeansOmnibusBy.bss <- function(ListDescStats,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .describeMeansOmnibus.bss(ListDescStats[[i]])}
   names(results) <- names(ListDescStats)  
@@ -22,14 +22,16 @@
   return(results)
 }
 
-.describeMeansOmnibusBy.default <- function(...,by) {
-  ListDescStats <- .describeMeansBy(...,by=by)
-  ListCorrStats <- .describeCorrelationsBy(...,by=by)  
+.describeMeansOmnibusBy.default <- function(frame,by,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
+  ListCorrStats <- .describeCorrelationsBy(data,by=by)  
   results <- .describeMeansOmnibusBy.wss(ListDescStats,ListCorrStats)
   return(results)
 }
 
-.describeMeansOmnibusBy.formula <- function(formula,by) {
+.describeMeansOmnibusBy.formula <- function(formula,by,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .describeMeansOmnibusBy.bss(ListDescStats)
   return(results)
@@ -48,7 +50,7 @@ describeMeansOmnibusBy <- function(...,main=NULL,digits=3) {
 .estimateMeansOmnibusBy <- function(x,...) 
   UseMethod(".estimateMeansOmnibusBy")
 
-.estimateMeansOmnibusBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.90) {
+.estimateMeansOmnibusBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.90,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeansOmnibus.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level)}
   names(results) <- names(ListDescStats)  
@@ -56,7 +58,7 @@ describeMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansOmnibusBy.bss <- function(ListDescStats,conf.level=.90) {
+.estimateMeansOmnibusBy.bss <- function(ListDescStats,conf.level=.90,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeansOmnibus.bss(ListDescStats[[i]],conf.level)}
   names(results) <- names(ListDescStats)  
@@ -64,14 +66,16 @@ describeMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansOmnibusBy.default <- function(...,by,conf.level=.90) {
-  ListDescStats <- .describeMeansBy(...,by=by)
-  ListCorrStats <- .describeCorrelationsBy(...,by=by)  
+.estimateMeansOmnibusBy.default <- function(frame,by,conf.level=.90,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
+  ListCorrStats <- .describeCorrelationsBy(data,by=by)  
   results <- .estimateMeansOmnibusBy.wss(ListDescStats,ListCorrStats,conf.level)
   return(results)
 }
 
-.estimateMeansOmnibusBy.formula <- function(formula,by,conf.level=.90) {
+.estimateMeansOmnibusBy.formula <- function(formula,by,conf.level=.90,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .estimateMeansOmnibusBy.bss(ListDescStats,conf.level)
   return(results)
@@ -90,7 +94,7 @@ estimateMeansOmnibusBy <- function(...,main=NULL,digits=3) {
 .testMeansOmnibusBy <- function(x,...) 
   UseMethod(".testMeansOmnibusBy")
 
-.testMeansOmnibusBy.wss <- function(ListDescStats,ListCorrStats) {
+.testMeansOmnibusBy.wss <- function(ListDescStats,ListCorrStats,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeansOmnibus.wss(ListDescStats[[i]],ListCorrStats[[i]])}
   names(results) <- names(ListDescStats)  
@@ -106,14 +110,16 @@ estimateMeansOmnibusBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeansOmnibusBy.default <- function(...,by) {
-  ListDescStats <- .describeMeansBy(...,by=by)
-  ListCorrStats <- .describeCorrelationsBy(...,by=by)  
+.testMeansOmnibusBy.default <- function(frame,by,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
+  ListCorrStats <- .describeCorrelationsBy(data,by=by)  
   results <- .testMeansOmnibusBy.wss(ListDescStats,ListCorrStats)
   return(results)
 }
 
-.testMeansOmnibusBy.formula <- function(formula,by) {
+.testMeansOmnibusBy.formula <- function(formula,by,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .testMeansOmnibusBy.bss(ListDescStats)
   return(results)

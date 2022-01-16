@@ -12,7 +12,7 @@ Outcome3 <- c(N=4,M=7.000,SD=2.449)
 RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(RepeatedSummary) <- "wss"
 
-RepeatedCorr <- declareCorrelations("Outcome1","Outcome2","Outcome3")
+RepeatedCorr <- declareCorrelations(c("Outcome1","Outcome2","Outcome3"))
 RepeatedCorr["Outcome1","Outcome2"] <- .500
 RepeatedCorr["Outcome1","Outcome3"] <- .056
 RepeatedCorr["Outcome2","Outcome3"] <- .389

@@ -6,7 +6,7 @@
 .describeRegressionOmnibus <- function(x,...) 
   UseMethod(".describeRegressionOmnibus")
 
-.describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats) {
+.describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,...) {
   rn <- rownames(PredStats)
   PredCorr <- CorrStats[rn,rn]
   DescStats <- rbind(PredStats,CritStats)
@@ -31,7 +31,7 @@
   return(results)
 }
 
-.describeRegressionOmnibus.default <- function(Predictors,Criterion) {
+.describeRegressionOmnibus.default <- function(Predictors,Criterion,...) {
   Pred <- data.frame(Predictors)
   if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
   Crit <- data.frame(Criterion)
@@ -66,7 +66,7 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
 .estimateRegressionOmnibus <- function(x,...) 
   UseMethod(".estimateRegressionOmnibus")
 
-.estimateRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90) {
+.estimateRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90,...) {
   temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
   df1 <- temptab["Model","df"]
   df2 <- temptab["Error","df"]
@@ -77,7 +77,7 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateRegressionOmnibus.default <- function(Predictors,Criterion,conf.level=.90) {
+.estimateRegressionOmnibus.default <- function(Predictors,Criterion,conf.level=.90,...) {
   Pred <- data.frame(Predictors)
   if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
   Crit <- data.frame(Criterion)
@@ -101,7 +101,7 @@ estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
 .testRegressionOmnibus <- function(x,...) 
   UseMethod(".testRegressionOmnibus")
 
-.testRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats) {
+.testRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,...) {
   temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
   MSf <- temptab["Model","MS"]
   MSe <- temptab["Error","MS"]
@@ -115,7 +115,7 @@ estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testRegressionOmnibus.default <- function(Predictors,Criterion) {
+.testRegressionOmnibus.default <- function(Predictors,Criterion,...) {
   Pred <- data.frame(Predictors)
   if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
   Crit <- data.frame(Criterion)

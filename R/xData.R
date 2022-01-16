@@ -6,9 +6,9 @@
 plotData <- function(x,...)
   UseMethod("plotData")
 
-plotData.default <- function(x,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,lty="solid",connect=FALSE) {
-  data <- data.frame(x)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
+plotData.default <- function(frame,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,lty="solid",connect=FALSE,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   loc <- (1:length(data))+offset
   if(!add) {
     if(is.null(main)) {main="Data for the Variables"}

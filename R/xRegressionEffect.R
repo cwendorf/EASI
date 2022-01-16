@@ -6,7 +6,7 @@
 .describeRegressionEffect <- function(x,...) 
   UseMethod(".describeRegressionEffect")
 
-.describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats) {
+.describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,...) {
   rn <- rownames(PredStats)
   PredCorr <- CorrStats[rn,rn]
   DescStats <- rbind(PredStats,CritStats)
@@ -24,7 +24,7 @@
   return(results)
 }
 
-.describeRegressionEffect.default <- function(Predictors,Criterion) {
+.describeRegressionEffect.default <- function(Predictors,Criterion,...) {
   Predictors <- cbind(Predictors)
   if(ncol(Predictors)==1) {
     CorrStats <- cor(Predictors,Criterion)
@@ -56,7 +56,7 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
 .estimateRegressionEffect <- function(x,...) 
   UseMethod(".estimateRegressionEffect")
 
-.estimateRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90) {
+.estimateRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90,...) {
   temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
   df1 <- temptab["Model","df"]
   df2 <- temptab["Error","df"]
@@ -67,7 +67,7 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateRegressionEffect.default <- function(Predictors,Criterion,conf.level=.90) {
+.estimateRegressionEffect.default <- function(Predictors,Criterion,conf.level=.90,...) {
   Pred <- data.frame(Predictors)
   if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
   Crit <- data.frame(Criterion)

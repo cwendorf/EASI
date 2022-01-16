@@ -43,7 +43,7 @@ class(BivariateSummary) <- "wss"
 
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 ```{r}
-RegressionCorr <- declareCorrelations("Predictor","Criterion")
+RegressionCorr <- declareCorrelations(c("Predictor","Criterion"))
 RegressionCorr["Predictor","Criterion"] <- .056
 RegressionCorr <- fillCorrelations(RegressionCorr)
 ```

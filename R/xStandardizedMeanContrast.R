@@ -6,7 +6,7 @@
 .estimateStandardizedMeanContrast <- function(x,...) 
   UseMethod(".estimateStandardizedMeanContrast")
 
-.estimateStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,labels=NULL) {
+.estimateStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,labels=NULL,...) {
   N <- min(DescStats[,"N"])
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -30,7 +30,7 @@
   return(results)
 }
 
-.estimateStandardizedMeanContrast.bss <- function(DescStats,contrast,conf.level=.95,labels=NULL) {
+.estimateStandardizedMeanContrast.bss <- function(DescStats,contrast,conf.level=.95,labels=NULL,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -51,13 +51,15 @@
   return(results)
 }
 
-.estimateStandardizedMeanContrast.default <- function(...,contrast,conf.level=.95,labels=NULL) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateStandardizedMeanContrast.default <- function(frame,contrast,conf.level=.95,labels=NULL,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateStandardizedMeanContrast.wss(DescStats,CorrStats,contrast,conf.level=conf.level,labels=labels)
 }
 
-.estimateStandardizedMeanContrast.formula <- function(formula,contrast,conf.level=.95,labels=NULL) {
+.estimateStandardizedMeanContrast.formula <- function(formula,contrast,conf.level=.95,labels=NULL,...) {
   DescStats <- .describeMeans(formula)
   .estimateStandardizedMeanContrast.bss(DescStats,contrast,conf.level=conf.level,labels=labels)
 }

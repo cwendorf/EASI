@@ -6,7 +6,7 @@
 .estimateStandardizedMeans <- function(x,...) 
   UseMethod(".estimateStandardizedMeans")
   
-.estimateStandardizedMeans.wss <- .estimateStandardizedMeans.bss <- function(DescStats,mu=0,conf.level=.95) {
+.estimateStandardizedMeans.wss <- .estimateStandardizedMeans.bss <- function(DescStats,mu=0,conf.level=.95,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -42,12 +42,14 @@
   return(results)
 }
 
-.estimateStandardizedMeans.default <- function(...,mu=0,conf.level=.95) {
-  DescStats <- .describeMeans(...)
+.estimateStandardizedMeans.default <- function(frame,mu=0,conf.level=.95,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
   .estimateStandardizedMeans.wss(DescStats,mu=mu,conf.level=conf.level)
 }
 
-.estimateStandardizedMeans.formula <- function(formula,mu=0,conf.level=.95) {
+.estimateStandardizedMeans.formula <- function(formula,mu=0,conf.level=.95,...) {
   DescStats <- .describeMeans(formula)
   .estimateStandardizedMeans.bss(DescStats,mu=mu,conf.level=conf.level)
 }

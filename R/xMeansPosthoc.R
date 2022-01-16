@@ -6,7 +6,7 @@
 .estimateMeansPosthoc <- function(x,...) 
   UseMethod(".estimateMeansPosthoc")
 
-.estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0) {
+.estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,...) {
   temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   dfe <- temptab["Error","df"] 
   MSe <- temptab["Error","MS"]
@@ -34,7 +34,7 @@
   return(results)
 }
 
-.estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0) {
+.estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0,...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
   dfw <- temptab["Within","df"] 
   MSw <- temptab["Within","MS"]
@@ -60,13 +60,15 @@
   return(results)
 }
 
-.estimateMeansPosthoc.default <- function(...,conf.level=.95,mu=0) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateMeansPosthoc.default <- function(frame,conf.level=.95,mu=0,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateMeansPosthoc.wss(DescStats,CorrStats,conf.level=conf.level,mu=mu)
 }
 
-.estimateMeansPosthoc.formula <- function(formula,conf.level=.95,mu=0) {
+.estimateMeansPosthoc.formula <- function(formula,conf.level=.95,mu=0,...) {
   DescStats <- .describeMeans(formula)
   .estimateMeansPosthoc.bss(DescStats,conf.level=conf.level,mu=mu)
 }
@@ -83,7 +85,7 @@ estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
 .testMeansPosthoc <- function(x,...) 
   UseMethod(".testMeansPosthoc")
 
-.testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0) {
+.testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,...) {
   temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   dfe <- temptab["Error","df"] 
   MSe <- temptab["Error","MS"]
@@ -110,7 +112,7 @@ estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeansPosthoc.bss <- function(DescStats,mu=0.) {
+.testMeansPosthoc.bss <- function(DescStats,mu=0,...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
   dfw <- temptab["Within","df"] 
   MSw <- temptab["Within","MS"]
@@ -135,13 +137,15 @@ estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeansPosthoc.default <- function(...,mu=0) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.testMeansPosthoc.default <- function(frame,mu=0,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .testMeansPosthoc.wss(DescStats,CorrStats,mu=mu)
 }
 
-.testMeansPosthoc.formula <- function(formula,mu=0) {
+.testMeansPosthoc.formula <- function(formula,mu=0,...) {
   DescStats <- .describeMeans(formula)
   .testMeansPosthoc.bss(DescStats,mu=mu)
 }

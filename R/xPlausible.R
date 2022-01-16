@@ -12,7 +12,7 @@
 plotPlausible <- function(x,...) 
   UseMethod("plotPlausible")
 
-plotPlausible.list <- function(results,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,type="right",offset=0,scale=1,col="black",pch=16) {
+plotPlausible.list <- function(results,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,type="right",offset=0,scale=1,col="black",pch=16,...) {
   if(length(results)==1) {
     graph <- .unformatFrame(.deList(results))
     results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))] 

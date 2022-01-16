@@ -16,7 +16,7 @@ class(RepeatedSummary) <- "wss"
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 
 ```r
-RepeatedCorr <- declareCorrelations("Outcome1","Outcome2","Outcome3")
+RepeatedCorr <- declareCorrelations(c("Outcome1","Outcome2","Outcome3"))
 RepeatedCorr["Outcome1","Outcome2"] <- .500
 RepeatedCorr["Outcome1","Outcome3"] <- .056
 RepeatedCorr["Outcome2","Outcome3"] <- .389

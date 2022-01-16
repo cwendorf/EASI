@@ -3,10 +3,10 @@
 
 ### Confidence Intervals
 
-.estimateMeanContrastBy <- function(...) 
+.estimateMeanContrastBy <- function(x,...) 
   UseMethod(".estimateMeanContrastBy")
 
-.estimateMeanContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,conf.level=.95) {
+.estimateMeanContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,conf.level=.95,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeanContrast.wss(ListDescStats[[i]],ListCorrStats[[i]],contrast=contrast,conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
@@ -14,7 +14,7 @@
   return(results)
 }
 
-.estimateMeanContrastBy.bss <- function(ListDescStats,contrast,conf.level=.95) {
+.estimateMeanContrastBy.bss <- function(ListDescStats,contrast,conf.level=.95,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeanContrast.bss(ListDescStats[[i]],contrast=contrast,conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
@@ -22,14 +22,16 @@
   return(results)
 }
 
-.estimateMeanContrastBy.default <- function(...,by,contrast,conf.level=.95) {
-  ListDescStats <- .describeMeansBy(...,by=by)
-  ListCorrStats <- .describeCorrelationsBy(...,by=by)
+.estimateMeanContrastBy.default <- function(frame,by,contrast,conf.level=.95,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
+  ListCorrStats <- .describeCorrelationsBy(data,by=by)
   results <- .estimateMeanContrastBy.wss(ListDescStats,ListCorrStats,contrast=contrast,conf.level=conf.level)
   return(results)
 }
 
-.estimateMeanContrastBy.formula <- function(formula,by,contrast,conf.level=.95) {
+.estimateMeanContrastBy.formula <- function(formula,by,contrast,conf.level=.95,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .estimateMeanContrastBy.bss(ListDescStats,contrast=contrast,conf.level=conf.level)
   return(results)
@@ -45,10 +47,10 @@ estimateMeanContrastBy <- function(...,contrast,conf.level=.95,main=NULL,digits=
 
 ### Null Hypothesis Significance Tests 
 
-.testMeanContrastBy <- function(...) 
+.testMeanContrastBy <- function(x,...) 
   UseMethod(".testMeanContrastBy")
 
-.testMeanContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,mu=0) {
+.testMeanContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeanContrast.wss(ListDescStats[[i]],ListCorrStats[[i]],contrast=contrast,mu=mu)}
   names(results) <- names(ListDescStats)  
@@ -56,7 +58,7 @@ estimateMeanContrastBy <- function(...,contrast,conf.level=.95,main=NULL,digits=
   return(results)
 }
 
-.testMeanContrastBy.bss <- function(ListDescStats,contrast,mu=0) {
+.testMeanContrastBy.bss <- function(ListDescStats,contrast,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeanContrast.bss(ListDescStats[[i]],contrast=contrast,mu=mu)}
   names(results) <- names(ListDescStats)  
@@ -64,14 +66,16 @@ estimateMeanContrastBy <- function(...,contrast,conf.level=.95,main=NULL,digits=
   return(results)
 }
 
-.testMeanContrastBy.default <- function(...,by,contrast,mu=0) {
-  ListDescStats <- .describeMeansBy(...,by=by)
-  ListCorrStats <- .describeCorrelationsBy(...,by=by)  
+.testMeanContrastBy.default <- function(frame,by,contrast,mu=0,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
+  ListCorrStats <- .describeCorrelationsBy(data,by=by)  
   results <- .testMeanContrastBy.wss(ListDescStats,ListCorrStats,contrast=contrast,mu=mu)
   return(results)
 }
 
-.testMeanContrastBy.formula <- function(formula,by,contrast,mu=0) {
+.testMeanContrastBy.formula <- function(formula,by,contrast,mu=0,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .testMeanContrastBy.bss(ListDescStats,contrast=contrast,mu=mu)
   return(results)

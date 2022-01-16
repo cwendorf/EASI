@@ -6,7 +6,7 @@
 .estimateStandardizedMeansPairwise <- function(x,...) 
   UseMethod(".estimateStandardizedMeansPairwise")
 
-.estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95) {
+.estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -38,7 +38,7 @@
   return(results)
 }
 
-.estimateStandardizedMeansPairwise.bss <- function(DescStats,conf.level=.95) {
+.estimateStandardizedMeansPairwise.bss <- function(DescStats,conf.level=.95,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -67,13 +67,15 @@
   return(results)
 }
 
-.estimateStandardizedMeansPairwise.default <- function(...,conf.level=.95) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateStandardizedMeansPairwise.default <- function(frame,conf.level=.95,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateStandardizedMeansPairwise.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
-.estimateStandardizedMeansPairwise.formula <- function(formula,conf.level=.95) {
+.estimateStandardizedMeansPairwise.formula <- function(formula,conf.level=.95,...) {
   DescStats <- .describeMeans(formula)
   .estimateStandardizedMeansPairwise.bss(DescStats,conf.level=conf.level)
 }

@@ -6,12 +6,11 @@
 declareCorrelations <- function(x,...) 
   UseMethod("declareCorrelations")
 
-declareCorrelations.default <- function(...) {
-  clist=c(...)
-  nr=length(clist)
+declareCorrelations.default <- function(varnames,...) {
+  nr <- length(varnames)
   results=matrix(data=NA,nr,nr)
-  rownames(results)=clist
-  colnames(results)=clist
+  rownames(results) <- varnames
+  colnames(results) <- varnames
   return(results)
 }
 
@@ -46,8 +45,8 @@ fillCorrelations.default <- function(mat) {
 .describeCorrelations <- function(x,...) 
   UseMethod(".describeCorrelations")
 
-.describeCorrelations.default <- function(x,...) {
-  data <- data.frame(x)
+.describeCorrelations.default <- function(frame,...) {
+  data <- data.frame(frame)
   results <- cor(data)
   return(results)
 }
@@ -68,14 +67,14 @@ describeCorrelations <- function(...,main=NULL,digits=3) {
 .describeCovariances <- function(x,...) 
   UseMethod(".describeCovariances")
 
-.describeCovariances.wss <- function(DescStats,CorrStats) {
+.describeCovariances.wss <- function(DescStats,CorrStats,...) {
   SD <- DescStats[,"SD"]
   results <- .cortocov(CorrStats,SD)
   return(results)
 }
 
-.describeCovariances.default <- function(x,...) {
-  data <- data.frame(x)
+.describeCovariances.default <- function(frame,...) {
+  data <- data.frame(frame)
   results <- cov(data)
   return(results)
 }
@@ -92,7 +91,7 @@ describeCovariances <- function(...,main=NULL,digits=3) {
 .estimateCorrelations <- function(x,...) 
   UseMethod(".estimateCorrelations")
 
-.estimateCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95){
+.estimateCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,...){
   N <- DescStats[,"N"]
   rn <- rownames(DescStats)
   nr <- nrow(DescStats)
@@ -117,9 +116,11 @@ describeCovariances <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateCorrelations.default <- function(...,conf.level=.95){
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateCorrelations.default <- function(frame,conf.level=.95,...){
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateCorrelations.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
@@ -135,7 +136,7 @@ estimateCorrelations <- function(...,main=NULL,digits=3) {
 .testCorrelations <- function(x,...) 
   UseMethod(".testCorrelations")
 
-.testCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95){
+.testCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,...){
   N <- DescStats[,"N"]
   rn <- rownames(DescStats)
   nr <- nrow(DescStats)
@@ -157,9 +158,11 @@ estimateCorrelations <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testCorrelations.default <- function(...,conf.level=.95){
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.testCorrelations.default <- function(frame,conf.level=.95,...){
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .testCorrelations.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 

@@ -1,5 +1,10 @@
 # Estimation Approach to Statistical Inference
 
+## Developmental Version
+
+- Improved extraneous parameter handling
+- Provided offset option for interval plots
+
 ## 5.0.220113
 
 - Rebuilt within-subjects data input for all relevant functions

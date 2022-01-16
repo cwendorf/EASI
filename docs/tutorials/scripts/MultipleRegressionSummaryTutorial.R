@@ -12,7 +12,7 @@ Criterion <- c(N=4,M=7.000,SD=2.449)
 RegressionSummary <- rbind(Predictor1,Predictor2,Criterion)
 class(RegressionSummary) <- "wss"
 
-RegressionCorr <- declareCorrelations("Predictor1","Predictor2","Criterion")
+RegressionCorr <- declareCorrelations(c("Predictor1","Predictor2","Criterion"))
 RegressionCorr["Predictor1","Predictor2"] <- .500
 RegressionCorr["Predictor1","Criterion"] <- .056
 RegressionCorr["Predictor2","Criterion"] <- .389

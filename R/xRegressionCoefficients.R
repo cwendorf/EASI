@@ -6,7 +6,7 @@
 .estimateRegressionCoefficients <- function(x,...) 
   UseMethod(".estimateRegressionCoefficients")
 
-.estimateRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95) {
+.estimateRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,...) {
   DescStats <- rbind(PredStats,CritStats)
   rn <- rownames(DescStats)
   CorrStats <- CorrStats[rn,rn]
@@ -33,7 +33,7 @@
   return(results)
 }
 
-.estimateRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95) {
+.estimateRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95,...) {
   Pred <- data.frame(Predictors)
   if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
   Crit <- data.frame(Criterion)
@@ -57,7 +57,7 @@ estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
 .testRegressionCoefficients <- function(x,...) 
   UseMethod(".testRegressionCoefficients")
 
-.testRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats) {
+.testRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,...) {
   DescStats <- rbind(PredStats,CritStats)
   rn <- rownames(DescStats)
   CorrStats <- CorrStats[rn,rn]
@@ -83,7 +83,7 @@ estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testRegressionCoefficients.default <- function(Predictors,Criterion) {
+.testRegressionCoefficients.default <- function(Predictors,Criterion,...) {
   Pred <- data.frame(Predictors)
   if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))} 
   Crit <- data.frame(Criterion)

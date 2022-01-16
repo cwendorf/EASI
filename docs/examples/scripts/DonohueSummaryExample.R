@@ -12,7 +12,7 @@ Followup <- c(N=20,M=23.400,SD=4.616)
 DonohueSummary <- rbind(Pretest,Posttest,Followup)
 class(DonohueSummary) <- "wss"
 
-DonohueCorr <- declareCorrelations("Pretest","Posttest","Followup")
+DonohueCorr <- declareCorrelations(c("Pretest","Posttest","Followup"))
 DonohueCorr["Pretest","Posttest"] <- .493
 DonohueCorr["Pretest","Followup"] <- .536
 DonohueCorr["Posttest","Followup"] <- .743

@@ -6,7 +6,7 @@
 .estimateMeansPairwise <- function(x,...) 
   UseMethod(".estimateMeansPairwise")
 
-.estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0){
+.estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,...){
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -31,7 +31,7 @@
   return(results)
 }
 
-.estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0){
+.estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0,...){
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -56,13 +56,15 @@
   return(results)
 }
 
-.estimateMeansPairwise.default <- function(...,conf.level=.95,mu=0){
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateMeansPairwise.default <- function(frame,conf.level=.95,mu=0,...){
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateMeansPairwise.wss(DescStats,CorrStats,conf.level=conf.level,mu=mu)
 }
 
-.estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0){
+.estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0,...){
   DescStats <- .describeMeans(formula)
   .estimateMeansPairwise.bss(DescStats,conf.level=conf.level,mu=mu)
 }
@@ -79,7 +81,7 @@ estimateMeansPairwise <- function(...,main=NULL,digits=3) {
 .testMeansPairwise <- function(x,...) 
   UseMethod(".testMeansPairwise")
 
-.testMeansPairwise.wss <- function(DescStats,CorrStats,mu=0) {
+.testMeansPairwise.wss <- function(DescStats,CorrStats,mu=0,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -103,7 +105,7 @@ estimateMeansPairwise <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeansPairwise.bss <- function(DescStats,mu=0) {
+.testMeansPairwise.bss <- function(DescStats,mu=0,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -127,13 +129,15 @@ estimateMeansPairwise <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeansPairwise.default <- function(...,mu=03) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.testMeansPairwise.default <- function(frame,mu=0,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .testMeansPairwise.wss(DescStats,CorrStats,mu=mu)
 }
 
-.testMeansPairwise.formula <- function(formula,mu=0) {
+.testMeansPairwise.formula <- function(formula,mu=0,...) {
   DescStats <- .describeMeans(formula)
   .testMeansPairwise.bss(DescStats,mu=mu)
 }

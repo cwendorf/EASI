@@ -11,7 +11,7 @@ Outcome2 <- c(N=4,M=6.000,SD=2.449)
 PairedSummary <- rbind(Outcome1,Outcome2)
 class(PairedSummary) <- "wss"
 
-PairedCorr <- declareCorrelations("Outcome1","Outcome2")
+PairedCorr <- declareCorrelations(c("Outcome1","Outcome2"))
 PairedCorr["Outcome1","Outcome2"] <- .500
  
 ### Analyses of the Means

@@ -6,7 +6,7 @@
 .estimateStandardizedMeansPosthoc <- function(x,...) 
   UseMethod(".estimateStandardizedMeansPosthoc")
 
-.estimateStandardizedMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95) {
+.estimateStandardizedMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -38,7 +38,7 @@
   return(results)
 }
 
-.estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95) {
+.estimateStandardizedMeansPosthoc.bss <- function(DescStats,conf.level=.95,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -67,13 +67,15 @@
   return(results)
 }
 
-.estimateStandardizedMeansPosthoc.default <- function(...,conf.level=.95) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateStandardizedMeansPosthoc.default <- function(frame,conf.level=.95,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateStandardizedMeansPosthoc.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
-.estimateStandardizedMeansPosthoc.formula <- function(formula,conf.level=.95) {
+.estimateStandardizedMeansPosthoc.formula <- function(formula,conf.level=.95,...) {
   DescStats <- .describeMeans(formula)
   .estimateStandardizedMeansPosthoc.bss(DescStats,conf.level=conf.level)
 }

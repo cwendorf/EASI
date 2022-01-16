@@ -6,7 +6,7 @@
 .describeMeansEffect <- function(x,...) 
   UseMethod(".describeMeansEffect")
 
-.describeMeansEffect.wss <- function(DescStats,CorrStats) {
+.describeMeansEffect.wss <- function(DescStats,CorrStats,...) {
   temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   SSf <- temptab["Measures","SS"]
   SSe <- temptab["Error","SS"]
@@ -21,7 +21,7 @@
   return(results)
 }
 
-.describeMeansEffect.bss <- function(DescStats) {
+.describeMeansEffect.bss <- function(DescStats,...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
   SSb <- temptab["Between","SS"]
   SSw <- temptab["Within","SS"]
@@ -36,13 +36,15 @@
   return(results)
 }
 
-.describeMeansEffect.default <- function(...) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.describeMeansEffect.default <- function(frame,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .describeMeansEffect.wss(DescStats,CorrStats)
 }
 
-.describeMeansEffect.formula <- function(formula) {
+.describeMeansEffect.formula <- function(formula,...) {
   DescStats <- .describeMeans(formula)
   .describeMeansEffect.bss(DescStats)
 }
@@ -59,7 +61,7 @@ describeMeansEffect <- function(...,main=NULL,digits=3) {
 .estimateMeansEffect <- function(x,...) 
   UseMethod(".estimateMeansEffect")
 
-.estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90) {
+.estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,...) {
   temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   SSf <- temptab["Measures","SS"]
   SSe <- temptab["Error","SS"]
@@ -74,7 +76,7 @@ describeMeansEffect <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansEffect.bss <- function(DescStats,conf.level=.90) {
+.estimateMeansEffect.bss <- function(DescStats,conf.level=.90,...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
   SSb <- temptab["Between","SS"]
   SSw <- temptab["Within","SS"]
@@ -89,13 +91,15 @@ describeMeansEffect <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansEffect.default <- function(...,conf.level=.90) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateMeansEffect.default <- function(frame,conf.level=.90,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateMeansEffect.wss(DescStats,CorrStats,conf.level)
 }
 
-.estimateMeansEffect.formula <- function(formula,conf.level=.90) {
+.estimateMeansEffect.formula <- function(formula,conf.level=.90,...) {
   DescStats <- .describeMeans(formula)
   .estimateMeansEffect.bss(DescStats,conf.level)
 }

@@ -6,7 +6,7 @@
 .estimateMeanDifference <- function(x,...) 
   UseMethod(".estimateMeanDifference")
   
-.estimateMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,labels=NULL) {
+.estimateMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,labels=NULL,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -25,7 +25,7 @@
   return(results)
 }
 
-.estimateMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,labels=NULL) {
+.estimateMeanDifference.bss <- function(CompStats,mu=0,conf.level=.95,labels=NULL,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -41,13 +41,15 @@
   return(results)
 }
 
-.estimateMeanDifference.default <- function(...,mu=0,conf.level=.95,labels=NULL) {
-  CompStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateMeanDifference.default <- function(frame,mu=0,conf.level=.95,labels=NULL,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  CompStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateMeanDifference.wss(CompStats,CorrStats,conf.level=conf.level,labels=labels)
 }
 
-.estimateMeanDifference.formula <- function(formula,mu=0,conf.level=.95,labels=NULL) {
+.estimateMeanDifference.formula <- function(formula,mu=0,conf.level=.95,labels=NULL,...) {
   CompStats <- .describeMeans(formula)
   .estimateMeanDifference.bss(CompStats,conf.level=conf.level,labels=labels)
 }
@@ -64,7 +66,7 @@ estimateMeanDifference <- function(...,main=NULL,digits=3) {
 .testMeanDifference <- function(x,...) 
   UseMethod(".testMeanDifference")
   
-.testMeanDifference.wss <- function(CompStats,CorrStats,mu=0,labels=NULL) {
+.testMeanDifference.wss <- function(CompStats,CorrStats,mu=0,labels=NULL,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -82,7 +84,7 @@ estimateMeanDifference <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeanDifference.bss <- function(CompStats,mu=0,labels=NULL) {
+.testMeanDifference.bss <- function(CompStats,mu=0,labels=NULL,...) {
   CompStats <- CompStats[1:2,]
   N <- CompStats[,"N"]
   M <- CompStats[,"M"]
@@ -97,13 +99,15 @@ estimateMeanDifference <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeanDifference.default <- function(...,mu=0,labels=NULL) {
-  CompStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.testMeanDifference.default <- function(frame,mu=0,labels=NULL,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  CompStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .testMeanDifference.wss(CompStats,CorrStats,mu=mu,labels=labels)
 }
 
-.testMeanDifference.formula <- function(formula,mu=0,labels=NULL) {
+.testMeanDifference.formula <- function(formula,mu=0,labels=NULL,...) {
   CompStats <- .describeMeans(formula)
   .testMeanDifference.bss(CompStats,mu=mu,labels=labels)
 }

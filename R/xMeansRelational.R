@@ -6,7 +6,7 @@
 .estimateMeansRelational <- function(x,...) 
   UseMethod(".estimateMeansRelational")
 
-.estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95) {
+.estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
   results <- .estimateMeans.wss(DescStats,conf.level=conf.level)
   mymodel <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   dfe <- mymodel[3,2]
@@ -21,7 +21,7 @@
   return(results)
 }
 
-.estimateMeansRelational.bss <- function(DescStats,conf.level=.95) {
+.estimateMeansRelational.bss <- function(DescStats,conf.level=.95,...) {
   results <- .estimateMeans.bss(DescStats,conf.level=conf.level)
   mymodel <- .describeMeansOmnibus.bss(DescStats)
   dfe <- mymodel[2,2]
@@ -36,13 +36,15 @@
   return(results)
 }
 
-.estimateMeansRelational.default <- function(...,conf.level=.95) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateMeansRelational.default <- function(frame,conf.level=.95,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateMeansRelational.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
-.estimateMeansRelational.formula <- function(formula,conf.level=.95) {
+.estimateMeansRelational.formula <- function(formula,conf.level=.95,...) {
   DescStats <- .describeMeans(formula)
   .estimateMeansRelational.bss(DescStats,conf.level=conf.level)
 }

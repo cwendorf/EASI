@@ -6,9 +6,9 @@
 .describeBoxes <- function(x,...)
   UseMethod(".describeBoxes")
 
-.describeBoxes.default <- function(x,...) {
-  data <- data.frame(x)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
+.describeBoxes.default <- function(frame,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   results <- do.call(rbind,lapply(data,function(x) boxplot.stats(x)$stats))
   colnames(results) <- c("LW","LH","Mdn","UH","UW")
   return(results)
@@ -56,9 +56,9 @@ describeBoxes <- function(...,main=NULL,digits=3) {
 plotBoxes <- function(x,...) 
   UseMethod("plotBoxes")
 
-plotBoxes.default <- function(x,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,col="black",values=TRUE,digits=3,pos=2) {
-  data <- data.frame(x)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
+plotBoxes.default <- function(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,col="black",values=TRUE,digits=3,pos=2) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   if(is.null(ylim)) {
     z <- apply(data,2,density)
     rm <- range(sapply(z,"[","x"))

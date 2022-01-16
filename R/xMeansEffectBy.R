@@ -6,7 +6,7 @@
 .describeMeansEffectBy <- function(x,...) 
   UseMethod(".describeMeansEffectBy")
 
-.describeMeansEffectBy.wss <- function(ListDescStats,ListCorrStats) {
+.describeMeansEffectBy.wss <- function(ListDescStats,ListCorrStats,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .describeMeansEffect.wss(ListDescStats[[i]],ListCorrStats[[i]])}
   names(results) <- names(ListDescStats)  
@@ -14,7 +14,7 @@
   return(results)
 }
 
-.describeMeansEffectBy.bss <- function(ListDescStats) {
+.describeMeansEffectBy.bss <- function(ListDescStats,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .describeMeansEffect.bss(ListDescStats[[i]])}
   names(results) <- names(ListDescStats)  
@@ -22,14 +22,16 @@
   return(results)
 }
 
-.describeMeansEffectBy.default <- function(...,by) {
-  ListDescStats <- .describeMeansBy(...,by=by)
-  ListCorrStats <- .describeCorrelationsBy(...,by=by)  
+.describeMeansEffectBy.default <- function(frame,by,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
+  ListCorrStats <- .describeCorrelationsBy(data,by=by)  
   results <- .describeMeansEffectBy.wss(ListDescStats,ListCorrStats)
   return(results)
 }
 
-.describeMeansEffectBy.formula <- function(formula,by) {
+.describeMeansEffectBy.formula <- function(formula,by,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .describeMeansEffectBy.bss(ListDescStats)
   return(results)
@@ -48,7 +50,7 @@ describeMeansEffectBy <- function(...,main=NULL,digits=3) {
 .estimateMeansEffectBy <- function(x,...) 
   UseMethod(".estimateMeansEffectBy")
 
-.estimateMeansEffectBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.90) {
+.estimateMeansEffectBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.90,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeansEffect.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level)}
   names(results) <- names(ListDescStats)  
@@ -56,7 +58,7 @@ describeMeansEffectBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansEffectBy.bss <- function(ListDescStats,conf.level=.90) {
+.estimateMeansEffectBy.bss <- function(ListDescStats,conf.level=.90,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeansEffect.bss(ListDescStats[[i]],conf.level)}
   names(results) <- names(ListDescStats)  
@@ -64,14 +66,16 @@ describeMeansEffectBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansEffectBy.default <- function(...,by,conf.level=.90) {
-  ListDescStats <- .describeMeansBy(...,by=by)
-  ListCorrStats <- .describeCorrelationsBy(...,by=by)  
+.estimateMeansEffectBy.default <- function(frame,by,conf.level=.90,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
+  ListCorrStats <- .describeCorrelationsBy(data,by=by)  
   results <- .estimateMeansEffectBy.wss(ListDescStats,ListCorrStats,conf.level)
   return(results)
 }
 
-.estimateMeansEffectBy.formula <- function(formula,by,conf.level=.90) {
+.estimateMeansEffectBy.formula <- function(formula,by,conf.level=.90,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .estimateMeansEffectBy.bss(ListDescStats,conf.level)
   return(results)

@@ -15,9 +15,9 @@
 .describeFrequencies <- function(x,...) 
   UseMethod(".describeFrequencies")
 
-.describeFrequencies.default <- function(x,...) {
-  data <- data.frame(x)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
+.describeFrequencies.default <- function(frame,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   results <- lapply(data,FUN=.frequencies)
   return(results)
 }
@@ -48,14 +48,14 @@ describeFrequencies <- function(...,main=NULL,digits=3) {
 plotFrequencies <- function(x,...)
   UseMethod("plotFrequencies")
 
-plotFrequencies.default <- function(x,add=FALSE,ylim=NULL,main=NULL,ylab="Outcome",xlab="",offset=.1,col="black") {
-  data <- data.frame(x)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
+plotFrequencies.default <- function(frame,add=FALSE,ylim=NULL,main=NULL,ylab="Outcome",xlab="",offset=.1,col="black",...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   if(!add) {
     if(is.null(main)) {main="Frequencies for the Variables"}
     z <- apply(data,2,density)
     a <- sapply(z,"[","x")
-    b <- lapply(a,function(xx) c(min(xx),max(xx)))
+    b <- lapply(a,function(x) c(min(x),max(x)))
     results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
     rownames(results) <- names(data)
     results <- list(results)
@@ -69,7 +69,7 @@ plotFrequencies.formula <- function(formula,add=FALSE,ylim=NULL,main=NULL,ylab=N
     if(is.null(main)) {main="Frequencies for the Groups"}
     if(typeof(data)=="list") {z <- lapply(data,density)} else {z <- apply(data,2,density)} 
     a <- sapply(z,"[","x")
-    b <- lapply(a,function(xx) c(min(xx),max(xx)))
+    b <- lapply(a,function(x) c(min(x),max(x)))
     results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
     rownames(results) <- names(data)
     results <- list(results)

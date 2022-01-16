@@ -6,9 +6,9 @@
 .describePercentiles <- function(x,...) 
   UseMethod(".describePercentiles")
 
-.describePercentiles.default <- function(x,...) {
-  data <- data.frame(x)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(x))}
+.describePercentiles.default <- function(frame,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   results <- t(sapply(data,quantile))
   return(results)
 }

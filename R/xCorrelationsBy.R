@@ -3,11 +3,13 @@
 
 ### Descriptives
 
-.describeCorrelationsBy <- function(...) 
+.describeCorrelationsBy <- function(x,...) 
   UseMethod(".describeCorrelationsBy")
 
-.describeCorrelationsBy.default <- function(...,by) {
-  MixedData <- data.frame(by,...)
+.describeCorrelationsBy.default <- function(frame,by,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  MixedData <- data.frame(by,data)
   SplitData <- split(MixedData[-1],by)
   results <- lapply(SplitData,.describeCorrelations)
   return(results)

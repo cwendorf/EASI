@@ -25,14 +25,14 @@
 .estimateRegression <- function(x,...) 
   UseMethod(".estimateRegression")
 
-.estimateRegression.default <- function(Predictor,Criterion,value,conf.level=.95) {
+.estimateRegression.default <- function(Predictor,Criterion,value,conf.level=.95,...) {
   dM <- .describeMeans(Predictor)
   eR <- .estimateRegressionCoefficients(Predictor,Criterion)
   dRO <- .describeRegressionOmnibus(Predictor,Criterion)
   .regression(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
-.estimateRegression.wss <- function(PredStats,CritStats,CorrStats,value,conf.level=.95) {
+.estimateRegression.wss <- function(PredStats,CritStats,CorrStats,value,conf.level=.95,...) {
   dM <- PredStats
   eR <- .estimateRegressionCoefficients(PredStats,CritStats,CorrStats)
   dRO <- .describeRegressionOmnibus(PredStats,CritStats,CorrStats)
@@ -72,7 +72,7 @@ estimateRegression <- function(...,value=NULL,conf.level=.95,main=NULL,digits=3)
 plotRegression <- function(x,...) 
   UseMethod("plotRegression")
 
-plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NULL,range=NULL,interval="both",values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
+plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NULL,range=NULL,interval="both",values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE,...) {
   if(is.null(xlab)) xlab=rownames(PredStats)
   if(is.null(ylab)) ylab=rownames(CritStats)
   if(is.null(xlim)) {
@@ -97,7 +97,7 @@ plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NUL
   .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }
 
-plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,range=NULL,interval=FALSE,values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE) {
+plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,range=NULL,interval=FALSE,values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE,...) {
   if(is.null(xlab)) xlab=deparse(substitute(Predictor))
   if(is.null(ylab)) ylab=deparse(substitute(Criterion))
   if(is.null(xlim)) {

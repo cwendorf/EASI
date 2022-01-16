@@ -3,17 +3,19 @@
 
 #### Descriptives
 
-.describeMeansBy <- function(...) 
+.describeMeansBy <- function(x,...) 
   UseMethod(".describeMeansBy")
 
-.describeMeansBy.default <- function(...,by) {
-  MixedData <- data.frame(by,...)
+.describeMeansBy.default <- function(frame,by,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  MixedData <- data.frame(by,data)
   SplitData <- split(MixedData[-1],by)
   results <- lapply(SplitData,.describeMeans)
   return(results)
 }
 
-.describeMeansBy.formula <- function(formula,by) {
+.describeMeansBy.formula <- function(formula,by,...) {
   Group <- eval(formula[[3]])
   Outcome <- eval(formula[[2]])
   FactorialData <- data.frame(by,Group,Outcome)
@@ -32,10 +34,10 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
 
 ### Confidence Intervals
 
-.estimateMeansBy <- function(...) 
+.estimateMeansBy <- function(x,...) 
   UseMethod(".estimateMeansBy")
 
-.estimateMeansBy.wss <- function(ListDescStats,conf.level=.95) {
+.estimateMeansBy.wss <- function(ListDescStats,conf.level=.95,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeans.wss(ListDescStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
@@ -43,7 +45,7 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansBy.bss <- function(ListDescStats,conf.level=.95) {
+.estimateMeansBy.bss <- function(ListDescStats,conf.level=.95,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeans.wss(ListDescStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
@@ -51,13 +53,15 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansBy.default <- function(...,by,conf.level=.95) {
-  ListDescStats <- .describeMeansBy(...,by=by)
+.estimateMeansBy.default <- function(framme,by,conf.level=.95,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
   results <- .estimateMeansBy.wss(ListDescStats,conf.level=conf.level)
   return(results)
 }
 
-.estimateMeansBy.formula <- function(formula,by,conf.level=.95) {
+.estimateMeansBy.formula <- function(formula,by,conf.level=.95,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .estimateMeansBy.bss(ListDescStats,conf.level=conf.level)
   return(results)
@@ -73,10 +77,10 @@ estimateMeansBy <- function(...,main=NULL,digits=3) {
 
 ### Null Hypothesis Significance Tests 
 
-.testMeansBy <- function(...) 
+.testMeansBy <- function(x,...) 
   UseMethod(".testMeansBy")
 
-.testMeansBy.wss <- .testMeansBy.bss <- function(ListDescStats,mu=0) {
+.testMeansBy.wss <- .testMeansBy.bss <- function(ListDescStats,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeans.wss(ListDescStats[[i]],mu=mu)}
   names(results) <- names(ListDescStats)  
@@ -84,13 +88,15 @@ estimateMeansBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeansBy.default <- function(...,by,mu=0) {
-  ListDescStats <- .describeMeansBy(...,by=by)
+.testMeansBy.default <- function(frame,by,mu=0,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data,by=by)
   results <- .testMeansBy.wss(ListDescStats,mu=mu)
   return(results)
 }
 
-.testMeansBy.formula <- function(formula,by,mu=0) {
+.testMeansBy.formula <- function(formula,by,mu=0,...) {
   ListDescStats <- .describeMeansBy(formula,by=by)
   results <- .testMeansBy.bss(ListDescStats,mu=mu)
   return(results)

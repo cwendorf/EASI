@@ -6,7 +6,7 @@
 .describeMeansOmnibus <- function(x,...) 
   UseMethod(".describeMeansOmnibus")
 
-.describeMeansOmnibus.wss <- function(DescStats,CorrStats) {
+.describeMeansOmnibus.wss <- function(DescStats,CorrStats,...) {
   n <- DescStats[,"N"]
   m <- DescStats[,"M"]
   sd <- DescStats[,"SD"]
@@ -33,7 +33,7 @@
   return(results)
 }
 
-.describeMeansOmnibus.bss <- function(DescStats) {
+.describeMeansOmnibus.bss <- function(DescStats,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -51,14 +51,16 @@
   return(results)
 }
 
-.describeMeansOmnibus.default <- function(...) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.describeMeansOmnibus.default <- function(frame,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   results <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   return(results)
 }
 
-.describeMeansOmnibus.formula <- function(formula) {
+.describeMeansOmnibus.formula <- function(formula,...) {
   DescStats <- .describeMeans(formula)
   results <- .describeMeansOmnibus.bss(DescStats)
   return(results)
@@ -87,7 +89,7 @@ describeMeansOmnibus <- function(...,main=NULL,digits=3) {
 .estimateMeansOmnibus <- function(x,...) 
   UseMethod(".estimateMeansOmnibus")
 
-.estimateMeansOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90) {
+.estimateMeansOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90,...) {
   temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   SSf <- temptab["Measures","SS"]
   SSe <- temptab["Error","SS"]
@@ -102,7 +104,7 @@ describeMeansOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansOmnibus.bss <- function(DescStats,conf.level=.90) {
+.estimateMeansOmnibus.bss <- function(DescStats,conf.level=.90,...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
   SSb <- temptab["Between","SS"]
   SSw <- temptab["Within","SS"]
@@ -117,13 +119,15 @@ describeMeansOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansOmnibus.default <- function(...,conf.level=.90) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.estimateMeansOmnibus.default <- function(frame,conf.level=.90,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .estimateMeansOmnibus.wss(DescStats,CorrStats,conf.level)
 }
 
-.estimateMeansOmnibus.formula <- function(formula,conf.level=.90) {
+.estimateMeansOmnibus.formula <- function(formula,conf.level=.90,...) {
   DescStats <- .describeMeans(formula)
   .estimateMeansOmnibus.bss(DescStats,conf.level)
 }
@@ -140,7 +144,7 @@ estimateMeansOmnibus <- function(...,main=NULL,digits=3) {
 .testMeansOmnibus <- function(x,...) 
   UseMethod(".testMeansOmnibus")
 
-.testMeansOmnibus.wss <- function(DescStats,CorrStats) {
+.testMeansOmnibus.wss <- function(DescStats,CorrStats,...) {
   temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   MSf <- temptab["Measures","MS"]
   MSe <- temptab["Error","MS"]
@@ -154,7 +158,7 @@ estimateMeansOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeansOmnibus.bss <- function(DescStats) {
+.testMeansOmnibus.bss <- function(DescStats,...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
   MSb <- temptab["Between","MS"]
   MSw <- temptab["Within","MS"]
@@ -168,13 +172,15 @@ estimateMeansOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testMeansOmnibus.default <- function(...) {
-  DescStats <- .describeMeans(...)
-  CorrStats <- .describeCorrelations(...)
+.testMeansOmnibus.default <- function(frame,...) {
+  data <- data.frame(frame)
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  DescStats <- .describeMeans(data)
+  CorrStats <- .describeCorrelations(data)
   .testMeansOmnibus.wss(DescStats,CorrStats)
 }
 
-.testMeansOmnibus.formula <- function(formula) {
+.testMeansOmnibus.formula <- function(formula,...) {
   DescStats <- .describeMeans(formula)
   .testMeansOmnibus.bss(DescStats)
 }

@@ -6,7 +6,7 @@
 .estimateStandardizedRegressionCoefficients <- function(x,...) 
   UseMethod(".estimateStandardizedRegressionCoefficients")
 
-.estimateStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95) {
+.estimateStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,...) {
   temptab <- .estimateRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
   temptab <- rbind(temptab[-1,])
   rownames(temptab) <- rownames(PredStats)
@@ -15,7 +15,7 @@
   return(results)
 }
 
-.estimateStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95) {
+.estimateStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95,...) {
   Pred <- data.frame(Predictors)
   if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
   Crit <- data.frame(Criterion)
