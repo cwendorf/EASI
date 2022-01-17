@@ -19,17 +19,26 @@ Outcome <- c(rnorm(50,mean=7,sd=2),rnorm(50,mean=11,sd=4),rnorm(50,mean=12,sd=4)
 colorTheme <- c("darkred","darkblue","darkgoldenrod")
 
 #### Simple: Diamond Plots of the Confidence Intervals
-(Outcome~Factor) |> estimateMeans() |> plotDiamonds()
+(Outcome~Factor) |> plotDiamonds()
 #### Enhanced: Data and Diamond Plots
 (Outcome~Factor) |> plotData(main="Data and Diamond Plots",offset=0,method="jitter",col=colorTheme)
-(Outcome~Factor) |> estimateMeans() |> plotDiamonds(add=TRUE,line=10,rope=c(8,12),col=colorTheme)
+(Outcome~Factor) |> plotDiamonds(add=TRUE,line=10,rope=c(8,12),col=colorTheme)
 
 #### Simple plot: Confidence Intervals
-(Outcome~Factor) |> estimateMeans() |> plotIntervals()
+(Outcome~Factor) |> plotIntervals()
 #### Enhanced plot: Data and Confidence Intervals with Plausibility Curves
 (Outcome~Factor) |> plotData(main="Data and Confidence Intervals with Plausibility Curves",offset=-.15,method="jitter",col=colorTheme)
-(Outcome~Factor) |> estimateMeans() |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
-(Outcome~Factor) |> estimateMeans() |> plotPlausible(add=TRUE,col=colorTheme)
+(Outcome~Factor) |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
+(Outcome~Factor) |> plotPlausible(add=TRUE,col=colorTheme)
+
+
+#### Simple plot: Confidence Intervals
+(Outcome~Factor) |> plotIntervals()
+#### Enhanced plot: Data and Confidence Intervals with Plausibility Curves
+(Outcome~Factor) |> plotData(main="Data and Confidence Intervals with Plausibility Curves",offset=-.15,method="jitter",col=colorTheme)
+(Outcome~Factor) |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
+(Outcome~Factor) |> plotPlausible(add=TRUE,col=colorTheme)
+
 
 ### Analyses of a Comparison
 
@@ -38,14 +47,14 @@ Comparison <- factor(Factor,c("Group1","Group2"))
 comparisonTheme <- c("darkred","darkblue","black")
 
 #### Simple: Diamond Plots of the Confidence Intervals
-(Outcome~Comparison) |> estimateMeanComparison(conf.level=.99) |> plotDiamonds()
+(Outcome~Comparison) |> plotDiamonds(conf.level=.99)
 #### Enhanced: Data and Diamond Plots
-(Outcome~Comparison) |> estimateMeanComparison(conf.level=.99) |> plotDiamonds(ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
+(Outcome~Comparison) |> plotDiamonds(conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
 (Outcome~Comparison) |> plotData(add=TRUE,offset=0,method="jitter",col=comparisonTheme)
 
 #### Simple: Confidence Intervals
-(Outcome~Comparison) |> estimateMeanComparison(conf.level=.99) |> plotIntervals()
+(Outcome~Comparison) |> plotIntervals(conf.level=.99)
 #### Enhanced: Data and Confidence Intervals with Plausibility Curves
-(Outcome~Comparison) |> estimateMeanComparison(conf.level=.99) |> plotIntervals(ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
-(Outcome~Comparison) |> estimateMeanComparison(conf.level=.99) |> plotPlausible(add=TRUE,type=c("none","none","right"),col=comparisonTheme)
+(Outcome~Comparison) |> plotIntervals(conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
+(Outcome~Comparison) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
 (Outcome~Comparison) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)

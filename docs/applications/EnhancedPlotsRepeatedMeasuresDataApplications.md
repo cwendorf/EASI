@@ -43,7 +43,7 @@ colorTheme <- c("darkred","darkblue","darkgoldenrod")
 Simple: Diamond Plots of the Confidence Interval
 
 ```r
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans() |> plotDiamonds()
+cbind(Outcome1,Outcome2,Outcome3) |> plotDiamonds()
 ```
 
 ![](figures/Repeated-DiamondA-1.png)<!-- -->
@@ -52,7 +52,7 @@ Enhanced: Data and Diamond Plots
 
 ```r
 cbind(Outcome1,Outcome2,Outcome3) |> plotData(main="Data and Diamond Plots",offset=0,method="jitter",col=colorTheme)
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans() |> plotDiamonds(add=TRUE,line=10,rope=c(8,12),col=colorTheme)
+cbind(Outcome1,Outcome2,Outcome3) |> plotDiamonds(add=TRUE,line=10,rope=c(8,12),col=colorTheme)
 ```
 
 ![](figures/Repeated-DiamondB-1.png)<!-- -->
@@ -60,7 +60,7 @@ cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans() |> plotDiamonds(add=TRUE,li
 Simple: Confidence Intervals
 
 ```r
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans() |> plotIntervals()
+cbind(Outcome1,Outcome2,Outcome3) |> plotIntervals()
 ```
 
 ![](figures/Repeated-ConfidenceA-1.png)<!-- -->
@@ -69,8 +69,8 @@ Enhanced: Data and Confidence Intervals with Plausibility Curves
 
 ```r
 cbind(Outcome1,Outcome2,Outcome3) |> plotData(main="Data and Confidence Intervals with Plausibility Curves",offset=-.15,method="jitter",col=colorTheme)
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans() |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans() |> plotPlausible(add=TRUE,col=colorTheme)
+cbind(Outcome1,Outcome2,Outcome3) |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
+cbind(Outcome1,Outcome2,Outcome3) |> plotPlausible(add=TRUE,col=colorTheme)
 ```
 
 ![](figures/Repeated-ConfidenceB-1.png)<!-- -->
@@ -86,7 +86,7 @@ comparisonTheme <- c("darkred","darkblue","black")
 Simple: Diamond Plots of the Confidence Interval
 
 ```r
-cbind(Outcome1,Outcome2) |> estimateMeanComparison(conf.level=.99) |> plotDiamonds()
+cbind(Outcome1,Outcome2) |> plotDiamonds(conf.level=.99)
 ```
 
 ![](figures/Repeated-DiamondC-1.png)<!-- -->
@@ -94,7 +94,7 @@ cbind(Outcome1,Outcome2) |> estimateMeanComparison(conf.level=.99) |> plotDiamon
 Enhanced: Data and Diamond Plots
 
 ```r
-cbind(Outcome1,Outcome2) |> estimateMeanComparison(conf.level=.99) |> plotDiamonds(ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
+cbind(Outcome1,Outcome2) |> plotDiamonds(conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotData(add=TRUE,offset=0,method="jitter",col=comparisonTheme)
 ```
 
@@ -103,7 +103,7 @@ cbind(Outcome1,Outcome2) |> plotData(add=TRUE,offset=0,method="jitter",col=compa
 Simple: Confidence Intervals
 
 ```r
-cbind(Outcome1,Outcome2) |> estimateMeanComparison(conf.level=.99) |> plotIntervals()
+cbind(Outcome1,Outcome2) |> plotIntervals(conf.level=.99)
 ```
 
 ![](figures/Repeated-ConfidenceC-1.png)<!-- -->
@@ -111,8 +111,8 @@ cbind(Outcome1,Outcome2) |> estimateMeanComparison(conf.level=.99) |> plotInterv
 Enhanced: Data and Confidence Intervals with Plausibility Curves
 
 ```r
-cbind(Outcome1,Outcome2) |> estimateMeanComparison(conf.level=.99) |> plotIntervals(ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
-cbind(Outcome1,Outcome2) |> estimateMeanComparison(conf.level=.99) |> plotPlausible(add=TRUE,type=c("none","none","right"),col=comparisonTheme)
+cbind(Outcome1,Outcome2) |> plotIntervals(conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
+cbind(Outcome1,Outcome2) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
 ```
 
