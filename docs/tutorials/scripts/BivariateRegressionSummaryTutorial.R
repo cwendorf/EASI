@@ -11,7 +11,7 @@ Criterion <- c(N=4,M=7.000,SD=2.449)
 BivariateSummary <- rbind(Predictor,Criterion)
 class(BivariateSummary) <- "wss"
 
-RegressionCorr <- declareCorrelations(c("Predictor","Criterion"))
+RegressionCorr <- declareCorrelations("Predictor","Criterion")
 RegressionCorr["Predictor","Criterion"] <- .056
 RegressionCorr <- fillCorrelations(RegressionCorr)
 

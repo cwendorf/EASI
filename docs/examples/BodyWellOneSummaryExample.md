@@ -15,7 +15,7 @@ class(BodyWellOneSummary) <- "wss"
 This code creates a correlation matrix and enters single correlation.
 
 ```r
-BodyWellOneCorr <- declareCorrelations(c("BodySatisfaction","Wellbeing"))
+BodyWellOneCorr <- declareCorrelations("BodySatisfaction","Wellbeing")
 BodyWellOneCorr["BodySatisfaction","Wellbeing"] <- .467
 ```
 

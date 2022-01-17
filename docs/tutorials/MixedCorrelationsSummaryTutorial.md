@@ -16,7 +16,7 @@ class(MixedSummaryL1) <- "wss"
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 
 ```r
-MixedCorrL1 <- declareCorrelations(c("Outcome1","Outcome2","Outcome3"))
+MixedCorrL1 <- declareCorrelations("Outcome1","Outcome2","Outcome3")
 MixedCorrL1["Outcome1",] <- c(1.000,.500,.389)
 MixedCorrL1["Outcome2",] <- c(.500,1.000,.889)
 MixedCorrL1["Outcome3",] <- c(.389,.889,1.000)
@@ -35,7 +35,7 @@ class(MixedSummaryL2) <- "wss"
 And for the correlation matrix of the second subset.
 
 ```r
-MixedCorrL2 <- declareCorrelations(c("Outcome1","Outcome2","Outcome3"))
+MixedCorrL2 <- declareCorrelations("Outcome1","Outcome2","Outcome3")
 MixedCorrL2["Outcome1",] <- c(1.000,.889,.500)
 MixedCorrL2["Outcome2",] <- c(.889,1.000,.389)
 MixedCorrL2["Outcome3",] <- c(.500,.389,1.000)

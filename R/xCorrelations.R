@@ -6,11 +6,12 @@
 declareCorrelations <- function(x,...) 
   UseMethod("declareCorrelations")
 
-declareCorrelations.default <- function(varnames,...) {
-  nr <- length(varnames)
-  results=matrix(data=NA,nr,nr)
-  rownames(results) <- varnames
-  colnames(results) <- varnames
+declareCorrelations.default <- function(...) {
+  clist <- c(...)
+  nr <- length(clist)
+  result <- matrix(data=NA,nr,nr)
+  rownames(results) <- clist
+  colnames(results) <- clist
   return(results)
 }
 

@@ -17,7 +17,7 @@ class(PairedSummary) <- "wss"
 This code creates a correlation matrix and enters single correlation.
 
 ```r
-PairedCorr <- declareCorrelations(c("Outcome1","Outcome2"))
+PairedCorr <- declareCorrelations("Outcome1","Outcome2")
 PairedCorr["Outcome1","Outcome2"] <- .500
 PairedCorr <- fillCorrelations(PairedCorr)
 ```

@@ -44,7 +44,7 @@ class(RegressionSummary) <- "wss"
 
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 ```{r}
-RegressionCorr <- declareCorrelations(c("Predictor1","Predictor2","Criterion"))
+RegressionCorr <- declareCorrelations("Predictor1","Predictor2","Criterion")
 RegressionCorr["Predictor1","Predictor2"] <- .500
 RegressionCorr["Predictor1","Criterion"] <- .056
 RegressionCorr["Predictor2","Criterion"] <- .389

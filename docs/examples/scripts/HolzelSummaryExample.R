@@ -11,7 +11,7 @@ PosttestControl <- c(N=17,M=43.932,SD=5.507)
 HolzelSummaryControl <- rbind(PretestControl,PosttestControl)
 class(HolzelSummaryControl) <- "wss"
 
-HolzelCorrControl <- declareCorrelations(c("PretestControl","PosttestControl"))
+HolzelCorrControl <- declareCorrelations("PretestControl","PosttestControl")
 HolzelCorrControl["PretestControl","PosttestControl"] <- .970
 HolzelCorrControl <- fillCorrelations(HolzelCorrControl)
 
@@ -20,7 +20,7 @@ PosttestMeditation <- c(N=16,M=44.666,SD=6.303)
 HolzelSummaryMeditation <- rbind(PretestMeditation,PosttestMeditation)
 class(HolzelSummaryMeditation) <- "wss"
 
-HolzelCorrMeditation <- declareCorrelations(c("PretestMeditation","PosttestMeditation"))
+HolzelCorrMeditation <- declareCorrelations("PretestMeditation","PosttestMeditation")
 HolzelCorrMeditation["PretestMeditation","PosttestMeditation"] <- .993
 HolzelCorrMeditation <- fillCorrelations(HolzelCorrMeditation)
 

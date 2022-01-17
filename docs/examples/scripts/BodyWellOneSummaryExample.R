@@ -11,7 +11,7 @@ Wellbeing <- c(N=106,M=5.055,SD=1.162)
 BodyWellOneSummary <- rbind(BodySatisfaction,Wellbeing)
 class(BodyWellOneSummary) <- "wss"
 
-BodyWellOneCorr <- declareCorrelations(c("BodySatisfaction","Wellbeing"))
+BodyWellOneCorr <- declareCorrelations("BodySatisfaction","Wellbeing")
 BodyWellOneCorr["BodySatisfaction","Wellbeing"] <- .467
 
 ### Analyses of the Correlation

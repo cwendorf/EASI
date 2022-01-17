@@ -43,7 +43,7 @@ class(BodyWellTwoSummaryL1) <- "wss"
 
 This code creates a correlation matrix and enters single correlation for the female participants.
 ```{r}
-BodyWellTwoCorrL1 <- declareCorrelations(c("BodySatisfactionL1","WellbeingL1"))
+BodyWellTwoCorrL1 <- declareCorrelations("BodySatisfactionL1","WellbeingL1")
 BodyWellTwoCorrL1["BodySatisfactionL1","WellbeingL1"] <- .415
 ```
 
@@ -57,7 +57,7 @@ class(BodyWellTwoSummaryL2) <- "wss"
 
 And for the correlation matrix of the second subset (for the male participants).
 ```{r}
-BodyWellTwoCorrL2 <- declareCorrelations(c("BodySatisfactionL2","WellbeingL2"))
+BodyWellTwoCorrL2 <- declareCorrelations("BodySatisfactionL2","WellbeingL2")
 BodyWellTwoCorrL2["BodySatisfactionL2","WellbeingL2"] <- .528
 ```
 
