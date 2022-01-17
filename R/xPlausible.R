@@ -14,14 +14,14 @@ plotPlausible <- function(x,...)
 
 plotPlausible.default <- function(x,contrast=NULL,...) {
   howmany <- nrow(.describeMeans(x))
-  if(howmany==1 | howmany>2 & is.null(contrast)) {
-    z <- estimateMeans(x,...)
+  if (!is.null(contrast)) {
+    z <- estimateMeanSubsets(x,contrast=contrast,conf.level=.95)
     plotPlausible(z,...)}
-  if(howmany==2) {
+  else if (howmany==2) {
     z <- estimateMeanComparison(x,conf.level=.95)
     plotPlausible(z,...)}
-  if(!is.null(contrast)) {
-    z <- estimateMeanSubsets(x,contrast=contrast,conf.level=.95)
+  else {
+    z <- estimateMeans(x,...)
     plotPlausible(z,...)}
 }
 
