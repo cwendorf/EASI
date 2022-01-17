@@ -57,7 +57,7 @@ testMeanComplex <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeanComplex <- function(...,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,add=FALSE,labels=NULL,values=TRUE,pos=c(2,2,4),connect=NULL,ylim=NULL,digits=3,pch=c(15,15,17),col="black",,offset=0,intervals=TRUE) {
+plotMeanComplex <- function(...,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,add=FALSE,labels=NULL,values=TRUE,pos=c(2,2,4),connect=NULL,ylim=NULL,digits=3,pch=c(15,15,17),col="black",offset=0,intervals=TRUE) {
   results <- estimateMeanComplex(...,contrast1=contrast1,contrast2=contrast2,conf.level=conf.level,labels=labels,main=main,digits=digits)
   if(is.null(connect) & length(list(...))>1) {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main="Confidence Intervals for the Mean Contrasts"}
