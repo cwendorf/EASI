@@ -28,12 +28,3 @@ estimateStandardizedMeanSubsets <- function(...,main=NULL,digits=3) {
   results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
-
-### Confidence Interval Plots
-
-plotStandardizedMeanSubsets <- function(...,contrast,add=FALSE,main=NULL,ylab="Standardized Mean Contrast",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,pos=c(2,2,4),connect=NULL,ylim=NULL,digits=3,pch=c(24,24,24),col="black",offset=0,intervals=TRUE) {
-  results <- estimateStandardizedMeanSubsets(...,contrast=contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
-  if(is.null(connect) & length(list(...))>1) {connect=TRUE} else {connect=FALSE}
-  if(is.null(main)) {main="Confidence Intervals for the Standardized Mean Subsets"}
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
-}
