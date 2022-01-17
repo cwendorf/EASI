@@ -32,14 +32,6 @@ colorTheme <- c("darkred","darkblue","darkgoldenrod")
 (Outcome~Factor) |> plotPlausible(add=TRUE,col=colorTheme)
 
 
-#### Simple plot: Confidence Intervals
-(Outcome~Factor) |> plotIntervals()
-#### Enhanced plot: Data and Confidence Intervals with Plausibility Curves
-(Outcome~Factor) |> plotData(main="Data and Confidence Intervals with Plausibility Curves",offset=-.15,method="jitter",col=colorTheme)
-(Outcome~Factor) |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
-(Outcome~Factor) |> plotPlausible(add=TRUE,col=colorTheme)
-
-
 ### Analyses of a Comparison
 
 #### Create a comparison and its color theme
