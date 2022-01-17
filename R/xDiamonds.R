@@ -17,6 +17,19 @@
 plotDiamonds <- function(x,...) 
   UseMethod("plotDiamonds")
 
+plotDiamonds.default <- function(x,contrast=NULL,...) {
+  howmany <- nrow(.describeMeans(x))
+  if(howmany==1 | howmany>2 & is.null(contrast)) {
+    z <- estimateMeans(x,...)
+    plotDiamonds(z,...)}
+  if(howmany==2) {
+    z <- estimateMeanComparison(x,conf.level=.95)
+    plotDiamonds(z,...)}
+  if(!is.null(contrast)) {
+    z <- estimateMeanSubsets(x,contrast=contrast,conf.level=.95)
+    plotDiamonds(z,...)}
+}
+
 plotDiamonds.list <- function(results,add=FALSE,line=NULL,rope=NULL,col="black",hw=.2,offset=0,...) {
   if(length(results)==1) {
     results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))]
