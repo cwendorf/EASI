@@ -51,11 +51,13 @@ export(plotCombination)
 
 ### xIntervals
 
+S3method(plotIntervals,default)
 S3method(plotIntervals,list)
 export(plotIntervals)
 
 ### xPlausible
 
+S3method(plotPlausible,default)
 S3method(plotPlausible,list)
 export(plotPlausible)
 

@@ -12,6 +12,19 @@
 plotPlausible <- function(x,...) 
   UseMethod("plotPlausible")
 
+plotPlausible.default <- function(x,contrast=NULL,...) {
+  howmany <- nrow(.describeMeans(x))
+  if(howmany==1 | howmany>2 & is.null(contrast)) {
+    z <- estimateMeans(x,...)
+    plotPlausible(z,...)}
+  if(howmany==2) {
+    z <- estimateMeanComparison(x,conf.level=.95)
+    plotPlausible(z,...)}
+  if(!is.null(contrast)) {
+    z <- estimateMeanSubsets(x,contrast=contrast,conf.level=.95)
+    plotPlausible(z,...)}
+}
+
 plotPlausible.list <- function(results,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,type="right",offset=0,scale=1,col="black",pch=16,...) {
   if(length(results)==1) {
     graph <- .unformatFrame(.deList(results))

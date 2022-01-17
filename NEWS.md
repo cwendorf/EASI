@@ -4,6 +4,7 @@
 
 - Improved extraneous parameter handling
 - Added offset option to interval plots
+- Added smart intervals and plausible functions
 
 ## 5.0.220113
 
