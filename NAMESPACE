@@ -96,8 +96,6 @@ S3method(.estimateStandardizedMeans,bss)
 export(.estimateStandardizedMeans)
 export(estimateStandardizedMeans)
 
-export(plotStandardizedMeans)
-
 ### xMeanDifference
 
 S3method(.estimateMeanDifference,default)
@@ -124,8 +122,6 @@ S3method(.estimateStandardizedMeanDifference,wss)
 S3method(.estimateStandardizedMeanDifference,bss)
 export(.estimateStandardizedMeanDifference)
 export(estimateStandardizedMeanDifference)
-
-export(plotStandardizedMeanDifference)
 
 ### xMeanComparison
 
@@ -154,8 +150,6 @@ S3method(.estimateStandardizedMeanComparison,bss)
 export(.estimateStandardizedMeanComparison)
 export(estimateStandardizedMeanComparison)
 
-export(plotStandardizedMeanComparison)
-
 ### xMeanContrast
 
 S3method(.estimateMeanContrast,default)
@@ -183,8 +177,6 @@ S3method(.estimateStandardizedMeanContrast,bss)
 export(.estimateStandardizedMeanContrast)
 export(estimateStandardizedMeanContrast)
 
-export(plotStandardizedMeanContrast)
-
 ### xMeanSubsets
 
 S3method(.estimateMeanSubsets,default)
@@ -211,8 +203,6 @@ S3method(.estimateStandardizedMeanSubsets,wss)
 S3method(.estimateStandardizedMeanSubsets,bss)
 export(.estimateStandardizedMeanSubsets)
 export(estimateStandardizedMeanSubsets)
-
-export(plotStandardizedMeanSubsets)
 
 ### xMeanComplex
 
@@ -259,8 +249,6 @@ S3method(.estimateStandardizedMeansPairwise,bss)
 export(.estimateStandardizedMeansPairwise)
 export(estimateStandardizedMeansPairwise)
 
-export(plotStandardizedMeansPairwise)
-
 ### xMeansPosthoc
 
 S3method(.estimateMeansPosthoc,default)
@@ -287,8 +275,6 @@ S3method(.estimateStandardizedMeansPosthoc,wss)
 S3method(.estimateStandardizedMeansPosthoc,bss)
 export(.estimateStandardizedMeansPosthoc)
 export(estimateStandardizedMeansPosthoc)
-
-export(plotStandardizedMeansPosthoc)
 
 ### xMeansRelational
 
