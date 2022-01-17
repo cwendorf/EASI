@@ -3,7 +3,7 @@
 ## Developmental Version
 
 - Improved extraneous parameter handling
-- Provided offset option for interval plots
+- Added offset option to interval plots
 
 ## 5.0.220113
 

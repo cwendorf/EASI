@@ -32,9 +32,9 @@ estimateCorrelationComparison <- function(...,main=NULL,digits=3) {
 plotCorrelationComparison <- function(x,...) 
   UseMethod("plotCorrelationComparison")
 
-plotCorrelationComparison.list <- function(CorrEst1,CorrEst2,add=FALSE,main=NULL,ylab="Correlation",xlab="",rope=NULL,labels=NULL,pos=c(2,2,4),connect=FALSE,values=TRUE,ylim=NULL,digits=3,col="black",...) {
+plotCorrelationComparison.list <- function(CorrEst1,CorrEst2,add=FALSE,main=NULL,ylab="Correlation",xlab="",rope=NULL,labels=NULL,pos=c(2,2,4),connect=FALSE,values=TRUE,ylim=NULL,digits=3,col="black",offset=0,intervals=TRUE,...) {
   results <- estimateCorrelationComparison(CorrEst1,CorrEst2,main=main,labels=labels,digits=digits)
   results[[1]] <- results[[1]][,c(1,3,4)]
   if(is.null(main)) {main="Confidence Intervals for the \n Correlation Comparison"}
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
 }

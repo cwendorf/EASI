@@ -176,7 +176,7 @@ testCorrelations <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotCorrelations <- function(...,main=NULL,digits=3,ylab="Correlation",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=c(-1.1,1.1),add=FALSE,pch=16,connect=FALSE,col="black") {
+plotCorrelations <- function(...,main=NULL,digits=3,ylab="Correlation",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=c(-1.1,1.1),add=FALSE,pch=16,connect=FALSE,col="black",offset=0,intervals=TRUE) {
   results <- estimateCorrelations(...,main=main,digits=digits)
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
 }

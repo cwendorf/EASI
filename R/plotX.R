@@ -3,7 +3,7 @@
 
 ### Initialize Plots
 
-.plotMain <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=2,pch=16,points=TRUE,col="black") {
+.plotMain <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=2,pch=16,points=TRUE,col="black",...) {
   if(is.null(main)) {main=names(results)} 
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   results <- .unformatFrame(results[[1]])
@@ -12,7 +12,7 @@
   axis(1,1:nrow(results),row.names(results))
 }
 
-.plotComp <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,slab="Difference",rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=c(2,2,4),pch=c(15,15,17),points=TRUE,col="black") {
+.plotComp <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,slab="Difference",rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=c(2,2,4),pch=c(15,15,17),points=TRUE,col="black",...) {
   if(is.null(main)) main=names(results[1])
   results <- .unformatFrame(results[[1]])
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")

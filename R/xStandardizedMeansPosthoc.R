@@ -89,7 +89,7 @@ estimateStandardizedMeansPosthoc <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotStandardizedMeansPosthoc <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=24,col="black") {
+plotStandardizedMeansPosthoc <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=24,col="black",offset=0,intervals=TRUE) {
   results <- estimateStandardizedMeansPosthoc(...,conf.level=conf.level,main=main,digits=digits)
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
 }

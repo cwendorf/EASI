@@ -104,8 +104,8 @@ testRegressionCoefficients <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotRegressionCoefficients <- function(...,intercept=TRUE,main=NULL,digits=3,ylab="Regression Coefficient",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=15,col="black") {
+plotRegressionCoefficients <- function(...,intercept=TRUE,main=NULL,digits=3,ylab="Regression Coefficient",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=15,col="black",offset=0,intervals=TRUE) {
   results <- estimateRegressionCoefficients(...,conf.level=conf.level,main=main,digits=digits)
   if(intercept=="FALSE") {results[[1]] <- tail(results[[1]],-1)}  
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
 }
