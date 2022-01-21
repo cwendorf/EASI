@@ -39,7 +39,11 @@ plotScatter.wss <- function(DescStats,CorrStats,main="Scatter Plot for the Varia
   if(ellipse) {lines(transM,col=.colorTransparent(col,100))}  
 }
 
-plotScatter.default <- function(x,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,points=TRUE,ellipse=FALSE,conf.level=.95,cross=FALSE,col="black",...) {
+plotScatter.default <- function(x,y=NULL,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,points=TRUE,ellipse=FALSE,conf.level=.95,cross=FALSE,col="black",...) {
+  if(!is.null(y)) {
+    nm <- c(substitute(x),substitute(y))
+    x <- data.frame(x,y)
+    colnames(x) <- nm}
   data <- data.frame(x)[,c(1:2)]
   sigma2 <- cov(data)
   mu <- sapply(data,mean,na.rm=TRUE)

@@ -66,6 +66,7 @@ plotIntervals.default <- function(x,contrast=NULL,...) {
     plotMeanComparison(x,...)}
   else {
     plotMeans(x,...)}
+  invisible(eval(x)) 
 }
 
 plotIntervals.list <- function(results,add=FALSE,...) {

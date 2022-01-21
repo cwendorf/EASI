@@ -23,6 +23,7 @@ plotPlausible.default <- function(x,contrast=NULL,...) {
   else {
     z <- estimateMeans(x,...)
     plotPlausible(z,...)}
+  invisible(eval(x))    
 }
 
 plotPlausible.list <- function(results,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,type="right",offset=0,scale=1,col="black",pch=16,...) {

@@ -19,6 +19,7 @@ plotData.default <- function(frame,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",
   if(connect && method!="jitter") {
     lesscol <- length(data)-1
     for(i in 1:lesscol) {segments(loc[i],data[,i],loc[i+1],data[,i+1],col=.colorTransparent(col,70),lty=lty)}}
+  invisible(eval(frame))
 }
 
 plotData.formula <- function(formula,add=FALSE,main=NULL,ylim=NULL,ylab=NULL,xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,...) {
@@ -31,4 +32,5 @@ plotData.formula <- function(formula,add=FALSE,main=NULL,ylim=NULL,ylab=NULL,xla
     if(is.null(main)) {main="Data for the Groups"}
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
   stripchart(data,add=TRUE,at=loc,vertical=TRUE,method=method,jitter=jitter,col=.colorTransparent(col,70),pch=pch)
+  invisible(eval(formula))
 }

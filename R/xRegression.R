@@ -80,7 +80,6 @@ plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NUL
     xmax = PredStats[,"M"]+2*PredStats[,"SD"]
     xlim = c(xmin,xmax)}
   else {
-    xlim=xlim
     xmin=xlim[1]
     xmax=xlim[2]}    
   if(is.null(range)) {range <- seq(xmin-.25,xmax+.25,by=.05)} else {range <- seq(range[1],range[2],by=.05)}

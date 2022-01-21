@@ -28,6 +28,7 @@ plotDiamonds.default <- function(x,contrast=NULL,...) {
   else {
     z <- estimateMeans(x,...)
     plotDiamonds(z,...)}
+  invisible(eval(x))
 }
 
 plotDiamonds.list <- function(results,add=FALSE,line=NULL,rope=NULL,col="black",hw=.2,offset=0,...) {
