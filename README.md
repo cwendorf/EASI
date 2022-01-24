@@ -43,7 +43,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 The package includes a wide variety of documentation, tutorials, and examples that demonstrate its use:
 
-- [Tutorials from the Sourcebook](https://github.com/cwendorf/EASI/tree/main/docs/tutorials) - Vingettes for tutorial data that show the diversity of basic options using data from my Sourcebook 
+- [Tutorials from the Sourcebook](https://github.com/cwendorf/EASI/tree/main/docs/tutorials) - Vingettes with tutorial data that show the diversity of basic options 
 - [Examples from ITNS](https://github.com/cwendorf/EASI/tree/main/docs/examples) - Reanalyses of published textbook examples highlighting the estimation approach 
 - [Advanced Applications](https://github.com/cwendorf/EASI/tree/main/docs/applications) - Advanced and experimental applications of the package
 
