@@ -53,7 +53,7 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateMeansBy.default <- function(framme,by,conf.level=.95,...) {
+.estimateMeansBy.default <- function(frame,by,conf.level=.95,...) {
   data <- data.frame(frame)
   if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   ListDescStats <- .describeMeansBy(data,by=by)
