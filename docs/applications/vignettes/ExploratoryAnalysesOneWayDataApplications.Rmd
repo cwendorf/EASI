@@ -33,6 +33,8 @@ library(EASI)
 
 ### Data Management
 
+#### Data Entry
+
 ```{r}
 Factor <- c(rep(1,100),rep(2,100),rep(3,100))
 Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
@@ -42,60 +44,70 @@ Group3 <- c(rnorm(25,7,1),rnorm(75,11,1))
 Outcome <- c(Group1,Group2,Group3)
 ```
 
+#### Descriptive Statistics
+
+```{r}
+describePercentiles(Outcome~Factor)
+```
+
 ### Standard Plots
 
-Boxplots
+#### Boxplots
+
 ```{r,OneWay-Boxes}
 plotBoxes(Outcome~Factor)
 ```
 
-Density Plots
+#### Density Plots
+
 ```{r,OneWay-Density}
 plotDensity(Outcome~Factor)
 ```
 
-Data Plots
+####  Data Plots
+
 ```{r,OneWay-Data}
 plotData(Outcome~Factor)
 ```
 
 ### Advanced Plots
 
-Violin Plots: Stacked and Modified Plots
+#### Violin Plots
+
 ```{r,OneWay-ViolinsA}
 plotBoxes(Outcome~Factor,values=FALSE,main="Violin Plots")
 plotDensity(Outcome~Factor,add=TRUE,offset=0,type="full")
 ```
 
-Violin Plots: Automated and Extended Plots
 ```{r,OneWay-ViolinsB}
 plotViolins(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
-Bean Plots: Stacked and Modified Plots
+#### Bean Plots
+
 ```{r,OneWay-BeansA}
 plotDensity(Outcome~Factor,type="full",offset=0,main="Bean Plots")
 plotData(Outcome~Factor,add=TRUE,offset=0,pch=95)
 ```
 
-Bean Plots: Automated and Extended Plots
 ```{r,OneWay-BeansB}
 plotBeans(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
-Raincloud Plots: Stacked and Modified Plots
+#### Raincloud Plots
+
 ```{r,OneWay-RaincloudsA}
 plotBoxes(Outcome~Factor,values=FALSE,main="Raincloud Plots")
 plotDensity(Outcome~Factor,add=TRUE,offset=.1)
 plotData(Outcome~Factor,add=TRUE,method="jitter",offset=-.15)
 ```
 
-Raincloud Plots: Automated and Extended Plots
 ```{r,OneWay-RaincloudsB}
 plotRainclouds(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
-Combination Plots: Stacked and Modified Plots
+#### Combination Plots
+
 ```{r,OneWay-CombinationsA}
 plotBoxes(Outcome~Factor,main="Combination Plots")
 plotDensity(Outcome~Factor,add=TRUE)
@@ -103,7 +115,6 @@ plotFrequencies(Outcome~Factor,add=TRUE)
 plotData(Outcome~Factor,add=TRUE)
 ```
 
-Combination Plots: Automated and Extended Plots
 ```{r,OneWay-CombinationsB}
 plotCombination(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 ```

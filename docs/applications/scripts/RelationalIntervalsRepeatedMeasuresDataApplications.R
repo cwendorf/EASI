@@ -3,12 +3,10 @@
 
 ### Package Loading
 
-#### Source all of the EASI functions
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Data Management
 
-#### Set up for analyses of the raw data
 Outcome1 <-c(61,64,72,64,64,70,73,65,65,72)
 Outcome2 <- c(69,74,79,69,64,64,69,69,74,79)
 Outcome3 <- c(70,75,80,80,70,65,70,75,70,70) 
@@ -18,11 +16,9 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 
 ### Analyses of Relational Intervals
 
-#### Provide descriptive statistics and ANOVA source table
 describeMeans(RepeatedData)
 describeMeansOmnibus(RepeatedData)
 testMeansOmnibus(RepeatedData)
 
-#### Provide and plot estimates of the arelational and relational intervals
 estimateMeansRelational(RepeatedData)
 plotMeansRelational(RepeatedData)

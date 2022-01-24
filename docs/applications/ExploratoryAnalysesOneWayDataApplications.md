@@ -1,7 +1,31 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-01-24"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Exploratory Analyses OneWay Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Exploratory Analyses OneWay Data Applications
 
 ### Data Management
+
+#### Data Entry
 
 
 ```r
@@ -13,9 +37,25 @@ Group3 <- c(rnorm(25,7,1),rnorm(75,11,1))
 Outcome <- c(Group1,Group2,Group3)
 ```
 
+#### Descriptive Statistics
+
+
+```r
+describePercentiles(Outcome~Factor)
+```
+
+```
+## $`Percentiles for the Data`
+##            Min     25%     50%     75%     Max
+## Group1   6.271   8.705   9.995  11.408  16.838
+## Group2   4.860   7.009   9.994  12.796  15.275
+## Group3   5.136   8.664  10.534  11.599  13.581
+```
+
 ### Standard Plots
 
-Boxplots
+#### Boxplots
+
 
 ```r
 plotBoxes(Outcome~Factor)
@@ -23,7 +63,8 @@ plotBoxes(Outcome~Factor)
 
 ![](figures/OneWay-Boxes-1.png)<!-- -->
 
-Density Plots
+#### Density Plots
+
 
 ```r
 plotDensity(Outcome~Factor)
@@ -31,7 +72,8 @@ plotDensity(Outcome~Factor)
 
 ![](figures/OneWay-Density-1.png)<!-- -->
 
-Data Plots
+####  Data Plots
+
 
 ```r
 plotData(Outcome~Factor)
@@ -41,7 +83,8 @@ plotData(Outcome~Factor)
 
 ### Advanced Plots
 
-Violin Plots: Stacked and Modified Plots
+#### Violin Plots
+
 
 ```r
 plotBoxes(Outcome~Factor,values=FALSE,main="Violin Plots")
@@ -50,7 +93,6 @@ plotDensity(Outcome~Factor,add=TRUE,offset=0,type="full")
 
 ![](figures/OneWay-ViolinsA-1.png)<!-- -->
 
-Violin Plots: Automated and Extended Plots
 
 ```r
 plotViolins(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
@@ -58,7 +100,8 @@ plotViolins(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 
 ![](figures/OneWay-ViolinsB-1.png)<!-- -->
 
-Bean Plots: Stacked and Modified Plots
+#### Bean Plots
+
 
 ```r
 plotDensity(Outcome~Factor,type="full",offset=0,main="Bean Plots")
@@ -67,7 +110,6 @@ plotData(Outcome~Factor,add=TRUE,offset=0,pch=95)
 
 ![](figures/OneWay-BeansA-1.png)<!-- -->
 
-Bean Plots: Automated and Extended Plots
 
 ```r
 plotBeans(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
@@ -75,7 +117,8 @@ plotBeans(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 
 ![](figures/OneWay-BeansB-1.png)<!-- -->
 
-Raincloud Plots: Stacked and Modified Plots
+#### Raincloud Plots
+
 
 ```r
 plotBoxes(Outcome~Factor,values=FALSE,main="Raincloud Plots")
@@ -85,7 +128,6 @@ plotData(Outcome~Factor,add=TRUE,method="jitter",offset=-.15)
 
 ![](figures/OneWay-RaincloudsA-1.png)<!-- -->
 
-Raincloud Plots: Automated and Extended Plots
 
 ```r
 plotRainclouds(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
@@ -93,7 +135,8 @@ plotRainclouds(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 
 ![](figures/OneWay-RaincloudsB-1.png)<!-- -->
 
-Combination Plots: Stacked and Modified Plots
+#### Combination Plots
+
 
 ```r
 plotBoxes(Outcome~Factor,main="Combination Plots")
@@ -104,7 +147,6 @@ plotData(Outcome~Factor,add=TRUE)
 
 ![](figures/OneWay-CombinationsA-1.png)<!-- -->
 
-Combination Plots: Automated and Extended Plots
 
 ```r
 plotCombination(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))

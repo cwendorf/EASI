@@ -33,6 +33,7 @@ library(EASI)
 
 ### Data Management
 
+Enter the data.
 ```{r}
 Outcome1 <- rnorm(50,mean=7,sd=2.5)
 Outcome2 <- rnorm(50,mean=11,sd=2.5)
@@ -41,28 +42,32 @@ Outcome3 <- rnorm(50,mean=12,sd=2.5)
 
 ### Analyses of the Means
 
-Create a color theme for the mean plots
+Create a color theme for the plots.
 ```{r}
 colorTheme <- c("darkred","darkblue","darkgoldenrod")
 ```
 
-Simple: Diamond Plots of the Confidence Interval
+#### Diamond Plots
+
+Get a simple diamond plots of the confidence intervals.
 ```{r,Repeated-DiamondA}
 cbind(Outcome1,Outcome2,Outcome3) |> plotDiamonds()
 ```
 
-Enhanced: Data and Diamond Plots
+Get an enhanced plot combining data and diamond plots.
 ```{r,Repeated-DiamondB}
 cbind(Outcome1,Outcome2,Outcome3) |> plotData(main="Data and Diamond Plots",offset=0,method="jitter",col=colorTheme)
 cbind(Outcome1,Outcome2,Outcome3) |> plotDiamonds(add=TRUE,line=10,rope=c(8,12),col=colorTheme)
 ```
 
-Simple: Confidence Intervals
+#### Confidence Interval Plots
+
+Get a simple plot of the confidence intervals.
 ```{r,Repeated-ConfidenceA}
 cbind(Outcome1,Outcome2,Outcome3) |> plotIntervals()
 ```
 
-Enhanced: Data and Confidence Intervals with Plausibility Curves
+Get an enhanced plot of data and confidence intervals with plausibility curves.
 ```{r,Repeated-ConfidenceB}
 cbind(Outcome1,Outcome2,Outcome3) |> plotData(main="Data and Confidence Intervals with Plausibility Curves",offset=-.15,method="jitter",col=colorTheme)
 cbind(Outcome1,Outcome2,Outcome3) |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
@@ -76,23 +81,27 @@ Create a comparison color theme
 comparisonTheme <- c("darkred","darkblue","black")
 ```
 
-Simple: Diamond Plots of the Confidence Interval
+#### Diamond Plots
+
+Get a simple diamond plots of the confidence intervals.
 ```{r,Repeated-DiamondC}
 cbind(Outcome1,Outcome2) |> plotDiamonds(conf.level=.99)
 ```
 
-Enhanced: Data and Diamond Plots
+Get an enhanced plot combining data and diamond plots.
 ```{r,Repeated-DiamondD}
 cbind(Outcome1,Outcome2) |> plotDiamonds(conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotData(add=TRUE,offset=0,method="jitter",col=comparisonTheme)
 ```
 
-Simple: Confidence Intervals
+#### Confidence Interval Plots
+
+Get a simple plot of the confidence intervals.
 ```{r,Repeated-ConfidenceC}
 cbind(Outcome1,Outcome2) |> plotIntervals(conf.level=.99)
 ```
 
-Enhanced: Data and Confidence Intervals with Plausibility Curves
+Get an enhanced plot of data and confidence intervals with plausibility curves.
 ```{r,Repeated-ConfidenceD}
 cbind(Outcome1,Outcome2) |> plotIntervals(conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)

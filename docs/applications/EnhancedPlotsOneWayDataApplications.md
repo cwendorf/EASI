@@ -1,8 +1,31 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-01-24"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Enhanced Plots OneWay Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Enhanced Plots OneWay Data Applications
 
 ### Data Management
 
+Enter the data.
 
 ```r
 Factor <- c(rep(1,50),rep(2,50),rep(3,50))
@@ -12,13 +35,15 @@ Outcome <- c(rnorm(50,mean=7,sd=2),rnorm(50,mean=11,sd=4),rnorm(50,mean=12,sd=4)
 
 ### Analyses of the Means
 
-Create a color theme for the mean plots
+Create a color theme for the plots.
 
 ```r
 colorTheme <- c("darkred","darkblue","darkgoldenrod")
 ```
 
-Simple: Diamond Plots of the Confidence Intervals
+#### Diamond Plots
+
+Get a simple diamond plots of the confidence intervals.
 
 ```r
 (Outcome~Factor) |> plotDiamonds()
@@ -26,7 +51,7 @@ Simple: Diamond Plots of the Confidence Intervals
 
 ![](figures/OneWay-DiamondA-1.png)<!-- -->
 
-Enhanced: Data and Diamond Plots
+Get an enhanced plot combining data and diamond plots.
 
 ```r
 (Outcome~Factor) |> plotData(main="Data and Diamond Plots",offset=0,method="jitter",col=colorTheme)
@@ -35,7 +60,9 @@ Enhanced: Data and Diamond Plots
 
 ![](figures/OneWay-DiamondB-1.png)<!-- -->
 
-Simple plot: Confidence Intervals
+#### Confidence Interval Plots
+
+Get a simple plot of the confidence intervals.
 
 ```r
 (Outcome~Factor) |> plotIntervals()
@@ -43,7 +70,7 @@ Simple plot: Confidence Intervals
 
 ![](figures/OneWay-ConfidenceA-1.png)<!-- -->
 
-Enhanced plot: Data and Confidence Intervals with Plausibility Curves
+Get an enhanced plot of data and confidence intervals with plausibility curves.
 
 ```r
 (Outcome~Factor) |> plotData(main="Data and Confidence Intervals with Plausibility Curves",offset=-.15,method="jitter",col=colorTheme)
@@ -55,14 +82,16 @@ Enhanced plot: Data and Confidence Intervals with Plausibility Curves
 
 ### Analyses of a Comparison
 
-Create a comparison and its color theme
+Create a comparison and its color theme.
 
 ```r
 Comparison <- factor(Factor,c("Group1","Group2"))
 comparisonTheme <- c("darkred","darkblue","black")
 ```
 
-Simple: Diamond Plots of the Confidence Intervals
+#### Diamond Plots
+
+Get a simple diamond plot of the confidence intervals.
 
 ```r
 (Outcome~Comparison) |> plotDiamonds(conf.level=.99)
@@ -70,7 +99,7 @@ Simple: Diamond Plots of the Confidence Intervals
 
 ![](figures/OneWay-DiamondC-1.png)<!-- -->
 
-Enhanced: Data and Diamond Plots
+Get an enhanced plot combining data and diamond plots.
 
 ```r
 (Outcome~Comparison) |> plotDiamonds(conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
@@ -79,7 +108,9 @@ Enhanced: Data and Diamond Plots
 
 ![](figures/OneWay-DiamondD-1.png)<!-- -->
 
-Simple: Confidence Intervals
+#### Confidence Interval Plots
+
+Get a simple plot of the confidence intervals.
 
 ```r
 (Outcome~Comparison) |> plotIntervals(conf.level=.99)
@@ -87,7 +118,7 @@ Simple: Confidence Intervals
 
 ![](figures/OneWay-ConfidenceC-1.png)<!-- -->
 
-Enhanced: Data and Confidence Intervals with Plausibility Curves
+Get an enhanced plot of data and confidence intervals with plausibility curves.
 
 ```r
 (Outcome~Comparison) |> plotIntervals(conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
