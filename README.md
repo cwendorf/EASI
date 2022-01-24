@@ -41,14 +41,11 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Usage
 
-Vingettes for tutorial data that show the diversity of options are available:  
-[https://github.com/cwendorf/EASI/tree/main/docs/tutorials](https://github.com/cwendorf/EASI/tree/main/docs/tutorials)
+The package includes a wide variety of documentation, tutorials, and examples that demonstrate its use:
 
-Reanalyses of published textbook examples highlighting the estimation approach are also available:  
-[https://github.com/cwendorf/EASI/tree/main/docs/examples](https://github.com/cwendorf/EASI/tree/main/docs/examples)
-
-Advanced and experimental applications of the package can be viewed as well:  
-[https://github.com/cwendorf/EASI/tree/main/docs/applications](https://github.com/cwendorf/EASI/tree/main/docs/applications)
+- [Tutorials from the Sourcebook](https://github.com/cwendorf/EASI/tree/main/docs/tutorials) - Vingettes for tutorial data that show the diversity of basic options using data from my Sourcebook 
+- [Examples from ITNS](https://github.com/cwendorf/EASI/tree/main/docs/examples) - Reanalyses of published textbook examples highlighting the estimation approach 
+- [Advanced Applications](https://github.com/cwendorf/EASI/tree/main/docs/applications) - Advanced and experimental applications of the package
 
 ### Contact Me
 
