@@ -80,7 +80,7 @@ Get a simple diamond plot of the confidence intervals.
 Get an enhanced plot combining data and diamond plots.
 
 ```r
-(Outcome~Comparison) |> plotDiamonds(conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
+(Outcome~Comparison) |> plotDiamonds(main="Data and Diamond Plots",conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
 (Outcome~Comparison) |> plotData(add=TRUE,offset=0,method="jitter",col=comparisonTheme)
 ```
 
@@ -99,7 +99,7 @@ Get a simple plot of the confidence intervals.
 Get an enhanced plot of data and confidence intervals with plausibility curves.
 
 ```r
-(Outcome~Comparison) |> plotIntervals(conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
+(Outcome~Comparison) |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
 (Outcome~Comparison) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
 (Outcome~Comparison) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
 ```

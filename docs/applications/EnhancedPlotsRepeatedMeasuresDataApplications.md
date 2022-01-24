@@ -79,7 +79,7 @@ cbind(Outcome1,Outcome2) |> plotDiamonds(conf.level=.99)
 Get an enhanced plot combining data and diamond plots.
 
 ```r
-cbind(Outcome1,Outcome2) |> plotDiamonds(conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
+cbind(Outcome1,Outcome2) |> plotDiamonds(main="Data and Diamond Plots",conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotData(add=TRUE,offset=0,method="jitter",col=comparisonTheme)
 ```
 
@@ -98,7 +98,7 @@ cbind(Outcome1,Outcome2) |> plotIntervals(conf.level=.99)
 Get an enhanced plot of data and confidence intervals with plausibility curves.
 
 ```r
-cbind(Outcome1,Outcome2) |> plotIntervals(conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
+cbind(Outcome1,Outcome2) |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
 ```

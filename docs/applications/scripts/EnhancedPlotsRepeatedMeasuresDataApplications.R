@@ -38,13 +38,13 @@ comparisonTheme <- c("darkred","darkblue","black")
 
 cbind(Outcome1,Outcome2) |> plotDiamonds(conf.level=.99)
 
-cbind(Outcome1,Outcome2) |> plotDiamonds(conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
+cbind(Outcome1,Outcome2) |> plotDiamonds(main="Data and Diamond Plots",conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotData(add=TRUE,offset=0,method="jitter",col=comparisonTheme)
 
 #### Confidence Interval Plots
 
 cbind(Outcome1,Outcome2) |> plotIntervals(conf.level=.99)
 
-cbind(Outcome1,Outcome2) |> plotIntervals(conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
+cbind(Outcome1,Outcome2) |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
 cbind(Outcome1,Outcome2) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
