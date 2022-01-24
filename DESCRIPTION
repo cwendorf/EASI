@@ -7,7 +7,7 @@ Depends: R (>= 3.6.2)
 Author: Craig A Wendorf <cwendorf@uwsp.edu>
 Maintainer: Craig A Wendorf <cwendorf@uwsp.edu>
 License: MIT + file LICENSE
-URL: https://cwendorf.github.io/EASI/
+URL: https://github.com/cwendorf/EASI/
 Encoding: UTF-8
 LazyData: true
 Suggests: knitr, rmarkdown
