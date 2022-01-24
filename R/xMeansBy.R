@@ -115,7 +115,6 @@ testMeansBy <- function(...,main=NULL,digits=3) {
 plotMeansBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=NULL,pch=16,col="black",offset=0,intervals=TRUE) {
   results <- estimateMeansBy(...,by=by,conf.level=conf.level)
   if(is.null(connect) & length(list(...))>1) {connect=TRUE} else {connect=FALSE}
-  print(connect)
   for (i in 1:nlevels(by)) {
     temp <- results[i]
     plotIntervals(temp,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
