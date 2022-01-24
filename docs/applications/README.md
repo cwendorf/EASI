@@ -35,3 +35,10 @@ The **RelationalIntervals** files examine the concept of relational and arelatio
 
 - [*RelationalIntervalsOneWayDataApplications*](./RelationalIntervalsOneWayDataApplications.md) - Uses one-way (between-subjects) data
 - [*RelationalIntervalsRepeatedMeasuresDataApplications*](./RelationalIntervalsRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
+
+### By Functions for Simple Effects
+
+The **FactorialBy**  and **MixedBY** files implement "by" functions designed to facilitate the analyses of simple effects in factorial and mixed designs:
+
+- [*FactorialByDataApplications*](./FacotrialByDataApplications.md) - Uses two-way factorial (between-subjects) data
+- [*MixedByDataApplications*](./MixedByDataApplications.md) - Uses two-way mixed design (between-subjects and within-subjects) data
