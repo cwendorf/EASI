@@ -32,6 +32,7 @@ plotDiamonds.default <- function(x,contrast=NULL,...) {
 }
 
 plotDiamonds.list <- function(results,add=FALSE,line=NULL,rope=NULL,col="black",hw=.2,offset=0,...) {
+  out <- results
   if(length(results)==1) {
     results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))]
     if(!add) {.plotMain(results,...)}
@@ -55,4 +56,5 @@ plotDiamonds.list <- function(results,add=FALSE,line=NULL,rope=NULL,col="black",
     z <- asplit(graph,1)
     invisible(mapply(.diamond,z,loc=1:nrow(graph),col=col,hw=hw,offset=offset))
   }
+  invisible(out)
 }
