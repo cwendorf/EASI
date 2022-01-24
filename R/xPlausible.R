@@ -13,7 +13,7 @@ plotPlausible <- function(x,...)
   UseMethod("plotPlausible")
 
 plotPlausible.default <- function(x,contrast=NULL,...) {
-  howmany <- nrow(.describeMeans(x))
+  howmany <- nrow(.estimateMeans(x))
   if (!is.null(contrast)) {
     z <- estimateMeanSubsets(x,contrast=contrast,conf.level=.95)
     plotPlausible(z,...)}
@@ -27,6 +27,7 @@ plotPlausible.default <- function(x,contrast=NULL,...) {
 }
 
 plotPlausible.list <- function(results,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,type="right",offset=0,scale=1,col="black",pch=16,...) {
+  out <- results
   if(length(results)==1) {
     graph <- .unformatFrame(.deList(results))
     results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))] 
@@ -47,4 +48,5 @@ plotPlausible.list <- function(results,conf.level=.95,add=FALSE,main=NULL,ylab="
     z <- apply(graph,1,FUN=.plausible)
     invisible(mapply(.plotCurve,z,loc=1:nrow(graph),type=type,offset=offset,scale=1,col=col))
   }
+  invisible(out)
 }

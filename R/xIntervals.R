@@ -59,7 +59,7 @@ plotIntervals <- function(x,...)
   UseMethod("plotIntervals")
 
 plotIntervals.default <- function(x,contrast=NULL,...) {
-  howmany <- nrow(.describeMeans(x))
+  howmany <- nrow(.estimateMeans(x))
   if (!is.null(contrast)) {
     plotMeanSubsets(x,contrast=contrast,...)}
   else if (howmany==2) {
@@ -70,6 +70,7 @@ plotIntervals.default <- function(x,contrast=NULL,...) {
 }
 
 plotIntervals.list <- function(results,add=FALSE,...) {
+  out <- results
   if(length(results)==1) {
     results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))]
     if(!add) .plotMain(results,...)
@@ -81,4 +82,5 @@ plotIntervals.list <- function(results,add=FALSE,...) {
     if(!add) .plotComp(results,...)
     .intervalsComp(results,...)
     }
+  invisible(out)
 }
