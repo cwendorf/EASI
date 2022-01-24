@@ -38,7 +38,7 @@ The **RelationalIntervals** files examine the concept of relational and arelatio
 
 ### By Functions for Simple Effects
 
-The **FactorialBy**  and **MixedBY** files implement "by" functions designed to facilitate the analyses of simple effects in factorial and mixed designs:
+The **FactorialBy**  and **MixedBy** files implement "by" functions designed to facilitate the analyses of simple effects in factorial and mixed designs:
 
 - [*FactorialByDataApplications*](./FactorialByDataApplications.md) - Uses two-way factorial (between-subjects) data
 - [*MixedByDataApplications*](./MixedByDataApplications.md) - Uses two-way mixed design (between-subjects and within-subjects) data
