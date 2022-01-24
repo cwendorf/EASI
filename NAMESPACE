@@ -441,6 +441,15 @@ export(testMeansBy)
 
 export(plotMeansBy)
 
+### xStandardizedMeansBy
+
+S3method(.estimateStandardizedMeansBy,default)
+S3method(.estimateStandardizedMeansBy,formula)
+S3method(.estimateStandardizedMeansBy,wss)
+S3method(.estimateStandardizedMeansBy,bss)
+export(.estimateStandardizedMeansBy)
+export(estimateStandardizedMeansBy)
+
 ### xMeanDifferenceBy
 
 S3method(.estimateMeanDifferenceBy,default)
