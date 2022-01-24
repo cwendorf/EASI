@@ -513,6 +513,13 @@ S3method(.describeMeansOmnibusBy,bss)
 export(.describeMeansOmnibusBy)
 export(describeMeansOmnibusBy)
 
+S3method(.estimateMeansOmnibusBy,default)
+S3method(.estimateMeansOmnibusBy,formula)
+S3method(.estimateMeansOmnibusBy,wss)
+S3method(.estimateMeansOmnibusBy,bss)
+export(.estimateMeansOmnibusBy)
+export(estimateMeansOmnibusBy)
+
 S3method(.testMeansOmnibusBy,default)
 S3method(.testMeansOmnibusBy,formula)
 S3method(.testMeansOmnibusBy,wss)
