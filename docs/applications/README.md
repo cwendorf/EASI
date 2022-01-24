@@ -10,7 +10,7 @@ Data and summary statistics for these applications are from a variety of publish
 
 ### Exploratory Data Analysis
 
-The **ExploratoryAnalyses** files analyze applications of boxplots, violin plots, beanplots, rainclouds, and more:
+The **ExploratoryAnalyses** files analyze applications of boxplots, violin plots, beanplots, rainclouds, and colors:
 
 - [*ExploratoryAnalysesOneWayDataApplications*](./ExploratoryAnalysesOneWayDataApplications.md) - Uses one-way (between-subjects) data
 - [*ExploratoryAnalysesRepeatedMeasuresDataApplications*](./ExploratoryAnalysesRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
