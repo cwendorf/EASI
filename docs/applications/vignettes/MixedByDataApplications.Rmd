@@ -1,0 +1,99 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Mixed Design (Between-Subjects and Within-Subjects) Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+if(!require(EASI)) {
+if(!require(devtools)) install.packages('devtools')
+devtools::install_github("cwendorf/EASI")}
+library(EASI)
+```
+
+## Mixed Design (Between-Subjects and Within-Subjects) Data Applications
+
+### Data Management
+
+Enter the data.
+```{r}
+Factor <- c(1,1,1,1,2,2,2,2)
+Outcome1 <- c(0,0,3,5,1,3,6,6)
+Outcome2 <- c(4,7,4,9,3,1,6,6)
+Outcome3 <- c(4,9,6,9,3,3,6,8)
+Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
+MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
+MixedData
+```
+
+#### Descriptive Statistics
+
+Get the descriptive statistics separately for each simple effect.
+```{r}
+describeMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+### Analyses of the Means
+
+Estimate, plot, test, and standardize the means separately for each simple effect.
+```{r,MixedBy-Means}
+estimateMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+plotMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+testMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+estimateStandardizedMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+### Analyses of a Comparison
+
+Analyze the specified comparison separately for each simple effect.
+```{r,MixedBy-Comparison}
+estimateMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
+testMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
+plotMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
+estimateStandardizedMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
+```
+
+### Analyses of a Contrast
+
+Analyze the specified contrast separately for each simple effect.
+```{r,MixedBy-Contrast}
+O1vsOthers <- c(-1,.5,.5)
+estimateMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
+testMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
+plotMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
+estimateStandardizedMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
+```
+
+### Analyses of the Omnibus Effect
+
+Get an ANOVA separately for each simple effect.
+```{r}
+describeMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+testMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+estimateMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+Get an ANOVA for the design as a whole.
+```{r}
+describeMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+testMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+estimateMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
