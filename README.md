@@ -17,15 +17,7 @@
 
 ### Installation
 
-This package is not currently on CRAN, but the latest stable release can be installed from GitHub:
-
-```r
-install.packages("devtools")
-devtools::install_github("cwendorf/EASI@*release",build_vignettes=TRUE)
-library(EASI)
-```
-
-To get the newest features and bug fixes, install the development version from GitHub:
+This package is not currently on CRAN, but the latest version can be installed from GitHub:
 
 ``` r
 install.packages("devtools")
