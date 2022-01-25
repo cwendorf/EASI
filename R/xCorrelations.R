@@ -9,7 +9,7 @@ declareCorrelations <- function(x,...)
 declareCorrelations.default <- function(...) {
   clist <- c(...)
   nr <- length(clist)
-  result <- matrix(data=NA,nr,nr)
+  results <- matrix(data=NA,nr,nr)
   rownames(results) <- clist
   colnames(results) <- clist
   return(results)
