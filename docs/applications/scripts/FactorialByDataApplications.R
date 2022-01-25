@@ -21,7 +21,21 @@ FactorialData
 
 describeMeansBy(Outcome~FactorA,by=FactorB)
 
+### Analyses of the Omnibus and Simple Effects
+
+describeMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+testMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+estimateMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+
+describeMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+testMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+estimateMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+
 ### Analyses of the Means
+
+plotMeansMultifactor(Outcome~FactorA,by=FactorB)
+plotMeansMultifactor(Outcome~FactorA,by=FactorB,conf.level=.99,col=c("black","gray60"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("black","gray60"))
 
 estimateMeansBy(Outcome~FactorA,by=FactorB)
 plotMeansBy(Outcome~FactorA,by=FactorB)
@@ -44,12 +58,4 @@ plotMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 testMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 estimateStandardizedMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 
-### Analyses of the Omnibus Effect
 
-describeMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-testMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-estimateMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-
-describeMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-testMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-estimateMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)

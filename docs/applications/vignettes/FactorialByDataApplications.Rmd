@@ -53,7 +53,30 @@ Get descriptive statistics separately for each simple effect.
 describeMeansBy(Outcome~FactorA,by=FactorB)
 ```
 
+### Analyses of the Omnibus and Simple Effects
+
+Get an ANOVA for the design as a whole.
+```{r}
+describeMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+testMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+estimateMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+```
+
+Get an ANOVA separately for each simple effect.
+```{r}
+describeMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+testMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+estimateMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+```
+
 ### Analyses of the Means
+
+Plot the means and confidence intervals for the design as a whole.
+```{r,FactorialBy-Multifactor}
+plotMeansMultifactor(Outcome~FactorA,by=FactorB)
+plotMeansMultifactor(Outcome~FactorA,by=FactorB,conf.level=.99,col=c("black","gray60"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("black","gray60"))
+```
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
 ```{r,FactorialBy-Means}
@@ -83,20 +106,4 @@ estimateMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 plotMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 testMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 estimateStandardizedMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
-```
-
-### Analyses of the Omnibus Effect
-
-Get an ANOVA separately for each simple effect.
-```{r}
-describeMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-testMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-estimateMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-```
-
-Get an ANOVA for the design as a whole.
-```{r}
-describeMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-testMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-estimateMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
 ```

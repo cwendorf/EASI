@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-01-25"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Mixed Design (Between-Subjects and Within-Subjects) Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Mixed Design (Between-Subjects and Within-Subjects) Data Applications
 
@@ -49,7 +71,121 @@ describeMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ## Outcome3   4.000   5.000   2.449   0.544  -2.944
 ```
 
+### Analyses of the Omnibus and Simple Effects
+
+Get an ANOVA for the design as a whole.
+
+```r
+describeMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+```
+## $`Source Table for the Model: Between Subjects`
+##               SS      df      MS
+## Blocks     2.667   1.000   2.667
+## Subjects  88.000   6.000  14.667
+## 
+## $`Source Table for the Model: Within Subjects`
+##                      SS      df      MS
+## Measures         37.333   2.000  18.667
+## Measures:Blocks  21.333   2.000  10.667
+## Residual         20.000  12.000   1.667
+```
+
+```r
+testMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+```
+## $`Hypothesis Tests for the Model: Between Subjects`
+##              F     df1     df2       p
+## Blocks   0.182   1.000   6.000   0.685
+## 
+## $`Hypothesis Tests for the Model: Within Subjects`
+##                       F     df1     df2       p
+## Measures         11.200   2.000  12.000   0.002
+## Measures:Blocks   6.400   2.000  12.000   0.013
+```
+
+```r
+estimateMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+```
+## $`Proportion of Variance Accounted For by the Model: Between Subjects`
+##            Est      LL      UL
+## Blocks   0.029   0.000   0.330
+## 
+## $`Proportion of Variance Accounted For by the Model: Within Subjects`
+##                     Est      LL      UL
+## Measures          0.651   0.245   0.758
+## Measures:Blocks   0.516   0.089   0.664
+```
+
+Get an ANOVA separately for each simple effect.
+
+```r
+describeMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+```
+## $`Source Table for the Model: Level1`
+##               SS      df      MS
+## Subjects  39.333   3.000  13.111
+## Measures  56.000   2.000  28.000
+## Error     14.667   6.000   2.444
+## 
+## $`Source Table for the Model: Level2`
+##               SS      df      MS
+## Subjects  48.667   3.000  16.222
+## Measures   2.667   2.000   1.333
+## Error      5.333   6.000   0.889
+```
+
+```r
+testMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+```
+## $`Hypothesis Test for the Model: Level1`
+##                F     df1     df2       p
+## Measures  11.455   2.000   6.000   0.009
+## 
+## $`Hypothesis Test for the Model: Level2`
+##                F     df1     df2       p
+## Measures   1.500   2.000   6.000   0.296
+```
+
+```r
+estimateMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+```
+## $`Proportion of Variance Accounted For by the Model: Level1`
+##              Est      LL      UL
+## Measures   0.792   0.237   0.858
+## 
+## $`Proportion of Variance Accounted For by the Model: Level2`
+##              Est      LL      UL
+## Measures   0.333   0.000   0.548
+```
+
 ### Analyses of the Means
+
+Plot the means and confidence intervals for the design as a whole.
+
+```r
+plotMeansMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+![](figures/MixedBy-Multifactor-1.png)<!-- -->
+
+```r
+plotMeansMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor,conf.level=.99,col=c("black","gray60"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("black","gray60"))
+```
+
+![](figures/MixedBy-Multifactor-2.png)<!-- -->
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
 
@@ -216,103 +352,4 @@ estimateStandardizedMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,c
 ## $`Confidence Interval for the Standardized Mean Contrast: Level2`
 ##              Est      SE      LL      UL
 ## Contrast   0.204   0.279  -0.344   0.752
-```
-
-### Analyses of the Omnibus Effect
-
-Get an ANOVA separately for each simple effect.
-
-```r
-describeMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-```
-
-```
-## $`Source Table for the Model: Level1`
-##               SS      df      MS
-## Subjects  39.333   3.000  13.111
-## Measures  56.000   2.000  28.000
-## Error     14.667   6.000   2.444
-## 
-## $`Source Table for the Model: Level2`
-##               SS      df      MS
-## Subjects  48.667   3.000  16.222
-## Measures   2.667   2.000   1.333
-## Error      5.333   6.000   0.889
-```
-
-```r
-testMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-```
-
-```
-## $`Hypothesis Test for the Model: Level1`
-##                F     df1     df2       p
-## Measures  11.455   2.000   6.000   0.009
-## 
-## $`Hypothesis Test for the Model: Level2`
-##                F     df1     df2       p
-## Measures   1.500   2.000   6.000   0.296
-```
-
-```r
-estimateMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-```
-
-```
-## $`Proportion of Variance Accounted For by the Model: Level1`
-##              Est      LL      UL
-## Measures   0.792   0.237   0.858
-## 
-## $`Proportion of Variance Accounted For by the Model: Level2`
-##              Est      LL      UL
-## Measures   0.333   0.000   0.548
-```
-
-Get an ANOVA for the design as a whole.
-
-```r
-describeMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-```
-
-```
-## $`Source Table for the Model: Between Subjects`
-##               SS      df      MS
-## Blocks     2.667   1.000   2.667
-## Subjects  88.000   6.000  14.667
-## 
-## $`Source Table for the Model: Within Subjects`
-##                      SS      df      MS
-## Measures         37.333   2.000  18.667
-## Measures:Blocks  21.333   2.000  10.667
-## Residual         20.000  12.000   1.667
-```
-
-```r
-testMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-```
-
-```
-## $`Hypothesis Tests for the Model: Between Subjects`
-##              F     df1     df2       p
-## Blocks   0.182   1.000   6.000   0.685
-## 
-## $`Hypothesis Tests for the Model: Within Subjects`
-##                       F     df1     df2       p
-## Measures         11.200   2.000  12.000   0.002
-## Measures:Blocks   6.400   2.000  12.000   0.013
-```
-
-```r
-estimateMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-```
-
-```
-## $`Proportion of Variance Accounted For by the Model: Between Subjects`
-##            Est      LL      UL
-## Blocks   0.029   0.000   0.330
-## 
-## $`Proportion of Variance Accounted For by the Model: Within Subjects`
-##                     Est      LL      UL
-## Measures          0.651   0.245   0.758
-## Measures:Blocks   0.516   0.089   0.664
 ```

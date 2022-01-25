@@ -51,7 +51,30 @@ Get the descriptive statistics separately for each simple effect.
 describeMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ```
 
+### Analyses of the Omnibus and Simple Effects
+
+Get an ANOVA for the design as a whole.
+```{r}
+describeMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+testMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+estimateMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
+Get an ANOVA separately for each simple effect.
+```{r}
+describeMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+testMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+estimateMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+```
+
 ### Analyses of the Means
+
+Plot the means and confidence intervals for the design as a whole.
+```{r,MixedBy-Multifactor}
+plotMeansMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+plotMeansMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor,conf.level=.99,col=c("black","gray60"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("black","gray60"))
+```
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
 ```{r,MixedBy-Means}
@@ -80,20 +103,4 @@ estimateMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vs
 testMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
 plotMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
 estimateStandardizedMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
-```
-
-### Analyses of the Omnibus Effect
-
-Get an ANOVA separately for each simple effect.
-```{r}
-describeMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-testMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-estimateMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-```
-
-Get an ANOVA for the design as a whole.
-```{r}
-describeMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-testMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
-estimateMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ```

@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-01-25"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Factorial (Between-Subjects) Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Factorial (Between-Subjects) Data Applications
 
@@ -67,7 +89,109 @@ describeMeansBy(Outcome~FactorA,by=FactorB)
 ## A3   4.000   5.000   2.449  -0.544  -2.944
 ```
 
+### Analyses of the Omnibus and Simple Effects
+
+Get an ANOVA for the design as a whole.
+
+```r
+describeMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+```
+
+```
+## $`Source Table for the Model: Between Subjects`
+##                    SS      df      MS
+## Factor          2.667   1.000   2.667
+## Blocks         37.333   2.000  18.667
+## Factor:Blocks  21.333   2.000  10.667
+## Residual      108.000  18.000   6.000
+```
+
+```r
+testMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+```
+
+```
+## $`Hypothesis Tests for the Model: Between Subjects`
+##                     F     df1     df2       p
+## Factor          0.444   1.000  18.000   0.513
+## Blocks          3.111   2.000  18.000   0.069
+## Factor:Blocks   1.778   2.000  18.000   0.197
+```
+
+```r
+estimateMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+```
+
+```
+## $`Proportion of Variance Accounted For by the Model: Between Subjects`
+##                   Est      LL      UL
+## Factor          0.024   0.000   0.209
+## Blocks          0.257   0.000   0.374
+## Factor:Blocks   0.165   0.000   0.310
+```
+
+Get an ANOVA separately for each simple effect.
+
+```r
+describeMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+```
+
+```
+## $`Source Table for the Model: B1`
+##              SS      df      MS
+## Between  56.000   2.000  28.000
+## Within   54.000   9.000   6.000
+## 
+## $`Source Table for the Model: B2`
+##              SS      df      MS
+## Between   2.667   2.000   1.333
+## Within   54.000   9.000   6.000
+```
+
+```r
+testMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+```
+
+```
+## $`Hypothesis Test for the Model: B1`
+##              F     df1     df2       p
+## Factor   4.667   2.000   9.000   0.041
+## 
+## $`Hypothesis Test for the Model: B2`
+##              F     df1     df2       p
+## Factor   0.222   2.000   9.000   0.805
+```
+
+```r
+estimateMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+```
+
+```
+## $`Proportion of Variance Accounted For by the Model: B1`
+##            Est      LL      UL
+## Factor   0.509   0.016   0.665
+## 
+## $`Proportion of Variance Accounted For by the Model: B2`
+##            Est      LL      UL
+## Factor   0.047   0.000   0.206
+```
+
 ### Analyses of the Means
+
+Plot the means and confidence intervals for the design as a whole.
+
+```r
+plotMeansMultifactor(Outcome~FactorA,by=FactorB)
+```
+
+![](figures/FactorialBy-Multifactor-1.png)<!-- -->
+
+```r
+plotMeansMultifactor(Outcome~FactorA,by=FactorB,conf.level=.99,col=c("black","gray60"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("black","gray60"))
+```
+
+![](figures/FactorialBy-Multifactor-2.png)<!-- -->
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
 
@@ -235,91 +359,4 @@ estimateStandardizedMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOther
 ## $`Confidence Interval for the Standardized Mean Contrast: B2`
 ##              Est      SE      LL      UL
 ## Contrast   0.204   0.709  -1.185   1.593
-```
-
-### Analyses of the Omnibus Effect
-
-Get an ANOVA separately for each simple effect.
-
-```r
-describeMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-```
-
-```
-## $`Source Table for the Model: B1`
-##              SS      df      MS
-## Between  56.000   2.000  28.000
-## Within   54.000   9.000   6.000
-## 
-## $`Source Table for the Model: B2`
-##              SS      df      MS
-## Between   2.667   2.000   1.333
-## Within   54.000   9.000   6.000
-```
-
-```r
-testMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-```
-
-```
-## $`Hypothesis Test for the Model: B1`
-##              F     df1     df2       p
-## Factor   4.667   2.000   9.000   0.041
-## 
-## $`Hypothesis Test for the Model: B2`
-##              F     df1     df2       p
-## Factor   0.222   2.000   9.000   0.805
-```
-
-```r
-estimateMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-```
-
-```
-## $`Proportion of Variance Accounted For by the Model: B1`
-##            Est      LL      UL
-## Factor   0.509   0.016   0.665
-## 
-## $`Proportion of Variance Accounted For by the Model: B2`
-##            Est      LL      UL
-## Factor   0.047   0.000   0.206
-```
-
-Get an ANOVA for the design as a whole.
-
-```r
-describeMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-```
-
-```
-## $`Source Table for the Model: Between Subjects`
-##                    SS      df      MS
-## Factor          2.667   1.000   2.667
-## Blocks         37.333   2.000  18.667
-## Factor:Blocks  21.333   2.000  10.667
-## Residual      108.000  18.000   6.000
-```
-
-```r
-testMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-```
-
-```
-## $`Hypothesis Tests for the Model: Between Subjects`
-##                     F     df1     df2       p
-## Factor          0.444   1.000  18.000   0.513
-## Blocks          3.111   2.000  18.000   0.069
-## Factor:Blocks   1.778   2.000  18.000   0.197
-```
-
-```r
-estimateMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-```
-
-```
-## $`Proportion of Variance Accounted For by the Model: Between Subjects`
-##                   Est      LL      UL
-## Factor          0.024   0.000   0.209
-## Blocks          0.257   0.000   0.374
-## Factor:Blocks   0.165   0.000   0.310
 ```
