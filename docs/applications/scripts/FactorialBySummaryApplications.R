@@ -54,14 +54,14 @@ class(CompSummary) <- "bss"
 CompSummary
 
 estimateMeanDifferenceBy(CompSummary)
-testMeanDifferenceBy(CompSummary)
 plotMeanDifferenceBy(CompSummary)
+testMeanDifferenceBy(CompSummary)
 estimateStandardizedMeanDifferenceBy(CompSummary)
 
 ### Analyses of a Contrast
 
 L1vsOthers <- c(-1,.5,.5)
 estimateMeanContrastBy(FactorialSummary,contrast=L1vsOthers)
-testMeanContrastBy(FactorialSummary,contrast=L1vsOthers)
 plotMeanContrastBy(FactorialSummary,contrast=L1vsOthers)
+testMeanContrastBy(FactorialSummary,contrast=L1vsOthers)
 estimateStandardizedMeanContrastBy(FactorialSummary,contrast=L1vsOthers)

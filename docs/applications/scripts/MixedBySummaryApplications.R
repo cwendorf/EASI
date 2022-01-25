@@ -60,15 +60,16 @@ estimateStandardizedMeansBy(MixedSummary)
 ### Analyses of a Comparison
 
 
+
 estimateMeanDifferenceBy(CompSummary,MixedCorr)
-testMeanDifferenceBy(CompSummary,MixedCorr)
 plotMeanDifferenceBy(CompSummary,MixedCorr)
+testMeanDifferenceBy(CompSummary,MixedCorr)
 estimateStandardizedMeanDifferenceBy(CompSummary,MixedCorr)
 
 ### Analyses of a Contrast
 
 O1vsOthers <- c(-1,.5,.5)
 estimateMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
-testMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
 plotMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+testMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
 estimateStandardizedMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
