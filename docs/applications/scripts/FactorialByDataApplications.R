@@ -57,5 +57,3 @@ estimateMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 plotMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 testMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
 estimateStandardizedMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
-
-

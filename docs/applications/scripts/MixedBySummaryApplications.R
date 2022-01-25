@@ -36,58 +36,39 @@ MixedCorrL2["Outcome3",] <- c(.778,.889,1.000)
 MixedCorr <- list("Level1"=MixedCorrL1,"Level2"=MixedCorrL2)
 MixedCorr
 
+### Analyses of the Omnibus and Simple Effects
+
+describeMeansOmnibusMultifactor(MixedSummary)
+testMeansOmnibusMultifactor(MixedSummary)
+estimateMeansOmnibusMultifactor(MixedSummary)
+
+describeMeansOmnibusBy(MixedSummary)
+testMeansOmnibusBy(MixedSummary)
+estimateMeansOmnibusBy(MixedSummary)
+
 ### Analyses of the Means
 
-#### Confidence Intervals
+plotMeansMultifactor(MixedSummary,MixedCorr)
+plotMeansMultifactor(MixedSummary,conf.level=.99,col=c("black","gray60"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("black","gray60"))
 
-estimateMeansBy(FactorialSummary)
-plotMeansBy(FactorialSummary)
-
-estimateMeansBy(FactorialSummary,conf.level=.99)
-plotMeansBy(FactorialSummary,conf.level=.99)
-
-#### Significance Tests
-
-testMeansBy(FactorialSummary)
-testMeansBy(FactorialSummary,mu=7)
-
-#### Standardized Effect Sizes
-
-estimateStandardizedMeansBy(FactorialSummary)
-estimateStandardizedMeansBy(FactorialSummary,conf.level=.99,mu=7)
+estimateMeansBy(MixedSummary)
+plotMeansBy(MixedSummary)
+testMeansBy(MixedSummary)
+estimateStandardizedMeansBy(MixedSummary)
 
 ### Analyses of a Comparison
 
-estimateMeanDifferenceBy(FactorialSummary)
-testMeanDifferenceBy(FactorialSummary)
-plotMeanDifferenceBy(FactorialSummary)
 
-estimateStandardizedMeanDifferenceBy(FactorialSummary)
+estimateMeanDifferenceBy(CompSummary,MixedCorr)
+testMeanDifferenceBy(CompSummary,MixedCorr)
+plotMeanDifferenceBy(CompSummary,MixedCorr)
+estimateStandardizedMeanDifferenceBy(CompSummary,MixedCorr)
 
 ### Analyses of a Contrast
 
-L1vsOthers <- c(-1,.5,.5)
-
-estimateMeanContrastBy(FactorialSummary,contrast=L1vsOthers)
-testMeanContrastBy(FactorialSummary,contrast=L1vsOthers)
-plotMeanContrastBy(FactorialSummary,contrast=L1vsOthers)
-
-estimateStandardizedMeanContrastBy(FactorialSummary,contrast=L1vsOthers)
-
-### Analyses of the Omnibus Effect
-
-describeMeansOmnibusBy(FactorialSummary)
-testMeansOmnibusBy(FactorialSummary)
-estimateMeansEffectBy(FactorialSummary)
-
-describeMeansOmnibusMultifactor(FactorialSummary)
-testMeansOmnibusMultifactor(FactorialSummary)
-estimateMeansEffectMultifactor(FactorialSummary)
-
-
-
-plotMeansMultifactor(MixedSummary,MixedCorr)
-
-plotMeansMultifactor(MixedSummary,conf.level=.99,col=c("darkblue","darkred"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("darkblue","darkred"))
-
+O1vsOthers <- c(-1,.5,.5)
+estimateMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+testMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+plotMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
+estimateStandardizedMeanContrastBy(MixedSummary,MixedCorr,contrast=O1vsOthers)
