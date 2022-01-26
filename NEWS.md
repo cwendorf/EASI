@@ -5,6 +5,7 @@
 - Improved extraneous parameter handling
 - Added offset option to interval plots
 - Added smart diamonds, intervals, and plausible functions
+- Added "analyze" meta functions to automate basic analyses
 
 ## 5.0.220113
 
