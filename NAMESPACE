@@ -568,3 +568,11 @@ export(estimateMeansEffectMultifactor)
 S3method(.describeCorrelationsBy,default)
 export(.describeCorrelationsBy)
 export(describeCorrelationsBy)
+
+### analyzeX
+
+export(analyzeMeans)
+export(analyzeMeanDifference)
+export(analyzeMeanContrast)
+export(analyzeMeansOmnibus)
+export(analyzeMeansPairwise)
