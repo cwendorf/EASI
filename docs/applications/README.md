@@ -42,3 +42,10 @@ The **FactorialBy**  and **MixedBy** files implement "by" functions designed to 
 
 - [*FactorialByDataApplications*](./FactorialByDataApplications.md) - Uses two-way factorial (between-subjects) data
 - [*MixedByDataApplications*](./MixedByDataApplications.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+
+### Analyze Meta Functions
+
+The **Analyze** files demonstrate meta functions that automatically combine the basic estimate, test, and standardize functions into a simple wrapper:
+
+- [*AnalyzeOneWayDataApplications*](./AnalyzeOneWayDataApplications.md) - Uses one-way (between-subjects) data
+- [*AnalyzeRepeatedMeasuresDataApplications*](./AnalyzeRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
