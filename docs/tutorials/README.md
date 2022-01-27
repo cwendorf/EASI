@@ -72,4 +72,4 @@ The **MultipleRegression** files analyze a tutorial for multiple regression mode
 
 ### References
 
-Wendorf, C. A. (2019). *Sourcebook: Basic statistical methods for social science* [https://cwendorf.github.io/Sourcebook/](https://cwendorf.github.io/Sourcebook/)
+Wendorf, C. A. (2019). *Sourcebook: Basic statistical methods for social science.* [https://cwendorf.github.io/Sourcebook/](https://cwendorf.github.io/Sourcebook/)
