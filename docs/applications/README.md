@@ -3,10 +3,7 @@
 
 ### Overview of the Applications
 
-Data and summary statistics for these applications are from a variety of published and simulated sources.
-
-- Applications represent advanced and undocumented features of EASI
-- Applications demonstrate additional published statistical procedures
+Applications represent advanced and undocumented features of EASI. Data and summary statistics for these applications are from a variety of published and simulated sources.
 
 ### Exploratory Data Analysis
 
