@@ -2,7 +2,7 @@
 
 ### Overview of the Tutorials
 
-Tutorials are designed to show the default output and basic options for confidence interval estimates and plots, along with standardized effect sizes and significance tests. Tutorials for a variety of research designs are included. Data and summary statistics for the tutorials are from [*Statistics for Social Science: A Sourcebook of Basic Statistical Methods*](https://cwendorf.github.io/Sourcebook/) (Wendorf, 2019)
+Tutorials are designed to show the default output and basic options for confidence interval estimates and plots, along with standardized effect sizes and significance tests. Tutorials for a variety of research designs are included. Data and summary statistics for the tutorials are from [*Sourcebook: Basic Statistical Methods for Social Science*](https://cwendorf.github.io/Sourcebook/) (Wendorf, 2019)
 
 ### Tutorials for Means and Mean Differences
 
@@ -72,4 +72,4 @@ The **MultipleRegression** files analyze a tutorial for multiple regression mode
 
 ### References
 
-Wendorf, C. A. (2019). *Statistics for social science: A sourcebook of basic statistical methods.* [https://cwendorf.github.io/Sourcebook/](https://cwendorf.github.io/Sourcebook/)
+Wendorf, C. A. (2019). *Sourcebook: Basic statistical methods for social science* [https://cwendorf.github.io/Sourcebook/](https://cwendorf.github.io/Sourcebook/)
