@@ -77,4 +77,5 @@ plotScatter.default <- function(x,y=NULL,main="Scatter Plot for the Variables",y
     abline(h=mu[2],col=.colorTransparent(col,50))}
   if(points) {points(data,pch=pch,col=.colorTransparent(col,100))}
   if(ellipse) {lines(transM,col=.colorTransparent(col,100))}
+  invisible(eval(data))  
 }

@@ -62,4 +62,5 @@ plotMeanComplex <- function(...,contrast1,contrast2,main=NULL,ylab="Mean Contras
   if(is.null(connect) & length(list(...))>1) {connect=TRUE} else {connect=FALSE}
   if(is.null(main)) {main="Confidence Intervals for the Mean Contrasts"}
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
+  invisible(eval(...))
 }

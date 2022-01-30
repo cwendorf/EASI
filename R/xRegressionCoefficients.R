@@ -108,4 +108,5 @@ plotRegressionCoefficients <- function(...,intercept=TRUE,main=NULL,digits=3,yla
   results <- estimateRegressionCoefficients(...,conf.level=conf.level,main=main,digits=digits)
   if(intercept=="FALSE") {results[[1]] <- tail(results[[1]],-1)}  
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
+  invisible(eval(...))
 }

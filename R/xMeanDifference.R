@@ -124,4 +124,5 @@ testMeanDifference <- function(...,main=NULL,digits=3) {
 plotMeanDifference <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
   results <- estimateMeanDifference(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
+  invisible(eval(...))
 }

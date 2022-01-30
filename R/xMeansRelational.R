@@ -64,4 +64,5 @@ plotMeansRelational <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",c
   if(!add) {plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)}
   results <- .unformatFrame(results[[1]])
   rect(1:nrow(results)+offset-.05,results[,2],1:nrow(results)+offset+.05,results[,3],border=border,col=.colorTransparent(col,50))
+  invisible(eval(...))
 }
