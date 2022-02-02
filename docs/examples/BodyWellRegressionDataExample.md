@@ -1,25 +1,3 @@
----
-title: "Estimation Approach to Statistical Inference"
-author: "Craig A. Wendorf"
-date: "2022-02-02"
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    toc_depth: 4
-    collapse: true
-    theme: cerulean
-    highlight: tango
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{BodyWell Regression Data Example}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-
-
-
-
 
 ## BodyWell Regression Data Example
 
