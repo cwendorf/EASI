@@ -64,10 +64,6 @@ plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
 This code obtains the descriptive statistics for the data frame.
 ```{r}
 describeMeans(PairedData)
-```
-
-This code obtains a table of correlations for the entire data frame.
-```{r}
 describeCorrelations(PairedData)
 ```
 

@@ -54,8 +54,6 @@ describeMeans(PairedData)
 ## Outcome2   4.000   6.000   2.449   0.544  -2.944
 ```
 
-This code obtains a table of correlations for the entire data frame.
-
 ```r
 describeCorrelations(PairedData)
 ```

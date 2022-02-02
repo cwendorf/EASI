@@ -28,6 +28,17 @@ describeMeans(BivariateData)
 ## Criterion   4.000   7.000   2.449  -0.544  -2.944
 ```
 
+```r
+describeCorrelations(BivariateData)
+```
+
+```
+## $`Correlation Matrix for the Variables`
+##           Predictor Criterion
+## Predictor     1.000     0.056
+## Criterion     0.056     1.000
+```
+
 ### Analyses of the Overall Model
 
 This section produces analyses of the overall regression model.

@@ -15,6 +15,7 @@ BivariateData <- data.frame(Predictor,Criterion)
 #### Descriptive Statistics
 
 describeMeans(BivariateData)
+describeCorrelations(BivariateData)
 
 ### Analyses of the Overall Model
 
