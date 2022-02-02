@@ -31,8 +31,9 @@
     ri <- which(rn==deparse(substitute(y)))
     rn <- c(rn[-ri],rn[ri])
     DescStats <- DescStats[rn,]
-    class(DescStats) <- "wss"}
-  dM <- DescStats
+    class(DescStats) <- "wss"
+    CorrStats <- CorrStats[rn,rn]}
+  dM <- DescStats[1,]
   eR <- .estimateRegressionCoefficients(DescStats,CorrStats)
   dRO <- .describeRegressionOmnibus(DescStats,CorrStats)
   .regression(dM,eR,dRO,value=value,conf.level=conf.level)
@@ -45,7 +46,7 @@
     ci <- which(cn == deparse(substitute(y)))
     cn <- c(cn[-ci],cn[ci])
     frame <- frame[,cn]} 
-  dM <- .describeMeans(frame)
+  dM <- .describeMeans(frame)[1,]
   eR <- .estimateRegressionCoefficients(frame)
   dRO <- .describeRegressionOmnibus(frame)
   .regression(dM,eR,dRO,value=value,conf.level=conf.level)
@@ -90,7 +91,8 @@ plotRegression.wss <- function(DescStats,CorrStats,y=NULL,line=TRUE,value=NULL,r
     ri <- which(rn==deparse(substitute(y)))
     rn <- c(rn[-ri],rn[ri])
     DescStats <- DescStats[rn,]
-    class(DescStats) <- "wss"}
+    class(DescStats) <- "wss"
+    CorrStats <- CorrStats[rn,rn]}
   if(is.null(xlab)) {xlab <- rownames(DescStats)[1]}
   if(is.null(ylab)) {ylab <- rownames(DescStats)[2]}
   if(is.null(xlim)) {
