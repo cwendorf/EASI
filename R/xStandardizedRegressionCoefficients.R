@@ -6,25 +6,30 @@
 .estimateStandardizedRegressionCoefficients <- function(x,...) 
   UseMethod(".estimateStandardizedRegressionCoefficients")
 
-.estimateStandardizedRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,...) {
-  temptab <- .estimateRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
-  temptab <- rbind(temptab[-1,])
-  rownames(temptab) <- rownames(PredStats)
-  std <- PredStats[,"SD"]/CritStats[,"SD"]
-  results <- rbind(temptab*std)
-  return(results)
+.estimateStandardizedRegressionCoefficients.wss <- function(DescStats,CorrStats,y=NULL,conf.level=.95,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"}
+  temptab <- .estimateRegressionCoefficients.wss(DescStats,CorrStats,conf.level=conf.level)
+  std <- DescStats[,"SD"]/DescStats[nrow(DescStats),"SD"]
+  results <- data.frame(temptab*std)[-1,]
+  return(results)    
 }
 
-.estimateStandardizedRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95,...) {
-  Pred <- data.frame(Predictors)
-  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
-  Crit <- data.frame(Criterion)
-  PredStats <- .describeMeans.default(Pred)
-  rownames(PredStats) <- colnames(Pred)
-  CritStats <- .describeMeans.default(Crit)
-  rownames(CritStats) <- colnames(Crit)
-  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
-  .estimateStandardizedRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
+.estimateStandardizedRegressionCoefficients.default <- function(frame,y=NULL,conf.level=.95,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn = colnames(frame)
+    ci = which(cn == deparse(substitute(y)))
+    cn = c(cn[-ci],cn[ci])
+    frame <- frame[,cn]}  
+  DescStats <- .describeMeans.default(frame)
+  rownames(DescStats) <- colnames(frame)
+  CorrStats <- .describeCorrelations(frame)
+  .estimateStandardizedRegressionCoefficients.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
 estimateStandardizedRegressionCoefficients <- function(...,main=NULL,digits=3) {

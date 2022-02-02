@@ -6,23 +6,29 @@
 .describeRegressionEffect <- function(x,...) 
   UseMethod(".describeRegressionEffect")
 
-.describeRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,...) {
-  rn <- rownames(PredStats)
-  PredCorr <- CorrStats[rn,rn]
-  DescStats <- rbind(PredStats,CritStats)
+.describeRegressionEffect.wss <- function(DescStats,CorrStats,y=NULL,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"
+    CorrStats <- CorrStats[rn,rn]}
   rn <- rownames(DescStats)
-  CorrStats <- CorrStats[rn,rn]
+  rn <- head(rn,-1)
+  PredCorr <- CorrStats[rn,rn]
   CorrStats <- CorrStats[,ncol(CorrStats)]
-  CorrStats <- head(CorrStats,-1)
+  CorrStats <- head(CorrStats,-1) 
   R2 <- as.numeric(t(CorrStats)%*%solve(PredCorr)%*%CorrStats)
   R <- sqrt(R2)
-  df1 <- nrow(PredStats)
-  df2 <- (CritStats[,"N"]-df1-1)
-  adjR2 <- 1-((1-R2)*(CritStats[,"N"]-1))/df2
+  df1 <- nrow(DescStats)-1
+  df2 <- DescStats[nrow(DescStats),"N"]-df1-1
+  adjR2 <- 1-((1-R2)*(DescStats[nrow(DescStats),"N"]-1))/df2
   results <- cbind(R=R,RSq=R2,AdjRSq=adjR2)
   rownames(results) <- "Model"
   return(results)
 }
+
 
 .describeRegressionEffect.default <- function(Predictors,Criterion,...) {
   Predictors <- cbind(Predictors)
@@ -44,6 +50,23 @@
   return(results)
 }
 
+
+
+
+
+.describeRegressionEffect.default <- function(frame,y=NULL,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <-  c(cn[-ci],cn[ci])
+    frame <- frame[,cn]}
+  DescStats <- .describeMeans.default(frame)
+  rownames(DescStats) <- colnames(frame)
+  CorrStats <- .describeCorrelations(frame)
+  .describeRegressionEffect.wss(DescStats,CorrStats)
+}
+
 describeRegressionEffect <- function(...,main=NULL,digits=3) {
   results <- .describeRegressionEffect(...)
   if(is.null(main)) {main <- "Overall Fit of the Model"} 
@@ -56,8 +79,15 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
 .estimateRegressionEffect <- function(x,...) 
   UseMethod(".estimateRegressionEffect")
 
-.estimateRegressionEffect.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90,...) {
-  temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
+.estimateRegressionEffect.wss <- function(DescStats,CorrStats,y=NULL,conf.level=.90,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"
+    CorrStats <- CorrStats[rn,rn]}
+  temptab <- .describeRegressionOmnibus.wss(DescStats,CorrStats)
   df1 <- temptab["Model","df"]
   df2 <- temptab["Error","df"]
   F <- temptab["Model","MS"]/temptab["Error","MS"]
@@ -67,16 +97,17 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateRegressionEffect.default <- function(Predictors,Criterion,conf.level=.90,...) {
-  Pred <- data.frame(Predictors)
-  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
-  Crit <- data.frame(Criterion)
-  PredStats <- .describeMeans.default(Pred)
-  rownames(PredStats) <- colnames(Pred)
-  CritStats <- .describeMeans.default(Crit)
-  rownames(CritStats) <- colnames(Crit)
-  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
-  .estimateRegressionEffect.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
+.estimateRegressionEffect.default <- function(frame,y=NULL,conf.level=.90,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <-  c(cn[-ci],cn[ci])
+    frame <- frame[,cn]} 
+  DescStats <- .describeMeans.default(frame)
+  rownames(DescStats) <- colnames(frame)
+  CorrStats <- .describeCorrelations(frame)
+  .estimateRegressionEffect.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
 estimateRegressionEffect <- function(...,main=NULL,digits=3) {

@@ -6,8 +6,13 @@
 .estimateRegressionCoefficients <- function(x,...) 
   UseMethod(".estimateRegressionCoefficients")
 
-.estimateRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,conf.level=.95,...) {
-  DescStats <- rbind(PredStats,CritStats)
+.estimateRegressionCoefficients.wss <- function(DescStats,CorrStats,y=NULL,conf.level=.95,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"}
   rn <- rownames(DescStats)
   CorrStats <- CorrStats[rn,rn]
   M <- DescStats[,"M"]
@@ -33,17 +38,19 @@
   return(results)
 }
 
-.estimateRegressionCoefficients.default <- function(Predictors,Criterion,conf.level=.95,...) {
-  Pred <- data.frame(Predictors)
-  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
-  Crit <- data.frame(Criterion)
-  PredStats <- .describeMeans.default(Pred)
-  rownames(PredStats) <- colnames(Pred)
-  CritStats <- .describeMeans.default(Crit)
-  rownames(CritStats) <- colnames(Crit)
-  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
-  .estimateRegressionCoefficients.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
+.estimateRegressionCoefficients.default <- function(frame,y=NULL,conf.level=.95,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <- c(cn[-ci],cn[ci])
+    frame <- frame[,cn]}  
+  DescStats <- .describeMeans.default(frame)
+  rownames(DescStats) <- colnames(frame)
+  CorrStats <- .describeCorrelations(frame)
+  .estimateRegressionCoefficients.wss(DescStats,CorrStats,conf.level=conf.level)
 }
+
 
 estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
   results <- .estimateRegressionCoefficients(...)
@@ -57,8 +64,13 @@ estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
 .testRegressionCoefficients <- function(x,...) 
   UseMethod(".testRegressionCoefficients")
 
-.testRegressionCoefficients.wss <- function(PredStats,CritStats,CorrStats,...) {
-  DescStats <- rbind(PredStats,CritStats)
+.testRegressionCoefficients.wss <- function(DescStats,CorrStats,y=NULL,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"}
   rn <- rownames(DescStats)
   CorrStats <- CorrStats[rn,rn]
   M <- DescStats[,"M"]
@@ -83,16 +95,17 @@ estimateRegressionCoefficients <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testRegressionCoefficients.default <- function(Predictors,Criterion,...) {
-  Pred <- data.frame(Predictors)
-  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))} 
-  Crit <- data.frame(Criterion)
-  PredStats <- .describeMeans.default(Pred)
-  rownames(PredStats) <- colnames(Pred)
-  CritStats <- .describeMeans.default(Crit)
-  rownames(CritStats) <- colnames(Crit)
-  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
-  .testRegressionCoefficients.wss(PredStats,CritStats,CorrStats)
+.testRegressionCoefficients.default <- function(frame,y=NULL,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <- c(cn[-ci],cn[ci])
+    frame <- frame[,cn]} 
+  DescStats <- .describeMeans.default(frame)
+  rownames(DescStats) <- colnames(frame)
+  CorrStats <- .describeCorrelations(frame)
+  .testRegressionCoefficients.wss(DescStats,CorrStats)
 }
 
 testRegressionCoefficients <- function(...,main=NULL,digits=3) {
@@ -108,5 +121,4 @@ plotRegressionCoefficients <- function(...,intercept=TRUE,main=NULL,digits=3,yla
   results <- estimateRegressionCoefficients(...,conf.level=conf.level,main=main,digits=digits)
   if(intercept=="FALSE") {results[[1]] <- tail(results[[1]],-1)}  
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
-  invisible(eval(...))
 }

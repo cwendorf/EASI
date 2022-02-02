@@ -6,19 +6,24 @@
 .describeRegressionOmnibus <- function(x,...) 
   UseMethod(".describeRegressionOmnibus")
 
-.describeRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,...) {
-  rn <- rownames(PredStats)
-  PredCorr <- CorrStats[rn,rn]
-  DescStats <- rbind(PredStats,CritStats)
+.describeRegressionOmnibus.wss <- function(DescStats,CorrStats,y=NULL,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"
+    CorrStats <- CorrStats[rn,rn]}
   rn <- rownames(DescStats)
-  CorrStats <- CorrStats[rn,rn]
+  rn <- head(rn,-1)
+  PredCorr <- CorrStats[rn,rn]
   CorrStats <- CorrStats[,ncol(CorrStats)]
-  CorrStats <- head(CorrStats,-1)
+  CorrStats <- head(CorrStats,-1) 
   R2 <- as.numeric(t(CorrStats)%*%solve(PredCorr)%*%CorrStats)
   R <- sqrt(R2)
-  df1 <- nrow(PredStats)
-  df2 <- (CritStats[,"N"]-df1-1)
-  vt <- CritStats[,"SD"]^2
+  df1 <- nrow(DescStats)-1
+  df2 <- DescStats[nrow(DescStats),"N"]-df1-1
+  vt <- DescStats[nrow(DescStats),"SD"]^2
   dft <- df1+df2
   sst <- vt*dft
   ss1 <- sst*R2
@@ -31,16 +36,17 @@
   return(results)
 }
 
-.describeRegressionOmnibus.default <- function(Predictors,Criterion,...) {
-  Pred <- data.frame(Predictors)
-  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
-  Crit <- data.frame(Criterion)
-  PredStats <- .describeMeans.default(Pred)
-  rownames(PredStats) <- colnames(Pred)
-  CritStats <- .describeMeans.default(Crit)
-  rownames(CritStats) <- colnames(Crit)
-  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
-  .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
+.describeRegressionOmnibus.default <- function(frame,y=NULL,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <-  c(cn[-ci],cn[ci])
+    frame <- frame[,cn]} 
+  DescStats <- .describeMeans.default(frame)
+  rownames(DescStats) <- colnames(frame)
+  CorrStats <- .describeCorrelations(frame)
+  .describeRegressionOmnibus.wss(DescStats,CorrStats)
 }
 
 describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
@@ -66,8 +72,15 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
 .estimateRegressionOmnibus <- function(x,...) 
   UseMethod(".estimateRegressionOmnibus")
 
-.estimateRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,conf.level=.90,...) {
-  temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
+.estimateRegressionOmnibus.wss <- function(DescStats,CorrStats,y=NULL,conf.level=.90,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"
+    CorrStats <- CorrStats[rn,rn]}
+  temptab <- .describeRegressionOmnibus.wss(DescStats,CorrStats)
   df1 <- temptab["Model","df"]
   df2 <- temptab["Error","df"]
   F <- temptab["Model","MS"]/temptab["Error","MS"]
@@ -77,16 +90,17 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.estimateRegressionOmnibus.default <- function(Predictors,Criterion,conf.level=.90,...) {
-  Pred <- data.frame(Predictors)
-  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
-  Crit <- data.frame(Criterion)
-  PredStats <- .describeMeans.default(Pred)
-  rownames(PredStats) <- colnames(Pred)
-  CritStats <- .describeMeans.default(Crit)
-  rownames(CritStats) <- colnames(Crit)
-  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
-  .estimateRegressionOmnibus.wss(PredStats,CritStats,CorrStats,conf.level=conf.level)
+.estimateRegressionOmnibus.default <- function(frame,y=NULL,conf.level=.90,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <-  c(cn[-ci],cn[ci])
+    frame <- frame[,cn]} 
+  DescStats <- .describeMeans.default(frame)
+  rownames(DescStats) <- colnames(frame)
+  CorrStats <- .describeCorrelations(frame)
+  .estimateRegressionOmnibus.wss(DescStats,CorrStats,conf.level=conf.level)
 }
 
 estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
@@ -101,8 +115,15 @@ estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
 .testRegressionOmnibus <- function(x,...) 
   UseMethod(".testRegressionOmnibus")
 
-.testRegressionOmnibus.wss <- function(PredStats,CritStats,CorrStats,...) {
-  temptab <- .describeRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
+.testRegressionOmnibus.wss <- function(DescStats,CorrStats,y=NULL,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"
+    CorrStats <- CorrStats[rn,rn]}
+  temptab <- .describeRegressionOmnibus.wss(DescStats,CorrStats)
   MSf <- temptab["Model","MS"]
   MSe <- temptab["Error","MS"]
   df1 <- temptab["Model","df"]
@@ -115,16 +136,17 @@ estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-.testRegressionOmnibus.default <- function(Predictors,Criterion,...) {
-  Pred <- data.frame(Predictors)
-  if(ncol(Pred)==1) {colnames(Pred) <- deparse(substitute(Predictors))}  
-  Crit <- data.frame(Criterion)
-  PredStats <- .describeMeans.default(Pred)
-  rownames(PredStats) <- colnames(Pred)
-  CritStats <- .describeMeans.default(Crit)
-  rownames(CritStats) <- colnames(Crit)
-  CorrStats <- .describeCorrelations(cbind(Pred,Crit))
-  .testRegressionOmnibus.wss(PredStats,CritStats,CorrStats)
+.testRegressionOmnibus.default <- function(frame,y=NULL,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <-  c(cn[-ci],cn[ci])
+    frame <- frame[,cn]} 
+  DescStats <- .describeMeans.default(frame)
+  rownames(DescStats) <- colnames(frame)
+  CorrStats <- .describeCorrelations(frame)
+  .testRegressionOmnibus.wss(DescStats,CorrStats)
 }
 
 testRegressionOmnibus <- function(...,main=NULL,digits=3) {

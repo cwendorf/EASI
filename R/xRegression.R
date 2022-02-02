@@ -25,17 +25,29 @@
 .estimateRegression <- function(x,...) 
   UseMethod(".estimateRegression")
 
-.estimateRegression.default <- function(Predictor,Criterion,value,conf.level=.95,...) {
-  dM <- .describeMeans(Predictor)
-  eR <- .estimateRegressionCoefficients(Predictor,Criterion)
-  dRO <- .describeRegressionOmnibus(Predictor,Criterion)
+.estimateRegression.wss <- function(DescStats,CorrStats,y=NULL,value=NULL,conf.level=.95,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"}
+  dM <- DescStats
+  eR <- .estimateRegressionCoefficients(DescStats,CorrStats)
+  dRO <- .describeRegressionOmnibus(DescStats,CorrStats)
   .regression(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
-.estimateRegression.wss <- function(PredStats,CritStats,CorrStats,value,conf.level=.95,...) {
-  dM <- PredStats
-  eR <- .estimateRegressionCoefficients(PredStats,CritStats,CorrStats)
-  dRO <- .describeRegressionOmnibus(PredStats,CritStats,CorrStats)
+.estimateRegression.default <- function(frame,y=NULL,value=NULL,conf.level=.95,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <- c(cn[-ci],cn[ci])
+    frame <- frame[,cn]} 
+  dM <- .describeMeans(frame)
+  eR <- .estimateRegressionCoefficients(frame)
+  dRO <- .describeRegressionOmnibus(frame)
   .regression(dM,eR,dRO,value=value,conf.level=conf.level)
 }
 
@@ -72,53 +84,64 @@ estimateRegression <- function(...,value=NULL,conf.level=.95,main=NULL,digits=3)
 plotRegression <- function(x,...) 
   UseMethod("plotRegression")
 
-plotRegression.wss <- function(PredStats,CritStats,CorrStats,line=TRUE,value=NULL,range=NULL,interval="both",values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE,...) {
-  if(is.null(xlab)) xlab=rownames(PredStats)
-  if(is.null(ylab)) ylab=rownames(CritStats)
+plotRegression.wss <- function(DescStats,CorrStats,y=NULL,line=TRUE,value=NULL,range=NULL,interval=FALSE,values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE,...) {
+  if(!is.null(y)) {
+    rn <- rownames(DescStats)
+    ri <- which(rn==deparse(substitute(y)))
+    rn <- c(rn[-ri],rn[ri])
+    DescStats <- DescStats[rn,]
+    class(DescStats) <- "wss"}
+  if(is.null(xlab)) {xlab <- rownames(DescStats)[1]}
+  if(is.null(ylab)) {ylab <- rownames(DescStats)[2]}
   if(is.null(xlim)) {
-    xmin = PredStats[,"M"]-2*PredStats[,"SD"]
-    xmax = PredStats[,"M"]+2*PredStats[,"SD"]
-    xlim = c(xmin,xmax)}
+    xmin <- DescStats[1,"M"]-2*DescStats[1,"SD"]
+    xmax <- DescStats[1,"M"]+2*DescStats[1,"SD"]
+    xlim <- c(xmin,xmax)}
   else {
-    xmin=xlim[1]
-    xmax=xlim[2]}    
+    xmin <- xlim[1]
+    xmax <- xlim[2]}    
   if(is.null(range)) {range <- seq(xmin-.25,xmax+.25,by=.05)} else {range <- seq(range[1],range[2],by=.05)}
-  intervals <- as.data.frame(.estimateRegression(PredStats,CritStats,CorrStats,value=range,conf.level))
+  intervals <- as.data.frame(.estimateRegression(DescStats,CorrStats,value=range,conf.level=conf.level))
   if(is.null(ylim)) {ylim <- c(min(intervals),max(intervals))}
   if(!add) plot(NULL,bty="l",xlim=xlim,ylim=ylim,main=main,pch=pch,xlab=xlab,ylab=ylab,cex.lab=1.15)
   if(cross) {
-    abline(v=PredStats[,"M"],col=.colorTransparent(col,50))
-    abline(h=CritStats[,"M"],col=.colorTransparent(col,50))}
+    abline(v=DescStats[1,"M"],col=.colorTransparent(col,50))
+    abline(h=DescStats[2,"M"],col=.colorTransparent(col,50))}
   if(line) {
-    Est <- .unformatFrame(estimateRegressionCoefficients(PredStats,CritStats,CorrStats)[[1]])[,"Est"]
+    Est <- .unformatFrame(estimateRegressionCoefficients(DescStats,CorrStats)[[1]])[,"Est"]
     abline(Est[1],Est[2],col=col)} 
-  if(!is.null(value)) {results <- .estimateRegression(PredStats,CritStats,CorrStats,value=value,conf.level=conf.level)} else {results=NULL}
+  if(!is.null(value)) {results <- .estimateRegression(DescStats,CorrStats,value=value,conf.level=conf.level)} else {results <- NULL}
   .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }
 
-plotRegression.default <- function(Predictor,Criterion,line=TRUE,value=NULL,range=NULL,interval=FALSE,values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE,...) {
-  if(is.null(xlab)) xlab=deparse(substitute(Predictor))
-  if(is.null(ylab)) ylab=deparse(substitute(Criterion))
+plotRegression.default <- function(frame,y=NULL,line=TRUE,value=NULL,range=NULL,interval=FALSE,values=TRUE,conf.level=.95,xlim=NULL,ylim=NULL,main="Regression Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,points=FALSE,cross=FALSE,digits=3,col="black",add=FALSE,...) {
+  frame <- data.frame(frame)
+  if(!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <- c(cn[-ci],cn[ci])
+    frame <- frame[,cn]} 
+  Criterion <- frame[,2]
+  Predictor <- frame[,1] 
+  if(is.null(xlab)) {xlab <- colnames(frame)[1]}
+  if(is.null(ylab)) {ylab <- colnames(frame)[2]}
   if(is.null(xlim)) {
-    xmin = min(Predictor)
-    xmax = max(Predictor)
-    xlim = c(xmin,xmax)}
+    xmin <- min(Predictor)
+    xmax <- max(Predictor)
+    xlim <- c(xmin,xmax)}
   else {
-    xlim=xlim
-    xmin=xlim[1]
-    xmax=xlim[2]}
+    xmin <- xlim[1]
+    xmax <- xlim[2]}
   if(is.null(range)) {range <- seq(xmin-.25,xmax+.25,by=.05)} else {range <- seq(range[1],range[2],by=.05)}
-  intervals <- as.data.frame(.estimateRegression(Predictor,Criterion,value=range,conf.level))
+  intervals <- as.data.frame(.estimateRegression(frame,value=range,conf.level=conf.level))
   if(is.null(ylim)) {ylim <- c(min(intervals),max(intervals))}
-  if(!add) {
-    data <- data.frame(Predictor,Criterion)
-    plotScatter(data,xlim=xlim,ylim=ylim,main=main,xlab=xlab,ylab=ylab,points=points,pch=pch)}
+  if(!add) {plotScatter(frame,xlim=xlim,ylim=ylim,main=main,xlab=xlab,ylab=ylab,points=points,pch=pch)}
   if(cross) {
     abline(v=mean(Predictor),col=.colorTransparent(col,50))
     abline(h=mean(Criterion),col=.colorTransparent(col,50))}
   if(line) {
-    Est <- .unformatFrame(estimateRegressionCoefficients(Predictor,Criterion)[[1]])[,"Est"]
+    Est <- .unformatFrame(estimateRegressionCoefficients(frame)[[1]])[,"Est"]
     abline(Est[1],Est[2],col=col)}  
-  if(!is.null(value)) {results <- .estimateRegression(Predictor,Criterion,value=value,conf.level=conf.level)} else {results=NULL}
+  if(!is.null(value)) {results <- .estimateRegression(frame,value=value,conf.level=conf.level)} else {results <- NULL}
   .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }

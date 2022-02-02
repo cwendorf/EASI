@@ -1,11 +1,12 @@
 # Estimation Approach to Statistical Inference
 
-## Developmental Version
+## 5.1.220202
 
 - Improved extraneous parameter handling
 - Added offset option to interval plots
 - Added smart diamonds, intervals, and plausible functions
 - Added "analyze" meta functions to automate basic analyses
+- Rebuilt correlation and regression function input
 
 ## 5.0.220113
 
