@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-02-02"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Bivariate Regression Data Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Bivariate Regression Data Tutorial
 
@@ -18,13 +40,14 @@ BivariateData <- data.frame(Predictor,Criterion)
 This code obtains the descriptive statistics for the data frame.
 
 ```r
-describeMeans(Predictor,Criterion)
+describeMeans(BivariateData)
 ```
 
 ```
 ## $`Descriptive Statistics for the Data`
 ##                 N       M      SD    Skew    Kurt
 ## Predictor   4.000   2.000   2.449   0.544  -2.944
+## Criterion   4.000   7.000   2.449  -0.544  -2.944
 ```
 
 ### Analyses of the Overall Model
@@ -36,7 +59,7 @@ This section produces analyses of the overall regression model.
 This code will produce the confidence interval for R Squared.
 
 ```r
-estimateRegressionOmnibus(Predictor,Criterion)
+estimateRegressionOmnibus(BivariateData)
 ```
 
 ```
@@ -48,7 +71,7 @@ estimateRegressionOmnibus(Predictor,Criterion)
 The code defaults to 90% confidence intervals. This can be changed if desired.
 
 ```r
-estimateRegressionOmnibus(Predictor,Criterion,conf.level=.95)
+estimateRegressionOmnibus(BivariateData,conf.level=.95)
 ```
 
 ```
@@ -62,7 +85,7 @@ estimateRegressionOmnibus(Predictor,Criterion,conf.level=.95)
 This code will produce a source table associated with the regression model.
 
 ```r
-describeRegressionOmnibus(Predictor,Criterion)
+describeRegressionOmnibus(BivariateData)
 ```
 
 ```
@@ -76,7 +99,7 @@ describeRegressionOmnibus(Predictor,Criterion)
 This code will calculate NHST for the regression model.
 
 ```r
-testRegressionOmnibus(Predictor,Criterion)
+testRegressionOmnibus(BivariateData)
 ```
 
 ```
@@ -94,7 +117,7 @@ This section analyses the regression coefficients obtained from the overall mode
 This code will provide a table of confidence intervals for each of the regression coefficients.
 
 ```r
-estimateRegressionCoefficients(Predictor,Criterion)
+estimateRegressionCoefficients(BivariateData)
 ```
 
 ```
@@ -107,7 +130,7 @@ estimateRegressionCoefficients(Predictor,Criterion)
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 
 ```r
-plotRegressionCoefficients(Predictor,Criterion)
+plotRegressionCoefficients(BivariateData)
 ```
 
 ![](figures/Regression-BivariateCoeffA-1.png)<!-- -->
@@ -115,7 +138,7 @@ plotRegressionCoefficients(Predictor,Criterion)
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```r
-estimateRegressionCoefficients(Predictor,Criterion,conf.level=.99)
+estimateRegressionCoefficients(BivariateData,conf.level=.99)
 ```
 
 ```
@@ -128,7 +151,7 @@ estimateRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
 
 ```r
-plotRegressionCoefficients(Predictor,Criterion,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
+plotRegressionCoefficients(BivariateData,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
 ```
 
 ![](figures/Regression-BivariateCoeffB-1.png)<!-- -->
@@ -138,7 +161,7 @@ plotRegressionCoefficients(Predictor,Criterion,conf.level=.99,line=0,rope=c(-2,2
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 
 ```r
-testRegressionCoefficients(Predictor,Criterion)
+testRegressionCoefficients(BivariateData)
 ```
 
 ```
@@ -153,7 +176,7 @@ testRegressionCoefficients(Predictor,Criterion)
 This code will provide a table of confidence intervals for the standardized coefficient.
 
 ```r
-estimateStandardizedRegressionCoefficients(Predictor,Criterion)
+estimateStandardizedRegressionCoefficients(BivariateData)
 ```
 
 ```
@@ -165,7 +188,7 @@ estimateStandardizedRegressionCoefficients(Predictor,Criterion)
 This code will produce a graph of the confidence intervals for the standardized coefficient.
 
 ```r
-plotStandardizedRegressionCoefficients(Predictor,Criterion)
+plotStandardizedRegressionCoefficients(BivariateData)
 ```
 
 ![](figures/Regression-BivariateStandardA-1.png)<!-- -->
@@ -173,7 +196,7 @@ plotStandardizedRegressionCoefficients(Predictor,Criterion)
 As in other places, the code defaults to a 95% confidence interval. This can be changed if desired.
 
 ```r
-estimateStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
+estimateStandardizedRegressionCoefficients(BivariateData,conf.level=.99)
 ```
 
 ```
@@ -185,7 +208,7 @@ estimateStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
 For the graph, it is possible to change the confidence level.
 
 ```r
-plotStandardizedRegressionCoefficients(Predictor,Criterion,conf.level=.99)
+plotStandardizedRegressionCoefficients(BivariateData,conf.level=.99)
 ```
 
 ![](figures/Regression-BivariateStandardB-1.png)<!-- -->
@@ -199,7 +222,7 @@ This section provides analyses of individual predicted values.
 This code produces a plot of the regression line (with confidence and prediction intervals suppressed).
 
 ```r
-plotRegression(Predictor,Criterion,interval="none")
+plotRegression(BivariateData,interval="none")
 ```
 
 ![](figures/Regression-BivariateLineA-1.png)<!-- -->
@@ -207,7 +230,7 @@ plotRegression(Predictor,Criterion,interval="none")
 This code adds a scatter of data points to the regression plot.
 
 ```r
-plotRegression(Predictor,Criterion,interval="none",points=TRUE)
+plotRegression(BivariateData,interval="none",points=TRUE)
 ```
 
 ![](figures/Regression-BivariateLineB-1.png)<!-- -->
@@ -217,7 +240,7 @@ plotRegression(Predictor,Criterion,interval="none",points=TRUE)
 This code provides estimates confidence and prediction limits for a specific value of the Predictor (value=4).
 
 ```r
-estimateRegression(Predictor,Criterion,value=4)
+estimateRegression(BivariateData,value=4)
 ```
 
 ```
@@ -229,7 +252,7 @@ estimateRegression(Predictor,Criterion,value=4)
 This code plots the confidence interval associated with the regression line and labels the interval for the specific value of the Predictor.
 
 ```r
-plotRegression(Predictor,Criterion,value=4,interval="confidence")
+plotRegression(BivariateData,value=4,interval="confidence")
 ```
 
 ![](figures/Regression-BivariateConfA-1.png)<!-- -->
@@ -237,7 +260,7 @@ plotRegression(Predictor,Criterion,value=4,interval="confidence")
 This code plots the prediction interval associated with the regression line and labels the interval for the specific value of the Predictor.
 
 ```r
-plotRegression(Predictor,Criterion,value=4,interval="prediction")
+plotRegression(BivariateData,value=4,interval="prediction")
 ```
 
 ![](figures/Regression-BivariateConfB-1.png)<!-- -->

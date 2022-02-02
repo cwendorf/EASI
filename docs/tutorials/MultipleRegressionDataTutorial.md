@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-02-02"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Multiple Regression Data Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Multiple Regression Data Tutorial
 
@@ -19,13 +41,15 @@ RegressionData <- data.frame(Predictor1,Predictor2,Criterion)
 This code obtains the descriptive statistics for the data frame.
 
 ```r
-describeMeans(Predictor1,Predictor2,Criterion)
+describeMeans(RegressionData)
 ```
 
 ```
 ## $`Descriptive Statistics for the Data`
 ##                  N       M      SD    Skew    Kurt
 ## Predictor1   4.000   2.000   2.449   0.544  -2.944
+## Predictor2   4.000   6.000   2.449   0.544  -2.944
+## Criterion    4.000   7.000   2.449  -0.544  -2.944
 ```
 
 ### Analyses of the Overall Model
@@ -37,7 +61,7 @@ This section produces analyses of the overall regression model.
 This code will produce the confidence interval for R Squared.
 
 ```r
-estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
+estimateRegressionOmnibus(RegressionData)
 ```
 
 ```
@@ -49,7 +73,7 @@ estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
 The code defaults to 90% confidence intervals. This can be changed if desired.
 
 ```r
-estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
+estimateRegressionOmnibus(RegressionData,conf.level=.95)
 ```
 
 ```
@@ -63,7 +87,7 @@ estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
 This code will produce a source table associated with the regression model.
 
 ```r
-describeRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
+describeRegressionOmnibus(RegressionData)
 ```
 
 ```
@@ -77,7 +101,7 @@ describeRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
 This code will calculate NHST for the regression model.
 
 ```r
-testRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
+testRegressionOmnibus(RegressionData)
 ```
 
 ```
@@ -95,7 +119,7 @@ This section analyses the regression coefficients obtained from the overall mode
 This code will provide a table of confidence intervals for each of the regression coefficients.
 
 ```r
-estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+estimateRegressionCoefficients(RegressionData)
 ```
 
 ```
@@ -109,7 +133,7 @@ estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 
 ```r
-plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+plotRegressionCoefficients(RegressionData)
 ```
 
 ![](figures/Regression-MultipleA-1.png)<!-- -->
@@ -117,7 +141,7 @@ plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```r
-estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
+estimateRegressionCoefficients(RegressionData,conf.level=.99)
 ```
 
 ```
@@ -131,7 +155,7 @@ estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 
 ```r
-plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,line=0,intercept=FALSE)
+plotRegressionCoefficients(RegressionData,conf.level=.99,line=0,intercept=FALSE)
 ```
 
 ![](figures/Regression-MultipleB-1.png)<!-- -->
@@ -141,7 +165,7 @@ plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 
 ```r
-testRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+testRegressionCoefficients(RegressionData)
 ```
 
 ```
@@ -157,7 +181,7 @@ testRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 
 ```r
-estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+estimateStandardizedRegressionCoefficients(RegressionData)
 ```
 
 ```
@@ -170,7 +194,7 @@ estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterio
 This code will produce a graph of the confidence intervals for each of the standardized coefficients.
 
 ```r
-plotStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+plotStandardizedRegressionCoefficients(RegressionData)
 ```
 
 ![](figures/Regression-MultipleStandardA-1.png)<!-- -->
@@ -178,7 +202,7 @@ plotStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
 As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```r
-estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
+estimateStandardizedRegressionCoefficients(RegressionData,conf.level=.99)
 ```
 
 ```
@@ -191,7 +215,7 @@ estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterio
 For the graph, it is possible to change the confidence level.
 
 ```r
-plotStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
+plotStandardizedRegressionCoefficients(RegressionData,conf.level=.99)
 ```
 
 ![](figures/Regression-MultipleStandardB-1.png)<!-- -->

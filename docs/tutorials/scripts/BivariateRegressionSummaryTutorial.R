@@ -11,54 +11,50 @@ Criterion <- c(N=4,M=7.000,SD=2.449)
 BivariateSummary <- rbind(Predictor,Criterion)
 class(BivariateSummary) <- "wss"
 
-RegressionCorr <- declareCorrelations("Predictor","Criterion")
-RegressionCorr["Predictor","Criterion"] <- .056
-RegressionCorr <- fillCorrelations(RegressionCorr)
-
-PredictorSummary <- rbind(Predictor)
-class(PredictorSummary) <- "wss"
-CriterionSummary <- rbind(Criterion)
+BivariateCorr <- declareCorrelations("Predictor","Criterion")
+BivariateCorr["Predictor","Criterion"] <- .056
+BivariateCorr <- fillCorrelations(BivariateCorr)
 
 ### Analyses of Overall Model
 
 #### Confidence Interval
 
-estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
-estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+estimateRegressionOmnibus(BivariateSummary,BivariateCorr)
+estimateRegressionOmnibus(BivariateSummary,BivariateCorr,conf.level=.95)
 
 #### Significance Test
 
-describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
-testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+describeRegressionOmnibus(BivariateSummary,BivariateCorr)
+testRegressionOmnibus(BivariateSummary,BivariateCorr)
 
 ### Analyses of the Regression Coefficients
 
 #### Confidence Intervals 
 
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
+estimateRegressionCoefficients(BivariateSummary,BivariateCorr)
+plotRegressionCoefficients(BivariateSummary,BivariateCorr)
+estimateRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99)
+plotRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
 
 #### Significance Tests
 
-testRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+testRegressionCoefficients(BivariateSummary,BivariateCorr)
 
 #### Standardized Coefficient
 
-estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
-plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
-estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+estimateStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr)
+plotStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr)
+estimateStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99)
+plotStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99)
 
 ### Analyses of Regression Values
 
 #### Regression Line
 
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,interval="none")
+plotRegression(BivariateSummary,BivariateCorr,interval="none")
 
 #### Confidence and Prediction Intervals
 
-estimateRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4)
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4,interval="confidence")
-plotRegression(PredictorSummary,CriterionSummary,RegressionCorr,value=4,interval="prediction")
+estimateRegression(BivariateSummary,BivariateCorr,value=4)
+plotRegression(BivariateSummary,BivariateCorr,value=4,interval="confidence")
+plotRegression(BivariateSummary,BivariateCorr,value=4,interval="prediction")

@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-02-02"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{BodyWell Regression Summary Statistics Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## BodyWell Regression Summary Statistics Example
 
@@ -20,20 +42,12 @@ BodyWellOneCorr["BodySatisfaction","Wellbeing"] <- .467
 BodyWellOneCorr <- fillCorrelations(BodyWellOneCorr)
 ```
 
-This code creates summaries for the predictor and criterion separately.
-
-```r
-PredictorSummary <- rbind(BodySatisfaction)
-class(PredictorSummary) <- "wss"
-CriterionSummary <- rbind(Wellbeing)
-```
-
 ### Analyses of the Regression Line
 
 Importantly, we can get a display of the regression line (with the confidence interval suppressed).
 
 ```r
-plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
 ```
 
 ![](figures/Regression-ModelB-1.png)<!-- -->
@@ -41,7 +55,7 @@ plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="none"
 We can then determine the slope and intercept of the line and get confidence intervals for them.
 
 ```r
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr)
+estimateRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
 ```
 
 ```
@@ -52,7 +66,7 @@ estimateRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr
 ```
 
 ```r
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr)
+plotRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
 ```
 
 ![](figures/Regression-Coeff-1.png)<!-- -->
@@ -62,7 +76,7 @@ plotRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr)
 Finally, we get the confidence and prediction intervals of Wellbeing at a BodySatisfaction score of 2.
 
 ```r
-estimateRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,value=2)
+estimateRegression(BodyWellOneSummary,BodyWellOneCorr,value=2)
 ```
 
 ```
@@ -72,7 +86,7 @@ estimateRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,value=2)
 ```
 
 ```r
-plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))
 ```
 
 ![](figures/Regression-Value-1.png)<!-- -->

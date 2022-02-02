@@ -14,17 +14,17 @@ BodyWellOneData <- data.frame(BodySatisfaction,Wellbeing)
 
 #### Descriptive Statistics
 
-describeMeans(BodySatisfaction,Wellbeing)
-describeCorrelations(BodySatisfaction,Wellbeing)
+describeMeans(BodyWellOneData)
+describeCorrelations(BodyWellOneData)
 
 ### Analyses of the Regression Line
 
-plotRegression(BodySatisfaction,Wellbeing,interval="none",xlim=c(1,5),points=TRUE)
+plotRegression(BodyWellOneData,interval="none",xlim=c(1,5),points=TRUE)
 
-estimateRegressionCoefficients(BodySatisfaction,Wellbeing)
-plotRegressionCoefficients(BodySatisfaction,Wellbeing)
+estimateRegressionCoefficients(BodyWellOneData)
+plotRegressionCoefficients(BodyWellOneData)
 
 ### Analyses of Regression Values
 
-estimateRegression(BodySatisfaction,Wellbeing,value=2)
-plotRegression(BodySatisfaction,Wellbeing,interval="both",value=2,xlim=c(1,5))
+estimateRegression(BodyWellOneData,value=2)
+plotRegression(BodyWellOneData,interval="both",value=2,xlim=c(1,5))

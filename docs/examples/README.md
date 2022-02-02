@@ -47,7 +47,7 @@ The **BodyWellTwo** files analyze an example of a correlation in two samples (se
 - [*BodyWellTwoDataExample*](./BodyWellTwoDataExample.md) - Uses raw data input
 - [*BodyWellTwoSummaryExample*](./BodyWellTwoSummaryExample.md) - Uses summary statistics input
 
-### Examples of Regression and Regression Coefficients
+### Examples of Regression Coefficients and Models
 
 The **BodyWellRegression** files analyze an example of regression in a single sample (see Ch. 12):
 

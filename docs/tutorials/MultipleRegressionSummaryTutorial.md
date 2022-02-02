@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-02-02"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Multiple Regression Summary Statistics Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Multiple Regression Summary Statistics Tutorial
 
@@ -23,14 +45,6 @@ RegressionCorr["Predictor2","Criterion"] <- .389
 RegressionCorr <- fillCorrelations(RegressionCorr)
 ```
 
-This code creates new tables that identify the specific variables used in the regression model.
-
-```r
-PredictorSummary <- rbind(Predictor1,Predictor2)
-class(PredictorSummary) <- "wss"
-CriterionSummary <- rbind(Criterion)
-```
-
 ### Analyses of the Overall Model
 
 This section produces analyses of the overall regression model.
@@ -40,7 +54,7 @@ This section produces analyses of the overall regression model.
 This code will produce the confidence interval for R Squared.
 
 ```r
-estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionOmnibus(RegressionSummary,RegressionCorr)
 ```
 
 ```
@@ -52,7 +66,7 @@ estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 The code defaults to 90% confidence intervals. This can be changed if desired.
 
 ```r
-estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+estimateRegressionOmnibus(RegressionSummary,RegressionCorr,conf.level=.95)
 ```
 
 ```
@@ -66,7 +80,7 @@ estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr,conf.
 This code will produce a source table associated with the regression model.
 
 ```r
-describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+describeRegressionOmnibus(RegressionSummary,RegressionCorr)
 ```
 
 ```
@@ -80,7 +94,7 @@ describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
 This code will calculate NHST for the regression model.
 
 ```r
-testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+testRegressionOmnibus(RegressionSummary,RegressionCorr)
 ```
 
 ```
@@ -98,7 +112,7 @@ This section analyses the regression coefficients obtained from the overall mode
 This code will provide a table of confidence intervals for each of the regression coefficients.
 
 ```r
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 ```
@@ -112,7 +126,7 @@ estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 
 ```r
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+plotRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 ![](figures/Regression-MultipleA-1.png)<!-- -->
@@ -120,7 +134,7 @@ plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```r
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+estimateRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
 ```
 
 ```
@@ -134,7 +148,7 @@ estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 
 ```r
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,line=0,intercept=FALSE)
+plotRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99,line=0,intercept=FALSE)
 ```
 
 ![](figures/Regression-MultipleB-1.png)<!-- -->
@@ -144,7 +158,7 @@ plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 
 ```r
-testRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+testRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 ```
@@ -160,7 +174,7 @@ testRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 
 ```r
-estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 ```
@@ -173,7 +187,7 @@ estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,Reg
 This code will produce a graph of the confidence intervals for each of the standardized coefficients.
 
 ```r
-plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 ![](figures/Regression-MultipleStandardA-1.png)<!-- -->
@@ -181,7 +195,7 @@ plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,Regress
 As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
 
 ```r
-estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
 ```
 
 ```
@@ -194,7 +208,7 @@ estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,Reg
 For the graph, it is possible to change the confidence level.
 
 ```r
-plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
 ```
 
 ![](figures/Regression-MultipleStandardB-1.png)<!-- -->

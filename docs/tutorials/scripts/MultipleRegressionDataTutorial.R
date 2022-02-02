@@ -15,38 +15,38 @@ RegressionData <- data.frame(Predictor1,Predictor2,Criterion)
 
 #### Descriptive Statistics
 
-describeMeans(Predictor1,Predictor2,Criterion)
+describeMeans(RegressionData)
 
 ### Analyses of the Overall Model
 
 #### Confidence Interval
 
-estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
-estimateRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion,conf.level=.95)
+estimateRegressionOmnibus(RegressionData)
+estimateRegressionOmnibus(RegressionData,conf.level=.95)
 
 #### Significance Test
 
-describeRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
-testRegressionOmnibus(cbind(Predictor1,Predictor2),Criterion)
+describeRegressionOmnibus(RegressionData)
+testRegressionOmnibus(RegressionData)
 
 ### Analyses of the Regression Coefficients
 
 #### Confidence Intervals 
 
-estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
-plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+estimateRegressionCoefficients(RegressionData)
+plotRegressionCoefficients(RegressionData)
 
-estimateRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
-plotRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99,line=0,intercept=FALSE)
+estimateRegressionCoefficients(RegressionData,conf.level=.99)
+plotRegressionCoefficients(RegressionData,conf.level=.99,line=0,intercept=FALSE)
 
 #### Significance Tests
 
-testRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+testRegressionCoefficients(RegressionData)
 
 #### Standardized Coefficients
 
-estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
-plotStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion)
+estimateStandardizedRegressionCoefficients(RegressionData)
+plotStandardizedRegressionCoefficients(RegressionData)
 
-estimateStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
-plotStandardizedRegressionCoefficients(cbind(Predictor1,Predictor2),Criterion,conf.level=.99)
+estimateStandardizedRegressionCoefficients(RegressionData,conf.level=.99)
+plotStandardizedRegressionCoefficients(RegressionData,conf.level=.99)

@@ -15,18 +15,14 @@ BodyWellOneCorr <- declareCorrelations("BodySatisfaction","Wellbeing")
 BodyWellOneCorr["BodySatisfaction","Wellbeing"] <- .467
 BodyWellOneCorr <- fillCorrelations(BodyWellOneCorr)
 
-PredictorSummary <- rbind(BodySatisfaction)
-class(PredictorSummary) <- "wss"
-CriterionSummary <- rbind(Wellbeing)
-
 ### Analyses of the Regression Line
 
-plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
 
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr)
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr)
+estimateRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
+plotRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
 
 ### Analyses of Regression Values
 
-estimateRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,value=2)
-plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))
+estimateRegression(BodyWellOneSummary,BodyWellOneCorr,value=2)
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))

@@ -51,13 +51,6 @@ RegressionCorr["Predictor2","Criterion"] <- .389
 RegressionCorr <- fillCorrelations(RegressionCorr)
 ```
 
-This code creates new tables that identify the specific variables used in the regression model.
-```{r}
-PredictorSummary <- rbind(Predictor1,Predictor2)
-class(PredictorSummary) <- "wss"
-CriterionSummary <- rbind(Criterion)
-```
-
 ### Analyses of the Overall Model
 
 This section produces analyses of the overall regression model.
@@ -66,24 +59,24 @@ This section produces analyses of the overall regression model.
 
 This code will produce the confidence interval for R Squared.
 ```{r}
-estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionOmnibus(RegressionSummary,RegressionCorr)
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+estimateRegressionOmnibus(RegressionSummary,RegressionCorr,conf.level=.95)
 ```
 
 #### Significance Test
 
 This code will produce a source table associated with the regression model.
 ```{r}
-describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+describeRegressionOmnibus(RegressionSummary,RegressionCorr)
 ```
 
 This code will calculate NHST for the regression model.
 ```{r}
-testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+testRegressionOmnibus(RegressionSummary,RegressionCorr)
 ```
 
 ### Analyses of the Regression Coefficients
@@ -94,49 +87,49 @@ This section analyses the regression coefficients obtained from the overall mode
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 ```{r,Regression-MultipleA}
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+plotRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+estimateRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 ```{r,Regression-MultipleB}
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,line=0,intercept=FALSE)
+plotRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99,line=0,intercept=FALSE)
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
-testRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+testRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 #### Standardized Coefficient
 
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 ```{r}
-estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the standardized coefficients.
 ```{r,Regression-MultipleStandardA}
-plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
 ```
 
 For the graph, it is possible to change the confidence level.
 ```{r,Regression-MultipleStandardB}
-plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
 ```

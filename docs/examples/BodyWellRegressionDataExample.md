@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-02-02"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{BodyWell Regression Data Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## BodyWell Regression Data Example
 
@@ -18,25 +40,27 @@ BodyWellOneData <- data.frame(BodySatisfaction,Wellbeing)
 First, it's useful to get the means and standard deviations for the variables.
 
 ```r
-describeMeans(BodySatisfaction,Wellbeing)
+describeMeans(BodyWellOneData)
 ```
 
 ```
 ## $`Descriptive Statistics for the Data`
 ##                        N       M      SD    Skew    Kurt
 ## BodySatisfaction 106.000   3.605   0.659   0.011  -0.468
+## Wellbeing        106.000   5.055   1.162  -0.935   0.595
 ```
 
 Next, we can get the correlation among the variables.
 
 ```r
-describeCorrelations(BodySatisfaction,Wellbeing)
+describeCorrelations(BodyWellOneData)
 ```
 
 ```
 ## $`Correlation Matrix for the Variables`
-##         x
-## x   1.000
+##                  BodySatisfaction Wellbeing
+## BodySatisfaction            1.000     0.467
+## Wellbeing                   0.467     1.000
 ```
 
 ### Analyses of the Regression Line
@@ -44,7 +68,7 @@ describeCorrelations(BodySatisfaction,Wellbeing)
 Importantly, we can get a display of the regression line (with the confidence interval suppressed).
 
 ```r
-plotRegression(BodySatisfaction,Wellbeing,interval="none",xlim=c(1,5),points=TRUE)
+plotRegression(BodyWellOneData,interval="none",xlim=c(1,5),points=TRUE)
 ```
 
 ![](figures/Regression-ModelA-1.png)<!-- -->
@@ -52,7 +76,7 @@ plotRegression(BodySatisfaction,Wellbeing,interval="none",xlim=c(1,5),points=TRU
 We can then determine the slope and intercept of the line and get confidence intervals for them.
 
 ```r
-estimateRegressionCoefficients(BodySatisfaction,Wellbeing)
+estimateRegressionCoefficients(BodyWellOneData)
 ```
 
 ```
@@ -63,7 +87,7 @@ estimateRegressionCoefficients(BodySatisfaction,Wellbeing)
 ```
 
 ```r
-plotRegressionCoefficients(BodySatisfaction,Wellbeing)
+plotRegressionCoefficients(BodyWellOneData)
 ```
 
 ![](figures/Regression-Coeff-1.png)<!-- -->
@@ -73,7 +97,7 @@ plotRegressionCoefficients(BodySatisfaction,Wellbeing)
 Finally, we get the confidence and prediction intervals of Wellbeing at a BodySatisfaction score of 2.
 
 ```r
-estimateRegression(BodySatisfaction,Wellbeing,value=2)
+estimateRegression(BodyWellOneData,value=2)
 ```
 
 ```
@@ -83,7 +107,7 @@ estimateRegression(BodySatisfaction,Wellbeing,value=2)
 ```
 
 ```r
-plotRegression(BodySatisfaction,Wellbeing,interval="both",value=2,xlim=c(1,5))
+plotRegression(BodyWellOneData,interval="both",value=2,xlim=c(1,5))
 ```
 
 ![](figures/Regression-Value-1.png)<!-- -->

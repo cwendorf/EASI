@@ -13,6 +13,7 @@ class(BodyWellOneSummary) <- "wss"
 
 BodyWellOneCorr <- declareCorrelations("BodySatisfaction","Wellbeing")
 BodyWellOneCorr["BodySatisfaction","Wellbeing"] <- .467
+BodyWellOneCorr <- fillCorrelations(BodyWellOneCorr)
 
 ### Analyses of the Correlation
 

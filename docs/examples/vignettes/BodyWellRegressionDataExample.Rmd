@@ -46,31 +46,31 @@ BodyWellOneData <- data.frame(BodySatisfaction,Wellbeing)
 
 First, it's useful to get the means and standard deviations for the variables.
 ```{r}
-describeMeans(BodySatisfaction,Wellbeing)
+describeMeans(BodyWellOneData)
 ```
 
 Next, we can get the correlation among the variables.
 ```{r}
-describeCorrelations(BodySatisfaction,Wellbeing)
+describeCorrelations(BodyWellOneData)
 ```
 
 ### Analyses of the Regression Line
 
 Importantly, we can get a display of the regression line (with the confidence interval suppressed).
 ```{r,Regression-ModelA}
-plotRegression(BodySatisfaction,Wellbeing,interval="none",xlim=c(1,5),points=TRUE)
+plotRegression(BodyWellOneData,interval="none",xlim=c(1,5),points=TRUE)
 ```
 
 We can then determine the slope and intercept of the line and get confidence intervals for them.
 ```{r,Regression-Coeff}
-estimateRegressionCoefficients(BodySatisfaction,Wellbeing)
-plotRegressionCoefficients(BodySatisfaction,Wellbeing)
+estimateRegressionCoefficients(BodyWellOneData)
+plotRegressionCoefficients(BodyWellOneData)
 ```
 
 ### Analyses of Regression Values
 
 Finally, we get the confidence and prediction intervals of Wellbeing at a BodySatisfaction score of 2.
 ```{r,Regression-Value}
-estimateRegression(BodySatisfaction,Wellbeing,value=2)
-plotRegression(BodySatisfaction,Wellbeing,interval="both",value=2,xlim=c(1,5))
+estimateRegression(BodyWellOneData,value=2)
+plotRegression(BodyWellOneData,interval="both",value=2,xlim=c(1,5))
 ```

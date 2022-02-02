@@ -48,30 +48,23 @@ BodyWellOneCorr["BodySatisfaction","Wellbeing"] <- .467
 BodyWellOneCorr <- fillCorrelations(BodyWellOneCorr)
 ```
 
-This code creates summaries for the predictor and criterion separately.
-```{r}
-PredictorSummary <- rbind(BodySatisfaction)
-class(PredictorSummary) <- "wss"
-CriterionSummary <- rbind(Wellbeing)
-```
-
 ### Analyses of the Regression Line
 
 Importantly, we can get a display of the regression line (with the confidence interval suppressed).
 ```{r,Regression-ModelB}
-plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
 ```
 
 We can then determine the slope and intercept of the line and get confidence intervals for them.
 ```{r,Regression-Coeff}
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr)
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,BodyWellOneCorr)
+estimateRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
+plotRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
 ```
 
 ### Analyses of Regression Values
 
 Finally, we get the confidence and prediction intervals of Wellbeing at a BodySatisfaction score of 2.
 ```{r,Regression-Value}
-estimateRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,value=2)
-plotRegression(PredictorSummary,CriterionSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))
+estimateRegression(BodyWellOneSummary,BodyWellOneCorr,value=2)
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))
 ```

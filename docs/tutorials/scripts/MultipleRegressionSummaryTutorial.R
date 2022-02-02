@@ -18,40 +18,36 @@ RegressionCorr["Predictor1","Criterion"] <- .056
 RegressionCorr["Predictor2","Criterion"] <- .389
 RegressionCorr <- fillCorrelations(RegressionCorr)
 
-PredictorSummary <- rbind(Predictor1,Predictor2)
-class(PredictorSummary) <- "wss"
-CriterionSummary <- rbind(Criterion)
-
 ### Analyses of the Overall Model
 
 #### Confidence Interval
 
-estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
-estimateRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.95)
+estimateRegressionOmnibus(RegressionSummary,RegressionCorr)
+estimateRegressionOmnibus(RegressionSummary,RegressionCorr,conf.level=.95)
 
 #### Significance Test
 
-describeRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
-testRegressionOmnibus(PredictorSummary,CriterionSummary,RegressionCorr)
+describeRegressionOmnibus(RegressionSummary,RegressionCorr)
+testRegressionOmnibus(RegressionSummary,RegressionCorr)
 
 ### Analyses of the Regression Coefficients
 
 #### Confidence Intervals
 
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateRegressionCoefficients(RegressionSummary,RegressionCorr)
+plotRegressionCoefficients(RegressionSummary,RegressionCorr)
 
-estimateRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99,line=0,intercept=FALSE)
+estimateRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
+plotRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99,line=0,intercept=FALSE)
 
 #### Significance Tests
 
-testRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+testRegressionCoefficients(RegressionSummary,RegressionCorr)
 
 #### Standardized Coefficient
 
-estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
-plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr)
+estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
+plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
 
-estimateStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
-plotStandardizedRegressionCoefficients(PredictorSummary,CriterionSummary,RegressionCorr,conf.level=.99)
+estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
+plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
