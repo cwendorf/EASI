@@ -1,5 +1,9 @@
 # Estimation Approach to Statistical Inference
 
+## Developmental Version
+
+- Reinstated documentation
+
 ## 5.1.220202
 
 - Improved extraneous parameter handling
