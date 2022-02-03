@@ -29,31 +29,6 @@
   return(results)
 }
 
-
-.describeRegressionEffect.default <- function(Predictors,Criterion,...) {
-  Predictors <- cbind(Predictors)
-  if(ncol(Predictors)==1) {
-    CorrStats <- cor(Predictors,Criterion)
-    R2 <- as.numeric(CorrStats*CorrStats)
-  }
-  if(ncol(Predictors)>1) {
-    PredCorr <- cor(Predictors)
-    CorrStats <- cor(Predictors,Criterion)
-    R2 <- as.numeric(t(CorrStats)%*%solve(PredCorr)%*%CorrStats)
-  }
-  df1 <- ncol(Predictors)
-  df2 <- (nrow(Predictors)-df1-1)
-  R <- sqrt(R2)
-  adjR2 <- 1-((1-R2)*(nrow(Predictors)-1))/df2
-  results <- cbind(R=R,RSq=R2,AdjRSq=adjR2)
-  rownames(results) <- "Model"
-  return(results)
-}
-
-
-
-
-
 .describeRegressionEffect.default <- function(frame,y=NULL,...) {
   frame <- data.frame(frame)
   if(!is.null(y)) {
