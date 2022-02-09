@@ -3,6 +3,7 @@
 ## Developmental Version
 
 - Reinstated documentation
+- Added a diffogram for pairwise mean comparisons
 
 ## 5.1.220202
 
