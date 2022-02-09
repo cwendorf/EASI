@@ -224,6 +224,7 @@ export(.testMeansPairwise)
 export(testMeansPairwise)
 
 export(plotMeansPairwise)
+export(plotMeansDiffogram)
 
 ### xStandardizedMeansPairwise
 
