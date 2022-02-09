@@ -153,7 +153,7 @@ testMeansPairwise <- function(...,main=NULL,digits=3) {
 
 plotMeansPairwise <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=NULL,add=FALSE,connect=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
   results <- estimateMeansPairwise(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
   invisible(eval(...))
 }
 
@@ -187,12 +187,13 @@ plotMeansDiffogram <- function(...,main=NULL,ylab="",xlab="",conf.level=.95,ylim
     pc <- cbind(emp[,4] <= 0 & emp[,5] >= 0 )
     col <- ifelse(pc,"darkred","darkblue")}
   par(mar=c(5,5,6,5))
-  plot(NULL,bty="l",cex.lab=1.15,xlim=ylim,ylim=ylim,xlab=xlab,ylab=ylab,main=main)
+  plot(NULL,bty="l",cex.lab=1.15,xlim=ylim,ylim=ylim,xlab=xlab,ylab=ylab)
+  title(main,line=4)
   arrows(mn,mn,mx,mx,length=0,lty=2)
   abline(v=dm[,2],col="gray90")
-  mtext(rownames(dm),side=3,at=dm[,2])
+  mtext(rownames(dm),side=3,at=dm[,2],las=2,line=-2)
   abline(h=dm[,2],col="gray90")
-  mtext(rownames(dm),side=4,at=dm[,2],las=1)
+  mtext(rownames(dm),side=4,at=dm[,2],las=1,line=-2)
   points(fm[,1],fm[,2],pch=pch,col=col)
   arrows(lox,loy,hix,hiy,length=0,lwd=2,col=col)  
 }
