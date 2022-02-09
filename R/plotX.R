@@ -8,6 +8,7 @@
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   results <- .unformatFrame(results[[1]])
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5),ceiling(max(results)+.5))))}
+  par(mar=c(5,5,5,3))   
   plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.4,nrow(results)+.6),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
   axis(1,1:nrow(results),row.names(results))
 }
