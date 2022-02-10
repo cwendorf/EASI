@@ -149,6 +149,6 @@ testMeans <- function(...,main=NULL,digits=3) {
 plotMeans <- function(...,mu=0,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,pos=2,pch=16,col="black",connect=NULL,offset=0,intervals=TRUE) {
   results <- estimateMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
   if(is.null(connect) & length(list(...))>1) {connect=TRUE} else {connect=FALSE}
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
   invisible(eval(...))
 }

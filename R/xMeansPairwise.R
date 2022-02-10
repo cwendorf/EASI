@@ -6,7 +6,7 @@
 .estimateMeansPairwise <- function(x,...) 
   UseMethod(".estimateMeansPairwise")
 
-.estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,...){
+.estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -31,32 +31,23 @@
   return(results)
 }
 
-.estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0,...){
-  N <- DescStats[,"N"]
-  M <- DescStats[,"M"]
-  SD <- DescStats[,"SD"]
-  SE <- SD/sqrt(N)
-  rn <- rownames(DescStats)
-  nr <- nrow(DescStats)
-  ncomp <- (nr)*(nr-1)/2
-  results <- data.frame(matrix(ncol=5,nrow=ncomp))
-  colnames(results) <- c("Diff","SE","df","LL","UL")
-  comp <- 1
-  for( i in 1:(nr-1) ){
-  for( j in (i+1):nr ){
-    rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[j]]-M[rn[i]]-mu
-    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
-    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
-    tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
-    LL <- MD-tcrit*SEd
-    UL <- MD+tcrit*SEd
-    results[comp,] <- c(MD,SEd,df,LL,UL)
-   	comp <- comp+1}}
-  return(results)
+.estimateMeansPairwise.bss <- function(DescStats,conf.level=.95,mu=0,...) {
+  N <- t(combn(DescStats[,'N'],2))
+  M <- t(combn(DescStats[,"M"],2))
+  SD <- t(combn(DescStats[,"SD"],2))
+  MD <- M[,2]-M[,1]-mu
+  SE <- sqrt( (SD[,1]^2/N[,1]) + (SD[,2]^2/N[,2]) )
+  df <- ((SD[,1]^2/N[,1] + SD[,2]^2/N[,2])^2 )/( (SD[,1]^2/N[,1])^2/(N[,1]-1) + (SD[,2]^2/N[,2])^2/(N[,2]-1) )
+  tcrit <- qt((1-conf.level)/2,df,lower.tail=FALSE)
+  LL <- MD-tcrit*SE
+  UL <- MD+tcrit*SE
+  results <- cbind(MD,SE,df,LL,UL)
+  rn <- t(combn(rownames(DescStats),2))
+  rownames(results) <- paste(rn[,1],"v",rn[,2])
+  results
 }
 
-.estimateMeansPairwise.default <- function(frame,conf.level=.95,mu=0,...){
+.estimateMeansPairwise.default <- function(frame,conf.level=.95,mu=0,...) {
   data <- data.frame(frame)
   if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   DescStats <- .describeMeans(data)
@@ -64,7 +55,7 @@
   .estimateMeansPairwise.wss(DescStats,CorrStats,conf.level=conf.level,mu=mu)
 }
 
-.estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0,...){
+.estimateMeansPairwise.formula <- function(formula,conf.level=.95,mu=0,...) {
   DescStats <- .describeMeans(formula)
   .estimateMeansPairwise.bss(DescStats,conf.level=conf.level,mu=mu)
 }
@@ -106,27 +97,18 @@ estimateMeansPairwise <- function(...,main=NULL,digits=3) {
 }
 
 .testMeansPairwise.bss <- function(DescStats,mu=0,...) {
-  N <- DescStats[,"N"]
-  M <- DescStats[,"M"]
-  SD <- DescStats[,"SD"]
-  SE <- SD/sqrt(N)
-  rn <- rownames(DescStats)
-  nr <- nrow(DescStats)
-  ncomp <- (nr)*(nr-1)/2
-  results <- data.frame(matrix(ncol=5,nrow=ncomp))
-  colnames(results) <- c("Diff","SE","df","t","p")
-  comp <- 1
-  for( i in 1:(nr-1) ){
-  for( j in (i+1):nr ){
-    rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    MD <- M[rn[j]]-M[rn[i]]-mu
-    SEd <- sqrt( (SD[rn[i]]^2/N[rn[i]]) + (SD[rn[j]]^2/N[rn[j]]) )
-    df <- ((SD[rn[i]]^2/N[rn[i]] + SD[rn[j]]^2/N[rn[j]])^2 )/( (SD[rn[i]]^2/N[rn[i]])^2/(N[rn[i]]-1) + (SD[rn[j]]^2/N[rn[j]])^2/(N[rn[j]]-1) )
-    t <- MD/SEd
-    p <- 2*(1 - pt(abs(t),df))
-    results[comp,] <- c(MD,SEd,df,t,p)
-   	comp <- comp+1}}
-  return(results)
+  N <- t(combn(DescStats[,'N'],2))
+  M <- t(combn(DescStats[,"M"],2))
+  SD <- t(combn(DescStats[,"SD"],2))
+  MD <- M[,2]-M[,1]-mu
+  SE <- sqrt( (SD[,1]^2/N[,1]) + (SD[,2]^2/N[,2]) )
+  df <- ((SD[,1]^2/N[,1] + SD[,2]^2/N[,2])^2 )/( (SD[,1]^2/N[,1])^2/(N[,1]-1) + (SD[,2]^2/N[,2])^2/(N[,2]-1) )
+  t <- MD/SE
+  p <- 2*(1 - pt(abs(t),df))
+  results <- cbind(MD,SE,df,t,p)
+  rn <- t(combn(rownames(DescStats),2))
+  rownames(results) <- paste(rn[,1],"v",rn[,2])
+  results
 }
 
 .testMeansPairwise.default <- function(frame,mu=0,...) {
@@ -160,19 +142,9 @@ plotMeansPairwise <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab
 plotMeansDiffogram <- function(...,main=NULL,ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
   dm <- .describeMeans(...)
   emp <- .estimateMeansPairwise(...,conf.level=conf.level)
+  fm <- t(combn(dm[,"M"],2))
+  colnames(fm) <- c('M1','M2')
   dif <- (emp[,5]-emp[,4])/4
-  M <- dm[,"M"]
-  rn <- rownames(dm)
-  nr <- nrow(dm)
-  ncomp <- (nr)*(nr-1)/2
-  fm <- data.frame(matrix(ncol=2,nrow=ncomp))
-  comp <- 1
-  for( i in 1:(nr-1) ){
-  for( j in (i+1):nr ){
-    M1 <- M[rn[i]]
-    M2 <- M[rn[j]]
-    fm[comp,] <- c(M1,M2)
-   	comp <- comp+1}}
   lox <- fm[,1]-dif
   hix <- fm[,1]+dif
   loy <- fm[,2]+dif
@@ -183,9 +155,10 @@ plotMeansDiffogram <- function(...,main=NULL,ylab="",xlab="",conf.level=.95,ylim
   mn <- min(lox,loy,hix,hiy)-2
   mx <- max(hix,hiy,lox,loy)+2
   ylim<- c(mn,mx)}
-  if(is.null(col)) {
-    pc <- cbind(emp[,4] <= 0 & emp[,5] >= 0 )
-    col <- ifelse(pc,"darkred","darkblue")}
+  pc <- cbind(emp[,4] <= 0 & emp[,5] >= 0 )
+  if(is.null(col)) {col <- c("darkred","darkblue")}
+  if(length(col)==1) col = c(col,"black")  
+  col <- ifelse(pc,col[1],col[2])
   par(mar=c(5,5,6,5))
   plot(NULL,bty="l",cex.lab=1.15,xlim=ylim,ylim=ylim,xlab=xlab,ylab=ylab)
   title(main,line=4)
