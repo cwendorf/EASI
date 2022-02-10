@@ -156,9 +156,9 @@ plotMeansDiffogram <- function(...,main=NULL,ylab="",xlab="",conf.level=.95,ylim
   mx <- max(hix,hiy,lox,loy)+2
   ylim<- c(mn,mx)}
   pc <- cbind(emp[,4] <= 0 & emp[,5] >= 0 )
-  if(is.null(col)) {col <- c("darkred","darkblue")}
+  if(is.null(col)) {col <- c("black","black")}
   if(length(col)==1) col = c(col,"black")  
-  col <- ifelse(pc,col[1],col[2])
+  col <- ifelse(pc,col[2],col[1])
   par(mar=c(5,5,6,5))
   plot(NULL,bty="l",cex.lab=1.15,xlim=ylim,ylim=ylim,xlab=xlab,ylab=ylab)
   title(main,line=4)
