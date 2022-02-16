@@ -5,6 +5,7 @@
 
 #### Data Entry
 
+Simulate some data with various distributional shapes.
 
 ```r
 Factor <- c(rep(1,100),rep(2,100),rep(3,100))
@@ -17,6 +18,7 @@ Outcome <- c(Group1,Group2,Group3)
 
 #### Descriptive Statistics
 
+Get basic percentile information for the groups.
 
 ```r
 describePercentiles(Outcome~Factor)
@@ -25,12 +27,23 @@ describePercentiles(Outcome~Factor)
 ```
 ## $`Percentiles for the Data`
 ##            Min     25%     50%     75%     Max
-## Group1   6.271   8.705   9.995  11.408  16.838
-## Group2   4.860   7.009   9.994  12.796  15.275
-## Group3   5.136   8.664  10.534  11.599  13.581
+## Group1   5.195   8.655   9.825  11.258  15.207
+## Group2   5.488   7.332  10.258  13.061  15.063
+## Group3   4.614   8.962  10.645  11.527  13.290
 ```
 
-### Standard Plots
+### Basic Plots
+
+Obtain basic plots (histograms, boxplots, density plots, and data plots) using the default options.
+
+#### Histograms
+
+
+```r
+plotFrequencies(Outcome~Factor)
+```
+
+![](figures/OneWay-Histograms-1.png)<!-- -->
 
 #### Boxplots
 
@@ -63,6 +76,7 @@ plotData(Outcome~Factor)
 
 #### Violin Plots
 
+Build violin plots using multiple basic plot calls.
 
 ```r
 plotBoxes(Outcome~Factor,values=FALSE,main="Violin Plots")
@@ -71,6 +85,7 @@ plotDensity(Outcome~Factor,add=TRUE,offset=0,type="full")
 
 ![](figures/OneWay-ViolinsA-1.png)<!-- -->
 
+Obtain violin plots using one call (and enhance the plot).
 
 ```r
 plotViolins(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
@@ -80,6 +95,7 @@ plotViolins(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Bean Plots
 
+Build bean plots using multiple basic plot calls.
 
 ```r
 plotDensity(Outcome~Factor,type="full",offset=0,main="Bean Plots")
@@ -88,6 +104,7 @@ plotData(Outcome~Factor,add=TRUE,offset=0,pch=95)
 
 ![](figures/OneWay-BeansA-1.png)<!-- -->
 
+Obtain bean plots using one call (and enhance the plot).
 
 ```r
 plotBeans(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
@@ -97,6 +114,7 @@ plotBeans(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Raincloud Plots
 
+Build raincloud plots using multiple basic plot calls.
 
 ```r
 plotBoxes(Outcome~Factor,values=FALSE,main="Raincloud Plots")
@@ -106,6 +124,7 @@ plotData(Outcome~Factor,add=TRUE,method="jitter",offset=-.15)
 
 ![](figures/OneWay-RaincloudsA-1.png)<!-- -->
 
+Obtain raincloud plots using one call (and enhance the plot).
 
 ```r
 plotRainclouds(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
@@ -115,6 +134,7 @@ plotRainclouds(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Combination Plots
 
+Build a plot that combines all of the basic plots using multiple calls.
 
 ```r
 plotBoxes(Outcome~Factor,main="Combination Plots")
@@ -125,6 +145,7 @@ plotData(Outcome~Factor,add=TRUE)
 
 ![](figures/OneWay-CombinationsA-1.png)<!-- -->
 
+Build a plot that combines all of the basic plots using one call (and enhance the plot).
 
 ```r
 plotCombination(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))

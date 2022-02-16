@@ -35,6 +35,7 @@ library(EASI)
 
 #### Data Entry
 
+Simulate some data with various distributional shapes.
 ```{r}
 Outcome1 <- rnorm(100,10,2)
 Outcome2 <- c(rnorm(50,7,1),rnorm(50,13,1))
@@ -44,11 +45,20 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 #### Descriptive Statistics
 
+Get basic percentile information for the variables.
 ```{r}
 describePercentiles(RepeatedData)
 ```
 
-### Standard Plots
+### Basic Plots
+
+Obtain basic plots (histograms, boxplots, density plots, and data plots) using the default options.
+
+#### Histograms
+
+```{r,Repeated-Histograms}
+plotFrequencies(RepeatedData)
+```
 
 #### Boxplots
 
@@ -72,40 +82,47 @@ plotData(RepeatedData)
 
 #### Violin Plots
 
+Build violin plots using multiple basic plot calls.
 ```{r,Repeated-ViolinsA}
 plotBoxes(RepeatedData,values=FALSE,main="Violin Plots")
 plotDensity(RepeatedData,add=TRUE,offset=0,type="full")
 ```
 
+Obtain violin plots using one call (and enhance the plot).
 ```{r,Repeated-ViolinsB}
 plotViolins(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Bean Plots
 
+Build bean plots using multiple basic plot calls.
 ```{r,Repeated-BeansA}
 plotDensity(RepeatedData,type="full",offset=0,main="Bean Plots")
 plotData(RepeatedData,add=TRUE,offset=0,pch=95)
 ```
 
+Obtain bean plots using one call (and enhance the plot).
 ```{r,Repeated-BeansB}
 plotBeans(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Raincloud Plots
 
+Build raincloud plots using multiple basic plot calls.
 ```{r,Repeated-RaincloudsA}
 plotBoxes(RepeatedData,values=FALSE,main="Raincloud Plots")
 plotDensity(RepeatedData,add=TRUE,offset=.1)
 plotData(RepeatedData,add=TRUE,method="jitter",offset=-.15)
 ```
 
+Obtain raincloud plots using one call (and enhance the plot).
 ```{r,Repeated-RaincloudsB}
 plotRainclouds(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Combination Plots
 
+Build a plot that combines all of the basic plots using multiple calls.
 ```{r,Repeated-CombinationsA}
 plotBoxes(RepeatedData,main="Combination Plots")
 plotDensity(RepeatedData,add=TRUE)
@@ -113,6 +130,7 @@ plotFrequencies(RepeatedData,add=TRUE)
 plotData(RepeatedData,add=TRUE)
 ```
 
+Build a plot that combines all of the basic plots using one call (and enhance the plot).
 ```{r,Repeated-CombinationsB}
 plotCombination(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 ```

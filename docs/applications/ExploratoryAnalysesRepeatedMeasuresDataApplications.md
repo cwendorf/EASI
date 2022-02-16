@@ -5,6 +5,7 @@
 
 #### Data Entry
 
+Simulate some data with various distributional shapes.
 
 ```r
 Outcome1 <- rnorm(100,10,2)
@@ -15,6 +16,7 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 #### Descriptive Statistics
 
+Get basic percentile information for the variables.
 
 ```r
 describePercentiles(RepeatedData)
@@ -23,12 +25,23 @@ describePercentiles(RepeatedData)
 ```
 ## $`Percentiles for the Data`
 ##               0%     25%     50%     75%    100%
-## Outcome1   5.310   8.469  10.412  11.284  14.607
-## Outcome2   4.801   7.123  10.190  13.120  15.761
-## Outcome3   5.702   8.730  10.465  11.406  13.632
+## Outcome1   4.857   8.720   9.922  11.260  15.870
+## Outcome2   4.847   6.726   9.747  12.957  16.452
+## Outcome3   4.937   8.200  10.645  11.727  12.896
 ```
 
-### Standard Plots
+### Basic Plots
+
+Obtain basic plots (histograms, boxplots, density plots, and data plots) using the default options.
+
+#### Histograms
+
+
+```r
+plotFrequencies(RepeatedData)
+```
+
+![](figures/Repeated-Histograms-1.png)<!-- -->
 
 #### Boxplots
 
@@ -61,6 +74,7 @@ plotData(RepeatedData)
 
 #### Violin Plots
 
+Build violin plots using multiple basic plot calls.
 
 ```r
 plotBoxes(RepeatedData,values=FALSE,main="Violin Plots")
@@ -69,6 +83,7 @@ plotDensity(RepeatedData,add=TRUE,offset=0,type="full")
 
 ![](figures/Repeated-ViolinsA-1.png)<!-- -->
 
+Obtain violin plots using one call (and enhance the plot).
 
 ```r
 plotViolins(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
@@ -78,6 +93,7 @@ plotViolins(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Bean Plots
 
+Build bean plots using multiple basic plot calls.
 
 ```r
 plotDensity(RepeatedData,type="full",offset=0,main="Bean Plots")
@@ -86,6 +102,7 @@ plotData(RepeatedData,add=TRUE,offset=0,pch=95)
 
 ![](figures/Repeated-BeansA-1.png)<!-- -->
 
+Obtain bean plots using one call (and enhance the plot).
 
 ```r
 plotBeans(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
@@ -95,6 +112,7 @@ plotBeans(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Raincloud Plots
 
+Build raincloud plots using multiple basic plot calls.
 
 ```r
 plotBoxes(RepeatedData,values=FALSE,main="Raincloud Plots")
@@ -104,6 +122,7 @@ plotData(RepeatedData,add=TRUE,method="jitter",offset=-.15)
 
 ![](figures/Repeated-RaincloudsA-1.png)<!-- -->
 
+Obtain raincloud plots using one call (and enhance the plot).
 
 ```r
 plotRainclouds(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
@@ -113,6 +132,7 @@ plotRainclouds(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Combination Plots
 
+Build a plot that combines all of the basic plots using multiple calls.
 
 ```r
 plotBoxes(RepeatedData,main="Combination Plots")
@@ -123,6 +143,7 @@ plotData(RepeatedData,add=TRUE)
 
 ![](figures/Repeated-CombinationsA-1.png)<!-- -->
 
+Build a plot that combines all of the basic plots using one call (and enhance the plot).
 
 ```r
 plotCombination(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))

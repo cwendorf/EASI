@@ -35,6 +35,7 @@ library(EASI)
 
 #### Data Entry
 
+Simulate some data with various distributional shapes.
 ```{r}
 Factor <- c(rep(1,100),rep(2,100),rep(3,100))
 Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
@@ -46,11 +47,20 @@ Outcome <- c(Group1,Group2,Group3)
 
 #### Descriptive Statistics
 
+Get basic percentile information for the groups.
 ```{r}
 describePercentiles(Outcome~Factor)
 ```
 
-### Standard Plots
+### Basic Plots
+
+Obtain basic plots (histograms, boxplots, density plots, and data plots) using the default options.
+
+#### Histograms
+
+```{r,OneWay-Histograms}
+plotFrequencies(Outcome~Factor)
+```
 
 #### Boxplots
 
@@ -74,40 +84,47 @@ plotData(Outcome~Factor)
 
 #### Violin Plots
 
+Build violin plots using multiple basic plot calls.
 ```{r,OneWay-ViolinsA}
 plotBoxes(Outcome~Factor,values=FALSE,main="Violin Plots")
 plotDensity(Outcome~Factor,add=TRUE,offset=0,type="full")
 ```
 
+Obtain violin plots using one call (and enhance the plot).
 ```{r,OneWay-ViolinsB}
 plotViolins(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Bean Plots
 
+Build bean plots using multiple basic plot calls.
 ```{r,OneWay-BeansA}
 plotDensity(Outcome~Factor,type="full",offset=0,main="Bean Plots")
 plotData(Outcome~Factor,add=TRUE,offset=0,pch=95)
 ```
 
+Obtain bean plots using one call (and enhance the plot).
 ```{r,OneWay-BeansB}
 plotBeans(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Raincloud Plots
 
+Build raincloud plots using multiple basic plot calls.
 ```{r,OneWay-RaincloudsA}
 plotBoxes(Outcome~Factor,values=FALSE,main="Raincloud Plots")
 plotDensity(Outcome~Factor,add=TRUE,offset=.1)
 plotData(Outcome~Factor,add=TRUE,method="jitter",offset=-.15)
 ```
 
+Obtain raincloud plots using one call (and enhance the plot).
 ```{r,OneWay-RaincloudsB}
 plotRainclouds(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Combination Plots
 
+Build a plot that combines all of the basic plots using multiple calls.
 ```{r,OneWay-CombinationsA}
 plotBoxes(Outcome~Factor,main="Combination Plots")
 plotDensity(Outcome~Factor,add=TRUE)
@@ -115,6 +132,7 @@ plotFrequencies(Outcome~Factor,add=TRUE)
 plotData(Outcome~Factor,add=TRUE)
 ```
 
+Build a plot that combines all of the basic plots using one call (and enhance the plot).
 ```{r,OneWay-CombinationsB}
 plotCombination(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
 ```
