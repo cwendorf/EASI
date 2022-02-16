@@ -12,7 +12,7 @@ The **ExploratoryAnalyses** files analyze applications of boxplots, violin plots
 - [*ExploratoryAnalysesOneWayDataApplications*](./ExploratoryAnalysesOneWayDataApplications.md) - Uses one-way (between-subjects) data
 - [*ExploratoryAnalysesRepeatedMeasuresDataApplications*](./ExploratoryAnalysesRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
 
-### Enhanced Plots with Native Pipe Operators
+### Enhanced Plots Using Native Pipe Operators
 
 The **EnhancedPlots** files analyze applications of confidence interval plots, diamond plots, and plausibility curves (and colors!) using pipe operators:
 
