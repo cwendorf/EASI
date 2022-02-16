@@ -39,16 +39,17 @@ describeFrequencies <- function(...,main=NULL,digits=3) {
 
 ### Plots
 
-.histogram <- function(y,x,offset=0,col="black") {
+.histogram <- function(y,x,type="right",offset=0,col="black") {
   y <- as.integer(y)
   yhist <- hist(y,plot=FALSE,breaks=seq(min(y)-.5,max(y)+.5,1))
+  if(type=="left") {yhist$density <- -yhist$density}
   rect(x+offset,yhist$mids-.5,x+offset+yhist$density,yhist$mids+.5,border=col)
 }
 
 plotFrequencies <- function(x,...)
   UseMethod("plotFrequencies")
 
-plotFrequencies.default <- function(frame,add=FALSE,ylim=NULL,main=NULL,ylab="Outcome",xlab="",offset=.1,col="black",...) {
+plotFrequencies.default <- function(frame,add=FALSE,ylim=NULL,main=NULL,ylab="Outcome",xlab="",type="right",offset=.1,col="black",...) {
   data <- data.frame(frame)
   if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   if(!add) {
@@ -60,14 +61,15 @@ plotFrequencies.default <- function(frame,add=FALSE,ylim=NULL,main=NULL,ylab="Ou
     rownames(results) <- names(data)
     results <- list(results)
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
-  invisible(mapply(.histogram,data,x=1:length(data),offset=offset,col=col))
+  invisible(mapply(.histogram,data,x=1:length(data),type=type,offset=offset,col=col))
   invisible(eval(frame))
 }
 
-plotFrequencies.formula <- function(formula,add=FALSE,ylim=NULL,main=NULL,ylab=NULL,xlab="",offset=.1,col="black",...) {
+plotFrequencies.formula <- function(formula,add=FALSE,ylim=NULL,main=NULL,ylab=NULL,xlab="",type="right",offset=.1,col="black",...) {
   data <- unstack(model.frame(formula))
   if(!add) {
     if(is.null(main)) {main="Frequencies for the Groups"}
+    if(is.null(ylab)) {ylab <- all.vars(formula)[1]}    
     if(typeof(data)=="list") {z <- lapply(data,density)} else {z <- apply(data,2,density)} 
     a <- sapply(z,"[","x")
     b <- lapply(a,function(x) c(min(x),max(x)))
@@ -75,6 +77,6 @@ plotFrequencies.formula <- function(formula,add=FALSE,ylim=NULL,main=NULL,ylab=N
     rownames(results) <- names(data)
     results <- list(results)
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
-  invisible(mapply(.histogram,data,x=1:length(data),offset=offset,col=col))
+  invisible(mapply(.histogram,data,x=1:length(data),type=type,offset=offset,col=col))
   invisible(eval(formula))
 }
