@@ -74,7 +74,7 @@
 }
 
 estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
-  results <- .estimateMeansPairwise(...)
+  results <- .estimateMeansPosthoc(...)
   if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Posthoc Mean Comparisons"} else {main <- "Confidence Interval for the Posthoc Mean Comparison"}}  
   results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
