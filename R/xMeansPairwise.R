@@ -138,34 +138,8 @@ plotMeansPairwise <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }
 
-plotMeansDiffogram <- function(...,main=NULL,ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
+plotMeansPairwiseDiffogram <- function(...,main="Confidence Intervals for the Pairwise Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
   dm <- .describeMeans(...)
   emp <- .estimateMeansPairwise(...,conf.level=conf.level)
-  fm <- t(combn(dm[,"M"],2))
-  colnames(fm) <- c('M1','M2')
-  dif <- (emp[,5]-emp[,4])/4
-  lox <- fm[,1]-dif
-  hix <- fm[,1]+dif
-  loy <- fm[,2]+dif
-  hiy <- fm[,2]-dif
-  if(is.null(main)) {if(nrow(emp)>1) {main <- "Confidence Intervals for the Pairwise Mean Comparisons"} else {main <- "Confidence Interval for the Pairwise Mean Comparison"}}  
-  main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
-  if(is.null(ylim)) {
-  mn <- min(lox,loy,hix,hiy)-2
-  mx <- max(hix,hiy,lox,loy)+2
-  ylim<- c(mn,mx)}
-  pc <- cbind(emp[,4] <= 0 & emp[,5] >= 0 )
-  if(is.null(col)) {col <- c("black","black")}
-  if(length(col)==1) col = c(col,"black")  
-  col <- ifelse(pc,col[2],col[1])
-  par(mar=c(5,5,6,5))
-  plot(NULL,bty="l",cex.lab=1.15,xlim=ylim,ylim=ylim,xlab=xlab,ylab=ylab)
-  title(main,line=4)
-  arrows(mn,mn,mx,mx,length=0,lty=2)
-  abline(v=dm[,2],col="gray90")
-  mtext(rownames(dm),side=3,at=dm[,2],las=2,line=-2)
-  abline(h=dm[,2],col="gray90")
-  mtext(rownames(dm),side=4,at=dm[,2],las=1,line=-2)
-  points(fm[,1],fm[,2],pch=pch,col=col)
-  arrows(lox,loy,hix,hiy,length=0,lwd=2,col=col)  
+  .intervalsDiffogram(dm=dm,emp=emp,ylab=ylab,xlab=xlab,ylim=ylim,pch=pch,col=col)
 }

@@ -163,3 +163,9 @@ plotMeansPosthoc <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab=
   results <- estimateMeansPosthoc(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }
+
+plotMeansPosthocDiffogram <- function(...,main="Confidence Intervals for the Posthoc Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
+  dm <- .describeMeans(...)
+  emp <- .estimateMeansPosthoc(...,conf.level=conf.level)
+  .intervalsDiffogram(dm=dm,emp=emp,ylab=ylab,xlab=xlab,ylim=ylim,pch=pch,col=col)
+}
