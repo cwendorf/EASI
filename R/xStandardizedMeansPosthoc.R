@@ -1,4 +1,4 @@
--# Estimation Approach to Statistical Inference
+# Estimation Approach to Statistical Inference
 ## Posthoc Standardized Mean Comparisons
 
 ### Confidence Intervals
