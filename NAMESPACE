@@ -3,7 +3,7 @@
 
 ### formatX
 
-export(%$>%)
+export("%$>%")
 
 ### xData
 
