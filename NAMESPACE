@@ -254,6 +254,15 @@ export(testMeansPosthoc)
 export(plotMeansPosthoc)
 export(plotMeansPosthocDiffogram)
 
+### xStandardizedMeansPosthoc
+
+S3method(.estimateStandardizedMeansPosthoc,default)
+S3method(.estimateStandardizedMeansPosthoc,formula)
+S3method(.estimateStandardizedMeansPosthoc,wss)
+S3method(.estimateStandardizedMeansPosthoc,bss)
+export(.estimateStandardizedMeansPosthoc)
+export(estimateStandardizedMeansPosthoc)
+
 ### xMeansRelational
 
 S3method(.estimateMeansRelational,default)
