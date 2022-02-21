@@ -4,6 +4,7 @@
 
 - Reinstated documentation
 - Added a diffogram for pairwise mean comparisons
+- Added an exposition pipe for handling data sets
 
 ## 5.1.220202
 
