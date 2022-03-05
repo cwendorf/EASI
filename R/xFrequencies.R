@@ -5,9 +5,9 @@
 
 .frequencies <- function(x) {
   Freq <- table(x)
-  Perc <- prop.table(table(x))
+  Perc <- prop.table(table(x))*100
   CumFreq <- cumsum(table(x))
-  CumPerc <- cumsum(table(x))/summary(table(x))[[2]]
+  CumPerc <- cumsum(table(x))/summary(table(x))[[2]]*100
   results <- cbind(Freq,Perc,CumFreq,CumPerc)
   return(results)  
 }
