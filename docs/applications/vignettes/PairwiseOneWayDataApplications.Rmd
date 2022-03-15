@@ -78,7 +78,7 @@ estimateStandardizedMeansPairwise(Outcome~Factor)
 
 The analyses for the post hoc comparisons do assume homogeneity of variance and do make adjustments for multiple comparisons (based on Tukey HSD procedures).
 
-Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons)and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
+Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 ```{r,OneWay-PosthocA}
 plotMeansPosthocDiffogram(Outcome~Factor,col=c("darkblue","darkred"))
 ```
