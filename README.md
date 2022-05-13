@@ -12,7 +12,7 @@
 [**EASI**](https://github.com/cwendorf/EASI) is an R package that implements features of estimation statistics. Its primary functions calculate, test, and plot confidence intervals for between- and within-subjects single-factor, factorial, and mixed designs. Additional functions calculate the standardized effect sizes and statistical significance tests associated with comparisons among the groups and variables. Most functions can take either raw data or summary statistics as input. 
 
 <a href="https://github.com/cwendorf/EASI">
-<p align="center"><kbd><img src="docs/easiComparison.jpg"></kbd></p>
+<p align="center"><kbd><img src="docs/easiCoverImage.jpg"></kbd></p>
 </a>
 
 ### Installation
@@ -33,11 +33,14 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Usage
 
+The package offers a simple and direct way to analyze your data:  
+[Quick Start Guide](./docs) - Overview and summary of the basic functions
+
 The package includes a wide variety of documentation, tutorials, and examples that demonstrate its use:
 
-- [Tutorials from the Sourcebook](https://github.com/cwendorf/EASI/tree/main/docs/tutorials) - Vingettes with tutorial data that show the diversity of basic options 
-- [Examples from ITNS](https://github.com/cwendorf/EASI/tree/main/docs/examples) - Reanalyses of published textbook examples highlighting the estimation approach 
-- [Advanced Applications](https://github.com/cwendorf/EASI/tree/main/docs/applications) - Advanced and experimental applications of the package
+- [Tutorials from the Sourcebook](./docs/tutorials) - Vingettes with tutorial data that show the diversity of basic options 
+- [Examples from ITNS](./docs/examples) - Reanalyses of published textbook examples highlighting the estimation approach 
+- [Advanced Applications](./docs/applications) - Advanced and experimental applications of the package
 
 ### Contact Me
 
