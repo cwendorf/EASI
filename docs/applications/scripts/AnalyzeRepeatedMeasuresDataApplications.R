@@ -14,26 +14,26 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 ### Analyze the Means
 
-analyzeMeans(RepeatedData)
-analyzeMeans(RepeatedData,conf.level=.99,mu=5)
+(RepeatedData) |> analyzeMeans()
+(RepeatedData) |> analyzeMeans(conf.level=.99,mu=5)
 
 ### Analyze a Mean Difference
 
-analyzeMeanDifference(cbind(Outcome1,Outcome2))
-analyzeMeanDifference(cbind(Outcome1,Outcome2),conf.level=.99)
+cbind(Outcome1,Outcome2) |> analyzeMeanDifference()
+cbind(Outcome1,Outcome2) |> analyzeMeanDifference(conf.level=.99)
 
 ### Analyze a Mean Contrast
 
 O1vsOthers <- c(-1,.5,.5)
-analyzeMeanContrast(RepeatedData,contrast=O1vsOthers)
-analyzeMeanContrast(RepeatedData,contrast=O1vsOthers,conf.level=.99)
+(RepeatedData) |> analyzeMeanContrast(contrast=O1vsOthers)
+(RepeatedData) |> analyzeMeanContrast(contrast=O1vsOthers,conf.level=.99)
 
 ### Analyze the Omnibus Effect
 
-analyzeMeansOmnibus(RepeatedData)
-analyzeMeansOmnibus(RepeatedData,conf.level=.99)
+(RepeatedData) |> analyzeMeansOmnibus()
+(RepeatedData) |> analyzeMeansOmnibus(conf.level=.99)
 
 ### Analyze the Pairwise Comparisons
 
-analyzeMeansPairwise(RepeatedData)
-analyzeMeansPairwise(RepeatedData,conf.level=.99)
+(RepeatedData) |> analyzeMeansPairwise()
+(RepeatedData) |> analyzeMeansPairwise(conf.level=.99)

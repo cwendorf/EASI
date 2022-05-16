@@ -16,48 +16,48 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 #### Descriptive Statistics
 
-describePercentiles(RepeatedData)
+(RepeatedData) |> describePercentiles()
 
 ### Standard Plots
 
 #### Boxplots
-plotBoxes(RepeatedData)
+(RepeatedData) |> plotBoxes()
 
 #### Density Plots
-plotDensity(RepeatedData)
+(RepeatedData) |> plotDensity()
 
 #### Data Plots
-plotData(RepeatedData)
+(RepeatedData) |> plotData()
 
 ### Advanced Plots
 
 #### Violin Plots
 
-plotBoxes(RepeatedData,values=FALSE,main="Violin Plots")
-plotDensity(RepeatedData,add=TRUE,offset=0,type="full")
+(RepeatedData) |> plotBoxes(values=FALSE,main="Violin Plots")
+(RepeatedData) |> plotDensity(add=TRUE,offset=0,type="full")
 
-plotViolins(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotViolins(col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Bean Plots
 
-plotDensity(RepeatedData,type="full",offset=0,main="Bean Plots")
-plotData(RepeatedData,add=TRUE,offset=0,pch=95)
+(RepeatedData) |> plotDensity(type="full",offset=0,main="Bean Plots")
+(RepeatedData) |> plotData(add=TRUE,offset=0,pch=95)
 
-plotBeans(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotBeans(col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Raincloud Plots
 
-plotBoxes(RepeatedData,values=FALSE,main="Raincloud Plots")
-plotDensity(RepeatedData,add=TRUE,offset=.1)
-plotData(RepeatedData,add=TRUE,method="jitter",offset=-.15)
+(RepeatedData) |> plotBoxes(values=FALSE,main="Raincloud Plots")
+(RepeatedData) |> plotDensity(add=TRUE,offset=.1)
+(RepeatedData) |> plotData(add=TRUE,method="jitter",offset=-.15)
 
-plotRainclouds(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotRainclouds(col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Combination Plots
 
-plotBoxes(RepeatedData,main="Combination Plots")
-plotDensity(RepeatedData,add=TRUE)
-plotFrequencies(RepeatedData,add=TRUE)
-plotData(RepeatedData,add=TRUE)
+(RepeatedData) |> plotBoxes(main="Combination Plots")
+(RepeatedData) |> plotDensity(add=TRUE)
+(RepeatedData) |> plotFrequencies(add=TRUE)
+(RepeatedData) |> plotData(add=TRUE)
 
-plotCombination(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotCombination(col=c("darkblue","darkred","darkgoldenrod"))

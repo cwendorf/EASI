@@ -18,51 +18,51 @@ Outcome <- c(Group1,Group2,Group3)
 
 #### Descriptive Statistics
 
-describePercentiles(Outcome~Factor)
+(Outcome~Factor) |> describePercentiles()
 
 ### Standard Plots
 
 #### Boxplots
 
-plotBoxes(Outcome~Factor)
+(Outcome~Factor) |> plotBoxes()
 
 #### Density Plots
 
-plotDensity(Outcome~Factor)
+(Outcome~Factor) |> plotDensity()
 
 #### Data Plots
 
-plotData(Outcome~Factor)
+(Outcome~Factor) |> plotData()
 
 ### Advanced Plots
 
 #### Violin Plots
 
-plotBoxes(Outcome~Factor,values=FALSE,main="Violin Plots")
-plotDensity(Outcome~Factor,add=TRUE,offset=0,type="full")
+(Outcome~Factor) |> plotBoxes(values=FALSE,main="Violin Plots")
+(Outcome~Factor) |> plotDensity(add=TRUE,offset=0,type="full")
 
-plotViolins(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotViolins(col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Bean Plots
 
-plotDensity(Outcome~Factor,type="full",offset=0,main="Bean Plots")
-plotData(Outcome~Factor,add=TRUE,offset=0,pch=95)
+(Outcome~Factor) |> plotDensity(type="full",offset=0,main="Bean Plots")
+(Outcome~Factor) |> plotData(add=TRUE,offset=0,pch=95)
 
-plotBeans(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotBeans(col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Raincloud Plots
 
-plotBoxes(Outcome~Factor,values=FALSE,main="Raincloud Plots")
-plotDensity(Outcome~Factor,add=TRUE,offset=.1)
-plotData(Outcome~Factor,add=TRUE,method="jitter",offset=-.15)
+(Outcome~Factor) |> plotBoxes(values=FALSE,main="Raincloud Plots")
+(Outcome~Factor) |> plotDensity(add=TRUE,offset=.1)
+(Outcome~Factor) |> plotData(add=TRUE,method="jitter",offset=-.15)
 
-plotRainclouds(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotRainclouds(col=c("darkblue","darkred","darkgoldenrod"))
 
 #### Combination Plots
 
-plotBoxes(Outcome~Factor,main="Combination Plots")
-plotDensity(Outcome~Factor,add=TRUE)
-plotFrequencies(Outcome~Factor,add=TRUE)
-plotData(Outcome~Factor,add=TRUE)
+(Outcome~Factor) |> plotBoxes(main="Combination Plots")
+(Outcome~Factor) |> plotDensity(add=TRUE)
+(Outcome~Factor) |> plotFrequencies(add=TRUE)
+(Outcome~Factor) |> plotData(add=TRUE)
 
-plotCombination(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotCombination(col=c("darkblue","darkred","darkgoldenrod"))

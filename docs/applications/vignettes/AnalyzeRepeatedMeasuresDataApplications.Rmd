@@ -45,16 +45,16 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 Estimate, test, and standardized the means, including altering the confidence level and setting a population value.
 ```{r}
-analyzeMeans(RepeatedData)
-analyzeMeans(RepeatedData,conf.level=.99,mu=5)
+(RepeatedData) |> analyzeMeans()
+(RepeatedData) |> analyzeMeans(conf.level=.99,mu=5)
 ```
 
 ### Analyze a Mean Difference
 
 Determine and then estimate, test, and standardize a mean difference.
 ```{r}
-analyzeMeanDifference(cbind(Outcome1,Outcome2))
-analyzeMeanDifference(cbind(Outcome1,Outcome2),conf.level=.99)
+cbind(Outcome1,Outcome2) |> analyzeMeanDifference()
+cbind(Outcome1,Outcome2) |> analyzeMeanDifference(conf.level=.99)
 ```
 
 ### Analyze a Mean Contrast
@@ -62,22 +62,22 @@ analyzeMeanDifference(cbind(Outcome1,Outcome2),conf.level=.99)
 Determine and then estimate, test, and standardize a mean contrast.
 ```{r}
 O1vsOthers <- c(-1,.5,.5)
-analyzeMeanContrast(RepeatedData,contrast=O1vsOthers)
-analyzeMeanContrast(RepeatedData,contrast=O1vsOthers,conf.level=.99)
+(RepeatedData) |> analyzeMeanContrast(contrast=O1vsOthers)
+(RepeatedData) |> analyzeMeanContrast(contrast=O1vsOthers,conf.level=.99)
 ```
 
 ### Analyze the Omnibus Effect
 
 Obtain a ANOVA source table, test for significance, and estimate the proportion of variance accounted for.
 ```{r}
-analyzeMeansOmnibus(RepeatedData)
-analyzeMeansOmnibus(RepeatedData,conf.level=.99)
+(RepeatedData) |> analyzeMeansOmnibus()
+(RepeatedData) |> analyzeMeansOmnibus(conf.level=.99)
 ```
 
 ### Analyze the Pairwise Comparisons
 
 Estimate, test, and standardize all pairwise mean comparisons.
 ```{r}
-analyzeMeansPairwise(RepeatedData)
-analyzeMeansPairwise(RepeatedData,conf.level=.99)
+(RepeatedData) |> analyzeMeansPairwise()
+(RepeatedData) |> analyzeMeansPairwise(conf.level=.99)
 ```

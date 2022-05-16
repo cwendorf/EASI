@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-05-16"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Analyze Meta Functions One Way Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Analyze Meta Functions - One Way Data Applications
 
@@ -17,7 +39,7 @@ OneWayData <- data.frame(Factor,Outcome)
 Estimate, test, and standardized the means, including altering the confidence level and setting a population value.
 
 ```r
-analyzeMeans(Outcome~Factor)
+(Outcome~Factor) |> analyzeMeans()
 ```
 
 ```
@@ -41,7 +63,7 @@ analyzeMeans(Outcome~Factor)
 ```
 
 ```r
-analyzeMeans(Outcome~Factor,conf.level=.99,mu=5)
+(Outcome~Factor) |> analyzeMeans(conf.level=.99,mu=5)
 ```
 
 ```
@@ -69,8 +91,8 @@ analyzeMeans(Outcome~Factor,conf.level=.99,mu=5)
 Determine and then estimate, test, and standardize a mean difference.
 
 ```r
-Comparison=factor(Factor,c("Level1","Level2"))
-analyzeMeanDifference(Outcome~Comparison)
+Comparison <- factor(Factor,c("Level1","Level2"))
+(Outcome~Comparison) |> analyzeMeanDifference()
 ```
 
 ```
@@ -88,7 +110,7 @@ analyzeMeanDifference(Outcome~Comparison)
 ```
 
 ```r
-analyzeMeanDifference(Outcome~Comparison,conf.level=.99)
+(Outcome~Comparison) |> analyzeMeanDifference(conf.level=.99)
 ```
 
 ```
@@ -111,7 +133,7 @@ Determine and then estimate, test, and standardize a mean contrast.
 
 ```r
 L1vsOthers <- c(-1,.5,.5)
-analyzeMeanContrast(Outcome~Factor,contrast=L1vsOthers)
+(Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers)
 ```
 
 ```
@@ -129,7 +151,7 @@ analyzeMeanContrast(Outcome~Factor,contrast=L1vsOthers)
 ```
 
 ```r
-analyzeMeanContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
+(Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers,conf.level=.99)
 ```
 
 ```
@@ -151,7 +173,7 @@ analyzeMeanContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
 Obtain a ANOVA source table, test for significance, and estimate the proportion of variance accounted for.
 
 ```r
-analyzeMeansOmnibus(Outcome~Factor)
+(Outcome~Factor) |> analyzeMeansOmnibus()
 ```
 
 ```
@@ -170,7 +192,7 @@ analyzeMeansOmnibus(Outcome~Factor)
 ```
 
 ```r
-analyzeMeansOmnibus(Outcome~Factor,conf.level=.99)
+(Outcome~Factor) |> analyzeMeansOmnibus(conf.level=.99)
 ```
 
 ```
@@ -193,18 +215,18 @@ analyzeMeansOmnibus(Outcome~Factor,conf.level=.99)
 Estimate, test, and standardize all pairwise mean comparisons.
 
 ```r
-analyzeMeansPairwise(Outcome~Factor)
+(Outcome~Factor) |> analyzeMeansPairwise()
 ```
 
 ```
 ## $`Confidence Intervals for the Pairwise Mean Comparisons`
-##                    Diff      SE      df      LL      UL
+##                      MD      SE      df      LL      UL
 ## Level1 v Level2   4.000   1.732   6.000  -0.238   8.238
 ## Level1 v Level3   5.000   1.732   6.000   0.762   9.238
 ## Level2 v Level3   1.000   1.732   6.000  -3.238   5.238
 ## 
 ## $`Hypothesis Tests for the Pairwise Mean Comparisons`
-##                    Diff      SE      df       t       p
+##                      MD      SE      df       t       p
 ## Level1 v Level2   4.000   1.732   6.000   2.309   0.060
 ## Level1 v Level3   5.000   1.732   6.000   2.887   0.028
 ## Level2 v Level3   1.000   1.732   6.000   0.577   0.585
@@ -217,18 +239,18 @@ analyzeMeansPairwise(Outcome~Factor)
 ```
 
 ```r
-analyzeMeansPairwise(Outcome~Factor,conf.level=.99)
+(Outcome~Factor) |> analyzeMeansPairwise(conf.level=.99)
 ```
 
 ```
 ## $`Confidence Intervals for the Pairwise Mean Comparisons`
-##                    Diff      SE      df      LL      UL
+##                      MD      SE      df      LL      UL
 ## Level1 v Level2   4.000   1.732   6.000  -2.421  10.421
 ## Level1 v Level3   5.000   1.732   6.000  -1.421  11.421
 ## Level2 v Level3   1.000   1.732   6.000  -5.421   7.421
 ## 
 ## $`Hypothesis Tests for the Pairwise Mean Comparisons`
-##                    Diff      SE      df       t       p
+##                      MD      SE      df       t       p
 ## Level1 v Level2   4.000   1.732   6.000   2.309   0.060
 ## Level1 v Level3   5.000   1.732   6.000   2.887   0.028
 ## Level2 v Level3   1.000   1.732   6.000   0.577   0.585

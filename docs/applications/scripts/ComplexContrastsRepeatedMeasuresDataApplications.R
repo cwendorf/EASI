@@ -17,8 +17,8 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 c1=c(1/3,1/3,1/3)
 c2=c(0,1,0)
 
-estimateMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
-plotMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
+(RepeatedData) |> estimateMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
+(RepeatedData) |> plotMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
 
-estimateMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99)
-plotMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99,rope=c(-2,2))
+(RepeatedData) |> estimateMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99)
+(RepeatedData) |> plotMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99,rope=c(-2,2))

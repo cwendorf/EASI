@@ -49,7 +49,7 @@ Outcome <- c(Group1,Group2,Group3)
 
 Get basic percentile information for the groups.
 ```{r}
-describePercentiles(Outcome~Factor)
+(Outcome~Factor) |> describePercentiles()
 ```
 
 ### Basic Plots
@@ -59,25 +59,25 @@ Obtain basic plots (histograms, boxplots, density plots, and data plots) using t
 #### Histograms
 
 ```{r,OneWay-Histograms}
-plotFrequencies(Outcome~Factor)
+(Outcome~Factor) |> plotFrequencies()
 ```
 
 #### Boxplots
 
 ```{r,OneWay-Boxes}
-plotBoxes(Outcome~Factor)
+(Outcome~Factor) |> plotBoxes()
 ```
 
 #### Density Plots
 
 ```{r,OneWay-Density}
-plotDensity(Outcome~Factor)
+(Outcome~Factor) |> plotDensity()
 ```
 
 ####  Data Plots
 
 ```{r,OneWay-Data}
-plotData(Outcome~Factor)
+(Outcome~Factor) |> plotData()
 ```
 
 ### Advanced Plots
@@ -86,53 +86,53 @@ plotData(Outcome~Factor)
 
 Build violin plots using multiple basic plot calls.
 ```{r,OneWay-ViolinsA}
-plotBoxes(Outcome~Factor,values=FALSE,main="Violin Plots")
-plotDensity(Outcome~Factor,add=TRUE,offset=0,type="full")
+(Outcome~Factor) |> plotBoxes(values=FALSE,main="Violin Plots")
+(Outcome~Factor) |> plotDensity(add=TRUE,offset=0,type="full")
 ```
 
 Obtain violin plots using one call (and enhance the plot).
 ```{r,OneWay-ViolinsB}
-plotViolins(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotViolins(col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Bean Plots
 
 Build bean plots using multiple basic plot calls.
 ```{r,OneWay-BeansA}
-plotDensity(Outcome~Factor,type="full",offset=0,main="Bean Plots")
-plotData(Outcome~Factor,add=TRUE,offset=0,pch=95)
+(Outcome~Factor) |> plotDensity(type="full",offset=0,main="Bean Plots")
+(Outcome~Factor) |> plotData(add=TRUE,offset=0,pch=95)
 ```
 
 Obtain bean plots using one call (and enhance the plot).
 ```{r,OneWay-BeansB}
-plotBeans(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotBeans(col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Raincloud Plots
 
 Build raincloud plots using multiple basic plot calls.
 ```{r,OneWay-RaincloudsA}
-plotBoxes(Outcome~Factor,values=FALSE,main="Raincloud Plots")
-plotDensity(Outcome~Factor,add=TRUE,offset=.1)
-plotData(Outcome~Factor,add=TRUE,method="jitter",offset=-.15)
+(Outcome~Factor) |> plotBoxes(values=FALSE,main="Raincloud Plots")
+(Outcome~Factor) |> plotDensity(add=TRUE,offset=.1)
+(Outcome~Factor) |> plotData(add=TRUE,method="jitter",offset=-.15)
 ```
 
 Obtain raincloud plots using one call (and enhance the plot).
 ```{r,OneWay-RaincloudsB}
-plotRainclouds(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotRainclouds(col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 #### Combination Plots
 
 Build a plot that combines all of the basic plots using multiple calls.
 ```{r,OneWay-CombinationsA}
-plotBoxes(Outcome~Factor,main="Combination Plots")
-plotDensity(Outcome~Factor,add=TRUE)
-plotFrequencies(Outcome~Factor,add=TRUE)
-plotData(Outcome~Factor,add=TRUE)
+(Outcome~Factor) |> plotBoxes(main="Combination Plots")
+(Outcome~Factor) |> plotDensity(add=TRUE)
+(Outcome~Factor) |> plotFrequencies(add=TRUE)
+(Outcome~Factor) |> plotData(add=TRUE)
 ```
 
 Build a plot that combines all of the basic plots using one call (and enhance the plot).
 ```{r,OneWay-CombinationsB}
-plotCombination(Outcome~Factor,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotCombination(col=c("darkblue","darkred","darkgoldenrod"))
 ```

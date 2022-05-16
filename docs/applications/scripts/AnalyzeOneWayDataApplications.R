@@ -14,27 +14,27 @@ OneWayData <- data.frame(Factor,Outcome)
 
 ### Analyze the Means
 
-analyzeMeans(Outcome~Factor)
-analyzeMeans(Outcome~Factor,conf.level=.99,mu=5)
+(Outcome~Factor) |> analyzeMeans()
+(Outcome~Factor) |> analyzeMeans(conf.level=.99,mu=5)
 
 ### Analyze a Mean Difference
 
-Comparison=factor(Factor,c("Level1","Level2"))
-analyzeMeanDifference(Outcome~Comparison)
-analyzeMeanDifference(Outcome~Comparison,conf.level=.99)
+Comparison <- factor(Factor,c("Level1","Level2"))
+(Outcome~Comparison) |> analyzeMeanDifference()
+(Outcome~Comparison) |> analyzeMeanDifference(conf.level=.99)
 
 ### Analyze a Mean Contrast
 
 L1vsOthers <- c(-1,.5,.5)
-analyzeMeanContrast(Outcome~Factor,contrast=L1vsOthers)
-analyzeMeanContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
+(Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers)
+(Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers,conf.level=.99)
 
 ### Analyze the Omnibus Effect
 
-analyzeMeansOmnibus(Outcome~Factor)
-analyzeMeansOmnibus(Outcome~Factor,conf.level=.99)
+(Outcome~Factor) |> analyzeMeansOmnibus()
+(Outcome~Factor) |> analyzeMeansOmnibus(conf.level=.99)
 
 ### Analyze Pairwise Comparisons
 
-analyzeMeansPairwise(Outcome~Factor)
-analyzeMeansPairwise(Outcome~Factor,conf.level=.99)
+(Outcome~Factor) |> analyzeMeansPairwise()
+(Outcome~Factor) |> analyzeMeansPairwise(conf.level=.99)

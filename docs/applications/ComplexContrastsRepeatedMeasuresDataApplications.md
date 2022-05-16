@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-05-16"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Complex Contrasts Repeated Measures Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Complex Contrasts Repeated Measures Data Applications
 
@@ -24,7 +46,7 @@ c2=c(0,1,0)
 Estimate and plot the confidence intervals for each contrast and the difference between contrasts
 
 ```r
-estimateMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
+(RepeatedData) |> estimateMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
 ```
 
 ```
@@ -39,7 +61,7 @@ estimateMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean",
 ```
 
 ```r
-plotMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
+(RepeatedData) |> plotMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
 ```
 
 ![](figures/Repeated-ComplexA-1.png)<!-- -->
@@ -47,7 +69,7 @@ plotMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Lev
 Change confidence Level for the intervals and re-estimate
 
 ```r
-estimateMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99)
+(RepeatedData) |> estimateMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99)
 ```
 
 ```
@@ -62,7 +84,7 @@ estimateMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean",
 ```
 
 ```r
-plotMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99,rope=c(-2,2))
+(RepeatedData) |> plotMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99,rope=c(-2,2))
 ```
 
 ![](figures/Repeated-ComplexB-1.png)<!-- -->

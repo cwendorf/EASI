@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-05-16"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Analyze Meta Functions Repeated Measures Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Analyze Meta Functions - Repeated Measures Data Applications
 
@@ -17,7 +39,7 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 Estimate, test, and standardized the means, including altering the confidence level and setting a population value.
 
 ```r
-analyzeMeans(RepeatedData)
+(RepeatedData) |> analyzeMeans()
 ```
 
 ```
@@ -41,7 +63,7 @@ analyzeMeans(RepeatedData)
 ```
 
 ```r
-analyzeMeans(RepeatedData,conf.level=.99,mu=5)
+(RepeatedData) |> analyzeMeans(conf.level=.99,mu=5)
 ```
 
 ```
@@ -69,7 +91,7 @@ analyzeMeans(RepeatedData,conf.level=.99,mu=5)
 Determine and then estimate, test, and standardize a mean difference.
 
 ```r
-analyzeMeanDifference(cbind(Outcome1,Outcome2))
+cbind(Outcome1,Outcome2) |> analyzeMeanDifference()
 ```
 
 ```
@@ -87,7 +109,7 @@ analyzeMeanDifference(cbind(Outcome1,Outcome2))
 ```
 
 ```r
-analyzeMeanDifference(cbind(Outcome1,Outcome2),conf.level=.99)
+cbind(Outcome1,Outcome2) |> analyzeMeanDifference(conf.level=.99)
 ```
 
 ```
@@ -110,7 +132,7 @@ Determine and then estimate, test, and standardize a mean contrast.
 
 ```r
 O1vsOthers <- c(-1,.5,.5)
-analyzeMeanContrast(RepeatedData,contrast=O1vsOthers)
+(RepeatedData) |> analyzeMeanContrast(contrast=O1vsOthers)
 ```
 
 ```
@@ -128,7 +150,7 @@ analyzeMeanContrast(RepeatedData,contrast=O1vsOthers)
 ```
 
 ```r
-analyzeMeanContrast(RepeatedData,contrast=O1vsOthers,conf.level=.99)
+(RepeatedData) |> analyzeMeanContrast(contrast=O1vsOthers,conf.level=.99)
 ```
 
 ```
@@ -150,7 +172,7 @@ analyzeMeanContrast(RepeatedData,contrast=O1vsOthers,conf.level=.99)
 Obtain a ANOVA source table, test for significance, and estimate the proportion of variance accounted for.
 
 ```r
-analyzeMeansOmnibus(RepeatedData)
+(RepeatedData) |> analyzeMeansOmnibus()
 ```
 
 ```
@@ -170,7 +192,7 @@ analyzeMeansOmnibus(RepeatedData)
 ```
 
 ```r
-analyzeMeansOmnibus(RepeatedData,conf.level=.99)
+(RepeatedData) |> analyzeMeansOmnibus(conf.level=.99)
 ```
 
 ```
@@ -194,7 +216,7 @@ analyzeMeansOmnibus(RepeatedData,conf.level=.99)
 Estimate, test, and standardize all pairwise mean comparisons.
 
 ```r
-analyzeMeansPairwise(RepeatedData)
+(RepeatedData) |> analyzeMeansPairwise()
 ```
 
 ```
@@ -218,7 +240,7 @@ analyzeMeansPairwise(RepeatedData)
 ```
 
 ```r
-analyzeMeansPairwise(RepeatedData,conf.level=.99)
+(RepeatedData) |> analyzeMeansPairwise(conf.level=.99)
 ```
 
 ```

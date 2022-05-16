@@ -51,12 +51,12 @@ c2=c(0,1,0)
 
 Estimate and plot the confidence intervals for each contrast and the difference between contrasts
 ```{r,Repeated-ComplexA}
-estimateMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
-plotMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
+(RepeatedData) |> estimateMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
+(RepeatedData) |> plotMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
 ```
 
 Change confidence Level for the intervals and re-estimate
 ```{r,Repeated-ComplexB}
-estimateMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99)
-plotMeanComplex(RepeatedData,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99,rope=c(-2,2))
+(RepeatedData) |> estimateMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99)
+(RepeatedData) |> plotMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99,rope=c(-2,2))
 ```

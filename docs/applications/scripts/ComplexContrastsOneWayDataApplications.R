@@ -17,8 +17,8 @@ OneWayData <- data.frame(Factor,Outcome)
 c1=c(1/3,1/3,1/3)
 c2=c(0,1,0)
 
-estimateMeanComplex(Outcome~Factor,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
-plotMeanComplex(Outcome~Factor,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
+(Outcome~Factor) |> estimateMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
+(Outcome~Factor) |> plotMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"))
 
-estimateMeanComplex(Outcome~Factor,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99)
-plotMeanComplex(Outcome~Factor,contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99,rope=c(-2,2))
+(Outcome~Factor) |> estimateMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99)
+(Outcome~Factor) |> plotMeanComplex(contrast1=c1,contrast2=c2,labels=c("GrandMean","Level2"),conf.level=.99,rope=c(-2,2))

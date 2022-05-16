@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-05-16"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Exploratory Analyses Repeated Measures Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Exploratory Analyses Repeated Measures Data Applications
 
@@ -19,15 +41,15 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 Get basic percentile information for the variables.
 
 ```r
-describePercentiles(RepeatedData)
+(RepeatedData) |> describePercentiles()
 ```
 
 ```
 ## $`Percentiles for the Data`
 ##               0%     25%     50%     75%    100%
-## Outcome1   4.857   8.720   9.922  11.260  15.870
-## Outcome2   4.847   6.726   9.747  12.957  16.452
-## Outcome3   4.937   8.200  10.645  11.727  12.896
+## Outcome1   5.402   8.650  10.049  11.452  15.638
+## Outcome2   5.160   7.015   9.958  12.890  15.510
+## Outcome3   5.017   8.564  10.514  11.494  12.536
 ```
 
 ### Basic Plots
@@ -38,7 +60,7 @@ Obtain basic plots (histograms, boxplots, density plots, and data plots) using t
 
 
 ```r
-plotFrequencies(RepeatedData)
+(RepeatedData) |> plotFrequencies()
 ```
 
 ![](figures/Repeated-Histograms-1.png)<!-- -->
@@ -47,7 +69,7 @@ plotFrequencies(RepeatedData)
 
 
 ```r
-plotBoxes(RepeatedData)
+(RepeatedData) |> plotBoxes()
 ```
 
 ![](figures/Repeated-Boxes-1.png)<!-- -->
@@ -56,7 +78,7 @@ plotBoxes(RepeatedData)
 
 
 ```r
-plotDensity(RepeatedData)
+(RepeatedData) |> plotDensity()
 ```
 
 ![](figures/Repeated-Density-1.png)<!-- -->
@@ -65,7 +87,7 @@ plotDensity(RepeatedData)
 
 
 ```r
-plotData(RepeatedData)
+(RepeatedData) |> plotData()
 ```
 
 ![](figures/Repeated-Data-1.png)<!-- -->
@@ -77,8 +99,8 @@ plotData(RepeatedData)
 Build violin plots using multiple basic plot calls.
 
 ```r
-plotBoxes(RepeatedData,values=FALSE,main="Violin Plots")
-plotDensity(RepeatedData,add=TRUE,offset=0,type="full")
+(RepeatedData) |> plotBoxes(values=FALSE,main="Violin Plots")
+(RepeatedData) |> plotDensity(add=TRUE,offset=0,type="full")
 ```
 
 ![](figures/Repeated-ViolinsA-1.png)<!-- -->
@@ -86,7 +108,7 @@ plotDensity(RepeatedData,add=TRUE,offset=0,type="full")
 Obtain violin plots using one call (and enhance the plot).
 
 ```r
-plotViolins(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotViolins(col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 ![](figures/Repeated-ViolinsB-1.png)<!-- -->
@@ -96,8 +118,8 @@ plotViolins(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 Build bean plots using multiple basic plot calls.
 
 ```r
-plotDensity(RepeatedData,type="full",offset=0,main="Bean Plots")
-plotData(RepeatedData,add=TRUE,offset=0,pch=95)
+(RepeatedData) |> plotDensity(type="full",offset=0,main="Bean Plots")
+(RepeatedData) |> plotData(add=TRUE,offset=0,pch=95)
 ```
 
 ![](figures/Repeated-BeansA-1.png)<!-- -->
@@ -105,7 +127,7 @@ plotData(RepeatedData,add=TRUE,offset=0,pch=95)
 Obtain bean plots using one call (and enhance the plot).
 
 ```r
-plotBeans(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotBeans(col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 ![](figures/Repeated-BeansB-1.png)<!-- -->
@@ -115,9 +137,9 @@ plotBeans(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 Build raincloud plots using multiple basic plot calls.
 
 ```r
-plotBoxes(RepeatedData,values=FALSE,main="Raincloud Plots")
-plotDensity(RepeatedData,add=TRUE,offset=.1)
-plotData(RepeatedData,add=TRUE,method="jitter",offset=-.15)
+(RepeatedData) |> plotBoxes(values=FALSE,main="Raincloud Plots")
+(RepeatedData) |> plotDensity(add=TRUE,offset=.1)
+(RepeatedData) |> plotData(add=TRUE,method="jitter",offset=-.15)
 ```
 
 ![](figures/Repeated-RaincloudsA-1.png)<!-- -->
@@ -125,7 +147,7 @@ plotData(RepeatedData,add=TRUE,method="jitter",offset=-.15)
 Obtain raincloud plots using one call (and enhance the plot).
 
 ```r
-plotRainclouds(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotRainclouds(col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 ![](figures/Repeated-RaincloudsB-1.png)<!-- -->
@@ -135,10 +157,10 @@ plotRainclouds(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
 Build a plot that combines all of the basic plots using multiple calls.
 
 ```r
-plotBoxes(RepeatedData,main="Combination Plots")
-plotDensity(RepeatedData,add=TRUE)
-plotFrequencies(RepeatedData,add=TRUE)
-plotData(RepeatedData,add=TRUE)
+(RepeatedData) |> plotBoxes(main="Combination Plots")
+(RepeatedData) |> plotDensity(add=TRUE)
+(RepeatedData) |> plotFrequencies(add=TRUE)
+(RepeatedData) |> plotData(add=TRUE)
 ```
 
 ![](figures/Repeated-CombinationsA-1.png)<!-- -->
@@ -146,7 +168,7 @@ plotData(RepeatedData,add=TRUE)
 Build a plot that combines all of the basic plots using one call (and enhance the plot).
 
 ```r
-plotCombination(RepeatedData,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotCombination(col=c("darkblue","darkred","darkgoldenrod"))
 ```
 
 ![](figures/Repeated-CombinationsB-1.png)<!-- -->
