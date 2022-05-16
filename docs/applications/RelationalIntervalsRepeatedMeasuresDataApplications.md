@@ -18,7 +18,7 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 Provide descriptive statistics and ANOVA source table
 
 ```r
-describeMeans(RepeatedData)
+(RepeatedData) |> describeMeans()
 ```
 
 ```
@@ -32,7 +32,7 @@ describeMeans(RepeatedData)
 ```
 
 ```r
-describeMeansOmnibus(RepeatedData)
+(RepeatedData) |> describeMeansOmnibus()
 ```
 
 ```
@@ -44,7 +44,7 @@ describeMeansOmnibus(RepeatedData)
 ```
 
 ```r
-testMeansOmnibus(RepeatedData)
+(RepeatedData) |> testMeansOmnibus()
 ```
 
 ```
@@ -56,7 +56,7 @@ testMeansOmnibus(RepeatedData)
 Provide and plot estimates of the arelational and relational intervals
 
 ```r
-estimateMeansRelational(RepeatedData)
+(RepeatedData) |> estimateMeansRelational()
 ```
 
 ```
@@ -70,7 +70,7 @@ estimateMeansRelational(RepeatedData)
 ```
 
 ```r
-plotMeansRelational(RepeatedData)
+(RepeatedData) |> plotMeansRelational()
 ```
 
 ![](figures/Repeated-Relational-1.png)<!-- -->

@@ -44,7 +44,7 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 Provide descriptive statistics for the variables.
 ```{r}
-describeMeans(RepeatedData)
+(RepeatedData) |> describeMeans()
 ```
 
 ### Analyses of Pairwise Comparisons
@@ -53,25 +53,25 @@ The analyses for the pairwise comparisons do not assume homogeneity of variance 
 
 Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons)and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 ```{r,Repeated-PairwiseA}
-plotMeansPairwiseDiffogram(RepeatedData,col=c("darkblue","darkred"))
+(RepeatedData) |> plotMeansPairwiseDiffogram(col=c("darkblue","darkred"))
 ```
 
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
 ```{r}
-plotMeansPairwise(RepeatedData,line=0)
+(RepeatedData) |> plotMeansPairwise(line=0)
 ```
 
 Obtain a table of the point and interval estimates for the pairwise comparisons.
 ```{r,Repeated-PairwiseB}
-estimateMeansPairwise(RepeatedData)
+(RepeatedData) |> estimateMeansPairwise()
 ```
 Test the pairwise comparisons for statistical significance.
 ```{r}
-testMeansPairwise(RepeatedData)
+(RepeatedData) |> testMeansPairwise()
 ```
 Obtain standardized mean difference and their confidence intervals for the pairwise comparisons.
 ```{r}
-estimateStandardizedMeansPairwise(RepeatedData)
+(RepeatedData) |> estimateStandardizedMeansPairwise()
 ```
 
 ### Analyses of Post Hoc Comparisons
@@ -80,23 +80,23 @@ The analyses for the post hoc comparisons do assume homogeneity of variance and 
 
 Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 ```{r,Repeated-PosthocA}
-plotMeansPosthocDiffogram(RepeatedData,col=c("darkblue","darkred"))
+(RepeatedData) |> plotMeansPosthocDiffogram(col=c("darkblue","darkred"))
 ```
 
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 ```{r,Repeated-PosthocB}
-plotMeansPosthoc(RepeatedData,line=0)
+(RepeatedData) |> plotMeansPosthoc(line=0)
 ```
 
 Obtain a table of the point and interval estimates for the post hoc comparisons.
 ```{r}
-estimateMeansPosthoc(RepeatedData)
+(RepeatedData) |> estimateMeansPosthoc()
 ```
 Test the post hoc comparisons for statistical significance.
 ```{r}
-testMeansPairwise(RepeatedData)
+(RepeatedData) |> testMeansPairwise()
 ```
 Obtain standardized mean difference and their confidence intervals for the post hoc comparisons.
 ```{r}
-estimateStandardizedMeansPosthoc(RepeatedData)
+(RepeatedData) |> estimateStandardizedMeansPosthoc()
 ```

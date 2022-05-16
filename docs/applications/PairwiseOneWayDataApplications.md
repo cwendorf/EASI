@@ -16,7 +16,7 @@ OneWayData <- data.frame(Factor,Outcome)
 Provide descriptive statistics for the groups.
 
 ```r
-describeMeans(Outcome~Factor)
+(Outcome~Factor) |> describeMeans()
 ```
 
 ```
@@ -34,7 +34,7 @@ The analyses for the pairwise comparisons do not assume homogeneity of variance 
 Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 
 ```r
-plotMeansPairwiseDiffogram(Outcome~Factor,col=c("darkblue","darkred"))
+(Outcome~Factor) |> plotMeansPairwiseDiffogram(col=c("darkblue","darkred"))
 ```
 
 ![](figures/OneWay-PairwiseA-1.png)<!-- -->
@@ -42,7 +42,7 @@ plotMeansPairwiseDiffogram(Outcome~Factor,col=c("darkblue","darkred"))
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
 
 ```r
-plotMeansPairwise(Outcome~Factor,line=0)
+(Outcome~Factor) |> plotMeansPairwise(line=0)
 ```
 
 ![](figures/OneWay-PairwiseB-1.png)<!-- -->
@@ -50,7 +50,7 @@ plotMeansPairwise(Outcome~Factor,line=0)
 Obtain a table of the point and interval estimates for the pairwise comparisons.
 
 ```r
-estimateMeansPairwise(Outcome~Factor)
+(Outcome~Factor) |> estimateMeansPairwise()
 ```
 
 ```
@@ -63,7 +63,7 @@ estimateMeansPairwise(Outcome~Factor)
 Test the pairwise comparisons for statistical significance.
 
 ```r
-testMeansPairwise(Outcome~Factor)
+(Outcome~Factor) |> testMeansPairwise()
 ```
 
 ```
@@ -76,7 +76,7 @@ testMeansPairwise(Outcome~Factor)
 Obtain standardized mean difference and their confidence intervals for the pairwise comparisons.
 
 ```r
-estimateStandardizedMeansPairwise(Outcome~Factor)
+(Outcome~Factor) |> estimateStandardizedMeansPairwise()
 ```
 
 ```
@@ -94,7 +94,7 @@ The analyses for the post hoc comparisons do assume homogeneity of variance and 
 Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 
 ```r
-plotMeansPosthocDiffogram(Outcome~Factor,col=c("darkblue","darkred"))
+(Outcome~Factor) |> plotMeansPosthocDiffogram(col=c("darkblue","darkred"))
 ```
 
 ![](figures/OneWay-PosthocA-1.png)<!-- -->
@@ -102,7 +102,7 @@ plotMeansPosthocDiffogram(Outcome~Factor,col=c("darkblue","darkred"))
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 
 ```r
-plotMeansPosthoc(Outcome~Factor,line=0)
+(Outcome~Factor) |> plotMeansPosthoc(line=0)
 ```
 
 ![](figures/OneWay-PosthocB-1.png)<!-- -->
@@ -110,7 +110,7 @@ plotMeansPosthoc(Outcome~Factor,line=0)
 Obtain a table of the point and interval estimates for the post hoc comparisons.
 
 ```r
-estimateMeansPosthoc(Outcome~Factor)
+(Outcome~Factor) |> estimateMeansPosthoc()
 ```
 
 ```
@@ -123,7 +123,7 @@ estimateMeansPosthoc(Outcome~Factor)
 Test the post hoc comparisons for statistical significance.
 
 ```r
-testMeansPairwise(Outcome~Factor)
+(Outcome~Factor) |> testMeansPairwise()
 ```
 
 ```
@@ -136,7 +136,7 @@ testMeansPairwise(Outcome~Factor)
 Obtain standardized mean difference and their confidence intervals for the post hoc comparisons.
 
 ```r
-estimateStandardizedMeansPosthoc(Outcome~Factor)
+(Outcome~Factor) |> estimateStandardizedMeansPosthoc()
 ```
 
 ```

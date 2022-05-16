@@ -15,7 +15,7 @@ Group <- factor(Group,levels=c(1,2,3,4,5),labels=c("Group1","Group2","Group3","G
 Provide descriptive statistics and ANOVA source table
 
 ```r
-describeMeans(Outcome~Group)
+(Outcome~Group) |> describeMeans()
 ```
 
 ```
@@ -29,7 +29,7 @@ describeMeans(Outcome~Group)
 ```
 
 ```r
-describeMeansOmnibus(Outcome~Group)
+(Outcome~Group) |> describeMeansOmnibus()
 ```
 
 ```
@@ -40,7 +40,7 @@ describeMeansOmnibus(Outcome~Group)
 ```
 
 ```r
-testMeansOmnibus(Outcome~Group)
+(Outcome~Group) |> testMeansOmnibus()
 ```
 
 ```
@@ -52,7 +52,7 @@ testMeansOmnibus(Outcome~Group)
 Provide and plot estimates of the arelational and relational intervals
 
 ```r
-estimateMeansRelational(Outcome~Group)
+(Outcome~Group) |> estimateMeansRelational()
 ```
 
 ```
@@ -66,7 +66,7 @@ estimateMeansRelational(Outcome~Group)
 ```
 
 ```r
-plotMeansRelational(Outcome~Group)
+(Outcome~Group) |> plotMeansRelational()
 ```
 
 ![](figures/OneWay-Relational-1.png)<!-- -->

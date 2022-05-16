@@ -14,22 +14,22 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 ### Descriptive Statistics
 
-describeMeans(RepeatedData)
+(RepeatedData) |> describeMeans()
 
 ### Analyses of Pairwise Comparisons
 
-plotMeansPairwiseDiffogram(RepeatedData,col=c("darkblue","darkred"))
-plotMeansPairwise(RepeatedData,line=0)
+(RepeatedData) |> plotMeansPairwiseDiffogram(col=c("darkblue","darkred"))
+(RepeatedData) |> plotMeansPairwise(line=0)
 
-estimateMeansPairwise(RepeatedData)
-testMeansPairwise(RepeatedData)
-estimateStandardizedMeansPairwise(RepeatedData)
+(RepeatedData) |> estimateMeansPairwise()
+(RepeatedData) |> testMeansPairwise()
+(RepeatedData) |> estimateStandardizedMeansPairwise()
 
 ### Analyses of Post Hoc Comparisons
 
-plotMeansPosthocDiffogram(RepeatedData,col=c("darkblue","darkred"))
-plotMeansPosthoc(RepeatedData,line=0)
+(RepeatedData) |> plotMeansPosthocDiffogram(col=c("darkblue","darkred"))
+(RepeatedData) |> plotMeansPosthoc(line=0)
 
-estimateMeansPosthoc(RepeatedData)
-testMeansPairwise(RepeatedData)
-estimateStandardizedMeansPosthoc(RepeatedData)
+(RepeatedData) |> estimateMeansPosthoc()
+(RepeatedData) |> testMeansPairwise()
+(RepeatedData) |> estimateStandardizedMeansPosthoc()

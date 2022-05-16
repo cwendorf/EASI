@@ -27,14 +27,14 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - `MeanComparison` - functions that examine a comparison among two group or level means (combines the `Means` and `MeanDifference` functions)
 
 
-In R versions less than 4.1, the function name is followed by variable to be analyzed (or frame or formula, depending on the research design). Similarly, any relevant additional parameters (such as different confidence levels, null values, etc.) can be included.
+In standard R syntax, the function name is followed in parentheses by the variable to be analyzed (or frame or formula, depending on the research design). Similarly, any relevant additional parameters (such as different confidence levels, null values, etc.) can be included.
 
 ```
 etimateMeanDifference(Outcome)
 etimateMeanDifference(Outcome,conf.level=.99)
 ```
 
-In R versions => 4.1, the native pipe operator can be used instead. Here, the variable (or frame or formula) is included first, followed by the pipe operator, and then the function call (with any relevant additional parameters). 
+In R versions => 4.1, the native pipe operator can be used instead of the standard syntax. Here, the variable (or frame or formula) is included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). 
 
 ```
 (Outcome~Factor) |> estimateMeanComparison()

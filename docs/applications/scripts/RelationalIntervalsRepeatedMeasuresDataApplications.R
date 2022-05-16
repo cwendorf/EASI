@@ -16,9 +16,9 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 
 ### Analyses of Relational Intervals
 
-describeMeans(RepeatedData)
-describeMeansOmnibus(RepeatedData)
-testMeansOmnibus(RepeatedData)
+(RepeatedData) |> describeMeans()
+(RepeatedData) |> describeMeansOmnibus()
+(RepeatedData) |> testMeansOmnibus()
 
-estimateMeansRelational(RepeatedData)
-plotMeansRelational(RepeatedData)
+(RepeatedData) |> estimateMeansRelational()
+(RepeatedData) |> plotMeansRelational()

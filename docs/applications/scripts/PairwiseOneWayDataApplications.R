@@ -14,22 +14,22 @@ OneWayData <- data.frame(Factor,Outcome)
 
 ### Descriptive Statistics
 
-describeMeans(Outcome~Factor)
+(Outcome~Factor) |> describeMeans()
 
 ### Analyses of Pairwise Comparisons
 
-plotMeansPairwiseDiffogram(Outcome~Factor,col=c("darkblue","darkred"))
-plotMeansPairwise(Outcome~Factor,line=0)
+(Outcome~Factor) |> plotMeansPairwiseDiffogram(col=c("darkblue","darkred"))
+(Outcome~Factor) |> plotMeansPairwise(line=0)
 
-estimateMeansPairwise(Outcome~Factor)
-testMeansPairwise(Outcome~Factor)
-estimateStandardizedMeansPairwise(Outcome~Factor)
+(Outcome~Factor) |> estimateMeansPairwise()
+(Outcome~Factor) |> testMeansPairwise()
+(Outcome~Factor) |> estimateStandardizedMeansPairwise()
 
 ### Analyses of Post Hoc Comparisons
 
-plotMeansPosthocDiffogram(Outcome~Factor,col=c("darkblue","darkred"))
-plotMeansPosthoc(Outcome~Factor,line=0)
+(Outcome~Factor) |> plotMeansPosthocDiffogram(col=c("darkblue","darkred"))
+(Outcome~Factor) |> plotMeansPosthoc(line=0)
 
-estimateMeansPosthoc(Outcome~Factor)
-testMeansPairwise(Outcome~Factor)
-estimateStandardizedMeansPosthoc(Outcome~Factor)
+(Outcome~Factor) |> estimateMeansPosthoc()
+(Outcome~Factor) |> testMeansPairwise()
+(Outcome~Factor) |> estimateStandardizedMeansPosthoc()

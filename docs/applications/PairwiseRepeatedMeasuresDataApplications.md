@@ -16,7 +16,7 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 Provide descriptive statistics for the variables.
 
 ```r
-describeMeans(RepeatedData)
+(RepeatedData) |> describeMeans()
 ```
 
 ```
@@ -34,7 +34,7 @@ The analyses for the pairwise comparisons do not assume homogeneity of variance 
 Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons)and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 
 ```r
-plotMeansPairwiseDiffogram(RepeatedData,col=c("darkblue","darkred"))
+(RepeatedData) |> plotMeansPairwiseDiffogram(col=c("darkblue","darkred"))
 ```
 
 ![](figures/Repeated-PairwiseA-1.png)<!-- -->
@@ -42,7 +42,7 @@ plotMeansPairwiseDiffogram(RepeatedData,col=c("darkblue","darkred"))
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
 
 ```r
-plotMeansPairwise(RepeatedData,line=0)
+(RepeatedData) |> plotMeansPairwise(line=0)
 ```
 
 ![](figures/unnamed-chunk-5-1.png)<!-- -->
@@ -50,7 +50,7 @@ plotMeansPairwise(RepeatedData,line=0)
 Obtain a table of the point and interval estimates for the pairwise comparisons.
 
 ```r
-estimateMeansPairwise(RepeatedData)
+(RepeatedData) |> estimateMeansPairwise()
 ```
 
 ```
@@ -63,7 +63,7 @@ estimateMeansPairwise(RepeatedData)
 Test the pairwise comparisons for statistical significance.
 
 ```r
-testMeansPairwise(RepeatedData)
+(RepeatedData) |> testMeansPairwise()
 ```
 
 ```
@@ -76,7 +76,7 @@ testMeansPairwise(RepeatedData)
 Obtain standardized mean difference and their confidence intervals for the pairwise comparisons.
 
 ```r
-estimateStandardizedMeansPairwise(RepeatedData)
+(RepeatedData) |> estimateStandardizedMeansPairwise()
 ```
 
 ```
@@ -94,7 +94,7 @@ The analyses for the post hoc comparisons do assume homogeneity of variance and 
 Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 
 ```r
-plotMeansPosthocDiffogram(RepeatedData,col=c("darkblue","darkred"))
+(RepeatedData) |> plotMeansPosthocDiffogram(col=c("darkblue","darkred"))
 ```
 
 ![](figures/Repeated-PosthocA-1.png)<!-- -->
@@ -102,7 +102,7 @@ plotMeansPosthocDiffogram(RepeatedData,col=c("darkblue","darkred"))
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 
 ```r
-plotMeansPosthoc(RepeatedData,line=0)
+(RepeatedData) |> plotMeansPosthoc(line=0)
 ```
 
 ![](figures/Repeated-PosthocB-1.png)<!-- -->
@@ -110,7 +110,7 @@ plotMeansPosthoc(RepeatedData,line=0)
 Obtain a table of the point and interval estimates for the post hoc comparisons.
 
 ```r
-estimateMeansPosthoc(RepeatedData)
+(RepeatedData) |> estimateMeansPosthoc()
 ```
 
 ```
@@ -123,7 +123,7 @@ estimateMeansPosthoc(RepeatedData)
 Test the post hoc comparisons for statistical significance.
 
 ```r
-testMeansPairwise(RepeatedData)
+(RepeatedData) |> testMeansPairwise()
 ```
 
 ```
@@ -136,7 +136,7 @@ testMeansPairwise(RepeatedData)
 Obtain standardized mean difference and their confidence intervals for the post hoc comparisons.
 
 ```r
-estimateStandardizedMeansPosthoc(RepeatedData)
+(RepeatedData) |> estimateStandardizedMeansPosthoc()
 ```
 
 ```

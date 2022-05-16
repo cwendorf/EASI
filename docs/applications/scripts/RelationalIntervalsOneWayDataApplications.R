@@ -13,9 +13,9 @@ Group <- factor(Group,levels=c(1,2,3,4,5),labels=c("Group1","Group2","Group3","G
 
 ### Analyses of Relational Intervals
 
-describeMeans(Outcome~Group)
-describeMeansOmnibus(Outcome~Group)
-testMeansOmnibus(Outcome~Group)
+(Outcome~Group) |> describeMeans()
+(Outcome~Group) |> describeMeansOmnibus()
+(Outcome~Group) |> testMeansOmnibus()
 
-estimateMeansRelational(Outcome~Group)
-plotMeansRelational(Outcome~Group)
+(Outcome~Group) |> estimateMeansRelational()
+(Outcome~Group) |> plotMeansRelational()
