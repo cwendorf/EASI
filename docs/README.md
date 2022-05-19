@@ -34,7 +34,7 @@ etimateMeanDifference(Outcome)
 etimateMeanDifference(Outcome,conf.level=.99)
 ```
 
-In R versions => 4.1, the native pipe operator can be used instead of the standard syntax. Here, the variable (or frame or formula) is included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). 
+In R versions => 4.1, the native pipe operator can be used instead of standard syntax. Here, the variable (or frame or formula) is included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). 
 
 ```
 (Outcome~Factor) |> estimateMeanComparison()
