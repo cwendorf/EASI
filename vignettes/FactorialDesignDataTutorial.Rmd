@@ -53,6 +53,12 @@ FactorialDataB2 <- subset(FactorialData,FactorB=="B2")
 
 #### Descriptive Statistics
 
+This code will produce raincloud plots for better understanding of the distributions.
+```{r,Factorial-Rainclouds}
+with(FactorialDataB1,plotRainclouds(Outcome~FactorA))
+with(FactorialDataB2,plotRainclouds(Outcome~FactorA))
+```
+
 This code obtains the descriptive statistics for the two data frames.
 ```{r}
 with(FactorialDataB1,describeMeans(Outcome~FactorA))

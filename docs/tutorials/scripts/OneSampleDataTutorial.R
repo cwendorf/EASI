@@ -13,6 +13,7 @@ OneSampleData <- data.frame(Outcome)
 
 #### Descriptive Statistics
 
+plotRainclouds(Outcome)
 describeMeans(Outcome)
 
 ### Analyses of the Mean

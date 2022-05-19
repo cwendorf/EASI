@@ -16,6 +16,14 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 #### Descriptive Statistics
 
+This code will produce raincloud plots for better understanding of the distributions.
+
+```r
+plotRainclouds(RepeatedData)
+```
+
+![](figures/Repeated-Rainclouds-1.png)<!-- -->
+
 This code obtains the descriptive statistics for the data frame.
 
 ```r

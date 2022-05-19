@@ -42,7 +42,18 @@ Outcome2 <- c(4,7,4,9)
 PairedData <- data.frame(Outcome1,Outcome2)
 ```
 
-#### Plot of the Data
+#### Descriptive Statistics
+
+This code will produce raincloud plots for better understanding of the distributions.
+```{r,PairedCorrelation-Rainclouds}
+plotRainclouds(PairedData)
+```
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+describeMeans(PairedData)
+describeCorrelations(PairedData)
+```
 
 This code provides a scatterplot for the bivariate relationship.
 ```{r,PairedCorrelation-ScatterA}
@@ -57,14 +68,6 @@ plotScatter(PairedData,ellipse=TRUE)
 The ellipse can be altered for different confidence levels.
 ```{r,PairedCorrelation-ScatterC}
 plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
-```
-
-#### Descriptive Statistics
-
-This code obtains the descriptive statistics for the data frame.
-```{r}
-describeMeans(PairedData)
-describeCorrelations(PairedData)
 ```
 
 ### Analyses of a Correlation

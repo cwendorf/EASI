@@ -14,6 +14,7 @@ PairedData <- data.frame(Outcome1,Outcome2)
 
 #### Descriptive Statistics
 
+plotRainclouds(PairedData)
 describeMeans(PairedData)
 
 ### Analyses of the Means

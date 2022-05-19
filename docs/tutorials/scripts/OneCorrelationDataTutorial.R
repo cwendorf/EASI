@@ -12,16 +12,15 @@ Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)
 PairedData <- data.frame(Outcome1,Outcome2)
 
-#### Plot of the Data
+#### Descriptive Statistics
+
+plotRainclouds(PairedData)
+describeMeans(PairedData)
+describeCorrelations(PairedData)
 
 plotScatter(PairedData)
 plotScatter(PairedData,ellipse=TRUE)
 plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
-
-#### Descriptive Statistics
-
-describeMeans(PairedData)
-describeCorrelations(PairedData)
 
 ### Analyses of a Correlation
 

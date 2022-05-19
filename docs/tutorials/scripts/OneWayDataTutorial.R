@@ -15,6 +15,7 @@ OneWayData <- data.frame(Factor,Outcome)
 
 #### Descriptive Statistics
 
+plotRainclouds(Outcome~Factor)
 describeMeans(Outcome~Factor)
 
 ### Analyses of the Means

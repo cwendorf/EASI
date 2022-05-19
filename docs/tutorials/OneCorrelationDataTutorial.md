@@ -13,33 +13,15 @@ Outcome2 <- c(4,7,4,9)
 PairedData <- data.frame(Outcome1,Outcome2)
 ```
 
-#### Plot of the Data
-
-This code provides a scatterplot for the bivariate relationship.
-
-```r
-plotScatter(PairedData)
-```
-
-![](figures/PairedCorrelation-ScatterA-1.png)<!-- -->
-
-This code provides a scatterplot along with a 95% confidence ellipse for the data.
-
-```r
-plotScatter(PairedData,ellipse=TRUE)
-```
-
-![](figures/PairedCorrelation-ScatterB-1.png)<!-- -->
-
-The ellipse can be altered for different confidence levels.
-
-```r
-plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
-```
-
-![](figures/PairedCorrelation-ScatterC-1.png)<!-- -->
-
 #### Descriptive Statistics
+
+This code will produce raincloud plots for better understanding of the distributions.
+
+```r
+plotRainclouds(PairedData)
+```
+
+![](figures/PairedCorrelation-Rainclouds-1.png)<!-- -->
 
 This code obtains the descriptive statistics for the data frame.
 
@@ -64,6 +46,30 @@ describeCorrelations(PairedData)
 ## Outcome1    1.000    0.500
 ## Outcome2    0.500    1.000
 ```
+
+This code provides a scatterplot for the bivariate relationship.
+
+```r
+plotScatter(PairedData)
+```
+
+![](figures/PairedCorrelation-ScatterA-1.png)<!-- -->
+
+This code provides a scatterplot along with a 95% confidence ellipse for the data.
+
+```r
+plotScatter(PairedData,ellipse=TRUE)
+```
+
+![](figures/PairedCorrelation-ScatterB-1.png)<!-- -->
+
+The ellipse can be altered for different confidence levels.
+
+```r
+plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
+```
+
+![](figures/PairedCorrelation-ScatterC-1.png)<!-- -->
 
 ### Analyses of a Correlation
 
