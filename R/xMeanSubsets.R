@@ -59,9 +59,17 @@ testMeanSubsets <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeanSubsets <- function(...,contrast,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,pos=c(2,2,4),connect=NULL,ylim=NULL,digits=3,pch=c(15,15,17),col="black",offset=0,intervals=TRUE) {
+plotMeanSubsets <- function(x,...) 
+  UseMethod("plotMeanSubsets")
+
+plotMeanSubsets.wss <- plotMeanSubsets.default <- function(...,contrast,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,pos=c(2,2,4),connect=TRUE,ylim=NULL,digits=3,pch=c(15,15,17),col="black",offset=0,intervals=TRUE) {
   results <- estimateMeanSubsets(...,contrast=contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
-  if(is.null(connect) & !is.null(dim(...))) {connect=TRUE} else {connect=FALSE}
+  if(is.null(main)) {main="Confidence Intervals for the Mean Subsets"}
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
+}
+
+plotMeanSubsets.bss <- plotMeanSubsets.formula <- function(...,contrast,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,rope=NULL,labels=NULL,values=TRUE,pos=c(2,2,4),connect=FALSE,ylim=NULL,digits=3,pch=c(15,15,17),col="black",offset=0,intervals=TRUE) {
+  results <- estimateMeanSubsets(...,contrast=contrast,conf.level=conf.level,labels=labels,main=main,digits=digits)
   if(is.null(main)) {main="Confidence Intervals for the Mean Subsets"}
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }

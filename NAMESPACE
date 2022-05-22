@@ -92,6 +92,10 @@ S3method(.testMeans,bss)
 export(.testMeans)
 export(testMeans)
 
+S3method(plotMeans,default)
+S3method(plotMeans,formula)
+S3method(plotMeans,wss)
+S3method(plotMeans,bss)
 export(plotMeans)
 
 ### xStandardizedMeans
@@ -146,6 +150,10 @@ S3method(.testMeanComparison,bss)
 export(.testMeanComparison)
 export(testMeanComparison)
 
+S3method(plotMeanComparison,default)
+S3method(plotMeanComparison,formula)
+S3method(plotMeanComparison,wss)
+S3method(plotMeanComparison,bss)
 export(plotMeanComparison)
 
 ### xMeanContrast
@@ -191,6 +199,10 @@ S3method(.testMeanSubsets,bss)
 export(.testMeanSubsets)
 export(testMeanSubsets)
 
+S3method(plotMeanSubsets,default)
+S3method(plotMeanSubsets,formula)
+S3method(plotMeanSubsets,wss)
+S3method(plotMeanSubsets,bss)
 export(plotMeanSubsets)
 
 ### xMeanComplex
@@ -209,6 +221,10 @@ S3method(.testMeanComplex,bss)
 export(.testMeanComplex)
 export(testMeanComplex)
 
+S3method(plotMeanComplex,default)
+S3method(plotMeanComplex,formula)
+S3method(plotMeanComplex,wss)
+S3method(plotMeanComplex,bss)
 export(plotMeanComplex)
 
 ### xMeansPairwise
@@ -276,6 +292,10 @@ S3method(.estimateMeansRelational,bss)
 export(.estimateMeansRelational)
 export(estimateMeansRelational)
 
+S3method(plotMeansRelational,default)
+S3method(plotMeansRelational,formula)
+S3method(plotMeansRelational,wss)
+S3method(plotMeansRelational,bss)
 export(plotMeansRelational)
 
 ### xMeansOmnibus
@@ -454,6 +474,10 @@ S3method(.testMeansBy,bss)
 export(.testMeansBy)
 export(testMeansBy)
 
+S3method(plotMeansBy,default)
+S3method(plotMeansBy,formula)
+S3method(plotMeansBy,wss)
+S3method(plotMeansBy,bss)
 export(plotMeansBy)
 
 ### xStandardizedMeansBy

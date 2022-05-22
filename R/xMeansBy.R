@@ -112,9 +112,21 @@ testMeansBy <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeansBy <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=NULL,pch=16,col="black",offset=0,intervals=TRUE) {
+plotMeansBy <- function(x,...) 
+  UseMethod("plotMeansBy")
+
+plotMeansBy.wss <- plotMeansBy.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=TRUE,pch=16,col="black",offset=0,intervals=TRUE) {
   results <- estimateMeansBy(...,by=by,conf.level=conf.level)
-  if(is.null(connect) & !is.null(dim(...))) {connect=TRUE} else {connect=FALSE}
+  for (i in 1:nlevels(by)) {
+    temp <- results[i]
+    plotIntervals(temp,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
+    par(ask=TRUE)
+  }
+  par(ask=FALSE) 
+}
+
+plotMeansBy.bss <- plotMeansBy.formula <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=FALSE,pch=16,col="black",offset=0,intervals=TRUE) {
+  results <- estimateMeansBy(...,by=by,conf.level=conf.level)
   for (i in 1:nlevels(by)) {
     temp <- results[i]
     plotIntervals(temp,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
