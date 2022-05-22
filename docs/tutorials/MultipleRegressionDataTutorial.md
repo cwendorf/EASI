@@ -16,14 +16,6 @@ RegressionData <- data.frame(Predictor1,Predictor2,Criterion)
 
 #### Descriptive Statistics
 
-This code will produce raincloud plots for better understanding of the distributions.
-
-```r
-plotRainclouds(RegressionData)
-```
-
-![](figures/MultipleRegression-Rainclouds-1.png)<!-- -->
-
 This code obtains the descriptive statistics for the data frame.
 
 ```r

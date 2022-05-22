@@ -53,12 +53,6 @@ MixedDataL2 <- subset(MixedData,Factor=="Level2")
 
 #### Descriptive Statistics
 
-This code will produce raincloud plots for better understanding of the distributions.
-```{r,Mixed-Rainclouds}
-with(MixedDataL1,plotRainclouds(cbind(Outcome1,Outcome2,Outcome3)))
-with(MixedDataL2,plotRainclouds(cbind(Outcome1,Outcome2,Outcome3)))
-```
-
 This code obtains the descriptive statistics for the two data frames.
 ```{r}
 with(MixedDataL1,describeMeans(cbind(Outcome1,Outcome2,Outcome3)))

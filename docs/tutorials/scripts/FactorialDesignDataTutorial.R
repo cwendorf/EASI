@@ -20,9 +20,6 @@ FactorialDataB2 <- subset(FactorialData,FactorB=="B2")
 
 #### Descriptive Statistics
 
-with(FactorialDataB1,plotRainclouds(Outcome~FactorA))
-with(FactorialDataB2,plotRainclouds(Outcome~FactorA))
-
 with(FactorialDataB1,describeMeans(Outcome~FactorA))
 with(FactorialDataB2,describeMeans(Outcome~FactorA))
 

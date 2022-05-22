@@ -45,11 +45,6 @@ IndependentData <- data.frame(Factor,Outcome)
 
 #### Descriptive Statistics
 
-This code will produce raincloud plots for better understanding of the distributions.
-```{r,Independent-Rainclouds}
-plotRainclouds(Outcome~Factor)
-```
-
 This code obtains the descriptive statistics for the data frame.
 ```{r}
 describeMeans(Outcome~Factor)

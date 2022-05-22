@@ -15,14 +15,6 @@ PairedData <- data.frame(Outcome1,Outcome2)
 
 #### Descriptive Statistics
 
-This code will produce raincloud plots for better understanding of the distributions.
-
-```r
-plotRainclouds(PairedData)
-```
-
-![](figures/Paired-Rainclouds-1.png)<!-- -->
-
 This code obtains the descriptive statistics for the data frame.
 
 ```r

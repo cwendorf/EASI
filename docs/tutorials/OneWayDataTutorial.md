@@ -16,14 +16,6 @@ OneWayData <- data.frame(Factor,Outcome)
 
 #### Descriptive Statistics
 
-This code will produce raincloud plots for better understanding of the distributions.
-
-```r
-plotRainclouds(Outcome~Factor)
-```
-
-![](figures/OneWay-Rainclouds-1.png)<!-- -->
-
 This code obtains the descriptive statistics for the data frame.
 
 ```r

@@ -15,7 +15,6 @@ RegressionData <- data.frame(Predictor1,Predictor2,Criterion)
 
 #### Descriptive Statistics
 
-plotRainclouds(RegressionData)
 describeMeans(RegressionData)
 
 ### Analyses of the Overall Model

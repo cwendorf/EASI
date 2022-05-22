@@ -15,14 +15,6 @@ BivariateData <- data.frame(Predictor,Criterion)
 
 #### Descriptive Statistics
 
-This code will produce raincloud plots for better understanding of the distributions.
-
-```r
-plotRainclouds(BivariateData)
-```
-
-![](figures/Regression-Rainclouds-1.png)<!-- -->
-
 This code obtains the descriptive statistics for the data frame.
 
 ```r

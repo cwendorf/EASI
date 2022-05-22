@@ -13,39 +13,7 @@ Outcome2 <- c(4,7,4,9)
 PairedData <- data.frame(Outcome1,Outcome2)
 ```
 
-#### Descriptive Statistics
-
-This code will produce raincloud plots for better understanding of the distributions.
-
-```r
-plotRainclouds(PairedData)
-```
-
-![](figures/PairedCorrelation-Rainclouds-1.png)<!-- -->
-
-This code obtains the descriptive statistics for the data frame.
-
-```r
-describeMeans(PairedData)
-```
-
-```
-## $`Descriptive Statistics for the Data`
-##                N       M      SD    Skew    Kurt
-## Outcome1   4.000   2.000   2.449   0.544  -2.944
-## Outcome2   4.000   6.000   2.449   0.544  -2.944
-```
-
-```r
-describeCorrelations(PairedData)
-```
-
-```
-## $`Correlation Matrix for the Variables`
-##          Outcome1 Outcome2
-## Outcome1    1.000    0.500
-## Outcome2    0.500    1.000
-```
+#### Plot of the Data
 
 This code provides a scatterplot for the bivariate relationship.
 
@@ -70,6 +38,32 @@ plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
 ```
 
 ![](figures/PairedCorrelation-ScatterC-1.png)<!-- -->
+
+#### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+
+```r
+describeMeans(PairedData)
+```
+
+```
+## $`Descriptive Statistics for the Data`
+##                N       M      SD    Skew    Kurt
+## Outcome1   4.000   2.000   2.449   0.544  -2.944
+## Outcome2   4.000   6.000   2.449   0.544  -2.944
+```
+
+```r
+describeCorrelations(PairedData)
+```
+
+```
+## $`Correlation Matrix for the Variables`
+##          Outcome1 Outcome2
+## Outcome1    1.000    0.500
+## Outcome2    0.500    1.000
+```
 
 ### Analyses of a Correlation
 

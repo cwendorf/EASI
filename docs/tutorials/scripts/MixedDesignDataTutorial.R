@@ -20,9 +20,6 @@ MixedDataL2 <- subset(MixedData,Factor=="Level2")
 
 #### Descriptive Statistics
 
-with(MixedDataL1,plotRainclouds(cbind(Outcome1,Outcome2,Outcome3)))
-with(MixedDataL2,plotRainclouds(cbind(Outcome1,Outcome2,Outcome3)))
-
 with(MixedDataL1,describeMeans(cbind(Outcome1,Outcome2,Outcome3)))
 with(MixedDataL2,describeMeans(cbind(Outcome1,Outcome2,Outcome3)))
 

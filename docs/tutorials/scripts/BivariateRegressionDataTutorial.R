@@ -14,7 +14,6 @@ BivariateData <- data.frame(Predictor,Criterion)
 
 #### Descriptive Statistics
 
-plotRainclouds(BivariateData)
 describeMeans(BivariateData)
 describeCorrelations(BivariateData)
 

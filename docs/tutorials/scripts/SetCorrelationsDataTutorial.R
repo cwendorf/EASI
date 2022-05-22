@@ -15,7 +15,6 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 #### Descriptive Statistics
 
-plotRainclouds(RepeatedData)
 describeMeans(RepeatedData)
 describeCorrelations(RepeatedData)
 
