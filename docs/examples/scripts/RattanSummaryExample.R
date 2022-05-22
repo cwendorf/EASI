@@ -12,7 +12,6 @@ Control <- c(N=19,M=4.447,SD=1.433)
 RattanSummary <- rbind(Comfort,Challenge,Control)
 class(RattanSummary) <- "bss"
 
-
 ### Analyses of the Different Groups
 
 estimateMeans(RattanSummary)
