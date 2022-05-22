@@ -83,7 +83,7 @@
 
 describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .describeMeansOmnibusMultifactor(...)
-  if(is.null(main)) {main <- "Source Table for the Model"} 
+  if(is.null(main)) {main <- "Source Table for the Model"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
@@ -130,7 +130,7 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
 
 .estimateMeansOmnibusMultifactor.default <- function(frame,by,conf.level=.90,...) {
   data <- data.frame(frame)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))} 
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   ListDescStats <- .describeMeansBy.default(data,by=by)
   ListCorrStats <- .describeCorrelationsBy.default(data,by=by)
   .estimateMeansOmnibusMultifactor.wss(ListDescStats,ListCorrStats,conf.level=conf.level)
@@ -143,7 +143,7 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
 
 estimateMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansOmnibusMultifactor(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)

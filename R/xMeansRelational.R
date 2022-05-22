@@ -60,7 +60,7 @@ estimateMeansRelational <- function(...,main=NULL,digits=3) {
 
 plotMeansRelational <- function(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,line=NULL,rope=NULL,values=TRUE,pos=2,pch=16,connect=NULL,ylim=NULL,digits=3,col="black",border=NA,offset=0,intervals=TRUE) {
   results <- estimateMeansRelational(...,conf.level=conf.level)
-  if(is.null(connect) & length(list(...))>1) {connect=TRUE} else {connect=FALSE}
+  if(is.null(connect) & !is.null(dim(...))) {connect=TRUE} else {connect=FALSE}
   if(!add) {plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)}
   results <- .unformatFrame(results[[1]])
   rect(1:nrow(results)+offset-.05,results[,2],1:nrow(results)+offset+.05,results[,3],border=border,col=.colorTransparent(col,50))

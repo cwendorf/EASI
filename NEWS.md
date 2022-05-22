@@ -5,6 +5,7 @@
 - Reinstated documentation
 - Added a diffogram for pairwise mean comparisons
 - Added an exposition pipe for handling data sets
+- Added connecting lines for within subjects designs
 
 ## 5.1.220202
 

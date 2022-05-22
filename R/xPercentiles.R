@@ -24,7 +24,7 @@
 
 describePercentiles <- function(...,main=NULL,digits=3) {
   results <- .describePercentiles(...)
-  if(is.null(main)) {main <- "Percentiles for the Data"} 
-  results <- .formatList(list(results),main=main,digits=digits) 
+  if(is.null(main)) {main <- "Percentiles for the Data"}
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
