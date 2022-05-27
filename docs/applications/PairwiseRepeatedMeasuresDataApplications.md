@@ -45,7 +45,7 @@ Provide a traditional plot of the confidence intervals for the pairwise comparis
 (RepeatedData) |> plotMeansPairwise(line=0)
 ```
 
-![](figures/unnamed-chunk-5-1.png)<!-- -->
+![](figures/Repeated-PairwiseB-1.png)<!-- -->
 
 Obtain a table of the point and interval estimates for the pairwise comparisons.
 

@@ -57,12 +57,12 @@ Provide a diffogram (plot of means and the confidence intervals for the pairwise
 ```
 
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
-```{r}
+```{r,Repeated-PairwiseB}
 (RepeatedData) |> plotMeansPairwise(line=0)
 ```
 
 Obtain a table of the point and interval estimates for the pairwise comparisons.
-```{r,Repeated-PairwiseB}
+```{r}
 (RepeatedData) |> estimateMeansPairwise()
 ```
 Test the pairwise comparisons for statistical significance.
