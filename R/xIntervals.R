@@ -26,7 +26,7 @@
     points(1:3+offset,graph[,1],pch=pch,cex=1.5,col=col)
     arrows(1:3+offset,graph[,2],1:3+offset,graph[,3],col=col,lwd=2,length=0)
     arrows(c(1,2,4)+offset,graph[1:2,1],4,graph[1:2,1],code=3,length=0,lty=2,col=col)}
-  if(connect) {arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1,col=col)}
+  if(connect) {arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1,col="black")}
   if(!is.null(rope)) {
     graphrope <- rope+as.vector(results[1,1])
     rect(2.6,graphrope[1],3.6,graphrope[2],col=.colorTransparent("black",15),border=NA)} 
