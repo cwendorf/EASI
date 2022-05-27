@@ -16,13 +16,6 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 colorTheme <- c("darkred","darkblue","darkgoldenrod")
 
-#### Diamond Plots
-
-RepeatedData |> plotDiamonds()
-
-RepeatedData |> plotData(main="Data and Diamond Plots",offset=0,method="jitter",col=colorTheme)
-RepeatedData |> plotDiamonds(add=TRUE,line=10,rope=c(8,12),col=colorTheme)
-
 #### Confidence Interval Plots
 
 RepeatedData |> plotIntervals()
@@ -36,17 +29,10 @@ RepeatedData |> plotPlausible(add=TRUE,col=colorTheme)
 ComparisonData <- data.frame(Outcome1,Outcome2)
 comparisonTheme <- c("darkred","darkblue","black")
 
-#### Diamond Plots
-
-ComparisonData |> plotDiamonds(conf.level=.99)
-
-ComparisonData |> plotDiamonds(main="Data and Diamond Plots",conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
-ComparisonData |> plotData(add=TRUE,offset=0,method="jitter",col=comparisonTheme)
-
 #### Confidence Interval Plots
 
 ComparisonData |> plotIntervals(conf.level=.99)
 
-ComparisonData |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
+ComparisonData |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(0,20),values=FALSE,rope=c(-2,2),col=comparisonTheme)
 ComparisonData |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
 ComparisonData |> plotData(add=TRUE,method="jitter",col=comparisonTheme)

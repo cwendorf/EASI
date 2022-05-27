@@ -15,13 +15,6 @@ Outcome <- c(rnorm(50,mean=7,sd=2),rnorm(50,mean=11,sd=4),rnorm(50,mean=12,sd=4)
 
 colorTheme <- c("darkred","darkblue","darkgoldenrod")
 
-#### Diamond Plots
-
-(Outcome~Factor) |> plotDiamonds()
-
-(Outcome~Factor) |> plotData(main="Data and Diamond Plots",offset=0,method="jitter",col=colorTheme)
-(Outcome~Factor) |> plotDiamonds(add=TRUE,line=10,rope=c(8,12),col=colorTheme)
-
 #### Confidence Interval Plots
 
 (Outcome~Factor) |> plotIntervals()
@@ -30,23 +23,15 @@ colorTheme <- c("darkred","darkblue","darkgoldenrod")
 (Outcome~Factor) |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
 (Outcome~Factor) |> plotPlausible(add=TRUE,col=colorTheme)
 
-
 ### Analyses of a Comparison
 
 Comparison <- factor(Factor,c("Group1","Group2"))
 comparisonTheme <- c("darkred","darkblue","black")
 
-#### Diamond Plots
-
-(Outcome~Comparison) |> plotDiamonds(conf.level=.99)
-
-(Outcome~Comparison) |> plotDiamonds(main="Data and Diamond Plots",conf.level=.99,ylim=c(-5,25),rope=c(-2,2),col=comparisonTheme)
-(Outcome~Comparison) |> plotData(add=TRUE,offset=0,method="jitter",col=comparisonTheme)
-
 #### Confidence Interval Plots
 
 (Outcome~Comparison) |> plotIntervals(conf.level=.99)
 
-(Outcome~Comparison) |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(-5,25),values=FALSE,rope=c(-2,2),col=comparisonTheme)
+(Outcome~Comparison) |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(0,20),values=FALSE,rope=c(-2,2),col=comparisonTheme)
 (Outcome~Comparison) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
 (Outcome~Comparison) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
