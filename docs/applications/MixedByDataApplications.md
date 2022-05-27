@@ -12,19 +12,6 @@ Outcome2 <- c(4,7,4,9,3,1,6,6)
 Outcome3 <- c(4,9,6,9,3,3,6,8)
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
-MixedData
-```
-
-```
-##   Factor Outcome1 Outcome2 Outcome3
-## 1 Level1        0        4        4
-## 2 Level1        0        7        9
-## 3 Level1        3        4        6
-## 4 Level1        5        9        9
-## 5 Level2        1        3        3
-## 6 Level2        3        1        3
-## 7 Level2        6        6        6
-## 8 Level2        6        6        8
 ```
 
 #### Descriptive Statistics

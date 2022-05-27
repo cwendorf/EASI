@@ -13,7 +13,6 @@ Outcome2 <- c(4,7,4,9,3,1,6,6)
 Outcome3 <- c(4,9,6,9,3,3,6,8)
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
-MixedData
 
 #### Descriptive Statistics
 

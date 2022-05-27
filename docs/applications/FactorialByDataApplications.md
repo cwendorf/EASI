@@ -14,35 +14,6 @@ Outcome <- c(0,0,3,5,4,7,4,9,4,9,6,9,3,1,6,6,2,2,5,7,2,4,7,7)
 FactorA <- factor(FactorA,levels=c(1,2,3),labels=c("A1","A2","A3"))
 FactorB <- factor(FactorB,levels=c(1,2),labels=c("B1","B2"))
 FactorialData <- data.frame(FactorA,FactorB,Outcome)
-FactorialData
-```
-
-```
-##    FactorA FactorB Outcome
-## 1       A1      B1       0
-## 2       A1      B1       0
-## 3       A1      B1       3
-## 4       A1      B1       5
-## 5       A2      B1       4
-## 6       A2      B1       7
-## 7       A2      B1       4
-## 8       A2      B1       9
-## 9       A3      B1       4
-## 10      A3      B1       9
-## 11      A3      B1       6
-## 12      A3      B1       9
-## 13      A1      B2       3
-## 14      A1      B2       1
-## 15      A1      B2       6
-## 16      A1      B2       6
-## 17      A2      B2       2
-## 18      A2      B2       2
-## 19      A2      B2       5
-## 20      A2      B2       7
-## 21      A3      B2       2
-## 22      A3      B2       4
-## 23      A3      B2       7
-## 24      A3      B2       7
 ```
 
 #### Descriptive Statistics
