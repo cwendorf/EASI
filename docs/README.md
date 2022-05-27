@@ -19,7 +19,7 @@ EASI offers a general syntax for function calls. Each function is first comprise
 - `plot` - plot the descriptive statistics or the estimates
 - `test` - test the estimates for statistical significance
 
-Then the functions add an object (the noun that indicates the parameter or item to be analyzed). For example, these are the basic options for the analyses of means and mean differences (noting that functions for correlations, standardized mean difference, omnibus tests, and more also exist):
+Then the functions add an object (the noun that indicates the parameter or item to be analyzed). For example, these are the basic options for the analyses of means and mean differences (noting that functions for correlations, standardized mean differences, omnibus tests, and more also exist):
 
 - `Means` - functions that examine all individual group or level means
 - `MeanDifference` - functions that examine a difference among two group or level means
@@ -43,8 +43,8 @@ In R versions => 4.1, the native pipe operator can be used instead of standard s
 
 ### Usage
 
-The package includes a wide variety of documentation, tutorials, and examples that demonstrate its use:
+The package includes a wide variety of tutorials, examples, and applications that demonstrate its use:
 
-- [Tutorials from the Sourcebook](./tutorials) - Vingettes with tutorial data that show the diversity of basic options 
-- [Examples from ITNS](./examples) - Reanalyses of published textbook examples highlighting the estimation approach 
+- [Tutorials from the Sourcebook](./tutorials) - Vignettes with tutorial data that show the basic options 
+- [Examples from ITNS](./examples) - Reanalyses of published textbook examples that highlight the estimation approach 
 - [Advanced Applications](./applications) - Advanced and experimental applications of the package
