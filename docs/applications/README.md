@@ -7,12 +7,12 @@ Applications represent advanced and undocumented features of EASI. Data and summ
 
 ### Exploratory Data Analyses and Enhanced Plots
 
-The **ExploratoryAnalyses** files analyze applications of boxplots, violin plots, beanplots, rainclouds (and colors!):
+The **ExploratoryAnalyses** files analyze boxplots, violin plots, beanplots, rainclouds (and colors!):
 
 - [*ExploratoryAnalysesOneWayDataApplications*](./ExploratoryAnalysesOneWayDataApplications.md) - Uses one-way (between-subjects) data
 - [*ExploratoryAnalysesRepeatedMeasuresDataApplications*](./ExploratoryAnalysesRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
 
-The **EnhancedPlots** files analyze applications of confidence interval plots with plausibility curves (and colors!):
+The **EnhancedPlots** files analyze confidence interval plots with plausibility curves (and colors!):
 
 - [*EnhancedPlotsOneWayDataApplications*](./EnhancedPlotsOneWayDataApplications.md) - Uses one-way (between-subjects) data
 - [*EnhancedPlotsRepeatedMeasuresDataApplications*](./EnhancedPlotsRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
