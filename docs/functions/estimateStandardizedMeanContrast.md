@@ -8,7 +8,7 @@ Provides the standardized effect size and its confidence interval for the contra
 
 ```r
 ## Default S3 method
-estimateStandardizedMeanContrast(...,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanContrast(frame,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
 estimateStandardizedMeanContrast(formula,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
@@ -24,7 +24,7 @@ estimateStandardizedMeanContrast(DescStats,contrast,mu=0,conf.level=.95,main=NUL
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations among the measures

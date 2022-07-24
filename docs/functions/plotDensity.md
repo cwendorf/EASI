@@ -8,7 +8,7 @@ Provides a density plot for each group or variable.
 
 ```r
 ## Default S3 method
-plotDensity(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1))
+plotDensity(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1))
 
 ## S3 method for class 'formula'
 plotDensity(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.07,scale=.8,border=rgb(0,0,0,.2),col=rgb(0,0,0,.1))
@@ -18,7 +18,7 @@ plotDensity(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```add``` | whether the plot should added to the existing plot

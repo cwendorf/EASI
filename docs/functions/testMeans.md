@@ -8,7 +8,7 @@ Provides a statistical significance test for each group or level mean.
 
 ```r
 ## Default S3 method
-testMeans(...,mu=0,main=NULL,digits=3)
+testMeans(frame,mu=0,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
 testMeans(formula,mu=0,main=NULL,digits=3)
@@ -24,7 +24,7 @@ testMeans(DescStats,mu=0,main=NULL,digits=3)
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```mu``` | a number indicating the true/hypothesized value of the mean

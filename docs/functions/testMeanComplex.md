@@ -8,7 +8,7 @@ Provides the statistical significance tests for a mean contrasts and the differe
 
 ```r
 ## Default S3 method
-testMeanComplex(...,contrast1,contrast2,main=NULL,digits=3)
+testMeanComplex(frame,contrast1,contrast2,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
 testMeanComplex(formula,contrast1,contrast2,main=NULL,digits=3)
@@ -24,7 +24,7 @@ testMeanComplex(DescStats,contrast1,contrast2,main=NULL,digits=3)
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations among the measures

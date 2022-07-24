@@ -8,7 +8,7 @@ Provides a table of arelational (confidence) and relational (comparative) interv
 
 ```r
 ## Default S3 method
-estimateMeansRelational(...,conf.level=.95,main=NULL,digits=3)
+estimateMeansRelational(frame,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
 estimateMeansRelational(formula,conf.level=.95,main=NULL,digits=3)
@@ -24,7 +24,7 @@ estimateMeansRelational(DescStats,conf.level=.95,main=NULL,digits=3)
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```conf.level``` | confidence level of the interval

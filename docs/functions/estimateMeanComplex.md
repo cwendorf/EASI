@@ -8,7 +8,7 @@ Provides the confidence intervals for a mean contrasts and the difference betwee
 
 ```r
 ## Default S3 method
-estimateMeanComplex(...,contrast1,contrast2,conf.level=.95,main=NULL,digits=3)
+estimateMeanComplex(frame,contrast1,contrast2,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
 estimateMeanComplex(formula,contrast1,contrast2,conf.level=.95,main=NULL,digits=3)
@@ -24,7 +24,7 @@ estimateMeanComplex(DescStats,contrast1,contrast2,conf.level=.95,main=NULL,digit
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations among the measures

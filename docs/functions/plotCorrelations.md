@@ -8,7 +8,7 @@ Provides a plot of all correlations and their confidence intervals for a list of
 
 ```r
 ## Default S3 method
-plotCorrelations(...,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotCorrelations(frame,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'wss'
 plotCorrelations(CompStats,CorrStats,ylab="Correlation",xlab="",conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
@@ -18,7 +18,7 @@ plotCorrelations(CompStats,CorrStats,ylab="Correlation",xlab="",conf.level=.95,v
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```ylab``` | a label for the y-axis

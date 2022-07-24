@@ -8,7 +8,7 @@ Provides a boxplot for each group or variable.
 
 ```r
 ## Default S3 method
-plotBoxes(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3)
+plotBoxes(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3)
 
 ## S3 method for class 'formula'
 plotBoxes(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3)
@@ -18,7 +18,7 @@ plotBoxes(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form \code{lhs ~ rhs where \code{lhs is a numeric variable giving the data values and \code{rhs a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```add``` | whether the plot should added to the existing plot

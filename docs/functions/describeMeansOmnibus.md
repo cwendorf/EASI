@@ -8,7 +8,7 @@ Provides a Analysis of Variance source table.
 
 ```r
 ## Default S3 method
-describeMeanOmnibus(...,main=NULL,digits=3)
+describeMeanOmnibus(frame,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
 describeMeanOmnibus(formula,main=NULL,digits=3)
@@ -24,7 +24,7 @@ describeMeanOmnibus(DescStats,main=NULL,digits=3)
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations for the data set

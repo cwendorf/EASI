@@ -8,7 +8,7 @@ Provides a table of means, standard deviations, and confidence intervals for eac
 
 ```r
 ## Default S3 method
-estimateMeans(...,conf.level=.95,main=NULL,digits=3)
+estimateMeans(frame,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
 estimateMeans(formula,conf.level=.95,main=NULL,digits=3)
@@ -24,7 +24,7 @@ estimateMeans(DescStats,conf.level=.95,main=NULL,digits=3)
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```conf.level``` | confidence level of the interval

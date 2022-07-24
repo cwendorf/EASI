@@ -8,7 +8,7 @@ Provides a plot of data points for each group or level mean.
 
 ```r
 ## Default S3 method
-plotData(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.1,method="stack",jitter=.05,col=rgb(0,0,0,.3),pch=16)
+plotData(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.1,method="stack",jitter=.05,col=rgb(0,0,0,.3),pch=16)
 
 ## S3 method for class 'formula'
 plotData(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.1,method="stack",jitter=.05,col=rgb(0,0,0,.3),pch=16)
@@ -18,7 +18,7 @@ plotData(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",offset=.1,method="st
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```add``` | whether the plot should added to the existing plot

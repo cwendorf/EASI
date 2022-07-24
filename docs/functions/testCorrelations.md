@@ -8,7 +8,7 @@ Provides a statistical significance test for correlations of the specified varia
 
 ```r
 ## Default S3 method
-testCorrelations(...,main=NULL,digits=3)
+testCorrelations(frame,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
 testCorrelations(CompStats,CorrStats,main=NULL,digits=3)
@@ -18,7 +18,7 @@ testCorrelations(CompStats,CorrStats,main=NULL,digits=3)
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```CompStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations among the measures
 ```main``` | a custom title for the table

@@ -8,7 +8,7 @@ Calculates the proportion of variance accounted for.
 
 ```r
 ## Default S3 method
-describeMeansEffect(...,main=NULL,digits=3)
+describeMeansEffect(frame,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
 describeMeansEffect(formula,main=NULL,digits=3)
@@ -25,7 +25,7 @@ describeMeansEffect(DescStats,main=NULL,digits=3)
 Argument | Description
 :-- | :--
 
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form \code{lhs ~ rhs where \code{lhs is a numeric variable giving the data values and \code{rhs a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations for the data set

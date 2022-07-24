@@ -8,7 +8,7 @@ Provides a plot of of arelational (confidence) and relational (comparative) inte
 
 ```r
 ## Default S3 method
-plotMeansRelational(...,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeansRelational(frame,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
 
 ## S3 method for class 'formula'
 plotMeansRelational(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
@@ -24,7 +24,7 @@ plotMeansRelational(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```ylab``` | a label for the y-axis

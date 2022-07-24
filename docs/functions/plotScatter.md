@@ -8,7 +8,7 @@ Provides a scatterplot and regression line.
 
 ```r
 ## Default S3 method
-plotScatter(...,add=FALSE,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,points=TRUE,line=TRUE,col="black",pch=16)
+plotScatter(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,points=TRUE,line=TRUE,col="black",pch=16)
 
 ## S3 method for class 'wss'
 plotScatter(PredStats,CritStats,CorrStats,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,points=FALSE,line=TRUE,col="black",pch=16)
@@ -18,7 +18,7 @@ plotScatter(PredStats,CritStats,CorrStats,main=NULL,ylab="Outcome",xlab="",xlim=
 
 Argument | Description
 :-- | :--
-```...``` | a set of (non-empty) numeric vectors of data values
+```frame``` | a set of (non-empty) numeric vectors of data values
 ```PredStats``` | a matrix/frame of descriptive/summary statistics for the predictor
 ```CritStats``` | a matrix/frame of descriptive/summary statistics for the criterion
 ```CorrStats``` | a matrix/frame of correlations for the data set
