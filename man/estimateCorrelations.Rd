@@ -19,6 +19,7 @@
 \item{CompStats}{a matrix/frame of descriptive/summary statistics}
 \item{CorrStats}{a matrix/frame of correlations among the measures}
 \item{conf.level}{confidence level of the interval}
+\item{line}{a number for a horizontal reference line}
 \item{main}{a custom title for the table}
 \item{digits}{the specified number of decimal places}
 }
