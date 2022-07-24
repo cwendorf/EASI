@@ -15,6 +15,12 @@
 <p align="center"><kbd><img src="docs/easiCoverImage.jpg"></kbd></p>
 </a>
 
+*EASI* is feature-rich and posses the ability to create highly-customized graphs. These features can be combined and stacked to produce images similar to those in other applications that highlight estimation statistics. Also, it can also compatible with the pipe operator feature in newer versions of R.
+
+<a href="https://github.com/cwendorf/EASI">
+<p align="center"><kbd><img src="docs/easiCoverImage2.jpg"></kbd></p>
+</a>
+
 ### Installation
 
 This package is not currently on CRAN, but the latest version can be installed from GitHub:
