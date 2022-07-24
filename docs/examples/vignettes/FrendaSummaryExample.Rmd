@@ -48,14 +48,9 @@ class(FrendaSummary) <- "bss"
 
 First, estimate the descriptive statistics and confidence intervals for all levels.
 
-```{r}
-estimateMeans(FrendaSummary)
-```
-
-Then plot those confidence intervals.
-
 ```{r,Frenda-Means}
-plotMeans(FrendaSummary,ylab="False Memory")
+estimateMeans(FrendaSummary)
+plotMeans(FrendaSummary,ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
 ### Analyses of the Marginal Means
@@ -98,16 +93,11 @@ To analyze the main effect of Factor A, set a contrast code and plot the margina
 
 ```{r,Frenda-MainA}
 mainFactorA <- c(-.5,-.5,.5,.5)
-plotMeanSubsets(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory")
+estimateMeanSubsets(FrendaSummary,contrast=mainFactorA)
+plotMeanSubsets(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-This main effect can be tested for statistical significance.
-
-```{r}
-testMeanContrast(FrendaSummary,contrast=mainFactorA)
-```
-
-Finally, estimate the standardized effect size for the main effect.
+Then estimate the standardized effect size for the main effect.
 
 ```{r}
 estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorA)
@@ -119,16 +109,11 @@ To analyze the main effect of Factor B, set a contrast code and plot the margina
 
 ```{r,Frenda-MainB}
 mainFactorB <- c(-.5,.5,-.5,.5)
-plotMeanSubsets(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory")
+estimateMeanSubsets(FrendaSummary,contrast=mainFactorB)
+plotMeanSubsets(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-This main effect can be tested for statistical significance.
-
-```{r}
-testMeanContrast(FrendaSummary,contrast=mainFactorB)
-```
-
-Finally, estimate the standardized effect size for the main effect.
+Then estimate the standardized effect size for the main effect.
 
 ```{r}
 estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorB)
@@ -143,28 +128,17 @@ Interaction <- c(1,-1,-1,1)
 estimateMeanContrast(FrendaSummary,contrast=Interaction)
 ```
 
-Then test the interaction for statistical significance.
-
-```{r}
-testMeanContrast(FrendaSummary,contrast=Interaction)
-```
-
 #### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
 
 More helpfully, analyze the simple effect by setting the appropriate contrast and plotting.
 
 ```{r,Frenda-SimpleA1}
 simpleBatA1 <- c(-1,1,0,0)
-plotMeanSubsets(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
+estimateMeanSubsets(FrendaSummary,contrast=simpleBatA1)
+plotMeanSubsets(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-Test the simple effect for statistical significance.
-
-```{r}
-testMeanContrast(FrendaSummary,contrast=simpleBatA1)
-```
-
-Finally, estimate the standardized effect size for the simple effect.
+Then estimate the standardized effect size for the simple effect.
 
 ```{r}
 estimateStandardizedMeanContrast(FrendaSummary,contrast=simpleBatA1)
@@ -176,16 +150,11 @@ Next, analyze the other simple effect by setting the appropriate contrast and pl
 
 ```{r,Frenda-SimpleA2}
 simpleBatA2 <- c(0,0,-1,1)
-plotMeanSubsets(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
+estimateMeanSubsets(FrendaSummary,contrast=simpleBatA2)
+plotMeanSubsets(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-Test the simple effect for statistical significance.
-
-```{r}
-testMeanContrast(FrendaSummary,contrast=simpleBatA2)
-```
-
-Finally, estimate the standardized effect size for the simple effect.
+Then estimate the standardized effect size for the simple effect.
 
 ```{r}
 estimateStandardizedMeanContrast(FrendaSummary,contrast=simpleBatA2)

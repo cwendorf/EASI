@@ -17,7 +17,22 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##              M      SE      df      LL      UL
+## Pen      8.812   0.815  33.000   7.155  10.469
+## Laptop  14.519   1.309  30.000  11.847  17.192
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   5.708   1.541  50.816   2.613   8.802
+```
+
+```r
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 ![](figures/PenLaptop1-Comparison-1.png)<!-- -->
@@ -51,7 +66,22 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##              M      SE      df      LL      UL
+## Pen      6.881   0.609  47.000   5.656   8.106
+## Laptop  12.088   0.544 102.000  11.008  13.167
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   5.207   0.817 117.543   3.589   6.824
+```
+
+```r
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 ![](figures/PenLaptop2-Comparison-1.png)<!-- -->
@@ -85,7 +115,22 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##              M      SE      df      LL      UL
+## Pen      4.178   0.347  53.000   3.483   4.874
+## Laptop  11.622   0.766  54.000  10.086  13.157
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   7.443   0.841  75.193   5.768   9.118
+```
+
+```r
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 ![](figures/PenLaptop3-Comparison-1.png)<!-- -->

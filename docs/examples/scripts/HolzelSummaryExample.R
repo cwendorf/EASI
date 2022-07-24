@@ -26,8 +26,10 @@ HolzelCorrMeditation <- fillCorrelations(HolzelCorrMeditation)
 
 ### Analyses of the Differences within Conditions
 
-plotMeanComparison(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter")
-plotMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter")
+estimateMeanComparison(HolzelSummaryControl,HolzelCorrControl)
+plotMeanComparison(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter",values=FALSE)
+estimateMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation)
+plotMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter",values=FALSE)
 
 estimateStandardizedMeanDifference(HolzelSummaryControl,HolzelCorrControl)
 estimateStandardizedMeanDifference(HolzelSummaryMeditation,HolzelCorrMeditation)

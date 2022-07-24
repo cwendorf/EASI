@@ -20,4 +20,4 @@ describeCorrelations(BodyWellOneData)
 ### Analyses of a Correlation
 
 estimateCorrelations(BodyWellOneData)
-plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1))
+plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1),values=FALSE,line=0)

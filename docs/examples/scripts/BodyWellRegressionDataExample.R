@@ -19,7 +19,7 @@ describeCorrelations(BodyWellOneData)
 
 ### Analyses of the Regression Line
 
-plotRegression(BodyWellOneData,interval="none",xlim=c(1,5),points=TRUE)
+plotRegression(BodyWellOneData,interval="none",xlim=c(1,5),ylim=c(1,7),cross=TRUE)
 
 estimateRegressionCoefficients(BodyWellOneData)
 plotRegressionCoefficients(BodyWellOneData)
@@ -27,4 +27,4 @@ plotRegressionCoefficients(BodyWellOneData)
 ### Analyses of Regression Values
 
 estimateRegression(BodyWellOneData,value=2)
-plotRegression(BodyWellOneData,interval="both",value=2,xlim=c(1,5))
+plotRegression(BodyWellOneData,interval="both",value=2,xlim=c(1,5),ylim=c(1,7),values=FALSE)

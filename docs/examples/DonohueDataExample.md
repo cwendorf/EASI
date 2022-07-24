@@ -30,11 +30,8 @@ estimateMeans(DonohueData)
 ## Followup  23.400   1.032  19.000  21.240  25.560
 ```
 
-It is also useful to view the means and confidence intervals of the groups in a plot.
-
-
 ```r
-plotMeans(DonohueData,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score")
+plotMeans(DonohueData,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
 
 ![](figures/Donohue-Means-1.png)<!-- -->
@@ -47,7 +44,22 @@ First, set the comparison and obtain the difference plot for that comparison.
 
 
 ```r
-plotMeanComparison(DonohueData,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score")
+estimateMeanComparison(DonohueData)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                M      SE      df      LL      UL
+## Pretest   19.300   1.320  19.000  16.537  22.063
+## Posttest  23.600   1.065  19.000  21.371  25.829
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   4.300   1.221  19.000   1.745   6.855
+```
+
+```r
+plotMeanComparison(DonohueData,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
 
 ![](figures/Donohue-Comparison-1.png)<!-- -->
@@ -74,7 +86,22 @@ First, set the contrast and obtain a difference plot for the contrast.
 
 ```r
 PrevsPostFollow <- c(-1,.5,.5)
-plotMeanSubsets(DonohueData,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score")
+estimateMeanSubsets(DonohueData,contrast=PrevsPostFollow)
+```
+
+```
+## $`Confidence Intervals for the Mean Subsets`
+##                  Est      SE      df      LL      UL
+## Neg Weighted  19.300   1.320  19.000  16.537  22.063
+## Pos Weighted  23.500   0.979  19.000  21.452  25.548
+## 
+## $`Confidence Interval for the Mean Contrast`
+##              Est      SE      df      LL      UL
+## Contrast   4.200   1.130  19.000   1.835   6.565
+```
+
+```r
+plotMeanSubsets(DonohueData,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
 
 ![](figures/Donohue-Contrast-1.png)<!-- -->

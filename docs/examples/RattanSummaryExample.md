@@ -31,11 +31,8 @@ estimateMeans(RattanSummary)
 ## Control     4.447   0.329  18.000   3.756   5.138
 ```
 
-It is also useful to view the means and confidence intervals of the groups in a plot.
-
-
 ```r
-plotMeans(RattanSummary,main="Motivation as a Function of Feedback Type",ylab="Motivation")
+plotMeans(RattanSummary,main="Motivation as a Function of Feedback Type",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
 ![](figures/Rattan-Means-1.png)<!-- -->
@@ -50,7 +47,22 @@ First, set the comparison and obtain the difference plot for that comparison.
 ```r
 ComfortvsChallenge <- rbind(Comfort,Challenge)
 class(ComfortvsChallenge) <- "bss"
-plotMeanComparison(ComfortvsChallenge,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation")
+estimateMeanComparison(ComfortvsChallenge)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                 M      SE      df      LL      UL
+## Comfort     3.333   0.452  17.000   2.380   4.286
+## Challenge   5.265   0.351  16.000   4.521   6.009
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   1.932   0.572  31.521   0.766   3.098
+```
+
+```r
+plotMeanComparison(ComfortvsChallenge,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
 ![](figures/Rattan-Comparison-1.png)<!-- -->
@@ -77,7 +89,22 @@ First, set the contrast and obtain a difference plot for the contrast.
 
 ```r
 ComfortvsOthers <- c(-1,.5,.5)
-plotMeanSubsets(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation")
+estimateMeanSubsets(RattanSummary,contrast=ComfortvsOthers)
+```
+
+```
+## $`Confidence Intervals for the Mean Subsets`
+##                  Est      SE      df      LL      UL
+## Neg Weighted   3.333   0.452  17.000   2.380   4.286
+## Pos Weighted   4.856   0.241  33.477   4.367   5.345
+## 
+## $`Confidence Interval for the Mean Contrast`
+##              Est      SE      df      LL      UL
+## Contrast   1.523   0.512  26.903   0.473   2.573
+```
+
+```r
+plotMeanSubsets(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
 ![](figures/Rattan-Contrast-1.png)<!-- -->

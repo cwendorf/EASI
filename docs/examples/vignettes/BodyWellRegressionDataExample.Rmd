@@ -58,7 +58,7 @@ describeCorrelations(BodyWellOneData)
 
 Importantly, we can get a display of the regression line (with the confidence interval suppressed).
 ```{r,Regression-ModelA}
-plotRegression(BodyWellOneData,interval="none",xlim=c(1,5),points=TRUE)
+plotRegression(BodyWellOneData,interval="none",xlim=c(1,5),ylim=c(1,7),cross=TRUE)
 ```
 
 We can then determine the slope and intercept of the line and get confidence intervals for them.
@@ -72,5 +72,5 @@ plotRegressionCoefficients(BodyWellOneData)
 Finally, we get the confidence and prediction intervals of Wellbeing at a BodySatisfaction score of 2.
 ```{r,Regression-Value}
 estimateRegression(BodyWellOneData,value=2)
-plotRegression(BodyWellOneData,interval="both",value=2,xlim=c(1,5))
+plotRegression(BodyWellOneData,interval="both",value=2,xlim=c(1,5),ylim=c(1,7),values=FALSE)
 ```

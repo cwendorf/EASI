@@ -28,7 +28,7 @@ describeMeans(BodyWellOneData)
 ## Wellbeing        106.000   5.055   1.162  -0.935   0.595
 ```
 
-Next, we can get the correlation among the variables.
+Then we can get the correlation among the variables.
 
 ```r
 describeCorrelations(BodyWellOneData)
@@ -58,7 +58,7 @@ estimateCorrelations(BodyWellOneData)
 This is the plot of correlation and its confidence interval.
 
 ```r
-plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1))
+plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1),values=FALSE,line=0)
 ```
 
 ![](figures/BodyWellOne-Correlation-1.png)<!-- -->

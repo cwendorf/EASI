@@ -45,7 +45,8 @@ PenLaptop1Data <- data.frame(Group,Transcription)
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop1-Comparison}
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
@@ -68,7 +69,8 @@ PenLaptop2Data <- data.frame(Group,Transcription)
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop2-Comparison}
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
@@ -91,7 +93,8 @@ PenLaptop3Data <- data.frame(Group,Transcription)
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop3-Comparison}
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.

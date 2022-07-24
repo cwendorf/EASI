@@ -33,7 +33,7 @@ library(EASI)
 
 ### Thomason1 Sample
 
-Thomason1 focuses on the difference between pretest and postest in the first sample. First, create the tables of summary statistics.
+Thomason1 focuses on the difference between pretest and posttest in the first sample. First, create the tables of summary statistics.
 
 ```{r}
 Pretest <- c(N=12,M=11.583,SD=3.315)
@@ -47,7 +47,8 @@ Thomason1Corr["Pretest","Posttest"] <- .892
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,Thomason1-Comparison}
-plotMeanComparison(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason1Summary,Thomason1Corr)
+plotMeanComparison(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
@@ -58,7 +59,7 @@ estimateStandardizedMeanDifference(Thomason1Summary,Thomason1Corr)
 
 ### Thomason2 Sample
 
-Thomason2 focuses on the difference between pretest and postest in the second sample. Thus, create the tables of summary statistics.
+Thomason2 focuses on the difference between pretest and posttest in the second sample. Thus, create the tables of summary statistics.
 
 ```{r}
 Pretest <- c(N=16,M=12.875,SD=3.403)
@@ -72,7 +73,8 @@ Thomason2Corr["Pretest","Posttest"] <- .871
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,Thomason2-Comparison}
-plotMeanComparison(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason2Summary,Thomason2Corr)
+plotMeanComparison(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
@@ -83,7 +85,7 @@ estimateStandardizedMeanDifference(Thomason2Summary,Thomason2Corr)
 
 ### Thomason3 Sample
 
-Thomason3 focuses on the difference between pretest and postest in the third sample. Thus, create the tables of summary statistics.
+Thomason3 focuses on the difference between pretest and posttest in the third sample. Thus, create the tables of summary statistics.
 
 ```{r}
 Pretest <- c(N=39,M=67.410,SD=7.419)
@@ -97,7 +99,8 @@ Thomason3Corr["Pretest","Posttest"] <- .601
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,Thomason3-Comparison}
-plotMeanComparison(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason3Summary,Thomason3Corr)
+plotMeanComparison(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.

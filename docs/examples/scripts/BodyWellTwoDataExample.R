@@ -30,4 +30,4 @@ CorrEstimateL1 <- with(BodyWellTwoDataL1,estimateCorrelations(cbind(BodySatisfac
 CorrEstimateL2 <- with(BodyWellTwoDataL2,estimateCorrelations(cbind(BodySatisfaction,Wellbeing)))
 
 estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"))
-plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1))
+plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1),values=FALSE)

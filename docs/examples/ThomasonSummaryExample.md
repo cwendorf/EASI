@@ -3,7 +3,7 @@
 
 ### Thomason1 Sample
 
-Thomason1 focuses on the difference between pretest and postest in the first sample. First, create the tables of summary statistics.
+Thomason1 focuses on the difference between pretest and posttest in the first sample. First, create the tables of summary statistics.
 
 
 ```r
@@ -19,7 +19,22 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotMeanComparison(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason1Summary,Thomason1Corr)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                M      SE      df      LL      UL
+## Pretest   11.583   0.957  11.000   9.477  13.689
+## Posttest  13.250   0.836  11.000  11.410  15.090
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   1.667   0.433  11.000   0.714   2.620
+```
+
+```r
+plotMeanComparison(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
 
 ![](figures/Thomason1-Comparison-1.png)<!-- -->
@@ -39,7 +54,7 @@ estimateStandardizedMeanDifference(Thomason1Summary,Thomason1Corr)
 
 ### Thomason2 Sample
 
-Thomason2 focuses on the difference between pretest and postest in the second sample. Thus, create the tables of summary statistics.
+Thomason2 focuses on the difference between pretest and posttest in the second sample. Thus, create the tables of summary statistics.
 
 
 ```r
@@ -55,7 +70,22 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotMeanComparison(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason2Summary,Thomason2Corr)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                M      SE      df      LL      UL
+## Pretest   12.875   0.851  15.000  11.062  14.688
+## Posttest  14.250   1.070  15.000  11.968  16.532
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   1.375   0.532  15.000   0.241   2.509
+```
+
+```r
+plotMeanComparison(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
 
 ![](figures/Thomason2-Comparison-1.png)<!-- -->
@@ -75,7 +105,7 @@ estimateStandardizedMeanDifference(Thomason2Summary,Thomason2Corr)
 
 ### Thomason3 Sample
 
-Thomason3 focuses on the difference between pretest and postest in the third sample. Thus, create the tables of summary statistics.
+Thomason3 focuses on the difference between pretest and posttest in the third sample. Thus, create the tables of summary statistics.
 
 
 ```r
@@ -91,7 +121,22 @@ The primary emphasis of the analysis is to estimate and represent the difference
 
 
 ```r
-plotMeanComparison(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason3Summary,Thomason3Corr)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                M      SE      df      LL      UL
+## Pretest   67.410   1.188  38.000  65.005  69.815
+## Posttest  71.769   0.937  38.000  69.872  73.666
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   4.359   0.975  38.000   2.385   6.333
+```
+
+```r
+plotMeanComparison(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",values=FALSE)
 ```
 
 ![](figures/Thomason3-Comparison-1.png)<!-- -->

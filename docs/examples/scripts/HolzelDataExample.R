@@ -16,8 +16,10 @@ HolzelSubsetMeditation <- subset(HolzelData,Group=="Meditation")
 
 ### Analyses of the Differences within Conditions
 
-with(HolzelSubsetControl,plotMeanComparison(cbind(Pretest,Posttest),main="Pretest vs Posttest for the Control Group",ylab="Gray Matter"))
-with(HolzelSubsetMeditation,plotMeanComparison(cbind(Pretest,Posttest),main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter"))
+with(HolzelSubsetControl,estimateMeanComparison(cbind(Pretest,Posttest)))
+with(HolzelSubsetControl,plotMeanComparison(cbind(Pretest,Posttest),main="Pretest vs Posttest for the Control Group",ylab="Gray Matter"),values=FALSE)
+with(HolzelSubsetMeditation,estimateMeanComparison(cbind(Pretest,Posttest)))
+with(HolzelSubsetMeditation,plotMeanComparison(cbind(Pretest,Posttest),main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter"),values=FALSE)
 
 with(HolzelSubsetControl,estimateStandardizedMeanDifference(cbind(Pretest,Posttest)))
 with(HolzelSubsetMeditation,estimateStandardizedMeanDifference(cbind(Pretest,Posttest)))

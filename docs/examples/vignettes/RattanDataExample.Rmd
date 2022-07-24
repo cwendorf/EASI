@@ -46,14 +46,9 @@ RattanData <- data.frame(Feedback,Motivation)
 
 With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
 
-```{r}
-estimateMeans(Motivation~Feedback)
-```
-
-It is also useful to view the means and confidence intervals of the groups in a plot.
-
 ```{r,Rattan-Means}
-plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation")
+estimateMeans(Motivation~Feedback)
+plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
 ### Analysis of a Group Difference
@@ -64,7 +59,8 @@ First, set the comparison and obtain the difference plot for that comparison.
 
 ```{r,Rattan-Comparison}
 Comparison <- factor(Feedback,c("Comfort","Challenge"))
-plotMeanComparison(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation")
+estimateMeanComparison(Motivation~Comparison)
+plotMeanComparison(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
 Then, obtain the standardized effect size for that comparison.
@@ -81,7 +77,8 @@ First, set the contrast and obtain a difference plot for the contrast.
 
 ```{r,Rattan-Contrast}
 ComfortvsOthers <- c(-1,.5,.5)
-plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation")
+estimateMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers)
+plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
 Then, estimate the standardized contrast.

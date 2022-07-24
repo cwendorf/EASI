@@ -54,7 +54,9 @@ HolzelSubsetMeditation <- subset(HolzelData,Group=="Meditation")
 For each subset, obtain a difference plot comparing pretest and posttest.
 
 ```{r,Holzel-Comparison}
+with(HolzelSubsetControl,estimateMeanComparison(cbind(Pretest,Posttest)))
 with(HolzelSubsetControl,plotMeanComparison(cbind(Pretest,Posttest),main="Pretest vs Posttest for the Control Group",ylab="Gray Matter"))
+with(HolzelSubsetMeditation,estimateMeanComparison(cbind(Pretest,Posttest)))
 with(HolzelSubsetMeditation,plotMeanComparison(cbind(Pretest,Posttest),main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter"))
 ```
 

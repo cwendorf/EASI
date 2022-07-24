@@ -11,7 +11,8 @@ Laptop <- c(N=31,M=14.519,SD=7.286)
 PenLaptop1Summary <- rbind(Pen,Laptop)
 class(PenLaptop1Summary) <- "bss"
 
-plotMeanComparison(PenLaptop1Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(PenLaptop1Summary)
+plotMeanComparison(PenLaptop1Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 estimateStandardizedMeanDifference(PenLaptop1Summary)
 
 ### PenLaptop2 Sample
@@ -21,7 +22,8 @@ Laptop <- c(N=103,M=12.088,SD=5.525)
 PenLaptop2Summary <- rbind(Pen,Laptop)
 class(PenLaptop2Summary) <- "bss"
 
-plotMeanComparison(PenLaptop2Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(PenLaptop2Summary)
+plotMeanComparison(PenLaptop2Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 estimateStandardizedMeanDifference(PenLaptop2Summary)
 
 ### PenLaptop3 Sample
@@ -31,5 +33,6 @@ Laptop <- c(N=55,M=11.622,SD=5.681)
 PenLaptop3Summary <- rbind(Pen,Laptop)
 class(PenLaptop3Summary) <- "bss"
 
-plotMeanComparison(PenLaptop3Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(PenLaptop3Summary)
+plotMeanComparison(PenLaptop3Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 estimateStandardizedMeanDifference(PenLaptop3Summary)

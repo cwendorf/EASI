@@ -33,11 +33,8 @@ estimateMeans(FrendaSummary)
 ## MorningNosleep   2.220   0.329  25.000   1.541   2.899
 ```
 
-Then plot those confidence intervals.
-
-
 ```r
-plotMeans(FrendaSummary,ylab="False Memory")
+plotMeans(FrendaSummary,ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
 ![](figures/Frenda-Means-1.png)<!-- -->
@@ -111,25 +108,27 @@ To analyze the main effect of Factor A, set a contrast code and plot the margina
 
 ```r
 mainFactorA <- c(-.5,-.5,.5,.5)
-plotMeanSubsets(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory")
+estimateMeanSubsets(FrendaSummary,contrast=mainFactorA)
+```
+
+```
+## $`Confidence Intervals for the Mean Subsets`
+##                  Est      SE      df      LL      UL
+## Neg Weighted   1.320   0.165  44.605   0.988   1.652
+## Pos Weighted   1.800   0.223  48.740   1.352   2.248
+## 
+## $`Confidence Interval for the Mean Contrast`
+##              Est      SE      df      LL      UL
+## Contrast   0.480   0.277  87.919  -0.071   1.031
+```
+
+```r
+plotMeanSubsets(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
 ![](figures/Frenda-MainA-1.png)<!-- -->
 
-This main effect can be tested for statistical significance.
-
-
-```r
-testMeanContrast(FrendaSummary,contrast=mainFactorA)
-```
-
-```
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast   0.480   0.277  87.919   1.732   0.087
-```
-
-Finally, estimate the standardized effect size for the main effect.
+Then estimate the standardized effect size for the main effect.
 
 
 ```r
@@ -149,25 +148,27 @@ To analyze the main effect of Factor B, set a contrast code and plot the margina
 
 ```r
 mainFactorB <- c(-.5,.5,-.5,.5)
-plotMeanSubsets(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory")
+estimateMeanSubsets(FrendaSummary,contrast=mainFactorB)
+```
+
+```
+## $`Confidence Intervals for the Mean Subsets`
+##                  Est      SE      df      LL      UL
+## Neg Weighted   1.440   0.202  48.269   1.034   1.846
+## Pos Weighted   1.680   0.190  39.753   1.296   2.064
+## 
+## $`Confidence Interval for the Mean Contrast`
+##              Est      SE      df      LL      UL
+## Contrast   0.240   0.277  87.919  -0.311   0.791
+```
+
+```r
+plotMeanSubsets(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
 ![](figures/Frenda-MainB-1.png)<!-- -->
 
-This main effect can be tested for statistical significance.
-
-
-```r
-testMeanContrast(FrendaSummary,contrast=mainFactorB)
-```
-
-```
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast   0.240   0.277  87.919   0.866   0.389
-```
-
-Finally, estimate the standardized effect size for the main effect.
+Then estimate the standardized effect size for the main effect.
 
 
 ```r
@@ -196,19 +197,6 @@ estimateMeanContrast(FrendaSummary,contrast=Interaction)
 ## Contrast   1.200   0.554  87.919   0.098   2.302
 ```
 
-Then test the interaction for statistical significance.
-
-
-```r
-testMeanContrast(FrendaSummary,contrast=Interaction)
-```
-
-```
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast   1.200   0.554  87.919   2.165   0.033
-```
-
 #### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
 
 More helpfully, analyze the simple effect by setting the appropriate contrast and plotting.
@@ -216,25 +204,27 @@ More helpfully, analyze the simple effect by setting the appropriate contrast an
 
 ```r
 simpleBatA1 <- c(-1,1,0,0)
-plotMeanSubsets(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory")
+estimateMeanSubsets(FrendaSummary,contrast=simpleBatA1)
+```
+
+```
+## $`Confidence Intervals for the Mean Subsets`
+##                  Est      SE      df      LL      UL
+## Neg Weighted   1.500   0.271  25.000   0.943   2.057
+## Pos Weighted   1.140   0.188  25.000   0.752   1.528
+## 
+## $`Confidence Interval for the Mean Contrast`
+##              Est      SE      df      LL      UL
+## Contrast  -0.360   0.330  44.605  -1.024   0.304
+```
+
+```r
+plotMeanSubsets(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
 ![](figures/Frenda-SimpleA1-1.png)<!-- -->
 
-Test the simple effect for statistical significance.
-
-
-```r
-testMeanContrast(FrendaSummary,contrast=simpleBatA1)
-```
-
-```
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast  -0.360   0.330  44.605  -1.092   0.281
-```
-
-Finally, estimate the standardized effect size for the simple effect.
+Then estimate the standardized effect size for the simple effect.
 
 
 ```r
@@ -254,25 +244,27 @@ Next, analyze the other simple effect by setting the appropriate contrast and pl
 
 ```r
 simpleBatA2 <- c(0,0,-1,1)
-plotMeanSubsets(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory")
+estimateMeanSubsets(FrendaSummary,contrast=simpleBatA2)
+```
+
+```
+## $`Confidence Intervals for the Mean Subsets`
+##                  Est      SE      df      LL      UL
+## Neg Weighted   1.380   0.300  24.000   0.761   1.999
+## Pos Weighted   2.220   0.329  25.000   1.541   2.899
+## 
+## $`Confidence Interval for the Mean Contrast`
+##              Est      SE      df      LL      UL
+## Contrast   0.840   0.446  48.740  -0.056   1.736
+```
+
+```r
+plotMeanSubsets(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
 ![](figures/Frenda-SimpleA2-1.png)<!-- -->
 
-Test the simple effect for statistical significance.
-
-
-```r
-testMeanContrast(FrendaSummary,contrast=simpleBatA2)
-```
-
-```
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast   0.840   0.446  48.740   1.885   0.065
-```
-
-Finally, estimate the standardized effect size for the simple effect.
+Then estimate the standardized effect size for the simple effect.
 
 
 ```r

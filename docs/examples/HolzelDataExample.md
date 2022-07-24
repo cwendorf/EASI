@@ -27,10 +27,40 @@ For each subset, obtain a difference plot comparing pretest and posttest.
 
 
 ```r
+with(HolzelSubsetControl,estimateMeanComparison(cbind(Pretest,Posttest)))
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                M      SE      df      LL      UL
+## Pretest   43.815   1.191  16.000  41.290  46.339
+## Posttest  43.932   1.336  16.000  41.100  46.763
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   0.117   0.341  16.000  -0.606   0.840
+```
+
+```r
 with(HolzelSubsetControl,plotMeanComparison(cbind(Pretest,Posttest),main="Pretest vs Posttest for the Control Group",ylab="Gray Matter"))
 ```
 
 ![](figures/Holzel-Comparison-1.png)<!-- -->
+
+```r
+with(HolzelSubsetMeditation,estimateMeanComparison(cbind(Pretest,Posttest)))
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                M      SE      df      LL      UL
+## Pretest   43.705   1.607  15.000  40.280  47.130
+## Posttest  44.666   1.576  15.000  41.307  48.024
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   0.961   0.189  15.000   0.558   1.363
+```
 
 ```r
 with(HolzelSubsetMeditation,plotMeanComparison(cbind(Pretest,Posttest),main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter"))

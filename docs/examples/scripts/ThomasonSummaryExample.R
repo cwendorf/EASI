@@ -13,7 +13,8 @@ class(Thomason1Summary) <- "wss"
 Thomason1Corr <- data.frame()
 Thomason1Corr["Pretest","Posttest"] <- .892
 
-plotMeanComparison(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason1Summary,Thomason1Corr)
+plotMeanComparison(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 estimateStandardizedMeanDifference(Thomason1Summary,Thomason1Corr)
 
 ### Thomason2 Sample
@@ -25,7 +26,8 @@ class(Thomason2Summary) <- "wss"
 Thomason2Corr <- data.frame()
 Thomason2Corr["Pretest","Posttest"] <- .871
 
-plotMeanComparison(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason2Summary,Thomason2Corr)
+plotMeanComparison(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 estimateStandardizedMeanDifference(Thomason2Summary,Thomason2Corr)
 
 ### Thomason3 Sample
@@ -37,5 +39,6 @@ class(Thomason3Summary) <- "wss"
 Thomason3Corr <- data.frame()
 Thomason3Corr["Pretest","Posttest"] <- .601
 
-plotMeanComparison(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score")
+estimateMeanComparison(Thomason3Summary,Thomason3Corr)
+plotMeanComparison(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",values=FALSE)
 estimateStandardizedMeanDifference(Thomason3Summary,Thomason3Corr)

@@ -46,14 +46,9 @@ DonohueData <- data.frame(Pretest,Posttest,Followup)
 
 With multiple variables, it is useful to get descriptive statistics and confidence intervals for each variable.
 
-```{r}
-estimateMeans(DonohueData)
-```
-
-It is also useful to view the means and confidence intervals of the groups in a plot.
-
 ```{r,Donohue-Means}
-plotMeans(DonohueData,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score")
+estimateMeans(DonohueData)
+plotMeans(DonohueData,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
  
 ### Analysis of a Variable Difference
@@ -63,7 +58,8 @@ The first research question is whether there is a difference between the posttes
 First, set the comparison and obtain the difference plot for that comparison.
 
 ```{r,Donohue-Comparison}
-plotMeanComparison(DonohueData,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score")
+estimateMeanComparison(DonohueData)
+plotMeanComparison(DonohueData,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
 
 Then, obtain the standardized effect size for that comparison.
@@ -80,7 +76,8 @@ First, set the contrast and obtain a difference plot for the contrast.
 
 ```{r,Donohue-Contrast}
 PrevsPostFollow <- c(-1,.5,.5)
-plotMeanSubsets(DonohueData,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score")
+estimateMeanSubsets(DonohueData,contrast=PrevsPostFollow)
+plotMeanSubsets(DonohueData,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
 
 Then, estimate the standardized contrast.

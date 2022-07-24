@@ -25,7 +25,7 @@ BodyWellOneCorr <- fillCorrelations(BodyWellOneCorr)
 Importantly, we can get a display of the regression line (with the confidence interval suppressed).
 
 ```r
-plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="none",xlim=c(1,5),ylim=c(1,7),cross=TRUE)
 ```
 
 ![](figures/Regression-ModelB-1.png)<!-- -->
@@ -64,7 +64,7 @@ estimateRegression(BodyWellOneSummary,BodyWellOneCorr,value=2)
 ```
 
 ```r
-plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5),ylim=c(1,7),values=FALSE)
 ```
 
 ![](figures/Regression-Value-1.png)<!-- -->

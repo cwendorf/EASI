@@ -49,7 +49,7 @@ First, it's useful to get the means and standard deviations for the variables.
 describeMeans(BodyWellOneData)
 ```
 
-Next, we can get the correlation among the variables.
+Then we can get the correlation among the variables.
 ```{r}
 describeCorrelations(BodyWellOneData)
 ```
@@ -63,5 +63,5 @@ estimateCorrelations(BodyWellOneData)
 
 This is the plot of correlation and its confidence interval.
 ```{r,BodyWellOne-Correlation}
-plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1))
+plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1),values=FALSE,line=0)
 ```

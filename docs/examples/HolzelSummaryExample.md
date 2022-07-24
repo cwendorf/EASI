@@ -37,13 +37,43 @@ For each subset, obtain a difference plot comparing pretest and posttest.
 
 
 ```r
-plotMeanComparison(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter")
+estimateMeanComparison(HolzelSummaryControl,HolzelCorrControl)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                       M      SE      df      LL      UL
+## PretestControl   43.815   1.191  16.000  41.291  46.339
+## PosttestControl  43.932   1.336  16.000  41.101  46.763
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   0.117   0.341  16.000  -0.606   0.840
+```
+
+```r
+plotMeanComparison(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter",values=FALSE)
 ```
 
 ![](figures/Holzel-Comparison-1.png)<!-- -->
 
 ```r
-plotMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter")
+estimateMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation)
+```
+
+```
+## $`Confidence Intervals for the Means`
+##                          M      SE      df      LL      UL
+## PretestMeditation   43.705   1.607  15.000  40.280  47.130
+## PosttestMeditation  44.666   1.576  15.000  41.307  48.025
+## 
+## $`Confidence Interval for the Mean Difference`
+##               Diff      SE      df      LL      UL
+## Comparison   0.961   0.191  15.000   0.554   1.368
+```
+
+```r
+plotMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter",values=FALSE)
 ```
 
 ![](figures/Holzel-Comparison-2.png)<!-- -->

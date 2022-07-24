@@ -37,7 +37,7 @@ estimateCorrelations(BodyWellOneSummary,BodyWellOneCorr)
 This is the plot of correlation and its confidence interval.
 
 ```r
-plotCorrelations(BodyWellOneSummary,BodyWellOneCorr,main="Correlation for the Entire Sample",ylim=c(-1,1))
+plotCorrelations(BodyWellOneSummary,BodyWellOneCorr,main="Correlation for the Entire Sample",ylim=c(-1,1),values=FALSE,line=0)
 ```
 
 ![](figures/BodyWellOne-Correlation-1.png)<!-- -->

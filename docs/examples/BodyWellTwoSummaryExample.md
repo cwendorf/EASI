@@ -63,10 +63,8 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations f
 ## Difference   0.113  -0.185   0.423
 ```
 
-This code produces a difference plot using the confidence intervals for the correlations and the correlation difference.
-
 ```r
-plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1))
+plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1),values=FALSE)
 ```
 
 ![](figures/BodyWellTwo-Comparison-1.png)<!-- -->

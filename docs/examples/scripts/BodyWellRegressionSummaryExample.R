@@ -17,7 +17,7 @@ BodyWellOneCorr <- fillCorrelations(BodyWellOneCorr)
 
 ### Analyses of the Regression Line
 
-plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="none",xlim=c(1,5))
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="none",xlim=c(1,5),ylim=c(1,7),cross=TRUE)
 
 estimateRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
 plotRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
@@ -25,4 +25,4 @@ plotRegressionCoefficients(BodyWellOneSummary,BodyWellOneCorr)
 ### Analyses of Regression Values
 
 estimateRegression(BodyWellOneSummary,BodyWellOneCorr,value=2)
-plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5))
+plotRegression(BodyWellOneSummary,BodyWellOneCorr,interval="both",value=2,xlim=c(1,5),ylim=c(1,7),values=FALSE)

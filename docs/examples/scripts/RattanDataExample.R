@@ -14,16 +14,18 @@ RattanData <- data.frame(Feedback,Motivation)
 ### Analyses of the Different Groups
 
 estimateMeans(Motivation~Feedback)
-plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation")
+plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation",ylim=c(0,7),values=FALSE)
 
 ### Analysis of a Group Difference
 
 Comparison <- factor(Feedback,c("Comfort","Challenge"))
-plotMeanComparison(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation")
+estimateMeanComparison(Motivation~Comparison)
+plotMeanComparison(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 estimateStandardizedMeanDifference(Motivation~Comparison)
 
 ### Analysis of a Group Contrast
 
 ComfortvsOthers <- c(-1,.5,.5)
-plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs Other Types of Feedback on Motivation",ylab="Motivation")
+estimateMeanSubsets(Motivation~Feedback)
+plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs Other Types of Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 estimateStandardizedMeanContrast(Motivation~Feedback,contrast=ComfortvsOthers)

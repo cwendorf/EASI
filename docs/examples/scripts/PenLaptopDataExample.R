@@ -11,7 +11,8 @@ Transcription <- c(12.1,6.5,8.1,7.6,12.2,10.8,1,2.9,14.4,8.4,17.7,20.1,2.1,11.1,
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 PenLaptop1Data <- data.frame(Group,Transcription)
 
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 estimateStandardizedMeanDifference(Transcription~Group)
 
 ### PenLaptop2 Sample
@@ -21,7 +22,8 @@ Transcription <- c(8.99,1.35,8.22,4.31,6.59,16,5.85,6.64,5.54,4.02,3.73,3.81,13.
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 PenLaptop2Data <- data.frame(Group,Transcription)
 
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 estimateStandardizedMeanDifference(Transcription~Group)
 
 ### PenLaptop3 Sample
@@ -31,5 +33,6 @@ Transcription <- c(5.13,0.5,1.37,1.37,5.82,5.24,3.97,2.14,4,4.36,8.61,1.26,4.95,
 Group <- factor(Group,levels=c(1,2),labels=c("Pen","Laptop"))
 PenLaptop3Data <- data.frame(Group,Transcription)
 
-plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(Transcription~Group)
+plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 estimateStandardizedMeanDifference(Transcription~Group)

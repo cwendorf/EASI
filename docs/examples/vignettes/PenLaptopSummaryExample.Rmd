@@ -45,7 +45,8 @@ class(PenLaptop1Summary) <- "bss"
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop1-Comparison}
-plotMeanComparison(PenLaptop1Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(PenLaptop1Summary)
+plotMeanComparison(PenLaptop1Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
@@ -68,7 +69,8 @@ class(PenLaptop2Summary) <- "bss"
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop2-Comparison}
-plotMeanComparison(PenLaptop2Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(PenLaptop2Summary)
+plotMeanComparison(PenLaptop2Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
@@ -91,7 +93,8 @@ class(PenLaptop3Summary) <- "bss"
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
 ```{r,PenLaptop3-Comparison}
-plotMeanComparison(PenLaptop3Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %")
+estimateMeanComparison(PenLaptop3Summary)
+plotMeanComparison(PenLaptop3Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.

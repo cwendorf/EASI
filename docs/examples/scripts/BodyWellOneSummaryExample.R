@@ -18,4 +18,4 @@ BodyWellOneCorr <- fillCorrelations(BodyWellOneCorr)
 ### Analyses of the Correlation
 
 estimateCorrelations(BodyWellOneSummary,BodyWellOneCorr)
-plotCorrelations(BodyWellOneSummary,BodyWellOneCorr,main="Correlation for the Entire Sample",ylim=c(-1,1))
+plotCorrelations(BodyWellOneSummary,BodyWellOneCorr,main="Correlation for the Entire Sample",ylim=c(-1,1),values=FALSE,line=0)
