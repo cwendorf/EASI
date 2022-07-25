@@ -19,15 +19,15 @@ The **EnhancedPlots** files analyze confidence interval plots with plausibility 
 
 ### Pairwise, Posthoc, and Relational Intervals
 
-The **Pairwise** files examine unadjusted pairwise comparisons and Tukey post hoc comparisons using diffograms, traditional confidence interval plots, and tables:
-
-- [*PairwiseOneWayDataApplications*](./PairwiseOneWayDataApplications.md) - Uses one-way (between-subjects) data
-- [*PairwiseRepeatedMeasuresDataApplications*](./PairwiseRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
-
-The **RelationalIntervals** files examine the concept of relational and arelational intervals (Wendorf, 2012):
+The **RelationalIntervals** files examine means and mean differences using the concepts of relational and arelational intervals (Wendorf, 2012):
 
 - [*RelationalIntervalsOneWayDataApplications*](./RelationalIntervalsOneWayDataApplications.md) - Uses one-way (between-subjects) data
 - [*RelationalIntervalsRepeatedMeasuresDataApplications*](./RelationalIntervalsRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
+
+The **Pairwise** files examine unadjusted pairwise comparisons and Tukey post hoc comparisons using traditional confidence interval plots and diffograms:
+
+- [*PairwiseOneWayDataApplications*](./PairwiseOneWayDataApplications.md) - Uses one-way (between-subjects) data
+- [*PairwiseRepeatedMeasuresDataApplications*](./PairwiseRepeatedMeasuresDataApplications.md) - Uses repeated measures (within-subjects) data
 
 ### Simple Effects in Factorial and Mixed Designs
 

@@ -3,6 +3,7 @@
 
 ### Data Management
 
+Enter the data.
 
 ```r
 Outcome1 <-c(61,64,72,64,64,70,73,65,65,72)
@@ -13,9 +14,9 @@ Outcome5 <- c(65,55,70,65,65,70,70,60,65,70)
 RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 ```
 
-### Analyses of Relational Intervals
+### Omnibus Analyses
 
-Provide descriptive statistics and ANOVA source table
+Provide descriptive statistics and an ANOVA source table.
 
 ```r
 (RepeatedData) |> describeMeans()
@@ -53,7 +54,9 @@ Provide descriptive statistics and ANOVA source table
 ## Measures   8.940   4.000  36.000   0.000
 ```
 
-Provide and plot estimates of the arelational and relational intervals
+### Analyses of Relational Intervals
+
+Provide and plot estimates of the arelational and relational intervals.
 
 ```r
 (RepeatedData) |> estimateMeansRelational()

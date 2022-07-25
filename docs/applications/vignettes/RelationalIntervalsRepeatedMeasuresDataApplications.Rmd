@@ -33,6 +33,7 @@ library(EASI)
 
 ### Data Management
 
+Enter the data.
 ```{r}
 Outcome1 <-c(61,64,72,64,64,70,73,65,65,72)
 Outcome2 <- c(69,74,79,69,64,64,69,69,74,79)
@@ -42,16 +43,18 @@ Outcome5 <- c(65,55,70,65,65,70,70,60,65,70)
 RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 ```
 
-### Analyses of Relational Intervals
+### Omnibus Analyses
 
-Provide descriptive statistics and ANOVA source table
+Provide descriptive statistics and an ANOVA source table.
 ```{r}
 (RepeatedData) |> describeMeans()
 (RepeatedData) |> describeMeansOmnibus()
 (RepeatedData) |> testMeansOmnibus()
 ```
 
-Provide and plot estimates of the arelational and relational intervals
+### Analyses of Relational Intervals
+
+Provide and plot estimates of the arelational and relational intervals.
 ```{r,Repeated-Relational}
 (RepeatedData) |> estimateMeansRelational()
 (RepeatedData) |> plotMeansRelational()

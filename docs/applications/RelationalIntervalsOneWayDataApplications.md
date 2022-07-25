@@ -3,19 +3,20 @@
 
 ### Data Management
 
+Enter the data.
 
 ```r
-Group <- c(rep(1,10),rep(2,10),rep(3,10),rep(4,10),rep(5,10))
+Factor <- c(rep(1,10),rep(2,10),rep(3,10),rep(4,10),rep(5,10))
 Outcome <- c(61,64,72,64,64,70,73,65,65,72,69,74,79,69,64,64,69,69,74,79,70,75,80,80,70,65,70,75,70,70,70,80,85,75,70,65,75,75,85,80,65,55,70,65,65,70,70,60,65,70)
-Group <- factor(Group,levels=c(1,2,3,4,5),labels=c("Group1","Group2","Group3","Group4","Group5"))
+Factor <- factor(Factor,levels=c(1,2,3,4,5),labels=c("Group1","Group2","Group3","Group4","Group5"))
 ```
 
-### Analyses of Relational Intervals
+### Omnibus Analyses
 
-Provide descriptive statistics and ANOVA source table
+Provide descriptive statistics and an ANOVA source table.
 
 ```r
-(Outcome~Group) |> describeMeans()
+(Outcome~Factor) |> describeMeans()
 ```
 
 ```
@@ -29,7 +30,7 @@ Provide descriptive statistics and ANOVA source table
 ```
 
 ```r
-(Outcome~Group) |> describeMeansOmnibus()
+(Outcome~Factor) |> describeMeansOmnibus()
 ```
 
 ```
@@ -40,7 +41,7 @@ Provide descriptive statistics and ANOVA source table
 ```
 
 ```r
-(Outcome~Group) |> testMeansOmnibus()
+(Outcome~Factor) |> testMeansOmnibus()
 ```
 
 ```
@@ -49,10 +50,12 @@ Provide descriptive statistics and ANOVA source table
 ## Factor   6.448   4.000  45.000   0.000
 ```
 
-Provide and plot estimates of the arelational and relational intervals
+### Analyses of Relational Intervals
+
+Provide and plot estimates of the arelational and relational intervals.
 
 ```r
-(Outcome~Group) |> estimateMeansRelational()
+(Outcome~Factor) |> estimateMeansRelational()
 ```
 
 ```
@@ -66,7 +69,7 @@ Provide and plot estimates of the arelational and relational intervals
 ```
 
 ```r
-(Outcome~Group) |> plotMeansRelational()
+(Outcome~Factor) |> plotMeansRelational()
 ```
 
 ![](figures/OneWay-Relational-1.png)<!-- -->
