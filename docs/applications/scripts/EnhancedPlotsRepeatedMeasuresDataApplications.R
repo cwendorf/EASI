@@ -14,25 +14,18 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 ### Analyses of the Means
 
+(RepeatedData) |> plotIntervals()
+
 colorTheme <- c("darkred","darkblue","darkgoldenrod")
-
-#### Confidence Interval Plots
-
-RepeatedData |> plotIntervals()
-
-RepeatedData |> plotData(main="Data and Confidence Intervals with Plausibility Curves",offset=-.15,method="jitter",col=colorTheme)
-RepeatedData |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
-RepeatedData |> plotPlausible(add=TRUE,col=colorTheme)
+(RepeatedData) |> plotData(main="Data and Confidence Intervals",method="jitter",col=colorTheme)
+(RepeatedData) |> plotIntervals(add=TRUE,values=FALSE,line=10,col=colorTheme)
 
 ### Analyses of a Comparison
 
 ComparisonData <- data.frame(Outcome1,Outcome2)
+(ComparisonData) |> plotIntervals(conf.level=.99)
+
 comparisonTheme <- c("darkred","darkblue","black")
-
-#### Confidence Interval Plots
-
-ComparisonData |> plotIntervals(conf.level=.99)
-
-ComparisonData |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(0,20),values=FALSE,rope=c(-2,2),col=comparisonTheme)
-ComparisonData |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
-ComparisonData |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
+(ComparisonData) |> plotIntervals(main="Data, Confidence Intervals, and a Plausibility Curve",conf.level=.99,ylim=c(0,20),values=FALSE,col=comparisonTheme)
+(ComparisonData) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
+(ComparisonData) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)

@@ -13,25 +13,18 @@ Outcome <- c(rnorm(50,mean=7,sd=2),rnorm(50,mean=11,sd=4),rnorm(50,mean=12,sd=4)
 
 ### Analyses of the Means
 
-colorTheme <- c("darkred","darkblue","darkgoldenrod")
-
-#### Confidence Interval Plots
-
 (Outcome~Factor) |> plotIntervals()
 
-(Outcome~Factor) |> plotData(main="Data and Confidence Intervals with Plausibility Curves",offset=-.15,method="jitter",col=colorTheme)
-(Outcome~Factor) |> plotIntervals(add=TRUE,values=FALSE,line=10,rope=c(8,12),col=colorTheme)
-(Outcome~Factor) |> plotPlausible(add=TRUE,col=colorTheme)
+colorTheme <- c("darkred","darkblue","darkgoldenrod")
+(Outcome~Factor) |> plotData(main="Data and Confidence Intervals",method="jitter",col=colorTheme)
+(Outcome~Factor) |> plotIntervals(add=TRUE,values=FALSE,line=10,col=colorTheme)
 
 ### Analyses of a Comparison
 
 Comparison <- factor(Factor,c("Group1","Group2"))
-comparisonTheme <- c("darkred","darkblue","black")
-
-#### Confidence Interval Plots
-
 (Outcome~Comparison) |> plotIntervals(conf.level=.99)
 
-(Outcome~Comparison) |> plotIntervals(main="Data and Confidence Intervals with Plausibility Curves",conf.level=.99,ylim=c(0,20),values=FALSE,rope=c(-2,2),col=comparisonTheme)
+comparisonTheme <- c("darkred","darkblue","black")
+(Outcome~Comparison) |> plotIntervals(main="Data, Confidence Intervals, and a Plausibility Curve",conf.level=.99,ylim=c(0,20),values=FALSE,col=comparisonTheme)
 (Outcome~Comparison) |> plotPlausible(add=TRUE,conf.level=.99,type=c("none","none","right"),col=comparisonTheme)
 (Outcome~Comparison) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
