@@ -51,7 +51,6 @@ export(describePercentiles)
 export(plotViolins)
 export(plotBeans)
 export(plotRainclouds)
-export(plotCombination)
 
 ### xIntervals
 
