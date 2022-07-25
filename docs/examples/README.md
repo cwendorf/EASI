@@ -2,7 +2,7 @@
 
 ### Overview of the Examples
 
-Examples provide analyses of the data and summary statistics from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017). The results parallel those provided in the book, but vary slightly because *EASI* and *ITNS* make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.). The graphs are modified from the basic *EASI* output to more closely match the cleaner output from *ITNS*.
+Examples provide analyses of the data and summary statistics from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017). The results parallel those provided in the book, but vary slightly because *EASI* and *ITNS* make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.). The graphs are modified from the basic *EASI* output to more closely match the simpler output from *ITNS*.
 
 ### Examples of Means and Mean Differences
 
