@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2022-07-30"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Enhanced Plots Repeated Measures Data Applications}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Enhanced Plots Repeated Measures Data Applications
 
@@ -33,14 +55,6 @@ colorTheme <- c("darkred","darkblue","darkgoldenrod")
 ![](figures/Repeated-ConfidenceB-1.png)<!-- -->
 
 ### Analyses of a Comparison
-
-Create a comparison and its color theme.
-
-```r
-comparisonTheme <- c("darkred","darkblue","black")
-```
-
-#### Confidence Interval Plots
 
 Create a comparison and get a simple plot of the confidence intervals.
 
