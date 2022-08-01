@@ -43,9 +43,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   8.125   0.385  29.000   7.338   8.911
-## Outcome2  10.998   0.839  29.000   9.281  12.714
-## Outcome3  12.144   0.628  29.000  10.859  13.429
+## Outcome1   8.292   0.313  29.000   7.651   8.933
+## Outcome2  11.809   0.843  29.000  10.084  13.533
+## Outcome3  11.626   0.643  29.000  10.312  12.940
 ```
 
 ```r
@@ -55,9 +55,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   7.227   0.283  29.000   6.648   7.806
-## Outcome2   7.604   0.795  29.000   5.979   9.229
-## Outcome3   6.572   0.719  29.000   5.102   8.042
+## Outcome1   8.297   0.385  29.000   7.511   9.084
+## Outcome2   7.633   0.547  29.000   6.513   8.753
+## Outcome3   6.428   0.595  29.000   5.211   7.646
 ```
 
 ### Analyses of the Simple Effects
@@ -71,9 +71,9 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##               SS      df      MS
-## Subjects 339.844  29.000  11.719
-## Measures 257.233   2.000 128.616
-## Error    745.295  58.000  12.850
+## Subjects 392.715  29.000  13.542
+## Measures 235.151   2.000 117.575
+## Error    670.534  58.000  11.561
 ```
 
 ```r
@@ -83,9 +83,9 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##               SS      df      MS
-## Subjects 323.641  29.000  11.160
-## Measures  16.372   2.000   8.186
-## Error    744.797  58.000  12.841
+## Subjects 169.544  29.000   5.846
+## Measures  53.859   2.000  26.929
+## Error    528.227  58.000   9.107
 ```
 Test each simple effect for statistical significance.
 
@@ -96,7 +96,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##                F     df1     df2       p
-## Measures  10.009   2.000  58.000   0.000
+## Measures  10.170   2.000  58.000   0.000
 ```
 
 ```r
@@ -106,7 +106,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##                F     df1     df2       p
-## Measures   0.637   2.000  58.000   0.532
+## Measures   2.957   2.000  58.000   0.060
 ```
 Obtain the proportion of variance accounted for by each simple effect.
 
@@ -117,7 +117,7 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##              Est      LL      UL
-## Measures   0.257   0.094   0.382
+## Measures   0.260   0.097   0.385
 ```
 
 ```r
@@ -127,5 +127,5 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##              Est      LL      UL
-## Measures   0.022   0.000   0.090
+## Measures   0.093   0.000   0.203
 ```
