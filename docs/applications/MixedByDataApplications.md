@@ -1,5 +1,5 @@
 
-## Mixed Design (Between-Subjects and Within-Subjects) Data Applications
+## MixedBy Data Applications
 
 ### Data Management
 
@@ -19,7 +19,7 @@ MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 Get the descriptive statistics separately for each simple effect.
 
 ```r
-describeMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> describeMeansBy(by=Factor)
 ```
 
 ```
@@ -41,7 +41,7 @@ describeMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 Get an ANOVA for the design as a whole.
 
 ```r
-describeMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusMultifactor(by=Factor)
 ```
 
 ```
@@ -58,7 +58,7 @@ describeMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ```
 
 ```r
-testMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusMultifactor(by=Factor)
 ```
 
 ```
@@ -73,7 +73,7 @@ testMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ```
 
 ```r
-estimateMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusMultifactor(by=Factor)
 ```
 
 ```
@@ -90,7 +90,7 @@ estimateMeansOmnibusMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 Get an ANOVA separately for each simple effect.
 
 ```r
-describeMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusBy(by=Factor)
 ```
 
 ```
@@ -108,7 +108,7 @@ describeMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ```
 
 ```r
-testMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusBy(by=Factor)
 ```
 
 ```
@@ -122,7 +122,7 @@ testMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ```
 
 ```r
-estimateMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusBy(by=Factor)
 ```
 
 ```
@@ -140,22 +140,16 @@ estimateMeansOmnibusBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 Plot the means and confidence intervals for the design as a whole.
 
 ```r
-plotMeansMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> plotMeansMultifactor(by=Factor,col=c("black","gray60"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("black","gray60"))
 ```
 
 ![](figures/MixedBy-Multifactor-1.png)<!-- -->
 
-```r
-plotMeansMultifactor(cbind(Outcome1,Outcome2,Outcome3),by=Factor,conf.level=.99,col=c("black","gray60"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("black","gray60"))
-```
-
-![](figures/MixedBy-Multifactor-2.png)<!-- -->
-
 Estimate, plot, test, and standardize the means separately for each simple effect.
 
 ```r
-estimateMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansBy(by=Factor)
 ```
 
 ```
@@ -173,13 +167,13 @@ estimateMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ```
 
 ```r
-plotMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> plotMeansBy(by=Factor)
 ```
 
 ![](figures/MixedBy-Means-1.png)<!-- -->![](figures/MixedBy-Means-2.png)<!-- -->
 
 ```r
-testMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> testMeansBy(by=Factor)
 ```
 
 ```
@@ -197,7 +191,7 @@ testMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 ```
 
 ```r
-estimateStandardizedMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
+cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeansBy(by=Factor)
 ```
 
 ```
@@ -219,7 +213,7 @@ estimateStandardizedMeansBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor)
 Analyze the specified comparison separately for each simple effect.
 
 ```r
-estimateMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
+cbind(Outcome1,Outcome2) |> estimateMeanDifferenceBy(by=Factor)
 ```
 
 ```
@@ -233,7 +227,7 @@ estimateMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
 ```
 
 ```r
-testMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
+cbind(Outcome1,Outcome2) |> testMeanDifferenceBy(by=Factor)
 ```
 
 ```
@@ -247,13 +241,13 @@ testMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
 ```
 
 ```r
-plotMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
+cbind(Outcome1,Outcome2) |> plotMeanDifferenceBy(by=Factor)
 ```
 
 ![](figures/MixedBy-Comparison-1.png)<!-- -->![](figures/MixedBy-Comparison-2.png)<!-- -->
 
 ```r
-estimateStandardizedMeanDifferenceBy(cbind(Outcome1,Outcome2),by=Factor)
+cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifferenceBy(by=Factor)
 ```
 
 ```
@@ -272,7 +266,7 @@ Analyze the specified contrast separately for each simple effect.
 
 ```r
 O1vsOthers <- c(-1,.5,.5)
-estimateMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
+cbind(Outcome1,Outcome2,Outcome3) |> estimateMeanContrastBy(by=Factor,contrast=O1vsOthers)
 ```
 
 ```
@@ -286,7 +280,7 @@ estimateMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vs
 ```
 
 ```r
-testMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
+cbind(Outcome1,Outcome2,Outcome3) |> testMeanContrastBy(by=Factor,contrast=O1vsOthers)
 ```
 
 ```
@@ -300,13 +294,13 @@ testMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthe
 ```
 
 ```r
-plotMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
+cbind(Outcome1,Outcome2,Outcome3) |> plotMeanContrastBy(by=Factor,contrast=O1vsOthers)
 ```
 
 ![](figures/MixedBy-Contrast-1.png)<!-- -->![](figures/MixedBy-Contrast-2.png)<!-- -->
 
 ```r
-estimateStandardizedMeanContrastBy(cbind(Outcome1,Outcome2,Outcome3),by=Factor,contrast=O1vsOthers)
+cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrastBy(by=Factor,contrast=O1vsOthers)
 ```
 
 ```

@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Factorial (Between-Subjects) Data Applications
+## FactorialBy Data Applications
 
 ### Package Loading
 
@@ -18,41 +18,40 @@ FactorialData <- data.frame(FactorA,FactorB,Outcome)
 
 #### Descriptive Statistics
 
-describeMeansBy(Outcome~FactorA,by=FactorB)
+(Outcome~FactorA) |> describeMeansBy(by=FactorB)
 
 ### Analyses of the Omnibus and Simple Effects
 
-describeMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-testMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
-estimateMeansOmnibusMultifactor(Outcome~FactorA,by=FactorB)
+(Outcome~FactorA) |> describeMeansOmnibusMultifactor(by=FactorB)
+(Outcome~FactorA) |> testMeansOmnibusMultifactor(by=FactorB)
+(Outcome~FactorA) |> estimateMeansOmnibusMultifactor(by=FactorB)
 
-describeMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-testMeansOmnibusBy(Outcome~FactorA,by=FactorB)
-estimateMeansOmnibusBy(Outcome~FactorA,by=FactorB)
+(Outcome~FactorA) |> describeMeansOmnibusBy(by=FactorB)
+(Outcome~FactorA) |> testMeansOmnibusBy(by=FactorB)
+(Outcome~FactorA) |> estimateMeansOmnibusBy(by=FactorB)
 
 ### Analyses of the Means
 
-plotMeansMultifactor(Outcome~FactorA,by=FactorB)
-plotMeansMultifactor(Outcome~FactorA,by=FactorB,conf.level=.99,col=c("black","gray60"))
+(Outcome~FactorA) |> plotMeansMultifactor(by=FactorB,col=c("black","gray60"))
 legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("black","gray60"))
 
-estimateMeansBy(Outcome~FactorA,by=FactorB)
-plotMeansBy(Outcome~FactorA,by=FactorB)
-testMeansBy(Outcome~FactorA,by=FactorB)
-estimateStandardizedMeansBy(Outcome~FactorA,by=FactorB)
+(Outcome~FactorA) |> estimateMeansBy(by=FactorB)
+(Outcome~FactorA) |> plotMeansBy(by=FactorB)
+(Outcome~FactorA) |> testMeansBy(by=FactorB)
+(Outcome~FactorA) |> estimateStandardizedMeansBy(by=FactorB)
 
 ### Analyses of a Comparison
 
 Comparison=factor(Factor,c("Level1","Level2"))
-estimateMeanDifferenceBy(Outcome~FactorA,by=FactorB)
-plotMeanDifferenceBy(Outcome~FactorA,by=FactorB)
-testMeanDifferenceBy(Outcome~FactorA,by=FactorB)
-estimateStandardizedMeanDifferenceBy(Outcome~FactorA,by=FactorB)
+(Outcome~FactorA) |> estimateMeanDifferenceBy(by=FactorB)
+(Outcome~FactorA) |> plotMeanDifferenceBy(by=FactorB)
+(Outcome~FactorA) |> testMeanDifferenceBy(by=FactorB)
+(Outcome~FactorA) |> estimateStandardizedMeanDifferenceBy(by=FactorB)
 
 ### Analyses of a Contrast
 
 L1vsOthers <- c(-1,.5,.5)
-estimateMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
-plotMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
-testMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
-estimateStandardizedMeanContrastBy(Outcome~FactorA,by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> estimateMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> plotMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> testMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> estimateStandardizedMeanContrastBy(by=FactorB,contrast=L1vsOthers)

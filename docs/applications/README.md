@@ -3,7 +3,7 @@
 
 ### Overview of the Applications
 
-Applications represent advanced and undocumented features of EASI. Data and summary statistics for these applications are from a variety of published and simulated sources.
+Applications represent advanced and undocumented features of EASI. Data and summary statistics for these applications are from a variety of published and simulated sources. For elucidation, all applications use the native pipe operator to identify data sources rather than using standard R syntax.
 
 ### Exploratory Data Analyses and Enhanced Plots
 
@@ -31,12 +31,12 @@ The **Pairwise** files examine unadjusted pairwise comparisons and Tukey post ho
 
 ### Simple Effects in Factorial and Mixed Designs
 
-The **FactorialBy**  and **MixedBy** files implement "by" functions designed to facilitate the analyses of simple effects in factorial and mixed designs:
+The **FactorialBy**  and **MixedBy** files implement "by" functions designed to replicate the analyses of simple effects in factorial and mixed designs:
 
 - [*FactorialByDataApplications*](./FactorialByDataApplications.md) - Uses two-way factorial (between-subjects) data
 - [*MixedByDataApplications*](./MixedByDataApplications.md) - Uses two-way mixed design (between-subjects and within-subjects) data
 
-The **Exposition** files implement a simple exposition pipe operator to build enhanced plots for the analyses of simple effects in factorial and mixed designs:
+The **Exposition** files implement a exposition pipe operator to simplify the use of subsets (like in the analyses of simple effects) and enhance the plots in factorial and mixed designs:
 
 - [*ExpositionFactorialDataApplications*](./ExpositionFactorialDataApplications.md) - Uses two-way factorial (between-subjects) data
 - [*ExpositionMixedDataApplications*](./ExpositionMixedDataApplications.md) - Uses two-way mixed design (between-subjects and within-subjects) data
