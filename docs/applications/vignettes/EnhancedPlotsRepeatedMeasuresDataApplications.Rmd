@@ -57,14 +57,6 @@ colorTheme <- c("darkred","darkblue","darkgoldenrod")
 
 ### Analyses of a Comparison
 
-Create a comparison and its color theme.
-```{r}
-
-comparisonTheme <- c("darkred","darkblue","black")
-```
-
-#### Confidence Interval Plots
-
 Create a comparison and get a simple plot of the confidence intervals.
 ```{r,Repeated-ConfidenceC}
 ComparisonData <- data.frame(Outcome1,Outcome2)
