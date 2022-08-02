@@ -3,7 +3,7 @@
 
 ### Overview of the Applications
 
-Applications represent advanced and undocumented features of EASI. Data and summary statistics for these applications are from a variety of published and simulated sources. For elucidation, all applications use the native pipe operator to identify data sources rather than using standard R syntax.
+Applications represent advanced and undocumented features of EASI. Data and summary statistics for these applications are from a variety of published and simulated sources. Also in the spirit of experimentation, all applications use the native pipe operator to identify data sources rather than using standard R syntax.
 
 ### Exploratory Data Analyses and Enhanced Plots
 
