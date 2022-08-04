@@ -11,7 +11,7 @@
 \description{Provides a table of confidence intervals for all unadjusted pairwise comparisons.}
 
 \usage{
-\method{estimateMeansPairwise}{default}(\dots,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPairwise}{default}(frame,conf.level=.95,main=NULL,digits=3)
 
 \method{estimateMeansPairwise}{formula}(formula,conf.level=.95,main=NULL,digits=3)
 
@@ -21,7 +21,7 @@
 }
 
 \arguments{
-\item{\dots}{a set of (non-empty) numeric vectors of data values}
+\item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
 \item{DescStats}{a matrix/frame of descriptive/summary statistics}
 \item{conf.level}{confidence level of the interval}
