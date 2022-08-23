@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-## 5.2.220522
+## 5.2.220726
 
 - Reinstated documentation
 - Added a diffogram for pairwise mean comparisons
