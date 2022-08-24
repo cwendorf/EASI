@@ -55,4 +55,4 @@ The package includes a wide variety of tutorials, examples, and applications tha
 
 ### Citation
 
-Wendorf, C. A. (2019). _EASI: Estimation Approach to Statistical Inference_ [R Package]. [https://github.com/cwendorf/EASI](https://github.com/cwendorf/EASI)
+Wendorf, C. A. (2022). _EASI: Estimation Approach to Statistical Inference_ (Version 5.2.220726) [R Package]. [https://github.com/cwendorf/EASI](https://github.com/cwendorf/EASI)
