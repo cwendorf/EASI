@@ -19,6 +19,8 @@ In standard R syntax, the function name is followed in parentheses by the variab
 ```
 estimateMeanComparison(Outcome~Factor)
 estimateMeanComparison(Outcome~Factor,conf.level=.99)
+testMeanComparison(Outcome~Factor)
+testMeanComparison(Outcome~Factor,mu=2)
 ```
 
 In R versions => 4.1, the native pipe operator can be used instead of standard syntax. Here, the variable (or frame or formula) is included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). This format is used for advanced applications, but could be used for all cases if desired.
@@ -26,6 +28,8 @@ In R versions => 4.1, the native pipe operator can be used instead of standard s
 ```
 (Outcome~Factor) |> estimateMeanComparison()
 (Outcome~Factor) |> estimateMeanComparison(conf.level=.99)
+(Outcome~Factor) |> testMeanComparison()
+(Outcome~Factor) |> testMeanComparison(mu=2)
 ```
 
 ### Usage
