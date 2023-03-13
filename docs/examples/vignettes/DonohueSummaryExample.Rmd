@@ -53,7 +53,7 @@ DonohueCorr <- fillCorrelations(DonohueCorr)
 
 With multiple variables, it is useful to get descriptive statistics and confidence intervals for each variable.
 
-```{r,Donohue-Means}
+```{r,Donohue-Summary-Means}
 estimateMeans(DonohueSummary)
 plotMeans(DonohueSummary,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylim=c(0,30),values=FALSE)
 ```
@@ -64,7 +64,7 @@ The first research question is whether there is a difference between the posttes
 
 First, set the comparison and obtain the difference plot for that comparison.
 
-```{r,Donohue-Comparison}
+```{r,Donohue-Summary-Comparison}
 PostvsFollowup <- DonohueSummary[c(2,3),]
 class(PostvsFollowup) <- "wss"
 estimateMeanComparison(PostvsFollowup,DonohueCorr)
@@ -83,7 +83,7 @@ The second research question is whether the pretest differs from the posttest an
 
 First, set the contrast and obtain a difference plot for the contrast.
 
-```{r,Donohue-Contrast}
+```{r,Donohue-Summary-Contrast}
 PrevsPostFollow <- c(-1,.5,.5)
 estimateMeanSubsets(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow)
 plotMeanSubsets(DonohueSummary,DonohueCorr,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking",ylim=c(0,30),values=FALSE)

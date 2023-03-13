@@ -47,7 +47,7 @@ class(RattanSummary) <- "bss"
 
 With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
 
-```{r,Rattan-Means}
+```{r,Rattan-Summary-Means}
 estimateMeans(RattanSummary)
 plotMeans(RattanSummary,main="Motivation as a Function of Feedback Type",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
@@ -58,7 +58,7 @@ The first research question is whether there is a difference between the two non
 
 First, set the comparison and obtain the difference plot for that comparison.
 
-```{r,Rattan-Comparison}
+```{r,Rattan-Summary-Comparison}
 ComfortvsChallenge <- rbind(Comfort,Challenge)
 class(ComfortvsChallenge) <- "bss"
 estimateMeanComparison(ComfortvsChallenge)
@@ -77,7 +77,7 @@ The second research question is whether the Comfort group differs from the other
 
 First, set the contrast and obtain a difference plot for the contrast.
 
-```{r,Rattan-Contrast}
+```{r,Rattan-Summary-Contrast}
 ComfortvsOthers <- c(-1,.5,.5)
 estimateMeanSubsets(RattanSummary,contrast=ComfortvsOthers)
 plotMeanSubsets(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)

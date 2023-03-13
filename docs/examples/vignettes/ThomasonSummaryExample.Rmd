@@ -46,7 +46,7 @@ Thomason1Corr["Pretest","Posttest"] <- .892
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,Thomason1-Comparison}
+```{r,Thomason1-Summary-Comparison}
 estimateMeanComparison(Thomason1Summary,Thomason1Corr)
 plotMeanComparison(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
@@ -72,7 +72,7 @@ Thomason2Corr["Pretest","Posttest"] <- .871
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,Thomason2-Comparison}
+```{r,Thomason2-Summary-Comparison}
 estimateMeanComparison(Thomason2Summary,Thomason2Corr)
 plotMeanComparison(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
@@ -98,7 +98,7 @@ Thomason3Corr["Pretest","Posttest"] <- .601
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,Thomason3-Comparison}
+```{r,Thomason3-Summary-Comparison}
 estimateMeanComparison(Thomason3Summary,Thomason3Corr)
 plotMeanComparison(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",values=FALSE)
 ```

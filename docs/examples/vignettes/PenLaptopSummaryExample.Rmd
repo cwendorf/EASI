@@ -44,7 +44,7 @@ class(PenLaptop1Summary) <- "bss"
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop1-Comparison}
+```{r,PenLaptop1-Summary-Comparison}
 estimateMeanComparison(PenLaptop1Summary)
 plotMeanComparison(PenLaptop1Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
@@ -68,7 +68,7 @@ class(PenLaptop2Summary) <- "bss"
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop2-Comparison}
+```{r,PenLaptop2-Summary-Comparison}
 estimateMeanComparison(PenLaptop2Summary)
 plotMeanComparison(PenLaptop2Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
@@ -92,7 +92,7 @@ class(PenLaptop3Summary) <- "bss"
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop3-Comparison}
+```{r,PenLaptop3-Summary-Comparison}
 estimateMeanComparison(PenLaptop3Summary)
 plotMeanComparison(PenLaptop3Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```

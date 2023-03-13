@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{PenLaptop Summary Statistics Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## PenLaptop Summary Statistics Example
 
@@ -35,7 +57,7 @@ estimateMeanComparison(PenLaptop1Summary)
 plotMeanComparison(PenLaptop1Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
-![](figures/PenLaptop1-Comparison-1.png)<!-- -->
+![](figures/PenLaptop1-Summary-Comparison-1.png)<!-- -->
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
@@ -84,7 +106,7 @@ estimateMeanComparison(PenLaptop2Summary)
 plotMeanComparison(PenLaptop2Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
-![](figures/PenLaptop2-Comparison-1.png)<!-- -->
+![](figures/PenLaptop2-Summary-Comparison-1.png)<!-- -->
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
@@ -133,7 +155,7 @@ estimateMeanComparison(PenLaptop3Summary)
 plotMeanComparison(PenLaptop3Summary,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
 
-![](figures/PenLaptop3-Comparison-1.png)<!-- -->
+![](figures/PenLaptop3-Summary-Comparison-1.png)<!-- -->
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 

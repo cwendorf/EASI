@@ -48,7 +48,7 @@ class(FrendaSummary) <- "bss"
 
 First, estimate the descriptive statistics and confidence intervals for all levels.
 
-```{r,Frenda-Means}
+```{r,Frenda-Summary-Means}
 estimateMeans(FrendaSummary)
 plotMeans(FrendaSummary,ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
@@ -91,7 +91,7 @@ estimateMeanContrast(FrendaSummary,contrast=Nosleep)
 
 To analyze the main effect of Factor A, set a contrast code and plot the marginal means and the difference between them.
 
-```{r,Frenda-MainA}
+```{r,Frenda-Summary-MainA}
 mainFactorA <- c(-.5,-.5,.5,.5)
 estimateMeanSubsets(FrendaSummary,contrast=mainFactorA)
 plotMeanSubsets(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
@@ -107,7 +107,7 @@ estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorA)
 
 To analyze the main effect of Factor B, set a contrast code and plot the marginal means and the difference between them.
 
-```{r,Frenda-MainB}
+```{r,Frenda-Summary-MainB}
 mainFactorB <- c(-.5,.5,-.5,.5)
 estimateMeanSubsets(FrendaSummary,contrast=mainFactorB)
 plotMeanSubsets(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
@@ -132,7 +132,7 @@ estimateMeanContrast(FrendaSummary,contrast=Interaction)
 
 More helpfully, analyze the simple effect by setting the appropriate contrast and plotting.
 
-```{r,Frenda-SimpleA1}
+```{r,Frenda-Summary-SimpleA1}
 simpleBatA1 <- c(-1,1,0,0)
 estimateMeanSubsets(FrendaSummary,contrast=simpleBatA1)
 plotMeanSubsets(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory",ylim=c(0,4),values=FALSE)
@@ -148,7 +148,7 @@ estimateStandardizedMeanContrast(FrendaSummary,contrast=simpleBatA1)
 
 Next, analyze the other simple effect by setting the appropriate contrast and plotting.
 
-```{r,Frenda-SimpleA2}
+```{r,Frenda-Summary-SimpleA2}
 simpleBatA2 <- c(0,0,-1,1)
 estimateMeanSubsets(FrendaSummary,contrast=simpleBatA2)
 plotMeanSubsets(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory",ylim=c(0,4),values=FALSE)

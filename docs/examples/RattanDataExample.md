@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Rattan Data Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Rattan Data Example
 
@@ -34,7 +56,7 @@ estimateMeans(Motivation~Feedback)
 plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
-![](figures/Rattan-Means-1.png)<!-- -->
+![](figures/Rattan-Data-Means-1.png)<!-- -->
 
 ### Analysis of a Group Difference
 
@@ -63,7 +85,7 @@ estimateMeanComparison(Motivation~Comparison)
 plotMeanComparison(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
-![](figures/Rattan-Comparison-1.png)<!-- -->
+![](figures/Rattan-Data-Comparison-1.png)<!-- -->
 
 Then, obtain the standardized effect size for that comparison.
 
@@ -105,7 +127,7 @@ estimateMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers)
 plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
-![](figures/Rattan-Contrast-1.png)<!-- -->
+![](figures/Rattan-Data-Contrast-1.png)<!-- -->
 
 Then, estimate the standardized contrast.
 

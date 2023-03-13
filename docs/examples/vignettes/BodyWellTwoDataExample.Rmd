@@ -74,7 +74,7 @@ CorrEstimateL2 <- with(BodyWellTwoDataL2,estimateCorrelations(cbind(BodySatisfac
 ```
 
 Then we can estimate the correlations and the difference in the correlations.
-```{r,BodyWellTwo-Comparison}
+```{r,BodyWellTwo-Data-Comparison}
 estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"))
 plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1),values=FALSE)
 ```

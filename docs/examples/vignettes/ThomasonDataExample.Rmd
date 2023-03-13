@@ -43,7 +43,7 @@ Thomason1Data <- data.frame(Pretest,Posttest)
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,Thomason1-Comparison}
+```{r,Thomason1-Data-Comparison}
 estimateMeanComparison(Thomason1Data)
 plotMeanComparison(Thomason1Data,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
@@ -66,7 +66,7 @@ Thomason2Data <- data.frame(Pretest,Posttest)
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,Thomason2-Comparison}
+```{r,Thomason2-Data-Comparison}
 estimateMeanComparison(Thomason2Data)
 plotMeanComparison(Thomason2Data,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
@@ -89,7 +89,7 @@ Thomason3Data <- data.frame(Pretest,Posttest)
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,Thomason3-Comparison}
+```{r,Thomason3-Data-Comparison}
 estimateMeanComparison(Thomason3Data)
 plotMeanComparison(Thomason3Data,main="LSAT Score Before and After Mapping",ylab="LSAT Score",values=FALSE)
 ```

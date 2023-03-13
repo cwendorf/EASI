@@ -63,7 +63,7 @@ HolzelCorrMeditation <- fillCorrelations(HolzelCorrMeditation)
 
 For each subset, obtain a difference plot comparing pretest and posttest.
 
-```{r,Holzel-Comparison}
+```{r,Holzel-Summary-Comparison}
 estimateMeanComparison(HolzelSummaryControl,HolzelCorrControl)
 plotMeanComparison(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter",values=FALSE)
 estimateMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation)

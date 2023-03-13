@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{BodyWell Regression Data Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## BodyWell Regression Data Example
 
@@ -49,7 +71,7 @@ Importantly, we can get a display of the regression line (with the confidence in
 plotRegression(BodyWellOneData,interval="none",xlim=c(1,5),ylim=c(1,7),cross=TRUE)
 ```
 
-![](figures/Regression-ModelA-1.png)<!-- -->
+![](figures/Regression-Data-Model-1.png)<!-- -->
 
 We can then determine the slope and intercept of the line and get confidence intervals for them.
 
@@ -68,7 +90,7 @@ estimateRegressionCoefficients(BodyWellOneData)
 plotRegressionCoefficients(BodyWellOneData)
 ```
 
-![](figures/Regression-Coeff-1.png)<!-- -->
+![](figures/Regression-Data-Coefficients-1.png)<!-- -->
 
 ### Analyses of Regression Values
 
@@ -88,4 +110,4 @@ estimateRegression(BodyWellOneData,value=2)
 plotRegression(BodyWellOneData,interval="both",value=2,xlim=c(1,5),ylim=c(1,7),values=FALSE)
 ```
 
-![](figures/Regression-Value-1.png)<!-- -->
+![](figures/Regression-Data-Value-1.png)<!-- -->

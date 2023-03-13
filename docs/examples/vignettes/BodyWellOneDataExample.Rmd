@@ -62,6 +62,6 @@ estimateCorrelations(BodyWellOneData)
 ```
 
 This is the plot of correlation and its confidence interval.
-```{r,BodyWellOne-Correlation}
+```{r,BodyWellOne-Data-Correlation}
 plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1),values=FALSE,line=0)
 ```

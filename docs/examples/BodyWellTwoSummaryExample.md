@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{BodyWell Two Sample Summary Statistics Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## BodyWell Two Sample Summary Statistics Example
 
@@ -67,4 +89,4 @@ estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations f
 plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1),values=FALSE)
 ```
 
-![](figures/BodyWellTwo-Comparison-1.png)<!-- -->
+![](figures/BodyWellTwo-Summary-Comparison-1.png)<!-- -->

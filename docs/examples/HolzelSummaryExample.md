@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Holzel Summary Statistics Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Holzel Summary Statistics Example
 
@@ -55,7 +77,7 @@ estimateMeanComparison(HolzelSummaryControl,HolzelCorrControl)
 plotMeanComparison(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter",values=FALSE)
 ```
 
-![](figures/Holzel-Comparison-1.png)<!-- -->
+![](figures/Holzel-Summary-Comparison-1.png)<!-- -->
 
 ```r
 estimateMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation)
@@ -76,7 +98,7 @@ estimateMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation)
 plotMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter",values=FALSE)
 ```
 
-![](figures/Holzel-Comparison-2.png)<!-- -->
+![](figures/Holzel-Summary-Comparison-2.png)<!-- -->
 
 Then for each subset, obtain the standardized effect size comparing pretest to posttest.
 

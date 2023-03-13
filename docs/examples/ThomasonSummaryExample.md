@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Thomason Summary Statistics Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Thomason Summary Statistics Example
 
@@ -37,7 +59,7 @@ estimateMeanComparison(Thomason1Summary,Thomason1Corr)
 plotMeanComparison(Thomason1Summary,Thomason1Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
 
-![](figures/Thomason1-Comparison-1.png)<!-- -->
+![](figures/Thomason1-Summary-Comparison-1.png)<!-- -->
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
@@ -88,7 +110,7 @@ estimateMeanComparison(Thomason2Summary,Thomason2Corr)
 plotMeanComparison(Thomason2Summary,Thomason2Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",ylim=c(0,20),values=FALSE)
 ```
 
-![](figures/Thomason2-Comparison-1.png)<!-- -->
+![](figures/Thomason2-Summary-Comparison-1.png)<!-- -->
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 
@@ -139,7 +161,7 @@ estimateMeanComparison(Thomason3Summary,Thomason3Corr)
 plotMeanComparison(Thomason3Summary,Thomason3Corr,main="LSAT Score Before and After Mapping",ylab="LSAT Score",values=FALSE)
 ```
 
-![](figures/Thomason3-Comparison-1.png)<!-- -->
+![](figures/Thomason3-Summary-Comparison-1.png)<!-- -->
 
 The secondary emphasis of the analysis is provide a standardized effect size for the difference.
 

@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Donohue Data Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Donohue Data Example
 
@@ -34,7 +56,7 @@ estimateMeans(DonohueData)
 plotMeans(DonohueData,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
 
-![](figures/Donohue-Means-1.png)<!-- -->
+![](figures/Donohue-Data-Means-1.png)<!-- -->
  
 ### Analysis of a Variable Difference
 
@@ -62,7 +84,7 @@ estimateMeanComparison(DonohueData)
 plotMeanComparison(DonohueData,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
 
-![](figures/Donohue-Comparison-1.png)<!-- -->
+![](figures/Donohue-Data-Comparison-1.png)<!-- -->
 
 Then, obtain the standardized effect size for that comparison.
 
@@ -104,7 +126,7 @@ estimateMeanSubsets(DonohueData,contrast=PrevsPostFollow)
 plotMeanSubsets(DonohueData,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
 ```
 
-![](figures/Donohue-Contrast-1.png)<!-- -->
+![](figures/Donohue-Data-Contrast-1.png)<!-- -->
 
 Then, estimate the standardized contrast.
 

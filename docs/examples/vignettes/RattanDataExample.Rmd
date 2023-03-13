@@ -46,7 +46,7 @@ RattanData <- data.frame(Feedback,Motivation)
 
 With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
 
-```{r,Rattan-Means}
+```{r,Rattan-Data-Means}
 estimateMeans(Motivation~Feedback)
 plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
@@ -57,7 +57,7 @@ The first research question is whether there is a difference between the two non
 
 First, set the comparison and obtain the difference plot for that comparison.
 
-```{r,Rattan-Comparison}
+```{r,Rattan-Data-Comparison}
 Comparison <- factor(Feedback,c("Comfort","Challenge"))
 estimateMeanComparison(Motivation~Comparison)
 plotMeanComparison(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
@@ -75,7 +75,7 @@ The second research question is whether the Comfort group differs from the other
 
 First, set the contrast and obtain a difference plot for the contrast.
 
-```{r,Rattan-Contrast}
+```{r,Rattan-Data-Contrast}
 ComfortvsOthers <- c(-1,.5,.5)
 estimateMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers)
 plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)

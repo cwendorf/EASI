@@ -44,7 +44,7 @@ PenLaptop1Data <- data.frame(Group,Transcription)
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop1-Comparison}
+```{r,PenLaptop1-Data-Comparison}
 estimateMeanComparison(Transcription~Group)
 plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
@@ -68,7 +68,7 @@ PenLaptop2Data <- data.frame(Group,Transcription)
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop2-Comparison}
+```{r,PenLaptop2-Data-Comparison}
 estimateMeanComparison(Transcription~Group)
 plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```
@@ -92,7 +92,7 @@ PenLaptop3Data <- data.frame(Group,Transcription)
 
 The primary emphasis of the analysis is to estimate and represent the difference between the two conditions.
 
-```{r,PenLaptop3-Comparison}
+```{r,PenLaptop3-Data-Comparison}
 estimateMeanComparison(Transcription~Group)
 plotMeanComparison(Transcription~Group,main="Transcription as a Function of Note Taking",ylab="Transcription %",ylim=c(0,20),values=FALSE)
 ```

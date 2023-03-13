@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{BodyWell One Sample Data Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## BodyWell One Sample Data Example
 
@@ -61,4 +83,4 @@ This is the plot of correlation and its confidence interval.
 plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1),values=FALSE,line=0)
 ```
 
-![](figures/BodyWellOne-Correlation-1.png)<!-- -->
+![](figures/BodyWellOne-Data-Correlation-1.png)<!-- -->

@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-13"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Frenda Summary Statistics Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Frenda Summary Statistics Example
 
@@ -37,7 +59,7 @@ estimateMeans(FrendaSummary)
 plotMeans(FrendaSummary,ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-![](figures/Frenda-Means-1.png)<!-- -->
+![](figures/Frenda-Summary-Means-1.png)<!-- -->
 
 ### Analyses of the Marginal Means
 
@@ -126,7 +148,7 @@ estimateMeanSubsets(FrendaSummary,contrast=mainFactorA)
 plotMeanSubsets(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-![](figures/Frenda-MainA-1.png)<!-- -->
+![](figures/Frenda-Summary-MainA-1.png)<!-- -->
 
 Then estimate the standardized effect size for the main effect.
 
@@ -166,7 +188,7 @@ estimateMeanSubsets(FrendaSummary,contrast=mainFactorB)
 plotMeanSubsets(FrendaSummary,contrast=mainFactorB,labels=c("Sleep","NoSleep"),main="Factor B Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-![](figures/Frenda-MainB-1.png)<!-- -->
+![](figures/Frenda-Summary-MainB-1.png)<!-- -->
 
 Then estimate the standardized effect size for the main effect.
 
@@ -222,7 +244,7 @@ estimateMeanSubsets(FrendaSummary,contrast=simpleBatA1)
 plotMeanSubsets(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-![](figures/Frenda-SimpleA1-1.png)<!-- -->
+![](figures/Frenda-Summary-SimpleA1-1.png)<!-- -->
 
 Then estimate the standardized effect size for the simple effect.
 
@@ -262,7 +284,7 @@ estimateMeanSubsets(FrendaSummary,contrast=simpleBatA2)
 plotMeanSubsets(FrendaSummary,contrast=simpleBatA2,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A2",ylab="False Memory",ylim=c(0,4),values=FALSE)
 ```
 
-![](figures/Frenda-SimpleA2-1.png)<!-- -->
+![](figures/Frenda-Summary-SimpleA2-1.png)<!-- -->
 
 Then estimate the standardized effect size for the simple effect.
 
