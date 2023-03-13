@@ -26,6 +26,8 @@
 \item{DescStats}{a matrix/frame of descriptive/summary statistics}
 \item{CorrStats}{a matrix/frame of correlations among the measures}
 \item{contrast}{a vector of codes for the contrast among all means}
+\item{ylab}{a label for the y-axis}
+\item{xlab}{a label for the x-axis}
 \item{mu}{a number indicating the true/hypothesized value of the mean contrast}
 \item{conf.level}{confidence level of the interval}
 \item{main}{a custom title for the graph}

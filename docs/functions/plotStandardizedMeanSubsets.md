@@ -29,6 +29,8 @@ Argument | Description
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations among the measures
 ```contrast``` | a vector of codes for the contrast among all means
+```ylab``` | a label for the y-axis
+```xlab``` | a label for the x-axis
 ```mu``` | a number indicating the true/hypothesized value of the mean contrast
 ```conf.level``` | confidence level of the interval
 ```main``` | a custom title for the graph
