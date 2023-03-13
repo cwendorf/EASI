@@ -89,13 +89,13 @@ This code will produce a graph of the confidence intervals for each level of the
 with(FactorialDataB1,plotMeans(Outcome~FactorA))
 ```
 
-![](figures/Factorial-MeansA-1.png)<!-- -->
+![](figures/Factorial-Data-MeansA-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeans(Outcome~FactorA))
 ```
 
-![](figures/Factorial-MeansA-2.png)<!-- -->
+![](figures/Factorial-Data-MeansA-2.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -129,13 +129,13 @@ For the graph, it is possible to add a comparison line to represent a population
 with(FactorialDataB1,plotMeans(Outcome~FactorA,conf.level=.99,line=5,rope=c(3,7)))
 ```
 
-![](figures/Factorial-MeansB-1.png)<!-- -->
+![](figures/Factorial-Data-MeansB-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeans(Outcome~FactorA,conf.level=.99,line=5,rope=c(3,7)))
 ```
 
-![](figures/Factorial-MeansB-2.png)<!-- -->
+![](figures/Factorial-Data-MeansB-2.png)<!-- -->
 
 #### Significance Tests
 
@@ -286,13 +286,13 @@ This code obtains and plots the confidence intervals for the mean difference in 
 with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1))
 ```
 
-![](figures/Factorial-DifferenceA-1.png)<!-- -->
+![](figures/Factorial-Data-DifferenceA-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2))
 ```
 
-![](figures/Factorial-DifferenceA-2.png)<!-- -->
+![](figures/Factorial-Data-DifferenceA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -322,13 +322,13 @@ Once again, the confidence levels can be changed away from the default and a com
 with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1,conf.level=.99,line=0,rope=c(-2,2)))
 ```
 
-![](figures/Factorial-DifferenceB-1.png)<!-- -->
+![](figures/Factorial-Data-DifferenceB-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2,conf.level=.99,line=0,rope=c(-2,2)))
 ```
 
-![](figures/Factorial-DifferenceB-2.png)<!-- -->
+![](figures/Factorial-Data-DifferenceB-2.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -368,13 +368,13 @@ This code produces a difference plot using the confidence intervals for the mean
 with(FactorialDataB1,plotMeanComparison(Outcome~CompDataB1))
 ```
 
-![](figures/Factorial-ComparisonA-1.png)<!-- -->
+![](figures/Factorial-Data-ComparisonA-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeanComparison(Outcome~CompDataB2))
 ```
 
-![](figures/Factorial-ComparisonA-2.png)<!-- -->
+![](figures/Factorial-Data-ComparisonA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -414,13 +414,13 @@ Once again, the confidence levels can be changed away from the default and a reg
 with(FactorialDataB1,plotMeanComparison(Outcome~CompDataB1,conf.level=.99,rope=c(-2,2)))
 ```
 
-![](figures/Factorial-ComparisonB-1.png)<!-- -->
+![](figures/Factorial-Data-ComparisonB-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeanComparison(Outcome~CompDataB2,conf.level=.99,rope=c(-2,2)))
 ```
 
-![](figures/Factorial-ComparisonB-2.png)<!-- -->
+![](figures/Factorial-Data-ComparisonB-2.png)<!-- -->
 
 #### Significance Test
 
@@ -554,13 +554,13 @@ This code obtains and plots the confidence intervals for the groups and the mean
 with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
-![](figures/Factorial-ContrastA-1.png)<!-- -->
+![](figures/Factorial-Data-ContrastA-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
-![](figures/Factorial-ContrastA-2.png)<!-- -->
+![](figures/Factorial-Data-ContrastA-2.png)<!-- -->
 
 As in all other cases, the default value of the confidence interval can be changed.
 
@@ -590,13 +590,13 @@ The width of the confidence interval for the contrast can be altered and a compa
 with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2)))
 ```
 
-![](figures/Factorial-ContrastB-1.png)<!-- -->
+![](figures/Factorial-Data-ContrastB-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2)))
 ```
 
-![](figures/Factorial-ContrastB-2.png)<!-- -->
+![](figures/Factorial-Data-ContrastB-2.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 
@@ -636,13 +636,13 @@ This code produces a difference plot using the confidence intervals for the mean
 with(FactorialDataB1,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
-![](figures/Factorial-SubsetsA-1.png)<!-- -->
+![](figures/Factorial-Data-SubsetsA-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
-![](figures/Factorial-SubsetsA-2.png)<!-- -->
+![](figures/Factorial-Data-SubsetsA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -682,13 +682,13 @@ Once again, the confidence levels can be changed away from the default and a reg
 with(FactorialDataB1,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)))
 ```
 
-![](figures/Factorial-SubsetsB-1.png)<!-- -->
+![](figures/Factorial-Data-SubsetsB-1.png)<!-- -->
 
 ```r
 with(FactorialDataB2,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)))
 ```
 
-![](figures/Factorial-SubsetsB-2.png)<!-- -->
+![](figures/Factorial-Data-SubsetsB-2.png)<!-- -->
 
 #### Significance Test
 

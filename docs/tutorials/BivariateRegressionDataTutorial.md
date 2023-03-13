@@ -122,7 +122,7 @@ This code will produce a graph of the confidence intervals for each of the regre
 plotRegressionCoefficients(BivariateData)
 ```
 
-![](figures/Regression-BivariateCoeffA-1.png)<!-- -->
+![](figures/Bivariate-Data-CoefficientsA-1.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -143,7 +143,7 @@ For the graph, it is possible to plot just coefficients for the predictors (minu
 plotRegressionCoefficients(BivariateData,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
 ```
 
-![](figures/Regression-BivariateCoeffB-1.png)<!-- -->
+![](figures/Bivariate-Data-CoefficientsB-1.png)<!-- -->
 
 #### Significance Tests
 
@@ -180,7 +180,7 @@ This code will produce a graph of the confidence intervals for the standardized 
 plotStandardizedRegressionCoefficients(BivariateData)
 ```
 
-![](figures/Regression-BivariateStandardA-1.png)<!-- -->
+![](figures/Bivariate-Data-StandardizedA-1.png)<!-- -->
 
 As in other places, the code defaults to a 95% confidence interval. This can be changed if desired.
 
@@ -200,7 +200,7 @@ For the graph, it is possible to change the confidence level.
 plotStandardizedRegressionCoefficients(BivariateData,conf.level=.99)
 ```
 
-![](figures/Regression-BivariateStandardB-1.png)<!-- -->
+![](figures/Bivariate-Data-StandardizedB-1.png)<!-- -->
 
 ### Analyses of Regression Values
 
@@ -214,7 +214,7 @@ This code produces a plot of the regression line (with confidence and prediction
 plotRegression(BivariateData,interval="none")
 ```
 
-![](figures/Regression-BivariateLineA-1.png)<!-- -->
+![](figures/Bivariate-Data-LineA-1.png)<!-- -->
 
 This code adds a scatter of data points to the regression plot.
 
@@ -222,7 +222,7 @@ This code adds a scatter of data points to the regression plot.
 plotRegression(BivariateData,interval="none",points=TRUE)
 ```
 
-![](figures/Regression-BivariateLineB-1.png)<!-- -->
+![](figures/Bivariate-Data-LineB-1.png)<!-- -->
 
 #### Confidence and Prediction Intervals
 
@@ -244,7 +244,7 @@ This code plots the confidence interval associated with the regression line and 
 plotRegression(BivariateData,value=4,interval="confidence")
 ```
 
-![](figures/Regression-BivariateConfA-1.png)<!-- -->
+![](figures/Bivariate-Data-ConfidenceA-1.png)<!-- -->
 
 This code plots the prediction interval associated with the regression line and labels the interval for the specific value of the Predictor.
 
@@ -252,4 +252,4 @@ This code plots the prediction interval associated with the regression line and 
 plotRegression(BivariateData,value=4,interval="prediction")
 ```
 
-![](figures/Regression-BivariateConfB-1.png)<!-- -->
+![](figures/Bivariate-Data-ConfidenceB-1.png)<!-- -->

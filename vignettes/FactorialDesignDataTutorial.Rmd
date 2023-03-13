@@ -72,7 +72,7 @@ with(FactorialDataB2,estimateMeans(Outcome~FactorA))
 ```
 
 This code will produce a graph of the confidence intervals for each level of the factor.
-```{r,Factorial-MeansA}
+```{r,Factorial-Data-MeansA}
 with(FactorialDataB1,plotMeans(Outcome~FactorA))
 with(FactorialDataB2,plotMeans(Outcome~FactorA))
 ```
@@ -84,7 +84,7 @@ with(FactorialDataB2,estimateMeans(Outcome~FactorA,conf.level=.99))
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
-```{r,Factorial-MeansB}
+```{r,Factorial-Data-MeansB}
 with(FactorialDataB1,plotMeans(Outcome~FactorA,conf.level=.99,line=5,rope=c(3,7)))
 with(FactorialDataB2,plotMeans(Outcome~FactorA,conf.level=.99,line=5,rope=c(3,7)))
 ```
@@ -136,7 +136,7 @@ with(FactorialDataB2,estimateMeanDifference(Outcome~CompDataB2))
 ```
 
 This code obtains and plots the confidence intervals for the mean difference in the identified comparison.
-```{r,Factorial-DifferenceA}
+```{r,Factorial-Data-DifferenceA}
 with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1))
 with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2))
 ```
@@ -148,7 +148,7 @@ with(FactorialDataB2,estimateMeanDifference(Outcome~CompDataB2,conf.level=.99))
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
-```{r,Factorial-DifferenceB}
+```{r,Factorial-Data-DifferenceB}
 with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1,conf.level=.99,line=0,rope=c(-2,2)))
 with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2,conf.level=.99,line=0,rope=c(-2,2)))
 ```
@@ -160,7 +160,7 @@ with(FactorialDataB2,estimateMeanComparison(Outcome~CompDataB2))
 ```
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
-```{r,Factorial-ComparisonA}
+```{r,Factorial-Data-ComparisonA}
 with(FactorialDataB1,plotMeanComparison(Outcome~CompDataB1))
 with(FactorialDataB2,plotMeanComparison(Outcome~CompDataB2))
 ```
@@ -172,7 +172,7 @@ with(FactorialDataB2,estimateMeanComparison(Outcome~CompDataB2,conf.level=.99))
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
-```{r,Factorial-ComparisonB}
+```{r,Factorial-Data-ComparisonB}
 with(FactorialDataB1,plotMeanComparison(Outcome~CompDataB1,conf.level=.99,rope=c(-2,2)))
 with(FactorialDataB2,plotMeanComparison(Outcome~CompDataB2,conf.level=.99,rope=c(-2,2)))
 ```
@@ -223,7 +223,7 @@ with(FactorialDataB2,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
-```{r,Factorial-ContrastA}
+```{r,Factorial-Data-ContrastA}
 with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
 with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
 ```
@@ -235,7 +235,7 @@ with(FactorialDataB2,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers,co
 ```
 
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
-```{r,Factorial-ContrastB}
+```{r,Factorial-Data-ContrastB}
 with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2)))
 with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2)))
 ```
@@ -247,7 +247,7 @@ with(FactorialDataB2,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
 ```
 
 This code produces a difference plot using the confidence intervals for the mean subsets and the mean contrast.
-```{r,Factorial-SubsetsA}
+```{r,Factorial-Data-SubsetsA}
 with(FactorialDataB1,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
 with(FactorialDataB2,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
 ```
@@ -259,7 +259,7 @@ with(FactorialDataB2,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,con
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
-```{r,Factorial-SubsetsB}
+```{r,Factorial-Data-SubsetsB}
 with(FactorialDataB1,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)))
 with(FactorialDataB2,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)))
 ```

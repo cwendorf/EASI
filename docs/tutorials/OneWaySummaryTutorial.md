@@ -39,7 +39,7 @@ This code will produce a graph of the confidence intervals for each level of the
 plotMeans(OneWaySummary)
 ```
 
-![](figures/OneWay-MeansA-1.png)<!-- -->
+![](figures/OneWay-Summary-MeansA-1.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -61,7 +61,7 @@ For the graph, it is possible to add a comparison line to represent a population
 plotMeans(OneWaySummary,conf.level=.99,line=5,rope=c(3,7))
 ```
 
-![](figures/OneWay-MeansB-1.png)<!-- -->
+![](figures/OneWay-Summary-MeansB-1.png)<!-- -->
 
 #### Significance Tests
 
@@ -154,7 +154,7 @@ This code obtains and plots the confidence intervals for the mean difference in 
 plotMeanDifference(CompSummary)
 ```
 
-![](figures/OneWay-DifferenceA-1.png)<!-- -->
+![](figures/OneWay-Summary-DifferenceA-1.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -174,7 +174,7 @@ Once again, the confidence levels can be changed away from the default and a com
 plotMeanDifference(CompSummary,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
-![](figures/OneWay-DifferenceB-1.png)<!-- -->
+![](figures/OneWay-Summary-DifferenceB-1.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -199,7 +199,7 @@ This code produces a difference plot using the confidence intervals for the mean
 plotMeanComparison(CompSummary)
 ```
 
-![](figures/OneWay-ComparisonA-1.png)<!-- -->
+![](figures/OneWay-Summary-ComparisonA-1.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -224,7 +224,7 @@ Once again, the confidence levels can be changed away from the default and a reg
 plotMeanComparison(CompSummary,conf.level=.99,rope=c(-2,2))
 ```
 
-![](figures/OneWay-ComparisonB-1.png)<!-- -->
+![](figures/OneWay-Summary-ComparisonB-1.png)<!-- -->
 
 #### Significance Test
 
@@ -308,7 +308,7 @@ This code obtains and plots the confidence intervals for the groups and the mean
 plotMeanContrast(OneWaySummary,contrast=L1vsOthers)
 ```
 
-![](figures/OneWay-ContrastA-1.png)<!-- -->
+![](figures/OneWay-Summary-ContrastA-1.png)<!-- -->
 
 As in all other cases, the default value of the confidence interval can be changed.
 
@@ -328,7 +328,7 @@ The width of the confidence interval for the contrast can be altered and a compa
 plotMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
-![](figures/OneWay-ContrastB-1.png)<!-- -->
+![](figures/OneWay-Summary-ContrastB-1.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 
@@ -353,7 +353,7 @@ This code produces a difference plot using the confidence intervals for the mean
 plotMeanSubsets(OneWaySummary,contrast=L1vsOthers)
 ```
 
-![](figures/OneWay-SubsetsA-1.png)<!-- -->
+![](figures/OneWay-Summary-SubsetsA-1.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -378,7 +378,7 @@ Once again, the confidence levels can be changed away from the default and a reg
 plotMeanSubsets(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
-![](figures/OneWay-SubsetsB-1.png)<!-- -->
+![](figures/OneWay-Summary-SubsetsB-1.png)<!-- -->
 
 #### Significance Test
 

@@ -62,7 +62,7 @@ estimateMeans(Outcome~Factor)
 ```
 
 This code will produce a graph of the confidence intervals for each level of the factor.
-```{r,Independent-MeansA}
+```{r,Independent-Data-MeansA}
 plotMeans(Outcome~Factor)
 ```
 
@@ -72,7 +72,7 @@ estimateMeans(Outcome~Factor,conf.level=.99)
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
-```{r,Independent-MeansB}
+```{r,Independent-Data-MeansB}
 plotMeans(Outcome~Factor,conf.level=.99,line=5,rope=c(3,7))
 ```
 
@@ -112,7 +112,7 @@ estimateMeanDifference(Outcome~Factor)
 ```
 
 This code obtains and plots the confidence interval of mean difference.
-```{r,Independent-DifferenceA}
+```{r,Independent-Data-DifferenceA}
 plotMeanDifference(Outcome~Factor)
 ```
 
@@ -122,7 +122,7 @@ estimateMeanDifference(Outcome~Factor,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
-```{r,Independent-DifferenceB}
+```{r,Independent-Data-DifferenceB}
 plotMeanDifference(Outcome~Factor,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
@@ -134,7 +134,7 @@ estimateMeanComparison(Outcome~Factor)
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
 
-```{r,Independent-ComparisonA}
+```{r,Independent-Data-ComparisonA}
 plotMeanComparison(Outcome~Factor)
 ```
 
@@ -144,7 +144,7 @@ estimateMeanComparison(Outcome~Factor,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
-```{r,Independent-ComparisonB}
+```{r,Independent-Data-ComparisonB}
 plotMeanComparison(Outcome~Factor,conf.level=.99,rope=c(-2,2))
 ```
 

@@ -67,7 +67,7 @@ estimateCorrelations(ComparisonData)
 ```
 
 This code will produce a graph of the confidence interval for the correlation.
-```{r,RepeatedCorrelation-A}
+```{r,SetCorrelations-Data-IntervalsA}
 plotCorrelations(ComparisonData)
 ```
 
@@ -77,7 +77,7 @@ estimateCorrelations(ComparisonData,conf.level=.99)
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
-```{r,RepeatedCorrelation-B}
+```{r,SetCorrelations-Data-IntervalsB}
 plotCorrelations(ComparisonData,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
@@ -100,7 +100,7 @@ estimateCorrelations(RepeatedData)
 ```
 
 This code will produce a graph of the confidence intervals for the correlations.
-```{r,RepeatedCorrelations-A}
+```{r,SetCorrelations-Data-IntervalsC}
 plotCorrelations(RepeatedData)
 ```
 
@@ -110,7 +110,7 @@ estimateCorrelations(RepeatedData,conf.level=.99)
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
-```{r,RepeatedCorrelations-B}
+```{r,SetCorrelations-Data-IntervalsD}
 plotCorrelations(RepeatedData,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 

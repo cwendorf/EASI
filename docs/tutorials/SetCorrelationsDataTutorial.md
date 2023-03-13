@@ -71,7 +71,7 @@ This code will produce a graph of the confidence interval for the correlation.
 plotCorrelations(ComparisonData)
 ```
 
-![](figures/RepeatedCorrelation-A-1.png)<!-- -->
+![](figures/SetCorrelations-Data-IntervalsA-1.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -91,7 +91,7 @@ Of course, it is possible to change from the default confidence level in the gra
 plotCorrelations(ComparisonData,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
-![](figures/RepeatedCorrelation-B-1.png)<!-- -->
+![](figures/SetCorrelations-Data-IntervalsB-1.png)<!-- -->
 
 #### Significance Test
 
@@ -133,7 +133,7 @@ This code will produce a graph of the confidence intervals for the correlations.
 plotCorrelations(RepeatedData)
 ```
 
-![](figures/RepeatedCorrelations-A-1.png)<!-- -->
+![](figures/SetCorrelations-Data-IntervalsC-1.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -155,7 +155,7 @@ Of course, it is possible to change from the default confidence level in the gra
 plotCorrelations(RepeatedData,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
-![](figures/RepeatedCorrelations-B-1.png)<!-- -->
+![](figures/SetCorrelations-Data-IntervalsD-1.png)<!-- -->
 
 #### Significance Tests
 

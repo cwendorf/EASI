@@ -64,7 +64,7 @@ estimateMeans(FactorialSummaryB2)
 ```
 
 This code will produce a graph of the confidence intervals for each level of the factor.
-```{r,Factorial-MeansA}
+```{r,Factorial-Summary-MeansA}
 plotMeans(FactorialSummaryB1)
 plotMeans(FactorialSummaryB2)
 ```
@@ -76,7 +76,7 @@ estimateMeans(FactorialSummaryB2,conf.level=.99)
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
-```{r,Factorial-MeansB}
+```{r,Factorial-Summary-MeansB}
 plotMeans(FactorialSummaryB1,conf.level=.99,line=5,rope=c(3,7))
 plotMeans(FactorialSummaryB2,conf.level=.99,line=5,rope=c(3,7))
 ```
@@ -130,7 +130,7 @@ estimateMeanDifference(CompSummaryB2)
 ```
 
 This code obtains and plots the confidence intervals for the mean difference in the identified comparison.
-```{r,Factorial-DifferenceA}
+```{r,Factorial-Summary-DifferenceA}
 plotMeanDifference(CompSummaryB1)
 plotMeanDifference(CompSummaryB2)
 ```
@@ -142,7 +142,7 @@ estimateMeanDifference(CompSummaryB2,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
-```{r,Factorial-DifferenceB}
+```{r,Factorial-Summary-DifferenceB}
 plotMeanDifference(CompSummaryB1,conf.level=.99,line=0,rope=c(-2,2))
 plotMeanDifference(CompSummaryB2,conf.level=.99,line=0,rope=c(-2,2))
 ```
@@ -154,7 +154,7 @@ estimateMeanComparison(CompSummaryB2)
 ```
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
-```{r,Factorial-ComparisonA}
+```{r,Factorial-Summary-ComparisonA}
 plotMeanComparison(CompSummaryB1)
 plotMeanComparison(CompSummaryB2)
 ```
@@ -166,7 +166,7 @@ estimateMeanComparison(CompSummaryB2,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
-```{r,Factorial-ComparisonB}
+```{r,Factorial-Summary-ComparisonB}
 plotMeanComparison(CompSummaryB1,conf.level=.99,rope=c(-2,2))
 plotMeanComparison(CompSummaryB2,conf.level=.99,rope=c(-2,2))
 ```
@@ -217,7 +217,7 @@ estimateMeanContrast(FactorialSummaryB2,contrast=A1vsOthers)
 ```
 
 This code obtains and plots the confidence intervals for the mean difference in the identified contrast.
-```{r,Factorial-ContrastA}
+```{r,Factorial-Summary-ContrastA}
 plotMeanContrast(FactorialSummaryB1,contrast=A1vsOthers)
 plotMeanContrast(FactorialSummaryB2,contrast=A1vsOthers)
 ```
@@ -229,7 +229,7 @@ estimateMeanContrast(FactorialSummaryB2,contrast=A1vsOthers,conf.level=.99)
 ```
 
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
-```{r,Factorial-ContrastB}
+```{r,Factorial-Summary-ContrastB}
 plotMeanContrast(FactorialSummaryB1,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 plotMeanContrast(FactorialSummaryB2,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
@@ -241,7 +241,7 @@ estimateMeanSubsets(FactorialSummaryB2,contrast=A1vsOthers)
 ```
 
 This code produces a difference plot using the confidence intervals for the mean subsets and the mean contrast.
-```{r,Factorial-SubsetsA}
+```{r,Factorial-Summary-SubsetsA}
 plotMeanSubsets(FactorialSummaryB1,contrast=A1vsOthers)
 plotMeanSubsets(FactorialSummaryB2,contrast=A1vsOthers)
 ```
@@ -253,7 +253,7 @@ estimateMeanSubsets(FactorialSummaryB2,contrast=A1vsOthers,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
-```{r,Factorial-SubsetsB}
+```{r,Factorial-Summary-SubsetsB}
 plotMeanSubsets(FactorialSummaryB1,contrast=A1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 plotMeanSubsets(FactorialSummaryB2,contrast=A1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 ```

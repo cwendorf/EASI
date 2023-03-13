@@ -44,7 +44,7 @@ This code will produce a graph of the confidence intervals for each level of the
 plotMeans(PairedSummary)
 ```
 
-![](figures/Paired-MeansA-1.png)<!-- -->
+![](figures/Paired-Summary-MeansA-1.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -65,7 +65,7 @@ For the graph, it is possible to add a comparison line to represent a population
 plotMeans(PairedSummary,conf.level=.99,line=6,rope=c(4,8))
 ```
 
-![](figures/Paired-MeansB-1.png)<!-- -->
+![](figures/Paired-Summary-MeansB-1.png)<!-- -->
 
 #### Significance Tests
 
@@ -147,7 +147,7 @@ This code obtains and plots the confidence intervals for the mean difference.
 plotMeanDifference(PairedSummary,PairedCorr)
 ```
 
-![](figures/Paired-DifferenceA-1.png)<!-- -->
+![](figures/Paired-Summary-DifferenceA-1.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -167,7 +167,7 @@ Once again, the confidence levels can be changed away from the default and a com
 plotMeanDifference(PairedSummary,PairedCorr,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
-![](figures/Paired-DifferenceB-1.png)<!-- -->
+![](figures/Paired-Summary-DifferenceB-1.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -192,7 +192,7 @@ This code produces a difference plot using the confidence intervals for the mean
 plotMeanComparison(PairedSummary,PairedCorr)
 ```
 
-![](figures/Paired-ComparisonA-1.png)<!-- -->
+![](figures/Paired-Summary-ComparisonA-1.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -217,7 +217,7 @@ Once again, the confidence levels can be changed away from the default and a reg
 plotMeanComparison(PairedSummary,PairedCorr,conf.level=.99,rope=c(-2,2))
 ```
 
-![](figures/Paired-ComparisonB-1.png)<!-- -->
+![](figures/Paired-Summary-ComparisonB-1.png)<!-- -->
 
 #### Significance Test
 

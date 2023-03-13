@@ -79,13 +79,13 @@ This code will produce a graph of the confidence intervals for each level of the
 plotMeans(MixedSummaryL1)
 ```
 
-![](figures/Mixed-MeansA-1.png)<!-- -->
+![](figures/Mixed-Summary-MeansA-1.png)<!-- -->
 
 ```r
 plotMeans(MixedSummaryL2)
 ```
 
-![](figures/Mixed-MeansA-2.png)<!-- -->
+![](figures/Mixed-Summary-MeansA-2.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -119,13 +119,13 @@ For the graph, it is possible to add a comparison line to represent a population
 plotMeans(MixedSummaryL1,conf.level=.99,line=5,rope=c(3,7))
 ```
 
-![](figures/Mixed-MeansB-1.png)<!-- -->
+![](figures/Mixed-Summary-MeansB-1.png)<!-- -->
 
 ```r
 plotMeans(MixedSummaryL2,conf.level=.99,line=5,rope=c(3,7))
 ```
 
-![](figures/Mixed-MeansB-2.png)<!-- -->
+![](figures/Mixed-Summary-MeansB-2.png)<!-- -->
 
 #### Significance Tests
 
@@ -278,13 +278,13 @@ This code obtains and plots the confidence intervals for the mean difference in 
 plotMeanDifference(CompSummaryL1,MixedCorrL1)
 ```
 
-![](figures/Mixed-DifferenceA-1.png)<!-- -->
+![](figures/Mixed-Summary-DifferenceA-1.png)<!-- -->
 
 ```r
 plotMeanDifference(CompSummaryL2,MixedCorrL2)
 ```
 
-![](figures/Mixed-DifferenceA-2.png)<!-- -->
+![](figures/Mixed-Summary-DifferenceA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -314,13 +314,13 @@ Once again, the confidence levels can be changed away from the default and a com
 plotMeanDifference(CompSummaryL1,MixedCorrL1,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
-![](figures/Mixed-DifferenceB-1.png)<!-- -->
+![](figures/Mixed-Summary-DifferenceB-1.png)<!-- -->
 
 ```r
 plotMeanDifference(CompSummaryL2,MixedCorrL2,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
-![](figures/Mixed-DifferenceB-2.png)<!-- -->
+![](figures/Mixed-Summary-DifferenceB-2.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -360,13 +360,13 @@ This code produces a difference plot using the confidence intervals for the mean
 plotMeanComparison(CompSummaryL1,MixedCorrL1)
 ```
 
-![](figures/Mixed-ComparisonA-1.png)<!-- -->
+![](figures/Mixed-Summary-ComparisonA-1.png)<!-- -->
 
 ```r
 plotMeanComparison(CompSummaryL2,MixedCorrL2)
 ```
 
-![](figures/Mixed-ComparisonA-2.png)<!-- -->
+![](figures/Mixed-Summary-ComparisonA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -406,13 +406,13 @@ Once again, the confidence levels can be changed away from the default and a reg
 plotMeanComparison(CompSummaryL1,MixedCorrL1,conf.level=.99,rope=c(-2,2))
 ```
 
-![](figures/Mixed-ComparisonB-1.png)<!-- -->
+![](figures/Mixed-Summary-ComparisonB-1.png)<!-- -->
 
 ```r
 plotMeanComparison(CompSummaryL2,MixedCorrL2,conf.level=.99,rope=c(-2,2))
 ```
 
-![](figures/Mixed-ComparisonB-2.png)<!-- -->
+![](figures/Mixed-Summary-ComparisonB-2.png)<!-- -->
 
 #### Significance Tests
 
@@ -546,13 +546,13 @@ This code obtains and plots the confidence intervals for the mean difference in 
 plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers)
 ```
 
-![](figures/Mixed-ContrastA-1.png)<!-- -->
+![](figures/Mixed-Summary-ContrastA-1.png)<!-- -->
 
 ```r
 plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers)
 ```
 
-![](figures/Mixed-ContrastA-2.png)<!-- -->
+![](figures/Mixed-Summary-ContrastA-2.png)<!-- -->
 
 As in all other cases, the default value of the confidence interval can be changed.
 
@@ -582,13 +582,13 @@ The width of the confidence interval for the contrast can be altered and a compa
 plotMeanContrast(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
-![](figures/Mixed-ContrastB-1.png)<!-- -->
+![](figures/Mixed-Summary-ContrastB-1.png)<!-- -->
 
 ```r
 plotMeanContrast(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
-![](figures/Mixed-ContrastB-2.png)<!-- -->
+![](figures/Mixed-Summary-ContrastB-2.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 
@@ -628,13 +628,13 @@ This code produces a difference plot using the confidence intervals for the mean
 plotMeanSubsets(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers)
 ```
 
-![](figures/Mixed-SubsetsA-1.png)<!-- -->
+![](figures/Mixed-Summary-SubsetsA-1.png)<!-- -->
 
 ```r
 plotMeanSubsets(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers)
 ```
 
-![](figures/Mixed-SubsetsA-2.png)<!-- -->
+![](figures/Mixed-Summary-SubsetsA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -674,13 +674,13 @@ Once again, the confidence levels can be changed away from the default and a reg
 plotMeanSubsets(MixedSummaryL1,MixedCorrL1,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
-![](figures/Mixed-SubsetsB-1.png)<!-- -->
+![](figures/Mixed-Summary-SubsetsB-1.png)<!-- -->
 
 ```r
 plotMeanSubsets(MixedSummaryL2,MixedCorrL2,contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 
-![](figures/Mixed-SubsetsB-2.png)<!-- -->
+![](figures/Mixed-Summary-SubsetsB-2.png)<!-- -->
 
 #### Significance Tests
 

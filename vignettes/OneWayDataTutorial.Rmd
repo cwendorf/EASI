@@ -62,7 +62,7 @@ estimateMeans(Outcome~Factor)
 ```
 
 This code will produce a graph of the confidence intervals for each level of the factor.
-```{r,OneWay-MeansA}
+```{r,OneWay-Data-MeansA}
 plotMeans(Outcome~Factor)
 ```
 
@@ -72,7 +72,7 @@ estimateMeans(Outcome~Factor,conf.level=.99)
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
-```{r,OneWay-MeansB}
+```{r,OneWay-Data-MeansB}
 plotMeans(Outcome~Factor,conf.level=.99,line=5,rope=c(3,7))
 ```
 
@@ -117,7 +117,7 @@ estimateMeanDifference(Outcome~Comparison)
 ```
 
 This code obtains and plots the confidence interval for the mean difference in the identified comparison.
-```{r,OneWay-DifferenceA}
+```{r,OneWay-Data-DifferenceA}
 plotMeanDifference(Outcome~Comparison)
 ```
 
@@ -127,7 +127,7 @@ estimateMeanDifference(Outcome~Comparison,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
-```{r,OneWay-DifferenceB}
+```{r,OneWay-Data-DifferenceB}
 plotMeanDifference(Outcome~Comparison,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
@@ -137,7 +137,7 @@ estimateMeanComparison(Outcome~Comparison)
 ```
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
-```{r,OneWay-ComparisonA}
+```{r,OneWay-Data-ComparisonA}
 plotMeanComparison(Outcome~Comparison)
 ```
 
@@ -147,7 +147,7 @@ estimateMeanComparison(Outcome~Comparison,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
-```{r,OneWay-ComparisonB}
+```{r,OneWay-Data-ComparisonB}
 plotMeanComparison(Outcome~Comparison,conf.level=.99,rope=c(-2,2))
 ```
 
@@ -192,7 +192,7 @@ estimateMeanContrast(Outcome~Factor,contrast=L1vsOthers)
 ```
 
 This code obtains and plots the confidence intervals for the mean difference in the identified contrast.
-```{r,OneWay-ContrastA}
+```{r,OneWay-Data-ContrastA}
 plotMeanContrast(Outcome~Factor,contrast=L1vsOthers)
 ```
 
@@ -202,7 +202,7 @@ estimateMeanContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
 ```
 
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
-```{r,OneWay-ContrastB}
+```{r,OneWay-Data-ContrastB}
 plotMeanContrast(Outcome~Factor,contrast=L1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
@@ -212,7 +212,7 @@ estimateMeanSubsets(Outcome~Factor,contrast=L1vsOthers)
 ```
 
 This code produces a difference plot using the confidence intervals for the mean subsets and the mean contrast.
-```{r,OneWay-SubsetsA}
+```{r,OneWay-Data-SubsetsA}
 plotMeanSubsets(Outcome~Factor,contrast=L1vsOthers)
 ```
 
@@ -222,7 +222,7 @@ estimateMeanSubsets(Outcome~Factor,contrast=L1vsOthers,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
-```{r,OneWay-SubsetsB}
+```{r,OneWay-Data-SubsetsB}
 plotMeanSubsets(Outcome~Factor,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
 ```
 

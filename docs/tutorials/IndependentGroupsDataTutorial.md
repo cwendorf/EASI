@@ -54,7 +54,7 @@ This code will produce a graph of the confidence intervals for each level of the
 plotMeans(Outcome~Factor)
 ```
 
-![](figures/Independent-MeansA-1.png)<!-- -->
+![](figures/Independent-Data-MeansA-1.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -75,7 +75,7 @@ For the graph, it is possible to add a comparison line to represent a population
 plotMeans(Outcome~Factor,conf.level=.99,line=5,rope=c(3,7))
 ```
 
-![](figures/Independent-MeansB-1.png)<!-- -->
+![](figures/Independent-Data-MeansB-1.png)<!-- -->
 
 #### Significance Tests
 
@@ -157,7 +157,7 @@ This code obtains and plots the confidence interval of mean difference.
 plotMeanDifference(Outcome~Factor)
 ```
 
-![](figures/Independent-DifferenceA-1.png)<!-- -->
+![](figures/Independent-Data-DifferenceA-1.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -177,7 +177,7 @@ Once again, the confidence levels can be changed away from the default and a com
 plotMeanDifference(Outcome~Factor,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
-![](figures/Independent-DifferenceB-1.png)<!-- -->
+![](figures/Independent-Data-DifferenceB-1.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -204,7 +204,7 @@ This code produces a difference plot using the confidence intervals for the mean
 plotMeanComparison(Outcome~Factor)
 ```
 
-![](figures/Independent-ComparisonA-1.png)<!-- -->
+![](figures/Independent-Data-ComparisonA-1.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -229,7 +229,7 @@ Once again, the confidence levels can be changed away from the default and a reg
 plotMeanComparison(Outcome~Factor,conf.level=.99,rope=c(-2,2))
 ```
 
-![](figures/Independent-ComparisonB-1.png)<!-- -->
+![](figures/Independent-Data-ComparisonB-1.png)<!-- -->
 
 #### Significance Test
 

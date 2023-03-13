@@ -52,7 +52,7 @@ estimateMeans(OneSampleSummary)
 ```
 
 This code will produce a graph of the confidence interval for the variable.
-```{r,OneSample-MeansA}
+```{r,OneSample-Summary-MeansA}
 plotMeans(OneSampleSummary)
 ```
 
@@ -62,7 +62,7 @@ estimateMeans(OneSampleSummary,conf.level=.99)
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
-```{r,OneSample-MeansB}
+```{r,OneSample-Summary-MeansB}
 plotMeans(OneSampleSummary,conf.level=.99,line=5,rope=c(3,7))
 ```
 

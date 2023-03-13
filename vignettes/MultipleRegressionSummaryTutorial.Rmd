@@ -91,7 +91,7 @@ estimateRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
-```{r,Regression-MultipleA}
+```{r,Multiple-Summary-CoefficientsA}
 plotRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
@@ -101,7 +101,7 @@ estimateRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
-```{r,Regression-MultipleB}
+```{r,Multiple-Summary-CoefficientsB}
 plotRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99,line=0,intercept=FALSE)
 ```
 
@@ -120,7 +120,7 @@ estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the standardized coefficients.
-```{r,Regression-MultipleStandardA}
+```{r,Multiple-Summary-StandardizedA}
 plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
 ```
 
@@ -130,6 +130,6 @@ estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf
 ```
 
 For the graph, it is possible to change the confidence level.
-```{r,Regression-MultipleStandardB}
+```{r,Multiple-Summary-StandardizedB}
 plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
 ```

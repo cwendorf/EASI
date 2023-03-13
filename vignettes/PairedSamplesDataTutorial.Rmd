@@ -61,7 +61,7 @@ estimateMeans(PairedData)
 ```
 
 This code will produce a graph of the confidence intervals for each level of the factor.
-```{r,Paired-MeansA}
+```{r,Paired-Data-MeansA}
 plotMeans(PairedData)
 ```
 
@@ -71,7 +71,7 @@ estimateMeans(PairedData,conf.level=.99)
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
-```{r,Paired-MeansB}
+```{r,Paired-Data-MeansB}
 plotMeans(PairedData,conf.level=.99,line=6,rope=c(4,8))
 ```
 
@@ -111,7 +111,7 @@ estimateMeanDifference(PairedData)
 ```
 
 This code obtains and plots the confidence intervals for the mean difference.
-```{r,Paired-DifferenceA}
+```{r,Paired-Data-DifferenceA}
 plotMeanDifference(PairedData)
 ```
 
@@ -121,7 +121,7 @@ estimateMeanDifference(PairedData,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
-```{r,Paired-DifferenceB}
+```{r,Paired-Data-DifferenceB}
 plotMeanDifference(PairedData,conf.level=.99,line=0,rope=c(-2,2))
 ```
 
@@ -131,7 +131,7 @@ estimateMeanComparison(PairedData)
 ```
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
-```{r,Paired-ComparisonA}
+```{r,Paired-Data-ComparisonA}
 plotMeanComparison(PairedData)
 ```
 
@@ -141,7 +141,7 @@ estimateMeanComparison(PairedData,conf.level=.99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
-```{r,Paired-ComparisonB}
+```{r,Paired-Data-ComparisonB}
 plotMeanComparison(PairedData,conf.level=.99,rope=c(-2,2))
 ```
 

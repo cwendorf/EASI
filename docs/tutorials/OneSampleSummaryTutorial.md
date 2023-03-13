@@ -35,7 +35,7 @@ This code will produce a graph of the confidence interval for the variable.
 plotMeans(OneSampleSummary)
 ```
 
-![](figures/OneSample-MeansA-1.png)<!-- -->
+![](figures/OneSample-Summary-MeansA-1.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -55,7 +55,7 @@ For the graph, it is possible to add a comparison line to represent a population
 plotMeans(OneSampleSummary,conf.level=.99,line=5,rope=c(3,7))
 ```
 
-![](figures/OneSample-MeansB-1.png)<!-- -->
+![](figures/OneSample-Summary-MeansB-1.png)<!-- -->
 
 #### Significance Test
 

@@ -2,7 +2,7 @@
 
 ### Overview of the Tutorials
 
-Tutorials are designed to show the default output and basic options for confidence interval estimates and plots, along with standardized effect sizes and significance tests. Tutorials for a variety of research designs are included. Data and summary statistics for the tutorials are from [*Sourcebook: Basic Statistical Methods for Social Science*](https://cwendorf.github.io/Sourcebook/) (Wendorf, 2019).
+Tutorials are designed to show the default output and basic options for confidence interval estimates and plots, along with standardized effect sizes and significance tests. Tutorials for a variety of research designs are included. Data and summary statistics for the tutorials are from [*Sourcebook: Basic Statistical Methods for Social Science*](https://cwendorf.github.io/Sourcebook/) (Wendorf, 2022).
 
 ### Tutorials for Means and Mean Differences
 
@@ -41,24 +41,17 @@ The **MixedDesign** files analyze a two-factor mixed design (one between-subject
 - [*MixedDesignDataTutorial*](./MixedDesignDataTutorial.md) - Uses raw data input
 - [*MixedDesignSummaryTutorial*](./MixedDesignSummaryTutorial.md) - Uses summary statistics input
 
-### Tutorials for Correlations and Correlation Differences
+### Tutorials for Correlations and Regression Models
 
 The **OneCorrelation** files analyze a correlation between two variables:
 
-- [*OneCorrelationDataTutorial*](./OneCorrelationDataTutorial.md) - Uses raw data input
-- [*OneCorrelationSummaryTutorial*](./OneCorrelationSummaryTutorial.md) - Uses summary statistics input
+- [*SingleCorrelationDataTutorial*](./SingleCorrelationDataTutorial.md) - Uses raw data input
+- [*SingleCorrelationSummaryTutorial*](./SingleCorrelationSummaryTutorial.md) - Uses summary statistics input
 
 The **SetCorrelations** files analyze a set of correlations among multiple variables:
 
 - [*SetCorrelationsDataTutorial*](./SetCorrelationsDataTutorial.md) - Uses raw data input
 - [*SetCorrelationsSummaryTutorial*](./SetCorrelationsSummaryTutorial.md) - Uses summary statistics input
-
-The **MixedCorrelations** files analyze a set of correlations among multiple variables across levels of another (between-subjects) factor:
-
-- [*MixedCorrelationsDataTutorial*](./MixedCorrelationsDataTutorial.md) - Uses raw data input
-- [*MixedCorrelationsSummaryTutorial*](./MixedCorrelationsSummaryTutorial.md) - Uses summary statistics input
-
-### Tutorials for Regression Coefficients and Models
 
 The **BivariateRegression** files analyze bivariate regression models:
 
@@ -72,4 +65,4 @@ The **MultipleRegression** files analyze multiple regression models:
 
 ### References
 
-Wendorf, C. A. (2019). *Sourcebook: Basic statistical methods for social science.* [https://cwendorf.github.io/Sourcebook/](https://cwendorf.github.io/Sourcebook/)
+Wendorf, C. A. (2022). *Sourcebook: Basic statistical methods for social science.* [https://cwendorf.github.io/Sourcebook/](https://cwendorf.github.io/Sourcebook/)

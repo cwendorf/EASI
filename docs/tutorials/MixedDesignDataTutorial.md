@@ -89,13 +89,13 @@ This code will produce a graph of the confidence intervals for each level of the
 with(MixedDataL1,plotMeans(cbind(Outcome1,Outcome2,Outcome3)))
 ```
 
-![](figures/Mixed-MeansA-1.png)<!-- -->
+![](figures/Mixed-Data-MeansA-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeans(cbind(Outcome1,Outcome2,Outcome3)))
 ```
 
-![](figures/Mixed-MeansA-2.png)<!-- -->
+![](figures/Mixed-Data-MeansA-2.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -129,13 +129,13 @@ For the graph, it is possible to add a comparison line to represent a population
 with(MixedDataL1,plotMeans(cbind(Outcome1,Outcome2,Outcome3),conf.level=.99,line=5,rope=c(3,7)))
 ```
 
-![](figures/Mixed-MeansB-1.png)<!-- -->
+![](figures/Mixed-Data-MeansB-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeans(cbind(Outcome1,Outcome2,Outcome3),conf.level=.99,line=5,rope=c(3,7)))
 ```
 
-![](figures/Mixed-MeansB-2.png)<!-- -->
+![](figures/Mixed-Data-MeansB-2.png)<!-- -->
 
 #### Significance Tests
 
@@ -279,13 +279,13 @@ This code obtains and plots the confidence intervals for the mean difference in 
 with(MixedDataL1,plotMeanDifference(cbind(Outcome1,Outcome2)))
 ```
 
-![](figures/Mixed-DifferenceA-1.png)<!-- -->
+![](figures/Mixed-Data-DifferenceA-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeanDifference(cbind(Outcome1,Outcome2)))
 ```
 
-![](figures/Mixed-DifferenceA-2.png)<!-- -->
+![](figures/Mixed-Data-DifferenceA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -315,13 +315,13 @@ Once again, the confidence levels can be changed away from the default and a com
 with(MixedDataL1,plotMeanDifference(cbind(Outcome1,Outcome2),conf.level=.99,line=0,rope=c(-2,2)))
 ```
 
-![](figures/Mixed-DifferenceB-1.png)<!-- -->
+![](figures/Mixed-Data-DifferenceB-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeanDifference(cbind(Outcome1,Outcome2),conf.level=.99,line=0,rope=c(-2,2)))
 ```
 
-![](figures/Mixed-DifferenceB-2.png)<!-- -->
+![](figures/Mixed-Data-DifferenceB-2.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -361,13 +361,13 @@ This code produces a difference plot using the confidence intervals for the mean
 with(MixedDataL1,plotMeanComparison(cbind(Outcome1,Outcome2)))
 ```
 
-![](figures/Mixed-ComparisonA-1.png)<!-- -->
+![](figures/Mixed-Data-ComparisonA-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeanComparison(cbind(Outcome1,Outcome2)))
 ```
 
-![](figures/Mixed-ComparisonA-2.png)<!-- -->
+![](figures/Mixed-Data-ComparisonA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -407,13 +407,13 @@ Once again, the confidence levels can be changed away from the default and a reg
 with(MixedDataL1,plotMeanComparison(cbind(Outcome1,Outcome2),conf.level=.99,rope=c(-2,2)))
 ```
 
-![](figures/Mixed-ComparisonB-1.png)<!-- -->
+![](figures/Mixed-Data-ComparisonB-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeanComparison(cbind(Outcome1,Outcome2),conf.level=.99,rope=c(-2,2)))
 ```
 
-![](figures/Mixed-ComparisonB-2.png)<!-- -->
+![](figures/Mixed-Data-ComparisonB-2.png)<!-- -->
 
 #### Significance Tests
 
@@ -547,13 +547,13 @@ This code obtains and plots the confidence intervals for the mean difference in 
 with(MixedDataL1,plotMeanContrast(cbind(Outcome1,Outcome2,Outcome3),contrast=O1vsOthers))
 ```
 
-![](figures/Mixed-ContrastA-1.png)<!-- -->
+![](figures/Mixed-Data-ContrastA-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeanContrast(cbind(Outcome1,Outcome2,Outcome3),contrast=O1vsOthers))
 ```
 
-![](figures/Mixed-ContrastA-2.png)<!-- -->
+![](figures/Mixed-Data-ContrastA-2.png)<!-- -->
 
 As in all other cases, the default value of the confidence interval can be changed.
 
@@ -583,13 +583,13 @@ The width of the confidence interval for the contrast can be altered and a compa
 with(MixedDataL1,plotMeanContrast(cbind(Outcome1,Outcome2,Outcome3),contrast=O1vsOthers,conf.level=.99,line=0,rope=c(-2,2)))
 ```
 
-![](figures/Mixed-ContrastB-1.png)<!-- -->
+![](figures/Mixed-Data-ContrastB-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeanContrast(cbind(Outcome1,Outcome2,Outcome3),contrast=O1vsOthers,conf.level=.99,line=0,rope=c(-2,2)))
 ```
 
-![](figures/Mixed-ContrastB-2.png)<!-- -->
+![](figures/Mixed-Data-ContrastB-2.png)<!-- -->
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 
@@ -629,13 +629,13 @@ This code produces a difference plot using the confidence intervals for the mean
 with(MixedDataL1,plotMeanSubsets(cbind(Outcome1,Outcome2,Outcome3),contrast=O1vsOthers))
 ```
 
-![](figures/Mixed-SubsetsA-1.png)<!-- -->
+![](figures/Mixed-Data-SubsetsA-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeanSubsets(cbind(Outcome1,Outcome2,Outcome3),contrast=O1vsOthers))
 ```
 
-![](figures/Mixed-SubsetsA-2.png)<!-- -->
+![](figures/Mixed-Data-SubsetsA-2.png)<!-- -->
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -675,13 +675,13 @@ Once again, the confidence levels can be changed away from the default and a reg
 with(MixedDataL1,plotMeanSubsets(cbind(Outcome1,Outcome2,Outcome3),contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)))
 ```
 
-![](figures/Mixed-SubsetsB-1.png)<!-- -->
+![](figures/Mixed-Data-SubsetsB-1.png)<!-- -->
 
 ```r
 with(MixedDataL2,plotMeanSubsets(cbind(Outcome1,Outcome2,Outcome3),contrast=O1vsOthers,labels=c("Outcome1","Others"),conf.level=.99,rope=c(-2,2)))
 ```
 
-![](figures/Mixed-SubsetsB-2.png)<!-- -->
+![](figures/Mixed-Data-SubsetsB-2.png)<!-- -->
 
 #### Significance Tests
 

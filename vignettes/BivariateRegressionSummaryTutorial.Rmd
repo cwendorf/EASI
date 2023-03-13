@@ -88,7 +88,7 @@ estimateRegressionCoefficients(BivariateSummary,BivariateCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
-```{r,Regression-BivariateCoeffA}
+```{r,Bivariate-Summary-CoefficientsA}
 plotRegressionCoefficients(BivariateSummary,BivariateCorr)
 ```
 
@@ -98,7 +98,7 @@ estimateRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
-```{r,Regression-BivariateCoeffB}
+```{r,Bivariate-Summary-CoefficientsB}
 plotRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
 ```
 
@@ -117,7 +117,7 @@ estimateStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr)
 ```
 
 This code will produce a graph of the confidence intervals for the standardized coefficient.
-```{r,Regression-BivariateStandardA}
+```{r,Bivariate-Summary-StandardizedA}
 plotStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr)
 ```
 
@@ -127,7 +127,7 @@ estimateStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr,conf.l
 ```
 
 For the graph, it is possible to change the confidence level.
-```{r,Regression-BivariateStandardB}
+```{r,Bivariate-Summary-StandardizedB}
 plotStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99)
 ```
 
@@ -138,7 +138,7 @@ This section provides analyses of individual predicted values.
 #### Regression Line
 
 This code produces a plot of the regression line (with confidence and prediction intervals suppressed).
-```{r,Regression-BivariateLineA}
+```{r,Bivariate-Summary-LineA}
 plotRegression(BivariateSummary,BivariateCorr,interval="none")
 ```
 
@@ -150,11 +150,11 @@ estimateRegression(BivariateSummary,BivariateCorr,value=4)
 ```
 
 This code plots the confidence interval associated with the regression line and labels the interval for the specific value of the Predictor.
-```{r,Regression-BivariateConfA}
+```{r,Bivariate-Summary-ConfidenceA}
 plotRegression(BivariateSummary,BivariateCorr,value=4,interval="confidence")
 ```
 
 This code plots the prediction interval associated with the regression line and labels the interval for the specific value of the Predictor.
-```{r,Regression-BivariateConfB}
+```{r,Bivariate-Summary-ConfidenceB}
 plotRegression(BivariateSummary,BivariateCorr,value=4,interval="prediction")
 ```

@@ -114,7 +114,7 @@ This code will produce a graph of the confidence intervals for each of the regre
 plotRegressionCoefficients(RegressionData)
 ```
 
-![](figures/Regression-MultipleA-1.png)<!-- -->
+![](figures/Multiple-Data-CoefficientsA-1.png)<!-- -->
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -136,7 +136,7 @@ For the graph, it is possible to plot just coefficients for the predictors (minu
 plotRegressionCoefficients(RegressionData,conf.level=.99,line=0,intercept=FALSE)
 ```
 
-![](figures/Regression-MultipleB-1.png)<!-- -->
+![](figures/Multiple-Data-CoefficientsB-1.png)<!-- -->
 
 #### Significance Tests
 
@@ -175,7 +175,7 @@ This code will produce a graph of the confidence intervals for each of the stand
 plotStandardizedRegressionCoefficients(RegressionData)
 ```
 
-![](figures/Regression-MultipleStandardA-1.png)<!-- -->
+![](figures/Multiple-Data-StandardizedA-1.png)<!-- -->
 
 As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -196,4 +196,4 @@ For the graph, it is possible to change the confidence level.
 plotStandardizedRegressionCoefficients(RegressionData,conf.level=.99)
 ```
 
-![](figures/Regression-MultipleStandardB-1.png)<!-- -->
+![](figures/Multiple-Data-StandardizedB-1.png)<!-- -->
