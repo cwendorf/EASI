@@ -35,7 +35,7 @@ The **Holzel** files analyze a two-factor mixed design (one between-subjects and
 - [*HolzelDataExample*](./HolzelDataExample.md) - Uses raw data input
 - [*HolzelSummaryExample*](./HolzelSummaryExample.md) - Uses summary statistics input
 
-### Examples of Correlations and Correlation Differences
+### Examples of Correlations and Regression Models
 
 The **BodyWellOne** files analyze a correlation in a single sample (see Ch. 11):
 
@@ -46,8 +46,6 @@ The **BodyWellTwo** files analyze a correlation in two samples (see Ch. 11):
 
 - [*BodyWellTwoDataExample*](./BodyWellTwoDataExample.md) - Uses raw data input
 - [*BodyWellTwoSummaryExample*](./BodyWellTwoSummaryExample.md) - Uses summary statistics input
-
-### Examples of Regression Coefficients and Models
 
 The **BodyWellRegression** files analyze regression in a single sample (see Ch. 12):
 
