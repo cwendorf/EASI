@@ -122,7 +122,7 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - [`describeMeansEffect`](./describeMeansEffect.md)
 - [`estimateMeansEffect`](./estimateMeansEffect.md)
 
-### Correlations and Correlation Differences
+### Correlations and Regresion Models
 
 `Correlations` - functions that provide analyses of correlations among variables
 
@@ -140,8 +140,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`estimateCorrelationComparison`](./estimateCorrelationComparison.md)
 - [`plotCorrelationComparison`](./plotCorrelationComparison.md)
-
-### Regression Coefficients and Models
 
 `Regression` - functions that provide analyses of regression coefficients
 
