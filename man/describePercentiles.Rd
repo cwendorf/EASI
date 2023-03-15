@@ -6,7 +6,7 @@
 \alias{describePercentiles.default}
 \alias{describePercentiles.formula}
 \title{Describe Percentiles}
-\description{Provides a table of percentile statistics for a data set.}
+\description{Provides a table of percentile statistics for each variable or group.}
 
 \usage{
 \method{describePercentiles}{default}(frame,main=NULL,digits=3)
@@ -23,9 +23,9 @@
 
 \value{
 The returned list contains one frame with the following components: 
-\item{0}{the minimum values for the variables or groups}
+\item{Min}{the minimum values for the variables or groups}
 \item{25}{the values of the 25th percentile for the variables or groups}
 \item{50}{the values of the 50th percentile for the variables or groups}
 \item{75}{the values of the 25th percentile for the variables or groups}
-\item{100}{the maximum values for the variables or groups}
+\item{Max}{the maximum values for the variables or groups}
 }
