@@ -15,6 +15,8 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 ### Data and Distributions
 
+> Data and distribution functions are only available for data (not summary statistics) input
+
 `Data` - functions that plot the data for the groups or levels
 
 - [`plotData`](./plotData.md)
