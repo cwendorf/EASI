@@ -12,7 +12,7 @@ plotViolins <- function(...,main=NULL,col="black") {
 plotBeans <- function(...,main=NULL,col="black") {
   if(is.null(main)) main="Bean Plots"
   plotDensity(...,main=main,type="full",offset=0,col=col)
-  plotData(...,add=TRUE,offset=0,pch=95,col=col)
+  plotData(...,add=TRUE,offset=0,pch=95,col=col,method="overplot")
 }
 
 plotRainclouds <- function(...,main=NULL,col="black") {
