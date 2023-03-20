@@ -1,0 +1,107 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{FactorialBy Data Application}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r,include=FALSE}
+#suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,include=FALSE}
+if(!require(EASI)) {
+if(!require(devtools)) install.packages('devtools')
+devtools::install_github("cwendorf/EASI")}
+library(EASI)
+```
+
+## FactorialBy Data Application
+
+### Data Management
+
+#### Data Entry
+
+Enter the data.
+```{r}
+FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)
+FactorB <- c(1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2)
+Outcome <- c(0,0,3,5,4,7,4,9,4,9,6,9,3,1,6,6,2,2,5,7,2,4,7,7)
+FactorA <- factor(FactorA,levels=c(1,2,3),labels=c("A1","A2","A3"))
+FactorB <- factor(FactorB,levels=c(1,2),labels=c("B1","B2"))
+FactorialData <- data.frame(FactorA,FactorB,Outcome)
+```
+
+#### Descriptive Statistics
+
+Get descriptive statistics separately for each simple effect.
+```{r}
+(Outcome~FactorA) |> describeMeansBy(by=FactorB)
+```
+
+### Analyses of the Omnibus and Simple Effects
+
+Get an ANOVA for the design as a whole.
+```{r}
+(Outcome~FactorA) |> describeMeansOmnibusMultifactor(by=FactorB)
+(Outcome~FactorA) |> testMeansOmnibusMultifactor(by=FactorB)
+(Outcome~FactorA) |> estimateMeansOmnibusMultifactor(by=FactorB)
+```
+
+Get an ANOVA separately for each simple effect.
+```{r}
+(Outcome~FactorA) |> describeMeansOmnibusBy(by=FactorB)
+(Outcome~FactorA) |> testMeansOmnibusBy(by=FactorB)
+(Outcome~FactorA) |> estimateMeansOmnibusBy(by=FactorB)
+```
+
+### Analyses of the Means
+
+Plot the means and confidence intervals for the design as a whole.
+```{r,FactorialBy-Multifactor}
+(Outcome~FactorA) |> plotMeansMultifactor(by=FactorB,col=c("black","gray60"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("black","gray60"))
+```
+
+Estimate, plot, test, and standardize the means separately for each simple effect.
+```{r,FactorialBy-Means}
+(Outcome~FactorA) |> estimateMeansBy(by=FactorB)
+(Outcome~FactorA) |> plotMeansBy(by=FactorB)
+(Outcome~FactorA) |> testMeansBy(by=FactorB)
+(Outcome~FactorA) |> estimateStandardizedMeansBy(by=FactorB)
+```
+
+### Analyses of a Comparison
+
+Analyze the specified comparison separately for each simple effect.
+```{r,FactorialBy-Comparison}
+Comparison=factor(FactorB,c("Level1","Level2"))
+(Outcome~FactorA) |> estimateMeanDifferenceBy(by=FactorB)
+(Outcome~FactorA) |> plotMeanDifferenceBy(by=FactorB)
+(Outcome~FactorA) |> testMeanDifferenceBy(by=FactorB)
+(Outcome~FactorA) |> estimateStandardizedMeanDifferenceBy(by=FactorB)
+```
+
+### Analyses of a Contrast
+
+Analyze the specified contrast separately for each simple effect.
+```{r,FactorialBy-Contrast}
+L1vsOthers <- c(-1,.5,.5)
+(Outcome~FactorA) |> estimateMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> plotMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> testMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> estimateStandardizedMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+```
