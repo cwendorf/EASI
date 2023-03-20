@@ -29,7 +29,7 @@ devtools::install_github("cwendorf/EASI")}
 library(EASI)
 ```
 
-## Relational Intervals Repeated Measures Data Application
+## Relational Repeated Measures Data Application
 
 ### Data Management
 

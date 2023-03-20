@@ -29,7 +29,7 @@ devtools::install_github("cwendorf/EASI")}
 library(EASI)
 ```
 
-## Relational Intervals OneWay Data Application
+## Relational OneWay Data Application
 
 ### Data Management
 
