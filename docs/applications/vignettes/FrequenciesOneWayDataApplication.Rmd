@@ -67,5 +67,5 @@ Describe the percretiles and plot the boxes.
 
 Enhance the frequency distribution plot by adding color.
 ```{r,Frequencies-OneWay-BoxesB}
-(Outcome~Factor) |> plotBoxes(values=FALSE,offset=0,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotBoxes(values=FALSE,offset=0,scale=3,col=c("darkblue","darkred","darkgoldenrod"))
 ```

@@ -27,4 +27,4 @@ Outcome <- c(Group1,Group2,Group3)
 (Outcome~Factor) |> describeBoxes()
 (Outcome~Factor) |> plotBoxes()
 
-(Outcome~Factor) |> plotBoxes(values=FALSE,offset=0,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotBoxes(values=FALSE,offset=0,scale=3,col=c("darkblue","darkred","darkgoldenrod"))

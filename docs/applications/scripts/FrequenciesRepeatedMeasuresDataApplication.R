@@ -25,4 +25,4 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 (RepeatedData) |> describeBoxes()
 (RepeatedData) |> plotBoxes()
 
-(RepeatedData) |> plotBoxes(values=FALSE,offset=0,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotBoxes(values=FALSE,offset=0,scale=3,col=c("darkblue","darkred","darkgoldenrod"))
