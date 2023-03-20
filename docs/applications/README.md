@@ -9,46 +9,46 @@ Applications represent advanced and undocumented features of EASI. Data for thes
 
 The **Frequencies** files analyze basic frequency and percentile information for measures or groups:
 
-- [*FrequenciesOneWayDataAppplication*](./FrequenciesOneWayDataAppplication.md) - Uses one-way (between-subjects) data
-- [*FrequenciesRepeatedMeasuresDataAppplication*](./FrequenciesRepeatedMeasuresDataAppplication.md) - Uses repeated measures (within-subjects) data
+- [*FrequenciesOneWayDataApplication*](./FrequenciesOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*FrequenciesRepeatedMeasuresDataApplication*](./FrequenciesRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Exploratory** files analyze boxplots, violin plots, beanplots, and rainclouds:
 
-- [*ExploratoryOneWayDataAppplication*](./ExploratoryOneWayDataAppplication.md) - Uses one-way (between-subjects) data
-- [*ExploratoryRepeatedMeasuresDataAppplication*](./ExploratoryRepeatedMeasuresDataAppplication.md) - Uses repeated measures (within-subjects) data
+- [*ExploratoryOneWayDataApplication*](./ExploratoryOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ExploratoryRepeatedMeasuresDataApplication*](./ExploratoryRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 ### Pairwise and Post Hoc Analyses
 
 The **Pairwise** files examine unadjusted pairwise comparisons and Tukey post hoc comparisons using traditional confidence interval plots and diffograms:
 
-- [*PairwiseOneWayDataAppplication*](./PairwiseOneWayDataAppplication.md) - Uses one-way (between-subjects) data
-- [*PairwiseRepeatedMeasuresDataAppplication*](./PairwiseRepeatedMeasuresDataAppplication.md) - Uses repeated measures (within-subjects) data
+- [*PairwiseOneWayDataApplication*](./PairwiseOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*PairwiseRepeatedMeasuresDataApplication*](./PairwiseRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Relational** files examine means and mean differences using the concepts of relational and arelational intervals (Wendorf, 2012):
 
-- [*RelationalOneWayDataAppplication*](./RelationalOneWayDataAppplication.md) - Uses one-way (between-subjects) data
-- [*RelationalRepeatedMeasuresDataAppplication*](./RelationalRepeatedMeasuresDataAppplication.md) - Uses repeated measures (within-subjects) data
+- [*RelationalOneWayDataApplication*](./RelationalOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*RelationalRepeatedMeasuresDataApplication*](./RelationalRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 ### Contrast Plots and Contrast Comparisons
 
 The **Contrasts** files analyze confidence interval plots for comparisons and contrasts by adding data and plausibility curves:
 
-- [*ContrastsOneWayDataAppplication*](./ContrastsOneWayDataAppplication.md) - Uses one-way (between-subjects) data
-- [*ContrastsRepeatedMeasuresDataAppplication*](./ContrastsRepeatedMeasuresDataAppplication.md) - Uses repeated measures (within-subjects) data
+- [*ContrastsOneWayDataApplication*](./ContrastsOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ContrastsRepeatedMeasuresDataApplication*](./ContrastsRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Complex** files analyze differences between two contrasts on the same measures or groups:
 
-- [*ComplexOneWayDataAppplication*](./ComplexOneWayDataAppplication.md) - Uses one-way (between-subjects) data
-- [*ComplexRepeatedMeasuresDataAppplication*](./ComplexRepeatedMeasuresDataAppplication.md) - Uses repeated measures (within-subjects) data
+- [*ComplexOneWayDataApplication*](./ComplexOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ComplexRepeatedMeasuresDataApplication*](./ComplexRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 ### Simple Effects in Factorial and Mixed Designs
 
 The **FactorialBy**  and **MixedBy** files implement "by" functions designed to replicate the analyses of simple effects in factorial and mixed designs:
 
-- [*FactorialByDataAppplication*](./FactorialByDataAppplication.md) - Uses two-way factorial (between-subjects) data
-- [*MixedByDataAppplication*](./MixedByDataAppplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+- [*FactorialByDataApplication*](./FactorialByDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*MixedByDataApplication*](./MixedByDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
 
 The **Exposition** files implement a exposition pipe operator to simplify the use of subsets (like in the analyses of simple effects) and enhance the plots in factorial and mixed designs:
 
-- [*ExpositionFactorialDataAppplication*](./ExpositionFactorialDataAppplication.md) - Uses two-way factorial (between-subjects) data
-- [*ExpositionMixedDataAppplication*](./ExpositionMixedDataAppplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+- [*ExpositionFactorialDataApplication*](./ExpositionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*ExpositionMixedDataApplication*](./ExpositionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
