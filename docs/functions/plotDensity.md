@@ -33,4 +33,4 @@ Argument | Description
 
 ### Values
 
-The returned plot contain distributions for the groups or variables.
+The returned plot contains densities for the groups or variables.
