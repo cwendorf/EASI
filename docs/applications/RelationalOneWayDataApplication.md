@@ -1,3 +1,25 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-03-20"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Relational OneWay Data Application}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Relational OneWay Data Application
 
@@ -78,7 +100,7 @@ Enhance the plot by adding color.
 
 ```r
 colorTheme=c('#882e72','#1965b0','#4eb265','#ee8026','#a5170e')
-(Outcome~Factor) |> plotMeansRelational(values=FALSE,col=colorTheme)
+(Outcome~Factor) |> plotMeansRelational(col=colorTheme)
 ```
 
 ![](figures/Relational-OneWay-RelationalB-1.png)<!-- -->

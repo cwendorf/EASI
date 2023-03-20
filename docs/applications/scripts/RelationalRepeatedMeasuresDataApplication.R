@@ -26,4 +26,4 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 (RepeatedData) |> plotMeansRelational()
 
 colorTheme=c('#882e72','#1965b0','#4eb265','#ee8026','#a5170e')
-(RepeatedData) |> plotMeansRelational(values=FALSE,col=colorTheme)
+(RepeatedData) |> plotMeansRelational(col=colorTheme)

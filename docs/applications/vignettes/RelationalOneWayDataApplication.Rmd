@@ -56,8 +56,9 @@ Provide and plot estimates of the arelational and relational intervals.
 (Outcome~Factor) |> estimateMeansRelational()
 (Outcome~Factor) |> plotMeansRelational()
 ```
+
 Enhance the plot by adding color.
 ```{r,Relational-OneWay-RelationalB}
 colorTheme=c('#882e72','#1965b0','#4eb265','#ee8026','#a5170e')
-(Outcome~Factor) |> plotMeansRelational(values=FALSE,col=colorTheme)
+(Outcome~Factor) |> plotMeansRelational(col=colorTheme)
 ```
