@@ -7,11 +7,11 @@ Simulate some data.
 
 ```r
 Factor <- c(rep(1,50),rep(2,50),rep(3,50))
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
-Group1 <- round(rnorm(50,mean=7,sd=2),0)
-Group2 <- round(rnorm(50,mean=11,sd=4),0)
-Group3 <- round(rnorm(50,mean=12,sd=4),0)
-Outcome <- c(Group1,Group2,Group3)
+Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
+Level1 <- round(rnorm(50,mean=7,sd=2),0)
+Level2 <- round(rnorm(50,mean=11,sd=4),0)
+Level3 <- round(rnorm(50,mean=12,sd=4),0)
+Outcome <- c(Level1,Level2,Level3)
 ```
 
 ### Analyses of a Complex Mean Contrast
@@ -25,9 +25,9 @@ Estimate and plot the means for examination.
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Group1   7.180   0.268  49.000   6.642   7.718
-## Group2  11.320   0.582  49.000  10.150  12.490
-## Group3  11.720   0.672  49.000  10.370  13.070
+## Level1   7.000   0.323  49.000   6.350   7.650
+## Level2  10.420   0.559  49.000   9.296  11.544
+## Level3  12.140   0.633  49.000  10.868  13.412
 ```
 
 ```r
@@ -46,7 +46,7 @@ L1vsGrand <- c(.6667,-.3333,-.3333)
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -2.892   0.346 141.789  -3.576  -2.209
+## Contrast  -2.852   0.355 144.833  -3.553  -2.152
 ```
 
 ```r
@@ -61,28 +61,28 @@ Rather than setting just one contrast, set two contrasts: one for the Grand Mean
 
 ```r
 GrandMean <- c(1/3,1/3,1/3)
-Level1 <- c(1,0,0)
+L1Only <- c(1,0,0)
 ```
 
 Estimate and plot the confidence intervals for each contrast and the difference between contrasts.
 
 ```r
-(Outcome~Factor) |> estimateMeanComplex(contrast1=GrandMean,contrast2=Level1,labels=c("GrandMean","Level1"))
+(Outcome~Factor) |> estimateMeanComplex(contrast1=GrandMean,contrast2=L1Only,labels=c("GrandMean","L1Only"))
 ```
 
 ```
 ## $`Confidence Intervals for the Mean Contrasts`
 ##               Est      SE      df      LL      UL
-## GrandMean  10.073   0.310 112.437   9.460  10.687
-## Level1      7.180   0.268  49.000   6.642   7.718
+## GrandMean   9.853   0.301 121.727   9.256  10.450
+## L1Only      7.000   0.323  49.000   6.350   7.650
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -2.893   0.346 141.783  -3.577  -2.210
+## Contrast  -2.853   0.355 144.836  -3.554  -2.153
 ```
 
 ```r
-(Outcome~Factor) |> plotMeanComplex(contrast1=GrandMean,contrast2=Level1,labels=c("GrandMean","Level1"))
+(Outcome~Factor) |> plotMeanComplex(contrast1=GrandMean,contrast2=L1Only,labels=c("GrandMean","L1Only"))
 ```
 
 ![](figures/Complex-OneWay-ComplexA-1.png)<!-- -->
@@ -91,22 +91,22 @@ Enhance the plot by adding colors and removing value labels.
 
 ```r
 comparisonTheme <- c("darkred","darkblue","black")
-(Outcome~Factor) |> estimateMeanComplex(contrast1=GrandMean,contrast2=Level1,labels=c("GrandMean","Level1"))
+(Outcome~Factor) |> estimateMeanComplex(contrast1=GrandMean,contrast2=L1Only,labels=c("GrandMean","L1Only"))
 ```
 
 ```
 ## $`Confidence Intervals for the Mean Contrasts`
 ##               Est      SE      df      LL      UL
-## GrandMean  10.073   0.310 112.437   9.460  10.687
-## Level1      7.180   0.268  49.000   6.642   7.718
+## GrandMean   9.853   0.301 121.727   9.256  10.450
+## L1Only      7.000   0.323  49.000   6.350   7.650
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -2.893   0.346 141.783  -3.577  -2.210
+## Contrast  -2.853   0.355 144.836  -3.554  -2.153
 ```
 
 ```r
-(Outcome~Factor) |> plotMeanComplex(contrast1=GrandMean,contrast2=Level1,labels=c("GrandMean","Level1"),values=FALSE,col=comparisonTheme)
+(Outcome~Factor) |> plotMeanComplex(contrast1=GrandMean,contrast2=L1Only,labels=c("GrandMean","L1Only"),values=FALSE,col=comparisonTheme)
 ```
 
 ![](figures/Complex-OneWay-ComplexB-1.png)<!-- -->

@@ -43,9 +43,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   8.084   0.400  29.000   7.265   8.904
-## A2  11.517   0.695  29.000  10.097  12.938
-## A3  11.603   0.857  29.000   9.851  13.356
+## A1   8.458   0.322  29.000   7.800   9.117
+## A2  10.575   0.659  29.000   9.227  11.922
+## A3  11.384   0.806  29.000   9.734  13.033
 ```
 
 ```r
@@ -55,9 +55,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   8.190   0.307  29.000   7.562   8.817
-## A2   7.455   0.437  29.000   6.562   8.348
-## A3   8.268   0.673  29.000   6.892   9.644
+## A1   8.118   0.362  29.000   7.378   8.859
+## A2   8.853   0.512  29.000   7.806   9.899
+## A3   7.034   0.756  29.000   5.488   8.581
 ```
 ### Analyses of the Simple Effects
 
@@ -70,8 +70,8 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##               SS      df      MS
-## Between  241.761   2.000 120.880
-## Within  1197.864  87.000  13.769
+## Between  136.906   2.000  68.453
+## Within  1033.658  87.000  11.881
 ```
 
 ```r
@@ -81,8 +81,8 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##              SS      df      MS
-## Between  12.079   2.000   6.039
-## Within  641.457  87.000   7.373
+## Between  50.204   2.000  25.102
+## Within  839.001  87.000   9.644
 ```
 Test each simple effect for statistical significance.
 
@@ -93,7 +93,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##              F     df1     df2       p
-## Factor   8.779   2.000  87.000   0.000
+## Factor   5.762   2.000  87.000   0.004
 ```
 
 ```r
@@ -103,7 +103,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##              F     df1     df2       p
-## Factor   0.819   2.000  87.000   0.444
+## Factor   2.603   2.000  87.000   0.080
 ```
 Obtain the proportion of variance accounted for by each simple effect.
 
@@ -114,7 +114,7 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##            Est      LL      UL
-## Factor   0.168   0.055   0.272
+## Factor   0.117   0.023   0.215
 ```
 
 ```r
@@ -124,5 +124,5 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##            Est      LL      UL
-## Factor   0.018   0.000   0.072
+## Factor   0.056   0.000   0.137
 ```

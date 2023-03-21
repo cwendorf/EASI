@@ -34,14 +34,13 @@ comparisonTheme <- c("darkred","darkblue","black")
 
 ### Analyses of a Mean Contrast
 
-L1vsOthers <- c(-1,.5,.5)
-(RepeatedData) |> estimateMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"))
-(RepeatedData) |> plotMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"))
+O1vsOthers <- c(-1,.5,.5)
+(RepeatedData) |> estimateMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"))
+(RepeatedData) |> plotMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"))
 
 contrastTheme <- c("darkred","darkblue","darkblue")
 par(mfrow=c(1,2))
 (RepeatedData) |> plotMeans(col=contrastTheme,ylim=c(0,20),values=FALSE,main="")
-(RepeatedData) |> plotData(add=TRUE,col=contrastTheme)
-(RepeatedData) |> plotMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
-(RepeatedData) |> plotPlausible(contrast=L1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
-par(mfrow=c(1,1))
+(RepeatedData) |> plotData(add=TRUE,method="jitter",col=contrastTheme)
+(RepeatedData) |> plotMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
+(RepeatedData) |> plotPlausible(contrast=O1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)

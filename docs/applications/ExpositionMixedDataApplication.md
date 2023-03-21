@@ -7,9 +7,9 @@ Simulate some data.
 
 ```r
 Factor <- c(rep(1,30),rep(2,30))
-Outcome1 <- c(rnorm(30,mean=8,sd=2),rnorm(30,mean=8,sd=2))
-Outcome2 <- c(rnorm(30,mean=11,sd=4),rnorm(30,mean=8,sd=3))
-Outcome3 <- c(rnorm(30,mean=12,sd=4),rnorm(30,mean=7,sd=4))
+Outcome1 <- c(round(rnorm(30,mean=8,sd=2),0),round(rnorm(30,mean=8,sd=2),0))
+Outcome2 <- c(round(rnorm(30,mean=11,sd=4),0),round(rnorm(30,mean=8,sd=3),0))
+Outcome3 <- c(round(rnorm(30,mean=12,sd=4),0),round(rnorm(30,mean=7,sd=4),0))
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 ```
@@ -43,9 +43,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   7.747   0.351  29.000   7.030   8.465
-## Outcome2  10.912   0.715  29.000   9.449  12.375
-## Outcome3  12.937   0.566  29.000  11.780  14.094
+## Outcome1   7.567   0.310  29.000   6.934   8.200
+## Outcome2  12.267   0.671  29.000  10.894  13.639
+## Outcome3  12.000   0.703  29.000  10.562  13.438
 ```
 
 ```r
@@ -55,9 +55,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   7.535   0.358  29.000   6.802   8.268
-## Outcome2   7.360   0.474  29.000   6.391   8.329
-## Outcome3   7.208   0.806  29.000   5.559   8.856
+## Outcome1   7.300   0.350  29.000   6.585   8.015
+## Outcome2   8.600   0.533  29.000   7.510   9.690
+## Outcome3   6.567   0.845  29.000   4.838   8.295
 ```
 
 ### Analyses of the Simple Effects
@@ -71,9 +71,9 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##               SS      df      MS
-## Subjects 214.486  29.000   7.396
-## Measures 410.476   2.000 205.238
-## Error    616.129  58.000  10.623
+## Subjects 318.722  29.000  10.990
+## Measures 418.156   2.000 209.078
+## Error    586.511  58.000  10.112
 ```
 
 ```r
@@ -83,9 +83,9 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##               SS      df      MS
-## Subjects 208.622  29.000   7.194
-## Measures   1.615   2.000   0.807
-## Error    663.701  58.000  11.443
+## Subjects 249.822  29.000   8.615
+## Measures  63.622   2.000  31.811
+## Error    725.044  58.000  12.501
 ```
 Test each simple effect for statistical significance.
 
@@ -96,7 +96,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##                F     df1     df2       p
-## Measures  19.320   2.000  58.000   0.000
+## Measures  20.676   2.000  58.000   0.000
 ```
 
 ```r
@@ -106,7 +106,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##                F     df1     df2       p
-## Measures   0.071   2.000  58.000   0.932
+## Measures   2.545   2.000  58.000   0.087
 ```
 Obtain the proportion of variance accounted for by each simple effect.
 
@@ -117,7 +117,7 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##              Est      LL      UL
-## Measures   0.400   0.224   0.513
+## Measures   0.416   0.240   0.528
 ```
 
 ```r
@@ -127,5 +127,5 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##              Est      LL      UL
-## Measures   0.002   0.000   0.010
+## Measures   0.081   0.000   0.188
 ```

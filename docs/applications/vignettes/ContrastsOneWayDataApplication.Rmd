@@ -79,18 +79,17 @@ comparisonTheme <- c("darkred","darkblue","black")
 
 Create a contrast and get a plot of the mean subsets and the contrast.
 ```{r,Contrasts-OneWay-ContrastA}
-L1vsOthers <- c(-1,.5,.5)
-(Outcome~Factor) |> estimateMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"))
-(Outcome~Factor) |> plotMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"))
+G1vsOthers <- c(-1,.5,.5)
+(Outcome~Factor) |> estimateMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
+(Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
 ```
 
 Create side-by-side plots of the means and the mean subsets and enhance the plots by adding colors.
 ```{r,Contrasts-OneWay-ContrastB}
 contrastTheme <- c("darkred","darkblue","darkblue")
-par(mfrow=c(1,2))
+par(mfrow=c(1,2),mar=c(1,1,1,0))
 (Outcome~Factor) |> plotMeans(col=contrastTheme,ylim=c(0,20),values=FALSE,main="")
-(Outcome~Factor) |> plotData(add=TRUE,col=contrastTheme)
-(Outcome~Factor) |> plotMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
-(Outcome~Factor) |> plotPlausible(contrast=L1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
-par(mfrow=c(1,1))
+(Outcome~Factor) |> plotData(add=TRUE,method="jitter",col=contrastTheme)
+(Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
+(Outcome~Factor) |> plotPlausible(contrast=G1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
 ```

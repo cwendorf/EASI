@@ -25,9 +25,9 @@ Estimate and get a simple plot of the confidence intervals.
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Group1   7.080   0.277  49.000   6.524   7.636
-## Group2  11.140   0.549  49.000  10.037  12.243
-## Group3  11.700   0.549  49.000  10.597  12.803
+## Group1   6.680   0.373  49.000   5.930   7.430
+## Group2  11.260   0.628  49.000   9.998  12.522
+## Group3  11.920   0.510  49.000  10.895  12.945
 ```
 
 ```r
@@ -58,12 +58,12 @@ Comparison <- factor(Factor,c("Group1","Group2"))
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Group1   7.080   0.277  49.000   6.524   7.636
-## Group2  11.140   0.549  49.000  10.037  12.243
+## Group1   6.680   0.373  49.000   5.930   7.430
+## Group2  11.260   0.628  49.000   9.998  12.522
 ## 
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   4.060   0.615  72.408   2.835   5.285
+## Comparison   4.580   0.730  79.762   3.127   6.033
 ```
 
 ```r
@@ -88,23 +88,23 @@ comparisonTheme <- c("darkred","darkblue","black")
 Create a contrast and get a plot of the mean subsets and the contrast.
 
 ```r
-L1vsOthers <- c(-1,.5,.5)
-(Outcome~Factor) |> estimateMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"))
+G1vsOthers <- c(-1,.5,.5)
+(Outcome~Factor) |> estimateMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
 ```
 
 ```
 ## $`Confidence Intervals for the Mean Subsets`
 ##            Est      SE      df      LL      UL
-## Level1   7.080   0.277  49.000   6.524   7.636
-## Others  11.420   0.388  98.000  10.650  12.190
+## Group1   6.680   0.373  49.000   5.930   7.430
+## Others  11.590   0.404  94.065  10.787  12.393
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   4.340   0.477 146.991   3.398   5.282
+## Contrast   4.910   0.550 134.855   3.822   5.998
 ```
 
 ```r
-(Outcome~Factor) |> plotMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"))
+(Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
 ```
 
 ![](figures/Contrasts-OneWay-ContrastA-1.png)<!-- -->
@@ -113,15 +113,11 @@ Create side-by-side plots of the means and the mean subsets and enhance the plot
 
 ```r
 contrastTheme <- c("darkred","darkblue","darkblue")
-par(mfrow=c(1,2))
+par(mfrow=c(1,2),mar=c(1,1,1,0))
 (Outcome~Factor) |> plotMeans(col=contrastTheme,ylim=c(0,20),values=FALSE,main="")
-(Outcome~Factor) |> plotData(add=TRUE,col=contrastTheme)
-(Outcome~Factor) |> plotMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
-(Outcome~Factor) |> plotPlausible(contrast=L1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
+(Outcome~Factor) |> plotData(add=TRUE,method="jitter",col=contrastTheme)
+(Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
+(Outcome~Factor) |> plotPlausible(contrast=G1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
 ```
 
 ![](figures/Contrasts-OneWay-ContrastB-1.png)<!-- -->
-
-```r
-par(mfrow=c(1,1))
-```

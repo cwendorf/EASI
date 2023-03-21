@@ -17,18 +17,18 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 (RepeatedData) |> estimateMeans()
 (RepeatedData) |> plotMeans()
 
-L1vsGrand <- c(.6667,-.3333,-.3333)
-(RepeatedData) |> estimateMeanContrast(contrast=L1vsGrand)
-(RepeatedData) |> plotMeanContrast(contrast=L1vsGrand)
+O1vsGrand <- c(.6667,-.3333,-.3333)
+(RepeatedData) |> estimateMeanContrast(contrast=O1vsGrand)
+(RepeatedData) |> plotMeanContrast(contrast=O1vsGrand)
 
 ### Analysis of a Difference Between Two Contrasts
 
 GrandMean <- c(1/3,1/3,1/3)
-Level1 <- c(1,0,0)
+O1Only <- c(1,0,0)
 
-(RepeatedData) |> estimateMeanComplex(contrast1=GrandMean,contrast2=Level1,labels=c("GrandMean","Level1"))
-(RepeatedData) |> plotMeanComplex(contrast1=GrandMean,contrast2=Level1,labels=c("GrandMean","Level1"))
+(RepeatedData) |> estimateMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"))
+(RepeatedData) |> plotMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"))
 
 comparisonTheme <- c("darkred","darkblue","black")
-(RepeatedData) |> estimateMeanComplex(contrast1=GrandMean,contrast2=Level1,labels=c("GrandMean","Level1"))
-(RepeatedData) |> plotMeanComplex(contrast1=GrandMean,contrast2=Level1,labels=c("GrandMean","Level1"),values=FALSE,col=comparisonTheme)
+(RepeatedData) |> estimateMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"))
+(RepeatedData) |> plotMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"),values=FALSE,col=comparisonTheme)

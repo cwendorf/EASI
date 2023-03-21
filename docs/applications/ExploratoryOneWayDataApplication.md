@@ -7,11 +7,11 @@ Simulate some data with various distributional shapes.
 
 ```r
 Factor <- c(rep(1,100),rep(2,100),rep(3,100))
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
-Group1 <- round(rnorm(100,10,2),0)
-Group2 <- c(round(rnorm(50,7,1),0),round(rnorm(50,13,1),0))
-Group3 <- c(round(rnorm(25,7,1),0),round(rnorm(75,11,1),0))
-Outcome <- c(Group1,Group2,Group3)
+Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
+Level1 <- round(rnorm(100,10,2),0)
+Level2 <- c(round(rnorm(50,7,1),0),round(rnorm(50,13,1),0))
+Level3 <- c(round(rnorm(25,7,1),0),round(rnorm(75,11,1),0))
+Outcome <- c(Level1,Level2,Level3)
 ```
 
 ### Violin Plots

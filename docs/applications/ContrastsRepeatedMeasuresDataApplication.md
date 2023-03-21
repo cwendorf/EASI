@@ -23,16 +23,16 @@ Get a simple plot of the confidence intervals.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   6.860   0.325  49.000   6.208   7.512
-## Outcome2   9.960   0.532  49.000   8.891  11.029
-## Outcome3  11.940   0.690  49.000  10.554  13.326
+## Outcome1   7.380   0.351  49.000   6.675   8.085
+## Outcome2  10.320   0.567  49.000   9.181  11.459
+## Outcome3  11.820   0.622  49.000  10.569  13.071
 ```
 
 ```r
 (RepeatedData) |> plotMeans()
 ```
 
-![](figures/Repeated-ConfidenceA-1.png)<!-- -->
+![](figures/Contrasts-Repeated-ConfidenceA-1.png)<!-- -->
 
 Get an enhanced plot of data and confidence intervals.
 
@@ -42,7 +42,7 @@ colorTheme <- c("darkred","darkblue","darkgoldenrod")
 (RepeatedData) |> plotMeans(add=TRUE,values=FALSE,line=10,col=colorTheme)
 ```
 
-![](figures/Repeated-ConfidenceB-1.png)<!-- -->
+![](figures/Contrasts-Repeated-ConfidenceB-1.png)<!-- -->
 
 ### Analyses of a Comparison
 
@@ -56,19 +56,19 @@ ComparisonData <- data.frame(Outcome1,Outcome2)
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   6.860   0.325  49.000   6.208   7.512
-## Outcome2   9.960   0.532  49.000   8.891  11.029
+## Outcome1   7.380   0.351  49.000   6.675   8.085
+## Outcome2  10.320   0.567  49.000   9.181  11.459
 ## 
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   3.100   0.705  49.000   1.683   4.517
+## Comparison   2.940   0.629  49.000   1.676   4.204
 ```
 
 ```r
 (ComparisonData) |> plotMeanComparison()
 ```
 
-![](figures/Repeated-ConfidenceC-1.png)<!-- -->
+![](figures/Contrasts-Repeated-ComparisonA-1.png)<!-- -->
 
 Get an enhanced plot of data and confidence intervals with a plausibility curve.
 
@@ -79,33 +79,33 @@ comparisonTheme <- c("darkred","darkblue","black")
 (ComparisonData) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
 ```
 
-![](figures/Repeated-ConfidenceD-1.png)<!-- -->
+![](figures/Contrasts-Repeated-ComparisonB-1.png)<!-- -->
 
 ### Analyses of a Mean Contrast
 
 Create a contrast and get a plot of the mean subsets and the contrast.
 
 ```r
-L1vsOthers <- c(-1,.5,.5)
-(RepeatedData) |> estimateMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"))
+O1vsOthers <- c(-1,.5,.5)
+(RepeatedData) |> estimateMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"))
 ```
 
 ```
 ## $`Confidence Intervals for the Mean Subsets`
-##            Est      SE      df      LL      UL
-## Level1   6.860   0.325  49.000   6.208   7.512
-## Others  10.950   0.486  49.000   9.973  11.927
+##              Est      SE      df      LL      UL
+## Outcome1   7.380   0.351  49.000   6.675   8.085
+## Others    11.070   0.435  49.000  10.195  11.945
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   4.090   0.698  49.000   2.688   5.492
+## Contrast   3.690   0.539  49.000   2.606   4.774
 ```
 
 ```r
-(RepeatedData) |> plotMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"))
+(RepeatedData) |> plotMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"))
 ```
 
-![](figures/Contrasts-OneWay-ContrastA-1.png)<!-- -->
+![](figures/Contrasts-Repeated-ContrastA-1.png)<!-- -->
 
 Create side-by-side plots of the means and the mean subsets and enhance the plots by adding colors.
 
@@ -113,13 +113,9 @@ Create side-by-side plots of the means and the mean subsets and enhance the plot
 contrastTheme <- c("darkred","darkblue","darkblue")
 par(mfrow=c(1,2))
 (RepeatedData) |> plotMeans(col=contrastTheme,ylim=c(0,20),values=FALSE,main="")
-(RepeatedData) |> plotData(add=TRUE,col=contrastTheme)
-(RepeatedData) |> plotMeanSubsets(contrast=L1vsOthers,labels=c("Level1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
-(RepeatedData) |> plotPlausible(contrast=L1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
+(RepeatedData) |> plotData(add=TRUE,method="jitter",col=contrastTheme)
+(RepeatedData) |> plotMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
+(RepeatedData) |> plotPlausible(contrast=O1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
 ```
 
-![](figures/Contrasts-OneWay-ContrastB-1.png)<!-- -->
-
-```r
-par(mfrow=c(1,1))
-```
+![](figures/Contrasts-Repeated-ContrastB-1.png)<!-- -->
