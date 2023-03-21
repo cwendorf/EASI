@@ -25,9 +25,9 @@ Estimate and plot the means for examination.
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.000   0.323  49.000   6.350   7.650
-## Level2  10.420   0.559  49.000   9.296  11.544
-## Level3  12.140   0.633  49.000  10.868  13.412
+## Level1   6.480   0.301  49.000   5.874   7.086
+## Level2  12.220   0.591  49.000  11.033  13.407
+## Level3  12.620   0.542  49.000  11.531  13.709
 ```
 
 ```r
@@ -46,7 +46,7 @@ L1vsGrand <- c(.6667,-.3333,-.3333)
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -2.852   0.355 144.833  -3.553  -2.152
+## Contrast  -3.959   0.334 145.836  -4.620  -3.298
 ```
 
 ```r
@@ -73,12 +73,12 @@ Estimate and plot the confidence intervals for each contrast and the difference 
 ```
 ## $`Confidence Intervals for the Mean Contrasts`
 ##               Est      SE      df      LL      UL
-## GrandMean   9.853   0.301 121.727   9.256  10.450
-## L1Only      7.000   0.323  49.000   6.350   7.650
+## GrandMean  10.440   0.285 121.893   9.875  11.005
+## L1Only      6.480   0.301  49.000   5.874   7.086
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -2.853   0.355 144.836  -3.554  -2.153
+## Contrast  -3.960   0.334 145.838  -4.621  -3.299
 ```
 
 ```r
@@ -91,21 +91,6 @@ Enhance the plot by adding colors and removing value labels.
 
 ```r
 comparisonTheme <- c("darkred","darkblue","black")
-(Outcome~Factor) |> estimateMeanComplex(contrast1=GrandMean,contrast2=L1Only,labels=c("GrandMean","L1Only"))
-```
-
-```
-## $`Confidence Intervals for the Mean Contrasts`
-##               Est      SE      df      LL      UL
-## GrandMean   9.853   0.301 121.727   9.256  10.450
-## L1Only      7.000   0.323  49.000   6.350   7.650
-## 
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast  -2.853   0.355 144.836  -3.554  -2.153
-```
-
-```r
 (Outcome~Factor) |> plotMeanComplex(contrast1=GrandMean,contrast2=L1Only,labels=c("GrandMean","L1Only"),values=FALSE,col=comparisonTheme)
 ```
 

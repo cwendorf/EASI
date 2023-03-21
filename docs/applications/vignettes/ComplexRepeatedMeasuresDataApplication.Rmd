@@ -73,6 +73,5 @@ Estimate and plot the confidence intervals for each contrast and the difference 
 Enhance the plot by adding colors and removing value labels.
 ```{r,Complex-Repeated-ComplexB}
 comparisonTheme <- c("darkred","darkblue","black")
-(RepeatedData) |> estimateMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"))
 (RepeatedData) |> plotMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"),values=FALSE,col=comparisonTheme)
 ```

@@ -23,9 +23,9 @@ Estimate and plot the means for examination.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   6.940   0.246  49.000   6.445   7.435
-## Outcome2  11.700   0.596  49.000  10.502  12.898
-## Outcome3  12.020   0.641  49.000  10.732  13.308
+## Outcome1   7.080   0.269  49.000   6.539   7.621
+## Outcome2  11.320   0.563  49.000  10.188  12.452
+## Outcome3  12.240   0.498  49.000  11.240  13.240
 ```
 
 ```r
@@ -44,7 +44,7 @@ O1vsGrand <- c(.6667,-.3333,-.3333)
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -3.279   0.348  49.000  -3.979  -2.579
+## Contrast  -3.132   0.288  49.000  -3.711  -2.554
 ```
 
 ```r
@@ -71,12 +71,12 @@ Estimate and plot the confidence intervals for each contrast and the difference 
 ```
 ## $`Confidence Intervals for the Mean Contrasts`
 ##               Est      SE      df      LL      UL
-## GrandMean  10.220   0.333  49.000   9.552  10.888
-## O1Only      6.940   0.246  49.000   6.445   7.435
+## GrandMean  10.213   0.221  49.000   9.770  10.657
+## O1Only      7.080   0.269  49.000   6.539   7.621
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -3.280   0.348  49.000  -3.980  -2.580
+## Contrast  -3.133   0.288  49.000  -3.712  -2.555
 ```
 
 ```r
@@ -89,21 +89,6 @@ Enhance the plot by adding colors and removing value labels.
 
 ```r
 comparisonTheme <- c("darkred","darkblue","black")
-(RepeatedData) |> estimateMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"))
-```
-
-```
-## $`Confidence Intervals for the Mean Contrasts`
-##               Est      SE      df      LL      UL
-## GrandMean  10.220   0.333  49.000   9.552  10.888
-## O1Only      6.940   0.246  49.000   6.445   7.435
-## 
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast  -3.280   0.348  49.000  -3.980  -2.580
-```
-
-```r
 (RepeatedData) |> plotMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"),values=FALSE,col=comparisonTheme)
 ```
 
