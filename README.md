@@ -1,8 +1,5 @@
-<a href="https://github.com/cwendorf/EASI/">
-<img src="./docs/logo.png" height="60px;" align="left;" style="display: none; margin: 0px; padding: 0px;">
-</a>
 
-## Estimation Approach to Statistical Inference
+## `EASI` | Estimation Approach to Statistical Inference
 
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.6.2-6666ff.svg)](https://cran.r-project.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
