@@ -43,27 +43,24 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 ### Frequency Distributions
 
-Describe and plot the frequency distributions.
-```{r,Frequencies-Repeated-FrequenciesA}
+Describe the frequency distributions.
+```{r}
 (RepeatedData) |> describeFrequencies()
-(RepeatedData) |> plotFrequencies()
 ```
 
-Enhance the frequency distribution plot by adding color.
-```{r,Frequencies-Repeated-FrequenciesB}
-(RepeatedData) |> plotFrequencies(offset=0,col=c("darkblue","darkred","darkgoldenrod"))
+Plot the frequency distributions and enhance with color.
+```{r,Frequencies-Repeated-Frequencies}
+(RepeatedData) |> plotFrequencies(offset=0,col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
-### Percentiles and Boxes
+### Boxplots
 
-Describe the percretiles and plot the boxes.
-```{r,Frequencies-Repeated-BoxesA}
-(RepeatedData) |> describePercentiles()
+Describe the boxes.
+```{r}
 (RepeatedData) |> describeBoxes()
-(RepeatedData) |> plotBoxes()
 ```
 
-Enhance the frequency distribution plot by adding color.
-```{r,Frequencies-Repeated-BoxesB}
-(RepeatedData) |> plotBoxes(values=FALSE,offset=0,scale=3,col=c("darkblue","darkred","darkgoldenrod"))
+Plot the boxes and enhance with color.
+```{r,Frequencies-Repeated-Boxes}
+(RepeatedData) |> plotBoxes(col=c("darkred","darkblue","darkgoldenrod"))
 ```

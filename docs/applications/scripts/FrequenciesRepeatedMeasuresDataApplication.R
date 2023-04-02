@@ -15,14 +15,11 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 ### Frequency Distributions
 
 (RepeatedData) |> describeFrequencies()
-(RepeatedData) |> plotFrequencies()
 
-(RepeatedData) |> plotFrequencies(offset=0,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotFrequencies(offset=0,col=c("darkred","darkblue","darkgoldenrod"))
 
-### Percentiles and Boxes
+### Boxplots
 
-(RepeatedData) |> describePercentiles()
 (RepeatedData) |> describeBoxes()
-(RepeatedData) |> plotBoxes()
 
-(RepeatedData) |> plotBoxes(values=FALSE,offset=0,scale=3,col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotBoxes(col=c("darkred","darkblue","darkgoldenrod"))

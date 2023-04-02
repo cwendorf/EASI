@@ -45,27 +45,24 @@ Outcome <- c(Level1,Level2,Level3)
 
 ### Frequency Distributions
 
-Describe and plot the frequency distributions.
-```{r,Frequencies-OneWay-FrequenciesA}
+Describe the frequency distributions.
+```{r}
 (Outcome~Factor) |> describeFrequencies()
-(Outcome~Factor) |> plotFrequencies()
 ```
 
-Enhance the frequency distribution plot by adding color.
-```{r,Frequencies-OneWay-FrequenciesB}
-(Outcome~Factor) |> plotFrequencies(offset=0,col=c("darkblue","darkred","darkgoldenrod"))
+Plot the frequency distributions and enhance with color.
+```{r,Frequencies-OneWay-Frequencies}
+(Outcome~Factor) |> plotFrequencies(offset=0,col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
-### Percentiles and Boxes
+### Boxplots
 
-Describe the percretiles and plot the boxes.
-```{r,Frequencies-OneWay-BoxesA}
-(Outcome~Factor) |> describePercentiles()
+Describe the boxes.
+```{r}
 (Outcome~Factor) |> describeBoxes()
-(Outcome~Factor) |> plotBoxes()
 ```
 
-Enhance the frequency distribution plot by adding color.
-```{r,Frequencies-OneWay-BoxesB}
-(Outcome~Factor) |> plotBoxes(values=FALSE,offset=0,scale=3,col=c("darkblue","darkred","darkgoldenrod"))
+Plot the boxes and enhance with color.
+```{r,Frequencies-OneWay-Boxes}
+(Outcome~Factor) |> plotBoxes(col=c("darkred","darkblue","darkgoldenrod"))
 ```

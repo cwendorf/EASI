@@ -17,14 +17,11 @@ Outcome <- c(Level1,Level2,Level3)
 ### Frequency Distributions
 
 (Outcome~Factor) |> describeFrequencies()
-(Outcome~Factor) |> plotFrequencies()
 
-(Outcome~Factor) |> plotFrequencies(offset=0,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotFrequencies(offset=0,col=c("darkred","darkblue","darkgoldenrod"))
 
-### Percentiles and Boxes
+### Boxplots
 
-(Outcome~Factor) |> describePercentiles()
 (Outcome~Factor) |> describeBoxes()
-(Outcome~Factor) |> plotBoxes()
 
-(Outcome~Factor) |> plotBoxes(values=FALSE,offset=0,scale=3,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotBoxes(col=c("darkred","darkblue","darkgoldenrod"))

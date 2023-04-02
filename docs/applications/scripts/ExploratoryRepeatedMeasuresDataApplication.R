@@ -17,14 +17,14 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 (RepeatedData) |> plotBoxes(values=FALSE,main="Violin Plots")
 (RepeatedData) |> plotDensity(add=TRUE,offset=0,type="full")
 
-(RepeatedData) |> plotViolins(col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotViolins(col=c("darkred","darkblue","darkgoldenrod"))
 
 ### Bean Plots
 
 (RepeatedData) |> plotDensity(type="full",offset=0,main="Bean Plots")
 (RepeatedData) |> plotData(add=TRUE,offset=0,pch=95,method="overplot")
 
-(RepeatedData) |> plotBeans(col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotBeans(col=c("darkred","darkblue","darkgoldenrod"))
 
 ### Raincloud Plots
 
@@ -32,4 +32,4 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 (RepeatedData) |> plotDensity(add=TRUE,offset=.1)
 (RepeatedData) |> plotData(add=TRUE,method="jitter",offset=-.15)
 
-(RepeatedData) |> plotRainclouds(col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotRainclouds(col=c("darkred","darkblue","darkgoldenrod"))

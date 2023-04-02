@@ -51,7 +51,7 @@ Build violin plots using multiple basic plot calls.
 
 Obtain violin plots using one call (and enhance the plot).
 ```{r,Exploratory-Repeated-ViolinsB}
-(RepeatedData) |> plotViolins(col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotViolins(col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
 ### Bean Plots
@@ -64,7 +64,7 @@ Build bean plots using multiple basic plot calls.
 
 Obtain bean plots using one call (and enhance the plot).
 ```{r,Exploratory-Repeated-BeansB}
-(RepeatedData) |> plotBeans(col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotBeans(col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
 ### Raincloud Plots
@@ -78,5 +78,5 @@ Build raincloud plots using multiple basic plot calls.
 
 Obtain raincloud plots using one call (and enhance the plot).
 ```{r,Exploratory-Repeated-RaincloudsB}
-(RepeatedData) |> plotRainclouds(col=c("darkblue","darkred","darkgoldenrod"))
+(RepeatedData) |> plotRainclouds(col=c("darkred","darkblue","darkgoldenrod"))
 ```

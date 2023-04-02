@@ -7,12 +7,12 @@ Applications represent advanced and undocumented features of EASI. Data for thes
 
 ### Descriptive and Exploratory Analyses
 
-The **Frequencies** files analyze basic frequency and percentile information for measures or groups:
+The **Frequencies** files analyze basic frequency distributions and boxplots for measures or groups:
 
 - [*FrequenciesOneWayDataApplication*](./FrequenciesOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*FrequenciesRepeatedMeasuresDataApplication*](./FrequenciesRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
-The **Exploratory** files analyze boxplots, violin plots, beanplots, and rainclouds:
+The **Exploratory** files analyze violin plots, beanplots, and raincloud plots:
 
 - [*ExploratoryOneWayDataApplication*](./ExploratoryOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*ExploratoryRepeatedMeasuresDataApplication*](./ExploratoryRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
