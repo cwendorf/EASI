@@ -16,7 +16,7 @@ Outcome <- c(Level1,Level2,Level3)
 
 ### Frequency Distributions
 
-Describe and plot the frequency distributions.
+Describe the frequency distributions.
 
 ```r
 (Outcome~Factor) |> describeFrequencies()
@@ -25,82 +25,65 @@ Describe and plot the frequency distributions.
 ```
 ## $`Frequency Distribution for the Data: Level1`
 ##       Freq    Perc CumFreq CumPerc
-## 4    2.000   4.000   2.000   4.000
-## 5    4.000   8.000   6.000  12.000
-## 6    6.000  12.000  12.000  24.000
-## 7    9.000  18.000  21.000  42.000
-## 8   10.000  20.000  31.000  62.000
-## 9   11.000  22.000  42.000  84.000
-## 10   8.000  16.000  50.000 100.000
+## 2    1.000   2.000   1.000   2.000
+## 3    2.000   4.000   3.000   6.000
+## 4    4.000   8.000   7.000  14.000
+## 5    5.000  10.000  12.000  24.000
+## 6    7.000  14.000  19.000  38.000
+## 7    8.000  16.000  27.000  54.000
+## 8    6.000  12.000  33.000  66.000
+## 9    9.000  18.000  42.000  84.000
+## 10   3.000   6.000  45.000  90.000
+## 11   3.000   6.000  48.000  96.000
+## 12   2.000   4.000  50.000 100.000
 ## 
 ## $`Frequency Distribution for the Data: Level2`
 ##       Freq    Perc CumFreq CumPerc
 ## 1    1.000   2.000   1.000   2.000
-## 2    1.000   2.000   2.000   4.000
-## 3    2.000   4.000   4.000   8.000
-## 5    2.000   4.000   6.000  12.000
+## 4    1.000   2.000   2.000   4.000
+## 5    4.000   8.000   6.000  12.000
 ## 6    4.000   8.000  10.000  20.000
 ## 7    1.000   2.000  11.000  22.000
-## 8    5.000  10.000  16.000  32.000
-## 9    4.000   8.000  20.000  40.000
-## 10   7.000  14.000  27.000  54.000
-## 11   7.000  14.000  34.000  68.000
-## 12   6.000  12.000  40.000  80.000
-## 13   2.000   4.000  42.000  84.000
-## 14   1.000   2.000  43.000  86.000
-## 15   3.000   6.000  46.000  92.000
-## 16   3.000   6.000  49.000  98.000
-## 18   1.000   2.000  50.000 100.000
+## 8    1.000   2.000  12.000  24.000
+## 9    6.000  12.000  18.000  36.000
+## 10   5.000  10.000  23.000  46.000
+## 11   2.000   4.000  25.000  50.000
+## 12   4.000   8.000  29.000  58.000
+## 13   5.000  10.000  34.000  68.000
+## 14   7.000  14.000  41.000  82.000
+## 15   3.000   6.000  44.000  88.000
+## 16   4.000   8.000  48.000  96.000
+## 17   1.000   2.000  49.000  98.000
+## 22   1.000   2.000  50.000 100.000
 ## 
 ## $`Frequency Distribution for the Data: Level3`
 ##       Freq    Perc CumFreq CumPerc
-## 3    1.000   2.000   1.000   2.000
-## 4    1.000   2.000   2.000   4.000
-## 5    1.000   2.000   3.000   6.000
-## 6    1.000   2.000   4.000   8.000
-## 8    5.000  10.000   9.000  18.000
-## 9    4.000   8.000  13.000  26.000
-## 10   4.000   8.000  17.000  34.000
-## 11   5.000  10.000  22.000  44.000
-## 12   9.000  18.000  31.000  62.000
-## 13   6.000  12.000  37.000  74.000
-## 14   1.000   2.000  38.000  76.000
-## 15   4.000   8.000  42.000  84.000
-## 16   4.000   8.000  46.000  92.000
-## 17   2.000   4.000  48.000  96.000
-## 19   1.000   2.000  49.000  98.000
+## 6    2.000   4.000   2.000   4.000
+## 7    4.000   8.000   6.000  12.000
+## 8    6.000  12.000  12.000  24.000
+## 10   6.000  12.000  18.000  36.000
+## 11   5.000  10.000  23.000  46.000
+## 12   3.000   6.000  26.000  52.000
+## 13   4.000   8.000  30.000  60.000
+## 14   6.000  12.000  36.000  72.000
+## 15   5.000  10.000  41.000  82.000
+## 16   2.000   4.000  43.000  86.000
+## 17   2.000   4.000  45.000  90.000
+## 18   4.000   8.000  49.000  98.000
 ## 21   1.000   2.000  50.000 100.000
 ```
 
-```r
-(Outcome~Factor) |> plotFrequencies()
-```
-
-![](figures/Frequencies-OneWay-FrequenciesA-1.png)<!-- -->
-
-Enhance the frequency distribution plot by adding color.
+Plot the frequency distributions and enhance with color.
 
 ```r
-(Outcome~Factor) |> plotFrequencies(offset=0,col=c("darkblue","darkred","darkgoldenrod"))
+(Outcome~Factor) |> plotFrequencies(offset=0,col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
-![](figures/Frequencies-OneWay-FrequenciesB-1.png)<!-- -->
+![](figures/Frequencies-OneWay-Frequencies-1.png)<!-- -->
 
-### Percentiles and Boxes
+### Boxplots
 
-Describe the percretiles and plot the boxes.
-
-```r
-(Outcome~Factor) |> describePercentiles()
-```
-
-```
-## $`Percentiles for the Data`
-##            Min     25%     50%     75%     Max
-## Level1   4.000   7.000   8.000   9.000  10.000
-## Level2   1.000   8.000  10.000  12.000  18.000
-## Level3   3.000   9.250  12.000  13.750  21.000
-```
+Describe the boxes.
 
 ```r
 (Outcome~Factor) |> describeBoxes()
@@ -109,21 +92,15 @@ Describe the percretiles and plot the boxes.
 ```
 ## $`Boxplot Statistics for the Data`
 ##             LW      LH     Mdn      UH      UW
-## Level1   4.000   7.000   8.000   9.000  10.000
-## Level2   2.000   8.000  10.000  12.000  18.000
-## Level3   3.000   9.000  12.000  14.000  21.000
+## Level1   2.000   6.000   7.000   9.000  12.000
+## Level2   4.000   9.000  11.500  14.000  17.000
+## Level3   6.000  10.000  12.000  15.000  21.000
 ```
+
+Plot the boxes and enhance with color.
 
 ```r
-(Outcome~Factor) |> plotBoxes()
+(Outcome~Factor) |> plotBoxes(col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
-![](figures/Frequencies-OneWay-BoxesA-1.png)<!-- -->
-
-Enhance the frequency distribution plot by adding color.
-
-```r
-(Outcome~Factor) |> plotBoxes(values=FALSE,offset=0,scale=3,col=c("darkblue","darkred","darkgoldenrod"))
-```
-
-![](figures/Frequencies-OneWay-BoxesB-1.png)<!-- -->
+![](figures/Frequencies-OneWay-Boxes-1.png)<!-- -->
