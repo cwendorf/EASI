@@ -82,7 +82,7 @@ O1vsOthers <- c(-1,.5,.5)
 (RepeatedData) |> plotMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"))
 ```
 
-Create side-by-side plots of the means and the mean subsets and enhance the plots by adding colors.
+Create side-by-side enhanced plots of the means and the mean subsets.
 ```{r,Contrasts-Repeated-ContrastB}
 contrastTheme <- c("darkred","darkblue","darkblue")
 par(mfrow=c(1,2))
