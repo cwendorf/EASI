@@ -1,10 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Operations to Make Functions Available
 
-### colorX
-
-export(theme.basic)
-
 ### formatX
 
 export("%$>%")
