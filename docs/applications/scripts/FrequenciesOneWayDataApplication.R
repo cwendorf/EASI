@@ -14,14 +14,13 @@ Level2 <- round(rnorm(50,mean=11,sd=4),0)
 Level3 <- round(rnorm(50,mean=12,sd=4),0)
 Outcome <- c(Level1,Level2,Level3)
 
+### Data Plots
+
+(Outcome~Factor) |> plotData(offset=0,method="jitter",col=c("darkred","darkblue","darkgoldenrod"))
+
 ### Frequency Distributions
 
 (Outcome~Factor) |> describeFrequencies()
 
 (Outcome~Factor) |> plotFrequencies(offset=0,col=c("darkred","darkblue","darkgoldenrod"))
 
-### Boxplots
-
-(Outcome~Factor) |> describeBoxes()
-
-(Outcome~Factor) |> plotBoxes(col=c("darkred","darkblue","darkgoldenrod"))

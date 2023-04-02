@@ -43,6 +43,13 @@ Level3 <- round(rnorm(50,mean=12,sd=4),0)
 Outcome <- c(Level1,Level2,Level3)
 ```
 
+### Data Plots
+
+Plot the data and enhance with color.
+```{r,Frequencies-OneWay-Data}
+(Outcome~Factor) |> plotData(offset=0,method="jitter",col=c("darkred","darkblue","darkgoldenrod"))
+```
+
 ### Frequency Distributions
 
 Describe the frequency distributions.
@@ -53,16 +60,4 @@ Describe the frequency distributions.
 Plot the frequency distributions and enhance with color.
 ```{r,Frequencies-OneWay-Frequencies}
 (Outcome~Factor) |> plotFrequencies(offset=0,col=c("darkred","darkblue","darkgoldenrod"))
-```
-
-### Boxplots
-
-Describe the boxes.
-```{r}
-(Outcome~Factor) |> describeBoxes()
-```
-
-Plot the boxes and enhance with color.
-```{r,Frequencies-OneWay-Boxes}
-(Outcome~Factor) |> plotBoxes(col=c("darkred","darkblue","darkgoldenrod"))
 ```

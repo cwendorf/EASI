@@ -41,6 +41,13 @@ Outcome3 <- round(rnorm(50,mean=12,sd=4),0)
 RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 ```
 
+### Data Plots
+
+Plot the data and enhance with color.
+```{r,Frequencies-Repeated-Data}
+(RepeatedData) |> plotData(offset=0,method="overplot",connect=TRUE,col="darkblue")
+```
+
 ### Frequency Distributions
 
 Describe the frequency distributions.
@@ -50,17 +57,5 @@ Describe the frequency distributions.
 
 Plot the frequency distributions and enhance with color.
 ```{r,Frequencies-Repeated-Frequencies}
-(RepeatedData) |> plotFrequencies(offset=0,col=c("darkred","darkblue","darkgoldenrod"))
-```
-
-### Boxplots
-
-Describe the boxes.
-```{r}
-(RepeatedData) |> describeBoxes()
-```
-
-Plot the boxes and enhance with color.
-```{r,Frequencies-Repeated-Boxes}
-(RepeatedData) |> plotBoxes(col=c("darkred","darkblue","darkgoldenrod"))
+(RepeatedData) |> plotFrequencies(offset=0,col="darkblue")
 ```
