@@ -12,7 +12,7 @@ Package | EASI
 Type | Package
 
 A full description of EASI, along with complete tutorials and examples from published work, is available on the corresponding web site:
-[https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 
+[https://github.com/cwendorf/EASI](https://github.com/cwendorf/EASI) 
 
 ### Author
 
@@ -23,4 +23,4 @@ University of Wisconsin - Stevens Point
 
 ### References
 
-Wendorf, C.A. (2022). EASI: Estimation Approach to Statistical Inference [R Package]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/) 
+Wendorf, C.A. (2022). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://github.com/cwendorf/EASI](https://github.com/cwendorf/EASI) 
