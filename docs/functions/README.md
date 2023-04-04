@@ -1,6 +1,6 @@
-## The EASI Functions
+## Details of the Functions
 
-### Summary of the Functions
+### General Function Syntax
 
 EASI offers a general syntax for function calls. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted). These are the basic options (though more elaborate functions also exist):
 
