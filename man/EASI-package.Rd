@@ -28,5 +28,5 @@ University of Wisconsin - Stevens Point\cr
 } 
 
 \references{
-Wendorf, C.A. (2019). EASI: Estimation Approach to Statistical Inference [R Package]. \url{https://cwendorf.github.io/EASI/}
+Wendorf, C.A. (2022). EASI: Estimation Approach to Statistical Inference [R Package]. \url{https://github.com/cwendorf/EASI}
 }
