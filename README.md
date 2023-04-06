@@ -22,15 +22,15 @@ Additional functions offer summaries and plots of data, frequencies, densities, 
 
 ### Installation
 
-This package is not currently on CRAN, but the latest version can be installed from GitHub:
+This package is not currently on CRAN, but the latest version can be installed and loaded from GitHub:
 
 ``` r
-install.packages("devtools")
-devtools::install_github("cwendorf/EASI")
+install.packages("remotes")
+remotes::install_github("cwendorf/EASI")
 library(EASI)
 ```
 
-If you do not wish a full install, the latest functions can be sourced directly from GitHub:
+If you do not wish a full install, the latest functions can be sourced and accessed directly from GitHub:
 
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
