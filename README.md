@@ -8,7 +8,7 @@
 
 ### Overview
 
-[**EASI**](https://github.com/cwendorf/EASI) is an R package that implements features of estimation statistics and data visualization. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs. Most functions can take either raw data or summary statistics as input.
+**EASI** is an R package that implements features of estimation statistics and data visualization. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs. Most functions can take either raw data or summary statistics as input.
 
 <a href="https://github.com/cwendorf/EASI">
 <p align="center"><kbd><img src="docs/easiCoverImage.jpg"></kbd></p>
@@ -22,7 +22,7 @@ Additional functions offer summaries and plots of data, frequencies, densities, 
 
 ### Installation
 
-This package is not currently on CRAN, but the latest version can be installed and loaded from GitHub:
+This R package is not currently on CRAN, but the latest version can be installed and loaded using these R commands:
 
 ``` r
 install.packages("remotes")
@@ -30,7 +30,7 @@ remotes::install_github("cwendorf/EASI")
 library(EASI)
 ```
 
-If you do not wish a full install, the latest functions can be sourced and accessed directly from GitHub:
+If you do not wish a full install, the latest functions can be made available using these R commands:
 
 ```r
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
