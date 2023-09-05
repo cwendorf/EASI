@@ -1,5 +1,6 @@
-
 ## Set of Correlations Data Tutorial
+
+This page analyzes ba set of correlations among variables using raw data input.
 
 ### Data Management
 

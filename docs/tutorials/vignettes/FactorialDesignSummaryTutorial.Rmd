@@ -31,6 +31,8 @@ library(EASI)
 
 ## Factorial (Between-Subjects) Summary Statistics Tutorial
 
+This page analyzes a two-factor between-subjects (factorial) design using summary statistics input.
+
 ### Data Management
 
 This code inputs the group summaries and creates a single summary table (for the first simple effect).

@@ -24,12 +24,14 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 
 ```{r,include=FALSE}
 if(!require(EASI)) {
-if(!require(devtools)) install.packages('devtools')
-devtools::install_github("cwendorf/EASI")}
+if(!require(remotes)) install.packages('remotes')
+remotes::install_github("cwendorf/EASI")}
 library(EASI)
 ```
 
 ## Independent Groups Data Tutorial
+
+This page analyzes a two-group between-subjects (independent groups) design using raw data input.
 
 ### Data Management
 

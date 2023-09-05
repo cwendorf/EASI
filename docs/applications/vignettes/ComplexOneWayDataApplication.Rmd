@@ -31,6 +31,8 @@ library(EASI)
 
 ## Complex OneWay Data Application
 
+This page analyzes differences between two contrasts using one-way (between-subjects) data.
+
 ### Data Management
 
 Simulate some data.

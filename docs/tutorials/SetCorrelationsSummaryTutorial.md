@@ -1,5 +1,6 @@
-
 ## Set of Correlations Summary Statistics Tutorial
+
+This page analyzes ba set of correlations among variables using summary statistics input.
 
 ### Data Management
 

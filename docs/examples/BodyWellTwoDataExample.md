@@ -1,5 +1,6 @@
-
 ## BodyWell Two Sample Data Example
+
+This page compares a correlation between two variables in two independent samples using raw data input.
 
 ### Data Management
 

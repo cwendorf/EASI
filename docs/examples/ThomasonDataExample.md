@@ -1,5 +1,6 @@
-
 ## Thomason Data Example
+
+This page analyzes a within-subjects (paired samples) design for two time points using raw data input.
 
 ### Thomason1 Sample
 

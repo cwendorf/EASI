@@ -1,5 +1,6 @@
-
 ## One Sample Summary Statistics Tutorial
+
+This page analyzes a single-group (one sample) design using summary statistics input.
 
 ### Data Management
 

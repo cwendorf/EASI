@@ -1,5 +1,6 @@
-
 ## PenLaptop Summary Statistics Example
+
+This page analyzes a two-group between-subjects (independent groups) design using summary statistics input.
 
 ### PenLaptop1 Sample
 

@@ -1,5 +1,6 @@
-
 ## Holzel Data Example
+
+This page analyzes a two-factor mixed design (one between-subjects and one within-subjects factor) using raw data input.
 
 ### Data Management
 

@@ -1,5 +1,6 @@
-
 ## One Sample Data Tutorial
+
+This page analyzes a single-group (one sample) design using raw data input.
 
 ### Data Management
 

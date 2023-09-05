@@ -1,5 +1,6 @@
-
 ## Donohue Summary Statistics Example
+
+This page analyzes a single-factor within-subjects (repeated measures) design using summary statistics input.
 
 ### Data Management
 

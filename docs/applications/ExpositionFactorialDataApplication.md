@@ -1,5 +1,6 @@
-
 ## Exposition Factorial Data Application
+
+This page analyzes simple effects with an exposition pipe operator using factorial (between-subjects) data.
 
 ### Data Management
 
@@ -43,9 +44,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   8.458   0.322  29.000   7.800   9.117
-## A2  10.575   0.659  29.000   9.227  11.922
-## A3  11.384   0.806  29.000   9.734  13.033
+## A1   8.093   0.343  29.000   7.392   8.794
+## A2  11.129   0.822  29.000   9.448  12.809
+## A3  12.377   0.707  29.000  10.932  13.822
 ```
 
 ```r
@@ -55,9 +56,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   8.118   0.362  29.000   7.378   8.859
-## A2   8.853   0.512  29.000   7.806   9.899
-## A3   7.034   0.756  29.000   5.488   8.581
+## A1   7.743   0.358  29.000   7.011   8.475
+## A2   8.222   0.412  29.000   7.380   9.064
+## A3   5.621   0.904  29.000   3.771   7.470
 ```
 ### Analyses of the Simple Effects
 
@@ -70,8 +71,8 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##               SS      df      MS
-## Between  136.906   2.000  68.453
-## Within  1033.658  87.000  11.881
+## Between  291.278   2.000 145.639
+## Within  1123.779  87.000  12.917
 ```
 
 ```r
@@ -81,8 +82,8 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##              SS      df      MS
-## Between  50.204   2.000  25.102
-## Within  839.001  87.000   9.644
+## Between 115.026   2.000  57.513
+## Within  970.068  87.000  11.150
 ```
 Test each simple effect for statistical significance.
 
@@ -93,7 +94,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##              F     df1     df2       p
-## Factor   5.762   2.000  87.000   0.004
+## Factor  11.275   2.000  87.000   0.000
 ```
 
 ```r
@@ -103,7 +104,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##              F     df1     df2       p
-## Factor   2.603   2.000  87.000   0.080
+## Factor   5.158   2.000  87.000   0.008
 ```
 Obtain the proportion of variance accounted for by each simple effect.
 
@@ -114,7 +115,7 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##            Est      LL      UL
-## Factor   0.117   0.023   0.215
+## Factor   0.206   0.083   0.312
 ```
 
 ```r
@@ -124,5 +125,5 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##            Est      LL      UL
-## Factor   0.056   0.000   0.137
+## Factor   0.106   0.017   0.202
 ```

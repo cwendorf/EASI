@@ -31,6 +31,8 @@ library(EASI)
 
 ## Thomason Summary Statistics Example
 
+This page analyzes a within-subjects (paired samples) design for two time points using summary statistics input.
+
 ### Thomason1 Sample
 
 Thomason1 focuses on the difference between pretest and posttest in the first sample. First, create the tables of summary statistics.

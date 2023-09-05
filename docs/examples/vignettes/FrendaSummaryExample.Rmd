@@ -31,6 +31,8 @@ library(EASI)
 
 ## Frenda Summary Statistics Example
 
+This page analyzes a two-factor between-subjects (factorial) design using summary statistics input.
+
 ### Data Management
 
 Create a table of summary statistics for the study. Though the study is a factorial design, treat each level of the two factors as independent groups in a single factor.

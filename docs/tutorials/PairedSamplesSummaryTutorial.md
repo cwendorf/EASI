@@ -1,5 +1,6 @@
-
 ## Paired Samples Summary Statistics Tutorial
+
+This page analyzes a within-subjects (paired samples) design for two time points using summary statistics input.
 
 ### Data Management
 

@@ -1,5 +1,6 @@
-
 ## Bivariate Regression Summary Statistics Tutorial
+
+This page analyzes bivariate regression models using summary statistics input.
 
 ### Data Management
 

@@ -1,5 +1,6 @@
-
 ## Exploratory Analyses Repeated Measures Data Application
+
+This page provides violin plots, beanplots, and raincloud plots using repeated-measures (within-subjects) data.
 
 ### Data Management
 

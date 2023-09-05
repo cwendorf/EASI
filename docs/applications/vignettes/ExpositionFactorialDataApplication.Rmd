@@ -31,6 +31,8 @@ library(EASI)
 
 ## Exposition Factorial Data Application
 
+This page analyzes simple effects with an exposition pipe operator using factorial (between-subjects) data.
+
 ### Data Management
 
 Simulate some data.

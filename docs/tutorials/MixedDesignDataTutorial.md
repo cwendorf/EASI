@@ -1,5 +1,6 @@
-
 ## Mixed Design Data Tutorial
+
+This page analyzes a two-factor mixed design (one between-subjects and one within-subjects factor) using raw data input.
 
 ### Data Management
 

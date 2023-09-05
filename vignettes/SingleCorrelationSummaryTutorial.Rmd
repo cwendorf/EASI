@@ -24,12 +24,14 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 
 ```{r,include=FALSE}
 if(!require(EASI)) {
-if(!require(devtools)) install.packages('devtools')
-devtools::install_github("cwendorf/EASI")}
+if(!require(remotes)) install.packages('remotes')
+remotes::install_github("cwendorf/EASI")}
 library(EASI)
 ```
 
 ## Single Correlation Summary Statistics Tutorial
+
+This page analyzes a single correlation between two variables using summary statistics input.
 
 ### Data Management
 

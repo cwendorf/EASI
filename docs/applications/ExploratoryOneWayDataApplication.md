@@ -1,5 +1,6 @@
-
 ## Exploratory OneWay Data Application
+
+This page provides violin plots, beanplots, and raincloud plots using one-way (between-subjects) data.
 
 ### Data Management
 

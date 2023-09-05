@@ -1,5 +1,6 @@
-
 ## Single Correlation Summary Statistics Tutorial
+
+This page analyzes a single correlation between two variables using summary statistics input.
 
 ### Data Management
 

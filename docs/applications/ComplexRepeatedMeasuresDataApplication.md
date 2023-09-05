@@ -1,5 +1,6 @@
-
 ## Complex Repeated Measures Data Application
+
+This page analyzes differences between two contrasts on the same measures using repeated-measures (within-subjects) data.
 
 ### Data Management
 
@@ -23,9 +24,9 @@ Estimate and plot the means for examination.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   7.080   0.269  49.000   6.539   7.621
-## Outcome2  11.320   0.563  49.000  10.188  12.452
-## Outcome3  12.240   0.498  49.000  11.240  13.240
+## Outcome1   6.860   0.260  49.000   6.337   7.383
+## Outcome2  11.440   0.609  49.000  10.216  12.664
+## Outcome3  12.360   0.554  49.000  11.247  13.473
 ```
 
 ```r
@@ -44,7 +45,7 @@ O1vsGrand <- c(.6667,-.3333,-.3333)
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -3.132   0.288  49.000  -3.711  -2.554
+## Contrast  -3.359   0.311  49.000  -3.985  -2.733
 ```
 
 ```r
@@ -71,12 +72,12 @@ Estimate and plot the confidence intervals for each contrast and the difference 
 ```
 ## $`Confidence Intervals for the Mean Contrasts`
 ##               Est      SE      df      LL      UL
-## GrandMean  10.213   0.221  49.000   9.770  10.657
-## O1Only      7.080   0.269  49.000   6.539   7.621
+## GrandMean  10.220   0.317  49.000   9.584  10.856
+## O1Only      6.860   0.260  49.000   6.337   7.383
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -3.133   0.288  49.000  -3.712  -2.555
+## Contrast  -3.360   0.312  49.000  -3.986  -2.734
 ```
 
 ```r

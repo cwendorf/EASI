@@ -1,5 +1,6 @@
-
 ## Multiple Regression Data Tutorial
+
+This page analyzes multiple regression models using raw data input.
 
 ### Data Management
 

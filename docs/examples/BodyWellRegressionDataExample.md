@@ -1,5 +1,6 @@
-
 ## BodyWell Regression Data Example
+
+This page analyzes bivariate regression models using raw data input.
 
 ### Data Management
 

@@ -1,5 +1,6 @@
-
 ## PenLaptop Data Example
+
+This page analyzes a two-group between-subjects (independent groups) design using raw data input.
 
 ### PenLaptop1 Sample
 

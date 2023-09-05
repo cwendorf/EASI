@@ -1,5 +1,6 @@
-
 ## Exposition Mixed Data Application
+
+This page analyzes simple effects with an exposition pipe operator using mixed design (between-subjects and within-subjects) data.
 
 ### Data Management
 
@@ -43,9 +44,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   7.567   0.310  29.000   6.934   8.200
-## Outcome2  12.267   0.671  29.000  10.894  13.639
-## Outcome3  12.000   0.703  29.000  10.562  13.438
+## Outcome1   7.600   0.411  29.000   6.759   8.441
+## Outcome2  10.700   0.708  29.000   9.252  12.148
+## Outcome3  13.100   0.908  29.000  11.244  14.956
 ```
 
 ```r
@@ -55,9 +56,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   7.300   0.350  29.000   6.585   8.015
-## Outcome2   8.600   0.533  29.000   7.510   9.690
-## Outcome3   6.567   0.845  29.000   4.838   8.295
+## Outcome1   8.133   0.358  29.000   7.401   8.865
+## Outcome2   8.900   0.539  29.000   7.798  10.002
+## Outcome3   7.067   0.786  29.000   5.459   8.675
 ```
 
 ### Analyses of the Simple Effects
@@ -71,9 +72,9 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##               SS      df      MS
-## Subjects 318.722  29.000  10.990
-## Measures 418.156   2.000 209.078
-## Error    586.511  58.000  10.112
+## Subjects 480.400  29.000  16.566
+## Measures 456.200   2.000 228.100
+## Error    819.800  58.000  14.134
 ```
 
 ```r
@@ -83,9 +84,9 @@ Using the pipe operators, get the source table for each simple effect.
 ```
 ## $`Source Table for the Model`
 ##               SS      df      MS
-## Subjects 249.822  29.000   8.615
-## Measures  63.622   2.000  31.811
-## Error    725.044  58.000  12.501
+## Subjects 258.900  29.000   8.928
+## Measures  50.867   2.000  25.433
+## Error    643.133  58.000  11.089
 ```
 Test each simple effect for statistical significance.
 
@@ -96,7 +97,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##                F     df1     df2       p
-## Measures  20.676   2.000  58.000   0.000
+## Measures  16.138   2.000  58.000   0.000
 ```
 
 ```r
@@ -106,7 +107,7 @@ Test each simple effect for statistical significance.
 ```
 ## $`Hypothesis Test for the Model`
 ##                F     df1     df2       p
-## Measures   2.545   2.000  58.000   0.087
+## Measures   2.294   2.000  58.000   0.110
 ```
 Obtain the proportion of variance accounted for by each simple effect.
 
@@ -117,7 +118,7 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##              Est      LL      UL
-## Measures   0.416   0.240   0.528
+## Measures   0.358   0.182   0.476
 ```
 
 ```r
@@ -127,5 +128,5 @@ Obtain the proportion of variance accounted for by each simple effect.
 ```
 ## $`Proportion of Variance Accounted For by the Model`
 ##              Est      LL      UL
-## Measures   0.081   0.000   0.188
+## Measures   0.073   0.000   0.178
 ```

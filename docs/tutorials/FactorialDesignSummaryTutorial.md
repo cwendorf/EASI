@@ -1,5 +1,6 @@
-
 ## Factorial (Between-Subjects) Summary Statistics Tutorial
+
+This page analyzes a two-factor between-subjects (factorial) design using summary statistics input.
 
 ### Data Management
 

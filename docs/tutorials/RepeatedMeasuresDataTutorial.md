@@ -1,5 +1,6 @@
-
 ## Repeated Measures (Within-Subjects) Data Tutorial
+
+This page analyzes a single-factor within-subjects (repeated measures) design using raw data input.
 
 ### Data Management
 

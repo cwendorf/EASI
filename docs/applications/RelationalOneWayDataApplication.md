@@ -1,5 +1,6 @@
-
 ## Relational OneWay Data Application
+
+This page examines means and mean differences with relational and arelational intervals using one-way (between-subjects) data.
 
 ### Data Management
 

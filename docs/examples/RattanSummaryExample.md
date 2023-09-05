@@ -1,5 +1,6 @@
-
 ## Rattan Summary Statistics Example
+
+This page analyzes a single-factor between-subjects (one-way) design using summary statistics input.
 
 ### Data Management
 

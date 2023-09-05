@@ -1,5 +1,6 @@
-
 ## BodyWell Two Sample Summary Statistics Example
+
+This page compares a correlation between two variables in two independent samples using summary statistics input.
 
 ### Data Management
 

@@ -1,5 +1,6 @@
-
 ## Independent Groups Summary Statistics Tutorial
+
+This page analyzes a two-group between-subjects (independent groups) design using summary statistics input.
 
 ### Data Management
 

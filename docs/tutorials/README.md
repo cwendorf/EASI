@@ -6,59 +6,59 @@ Tutorials are designed to show the default output and basic options for confiden
 
 ### Tutorials for Means and Mean Differences
 
-The **OneSample** files analyze a single-group (one sample) design:
+The **OneSample** pages analyze a single-group (one sample) design:
 
 - [*OneSampleDataTutorial*](./OneSampleDataTutorial.md) - Uses raw data input
 - [*OneSampleSummaryTutorial*](./OneSampleSummaryTutorial.md) - Uses summary statistics input
 
-The **IndependentGroups** files analyze a two-group between-subjects design (independent-groups):
+The **IndependentGroups** pages analyze a two-group between-subjects design (independent groups):
 
 - [*IndependentGroupsDataTutorial*](./IndependentGroupsDataTutorial.md) - Uses raw data input
 - [*IndependentGroupsSummaryTutorial*](./IndependentGroupsSummaryTutorial.md) - Uses summary statistics input
 
-The **PairedSamples** files analyze a within-subjects design for two time points (paired samples):
+The **PairedSamples** pages analyze a within-subjects design for two time points (paired samples):
 
 - [*PairedSamplesDataTutorial*](./PairedSamplesDataTutorial.md) - Uses raw data input
 - [*PairedSamplesSummaryTutorial*](./PairedSamplesSummaryTutorial.md) - Uses summary statistics input
 
-The **OneWay** files analyze a single-factor between-subjects (one-way) design:
+The **OneWay** pages analyze a single-factor between-subjects (one-way) design:
 
 - [*OneWayDataTutorial*](./OneWayDataTutorial.md) - Uses raw data input
 - [*OneWaySummaryTutorial*](./OneWaySummaryTutorial.md) - Uses summary statistics input
 
-The **RepeatedMeasures** files analyze a single-factor within-subjects (repeated measures) design:
+The **RepeatedMeasures** pages analyze a single-factor within-subjects (repeated measures) design:
 
 - [*RepeatedMeasuresDataTutorial*](./RepeatedMeasuresDataTutorial.md) - Uses raw data input
 - [*RepeatedMeasuresSummaryTutorial*](./RepeatedMeasuresSummaryTutorial.md) - Uses summary statistics input
 
-The **FactorialDesign** files analyze a two-factor between-subjects (factorial) design:
+The **FactorialDesign** pages analyze a two-factor between-subjects (factorial) design:
 
 - [*FactorialDesignDataTutorial*](./FactorialDesignDataTutorial.md) - Uses raw data input
 - [*FactorialDesignSummaryTutorial*](./FactorialDesignSummaryTutorial.md) - Uses summary statistics input
 
-The **MixedDesign** files analyze a two-factor mixed design (one between-subjects and one within-subjects factor):
+The **MixedDesign** pages analyze a two-factor mixed design (one between-subjects and one within-subjects factor):
 
 - [*MixedDesignDataTutorial*](./MixedDesignDataTutorial.md) - Uses raw data input
 - [*MixedDesignSummaryTutorial*](./MixedDesignSummaryTutorial.md) - Uses summary statistics input
 
 ### Tutorials for Correlations and Regression Models
 
-The **OneCorrelation** files analyze a correlation between two variables:
+The **SingleCorrelation** pages analyze a correlation between two variables:
 
 - [*SingleCorrelationDataTutorial*](./SingleCorrelationDataTutorial.md) - Uses raw data input
 - [*SingleCorrelationSummaryTutorial*](./SingleCorrelationSummaryTutorial.md) - Uses summary statistics input
 
-The **SetCorrelations** files analyze a set of correlations among multiple variables:
+The **SetCorrelations** pages analyze a set of correlations among multiple variables:
 
 - [*SetCorrelationsDataTutorial*](./SetCorrelationsDataTutorial.md) - Uses raw data input
 - [*SetCorrelationsSummaryTutorial*](./SetCorrelationsSummaryTutorial.md) - Uses summary statistics input
 
-The **BivariateRegression** files analyze bivariate regression models:
+The **BivariateRegression** pages analyze bivariate regression models:
 
 - [*BivariateRegressionDataTutorial*](./BivariateRegressionDataTutorial.md) - Uses raw data input
 - [*BivariateRegressionSummaryTutorial*](./BivariateRegressionSummaryTutorial.md) - Uses summary statistics input
 
-The **MultipleRegression** files analyze multiple regression models:
+The **MultipleRegression** pages analyze multiple regression models:
 
 - [*MultipleRegressionDataTutorial*](./MultipleRegressionDataTutorial.md) - Uses raw data input
 - [*MultipleRegressionSummaryTutorial*](./MultipleRegressionSummaryTutorial.md) - Uses summary statistics input

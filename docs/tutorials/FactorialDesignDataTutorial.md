@@ -1,5 +1,6 @@
-
 ## Factorial (Between-Subjects) Data Tutorial
+
+This page analyzes a two-factor between-subjects (factorial) design using raw data input.
 
 ### Data Management
 

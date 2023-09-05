@@ -1,5 +1,6 @@
-
 ## Relational Repeated Measures Data Application
+
+This page examines means and mean differences with relational and arelational intervals using repeated-measures (within-subjects) data.
 
 ### Data Management
 

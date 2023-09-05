@@ -1,5 +1,6 @@
-
 ## Thomason Summary Statistics Example
+
+This page analyzes a within-subjects (paired samples) design for two time points using summary statistics input.
 
 ### Thomason1 Sample
 

@@ -1,5 +1,6 @@
-
 ## OneWay (Between-Subjects) Data Tutorial
+
+This page analyzes a single-factor between-subjects (one-way) design using raw data input.
 
 ### Data Management
 

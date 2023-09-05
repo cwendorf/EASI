@@ -31,6 +31,8 @@ library(EASI)
 
 ## One Sample Summary Statistics Tutorial
 
+This page analyzes a single-group (one sample) design using summary statistics input.
+
 ### Data Management
 
 This code inputs the variable and creates a single summary table.

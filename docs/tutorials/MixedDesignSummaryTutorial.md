@@ -1,5 +1,6 @@
-
 ## Mixed Design Summary Statistics Tutorial
+
+This page analyzes a two-factor mixed design (one between-subjects and one within-subjects factor) using summary statistics input.
 
 ### Data Management
 

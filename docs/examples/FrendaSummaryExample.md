@@ -1,5 +1,6 @@
-
 ## Frenda Summary Statistics Example
+
+This page analyzes a two-factor between-subjects (factorial) design using summary statistics input.
 
 ### Data Management
 

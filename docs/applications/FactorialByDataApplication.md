@@ -1,5 +1,6 @@
-
 ## FactorialBy Data Application
+
+This page analyzes simple effects using factorial (between-subjects) data.
 
 ### Data Management
 

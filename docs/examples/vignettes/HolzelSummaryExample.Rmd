@@ -31,6 +31,8 @@ library(EASI)
 
 ## Holzel Summary Statistics Example
 
+This page analyzes a two-factor mixed design (one between-subjects and one within-subjects factor) using summary statistics input.
+
 ### Data Management
 
 Create two tables of summary statistics for the first simple effect of interest.

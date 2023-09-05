@@ -1,5 +1,6 @@
-
 ## MixedBy Data Application
+
+This page analyzes simple effects using mixed design (between-subjects and within-subjects) data.
 
 ### Data Management
 

@@ -1,5 +1,6 @@
-
 ## Pairwise Repeated Data Application
+
+This page examines unadjusted pairwise comparisons and Tukey post hoc comparisons with traditional confidence interval plots and diffograms  using repeated-measures (within-subjects) data.
 
 ### Data Management
 

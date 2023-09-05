@@ -1,5 +1,6 @@
-
 ## Pairwise OneWay Data Application
+
+This page examines unadjusted pairwise comparisons and Tukey post hoc comparisons with traditional confidence interval plots and diffograms using one-way (between-subjects) data.
 
 ### Data Management
 

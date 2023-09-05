@@ -1,5 +1,6 @@
-
 ## Contrasts OneWay Data Application
+
+This page analyzes confidence interval plots for comparisons and contrasts by adding data and plausibility curves using one-way (between-subjects) data.
 
 ### Data Management
 
@@ -25,9 +26,9 @@ Estimate and get a simple plot of the confidence intervals.
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Group1   6.680   0.373  49.000   5.930   7.430
-## Group2  11.260   0.628  49.000   9.998  12.522
-## Group3  11.920   0.510  49.000  10.895  12.945
+## Group1   6.820   0.193  49.000   6.432   7.208
+## Group2   9.840   0.527  49.000   8.781  10.899
+## Group3  12.340   0.537  49.000  11.260  13.420
 ```
 
 ```r
@@ -58,12 +59,12 @@ Comparison <- factor(Factor,c("Group1","Group2"))
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Group1   6.680   0.373  49.000   5.930   7.430
-## Group2  11.260   0.628  49.000   9.998  12.522
+## Group1   6.820   0.193  49.000   6.432   7.208
+## Group2   9.840   0.527  49.000   8.781  10.899
 ## 
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   4.580   0.730  79.762   3.127   6.033
+## Comparison   3.020   0.561  61.923   1.898   4.142
 ```
 
 ```r
@@ -95,12 +96,12 @@ G1vsOthers <- c(-1,.5,.5)
 ```
 ## $`Confidence Intervals for the Mean Subsets`
 ##            Est      SE      df      LL      UL
-## Group1   6.680   0.373  49.000   5.930   7.430
-## Others  11.590   0.404  94.065  10.787  12.393
+## Group1   6.820   0.193  49.000   6.432   7.208
+## Others  11.090   0.376  97.964  10.343  11.837
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   4.910   0.550 134.855   3.822   5.998
+## Contrast   4.270   0.423 137.317   3.434   5.106
 ```
 
 ```r
@@ -109,7 +110,7 @@ G1vsOthers <- c(-1,.5,.5)
 
 ![](figures/Contrasts-OneWay-ContrastA-1.png)<!-- -->
 
-Create side-by-side plots of the means and the mean subsets and enhance the plots by adding colors.
+Create side-by-side enhanced plots of the means and the mean subsets.
 
 ```r
 contrastTheme <- c("darkred","darkblue","darkblue")

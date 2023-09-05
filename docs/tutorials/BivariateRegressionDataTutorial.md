@@ -1,7 +1,8 @@
-
 ## Bivariate Regression Data Tutorial
 
 ### Data Management
+
+This page analyzes bivariate regression models using raw data input.
 
 #### Data Entry
 

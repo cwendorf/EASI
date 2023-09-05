@@ -1,5 +1,6 @@
-
 ## BodyWell One Sample Data Example
+
+This page analyzes a single correlation between two variables using raw data input.
 
 ### Data Management
 

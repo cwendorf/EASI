@@ -1,5 +1,6 @@
-
 ## Complex OneWay Data Application
+
+This page analyzes differences between two contrasts using one-way (between-subjects) data.
 
 ### Data Management
 
@@ -25,9 +26,9 @@ Estimate and plot the means for examination.
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   6.480   0.301  49.000   5.874   7.086
-## Level2  12.220   0.591  49.000  11.033  13.407
-## Level3  12.620   0.542  49.000  11.531  13.709
+## Level1   7.400   0.262  49.000   6.874   7.926
+## Level2  11.480   0.595  49.000  10.285  12.675
+## Level3  11.220   0.482  49.000  10.252  12.188
 ```
 
 ```r
@@ -46,7 +47,7 @@ L1vsGrand <- c(.6667,-.3333,-.3333)
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -3.959   0.334 145.836  -4.620  -3.298
+## Contrast  -2.632   0.309 142.593  -3.243  -2.021
 ```
 
 ```r
@@ -73,12 +74,12 @@ Estimate and plot the confidence intervals for each contrast and the difference 
 ```
 ## $`Confidence Intervals for the Mean Contrasts`
 ##               Est      SE      df      LL      UL
-## GrandMean  10.440   0.285 121.893   9.875  11.005
-## L1Only      6.480   0.301  49.000   5.874   7.086
+## GrandMean  10.033   0.270 114.235   9.499  10.567
+## L1Only      7.400   0.262  49.000   6.874   7.926
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -3.960   0.334 145.838  -4.621  -3.299
+## Contrast  -2.633   0.309 142.591  -3.244  -2.022
 ```
 
 ```r

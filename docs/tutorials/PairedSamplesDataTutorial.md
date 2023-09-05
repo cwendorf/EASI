@@ -1,5 +1,6 @@
-
 ## Paired Samples Data Tutorial
+
+This page analyzes a within-subjects (paired samples) design for two time points using raw data input.
 
 ### Data Management
 

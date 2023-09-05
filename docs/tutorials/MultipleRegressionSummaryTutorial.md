@@ -1,5 +1,6 @@
-
 ## Multiple Regression Summary Statistics Tutorial
+
+This page analyzes multiple regression models using summary statistics input.
 
 ### Data Management
 

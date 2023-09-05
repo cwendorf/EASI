@@ -1,5 +1,6 @@
-
 ## Single Correlation Data Tutorial
+
+This page analyzes a single correlation between two variables using raw data input.
 
 ### Data Management
 

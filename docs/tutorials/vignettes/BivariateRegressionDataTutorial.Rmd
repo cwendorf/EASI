@@ -33,6 +33,8 @@ library(EASI)
 
 ### Data Management
 
+This page analyzes bivariate regression models using raw data input.
+
 #### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.

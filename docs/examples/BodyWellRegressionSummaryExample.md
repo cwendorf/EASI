@@ -1,5 +1,6 @@
-
 ## BodyWell Regression Summary Statistics Example
+
+This page analyzes bivariate regression models using summary statistics input.
 
 ### Data Management
 
