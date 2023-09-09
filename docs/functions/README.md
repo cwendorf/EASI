@@ -77,7 +77,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 `StandardizedMeanComparison` - functions that examine a standardized comparison among two group, level, or variable means (combines the `StandardizedMeans` and `StandardizedMeanDifference` functions)
 
 - [`estimateStandardizedMeanComparison`](./estimateStandardizedMeanComparison.md)
-- [`plotStandardizedMeanComparison`](./plotStandardizedMeanComparison.md)
 
 `MeanContrast` - functions that examine a contrast among all of the group, level, or variable means
 
@@ -99,7 +98,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 `StandardizedMeanSubsets` - functions that examine a standardized subset contrast among all of the group, level, or variable means (combines the `StandardizedMeans` and `StandardizedMeanContrast` functions)
 
 - [`estimateStandardizedMeanSubsets`](./estimateStandardizedMeanSubsets.md)
-- [`plotStandardizedMeanSubsets`](./plotStandardizedMeanSubsets.md)
 
 `MeanComplex` - functions that examine two contrasts among all of the group, level, or variable means and the differences between those contrasts (combines separate `MeanContrast` functions and another `MeanContrast` function for the difference)
 
