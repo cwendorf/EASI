@@ -55,7 +55,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 `StandardizedMeans` - functions that examine all individual standardized group, level, or variable means
 
 - [`estimateStandardizedMeans`](./estimateStandardizedMeans.md)
-- [`plotStandardizedMeans`](./plotStandardizedMeans.md)
 
 `MeanDifference` - functions that examine a difference among two group, level, or variable means
 
@@ -66,7 +65,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 `StandardizedMeanDifference` - functions that examine a standardized difference among two group, level, or variable means
 
 - [`estimateStandardizedMeanDifference`](./estimateStandardizedMeanDifference.md)
-- [`plotStandardizedMeanDifference`](./plotStandardizedMeanDifference.md)
 
 `MeanComparison` - functions that examine a comparison among two group, level, or variable means (combines the `Means` and `MeanDifference` functions)
 
@@ -87,7 +85,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 `StandardizedMeanContrast` - functions that examine a standardized contrast among all of the group, level, or variable means
 
 - [`estimateStandardizedMeanContrast`](./estimateStandardizedMeanContrast.md) 
-- [`plotStandardizedMeanContrast`](./plotStandardizedMeanContrast.md) 
 
 `MeanSubsets` - functions that examine a subset contrast among all of the group, level, or variable means (combines the `Means` and `MeanContrast` functions)
 
@@ -114,7 +111,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 `StandardizedMeansPairwise` - functions that examine all possible unadjusted standardized pairwise comparisons among the group, level, or variable means
 
 - [`estimateStandardizedMeansPairwise`](./estimateStandardizedMeansPairwise.md)
-- [`plotStandardizedMeansPairwise`](./plotStandardizedMeansPairwise.md)
 
 `MeansRelational` - functions that provide both arelational (confidence) and relational (comparative) intervals for group, level, or variable means
 
