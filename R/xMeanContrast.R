@@ -121,7 +121,15 @@ testMeanContrast <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeanContrast <- function(...,main=NULL,digits=3,ylab="Mean Contrast",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,connect=FALSE,values=TRUE,pos=2,ylim=NULL,add=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
+plotMeanContrast <- function(x,...)
+  UseMethod("plotMeanContrast")
+
+plotMeanContrast.wss <- plotMeanContrast.default <- function(...,main=NULL,digits=3,ylab="Mean Contrast",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,connect=FALSE,values=TRUE,pos=2,ylim=NULL,add=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
+  results <- estimateMeanContrast(...,conf.level=conf.level,main=main,digits=digits)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
+}
+
+plotMeanContrast.bss <- plotMeanContrast.formula <- function(...,main=NULL,digits=3,ylab="Mean Contrast",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,connect=FALSE,values=TRUE,pos=2,ylim=NULL,add=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
   results <- estimateMeanContrast(...,conf.level=conf.level,main=main,digits=digits)
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }

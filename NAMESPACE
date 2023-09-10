@@ -122,6 +122,10 @@ S3method(.testMeanDifference,bss)
 export(.testMeanDifference)
 export(testMeanDifference)
 
+S3method(plotMeanDifference,default)
+S3method(plotMeanDifference,formula)
+S3method(plotMeanDifference,wss)
+S3method(plotMeanDifference,bss)
 export(plotMeanDifference)
 
 ### xStandardizedMeanDifference
@@ -171,6 +175,10 @@ S3method(.testMeanContrast,bss)
 export(.testMeanContrast)
 export(testMeanContrast)
 
+S3method(plotMeanContrast,default)
+S3method(plotMeanContrast,formula)
+S3method(plotMeanContrast,wss)
+S3method(plotMeanContrast,bss)
 export(plotMeanContrast)
 
 ### xStandardizedMeanContrast
@@ -242,7 +250,16 @@ S3method(.testMeansPairwise,bss)
 export(.testMeansPairwise)
 export(testMeansPairwise)
 
+S3method(plotMeansPairwise,default)
+S3method(plotMeansPairwise,formula)
+S3method(plotMeansPairwise,wss)
+S3method(plotMeansPairwise,bss)
 export(plotMeansPairwise)
+
+S3method(plotMeansPairwiseDiffogram,default)
+S3method(plotMeansPairwiseDiffogram/,formula)
+S3method(plotMeansPairwiseDiffogram,wss)
+S3method(plotMeansPairwiseDiffogram,bss)
 export(plotMeansPairwiseDiffogram)
 
 ### xStandardizedMeansPairwise
@@ -270,7 +287,16 @@ S3method(.testMeansPosthoc,bss)
 export(.testMeansPosthoc)
 export(testMeansPosthoc)
 
+S3method(plotMeansPosthoc,default)
+S3method(plotMeansPosthoc,formula)
+S3method(plotMeansPosthoc,wss)
+S3method(plotMeansPosthoc,bss)
 export(plotMeansPosthoc)
+
+S3method(plotMeansPosthocDiffogram,default)
+S3method(plotMeansPosthocDiffogram,formula)
+S3method(plotMeansPosthocDiffogram,wss)
+S3method(plotMeansPosthocDiffogram,bss)
 export(plotMeansPosthocDiffogram)
 
 ### xStandardizedMeansPosthoc
