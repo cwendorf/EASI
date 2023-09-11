@@ -7,6 +7,9 @@
   UseMethod(".estimateMeansPosthoc")
 
 .estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,...) {
+  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
+  dfe <- temptab["Error","df"] 
+  MSe <- temptab["Error","MS"]
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
@@ -83,6 +86,9 @@ estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
   UseMethod(".testMeansPosthoc")
 
 .testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,...) {
+  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
+  dfe <- temptab["Error","df"] 
+  MSe <- temptab["Error","MS"]
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]

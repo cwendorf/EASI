@@ -1,9 +1,5 @@
 # Estimation Approach to Statistical Inference
 
-## Developmental Version
-
-- Removed extraneous and depricated code
-
 ## 5.2.220726
 
 - Reinstated documentation

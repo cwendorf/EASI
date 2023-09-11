@@ -51,6 +51,7 @@
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
+    ns <- N[rn[c(i,j)]]
 	  mns <- M[rn[c(i,j)]]
 	  sds <- SD[rn[c(i,j)]]
     z <- qnorm((1-conf.level)/2,lower.tail=FALSE)

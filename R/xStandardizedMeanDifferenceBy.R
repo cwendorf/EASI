@@ -8,7 +8,7 @@
 
 .estimateStandardizedMeanDifferenceBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.95,...) {
   results <- NULL
-  for (i in seq_along(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanDifference.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level=conf.level)}
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanDifference.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
@@ -16,7 +16,7 @@
 
 .estimateStandardizedMeanDifferenceBy.bss <- function(ListDescStats,conf.level=.95,...) {
   results <- NULL
-  for (i in seq_along(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanDifference.bss(ListDescStats[[i]],conf.level=conf.level)}
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanDifference.bss(ListDescStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)

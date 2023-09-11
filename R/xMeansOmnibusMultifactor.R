@@ -156,7 +156,7 @@ estimateMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
 
 .testMeansOmnibusMultifactor.wss <- function(ListDescStats,ListCorrStats,...) {
   out <- .describeMeansOmnibusMultifactor.wss(ListDescStats,ListCorrStats)
-  for(i in seq_along(out)) {
+  for(i in 1:length(out)) {
     out[[i]]=cbind(out[[i]],NA,NA,NA,NA)
     out[[i]][,4]=out[[i]][,3]/tail(out[[i]][,3],1)
     out[[i]][,5]=out[[i]][,2]

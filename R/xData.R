@@ -9,7 +9,7 @@ plotData <- function(x,...)
 plotData.default <- function(frame,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,lty="solid",connect=FALSE,...) {
   data <- data.frame(frame)
   if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
-  loc <- (seq_along(data))+offset
+  loc <- (1:length(data))+offset
   if(!add) {
     if(is.null(main)) {main="Data for the Variables"}
     results <- describePercentiles(data)
@@ -24,7 +24,7 @@ plotData.default <- function(frame,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",
 
 plotData.formula <- function(formula,add=FALSE,main=NULL,ylim=NULL,ylab=NULL,xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,...) {
   data <- unstack(model.frame(formula))
-  loc <- (seq_along(data))+offset
+  loc <- (1:length(data))+offset
   if(!add) {
     if(is.null(ylab)) {ylab <- all.vars(formula)[1]}
     results <- describePercentiles(data)

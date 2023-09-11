@@ -8,7 +8,7 @@
 
 .estimateMeanDifferenceBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.95,...) {
   results <- NULL
-  for (i in seq_along(ListDescStats)) {results[[i]] <- .estimateMeanDifference.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level=conf.level)}
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeanDifference.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
@@ -16,7 +16,7 @@
 
 .estimateMeanDifferenceBy.bss <- function(ListDescStats,conf.level=.95,...) {
   results <- NULL
-  for (i in seq_along(ListDescStats)) {results[[i]] <- .estimateMeanDifference.bss(ListDescStats[[i]],conf.level=conf.level)}
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeanDifference.bss(ListDescStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
@@ -52,7 +52,7 @@ estimateMeanDifferenceBy <- function(...,conf.level=.95,main=NULL,digits=3) {
 
 .testMeanDifferenceBy.wss <- function(ListDescStats,ListCorrStats,mu=0,...) {
   results <- NULL
-  for (i in seq_along(ListDescStats)) {results[[i]] <- .testMeanDifference.wss(ListDescStats[[i]],ListCorrStats[[i]],mu=mu)}
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeanDifference.wss(ListDescStats[[i]],ListCorrStats[[i]],mu=mu)}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
@@ -60,7 +60,7 @@ estimateMeanDifferenceBy <- function(...,conf.level=.95,main=NULL,digits=3) {
 
 .testMeanDifferenceBy.bss <- function(ListDescStats,mu=0,...) {
   results <- NULL
-  for (i in seq_along(ListDescStats)) {results[[i]] <- .testMeanDifference.bss(ListDescStats[[i]],mu=mu)}
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeanDifference.bss(ListDescStats[[i]],mu=mu)}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
