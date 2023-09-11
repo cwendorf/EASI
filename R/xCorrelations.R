@@ -29,7 +29,7 @@ fillCorrelations.default <- function(mat) {
   for( i in 1:nr ){
   for( j in 1:nc ){
 	if(!is.na(mat[rn[i],cn[j]])) {
-		if(mat[rn[i],cn[j]] == results[cn[j],rn[i]] | is.na(results[cn[j],rn[i]])){
+		if(mat[rn[i],cn[j]] == results[cn[j],rn[i]] || is.na(results[cn[j],rn[i]])){
 			results[cn[j],rn[i]] <- mat[rn[i],cn[j]]
 			results[rn[i],cn[j]] <- mat[rn[i],cn[j]]
 		}

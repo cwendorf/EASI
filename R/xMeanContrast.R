@@ -28,7 +28,6 @@
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
   Est <- t(contrast)%*%M
-  k <- length(M)
   v <- diag(SD^2)%*%(solve(diag(N)))
   SE <- sqrt(t(contrast)%*%v%*%contrast)
   df <- (SE^4)/sum(((contrast^4)*(SD^4)/(N^2*(N-1))))
@@ -71,7 +70,6 @@ estimateMeanContrast <- function(...,main=NULL,digits=3) {
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
   Est <- (t(contrast)%*%M)-mu
-  k <- length(M)
   v <- diag(SD^2)%*%(solve(diag(N)))
   SE <- sqrt(t(contrast)%*%v%*%contrast)
   df <- (SE^4)/sum(((contrast^4)*(SD^4)/(N^2*(N-1))))

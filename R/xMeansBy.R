@@ -39,7 +39,7 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
 
 .estimateMeansBy.wss <- function(ListDescStats,conf.level=.95,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeans.wss(ListDescStats[[i]],conf.level=conf.level)}
+  for (i in seq_along(ListDescStats)) {results[[i]] <- .estimateMeans.wss(ListDescStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
   class(results) <- "wss"
   return(results)
@@ -47,7 +47,7 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
 
 .estimateMeansBy.bss <- function(ListDescStats,conf.level=.95,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeans.wss(ListDescStats[[i]],conf.level=conf.level)}
+  for (i in seq_along(ListDescStats)) {results[[i]] <- .estimateMeans.wss(ListDescStats[[i]],conf.level=conf.level)}
   names(results) <- names(ListDescStats)  
   class(results) <- "bss"
   return(results)
@@ -82,7 +82,7 @@ estimateMeansBy <- function(...,main=NULL,digits=3) {
 
 .testMeansBy.wss <- .testMeansBy.bss <- function(ListDescStats,mu=0,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeans.wss(ListDescStats[[i]],mu=mu)}
+  for (i in seq_along(ListDescStats)) {results[[i]] <- .testMeans.wss(ListDescStats[[i]],mu=mu)}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)

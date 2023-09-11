@@ -10,7 +10,7 @@
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5),ceiling(max(results)+.5))))}
   par(mar=c(5,5,5,3))   
   plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.4,nrow(results)+.6),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
-  axis(1,1:nrow(results),row.names(results))
+  axis(1,seq_len(nrow(data)),row.names(results))
 }
 
 .plotComp <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,slab="Difference",rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=c(2,2,4),pch=c(15,15,17),points=TRUE,col="black",...) {

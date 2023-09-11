@@ -18,7 +18,7 @@ plotDensity.default <- function(frame,type="right",add=FALSE,main=NULL,ylab="Out
     rownames(results) <- names(z)
     results <- list(results)
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
-  invisible(mapply(.plotCurve,z,loc=1:length(data),type=type,offset=offset,scale=scale,col=col))
+  invisible(mapply(.plotCurve,z,loc=seq_along(data),type=type,offset=offset,scale=scale,col=col))
   invisible(eval(frame))  
 } 
 
@@ -33,6 +33,6 @@ plotDensity.formula <- function(formula,type="right",add=FALSE,main=NULL,ylab="O
     rownames(results) <- names(z)
     results <- list(results)
     .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
-  invisible(mapply(.plotCurve,z,loc=1:length(data),type=type,offset=offset,scale=scale,col=col))
+  invisible(mapply(.plotCurve,z,loc=seq_along(data),type=type,offset=offset,scale=scale,col=col))
   invisible(eval(formula))  
 }

@@ -11,10 +11,6 @@
   SSf <- temptab["Measures","SS"]
   SSe <- temptab["Error","SS"]
   SSt <- SSf + SSe
-  dff <- temptab["Measures","df"]
-  dfe <- temptab["Error","df"] 
-  dft <- dff + dfe
-  F <- (SSf/dff)/(SSe/dfe)
   etasq <- SSf / SSt
   results <- cbind(Est=etasq)
   rownames(results) <- "Measures"
@@ -26,10 +22,6 @@
   SSb <- temptab["Between","SS"]
   SSw <- temptab["Within","SS"]
   SSt <- SSb + SSw
-  dfb <- temptab["Between","df"]
-  dfw <- temptab["Within","df"] 
-  dft <- dfb + dfw
-  F <- (SSb/dfb)/(SSw/dfw) 
   etasq <- SSb / SSt
   results <- cbind(Est=etasq)
   rownames(results) <- "Factor"
@@ -68,7 +60,6 @@ describeMeansEffect <- function(...,main=NULL,digits=3) {
   SSt <- SSf + SSe
   dff <- temptab["Measures","df"]
   dfe <- temptab["Error","df"] 
-  dft <- dff + dfe
   F <- (SSf/dff)/(SSe/dfe)
   etasq <- SSf / SSt
   results <- .ciEta2(F=F,dff=dff,dfe=dfe,etasq=etasq,conf.level=conf.level)
@@ -83,7 +74,6 @@ describeMeansEffect <- function(...,main=NULL,digits=3) {
   SSt <- SSb + SSw
   dfb <- temptab["Between","df"]
   dfw <- temptab["Within","df"] 
-  dft <- dfb + dfw
   F <- (SSb/dfb)/(SSw/dfw) 
   etasq <- SSb / SSt
   results <- .ciEta2(F=F,dff=dfb,dfe=dfw,etasq=etasq,conf.level=conf.level)

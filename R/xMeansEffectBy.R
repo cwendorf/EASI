@@ -8,7 +8,7 @@
 
 .describeMeansEffectBy.wss <- function(ListDescStats,ListCorrStats,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .describeMeansEffect.wss(ListDescStats[[i]],ListCorrStats[[i]])}
+  for (i in seq_along(ListDescStats)) {results[[i]] <- .describeMeansEffect.wss(ListDescStats[[i]],ListCorrStats[[i]])}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
@@ -16,7 +16,7 @@
 
 .describeMeansEffectBy.bss <- function(ListDescStats,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .describeMeansEffect.bss(ListDescStats[[i]])}
+  for (i in seq_along(ListDescStats)) {results[[i]] <- .describeMeansEffect.bss(ListDescStats[[i]])}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
@@ -52,7 +52,7 @@ describeMeansEffectBy <- function(...,main=NULL,digits=3) {
 
 .estimateMeansEffectBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.90,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeansEffect.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level)}
+  for (i in seq_along(ListDescStats)) {results[[i]] <- .estimateMeansEffect.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level)}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
@@ -60,7 +60,7 @@ describeMeansEffectBy <- function(...,main=NULL,digits=3) {
 
 .estimateMeansEffectBy.bss <- function(ListDescStats,conf.level=.90,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeansEffect.bss(ListDescStats[[i]],conf.level)}
+  for (i in seq_along(ListDescStats)) {results[[i]] <- .estimateMeansEffect.bss(ListDescStats[[i]],conf.level)}
   names(results) <- names(ListDescStats)  
   class(results) <- NULL
   return(results)
