@@ -159,29 +159,12 @@ testMeansPosthoc <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeansPosthoc() <- function(x,...) 
-  UseMethod("plotMeansPosthoc")
-
-plotMeansPosthoc.wss <- plotMeansPosthoc.default <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
+plotMeansPosthoc <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
   results <- estimateMeansPosthoc(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }
 
-plotMeansPosthoc.bss <- plotMeansPosthoc.formula <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,connect=FALSE,ylim=NULL,add=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
-  results <- estimateMeansPosthoc(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
-}
-
-plotMeansPosthocDiffogram()() <- function(x,...) 
-  UseMethod("plotMeansPosthocDiffogram")
-
-plotMeansPosthocDiffogram.wss <- plotMeansPosthocDiffogram.default <- function(...,main="Confidence Intervals for the Posthoc Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
-  dm <- .describeMeans(...)
-  emp <- .estimateMeansPosthoc(...,conf.level=conf.level)
-  .intervalsDiffogram(dm=dm,emp=emp,main=main,ylab=ylab,xlab=xlab,ylim=ylim,pch=pch,col=col)
-}
-
-plotMeansPosthocDiffogram.bss <- plotMeansPosthocDiffogram.formula <- function(...,main="Confidence Intervals for the Posthoc Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
+plotMeansPosthocDiffogram <- function(...,main="Confidence Intervals for the Posthoc Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
   dm <- .describeMeans(...)
   emp <- .estimateMeansPosthoc(...,conf.level=conf.level)
   .intervalsDiffogram(dm=dm,emp=emp,main=main,ylab=ylab,xlab=xlab,ylim=ylim,pch=pch,col=col)

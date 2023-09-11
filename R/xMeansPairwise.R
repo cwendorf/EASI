@@ -67,7 +67,7 @@ estimateMeansPairwise <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-### Null Hypothesis Significance Tests
+### Null Hypothesis Significance Tests 
 
 .testMeansPairwise <- function(x,...) 
   UseMethod(".testMeansPairwise")
@@ -133,29 +133,12 @@ testMeansPairwise <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeansPairwise <- function(x,...) 
-  UseMethod("plotMeansPairwise")
-
-plotMeansPairwise.wss <- plotMeansPairwise.default <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=NULL,add=FALSE,connect=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
+plotMeansPairwise <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=NULL,add=FALSE,connect=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
   results <- estimateMeansPairwise(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }
 
-plotMeansPairwise.bss <- plotMeansPairwise.formula <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=NULL,add=FALSE,connect=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
-  results <- estimateMeansPairwise(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
-  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
-}
-
-plotMeansPairwiseDiffogram <- function(x,...) 
-  UseMethod("plotMeansPairwiseDiffogram")
-
-plotMeansPairwiseDiffogram.wss <- plotMeansPairwiseDiffogram.default <- function(...,main="Confidence Intervals for the Pairwise Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
-  dm <- .describeMeans(...)
-  emp <- .estimateMeansPairwise(...,conf.level=conf.level)
-  .intervalsDiffogram(dm=dm,emp=emp,main=main,ylab=ylab,xlab=xlab,ylim=ylim,pch=pch,col=col)
-}
-
-plotMeansPairwiseDiffogram.bss <- plotMeansPairwiseDiffogram.formula <- function(...,main="Confidence Intervals for the Pairwise Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
+plotMeansPairwiseDiffogram <- function(...,main="Confidence Intervals for the Pairwise Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
   dm <- .describeMeans(...)
   emp <- .estimateMeansPairwise(...,conf.level=conf.level)
   .intervalsDiffogram(dm=dm,emp=emp,main=main,ylab=ylab,xlab=xlab,ylim=ylim,pch=pch,col=col)
