@@ -1,9 +1,9 @@
 
 ## Advanced Applications
 
-### Overview of the Applications
+### Overview of the Advanced Applications
 
-Applications represent advanced and undocumented features of EASI. Data for these applications are from a variety of published and simulated sources. In the spirit of experimentation, all applications use the native pipe operator to identify data sources (rather than using standard R syntax) and add color to enhance plots.
+The advanced applications represent experimental and undocumented features of EASI. Data for these applications are from a variety of published and simulated sources. In the spirit of experimentation, all applications use the native pipe operator to identify data sources (rather than using standard R syntax) and add color to enhance plots.
 
 ### Descriptive and Exploratory Analyses
 

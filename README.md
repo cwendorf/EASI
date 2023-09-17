@@ -40,11 +40,11 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 The package includes a wide variety of tutorials, examples, and applications that demonstrate its use:
 
-- [Quick Start Guide](./docs) - Overview and summary of the basic functions
+- [Quick Start Guide](./docs) - A quick start Overview and summary of the package
 - [Details of the Functions](./docs/functions) - A manual describing the functions and their available options
 - [Tutorials from the Sourcebook](./docs/tutorials) - Vignettes with tutorial data that show the basic options 
 - [Examples from ITNS](./docs/examples) - Reanalyses of published textbook examples that highlight the estimation approach 
-- [Advanced Applications](./docs/applications) - Advanced and experimental applications of the package
+- [Advanced Applications](./docs/advanced) - Experimental and undocumented applications of the package
 
 ### Contact Me
 
