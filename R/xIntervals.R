@@ -6,8 +6,8 @@
 .intervalsMain <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=2,pch=16,col="black",offset=0,intervals=TRUE,...) {
   results <- .unformatFrame(results[[1]])
   if(intervals) {
-    points(1:nrow(results)+offset,results[,1],pch=pch,cex=1.5,col=col)
     arrows(1:nrow(results)+offset,results[,2],1:nrow(results)+offset,results[,3],col=col,lwd=2,length=0)}
+    points(1:nrow(results)+offset,results[,1],pch=pch,cex=1.5,col=col,lwd=2,bg="gray")
   if(connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i+offset,results[i,1],i+1+offset,results[i+1,1],code=3,length=0,lty=1,col="black")}}
   if(!is.null(line)) {abline(h=line,lty=2,col="black")}
   if(!is.null(rope)) {rect(0,rope[1],nrow(results)+1,rope[2],col=.colorTransparent("black",15),border=NA)} 
@@ -23,9 +23,9 @@
   graph <- results
   graph[3,] <- results[3,]+results[1,1]
   if(intervals) {
-    points(1:3+offset,graph[,1],pch=pch,cex=1.5,col=col)
     arrows(1:3+offset,graph[,2],1:3+offset,graph[,3],col=col,lwd=2,length=0)
     arrows(c(1,2,4)+offset,graph[1:2,1],4,graph[1:2,1],code=3,length=0,lty=2,col=col)}
+    points(1:3+offset,graph[,1],pch=pch,cex=1.5,col=col,lwd=2)
   if(connect) {arrows(1,results[1,1],2,results[2,1],code=3,length=0,lty=1,col="black")}
   if(!is.null(rope)) {
     graphrope <- rope+as.vector(results[1,1])
@@ -48,7 +48,7 @@
   for (i in 1:length(results)) {
     if(length(col)==1) {tempcol=col} else {tempcol=col[i]}
     for (j in 1:nrow(results[[i]])) {lines(x=c(j+(i-(length(results)+1)/2)*.15,j+(i-(length(results)+1)/2)*.15),y=c(results[[i]][,4][j],results[[i]][,5][j]),lwd=2,col=tempcol)}
-    points(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,1],cex=1.5,pch=16,bty="l",col=tempcol)
+    points(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,1],cex=1.5,pch=16,bty="l",col=tempcol,lwd=2)
     if(class(results)=="wss") lines(1:nrow(results[[i]])+(i-(length(results)+1)/2)*.15,results[[i]][,1],bty="l",col=tempcol)
   }
 }
@@ -79,8 +79,8 @@
   mtext(rownames(dm),side=3,at=dm[,2],las=2,line=-2)
   abline(h=dm[,2],col="gray90")
   mtext(rownames(dm),side=4,at=dm[,2],las=1,line=-2)
-  points(fm[,1],fm[,2],pch=pch,col=col)
   arrows(lox,loy,hix,hiy,length=0,lwd=2,col=col)  
+  points(fm[,1],fm[,2],pch=pch,col=col,lwd=2)
 }
 
 ### Confidence Interval Plot
