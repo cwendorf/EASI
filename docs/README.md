@@ -30,7 +30,7 @@ In R versions 4.1 and greater, the native pipe operator can be used instead of s
 (Outcome~Factor) |> testMeanComparison(mu=2)
 ```
 
-EASI also offers methods for formatting the table output. Generally, the default options provide a table title that describes the type of analysis conducted (consistent with the function call) and numbers rounded to three digits.  Numbers in tables (and plots) can be rounded to a different number of digits. Table (and plot) titles can be customized within the call.
+EASI also offers methods for formatting the table output. Generally, the default options provide a table title that describes the type of analysis conducted (consistent with the function call) and numbers rounded to three digits, and columns with consistent spacing.  Numbers in tables (and plots) can be rounded to a different number of digits. Table (and plot) titles can be customized within the call.
 
 ```
 estimateMeanComparison(Outcome~Factor,digits=2)
@@ -44,4 +44,4 @@ The package includes a wide variety of tutorials, examples, and applications tha
 - [Details of the Functions](./functions) - A manual describing the functions and their available options
 - [Tutorials from the Sourcebook](./tutorials) - Vignettes with tutorial data that show the basic options 
 - [Examples from ITNS](./examples) - Reanalyses of published textbook examples that highlight the estimation approach 
-- [Advanced Applications](./advanced) - Experimental and undocumented applications of the package
+- [Advanced Applications](./applications) - Advanced and experimental applications of the package
