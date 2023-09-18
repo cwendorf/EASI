@@ -52,3 +52,9 @@ The **Exposition** pages implement a exposition pipe operator to simplify the us
 
 - [*ExpositionFactorialDataApplication*](./ExpositionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
 - [*ExpositionMixedDataApplication*](./ExpositionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+
+### Basic Analyses
+
+The **Analyze** [pages use a simple command to provide common confidence intervals, significance tests, and standardized effect sizes a the same time.
+
+- [*AnalyzeOneWayDataApplication*]]
