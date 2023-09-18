@@ -22,5 +22,5 @@ Factor <- factor(Factor,levels=c(1,2,3,4,5),labels=c("Level1","Level2","Level3",
 (Outcome~Factor) |> estimateMeansRelational()
 (Outcome~Factor) |> plotMeansRelational()
 
-colorTheme=c('#882e72','#1965b0','#4eb265','#ee8026','#a5170e')
-(Outcome~Factor) |> plotMeansRelational(col=colorTheme)
+customTheme=c('darkred','darkblue','darkgoldenrod','darkgreen','darkviolet')
+(Outcome~Factor) |> plotMeansRelational(col=customTheme)

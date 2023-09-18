@@ -1,3 +1,26 @@
+---
+title: "Estimation Approach to Statistical Inference"
+author: "Craig A. Wendorf"
+date: "2023-09-18"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: tango
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Relational OneWay Data Application}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
+
 ## Relational OneWay Data Application
 
 This page examines means and mean differences with relational and arelational intervals using one-way (between-subjects) data.
@@ -78,8 +101,8 @@ Provide and plot estimates of the arelational and relational intervals.
 Enhance the plot by adding color.
 
 ```r
-colorTheme=c('#882e72','#1965b0','#4eb265','#ee8026','#a5170e')
-(Outcome~Factor) |> plotMeansRelational(col=colorTheme)
+customTheme=c('darkred','darkblue','darkgoldenrod','darkgreen','darkviolet')
+(Outcome~Factor) |> plotMeansRelational(col=customTheme)
 ```
 
 ![](figures/Relational-OneWay-RelationalB-1.png)<!-- -->
