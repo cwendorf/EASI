@@ -5,7 +5,7 @@
 
 The advanced applications represent experimental and undocumented features of EASI. Data for these applications are from a variety of published and simulated sources. In the spirit of experimentation, all applications use the native pipe operator to identify data sources (rather than using standard R syntax) and add color to enhance plots.
 
-### Descriptive and Exploratory Analyses
+### Descriptive, Exploratory, and Basic Analyses
 
 The **Frequencies** pages provide basic data plots and frequency distributions for measures or groups:
 
@@ -16,6 +16,11 @@ The **Exploratory** pages analyze violin plots, beanplots, and raincloud plots:
 
 - [*ExploratoryOneWayDataApplication*](./ExploratoryOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*ExploratoryRepeatedMeasuresDataApplication*](./ExploratoryRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+
+The **Analyze** [pages use a simple command to provide common confidence intervals, significance tests, and standardized effect sizes at the same time.
+
+- [*AnalyzeOneWayDataApplication*](./AnalyzeOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*AnalyzeRepeatedMeasuresDataApplication*](./AnalyzeRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 ### Pairwise and Post Hoc Analyses
 
@@ -52,9 +57,3 @@ The **Exposition** pages implement a exposition pipe operator to simplify the us
 
 - [*ExpositionFactorialDataApplication*](./ExpositionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
 - [*ExpositionMixedDataApplication*](./ExpositionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
-
-### Basic Analyses
-
-The **Analyze** [pages use a simple command to provide common confidence intervals, significance tests, and standardized effect sizes a the same time.
-
-- [*AnalyzeOneWayDataApplication*]]
