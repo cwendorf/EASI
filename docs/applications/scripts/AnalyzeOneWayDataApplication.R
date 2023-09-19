@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Analyze One Way Data Applications
+## Analyze One Way Data Application
 
 ### Package Loading
 

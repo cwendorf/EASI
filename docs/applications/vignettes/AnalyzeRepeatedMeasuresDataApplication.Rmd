@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Analyze One Way Data Applications}
+  %\VignetteIndexEntry{Analyze Repeated Measures Data Application}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -29,58 +29,57 @@ remotes::install_github("cwendorf/EASI")}
 library(EASI)
 ```
 
-## Analyze One Way Data Applications
+## Analyze Repeated Measures Data Application
 
-This page provides basic analyses using one-way (between-subjects) data.
+This page provides basic analyses using repeated-measures (within-subjects) data.
 
 ### Data Management
 
 Enter the data.
 ```{r}
-Factor <- c(rep(1,4),rep(2,4),rep(3,4))
-Outcome <- c(0,0,3,5,4,7,4,9,9,6,4,9)
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
-OneWayData <- data.frame(Factor,Outcome)
+Outcome1 <- c(0,0,3,5)
+Outcome2 <- c(4,7,4,9)
+Outcome3 <- c(9,6,4,9)
+RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 ```
 
 ### Analyze the Means
 
 Estimate, test, and standardized the means, including altering the confidence level and setting a population value.
 ```{r}
-(Outcome~Factor) |> analyzeMeans()
-(Outcome~Factor) |> analyzeMeans(conf.level=.99,mu=5)
+(RepeatedData) |> analyzeMeans()
+(RepeatedData) |> analyzeMeans(conf.level=.99,mu=5)
 ```
 
 ### Analyze a Mean Difference
 
 Determine and then estimate, test, and standardize a mean difference.
 ```{r}
-Comparison <- factor(Factor,c("Level1","Level2"))
-(Outcome~Comparison) |> analyzeMeanDifference()
-(Outcome~Comparison) |> analyzeMeanDifference(conf.level=.99)
+cbind(Outcome1,Outcome2) |> analyzeMeanDifference()
+cbind(Outcome1,Outcome2) |> analyzeMeanDifference(conf.level=.99)
 ```
 
 ### Analyze a Mean Contrast
 
 Determine and then estimate, test, and standardize a mean contrast.
 ```{r}
-L1vsOthers <- c(-1,.5,.5)
-(Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers)
-(Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers,conf.level=.99)
+O1vsOthers <- c(-1,.5,.5)
+(RepeatedData) |> analyzeMeanContrast(contrast=O1vsOthers)
+(RepeatedData) |> analyzeMeanContrast(contrast=O1vsOthers,conf.level=.99)
 ```
 
 ### Analyze the Omnibus Effect
 
 Obtain a ANOVA source table, test for significance, and estimate the proportion of variance accounted for.
 ```{r}
-(Outcome~Factor) |> analyzeMeansOmnibus()
-(Outcome~Factor) |> analyzeMeansOmnibus(conf.level=.99)
+(RepeatedData) |> analyzeMeansOmnibus()
+(RepeatedData) |> analyzeMeansOmnibus(conf.level=.99)
 ```
 
-### Analyze Pairwise Comparisons
+### Analyze the Pairwise Comparisons
 
 Estimate, test, and standardize all pairwise mean comparisons.
 ```{r}
-(Outcome~Factor) |> analyzeMeansPairwise()
-(Outcome~Factor) |> analyzeMeansPairwise(conf.level=.99)
+(RepeatedData) |> analyzeMeansPairwise()
+(RepeatedData) |> analyzeMeansPairwise(conf.level=.99)
 ```

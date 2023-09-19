@@ -1,27 +1,4 @@
----
-title: "Estimation Approach to Statistical Inference"
-author: "Craig A. Wendorf"
-date: "2023-09-18"
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    toc_depth: 4
-    collapse: true
-    theme: cerulean
-    highlight: tango
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Analyze One Way Data Applications}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-
-
-
-
-
-## Analyze One Way Data Applications
+## Analyze One Way Data Application
 
 This page provides basic analyses using one-way (between-subjects) data.
 

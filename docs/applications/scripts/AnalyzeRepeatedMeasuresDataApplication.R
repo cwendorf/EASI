@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Analyze Repeated Measures Data Applications
+## Analyze Repeated Measures Data Application
 
 ### Package Loading
 
