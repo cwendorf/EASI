@@ -7,9 +7,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Data Management
 
-Outcome1 <- c(0,0,3,5)
-Outcome2 <- c(4,7,4,9)
-Outcome3 <- c(9,6,4,9)
+Outcome1 <- round(rnorm(50,mean=7,sd=2),0)
+Outcome2 <- round(rnorm(50,mean=11,sd=4),0)
+Outcome3 <- round(rnorm(50,mean=12,sd=4),0)
 RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 ### Analyze the Means
