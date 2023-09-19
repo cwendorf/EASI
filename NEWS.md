@@ -1,5 +1,10 @@
 # Estimation Approach to Statistical Inference
 
+## Developmental Version
+
+- Added alternative color theme
+- Reinstated comparison plots of standardized mean differences
+
 ## 5.2.220726
 
 - Reinstated documentation

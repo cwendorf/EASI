@@ -8,13 +8,11 @@
   apply(newColor,2,function(x) {rgb(red=x[1],green=x[2],blue=x[3],alpha=alpha,maxColorValue=255)})
 }
 
-.colorIntensity <- function(someColor,percent=100) {
-  newColor <- col2rgb(someColor)
-  percent <- (percent/100)
-  if((newColor[1]*percent)>255) (newColor[1]=255) else (newColor[1]=round(newColor[1]*percent))
-  if((newColor[2]*percent)>255) (newColor[2]=255) else (newColor[2]=round(newColor[2]*percent))
-  if((newColor[3]*percent)>255) (newColor[3]=255) else (newColor[3]=round(newColor[3]*percent))
-  apply(newColor,2,function(x) {rgb(red=x[1],green=x[2],blue=x[3],maxColorValue=255)})
+.colorIntensity <- function(someColor,increase=.0) {
+  newColor <- rgb2hsv(col2rgb(someColor))
+  newColor[3,] <- newColor[3,]+increase
+  newColor[newColor > 1] <- 1
+  apply(newColor,2,function(x) {hsv(h=x[1],s=x[2],v=x[3])})
 }
 
 ### Color Schemes

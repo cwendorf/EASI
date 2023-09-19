@@ -86,3 +86,10 @@ estimateStandardizedMeansPairwise <- function(...,main=NULL,digits=3) {
   results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
+
+### Confidence Interval Plots
+
+plotStandardizedMeansPairwise <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=NULL,add=FALSE,connect=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
+  results <- estimateStandardizedMeansPairwise(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
+}

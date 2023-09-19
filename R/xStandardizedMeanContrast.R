@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-##  Mean Contrasts
+##  Standardized Mean Contrasts
 
 ### Confidence Intervals
 
@@ -69,4 +69,11 @@ estimateStandardizedMeanContrast <- function(...,main=NULL,digits=3) {
   if(is.null(main)) {main <- "Confidence Interval for the Standardized Mean Contrast"}
   results <- .formatList(list(results),main=main,digits=digits) 
   return(results)
+}
+
+### Confidence Interval Plots
+
+plotStandardizedMeanContrast <- function(...,main=NULL,digits=3,ylab="Standardized Mean Contrast",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,connect=FALSE,values=TRUE,pos=2,ylim=NULL,add=FALSE,pch=24,col="black",offset=0,intervals=TRUE) {
+  results <- estimateStandardizedMeanContrast(...,conf.level=conf.level,main=main,digits=digits)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }

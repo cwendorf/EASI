@@ -60,3 +60,11 @@ estimateStandardizedMeans <- function(...,main=NULL,digits=3) {
   results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
+
+### Confidence Interval Plots
+
+plotStandardizedMeans <- function(...,mu=0,conf.level=.95,add=FALSE,main=NULL,ylab="Standardized Means",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,pos=2,pch=24,col="black",connect=FALSE,offset=0,intervals=TRUE) {
+  results <- estimateStandardizedMeans(...,mu=mu,conf.level=conf.level,main=main,digits=digits)
+  plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
+  invisible(eval(...))
+}
