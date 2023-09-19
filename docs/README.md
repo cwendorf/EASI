@@ -15,26 +15,27 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 In EASI, each different type of analysis consists of a unique function call. Using standard R syntax, the function name is followed in parentheses by the variable to be analyzed (or data frame or formula, depending on the research design). Similarly, any relevant additional parameters (such as different confidence levels, null values, etc.) can be included. This format is used in the basic tutorials and textbook examples, but could be used for all cases.
 
 ```
-estimateMeanComparison(Outcome~Factor)
-estimateMeanComparison(Outcome~Factor,conf.level=.99)
-testMeanComparison(Outcome~Factor)
-testMeanComparison(Outcome~Factor,mu=2)
+estimateMeans(Outcome~Factor)
+estimateMeans(Outcome~Factor,conf.level=.99)
+testMeans(Outcome~Factor)
+testMeans(Outcome~Factor,mu=2)
 ```
 
 In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variable (or data frame or formula) is included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). This format is used for advanced applications, but could be used for all cases if desired.
 
 ```
-(Outcome~Factor) |> estimateMeanComparison()
-(Outcome~Factor) |> estimateMeanComparison(conf.level=.99)
-(Outcome~Factor) |> testMeanComparison()
-(Outcome~Factor) |> testMeanComparison(mu=2)
+(Outcome~Factor) |> estimateMeans()
+(Outcome~Factor) |> estimateMeans(conf.level=.99)
+(Outcome~Factor) |> testMeans()
+(Outcome~Factor) |> testMeans(mu=2)
 ```
 
-EASI also offers methods for formatting the table output. Generally, the default options provide a table title that describes the type of analysis conducted (consistent with the function call) and numbers rounded to three digits, and columns with consistent spacing.  Numbers in tables (and plots) can be rounded to a different number of digits. Table (and plot) titles can be customized within the call.
+EASI also offers methods for formatting the table output. Generally, the default options provide a table title that describes the type of analysis conducted (consistent with the function call) and numbers rounded to three digits, and columns with consistent spacing.  Numbers in tables (and plots) can be rounded to a different number of digits. Table (and plot) titles can be customized within the call. If desired, a simplied table that uses no rounding and no title can be produced by preceding the call with a period.
 
 ```
-estimateMeanComparison(Outcome~Factor,digits=2)
-estimateMeanComparison(Outcome~Factor,main="Custom Table Title")
+estimateMeans(Outcome~Factor,digits=2)
+estimateMeans(Outcome~Factor,main="Custom Table Title")
+.estimateMeans(Outcome~Factor)
 ```
 
 ### Details and Examples
