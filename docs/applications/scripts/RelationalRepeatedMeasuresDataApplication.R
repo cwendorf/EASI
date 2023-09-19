@@ -23,7 +23,4 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 ### Analyses of Relational Intervals
 
 (RepeatedData) |> estimateMeansRelational()
-(RepeatedData) |> plotMeansRelational()
-
-customTheme=c('darkred','darkblue','darkgoldenrod','darkgreen','darkviolet')
-(RepeatedData) |> plotMeansRelational(col=customTheme)
+(RepeatedData) |> plotMeansRelational(col=c('darkred','darkblue','darkgoldenrod','darkgreen','darkviolet'))

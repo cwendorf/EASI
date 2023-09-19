@@ -20,7 +20,4 @@ Factor <- factor(Factor,levels=c(1,2,3,4,5),labels=c("Level1","Level2","Level3",
 ### Analyses of Relational Intervals
 
 (Outcome~Factor) |> estimateMeansRelational()
-(Outcome~Factor) |> plotMeansRelational()
-
-customTheme=c('darkred','darkblue','darkgoldenrod','darkgreen','darkviolet')
-(Outcome~Factor) |> plotMeansRelational(col=customTheme)
+(Outcome~Factor) |> plotMeansRelational(col=c('darkred','darkblue','darkgoldenrod','darkgreen','darkviolet'))

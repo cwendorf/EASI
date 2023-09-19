@@ -53,7 +53,7 @@ Provide descriptive statistics and an ANOVA source table.
 
 ### Analyses of Relational Intervals
 
-Provide and plot estimates of the arelational and relational intervals.
+Provide estimates of the arelational and relational intervals.
 
 ```r
 (Outcome~Factor) |> estimateMeansRelational()
@@ -69,17 +69,10 @@ Provide and plot estimates of the arelational and relational intervals.
 ## Level5  65.500  63.125  67.875  61.943  69.057
 ```
 
-```r
-(Outcome~Factor) |> plotMeansRelational()
-```
-
-![](figures/Relational-OneWay-RelationalA-1.png)<!-- -->
-
-Enhance the plot by adding color.
+Plot the intervals and enhance with color.
 
 ```r
-customTheme=c('darkred','darkblue','darkgoldenrod','darkgreen','darkviolet')
-(Outcome~Factor) |> plotMeansRelational(col=customTheme)
+(Outcome~Factor) |> plotMeansRelational(col=c('darkred','darkblue','darkgoldenrod','darkgreen','darkviolet'))
 ```
 
 ![](figures/Relational-OneWay-RelationalB-1.png)<!-- -->
