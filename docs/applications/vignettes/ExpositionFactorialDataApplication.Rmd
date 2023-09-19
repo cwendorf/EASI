@@ -50,36 +50,63 @@ FactorialB1 <- subset(FactorialData,FactorB=="B1")
 FactorialB2 <- subset(FactorialData,FactorB=="B2")
 ```
 
+#### Descriptive Statistics
+
+Get descriptive statistics separately for each simple effect.
+```{r}
+(FactorialB1) %$>% (Outcome~FactorA) |> describeMeans()
+(FactorialB2) %$>% (Outcome~FactorA) |> describeMeans()
+```
+
 ### Analyses of the Means
 
-Use the exposition pipe (%$>%) to identify the subset of interest, select the variables to analyzed, and use the native pipe to plot the means and the data.
-```{r,Exposition-Factorial}
-(FactorialB1) %$>% (Outcome~FactorA) |> plotData(main="Confidence Intervals and Data",ylim=c(-5,25),offset=-.05,method="overplot",col="darkblue")
-(FactorialB2) %$>% (Outcome~FactorA) |> plotData(add=TRUE,offset=.05,method="overplot",col="darkred")
-(FactorialB1) %$>% (Outcome~FactorA) |> plotMeans(add=TRUE,offset=-.15,col="darkblue",values=FALSE)
-(FactorialB2) %$>% (Outcome~FactorA) |> plotMeans(add=TRUE,offset=.15,col="darkred",values=FALSE)
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("darkblue","darkred"))
-```
-
-Use a similar process to obtain the tables of confidence interval estimates.
-```{r}
+Estimate, plot, test, and standardize the means separately for each simple effect.
+```{r,Exposition-Factorial-Means}
 (FactorialB1) %$>% (Outcome~FactorA) |> estimateMeans()
 (FactorialB2) %$>% (Outcome~FactorA) |> estimateMeans()
-```
-### Analyses of the Simple Effects
-
-Using the pipe operators, get the source table for each simple effect.
-```{r}
-(FactorialB1) %$>% (Outcome~FactorA) |> describeMeansOmnibus()
-(FactorialB2) %$>% (Outcome~FactorA) |> describeMeansOmnibus()
-```
-Test each simple effect for statistical significance.
-```{r}
+(FactorialB1) %$>% (Outcome~FactorA) |> plotMeans()
+(FactorialB2) %$>% (Outcome~FactorA) |> plotMeans()
 (FactorialB1) %$>% (Outcome~FactorA) |> testMeansOmnibus()
 (FactorialB2) %$>% (Outcome~FactorA) |> testMeansOmnibus()
+(FactorialB1) %$>% (Outcome~FactorA) |> estimateStandardizedMeans()
+(FactorialB2) %$>% (Outcome~FactorA) |> estimateStandardizedMeans()
 ```
-Obtain the proportion of variance accounted for by each simple effect.
+
+### Analyses of a Comparison
+
+Specify a comparison separately for each simple effect.
 ```{r}
-(FactorialB1) %$>% (Outcome~FactorA) |> estimateMeansOmnibus()
-(FactorialB2) %$>% (Outcome~FactorA) |> estimateMeansOmnibus()
+ComparisonB1 <- (FactorialB1) %$>% factor(FactorA,c("A1","A2"))
+ComparisonB2 <- (FactorialB2) %$>% factor(FactorA,c("A1","A2"))
+```
+
+Estimate, plot, test, and standardize the comparison separately for each simple effect.
+```{r,Exposition-Factorial-Comparison}
+(FactorialB1) %$>% (Outcome~ComparisonB1) |> estimateMeanDifference()
+(FactorialB2) %$>% (Outcome~ComparisonB2) |> estimateMeanDifference()
+(FactorialB1) %$>% (Outcome~ComparisonB1) |> plotMeanDifference()
+(FactorialB2) %$>% (Outcome~ComparisonB2) |> plotMeanDifference()
+(FactorialB1) %$>% (Outcome~ComparisonB1) |> testMeanDifference()
+(FactorialB2) %$>% (Outcome~ComparisonB2) |> testMeanDifference()
+(FactorialB1) %$>% (Outcome~ComparisonB1) |> estimateStandardizedMeanDifference()
+(FactorialB2) %$>% (Outcome~ComparisonB2) |> estimateStandardizedMeanDifference()
+```
+
+### Analyses of a Contrast
+
+Specify a contrast for a factor.
+```{r}
+A1vsOthers <- c(-1,.5,.5)
+```
+
+Estimate, plot, test, and standardize the contrast separately for each simple effect.
+```{r,Exposition-Factorial-Contrast}
+(FactorialB1) %$>% (Outcome~FactorA) |> estimateMeanContrast(contrast=A1vsOthers)
+(FactorialB2) %$>% (Outcome~FactorA) |> estimateMeanContrast(contrast=A1vsOthers)
+(FactorialB1) %$>% (Outcome~FactorA) |> plotMeanContrast(contrast=A1vsOthers)
+(FactorialB2) %$>% (Outcome~FactorA) |> plotMeanContrast(contrast=A1vsOthers)
+(FactorialB1) %$>% (Outcome~FactorA) |> testMeanContrast(contrast=A1vsOthers)
+(FactorialB2) %$>% (Outcome~FactorA) |> testMeanContrast(contrast=A1vsOthers)
+(FactorialB1) %$>% (Outcome~FactorA) |> estimateStandardizedMeanContrast(contrast=A1vsOthers)
+(FactorialB2) %$>% (Outcome~FactorA) |> estimateStandardizedMeanContrast(contrast=A1vsOthers)
 ```

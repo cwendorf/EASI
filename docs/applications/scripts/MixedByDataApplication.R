@@ -30,8 +30,8 @@ cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusBy(by=Factor)
 
 ### Analyses of the Means
 
-cbind(Outcome1,Outcome2,Outcome3) |> plotMeansMultifactor(by=Factor,col=c("black","gray60"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("black","gray60"))
+cbind(Outcome1,Outcome2,Outcome3) |> plotMeansMultifactor(by=Factor,col=c("darkred","darkblue"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("darkred","darkblue"))
 
 cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansBy(by=Factor)
 cbind(Outcome1,Outcome2,Outcome3) |> plotMeansBy(by=Factor)

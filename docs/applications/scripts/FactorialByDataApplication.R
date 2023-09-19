@@ -32,8 +32,8 @@ FactorialData <- data.frame(FactorA,FactorB,Outcome)
 
 ### Analyses of the Means
 
-(Outcome~FactorA) |> plotMeansMultifactor(by=FactorB,col=c("black","gray60"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("black","gray60"))
+(Outcome~FactorA) |> plotMeansMultifactor(by=FactorB,col=c("darkred","darkblue"))
+legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("darkred","darkblue"))
 
 (Outcome~FactorA) |> estimateMeansBy(by=FactorB)
 (Outcome~FactorA) |> plotMeansBy(by=FactorB)

@@ -39,11 +39,11 @@ This page analyzes simple effects using factorial (between-subjects) data.
 
 Enter the data.
 ```{r}
-FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)
-FactorB <- c(1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2)
-Outcome <- c(0,0,3,5,4,7,4,9,4,9,6,9,3,1,6,6,2,2,5,7,2,4,7,7)
+FactorA <- c(rep(1,30),rep(2,30),rep(3,30),rep(1,30),rep(2,30),rep(3,30))
+FactorB <- c(rep(1,90),rep(2,90))
 FactorA <- factor(FactorA,levels=c(1,2,3),labels=c("A1","A2","A3"))
 FactorB <- factor(FactorB,levels=c(1,2),labels=c("B1","B2"))
+Outcome <- c(rnorm(30,mean=8,sd=2),rnorm(30,mean=11,sd=4),rnorm(30,mean=12,sd=4),rnorm(30,mean=8,sd=2),rnorm(30,mean=8,sd=3),rnorm(30,mean=7,sd=4))
 FactorialData <- data.frame(FactorA,FactorB,Outcome)
 ```
 
@@ -54,29 +54,7 @@ Get descriptive statistics separately for each simple effect.
 (Outcome~FactorA) |> describeMeansBy(by=FactorB)
 ```
 
-### Analyses of the Omnibus and Simple Effects
-
-Get an ANOVA for the design as a whole.
-```{r}
-(Outcome~FactorA) |> describeMeansOmnibusMultifactor(by=FactorB)
-(Outcome~FactorA) |> testMeansOmnibusMultifactor(by=FactorB)
-(Outcome~FactorA) |> estimateMeansOmnibusMultifactor(by=FactorB)
-```
-
-Get an ANOVA separately for each simple effect.
-```{r}
-(Outcome~FactorA) |> describeMeansOmnibusBy(by=FactorB)
-(Outcome~FactorA) |> testMeansOmnibusBy(by=FactorB)
-(Outcome~FactorA) |> estimateMeansOmnibusBy(by=FactorB)
-```
-
 ### Analyses of the Means
-
-Plot the means and confidence intervals for the design as a whole.
-```{r,FactorialBy-Multifactor}
-(Outcome~FactorA) |> plotMeansMultifactor(by=FactorB,col=c("black","gray60"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("black","gray60"))
-```
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
 ```{r,FactorialBy-Means}
@@ -88,9 +66,14 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 
 ### Analyses of a Comparison
 
+Specify a comparison separately for each simple effect.
+```{r}
+Comparison=factor(FactorB,c("A1","A2"))
+```
+
 Analyze the specified comparison separately for each simple effect.
 ```{r,FactorialBy-Comparison}
-Comparison=factor(FactorB,c("Level1","Level2"))
+
 (Outcome~FactorA) |> estimateMeanDifferenceBy(by=FactorB)
 (Outcome~FactorA) |> plotMeanDifferenceBy(by=FactorB)
 (Outcome~FactorA) |> testMeanDifferenceBy(by=FactorB)
@@ -99,11 +82,15 @@ Comparison=factor(FactorB,c("Level1","Level2"))
 
 ### Analyses of a Contrast
 
+Specify a contrast for a factor.
+```{r}
+A1vsOthers <- c(-1,.5,.5)
+```
+
 Analyze the specified contrast separately for each simple effect.
 ```{r,FactorialBy-Contrast}
-L1vsOthers <- c(-1,.5,.5)
-(Outcome~FactorA) |> estimateMeanContrastBy(by=FactorB,contrast=L1vsOthers)
-(Outcome~FactorA) |> plotMeanContrastBy(by=FactorB,contrast=L1vsOthers)
-(Outcome~FactorA) |> testMeanContrastBy(by=FactorB,contrast=L1vsOthers)
-(Outcome~FactorA) |> estimateStandardizedMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> estimateMeanContrastBy(by=FactorB,contrast=A1vsOthers)
+(Outcome~FactorA) |> plotMeanContrastBy(by=FactorB,contrast=A1vsOthers)
+(Outcome~FactorA) |> testMeanContrastBy(by=FactorB,contrast=A1vsOthers)
+(Outcome~FactorA) |> estimateStandardizedMeanContrastBy(by=FactorB,contrast=A1vsOthers)
 ```

@@ -9,11 +9,11 @@ This page analyzes simple effects using factorial (between-subjects) data.
 Enter the data.
 
 ```r
-FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)
-FactorB <- c(1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2)
-Outcome <- c(0,0,3,5,4,7,4,9,4,9,6,9,3,1,6,6,2,2,5,7,2,4,7,7)
+FactorA <- c(rep(1,30),rep(2,30),rep(3,30),rep(1,30),rep(2,30),rep(3,30))
+FactorB <- c(rep(1,90),rep(2,90))
 FactorA <- factor(FactorA,levels=c(1,2,3),labels=c("A1","A2","A3"))
 FactorB <- factor(FactorB,levels=c(1,2),labels=c("B1","B2"))
+Outcome <- c(rnorm(30,mean=8,sd=2),rnorm(30,mean=11,sd=4),rnorm(30,mean=12,sd=4),rnorm(30,mean=8,sd=2),rnorm(30,mean=8,sd=3),rnorm(30,mean=7,sd=4))
 FactorialData <- data.frame(FactorA,FactorB,Outcome)
 ```
 
@@ -28,114 +28,18 @@ Get descriptive statistics separately for each simple effect.
 ```
 ## $`Descriptive Statistics for the Data: B1`
 ##          N       M      SD    Skew    Kurt
-## A1   4.000   2.000   2.449   0.544  -2.944
-## A2   4.000   6.000   2.449   0.544  -2.944
-## A3   4.000   7.000   2.449  -0.544  -2.944
+## A1  30.000   8.248   1.658  -0.319  -0.616
+## A2  30.000  11.857   3.824  -0.190   1.118
+## A3  30.000  11.197   4.197  -0.112  -0.344
 ## 
 ## $`Descriptive Statistics for the Data: B2`
 ##          N       M      SD    Skew    Kurt
-## A1   4.000   4.000   2.449  -0.544  -2.944
-## A2   4.000   4.000   2.449   0.544  -2.944
-## A3   4.000   5.000   2.449  -0.544  -2.944
-```
-
-### Analyses of the Omnibus and Simple Effects
-
-Get an ANOVA for the design as a whole.
-
-```r
-(Outcome~FactorA) |> describeMeansOmnibusMultifactor(by=FactorB)
-```
-
-```
-## $`Source Table for the Model: Between Subjects`
-##                    SS      df      MS
-## Factor          2.667   1.000   2.667
-## Blocks         37.333   2.000  18.667
-## Factor:Blocks  21.333   2.000  10.667
-## Residual      108.000  18.000   6.000
-```
-
-```r
-(Outcome~FactorA) |> testMeansOmnibusMultifactor(by=FactorB)
-```
-
-```
-## $`Hypothesis Tests for the Model: Between Subjects`
-##                     F     df1     df2       p
-## Factor          0.444   1.000  18.000   0.513
-## Blocks          3.111   2.000  18.000   0.069
-## Factor:Blocks   1.778   2.000  18.000   0.197
-```
-
-```r
-(Outcome~FactorA) |> estimateMeansOmnibusMultifactor(by=FactorB)
-```
-
-```
-## $`Proportion of Variance Accounted For by the Model: Between Subjects`
-##                   Est      LL      UL
-## Factor          0.024   0.000   0.209
-## Blocks          0.257   0.000   0.374
-## Factor:Blocks   0.165   0.000   0.310
-```
-
-Get an ANOVA separately for each simple effect.
-
-```r
-(Outcome~FactorA) |> describeMeansOmnibusBy(by=FactorB)
-```
-
-```
-## $`Source Table for the Model: B1`
-##              SS      df      MS
-## Between  56.000   2.000  28.000
-## Within   54.000   9.000   6.000
-## 
-## $`Source Table for the Model: B2`
-##              SS      df      MS
-## Between   2.667   2.000   1.333
-## Within   54.000   9.000   6.000
-```
-
-```r
-(Outcome~FactorA) |> testMeansOmnibusBy(by=FactorB)
-```
-
-```
-## $`Hypothesis Test for the Model: B1`
-##              F     df1     df2       p
-## Factor   4.667   2.000   9.000   0.041
-## 
-## $`Hypothesis Test for the Model: B2`
-##              F     df1     df2       p
-## Factor   0.222   2.000   9.000   0.805
-```
-
-```r
-(Outcome~FactorA) |> estimateMeansOmnibusBy(by=FactorB)
-```
-
-```
-## $`Proportion of Variance Accounted For by the Model: B1`
-##            Est      LL      UL
-## Factor   0.509   0.016   0.665
-## 
-## $`Proportion of Variance Accounted For by the Model: B2`
-##            Est      LL      UL
-## Factor   0.047   0.000   0.206
+## A1  30.000   8.204   1.844   0.382  -0.289
+## A2  30.000   8.648   2.372  -0.696   0.022
+## A3  30.000   6.960   4.365   0.271  -0.861
 ```
 
 ### Analyses of the Means
-
-Plot the means and confidence intervals for the design as a whole.
-
-```r
-(Outcome~FactorA) |> plotMeansMultifactor(by=FactorB,col=c("black","gray60"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("black","gray60"))
-```
-
-![](figures/FactorialBy-Multifactor-1.png)<!-- -->
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
 
@@ -146,15 +50,15 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Confidence Intervals for the Means: B1`
 ##          M      SE      df      LL      UL
-## A1   2.000   1.225   3.000  -1.898   5.898
-## A2   6.000   1.225   3.000   2.102   9.898
-## A3   7.000   1.225   3.000   3.102  10.898
+## A1   8.248   0.303  29.000   7.628   8.867
+## A2  11.857   0.698  29.000  10.429  13.285
+## A3  11.197   0.766  29.000   9.630  12.765
 ## 
 ## $`Confidence Intervals for the Means: B2`
 ##          M      SE      df      LL      UL
-## A1   4.000   1.225   3.000   0.102   7.898
-## A2   4.000   1.225   3.000   0.102   7.898
-## A3   5.000   1.225   3.000   1.102   8.898
+## A1   8.204   0.337  29.000   7.516   8.893
+## A2   8.648   0.433  29.000   7.763   9.534
+## A3   6.960   0.797  29.000   5.330   8.590
 ```
 
 ```r
@@ -170,15 +74,15 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Hypothesis Tests for the Means: B1`
 ##       Diff      SE      df       t       p
-## A1   2.000   1.225   3.000   1.633   0.201
-## A2   6.000   1.225   3.000   4.899   0.016
-## A3   7.000   1.225   3.000   5.715   0.011
+## A1   8.248   0.303  29.000  27.247   0.000
+## A2  11.857   0.698  29.000  16.981   0.000
+## A3  11.197   0.766  29.000  14.612   0.000
 ## 
 ## $`Hypothesis Tests for the Means: B2`
 ##       Diff      SE      df       t       p
-## A1   4.000   1.225   3.000   3.266   0.047
-## A2   4.000   1.225   3.000   3.266   0.047
-## A3   5.000   1.225   3.000   4.082   0.027
+## A1   8.204   0.337  29.000  24.371   0.000
+## A2   8.648   0.433  29.000  19.971   0.000
+## A3   6.960   0.797  29.000   8.733   0.000
 ```
 
 ```r
@@ -188,34 +92,39 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Confidence Intervals for the Standardized Means: B1`
 ##          d      SE      LL      UL
-## A1   0.816   0.616  -0.387   1.934
-## A2   2.449   0.955   0.325   4.531
-## A3   2.858   1.063   0.464   5.226
+## A1   4.975   0.658   3.647   6.294
+## A2   3.100   0.435   2.224   3.966
+## A3   2.668   0.386   1.891   3.434
 ## 
 ## $`Confidence Intervals for the Standardized Means: B2`
 ##          d      SE      LL      UL
-## A1   1.633   0.761   0.013   3.177
-## A2   1.633   0.761   0.013   3.177
-## A3   2.041   0.854   0.176   3.846
+## A1   4.449   0.595   3.250   5.639
+## A2   3.646   0.499   2.641   4.641
+## A3   1.594   0.275   1.045   2.131
 ```
 
 ### Analyses of a Comparison
 
+Specify a comparison separately for each simple effect.
+
+```r
+Comparison=factor(FactorB,c("A1","A2"))
+```
+
 Analyze the specified comparison separately for each simple effect.
 
 ```r
-Comparison=factor(FactorB,c("Level1","Level2"))
 (Outcome~FactorA) |> estimateMeanDifferenceBy(by=FactorB)
 ```
 
 ```
 ## $`Confidence Interval for the Mean Difference: B1`
 ##               Diff      SE      df      LL      UL
-## Comparison   4.000   1.732   6.000  -0.238   8.238
+## Comparison   3.609   0.761  39.528   2.071   5.148
 ## 
 ## $`Confidence Interval for the Mean Difference: B2`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   1.732   6.000  -4.238   4.238
+## Comparison   0.444   0.549  54.675  -0.656   1.543
 ```
 
 ```r
@@ -231,11 +140,11 @@ Comparison=factor(FactorB,c("Level1","Level2"))
 ```
 ## $`Hypothesis Test for the Mean Difference: B1`
 ##               Diff      SE      df       t       p
-## Comparison   4.000   1.732   6.000   2.309   0.060
+## Comparison   3.609   0.761  39.528   4.743   0.000
 ## 
 ## $`Hypothesis Test for the Mean Difference: B2`
 ##               Diff      SE      df       t       p
-## Comparison   0.000   1.732   6.000   0.000   1.000
+## Comparison   0.444   0.549  54.675   0.809   0.422
 ```
 
 ```r
@@ -245,62 +154,67 @@ Comparison=factor(FactorB,c("Level1","Level2"))
 ```
 ## $`Confidence Interval for the Standardized Mean Difference: B1`
 ##                  d      SE      LL      UL
-## Comparison   1.633   0.943  -0.215   3.481
+## Comparison   1.225   0.297   0.643   1.806
 ## 
 ## $`Confidence Interval for the Standardized Mean Difference: B2`
 ##                  d      SE      LL      UL
-## Comparison   0.000   0.816  -1.600   1.600
+## Comparison   0.209   0.263  -0.307   0.725
 ```
 
 ### Analyses of a Contrast
 
+Specify a contrast for a factor.
+
+```r
+A1vsOthers <- c(-1,.5,.5)
+```
+
 Analyze the specified contrast separately for each simple effect.
 
 ```r
-L1vsOthers <- c(-1,.5,.5)
-(Outcome~FactorA) |> estimateMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> estimateMeanContrastBy(by=FactorB,contrast=A1vsOthers)
 ```
 
 ```
 ## $`Confidence Interval for the Mean Contrast: B1`
 ##              Est      SE      df      LL      UL
-## Contrast   4.500   1.500   6.000   0.830   8.170
+## Contrast   3.280   0.600  84.035   2.086   4.473
 ## 
 ## $`Confidence Interval for the Mean Contrast: B2`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   1.500   6.000  -3.170   4.170
+## Contrast  -0.400   0.565  73.308  -1.526   0.725
 ```
 
 ```r
-(Outcome~FactorA) |> plotMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> plotMeanContrastBy(by=FactorB,contrast=A1vsOthers)
 ```
 
 ![](figures/FactorialBy-Contrast-1.png)<!-- -->![](figures/FactorialBy-Contrast-2.png)<!-- -->
 
 ```r
-(Outcome~FactorA) |> testMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> testMeanContrastBy(by=FactorB,contrast=A1vsOthers)
 ```
 
 ```
 ## $`Hypothesis Test for the Mean Contrast: B1`
 ##              Est      SE      df       t       p
-## Contrast   4.500   1.500   6.000   3.000   0.024
+## Contrast   3.280   0.600  84.035   5.464   0.000
 ## 
 ## $`Hypothesis Test for the Mean Contrast: B2`
 ##              Est      SE      df       t       p
-## Contrast   0.500   1.500   6.000   0.333   0.750
+## Contrast  -0.400   0.565  73.308  -0.709   0.481
 ```
 
 ```r
-(Outcome~FactorA) |> estimateStandardizedMeanContrastBy(by=FactorB,contrast=L1vsOthers)
+(Outcome~FactorA) |> estimateStandardizedMeanContrastBy(by=FactorB,contrast=A1vsOthers)
 ```
 
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast: B1`
 ##              Est      SE      LL      UL
-## Contrast   1.837   0.829   0.212   3.462
+## Contrast   0.960   0.197   0.574   1.347
 ## 
 ## $`Confidence Interval for the Standardized Mean Contrast: B2`
 ##              Est      SE      LL      UL
-## Contrast   0.204   0.709  -1.185   1.593
+## Contrast  -0.131   0.188  -0.500   0.238
 ```

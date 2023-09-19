@@ -7,10 +7,10 @@ This page analyzes simple effects using mixed design (between-subjects and withi
 Enter the data.
 
 ```r
-Factor <- c(1,1,1,1,2,2,2,2)
-Outcome1 <- c(0,0,3,5,1,3,6,6)
-Outcome2 <- c(4,7,4,9,3,1,6,6)
-Outcome3 <- c(4,9,6,9,3,3,6,8)
+Factor <- c(rep(1,30),rep(2,30))
+Outcome1 <- c(round(rnorm(30,mean=8,sd=2),0),round(rnorm(30,mean=8,sd=2),0))
+Outcome2 <- c(round(rnorm(30,mean=11,sd=4),0),round(rnorm(30,mean=8,sd=3),0))
+Outcome3 <- c(round(rnorm(30,mean=12,sd=4),0),round(rnorm(30,mean=7,sd=4),0))
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 ```
@@ -26,126 +26,18 @@ cbind(Outcome1,Outcome2,Outcome3) |> describeMeansBy(by=Factor)
 ```
 ## $`Descriptive Statistics for the Data: Level1`
 ##                N       M      SD    Skew    Kurt
-## Outcome1   4.000   2.000   2.449   0.544  -2.944
-## Outcome2   4.000   6.000   2.449   0.544  -2.944
-## Outcome3   4.000   7.000   2.449  -0.544  -2.944
+## Outcome1  30.000   7.800   1.648   0.046   0.348
+## Outcome2  30.000  11.800   5.108  -0.004  -0.501
+## Outcome3  30.000  12.267   4.093   0.192  -0.721
 ## 
 ## $`Descriptive Statistics for the Data: Level2`
 ##                N       M      SD    Skew    Kurt
-## Outcome1   4.000   4.000   2.449  -0.544  -2.944
-## Outcome2   4.000   4.000   2.449  -0.544  -2.944
-## Outcome3   4.000   5.000   2.449   0.544  -2.944
-```
-
-### Analyses of the Omnibus and Simple Effects
-
-Get an ANOVA for the design as a whole.
-
-```r
-cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusMultifactor(by=Factor)
-```
-
-```
-## $`Source Table for the Model: Between Subjects`
-##               SS      df      MS
-## Blocks     2.667   1.000   2.667
-## Subjects  88.000   6.000  14.667
-## 
-## $`Source Table for the Model: Within Subjects`
-##                      SS      df      MS
-## Measures         37.333   2.000  18.667
-## Measures:Blocks  21.333   2.000  10.667
-## Residual         20.000  12.000   1.667
-```
-
-```r
-cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusMultifactor(by=Factor)
-```
-
-```
-## $`Hypothesis Tests for the Model: Between Subjects`
-##              F     df1     df2       p
-## Blocks   0.182   1.000   6.000   0.685
-## 
-## $`Hypothesis Tests for the Model: Within Subjects`
-##                       F     df1     df2       p
-## Measures         11.200   2.000  12.000   0.002
-## Measures:Blocks   6.400   2.000  12.000   0.013
-```
-
-```r
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusMultifactor(by=Factor)
-```
-
-```
-## $`Proportion of Variance Accounted For by the Model: Between Subjects`
-##            Est      LL      UL
-## Blocks   0.029   0.000   0.330
-## 
-## $`Proportion of Variance Accounted For by the Model: Within Subjects`
-##                     Est      LL      UL
-## Measures          0.651   0.245   0.758
-## Measures:Blocks   0.516   0.089   0.664
-```
-
-Get an ANOVA separately for each simple effect.
-
-```r
-cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusBy(by=Factor)
-```
-
-```
-## $`Source Table for the Model: Level1`
-##               SS      df      MS
-## Subjects  39.333   3.000  13.111
-## Measures  56.000   2.000  28.000
-## Error     14.667   6.000   2.444
-## 
-## $`Source Table for the Model: Level2`
-##               SS      df      MS
-## Subjects  48.667   3.000  16.222
-## Measures   2.667   2.000   1.333
-## Error      5.333   6.000   0.889
-```
-
-```r
-cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusBy(by=Factor)
-```
-
-```
-## $`Hypothesis Test for the Model: Level1`
-##                F     df1     df2       p
-## Measures  11.455   2.000   6.000   0.009
-## 
-## $`Hypothesis Test for the Model: Level2`
-##                F     df1     df2       p
-## Measures   1.500   2.000   6.000   0.296
-```
-
-```r
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusBy(by=Factor)
-```
-
-```
-## $`Proportion of Variance Accounted For by the Model: Level1`
-##              Est      LL      UL
-## Measures   0.792   0.237   0.858
-## 
-## $`Proportion of Variance Accounted For by the Model: Level2`
-##              Est      LL      UL
-## Measures   0.333   0.000   0.548
+## Outcome1  30.000   8.167   2.183   0.539  -0.125
+## Outcome2  30.000   8.700   3.564  -0.152  -1.189
+## Outcome3  30.000   7.000   4.857  -0.174  -0.871
 ```
 
 ### Analyses of the Means
-
-Plot the means and confidence intervals for the design as a whole.
-
-```r
-cbind(Outcome1,Outcome2,Outcome3) |> plotMeansMultifactor(by=Factor,col=c("black","gray60"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("black","gray60"))
-```
-
-![](figures/MixedBy-Multifactor-1.png)<!-- -->
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
 
@@ -156,15 +48,15 @@ cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansBy(by=Factor)
 ```
 ## $`Confidence Intervals for the Means: Level1`
 ##                M      SE      df      LL      UL
-## Outcome1   2.000   1.225   3.000  -1.898   5.898
-## Outcome2   6.000   1.225   3.000   2.102   9.898
-## Outcome3   7.000   1.225   3.000   3.102  10.898
+## Outcome1   7.800   0.301  29.000   7.184   8.416
+## Outcome2  11.800   0.933  29.000   9.892  13.708
+## Outcome3  12.267   0.747  29.000  10.738  13.795
 ## 
 ## $`Confidence Intervals for the Means: Level2`
 ##                M      SE      df      LL      UL
-## Outcome1   4.000   1.225   3.000   0.102   7.898
-## Outcome2   4.000   1.225   3.000   0.102   7.898
-## Outcome3   5.000   1.225   3.000   1.102   8.898
+## Outcome1   8.167   0.399  29.000   7.352   8.982
+## Outcome2   8.700   0.651  29.000   7.369  10.031
+## Outcome3   7.000   0.887  29.000   5.187   8.813
 ```
 
 ```r
@@ -180,15 +72,15 @@ cbind(Outcome1,Outcome2,Outcome3) |> testMeansBy(by=Factor)
 ```
 ## $`Hypothesis Tests for the Means: Level1`
 ##             Diff      SE      df       t       p
-## Outcome1   2.000   1.225   3.000   1.633   0.201
-## Outcome2   6.000   1.225   3.000   4.899   0.016
-## Outcome3   7.000   1.225   3.000   5.715   0.011
+## Outcome1   7.800   0.301  29.000  25.917   0.000
+## Outcome2  11.800   0.933  29.000  12.652   0.000
+## Outcome3  12.267   0.747  29.000  16.414   0.000
 ## 
 ## $`Hypothesis Tests for the Means: Level2`
 ##             Diff      SE      df       t       p
-## Outcome1   4.000   1.225   3.000   3.266   0.047
-## Outcome2   4.000   1.225   3.000   3.266   0.047
-## Outcome3   5.000   1.225   3.000   4.082   0.027
+## Outcome1   8.167   0.399  29.000  20.493   0.000
+## Outcome2   8.700   0.651  29.000  13.371   0.000
+## Outcome3   7.000   0.887  29.000   7.895   0.000
 ```
 
 ```r
@@ -198,15 +90,15 @@ cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeansBy(by=Factor)
 ```
 ## $`Confidence Intervals for the Standardized Means: Level1`
 ##                d      SE      LL      UL
-## Outcome1   0.816   0.616  -0.387   1.934
-## Outcome2   2.449   0.955   0.325   4.531
-## Outcome3   2.858   1.063   0.464   5.226
+## Outcome1   4.732   0.629   3.464   5.991
+## Outcome2   2.310   0.347   1.613   2.996
+## Outcome3   2.997   0.423   2.145   3.839
 ## 
 ## $`Confidence Intervals for the Standardized Means: Level2`
 ##                d      SE      LL      UL
-## Outcome1   1.633   0.761   0.013   3.177
-## Outcome2   1.633   0.761   0.013   3.177
-## Outcome3   2.041   0.854   0.176   3.846
+## Outcome1   3.741   0.510   2.714   4.760
+## Outcome2   2.441   0.361   1.715   3.156
+## Outcome3   1.441   0.261   0.921   1.949
 ```
 
 ### Analyses of a Comparison
@@ -220,25 +112,11 @@ cbind(Outcome1,Outcome2) |> estimateMeanDifferenceBy(by=Factor)
 ```
 ## $`Confidence Interval for the Mean Difference: Level1`
 ##               Diff      SE      df      LL      UL
-## Comparison   4.000   1.225   3.000   0.102   7.898
+## Comparison   4.000   0.943  29.000   2.071   5.929
 ## 
 ## $`Confidence Interval for the Mean Difference: Level2`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.000   0.816   3.000  -2.598   2.598
-```
-
-```r
-cbind(Outcome1,Outcome2) |> testMeanDifferenceBy(by=Factor)
-```
-
-```
-## $`Hypothesis Test for the Mean Difference: Level1`
-##               Diff      SE      df       t       p
-## Comparison   4.000   1.225   3.000   3.266   0.047
-## 
-## $`Hypothesis Test for the Mean Difference: Level2`
-##               Diff      SE      df       t       p
-## Comparison   0.000   0.816   3.000   0.000   1.000
+## Comparison   0.533   0.694  29.000  -0.887   1.953
 ```
 
 ```r
@@ -248,50 +126,55 @@ cbind(Outcome1,Outcome2) |> plotMeanDifferenceBy(by=Factor)
 ![](figures/MixedBy-Comparison-1.png)<!-- -->![](figures/MixedBy-Comparison-2.png)<!-- -->
 
 ```r
+cbind(Outcome1,Outcome2) |> testMeanDifferenceBy(by=Factor)
+```
+
+```
+## $`Hypothesis Test for the Mean Difference: Level1`
+##               Diff      SE      df       t       p
+## Comparison   4.000   0.943  29.000   4.241   0.000
+## 
+## $`Hypothesis Test for the Mean Difference: Level2`
+##               Diff      SE      df       t       p
+## Comparison   0.533   0.694  29.000   0.768   0.449
+```
+
+```r
 cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifferenceBy(by=Factor)
 ```
 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference: Level1`
 ##                  d      SE      LL      UL
-## Comparison   1.633   0.782   0.101   3.165
+## Comparison   1.054   0.283   0.500   1.608
 ## 
 ## $`Confidence Interval for the Standardized Mean Difference: Level2`
 ##                  d      SE      LL      UL
-## Comparison   0.000   0.385  -0.754   0.754
+## Comparison   0.180   0.240  -0.289   0.650
 ```
 
 ### Analyses of a Contrast
 
-Analyze the specified contrast separately for each simple effect.
+Specify a contrast for a factor.
 
 ```r
 O1vsOthers <- c(-1,.5,.5)
+```
+
+Analyze the specified contrast separately for each simple effect.
+
+```r
 cbind(Outcome1,Outcome2,Outcome3) |> estimateMeanContrastBy(by=Factor,contrast=O1vsOthers)
 ```
 
 ```
 ## $`Confidence Interval for the Mean Contrast: Level1`
 ##              Est      SE      df      LL      UL
-## Contrast   4.500   1.258   3.000   0.496   8.504
+## Contrast   4.233   0.611  29.000   2.984   5.483
 ## 
 ## $`Confidence Interval for the Mean Contrast: Level2`
 ##              Est      SE      df      LL      UL
-## Contrast   0.500   0.645   3.000  -1.554   2.554
-```
-
-```r
-cbind(Outcome1,Outcome2,Outcome3) |> testMeanContrastBy(by=Factor,contrast=O1vsOthers)
-```
-
-```
-## $`Hypothesis Test for the Mean Contrast: Level1`
-##              Est      SE      df       t       p
-## Contrast   4.500   1.258   3.000   3.576   0.037
-## 
-## $`Hypothesis Test for the Mean Contrast: Level2`
-##              Est      SE      df       t       p
-## Contrast   0.500   0.645   3.000   0.775   0.495
+## Contrast  -0.317   0.649  29.000  -1.645   1.011
 ```
 
 ```r
@@ -301,15 +184,29 @@ cbind(Outcome1,Outcome2,Outcome3) |> plotMeanContrastBy(by=Factor,contrast=O1vsO
 ![](figures/MixedBy-Contrast-1.png)<!-- -->![](figures/MixedBy-Contrast-2.png)<!-- -->
 
 ```r
+cbind(Outcome1,Outcome2,Outcome3) |> testMeanContrastBy(by=Factor,contrast=O1vsOthers)
+```
+
+```
+## $`Hypothesis Test for the Mean Contrast: Level1`
+##              Est      SE      df       t       p
+## Contrast   4.233   0.611  29.000   6.928   0.000
+## 
+## $`Hypothesis Test for the Mean Contrast: Level2`
+##              Est      SE      df       t       p
+## Contrast  -0.317   0.649  29.000  -0.488   0.629
+```
+
+```r
 cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrastBy(by=Factor,contrast=O1vsOthers)
 ```
 
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast: Level1`
 ##              Est      SE      LL      UL
-## Contrast   1.837   0.676   0.512   3.162
+## Contrast   1.086   0.206   0.683   1.490
 ## 
 ## $`Confidence Interval for the Standardized Mean Contrast: Level2`
 ##              Est      SE      LL      UL
-## Contrast   0.204   0.279  -0.344   0.752
+## Contrast  -0.086   0.175  -0.428   0.257
 ```
