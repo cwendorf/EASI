@@ -138,7 +138,7 @@ plotMeansPairwise <- function(...,main=NULL,digits=3,ylab="Mean Difference",xlab
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }
 
-plotMeansPairwiseDiffogram <- function(...,main="Confidence Intervals for the Pairwise Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col=NULL) {
+plotMeansPairwiseDiffogram <- function(...,main="Confidence Intervals for the Pairwise Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=17,col="black") {
   dm <- .describeMeans(...)
   emp <- .estimateMeansPairwise(...,conf.level=conf.level)
   .intervalsDiffogram(dm=dm,emp=emp,main=main,ylab=ylab,xlab=xlab,ylim=ylim,pch=pch,col=col)

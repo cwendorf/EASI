@@ -53,34 +53,29 @@
   }
 }
 
-.intervalsDiffogram <- function(dm,emp,main=NULL,ylab="",xlab="",ylim=NULL,pch=17,col=NULL) {
-  fm <- t(combn(dm[,"M"],2))
-  colnames(fm) <- c('M1','M2')
-  dif <- (emp[,5]-emp[,4])/4
+.intervalsDiffogram <- function(dm,emp,main=NULL,ylab="",xlab="",ylim=NULL,pch=17,col="black") {
+  fm <- t(combn(dm[,2],2))
+  dif <- (emp[,"UL"]-emp[,"LL"])/4
   lox <- fm[,1]-dif
   hix <- fm[,1]+dif
   loy <- fm[,2]+dif
   hiy <- fm[,2]-dif
-  if(is.null(main)) {if(nrow(emp)>1) {main <- "Confidence Intervals for the Pairwise Mean Comparisons"} else {main <- "Confidence Interval for the Pairwise Mean Comparison"}}  
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   if(is.null(ylim)) {
   mn <- min(lox,loy,hix,hiy)-2
   mx <- max(hix,hiy,lox,loy)+2
   ylim<- c(mn,mx)}
-  pc <- cbind(emp[,4] <= 0 & emp[,5] >= 0 )
-  if(is.null(col)) {col <- c("black","black")}
-  if(length(col)==1) col = c(col,"black")  
-  col <- ifelse(pc,col[2],col[1])
+  pc <- cbind(emp[,"LL"] <= 0 & emp[,"UL"] >= 0 )
   par(mar=c(5,5,6,5))
   plot(NULL,bty="l",cex.lab=1.15,xlim=ylim,ylim=ylim,xlab=xlab,ylab=ylab)
   title(main,line=4)
-  arrows(mn,mn,mx,mx,length=0,lty=2)
+  arrows(mn,mn,mx,mx,length=0,lty=2,col=col)
   abline(v=dm[,2],col="gray90")
   mtext(rownames(dm),side=3,at=dm[,2],las=2,line=-2)
   abline(h=dm[,2],col="gray90")
   mtext(rownames(dm),side=4,at=dm[,2],las=1,line=-2)
   arrows(lox,loy,hix,hiy,length=0,lwd=2,col=col)  
-  points(fm[,1],fm[,2],pch=pch,col=col,lwd=2)
+  points(fm[,1],fm[,2],pch=pch,col=col,lwd=2,bg=.colorIntensity(col,.6))
 }
 
 ### Confidence Interval Plot
