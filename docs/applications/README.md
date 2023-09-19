@@ -17,7 +17,7 @@ The **Exploratory** pages analyze violin plots, beanplots, and raincloud plots:
 - [*ExploratoryOneWayDataApplication*](./ExploratoryOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*ExploratoryRepeatedMeasuresDataApplication*](./ExploratoryRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
-The **Analyze** [pages use a simple command to provide common confidence intervals, significance tests, and standardized effect sizes at the same time.
+The **Analyze** pages use a simple command to provide common confidence intervals, significance tests, and standardized effect sizes at the same time.
 
 - [*AnalyzeOneWayDataApplication*](./AnalyzeOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*AnalyzeRepeatedMeasuresDataApplication*](./AnalyzeRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
