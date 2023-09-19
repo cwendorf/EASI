@@ -287,6 +287,7 @@ export(.estimateStandardizedMeansPairwise)
 export(estimateStandardizedMeansPairwise)
 
 export(plotStandardizedMeansPairwise)
+export(plotStandardizedMeansPairwiseDiffogram)
 
 ### xMeansPosthoc
 
@@ -317,6 +318,7 @@ export(.estimateStandardizedMeansPosthoc)
 export(estimateStandardizedMeansPosthoc)
 
 export(plotStandardizedMeansPosthoc)
+export(plotStandardizedMeansPosthocDiffogram)
 
 ### xMeansRelational
 
