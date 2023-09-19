@@ -89,14 +89,7 @@ estimateStandardizedMeansPairwise <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotStandardizedMeansPairwise <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=NULL,add=FALSE,connect=FALSE,pch=24,col="black",offset=0,intervals=TRUE) {
+plotStandardizedMeansPairwise <- function(...,main=NULL,digits=3,ylab="Standardized Mean Difference",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,pos=2,ylim=NULL,add=FALSE,connect=FALSE,pch=17,col="black",offset=0,intervals=TRUE) {
   results <- estimateStandardizedMeansPairwise(...,conf.level=conf.level,mu=mu,main=main,digits=digits)
   plotIntervals(results,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,pch=pch,col=col,offset=offset,intervals=intervals)
 }
-
-plotStandardizedMeansPairwiseDiffogram <- function(...,main="Confidence Intervals for the Pairwise Standardized Mean Comparisons",ylab="",xlab="",conf.level=.95,ylim=NULL,pch=24,col=NULL) {
-  dm <- .describeMeans(...)
-  emp <- .estimateStandardizedMeansPairwise(...,conf.level=conf.level)
-  .intervalsDiffogram(dm=dm,emp=emp,main=main,ylab=ylab,xlab=xlab,ylim=ylim,pch=pch,col=col)
-}
-
