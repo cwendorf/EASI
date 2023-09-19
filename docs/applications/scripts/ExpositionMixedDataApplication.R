@@ -17,24 +17,41 @@ MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 MixedB1 <- subset(MixedData,Factor=="Level1")
 MixedB2 <- subset(MixedData,Factor=="Level2")
 
-### Analyses of the Means
+### Descriptive Statistics
 
-(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotData(main="Confidence Intervals and Data",ylim=c(-5,25),offset=-.05,method="overplot",col="darkblue")
-(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotData(add=TRUE,offset=.05,method="overplot",col="darkred")
-(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeans(add=TRUE,offset=-.15,col="darkblue",values=FALSE)
-(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeans(add=TRUE,offset=.15,col="darkred",values=FALSE)
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("darkblue","darkred"))
+(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> describeMeans()
+(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> describeMeans()
+
+### Analyses of the Means
 
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans()
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans()
-
-### Analyses of the Simple Effects
-
-(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibus()
-(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibus()
-
+(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeans()
+(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeans()
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibus()
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibus()
+(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeans()
+(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeans()
 
-(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibus()
-(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibus()
+### Analyses of a Comparison
+
+(MixedB1) %$>% cbind(Outcome1,Outcome2) |> estimateMeanDifference()
+(MixedB2) %$>% cbind(Outcome1,Outcome2) |> estimateMeanDifference()
+(MixedB1) %$>% cbind(Outcome1,Outcome2) |> plotMeanDifference()
+(MixedB2) %$>% cbind(Outcome1,Outcome2) |> plotMeanDifference()
+(MixedB1) %$>% cbind(Outcome1,Outcome2) |> testMeanDifference()
+(MixedB2) %$>% cbind(Outcome1,Outcome2) |> testMeanDifference()
+(MixedB1) %$>% cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifference()
+(MixedB2) %$>% cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifference()
+
+### Analyses of a Contrast
+
+O1vsOthers <- c(-1,.5,.5)
+(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast=O1vsOthers)
+(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast=O1vsOthers)
+(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast=O1vsOthers)
+(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast=O1vsOthers)
+(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> testMeanContrast(contrast=O1vsOthers)
+(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> testMeanContrast(contrast=O1vsOthers)
+(MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrast(contrast=O1vsOthers)
+(MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrast(contrast=O1vsOthers)

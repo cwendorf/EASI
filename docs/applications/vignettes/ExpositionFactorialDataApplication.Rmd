@@ -50,7 +50,7 @@ FactorialB1 <- subset(FactorialData,FactorB=="B1")
 FactorialB2 <- subset(FactorialData,FactorB=="B2")
 ```
 
-#### Descriptive Statistics
+### Descriptive Statistics
 
 Get descriptive statistics separately for each simple effect.
 ```{r}

@@ -14,24 +14,11 @@ Outcome3 <- c(4,9,6,9,3,3,6,8)
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 
-#### Descriptive Statistics
+### Descriptive Statistics
 
 cbind(Outcome1,Outcome2,Outcome3) |> describeMeansBy(by=Factor)
 
-### Analyses of the Omnibus and Simple Effects
-
-cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusMultifactor(by=Factor)
-cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusMultifactor(by=Factor)
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusMultifactor(by=Factor)
-
-cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusBy(by=Factor)
-cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusBy(by=Factor)
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusBy(by=Factor)
-
 ### Analyses of the Means
-
-cbind(Outcome1,Outcome2,Outcome3) |> plotMeansMultifactor(by=Factor,col=c("darkred","darkblue"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("darkred","darkblue"))
 
 cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansBy(by=Factor)
 cbind(Outcome1,Outcome2,Outcome3) |> plotMeansBy(by=Factor)

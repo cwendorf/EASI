@@ -21,7 +21,7 @@ FactorialB1 <- subset(FactorialData,FactorB=="B1")
 FactorialB2 <- subset(FactorialData,FactorB=="B2")
 ```
 
-#### Descriptive Statistics
+### Descriptive Statistics
 
 Get descriptive statistics separately for each simple effect.
 
@@ -32,9 +32,9 @@ Get descriptive statistics separately for each simple effect.
 ```
 ## $`Descriptive Statistics for the Data`
 ##          N       M      SD    Skew    Kurt
-## A1  30.000   7.813   2.204   0.069  -1.056
-## A2  30.000  10.598   2.860  -0.418  -0.358
-## A3  30.000  12.759   4.544   0.402  -0.094
+## A1  30.000   8.265   1.397   0.213   0.199
+## A2  30.000  10.749   3.630  -0.472  -0.258
+## A3  30.000  10.945   3.903   0.029  -0.987
 ```
 
 ```r
@@ -44,9 +44,9 @@ Get descriptive statistics separately for each simple effect.
 ```
 ## $`Descriptive Statistics for the Data`
 ##          N       M      SD    Skew    Kurt
-## A1  30.000   7.732   1.813  -0.564   1.276
-## A2  30.000   8.595   3.610   0.612   0.124
-## A3  30.000   8.248   3.593   0.772   0.159
+## A1  30.000   7.606   2.039  -0.012  -0.030
+## A2  30.000   7.508   3.231   0.084   0.498
+## A3  30.000   7.772   4.195  -0.276  -0.920
 ```
 
 ### Analyses of the Means
@@ -60,9 +60,9 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   7.813   0.402  29.000   6.991   8.636
-## A2  10.598   0.522  29.000   9.530  11.665
-## A3  12.759   0.830  29.000  11.062  14.456
+## A1   8.265   0.255  29.000   7.744   8.787
+## A2  10.749   0.663  29.000   9.393  12.104
+## A3  10.945   0.713  29.000   9.487  12.402
 ```
 
 ```r
@@ -72,9 +72,9 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Confidence Intervals for the Means`
 ##          M      SE      df      LL      UL
-## A1   7.732   0.331  29.000   7.055   8.409
-## A2   8.595   0.659  29.000   7.247   9.943
-## A3   8.248   0.656  29.000   6.906   9.589
+## A1   7.606   0.372  29.000   6.844   8.367
+## A2   7.508   0.590  29.000   6.302   8.715
+## A3   7.772   0.766  29.000   6.205   9.338
 ```
 
 ```r
@@ -96,7 +96,7 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Hypothesis Test for the Model`
 ##              F     df1     df2       p
-## Factor  16.427   2.000  87.000   0.000
+## Factor   6.612   2.000  87.000   0.002
 ```
 
 ```r
@@ -106,7 +106,7 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Hypothesis Test for the Model`
 ##              F     df1     df2       p
-## Factor   0.581   2.000  87.000   0.562
+## Factor   0.049   2.000  87.000   0.952
 ```
 
 ```r
@@ -116,9 +116,9 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##          d      SE      LL      UL
-## A1   3.546   0.487   2.565   4.517
-## A2   3.706   0.506   2.687   4.716
-## A3   2.808   0.402   1.999   3.606
+## A1   5.917   0.774   4.356   7.471
+## A2   2.961   0.419   2.117   3.795
+## A3   2.804   0.402   1.996   3.601
 ```
 
 ```r
@@ -128,9 +128,9 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##          d      SE      LL      UL
-## A1   4.266   0.573   3.111   5.411
-## A2   2.381   0.355   1.668   3.082
-## A3   2.296   0.346   1.601   2.978
+## A1   3.730   0.509   2.705   4.745
+## A2   2.324   0.349   1.624   3.013
+## A3   1.853   0.300   1.252   2.441
 ```
 
 ### Analyses of a Comparison
@@ -151,7 +151,7 @@ Estimate, plot, test, and standardize the comparison separately for each simple 
 ```
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   2.784   0.659  54.464   1.463   4.105
+## Comparison   2.483   0.710  37.404   1.045   3.922
 ```
 
 ```r
@@ -161,7 +161,7 @@ Estimate, plot, test, and standardize the comparison separately for each simple 
 ```
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.863   0.737  42.750  -0.625   2.350
+## Comparison  -0.097   0.698  48.941  -1.499   1.304
 ```
 
 ```r
@@ -183,7 +183,7 @@ Estimate, plot, test, and standardize the comparison separately for each simple 
 ```
 ## $`Hypothesis Test for the Mean Difference`
 ##               Diff      SE      df       t       p
-## Comparison   2.784   0.659  54.464   4.224   0.000
+## Comparison   2.483   0.710  37.404   3.497   0.001
 ```
 
 ```r
@@ -193,7 +193,7 @@ Estimate, plot, test, and standardize the comparison separately for each simple 
 ```
 ## $`Hypothesis Test for the Mean Difference`
 ##               Diff      SE      df       t       p
-## Comparison   0.863   0.737  42.750   1.170   0.248
+## Comparison  -0.097   0.698  48.941  -0.140   0.890
 ```
 
 ```r
@@ -203,7 +203,7 @@ Estimate, plot, test, and standardize the comparison separately for each simple 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
 ##                  d      SE      LL      UL
-## Comparison   1.091   0.283   0.537   1.645
+## Comparison   0.903   0.283   0.349   1.457
 ```
 
 ```r
@@ -213,7 +213,7 @@ Estimate, plot, test, and standardize the comparison separately for each simple 
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
 ##                  d      SE      LL      UL
-## Comparison   0.302   0.265  -0.217   0.821
+## Comparison  -0.036   0.263  -0.551   0.479
 ```
 
 ### Analyses of a Contrast
@@ -233,7 +233,7 @@ Estimate, plot, test, and standardize the contrast separately for each simple ef
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   3.865   0.634  77.555   2.602   5.127
+## Contrast   2.581   0.549  81.512   1.488   3.674
 ```
 
 ```r
@@ -243,7 +243,7 @@ Estimate, plot, test, and standardize the contrast separately for each simple ef
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   0.689   0.571  86.995  -0.445   1.823
+## Contrast   0.034   0.610  83.222  -1.179   1.248
 ```
 
 ```r
@@ -265,7 +265,7 @@ Estimate, plot, test, and standardize the contrast separately for each simple ef
 ```
 ## $`Hypothesis Test for the Mean Contrast`
 ##              Est      SE      df       t       p
-## Contrast   3.865   0.634  77.555   6.095   0.000
+## Contrast   2.581   0.549  81.512   4.699   0.000
 ```
 
 ```r
@@ -275,7 +275,7 @@ Estimate, plot, test, and standardize the contrast separately for each simple ef
 ```
 ## $`Hypothesis Test for the Mean Contrast`
 ##              Est      SE      df       t       p
-## Contrast   0.689   0.571  86.995   1.208   0.230
+## Contrast   0.034   0.610  83.222   0.056   0.955
 ```
 
 ```r
@@ -285,7 +285,7 @@ Estimate, plot, test, and standardize the contrast separately for each simple ef
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast`
 ##              Est      SE      LL      UL
-## Contrast   1.154   0.218   0.726   1.581
+## Contrast   0.811   0.189   0.440   1.183
 ```
 
 ```r
@@ -295,5 +295,5 @@ Estimate, plot, test, and standardize the contrast separately for each simple ef
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast`
 ##              Est      SE      LL      UL
-## Contrast   0.221   0.187  -0.145   0.587
+## Contrast   0.010   0.189  -0.361   0.382
 ```

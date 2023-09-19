@@ -50,7 +50,7 @@ MixedB1 <- subset(MixedData,Factor=="Level1")
 MixedB2 <- subset(MixedData,Factor=="Level2")
 ```
 
-#### Descriptive Statistics
+### Descriptive Statistics
 
 Get the descriptive statistics separately for each simple effect.
 ```{r}

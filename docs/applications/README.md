@@ -46,8 +46,8 @@ The **Complex** pages analyze differences between two contrasts on the same meas
 
 The **Standardized** pages introduce plots of standardized mean comparisons and subsets:
 
-- [*StandardizedOneWayDataApplication*](./ComplexOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*StandardizedRepeatedMeasuresDataApplication*](./ComplexRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+- [*StandardizedOneWayDataApplication*](./StandardizedOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*StandardizedRepeatedMeasuresDataApplication*](./StandardizedRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 ### Omnibus and Simple Effects Specification
 

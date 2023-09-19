@@ -21,7 +21,7 @@ MixedB1 <- subset(MixedData,Factor=="Level1")
 MixedB2 <- subset(MixedData,Factor=="Level2")
 ```
 
-#### Descriptive Statistics
+### Descriptive Statistics
 
 Get the descriptive statistics separately for each simple effect.
 
@@ -32,9 +32,9 @@ Get the descriptive statistics separately for each simple effect.
 ```
 ## $`Descriptive Statistics for the Data`
 ##                N       M      SD    Skew    Kurt
-## Outcome1  30.000   7.933   1.780   0.068  -0.766
-## Outcome2  30.000  10.967   2.723  -0.676   0.041
-## Outcome3  30.000  11.567   3.298  -0.182   0.001
+## Outcome1  30.000   7.933   2.116  -0.304  -0.550
+## Outcome2  30.000  11.333   4.342   0.052  -0.696
+## Outcome3  30.000  12.133   3.371  -0.129   0.029
 ```
 
 ```r
@@ -44,9 +44,9 @@ Get the descriptive statistics separately for each simple effect.
 ```
 ## $`Descriptive Statistics for the Data`
 ##                N       M      SD    Skew    Kurt
-## Outcome1  30.000   7.867   1.676  -0.387   2.140
-## Outcome2  30.000   7.933   3.151   1.242   1.554
-## Outcome3  30.000   7.100   3.680  -0.445   0.554
+## Outcome1  30.000   8.033   2.157  -0.201  -0.734
+## Outcome2  30.000   7.767   3.048  -0.530   0.154
+## Outcome3  30.000   7.800   3.156   0.246  -1.195
 ```
 
 ### Analyses of the Means
@@ -60,9 +60,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   7.933   0.325  29.000   7.269   8.598
-## Outcome2  10.967   0.497  29.000   9.950  11.983
-## Outcome3  11.567   0.602  29.000  10.335  12.798
+## Outcome1   7.933   0.386  29.000   7.143   8.724
+## Outcome2  11.333   0.793  29.000   9.712  12.955
+## Outcome3  12.133   0.615  29.000  10.875  13.392
 ```
 
 ```r
@@ -72,9 +72,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Means`
 ##                M      SE      df      LL      UL
-## Outcome1   7.867   0.306  29.000   7.241   8.493
-## Outcome2   7.933   0.575  29.000   6.757   9.110
-## Outcome3   7.100   0.672  29.000   5.726   8.474
+## Outcome1   8.033   0.394  29.000   7.228   8.839
+## Outcome2   7.767   0.556  29.000   6.629   8.905
+## Outcome3   7.800   0.576  29.000   6.622   8.978
 ```
 
 ```r
@@ -96,7 +96,7 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Hypothesis Test for the Model`
 ##                F     df1     df2       p
-## Measures  15.035   2.000  58.000   0.000
+## Measures  14.012   2.000  58.000   0.000
 ```
 
 ```r
@@ -106,7 +106,7 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Hypothesis Test for the Model`
 ##                F     df1     df2       p
-## Measures   0.654   2.000  58.000   0.524
+## Measures   0.086   2.000  58.000   0.917
 ```
 
 ```r
@@ -116,9 +116,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##                d      SE      LL      UL
-## Outcome1   4.457   0.596   3.256   5.649
-## Outcome2   4.028   0.544   2.931   5.115
-## Outcome3   3.508   0.483   2.535   4.470
+## Outcome1   3.749   0.511   2.719   4.769
+## Outcome2   2.610   0.380   1.846   3.363
+## Outcome3   3.600   0.493   2.606   4.584
 ```
 
 ```r
@@ -128,9 +128,9 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ```
 ## $`Confidence Intervals for the Standardized Means`
 ##                d      SE      LL      UL
-## Outcome1   4.694   0.624   3.435   5.943
-## Outcome2   2.518   0.370   1.775   3.250
-## Outcome3   1.929   0.307   1.313   2.534
+## Outcome1   3.724   0.508   2.700   4.738
+## Outcome2   2.548   0.373   1.798   3.287
+## Outcome3   2.472   0.365   1.739   3.193
 ```
 
 ### Analyses of a Comparison
@@ -144,7 +144,7 @@ Analyze the specified comparison separately for each simple effect.
 ```
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   3.033   0.662  29.000   1.680   4.387
+## Comparison   3.400   0.887  29.000   1.585   5.215
 ```
 
 ```r
@@ -154,7 +154,7 @@ Analyze the specified comparison separately for each simple effect.
 ```
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   0.067   0.695  29.000  -1.354   1.487
+## Comparison  -0.267   0.636  29.000  -1.567   1.034
 ```
 
 ```r
@@ -176,7 +176,7 @@ Analyze the specified comparison separately for each simple effect.
 ```
 ## $`Hypothesis Test for the Mean Difference`
 ##               Diff      SE      df       t       p
-## Comparison   3.033   0.662  29.000   4.584   0.000
+## Comparison   3.400   0.887  29.000   3.831   0.001
 ```
 
 ```r
@@ -186,7 +186,7 @@ Analyze the specified comparison separately for each simple effect.
 ```
 ## $`Hypothesis Test for the Mean Difference`
 ##               Diff      SE      df       t       p
-## Comparison   0.067   0.695  29.000   0.096   0.924
+## Comparison  -0.267   0.636  29.000  -0.419   0.678
 ```
 
 ```r
@@ -196,7 +196,7 @@ Analyze the specified comparison separately for each simple effect.
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
 ##                  d      SE      LL      UL
-## Comparison   1.319   0.322   0.687   1.951
+## Comparison   0.996   0.286   0.436   1.556
 ```
 
 ```r
@@ -206,7 +206,7 @@ Analyze the specified comparison separately for each simple effect.
 ```
 ## $`Confidence Interval for the Standardized Mean Difference`
 ##                  d      SE      LL      UL
-## Comparison   0.026   0.280  -0.522   0.575
+## Comparison  -0.101   0.245  -0.582   0.380
 ```
 
 ### Analyses of a Contrast
@@ -226,7 +226,7 @@ Analyze the specified contrast separately for each simple effect.
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   3.333   0.494  29.000   2.323   4.343
+## Contrast   3.800   0.655  29.000   2.459   5.141
 ```
 
 ```r
@@ -236,7 +236,7 @@ Analyze the specified contrast separately for each simple effect.
 ```
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast  -0.350   0.487  29.000  -1.345   0.645
+## Contrast  -0.250   0.532  29.000  -1.337   0.837
 ```
 
 ```r
@@ -258,7 +258,7 @@ Analyze the specified contrast separately for each simple effect.
 ```
 ## $`Hypothesis Test for the Mean Contrast`
 ##              Est      SE      df       t       p
-## Contrast   3.333   0.494  29.000   6.750   0.000
+## Contrast   3.800   0.655  29.000   5.797   0.000
 ```
 
 ```r
@@ -268,7 +268,7 @@ Analyze the specified contrast separately for each simple effect.
 ```
 ## $`Hypothesis Test for the Mean Contrast`
 ##              Est      SE      df       t       p
-## Contrast  -0.350   0.487  29.000  -0.719   0.478
+## Contrast  -0.250   0.532  29.000  -0.470   0.642
 ```
 
 ```r
@@ -278,7 +278,7 @@ Analyze the specified contrast separately for each simple effect.
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast`
 ##              Est      SE      LL      UL
-## Contrast   1.246   0.225   0.806   1.687
+## Contrast   1.117   0.206   0.714   1.521
 ```
 
 ```r
@@ -288,5 +288,5 @@ Analyze the specified contrast separately for each simple effect.
 ```
 ## $`Confidence Interval for the Standardized Mean Contrast`
 ##              Est      SE      LL      UL
-## Contrast  -0.118   0.194  -0.499   0.262
+## Contrast  -0.089   0.194  -0.468   0.291
 ```

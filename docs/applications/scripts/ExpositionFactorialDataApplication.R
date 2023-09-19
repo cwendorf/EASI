@@ -17,24 +17,43 @@ FactorialData <- data.frame(FactorA,FactorB,Outcome)
 FactorialB1 <- subset(FactorialData,FactorB=="B1")
 FactorialB2 <- subset(FactorialData,FactorB=="B2")
 
-### Analyses of the Means
+### Descriptive Statistics
 
-(FactorialB1) %$>% (Outcome~FactorA) |> plotData(main="Confidence Intervals and Data",ylim=c(-5,25),offset=-.05,method="overplot",col="darkblue")
-(FactorialB2) %$>% (Outcome~FactorA) |> plotData(add=TRUE,offset=.05,method="overplot",col="darkred")
-(FactorialB1) %$>% (Outcome~FactorA) |> plotMeans(add=TRUE,offset=-.15,col="darkblue",values=FALSE)
-(FactorialB2) %$>% (Outcome~FactorA) |> plotMeans(add=TRUE,offset=.15,col="darkred",values=FALSE)
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("B1","B2"),col=c("darkblue","darkred"))
+(FactorialB1) %$>% (Outcome~FactorA) |> describeMeans()
+(FactorialB2) %$>% (Outcome~FactorA) |> describeMeans()
+
+### Analyses of the Means
 
 (FactorialB1) %$>% (Outcome~FactorA) |> estimateMeans()
 (FactorialB2) %$>% (Outcome~FactorA) |> estimateMeans()
-
-### Analyses of the Simple Effects
-
-(FactorialB1) %$>% (Outcome~FactorA) |> describeMeansOmnibus()
-(FactorialB2) %$>% (Outcome~FactorA) |> describeMeansOmnibus()
-
+(FactorialB1) %$>% (Outcome~FactorA) |> plotMeans()
+(FactorialB2) %$>% (Outcome~FactorA) |> plotMeans()
 (FactorialB1) %$>% (Outcome~FactorA) |> testMeansOmnibus()
 (FactorialB2) %$>% (Outcome~FactorA) |> testMeansOmnibus()
+(FactorialB1) %$>% (Outcome~FactorA) |> estimateStandardizedMeans()
+(FactorialB2) %$>% (Outcome~FactorA) |> estimateStandardizedMeans()
 
-(FactorialB1) %$>% (Outcome~FactorA) |> estimateMeansOmnibus()
-(FactorialB2) %$>% (Outcome~FactorA) |> estimateMeansOmnibus()
+### Analyses of a Comparison
+
+ComparisonB1 <- (FactorialB1) %$>% factor(FactorA,c("A1","A2"))
+ComparisonB2 <- (FactorialB2) %$>% factor(FactorA,c("A1","A2"))
+(FactorialB1) %$>% (Outcome~ComparisonB1) |> estimateMeanDifference()
+(FactorialB2) %$>% (Outcome~ComparisonB2) |> estimateMeanDifference()
+(FactorialB1) %$>% (Outcome~ComparisonB1) |> plotMeanDifference()
+(FactorialB2) %$>% (Outcome~ComparisonB2) |> plotMeanDifference()
+(FactorialB1) %$>% (Outcome~ComparisonB1) |> testMeanDifference()
+(FactorialB2) %$>% (Outcome~ComparisonB2) |> testMeanDifference()
+(FactorialB1) %$>% (Outcome~ComparisonB1) |> estimateStandardizedMeanDifference()
+(FactorialB2) %$>% (Outcome~ComparisonB2) |> estimateStandardizedMeanDifference()
+
+### Analyses of a Contrast
+
+A1vsOthers <- c(-1,.5,.5)
+(FactorialB1) %$>% (Outcome~FactorA) |> estimateMeanContrast(contrast=A1vsOthers)
+(FactorialB2) %$>% (Outcome~FactorA) |> estimateMeanContrast(contrast=A1vsOthers)
+(FactorialB1) %$>% (Outcome~FactorA) |> plotMeanContrast(contrast=A1vsOthers)
+(FactorialB2) %$>% (Outcome~FactorA) |> plotMeanContrast(contrast=A1vsOthers)
+(FactorialB1) %$>% (Outcome~FactorA) |> testMeanContrast(contrast=A1vsOthers)
+(FactorialB2) %$>% (Outcome~FactorA) |> testMeanContrast(contrast=A1vsOthers)
+(FactorialB1) %$>% (Outcome~FactorA) |> estimateStandardizedMeanContrast(contrast=A1vsOthers)
+(FactorialB2) %$>% (Outcome~FactorA) |> estimateStandardizedMeanContrast(contrast=A1vsOthers)

@@ -45,7 +45,7 @@ Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 ```
 
-#### Descriptive Statistics
+### Descriptive Statistics
 
 Get the descriptive statistics separately for each simple effect.
 ```{r}
