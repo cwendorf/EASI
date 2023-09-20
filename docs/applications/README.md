@@ -5,7 +5,7 @@
 
 The advanced applications represent experimental and undocumented features of EASI. Data for these applications are from a variety of published and simulated sources. In the spirit of experimentation, all applications use the native pipe operator to identify data sources (rather than using standard R syntax) and most add color to enhance plots.
 
-### Analyses and Plots that Combine Features
+### Basic and Exploratory Analyses
 
 The **Analyze** pages use a simple command to provide confidence intervals, significance tests, and standardized effect sizes at the same time:
 
@@ -22,12 +22,17 @@ The **Exploratory** pages build violin plots, beanplots, and raincloud plots:
 - [*ExploratoryOneWayDataApplication*](./ExploratoryOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*ExploratoryRepeatedMeasuresDataApplication*](./ExploratoryRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
+### Contrast and Comparison Representations
+
 The **Combination** pages add data, plausibility curves, and other information to confidence interval plots:
 
 - [*CombinationOneWayDataApplication*](./CombinationOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*CombinationRepeatedMeasuresDataApplication*](./CombinationRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
-### Alternative Contrast Representations
+The **Complex** pages analyze differences between two contrasts on the same measures or groups:
+
+- [*ComplexOneWayDataApplication*](./ComplexOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ComplexRepeatedMeasuresDataApplication*](./ComplexRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Pairwise** pages examine unadjusted pairwise comparisons and Tukey post hoc comparisons using traditional confidence interval plots and diffograms:
 
@@ -38,11 +43,6 @@ The **Relational** pages examine means and mean differences using the concepts o
 
 - [*RelationalOneWayDataApplication*](./RelationalOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*RelationalRepeatedMeasuresDataApplication*](./RelationalRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
-
-The **Complex** pages analyze differences between two contrasts on the same measures or groups:
-
-- [*ComplexOneWayDataApplication*](./ComplexOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*ComplexRepeatedMeasuresDataApplication*](./ComplexRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 ### Omnibus and Simple Effects Specification
 
