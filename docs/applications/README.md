@@ -44,11 +44,6 @@ The **Complex** pages analyze differences between two contrasts on the same meas
 - [*ComplexOneWayDataApplication*](./ComplexOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*ComplexRepeatedMeasuresDataApplication*](./ComplexRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
-The **Standardized** pages introduce plots of standardized mean comparisons and subsets:
-
-- [*StandardizedOneWayDataApplication*](./StandardizedOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*StandardizedRepeatedMeasuresDataApplication*](./StandardizedRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
-
 ### Omnibus and Simple Effects Specification
 
 The **Exposition** pages implement a exposition pipe operator to simplify the use of subsets (like simple effects) in factorial and mixed designs:
