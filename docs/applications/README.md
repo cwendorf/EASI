@@ -26,8 +26,8 @@ The **Exploratory** pages build violin plots, beanplots, and raincloud plots:
 
 The **Contrasts** pages add data, plausibility curves, and other information to confidence interval plots of contrasts:
 
-- [*ContrastsOneWayDataApplication*](./CombinationOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*ContrastsRepeatedMeasuresDataApplication*](./CombinationRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+- [*ContrastsOneWayDataApplication*](./ContrastsOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ContrastsRepeatedMeasuresDataApplication*](./ContrastsRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Complex** pages analyze differences between two contrasts on the same measures or groups:
 
