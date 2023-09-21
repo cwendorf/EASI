@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Combination OneWay Data Application
+## Contrasts OneWay Data Application
 
 ### Package Loading
 

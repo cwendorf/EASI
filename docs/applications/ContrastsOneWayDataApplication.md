@@ -1,6 +1,6 @@
-## Combination OneWay Data Application
+## Contrasts OneWay Data Application
 
-This page adds data, plausibility curves, and other information to confidence interval plots using one-way (between-subjects) data.
+This page adds data, plausibility curves, and other information to confidence interval plots of contrasts using one-way (between-subjects) data.
 
 ### Data Management
 

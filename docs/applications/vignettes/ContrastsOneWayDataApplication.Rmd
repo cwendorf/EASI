@@ -12,7 +12,7 @@ output:
     highlight: tango
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Combination OneWay Data Application}
+  %\VignetteIndexEntry{Contrasts OneWay Data Application}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -29,9 +29,9 @@ remotes::install_github("cwendorf/EASI")}
 library(EASI)
 ```
 
-## Combination OneWay Data Application
+## Contrasts OneWay Data Application
 
-This page adds data, plausibility curves, and other information to confidence interval plots using one-way (between-subjects) data.
+This page adds data, plausibility curves, and other information to confidence interval plots of contrasts using one-way (between-subjects) data.
 
 ### Data Management
 
