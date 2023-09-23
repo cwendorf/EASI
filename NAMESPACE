@@ -153,22 +153,7 @@ S3method(.testMeanComparison,bss)
 export(.testMeanComparison)
 export(testMeanComparison)
 
-S3method(plotMeanComparison,default)
-S3method(plotMeanComparison,formula)
-S3method(plotMeanComparison,wss)
-S3method(plotMeanComparison,bss)
 export(plotMeanComparison)
-
-### xStandardizedMeanComparison
-
-S3method(.estimateStandardizedMeanComparison,default)
-S3method(.estimateStandardizedMeanComparison,formula)
-S3method(.estimateStandardizedMeanComparison,wss)
-S3method(.estimateStandardizedMeanComparison,bss)
-export(.estimateStandardizedMeanComparison)
-export(estimateStandardizedMeanComparison)
-
-export(plotStandardizedMeanComparison)
 
 ### xMeanContrast
 
@@ -220,21 +205,6 @@ S3method(plotMeanSubsets,formula)
 S3method(plotMeanSubsets,wss)
 S3method(plotMeanSubsets,bss)
 export(plotMeanSubsets)
-
-### xStandardizedMeanSubsets
-
-S3method(.estimateStandardizedMeanSubsets,default)
-S3method(.estimateStandardizedMeanSubsets,formula)
-S3method(.estimateStandardizedMeanSubsets,wss)
-S3method(.estimateStandardizedMeanSubsets,bss)
-export(.estimateStandardizedMeanSubsets)
-export(estimateStandardizedMeanSubsets)
-
-S3method(plotStandardizedMeanSubsets,default)
-S3method(plotStandardizedMeanSubsets,formula)
-S3method(plotStandardizedMeanSubsets,wss)
-S3method(plotStandardizedMeanSubsets,bss)
-export(plotStandardizedMeanSubsets)
 
 ### xMeanComplex
 
