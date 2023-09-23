@@ -14,7 +14,7 @@
 <p align="center"><kbd><img src="docs/easiCoverImage.jpg"></kbd></p>
 </a>
 
-Additional functions offer summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics applications. 
+Additional functions extend the analysis capabilities much further. These extensions also offer summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics applications. 
 
 <a href="https://github.com/cwendorf/EASI">
 <p align="center"><kbd><img src="docs/easiCoverImage2.jpg"></kbd></p>
@@ -40,7 +40,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 The package includes a wide variety of tutorials, examples, and applications that demonstrate its use:
 
-- [Quick Start Guide](./docs) - A quick start Overview and summary of the package
+- [Quick Start Guide](./docs) - A quick start overview and summary of the package
 - [Details of the Functions](./docs/functions) - A manual describing the functions and their available options
 - [Tutorials from the Sourcebook](./docs/tutorials) - Vignettes with tutorial data that show the basic options 
 - [Examples from ITNS](./docs/examples) - Reanalyses of published textbook examples that highlight the estimation approach 
