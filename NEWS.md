@@ -3,6 +3,8 @@
 ## Developmental Version
 
 - Added alternative color theme
+- Simplified calls for adding elements to existing plots
+- Updated passthrough functionality for plots
 
 ## 5.2.220726
 

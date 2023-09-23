@@ -650,3 +650,16 @@ export(analyzeMeanDifference)
 export(analyzeMeanContrast)
 export(analyzeMeansOmnibus)
 export(analyzeMeansPairwise)
+
+### addX
+
+export(addData)
+export(addFrequencies)
+export(addBoxes)
+export(addDensity)
+export(addMeans)
+export(addIntervals)
+export(addDiamonds)
+export(addPlausible)
+export(addScatter)
+export(addRegression)

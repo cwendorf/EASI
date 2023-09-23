@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Meta-Wrappers for Main Functions
+## Analyze Meta-Wrappers
 
 ### Means
 
