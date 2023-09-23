@@ -5,6 +5,10 @@
 
 export("%$>%")
 
+### colorX
+
+export(theme)
+
 ### xData
 
 S3method(plotData,default)
