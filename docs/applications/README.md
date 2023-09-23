@@ -67,3 +67,8 @@ The **Passthrough** pages use of passthrough capabilities and pipe operators to 
 
 - [*PassthroughOneWayDataApplication*](./PassthroughsOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*PassthroughRepeatedMeasuresDataApplication*](./PassthroughRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+
+The **Theme** pages enhance different types of plots with EASI color themes:
+
+- [*ThemeOneWayDataApplication*](./ThemeOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ThemeRepeatedMeasuresDataApplication*](./ThemeRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
