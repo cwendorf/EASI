@@ -65,7 +65,7 @@ The **Contrasts** pages add data, plausibility curves, and other information to 
 
 The **Passthrough** pages use of passthrough capabilities and pipe operators to build plots that combine various elements:
 
-- [*PassthroughOneWayDataApplication*](./PassthroughsOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*PassthroughOneWayDataApplication*](./PassthroughOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*PassthroughRepeatedMeasuresDataApplication*](./PassthroughRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Theme** pages enhance different types of plots with EASI color themes:
