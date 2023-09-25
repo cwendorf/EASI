@@ -14,14 +14,17 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 
 ### Analyses of the Means
 
-(RepeatedData) |> plotMeans(col=theme())
-(RepeatedData) |> plotData(col=theme(),add=TRUE)
+(RepeatedData) |> plotMeans(col="darkblue")
+(RepeatedData) |> plotMeans(col=c("darkred","darkblue","darkgoldenrod","darkgreen","darkviolet"))
 
-(RepeatedData) |> plotMeans(col=theme("muted","main",ncol(RepeatedData)))
-(RepeatedData) |> plotData(col=theme("muted","main",ncol(RepeatedData)),add=TRUE)
+(RepeatedData) |> plotMeans(col=theme("muted"))
+(RepeatedData) |> plotMeans(col=theme("muted","main"))
 
 ### Analyses of a Comparison
 
 ComparisonData <- cbind(Outcome1,Outcome2)
-ComparisonData |> plotMeanComparison(col=theme("vibrant","comp"))
-ComparisonData |> plotPlausible(col=theme("vibrant","comp"),add=TRUE)
+(ComparisonData) |> plotMeanComparison(col=c("darkred","darkblue","black"))
+(ComparisonData) |> plotPlausible(col=c("darkred","darkblue","black"),add=TRUE)
+
+(ComparisonData) |> plotMeanComparison(col=theme("vibrant","comp"))
+(ComparisonData) |> plotPlausible(col=theme("vibrant","comp"),add=TRUE)

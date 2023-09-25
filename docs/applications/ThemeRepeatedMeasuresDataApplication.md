@@ -17,32 +17,46 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 
 ### Analyses of the Means
 
-Rather than directly specifying colors for each level, simply specify a built-in color theme (like EASI's "muted" theme, which is the default if "theme" is used).
+In plotting a main effect, the classic method for specifying colors is to identify either a single color for all elements of the plot or to directly specify the color for each level.
 
 ```r
-(RepeatedData) |> plotMeans(col=theme())
-(RepeatedData) |> plotData(col=theme(),add=TRUE)
+(RepeatedData) |> plotMeans(col="darkblue")
 ```
 
 ![](figures/Theme-Repeated-MeansA-1.png)<!-- -->
 
-For larger number of levels, it may be preferably to use colors along a spectrum (similar to the vibrant or muted themes, though with the color orders determined mathematically) and have R determine the number of levels across the main effect.
+```r
+(RepeatedData) |> plotMeans(col=c("darkred","darkblue","darkgoldenrod","darkgreen","darkviolet"))
+```
+
+![](figures/Theme-Repeated-MeansA-2.png)<!-- -->
+
+Rather than directly specifying colors for each level, simply specify a pre-determined color theme (like the "muted" theme).
 
 ```r
-(RepeatedData) |> plotMeans(col=theme("muted","main",ncol(RepeatedData)))
-(RepeatedData) |> plotData(col=theme("muted","main",ncol(RepeatedData)),add=TRUE)
+(RepeatedData) |> plotMeans(col=theme("muted"))
+(RepeatedData) |> plotMeans(col=theme("muted","main"))
 ```
 
 ![](figures/Theme-Repeated-MeansB-1.png)<!-- -->
 
 ### Analyses of a Comparison
 
-In plotting a comparison, it may be preferable to use a theme for the main elements (like the confidence intervals and plausibility curves), but use a set color for the comparison portion of the graph. To do this, use the "comp" parameter (instead of "main").
+In plotting a comparison, the classic method would again directly specify the levels for each element of the graph.
 
 ```r
 ComparisonData <- cbind(Outcome1,Outcome2)
-ComparisonData |> plotMeanComparison(col=theme("vibrant","comp"))
-ComparisonData |> plotPlausible(col=theme("vibrant","comp"),add=TRUE)
+(ComparisonData) |> plotMeanComparison(col=c("darkred","darkblue","black"))
+(ComparisonData) |> plotPlausible(col=c("darkred","darkblue","black"),add=TRUE)
 ```
 
-![](figures/Theme-Repeated-Comparison-1.png)<!-- -->
+![](figures/Theme-Repeated-ComparisonA-1.png)<!-- -->
+
+It may be preferable to use a theme for the main elements (like the confidence intervals and plausibility curves), but use a set color for the comparison portion of the graph. To do this, use the "comp" parameter (instead of "main").
+
+```r
+(ComparisonData) |> plotMeanComparison(col=theme("vibrant","comp"))
+(ComparisonData) |> plotPlausible(col=theme("vibrant","comp"),add=TRUE)
+```
+
+![](figures/Theme-Repeated-ComparisonB-1.png)<!-- -->

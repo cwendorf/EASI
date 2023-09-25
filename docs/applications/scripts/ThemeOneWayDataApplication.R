@@ -11,14 +11,17 @@ Factor <- factor(Factor,levels=c(1,2,3,4,5),labels=c("Level1","Level2","Level3",
 
 ### Analyses of the Means
 
-(Outcome~Factor) |> plotMeans(col=theme())
-(Outcome~Factor) |> plotData(col=theme(),add=TRUE)
+(Outcome~Factor) |> plotMeans(col="darkblue")
+(Outcome~Factor) |> plotMeans(col=c("darkred","darkblue","darkgoldenrod","darkgreen","darkviolet"))
 
-(Outcome~Factor) |> plotMeans(col=theme("muted","main",nlevels(Factor)))
-(Outcome~Factor) |> plotData(col=theme("muted","main",nlevels(Factor)),add=TRUE)
+(Outcome~Factor) |> plotMeans(col=theme("muted"))
+(Outcome~Factor) |> plotMeans(col=theme("muted","main"))
 
 ### Analyses of a Comparison
 
-Comparison = factor(Factor,c("Level1","Level2"))
+Comparison <- factor(Factor,c("Level1","Level2"))
+(Outcome~Comparison) |> plotMeanComparison(col=c("darkred","darkblue","black"))
+(Outcome~Comparison) |> plotPlausible(col=c("darkred","darkblue","black"),add=TRUE)
+
 (Outcome~Comparison) |> plotMeanComparison(col=theme("vibrant","comp"))
 (Outcome~Comparison) |> plotPlausible(col=theme("vibrant","comp"),add=TRUE)
