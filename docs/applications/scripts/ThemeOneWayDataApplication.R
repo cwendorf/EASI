@@ -20,8 +20,8 @@ Factor <- factor(Factor,levels=c(1,2,3,4,5),labels=c("Level1","Level2","Level3",
 ### Analyses of a Comparison
 
 Comparison <- factor(Factor,c("Level1","Level2"))
-(Outcome~Comparison) |> plotMeanComparison(col=c("darkred","darkblue","black"))
-(Outcome~Comparison) |> plotPlausible(col=c("darkred","darkblue","black"),add=TRUE)
+(Outcome~Comparison) |> plotMeanComparison(col=c("red3","blue3","black"))
+(Outcome~Comparison) |> plotPlausible(col=c("red3","blue3","black"),add=TRUE)
 
 (Outcome~Comparison) |> plotMeanComparison(col=theme("vibrant","comp"))
 (Outcome~Comparison) |> plotPlausible(col=theme("vibrant","comp"),add=TRUE)

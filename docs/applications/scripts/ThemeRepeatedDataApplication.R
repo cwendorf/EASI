@@ -23,8 +23,8 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3,Outcome4,Outcome5)
 ### Analyses of a Comparison
 
 ComparisonData <- cbind(Outcome1,Outcome2)
-(ComparisonData) |> plotMeanComparison(col=c("darkred","darkblue","black"))
-(ComparisonData) |> plotPlausible(col=c("darkred","darkblue","black"),add=TRUE)
+(ComparisonData) |> plotMeanComparison(col=c("red3","blue3","black"))
+(ComparisonData) |> plotPlausible(col=c("red3","blue3","black"),add=TRUE)
 
 (ComparisonData) |> plotMeanComparison(col=theme("vibrant","comp"))
 (ComparisonData) |> plotPlausible(col=theme("vibrant","comp"),add=TRUE)

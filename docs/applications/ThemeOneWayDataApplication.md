@@ -43,13 +43,13 @@ In plotting a comparison, the classic method would again directly specify the le
 
 ```r
 Comparison <- factor(Factor,c("Level1","Level2"))
-(Outcome~Comparison) |> plotMeanComparison(col=c("darkred","darkblue","black"))
-(Outcome~Comparison) |> plotPlausible(col=c("darkred","darkblue","black"),add=TRUE)
+(Outcome~Comparison) |> plotMeanComparison(col=c("red3","blue3","black"))
+(Outcome~Comparison) |> plotPlausible(col=c("red3","blue3","black"),add=TRUE)
 ```
 
 ![](figures/Theme-OneWay-ComparisonA-1.png)<!-- -->
 
-It may be preferable to use a theme for the main elements (like the confidence intervals and plausibility curves), but use a set color for the comparison portion of the graph. To do this, use the "comp" parameter (instead of "main").
+It may be preferable to use a theme for the main elements (using the "vibrant" theme), but use a set color for the comparison portion of the graph. To do this, use the "comp" parameter (instead of "main").
 
 ```r
 (Outcome~Comparison) |> plotMeanComparison(col=theme("vibrant","comp"))

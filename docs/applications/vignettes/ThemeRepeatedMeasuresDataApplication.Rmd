@@ -64,11 +64,11 @@ Rather than directly specifying colors for each level, simply specify a pre-dete
 In plotting a comparison, the classic method would again directly specify the levels for each element of the graph.
 ```{r,Theme-Repeated-ComparisonA}
 ComparisonData <- cbind(Outcome1,Outcome2)
-(ComparisonData) |> plotMeanComparison(col=c("darkred","darkblue","black"))
-(ComparisonData) |> plotPlausible(col=c("darkred","darkblue","black"),add=TRUE)
+(ComparisonData) |> plotMeanComparison(col=c("red3","blue3","black"))
+(ComparisonData) |> plotPlausible(col=c("red3","blue3","black"),add=TRUE)
 ```
 
-It may be preferable to use a theme for the main elements (like the confidence intervals and plausibility curves), but use a set color for the comparison portion of the graph. To do this, use the "comp" parameter (instead of "main").
+It may be preferable to use a theme for the main elements (using the "vibrant" theme), but use a set color for the comparison portion of the graph. To do this, use the "comp" parameter (instead of "main").
 ```{r,Theme-Repeated-ComparisonB}
 (ComparisonData) |> plotMeanComparison(col=theme("vibrant","comp"))
 (ComparisonData) |> plotPlausible(col=theme("vibrant","comp"),add=TRUE)
