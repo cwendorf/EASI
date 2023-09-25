@@ -17,14 +17,10 @@
 
 ### Color Themes
 
-theme <- function(colors="muted",type="main",n=NULL) {
-  if(colors=="vibrant") {colors <- c(vibrantred = "#C80003", vibrantblue = "#0085C8", vibrantgold = "#C8A700", vibrantgreen = "#00C800", vibrantpurple = "#6400C8")}
-  else if(colors=="muted") {colors <- c(mutedred = "#8B0000", mutedblue = "#005D8B", mutedgold = "#8B7400", mutedgreen = "#008B00", mutedpurple = "#45008B")}
+theme <- function(colors="black",type="main") {
+  if(colors=="vibrant") {colors <- c(hsv(1,1,.784),hsv(.667,1,.784),hsv(.14,1,.784),hsv(.333,1,.784),hsv(.883,1,.784),hsv(.5,1,.784),hsv(.105,1,.784),hsv(.75,1,.784))}
+  else if(colors=="muted") {colors <- c(hsv(1,1,.545),hsv(.667,1,.545),hsv(.14,1,.545),hsv(.333,1,.545),hsv(.883,1,.545),hsv(.5,1,.545),hsv(.105,1,.545),hsv(.75,1,.545))}
   if(type=="comp" && length(colors)==1) {colors <- c(colors,colors)}
   if(type=="comp") {colors <- c(colors[1:2],"black")}
-  if(!is.null(n)) {
-    if (n==2) {hstart=.556} else {hstart=.14}
-    colors <- rev(hsv(h=seq.int(hstart,1,length.out=n),s=1,v=.784,alpha=1))
-  }
   return(colors)
 }
