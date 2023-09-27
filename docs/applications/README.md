@@ -9,8 +9,8 @@ The advanced applications represent experimental and undocumented features of EA
 
 The **Pipes** pages introduce a variety of native and simple pipe operators to implement basic analysis functions:
 
-- [*PipeOneWayDataApplication*](./PipeOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*PipeRepeatedMeasuresDataApplication*](./PipeRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+- [*PipesOneWayDataApplication*](./PipesOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*PipesRepeatedMeasuresDataApplication*](./PipesRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Analyze** pages use a simple command to provide confidence intervals, significance tests, and standardized effect sizes at the same time:
 
