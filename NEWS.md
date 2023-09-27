@@ -1,10 +1,11 @@
 # Estimation Approach to Statistical Inference
 
-## Developmental Version
+## 5.3.230927
 
 - Added alternative color theme
 - Simplified calls for adding elements to existing plots
 - Updated passthrough functionality for plots
+- Added simple pipe operators for passthrough and other options
 
 ## 5.2.220726
 

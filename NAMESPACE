@@ -1,9 +1,13 @@
 # Estimation Approach to Statistical Inference
 ## Operations to Make Functions Available
 
-### formatX
+### infixR
 
 export("%$>%")
+export("%w%")
+export("%c%")
+export("%.>%")
+export("%p>%")
 
 ### colorX
 

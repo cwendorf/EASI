@@ -39,11 +39,3 @@
   names(out) <- main   
   return(out)
 }
-
-### Exposition Pipe
-
-"%$>%" <- function(lhs,rhs) {
-  lhs <- substitute(lhs)
-  rhs <- substitute(rhs)
-  do.call(with,list(lhs,rhs))
-}
