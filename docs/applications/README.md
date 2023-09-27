@@ -3,14 +3,38 @@
 
 ### Overview of the Advanced Applications
 
-The advanced applications represent experimental and undocumented features of EASI. Data for these applications are from a variety of published and simulated sources. In the spirit of experimentation, all applications use the native pipe operator to identify data sources (rather than using standard R syntax).
+The advanced applications represent experimental and undocumented features of EASI. Data for these applications are from a variety of published and simulated sources. In the spirit of experimentation, all applications use pipe operators to identify data sources (rather than using standard R syntax).
 
-### Basic and Exploratory Analyses
+### Methods for Combining Analyses
+
+The **Pipes** pages introduce a variety of native and simple pipe operators to implement basic analysis functions:
+
+- [*PipeOneWayDataApplication*](./PipeOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*PipeRepeatedMeasuresDataApplication*](./PipeRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Analyze** pages use a simple command to provide confidence intervals, significance tests, and standardized effect sizes at the same time:
 
 - [*AnalyzeOneWayDataApplication*](./AnalyzeOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*AnalyzeRepeatedMeasuresDataApplication*](./AnalyzeRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+
+### Omnibus and Simple Effects Specification
+
+The **Omnibus** pages provide omnibus analyses in factorial and mixed designs:
+
+- [*OmnibusFactorialDataApplication*](./OmnibusFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*OmnibusMixedDataApplication*](./OmnibusMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+
+The **Exposition** pages implement a exposition pipe operator to simplify the use of subsets (like simple effects) in factorial and mixed designs:
+
+- [*ExpositionFactorialDataApplication*](./ExpositionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*ExpositionMixedDataApplication*](./ExpositionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+
+The **FactorialBy** and **MixedBy** pages implement "by" functions designed to replicate the analyses of simple effects in factorial and mixed designs:
+
+- [*FactorialByDataApplication*](./FactorialByDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*MixedByDataApplication*](./MixedByDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+
+### Exploratory Data Analyses
 
 The **Frequencies** pages provide basic data plots and frequency distributions for measures or groups:
 
@@ -21,23 +45,6 @@ The **Exploratory** pages build violin plots, beanplots, and raincloud plots:
 
 - [*ExploratoryOneWayDataApplication*](./ExploratoryOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*ExploratoryRepeatedMeasuresDataApplication*](./ExploratoryRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
-
-### Omnibus and Simple Effects Specification
-
-The **Exposition** pages implement a exposition pipe operator to simplify the use of subsets (like simple effects) in factorial and mixed designs:
-
-- [*ExpositionFactorialDataApplication*](./ExpositionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*ExpositionMixedDataApplication*](./ExpositionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
-
-The **FactorialBy**  and **MixedBy** pages implement "by" functions designed to replicate the analyses of simple effects in factorial and mixed designs:
-
-- [*FactorialByDataApplication*](./FactorialByDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*MixedByDataApplication*](./MixedByDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
-
-The **Omnibus** pages provide omnibus analyses in factorial and mixed designs:
-
-- [*OmnibusFactorialDataApplication*](./OmnibusFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*OmnibusMixedDataApplication*](./OmnibusMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
 
 ### Contrast and Comparison Representations
 
