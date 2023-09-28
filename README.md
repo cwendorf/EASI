@@ -14,7 +14,7 @@
 <p align="center"><kbd><img src="docs/easiCoverImage.jpg"></kbd></p>
 </a>
 
-Additional functions extend the analysis capabilities much further. These extensions also offer summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics applications. 
+Additional functions extend the analysis capabilities much further. These extensions also offer summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations. 
 
 <a href="https://github.com/cwendorf/EASI">
 <p align="center"><kbd><img src="docs/easiCoverImage2.jpg"></kbd></p>
