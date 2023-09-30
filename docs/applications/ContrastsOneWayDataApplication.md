@@ -114,11 +114,12 @@ Create side-by-side enhanced plots of the means and the mean subsets.
 
 ```r
 contrastTheme <- c("darkred","darkblue","darkblue")
-par(mfrow=c(1,2),mar=c(1,1,1,0))
+par(mfrow=c(1,2))
 (Outcome~Factor) |> plotMeans(col=contrastTheme,ylim=c(0,20),values=FALSE,main="")
 (Outcome~Factor) |> plotData(add=TRUE,method="jitter",col=contrastTheme)
 (Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
 (Outcome~Factor) |> plotPlausible(contrast=G1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
+par(mfrow=c(1,1))
 ```
 
 ![](figures/Combination-OneWay-ContrastB-1.png)<!-- -->

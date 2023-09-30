@@ -117,6 +117,7 @@ par(mfrow=c(1,2))
 (RepeatedData) |> plotData(add=TRUE,method="jitter",col=contrastTheme)
 (RepeatedData) |> plotMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
 (RepeatedData) |> plotPlausible(contrast=O1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
+par(mfrow=c(1,1))
 ```
 
 ![](figures/Combination-Repeated-ContrastB-1.png)<!-- -->
