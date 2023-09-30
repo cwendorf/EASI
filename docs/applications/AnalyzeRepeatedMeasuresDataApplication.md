@@ -4,7 +4,7 @@ This page provides basic analyses using repeated-measures (within-subjects) data
 
 ### Data Management
 
-Enter the data.
+Simulate some data.
 
 ```r
 Outcome1 <- round(rnorm(50,mean=7,sd=2),0)

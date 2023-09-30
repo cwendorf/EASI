@@ -4,7 +4,7 @@ This page utilizes passthrough capabilities and pipe operators to build plots th
 
 ### Data Management
 
-Enter the data.
+Simulate some data.
 
 ```r
 Outcome1 <- round(rnorm(50,mean=7,sd=2),0)

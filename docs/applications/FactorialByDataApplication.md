@@ -4,7 +4,7 @@ This page analyzes simple effects using factorial (between-subjects) data.
 
 ### Data Management
 
-Enter the data.
+Simulate some data.
 
 ```r
 FactorA <- c(rep(1,30),rep(2,30),rep(3,30),rep(1,30),rep(2,30),rep(3,30))

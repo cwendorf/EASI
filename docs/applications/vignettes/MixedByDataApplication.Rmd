@@ -35,7 +35,7 @@ This page analyzes simple effects using mixed design (between-subjects and withi
 
 ### Data Management
 
-Enter the data.
+Simulate some data.
 ```{r}
 Factor <- c(rep(1,30),rep(2,30))
 Outcome1 <- c(round(rnorm(30,mean=8,sd=2),0),round(rnorm(30,mean=8,sd=2),0))

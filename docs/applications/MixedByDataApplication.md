@@ -4,7 +4,7 @@ This page analyzes simple effects using mixed design (between-subjects and withi
 
 ### Data Management
 
-Enter the data.
+Simulate some data.
 
 ```r
 Factor <- c(rep(1,30),rep(2,30))

@@ -4,7 +4,7 @@ This page utilizes passthrough capabilities and pipe operators to build plots th
 
 ### Data Management
 
-Enter the data.
+Simulate some data.
 
 ```r
 Factor <- c(rep(1,50),rep(2,50),rep(3,50))

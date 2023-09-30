@@ -4,7 +4,7 @@ This page introduces a variety of native and simple pipe operators to implement 
 
 ### Data Management
 
-Enter the data.
+Simulate some data.
 
 ```r
 Outcome1 <- round(rnorm(50,mean=7,sd=2),0)
