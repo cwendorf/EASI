@@ -4,10 +4,8 @@
 ### infixR
 
 export("%$>%")
-export("%w%")
-export("%c%")
 export("%.>%")
-export("%p>%")
+export("%.>>%")
 
 ### colorX
 

@@ -1,21 +1,15 @@
 # Estimation Approach to Statistical Inference
-## Infix and Pipe Operators
+## Infix Operators
 
-### Infix Operators
+### Exposition Pipe
 
-"%$>%" <- "%w%" <- function(lhs,rhs) {
+"%$>%" <- function(lhs,rhs) {
   lhs <- substitute(lhs)
   rhs <- substitute(rhs)
   do.call(with,list(lhs,rhs))
 }
 
-"%c%" <- function(lhs,rhs) {
-  lhs <- substitute(lhs)
-  rhs <- substitute(rhs)
-  do.call(c,list(lhs,rhs))
-}
-
-### Pipe Operators
+### Dot Pipes
 
 "%.>%" <- function(lhs,rhs) {
   . <- eval(lhs)
@@ -23,7 +17,7 @@
   eval(rhs)
 }
 
-"%p>%" <- function(lhs,rhs) {
+"%.>>%" <- function(lhs,rhs) {
   . <- eval(lhs)
   rhs <- substitute(rhs)
   print(eval(rhs))
