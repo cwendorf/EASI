@@ -1,20 +1,20 @@
 # Estimation Approach to Statistical Inference
 
-## 5.3.230927
+## EASI 5.3.230927
 
 - Added alternative color theme
 - Simplified calls for adding elements to existing plots
 - Updated passthrough functionality for plots
 - Added simple pipe operators for passthrough and other options
 
-## 5.2.220726
+## EASI 5.2.220726
 
 - Reinstated documentation
 - Added a diffogram for pairwise mean comparisons
 - Added an exposition pipe for handling data sets
 - Reinstated connecting lines for plots of within subjects designs
 
-## 5.1.220202
+## EASI 5.1.220202
 
 - Improved extraneous parameter handling
 - Added offset option to interval plots
@@ -22,7 +22,7 @@
 - Added "analyze" meta functions to automate basic analyses
 - Rebuilt correlation and regression function input
 
-## 5.0.220113
+## EASI 5.0.220113
 
 - Rebuilt within-subjects data input for all relevant functions
 - Refactored all functions to use common plotting methods
@@ -30,14 +30,14 @@
 - Improved functionality for use with pipe operators
 - Updated "by" functions for factorial and mixed designs
 
-## 4.7.220111
+## EASI 4.7.220111
 
 - Updated functions for exploratory data analyses
 - Added and updated frequency plots, bean plots, raincloud plots, and violin plots
 - Implemented color vectorization for plots
 - Added linkages for data plots of repeated measures
 
-## 4.6.211207
+## EASI 4.6.211207
 
 - Added skewness and kurtosis to descriptives
 - Added frequency distribution tables and percentiles
@@ -46,19 +46,19 @@
 - Updated labeling for mean contrasts
 - Refactored code for better precision of calculations
 
-## 4.5.211020
+## EASI 4.5.211020
 
 - Separated reference line from mu for plotting
 - Improved color handling for plots
 - Support for plotting intervals and plausibility with native pipe operator
 
-## 4.4.210625
+## EASI 4.4.210625
 
 - Added confidence ellipse to scatterplots
 - Added scatter function with ellipse default for summary statistics input
 - Updated correlation tutorials accordingly
 
-## 4.4.210505
+## EASI 4.4.210505
 
 - Added regression line confidence and prediction interval functions
 - Revised regression coefficient estimation
