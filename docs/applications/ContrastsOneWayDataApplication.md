@@ -26,16 +26,16 @@ Estimate and get a simple plot of the confidence intervals.
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Group1   7.080   0.214  49.000   6.651   7.509
-## Group2  11.100   0.643  49.000   9.808  12.392
-## Group3  11.420   0.512  49.000  10.391  12.449
+## Group1   7.180   0.275  49.000   6.627   7.733
+## Group2  10.120   0.478  49.000   9.160  11.080
+## Group3  12.160   0.498  49.000  11.160  13.160
 ```
 
 ```r
 (Outcome~Factor) |> plotMeans()
 ```
 
-![](figures/Combination-OneWay-ConfidenceA-1.png)<!-- -->
+![](figures/Contrasts-OneWay-ConfidenceA-1.png)<!-- -->
 
 Get an enhanced plot of data and confidence intervals.
 
@@ -45,7 +45,7 @@ customTheme <- c("darkred","darkblue","darkgoldenrod")
 (Outcome~Factor) |> plotMeans(add=TRUE,values=FALSE,line=10,col=customTheme)
 ```
 
-![](figures/Combination-OneWay-ConfidenceB-1.png)<!-- -->
+![](figures/Contrasts-OneWay-ConfidenceB-1.png)<!-- -->
 
 ### Analyses of a Comparison
 
@@ -59,19 +59,19 @@ Comparison <- factor(Factor,c("Group1","Group2"))
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Group1   7.080   0.214  49.000   6.651   7.509
-## Group2  11.100   0.643  49.000   9.808  12.392
+## Group1   7.180   0.275  49.000   6.627   7.733
+## Group2  10.120   0.478  49.000   9.160  11.080
 ## 
 ## $`Confidence Interval for the Mean Difference`
 ##               Diff      SE      df      LL      UL
-## Comparison   4.020   0.677  59.680   2.665   5.375
+## Comparison   2.940   0.551  78.268   1.842   4.038
 ```
 
 ```r
 (Outcome~Comparison) |> plotMeanComparison()
 ```
 
-![](figures/Combination-OneWay-ComparisonA-1.png)<!-- -->
+![](figures/Contrasts-OneWay-ComparisonA-1.png)<!-- -->
 
 Get an enhanced plot of data and confidence intervals with a plausibility curve.
 
@@ -82,7 +82,7 @@ comparisonTheme <- c("darkred","darkblue","black")
 (Outcome~Comparison) |> plotData(add=TRUE,method="jitter",col=comparisonTheme)
 ```
 
-![](figures/Combination-OneWay-ComparisonB-1.png)<!-- -->
+![](figures/Contrasts-OneWay-ComparisonB-1.png)<!-- -->
 
 ### Analyses of a Mean Contrast
 
@@ -96,19 +96,19 @@ G1vsOthers <- c(-1,.5,.5)
 ```
 ## $`Confidence Intervals for the Mean Subsets`
 ##            Est      SE      df      LL      UL
-## Group1   7.080   0.214  49.000   6.651   7.509
-## Others  11.260   0.411  93.326  10.444  12.076
+## Group1   7.180   0.275  49.000   6.627   7.733
+## Others  11.140   0.345  97.838  10.455  11.825
 ## 
 ## $`Confidence Interval for the Mean Contrast`
 ##              Est      SE      df      LL      UL
-## Contrast   4.180   0.463 132.171   3.264   5.096
+## Contrast   3.960   0.441 144.865   3.088   4.832
 ```
 
 ```r
 (Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
 ```
 
-![](figures/Combination-OneWay-ContrastA-1.png)<!-- -->
+![](figures/Contrasts-OneWay-ContrastA-1.png)<!-- -->
 
 Create side-by-side enhanced plots of the means and the mean subsets.
 
@@ -119,7 +119,10 @@ par(mfrow=c(1,2))
 (Outcome~Factor) |> plotData(add=TRUE,method="jitter",col=contrastTheme)
 (Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"),col=comparisonTheme,ylim=c(0,20),ylab="",values=FALSE,main="")
 (Outcome~Factor) |> plotPlausible(contrast=G1vsOthers,add=TRUE,type=c("none","none","right"),col=comparisonTheme)
-par(mfrow=c(1,1))
 ```
 
-![](figures/Combination-OneWay-ContrastB-1.png)<!-- -->
+![](figures/Contrasts-OneWay-ContrastB-1.png)<!-- -->
+
+```r
+par(mfrow=c(1,1))
+```
