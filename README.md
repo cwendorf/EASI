@@ -11,13 +11,13 @@
 **EASI** is an R package that implements features of estimation statistics and data visualization. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs. Most functions can take either raw data or summary statistics as input.
 
 <a href="https://github.com/cwendorf/EASI">
-<p align="center"><kbd><img src="docs/easiCoverImage.jpg"></kbd></p>
+<p align="center"><kbd><img src="docs/cover/CoverImageOne.jpg"></kbd></p>
 </a>
 
 Additional functions extend the analysis capabilities much further. These extensions also offer summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations. 
 
 <a href="https://github.com/cwendorf/EASI">
-<p align="center"><kbd><img src="docs/easiCoverImage2.jpg"></kbd></p>
+<p align="center"><kbd><img src="docs/cover/CoverImageTwo.jpg"></kbd></p>
 </a>
 
 ### Installation
