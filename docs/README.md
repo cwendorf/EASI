@@ -26,12 +26,12 @@ In R versions 4.1 and greater, the native pipe operator can be used instead of s
 (Outcome~Factor) |> estimateMeans(conf.level=.99)
 ```
 
-EASI also offers methods for formatting the table output. Generally, the default options provide a table title that describes the type of analysis conducted (consistent with the function call) and numbers rounded to three digits, and columns with consistent spacing.  Numbers in tables (and plots) can be rounded to a different number of digits. Table (and plot) titles can be customized within the call. If desired, a simplied table that uses no rounding and no title can be produced by preceding the call with a period.
+EASI also offers methods for formatting the output. Generally, the default table and plot options provide a title that describes the type of analysis conducted (consistent with the function call) and numbers rounded to three digits.  Numbers in tables and plots can be rounded to a different number of digits. Table and plot titles can be customized within the call. Plot colors (and other features) can also be specified.
 
 ```
 estimateMeans(Outcome~Factor,digits=2)
 estimateMeans(Outcome~Factor,main="Custom Table Title")
-.estimateMeans(Outcome~Factor)
+plotMeans(Outcome~Factor,col="darkblue")
 ```
 
 ### Details and Examples
