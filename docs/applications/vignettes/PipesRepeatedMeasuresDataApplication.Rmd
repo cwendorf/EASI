@@ -60,14 +60,14 @@ However, the native pipe operator does not easily permit the piping of the varia
 
 ### Using Passthrough Pipes
 
-Traditionally, a pipe operator sends the results (not the input) of each operation in sequence to the next operation. Sometimes, it is useful to implement a "pass though" instead, where the input from the first call is piped to the second call.
+Traditionally, a pipe operator sends the results (not the input) of each operation in sequence to the next operation. Sometimes, it is useful to implement a "pass though" instead, where the input for the first call is piped to the second call.
 ```{r}
-(RepeatedData) %p>% estimateMeans(.) %p>% testMeans(.)
-(RepeatedData) %p>% estimateMeans(.,conf.level=.99) %p>% testMeans(.,mu=5)
+(RepeatedData) %.>>% estimateMeans(.) %.>>% testMeans(.)
+(RepeatedData) %.>>% estimateMeans(.,conf.level=.99) %.>>% testMeans(.,mu=5)
 ```
 
-Technically, the passthrough pipe is only required prior to the first analysis because the second one is the terminal call and thus nothing needs to "pass though". As a result, the second pipe operator could be native, the dot, or the passthrough pipe operator.
+In these examples, the passthrough pipe is only required prior to the first analysis because the second one is the terminal call and thus nothing needs to "pass though". As a result, the second pipe operator could be the dot or the native pipe operator instead.
 ```{r}
-(RepeatedData) %p>% describeMeans(.) %.>% estimateMeans(.)
-(RepeatedData) %p>% describeMeans(.) |> estimateMeans()
+(RepeatedData) %.>>% describeMeans(.) %.>% estimateMeans(.)
+(RepeatedData) %.>>% describeMeans(.) |> estimateMeans()
 ```
