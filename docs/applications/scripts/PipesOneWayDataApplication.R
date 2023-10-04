@@ -20,13 +20,13 @@ Outcome <- c(Level1,Level2,Level3)
 (Outcome~Factor) |> estimateMeans(conf.level=.99)
 
 (Outcome~Factor) %.>% estimateMeans(.)
-(Outcome~Factor) %.>% c(estimateMeans(.),testMeans(.))
-(Outcome~Factor) %.>% c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))
+(Outcome~Factor) %.>% {c(estimateMeans(.),testMeans(.))}
+(Outcome~Factor) %.>% {c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))}
 
-### Using Passthrough Pipes
+### Using Through Pipes
 
-(Outcome~Factor) %p>% estimateMeans(.) %p>% testMeans(.)
-(Outcome~Factor) %p>% estimateMeans(.,conf.level=.99) %p>% testMeans(.,mu=5)
+(Outcome~Factor) %.>>% estimateMeans(.) %.>>% testMeans(.)
+(Outcome~Factor) %.>>% estimateMeans(.,conf.level=.99) %.>>% testMeans(.,mu=5)
 
-(Outcome~Factor) %p>% describeMeans(.) %.>% estimateMeans(.)
-(Outcome~Factor) %p>% describeMeans(.) |> estimateMeans()
+(Outcome~Factor) %.>>% describeMeans(.) %.>% estimateMeans(.)
+(Outcome~Factor) %.>>% describeMeans(.) |> estimateMeans()

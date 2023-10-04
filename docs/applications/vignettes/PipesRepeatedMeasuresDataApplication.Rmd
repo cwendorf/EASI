@@ -54,19 +54,19 @@ In R versions 4.1 and greater, the native pipe operator can be used instead of s
 However, the native pipe operator does not easily permit the piping of the variable, data frame, or formula to multiple functions on the ride-hand side of the call simultaneously. EASI contains a very simple pipe operator that uses a period as a placeholder, permitting more advanced piping options.
 ```{r}
 (RepeatedData) %.>% estimateMeans(.)
-(RepeatedData) %.>% c(estimateMeans(.),testMeans(.))
-(RepeatedData) %.>% c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))
+(RepeatedData) %.>% {c(estimateMeans(.),testMeans(.))}
+(RepeatedData) %.>% {c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))}
 ```
 
-### Using Passthrough Pipes
+### Using Through Pipes
 
-Traditionally, a pipe operator sends the results (not the input) of each operation in sequence to the next operation. Sometimes, it is useful to implement a "pass though" instead, where the input for the first call is piped to the second call.
+Traditionally, a pipe operator sends the results (not the input) of each operation in sequence to the next operation. Sometimes, it is useful to implement a "pass though" instead, where the input for the first call is also piped to the second call.
 ```{r}
 (RepeatedData) %.>>% estimateMeans(.) %.>>% testMeans(.)
 (RepeatedData) %.>>% estimateMeans(.,conf.level=.99) %.>>% testMeans(.,mu=5)
 ```
 
-In these examples, the passthrough pipe is only required prior to the first analysis because the second one is the terminal call and thus nothing needs to "pass though". As a result, the second pipe operator could be the dot or the native pipe operator instead.
+In these examples, the through pipe is only required prior to the first analysis because the second one is the terminal call and thus nothing needs to "pass though". As a result, the second pipe operator could be the dot or the native pipe operator instead.
 ```{r}
 (RepeatedData) %.>>% describeMeans(.) %.>% estimateMeans(.)
 (RepeatedData) %.>>% describeMeans(.) |> estimateMeans()

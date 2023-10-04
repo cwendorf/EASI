@@ -26,9 +26,9 @@ In R versions 4.1 and greater, the native pipe operator can be used instead of s
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.539   7.821
-## Level2  11.080   0.568  49.000   9.938  12.222
-## Level3  11.880   0.675  49.000  10.524  13.236
+## Level1   7.240   0.296  49.000   6.645   7.835
+## Level2  11.780   0.499  49.000  10.777  12.783
+## Level3  11.880   0.607  49.000  10.660  13.100
 ```
 
 ```r
@@ -38,9 +38,9 @@ In R versions 4.1 and greater, the native pipe operator can be used instead of s
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.325   8.035
-## Level2  11.080   0.568  49.000   9.557  12.603
-## Level3  11.880   0.675  49.000  10.072  13.688
+## Level1   7.240   0.296  49.000   6.446   8.034
+## Level2  11.780   0.499  49.000  10.442  13.118
+## Level3  11.880   0.607  49.000  10.253  13.507
 ```
 
 However, the native pipe operator does not easily permit the piping of the variable, data frame, or formula to multiple functions on the ride-hand side of the call simultaneously. EASI contains a very simple pipe operator that uses a period as a placeholder, permitting more advanced piping options.
@@ -52,9 +52,9 @@ However, the native pipe operator does not easily permit the piping of the varia
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.539   7.821
-## Level2  11.080   0.568  49.000   9.938  12.222
-## Level3  11.880   0.675  49.000  10.524  13.236
+## Level1   7.240   0.296  49.000   6.645   7.835
+## Level2  11.780   0.499  49.000  10.777  12.783
+## Level3  11.880   0.607  49.000  10.660  13.100
 ```
 
 ```r
@@ -62,17 +62,20 @@ However, the native pipe operator does not easily permit the piping of the varia
 ```
 
 ```
+## [[1]]
+## Outcome ~ Factor
+## 
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.539   7.821
-## Level2  11.080   0.568  49.000   9.938  12.222
-## Level3  11.880   0.675  49.000  10.524  13.236
+## Level1   7.240   0.296  49.000   6.645   7.835
+## Level2  11.780   0.499  49.000  10.777  12.783
+## Level3  11.880   0.607  49.000  10.660  13.100
 ## 
 ## $`Hypothesis Tests for the Means`
 ##           Diff      SE      df       t       p
-## Level1   7.180   0.319  49.000  22.505   0.000
-## Level2  11.080   0.568  49.000  19.492   0.000
-## Level3  11.880   0.675  49.000  17.608   0.000
+## Level1   7.240   0.296  49.000  24.433   0.000
+## Level2  11.780   0.499  49.000  23.597   0.000
+## Level3  11.880   0.607  49.000  19.565   0.000
 ```
 
 ```r
@@ -80,22 +83,25 @@ However, the native pipe operator does not easily permit the piping of the varia
 ```
 
 ```
+## [[1]]
+## Outcome ~ Factor
+## 
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.325   8.035
-## Level2  11.080   0.568  49.000   9.557  12.603
-## Level3  11.880   0.675  49.000  10.072  13.688
+## Level1   7.240   0.296  49.000   6.446   8.034
+## Level2  11.780   0.499  49.000  10.442  13.118
+## Level3  11.880   0.607  49.000  10.253  13.507
 ## 
 ## $`Hypothesis Tests for the Means`
 ##           Diff      SE      df       t       p
-## Level1   2.180   0.319  49.000   6.833   0.000
-## Level2   6.080   0.568  49.000  10.696   0.000
-## Level3   6.880   0.675  49.000  10.197   0.000
+## Level1   2.240   0.296  49.000   7.559   0.000
+## Level2   6.780   0.499  49.000  13.581   0.000
+## Level3   6.880   0.607  49.000  11.331   0.000
 ```
 
-### Using Passthrough Pipes
+### Using Through Pipes
 
-Traditionally, a pipe operator sends the results (not the input) of each operation in sequence to the next operation. Sometimes, it is useful to implement a "pass though" instead, where the input for the first call is piped to the second call.
+Traditionally, a pipe operator sends the results (not the input) of each operation in sequence to the next operation. Sometimes, it is useful to implement a "pass though" instead, where the input for the first call is also piped to the second call.
 
 ```r
 (Outcome~Factor) %.>>% estimateMeans(.) %.>>% testMeans(.)
@@ -104,15 +110,15 @@ Traditionally, a pipe operator sends the results (not the input) of each operati
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.539   7.821
-## Level2  11.080   0.568  49.000   9.938  12.222
-## Level3  11.880   0.675  49.000  10.524  13.236
+## Level1   7.240   0.296  49.000   6.645   7.835
+## Level2  11.780   0.499  49.000  10.777  12.783
+## Level3  11.880   0.607  49.000  10.660  13.100
 ## 
 ## $`Hypothesis Tests for the Means`
 ##           Diff      SE      df       t       p
-## Level1   7.180   0.319  49.000  22.505   0.000
-## Level2  11.080   0.568  49.000  19.492   0.000
-## Level3  11.880   0.675  49.000  17.608   0.000
+## Level1   7.240   0.296  49.000  24.433   0.000
+## Level2  11.780   0.499  49.000  23.597   0.000
+## Level3  11.880   0.607  49.000  19.565   0.000
 ```
 
 ```r
@@ -122,18 +128,18 @@ Traditionally, a pipe operator sends the results (not the input) of each operati
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.325   8.035
-## Level2  11.080   0.568  49.000   9.557  12.603
-## Level3  11.880   0.675  49.000  10.072  13.688
+## Level1   7.240   0.296  49.000   6.446   8.034
+## Level2  11.780   0.499  49.000  10.442  13.118
+## Level3  11.880   0.607  49.000  10.253  13.507
 ## 
 ## $`Hypothesis Tests for the Means`
 ##           Diff      SE      df       t       p
-## Level1   2.180   0.319  49.000   6.833   0.000
-## Level2   6.080   0.568  49.000  10.696   0.000
-## Level3   6.880   0.675  49.000  10.197   0.000
+## Level1   2.240   0.296  49.000   7.559   0.000
+## Level2   6.780   0.499  49.000  13.581   0.000
+## Level3   6.880   0.607  49.000  11.331   0.000
 ```
 
-In these examples, the passthrough pipe is only required prior to the first analysis because the second one is the terminal call and thus nothing needs to "pass though". As a result, the second pipe operator could be the dot or the native pipe operator instead.
+In these examples, the through pipe is only required prior to the first analysis because the second one is the terminal call and thus nothing needs to "pass though". As a result, the second pipe operator could be the dot or the native pipe operator instead.
 
 ```r
 (Outcome~Factor) %.>>% describeMeans(.) %.>% estimateMeans(.)
@@ -142,17 +148,17 @@ In these examples, the passthrough pipe is only required prior to the first anal
 ```
 ## $`Descriptive Statistics for the Data`
 ##              N       M      SD    Skew    Kurt
-## Level1  50.000   7.180   2.256   0.478  -0.186
-## Level2  50.000  11.080   4.020   0.120   0.487
-## Level3  50.000  11.880   4.771   0.217  -0.060
+## Level1  50.000   7.240   2.095   0.209  -0.152
+## Level2  50.000  11.780   3.530   0.053  -0.427
+## Level3  50.000  11.880   4.294   0.239  -0.533
 ```
 
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.539   7.821
-## Level2  11.080   0.568  49.000   9.938  12.222
-## Level3  11.880   0.675  49.000  10.524  13.236
+## Level1   7.240   0.296  49.000   6.645   7.835
+## Level2  11.780   0.499  49.000  10.777  12.783
+## Level3  11.880   0.607  49.000  10.660  13.100
 ```
 
 ```r
@@ -162,15 +168,15 @@ In these examples, the passthrough pipe is only required prior to the first anal
 ```
 ## $`Descriptive Statistics for the Data`
 ##              N       M      SD    Skew    Kurt
-## Level1  50.000   7.180   2.256   0.478  -0.186
-## Level2  50.000  11.080   4.020   0.120   0.487
-## Level3  50.000  11.880   4.771   0.217  -0.060
+## Level1  50.000   7.240   2.095   0.209  -0.152
+## Level2  50.000  11.780   3.530   0.053  -0.427
+## Level3  50.000  11.880   4.294   0.239  -0.533
 ```
 
 ```
 ## $`Confidence Intervals for the Means`
 ##              M      SE      df      LL      UL
-## Level1   7.180   0.319  49.000   6.539   7.821
-## Level2  11.080   0.568  49.000   9.938  12.222
-## Level3  11.880   0.675  49.000  10.524  13.236
+## Level1   7.240   0.296  49.000   6.645   7.835
+## Level2  11.780   0.499  49.000  10.777  12.783
+## Level3  11.880   0.607  49.000  10.660  13.100
 ```

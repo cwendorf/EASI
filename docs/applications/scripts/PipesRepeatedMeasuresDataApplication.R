@@ -18,13 +18,13 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 (RepeatedData) |> estimateMeans(conf.level=.99)
 
 (RepeatedData) %.>% estimateMeans(.)
-(RepeatedData) %.>% c(estimateMeans(.),testMeans(.))
-(RepeatedData) %.>% c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))
+(RepeatedData) %.>% {c(estimateMeans(.),testMeans(.))}
+(RepeatedData) %.>% {c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))}
 
-### Using Passthrough Pipes
+### Using Through Pipes
 
-(RepeatedData) %p>% estimateMeans(.) %p>% testMeans(.)
-(RepeatedData) %p>% estimateMeans(.,conf.level=.99) %p>% testMeans(.,mu=5)
+(RepeatedData) %.>>% estimateMeans(.) %.>>% testMeans(.)
+(RepeatedData) %.>>% estimateMeans(.,conf.level=.99) %.>>% testMeans(.,mu=5)
 
-(RepeatedData) %p>% describeMeans(.) %.>% estimateMeans(.)
-(RepeatedData) %p>% describeMeans(.) |> estimateMeans()
+(RepeatedData) %.>>% describeMeans(.) %.>% estimateMeans(.)
+(RepeatedData) %.>>% describeMeans(.) |> estimateMeans()
