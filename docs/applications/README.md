@@ -5,9 +5,9 @@
 
 The advanced applications represent experimental and undocumented features of EASI. Data for these applications are from a variety of published and simulated sources. In the spirit of experimentation, all applications use pipe operators to identify data sources (rather than using standard R syntax).
 
-### Methods for Combining Analyses
+### Piping and Combining Analyses
 
-The **Pipes** pages introduce a variety of native and simple pipe operators to implement basic analysis functions:
+The **Pipes** pages introduce a variety of simple pipe operators to implement basic analysis functions:
 
 - [*PipesOneWayDataApplication*](./PipesOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*PipesRepeatedMeasuresDataApplication*](./PipesRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
@@ -17,24 +17,7 @@ The **Analyze** pages use a simple command to provide confidence intervals, sign
 - [*AnalyzeOneWayDataApplication*](./AnalyzeOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*AnalyzeRepeatedMeasuresDataApplication*](./AnalyzeRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
-### Omnibus and Simple Effects Specification
-
-The **Omnibus** pages provide omnibus analyses in factorial and mixed designs:
-
-- [*OmnibusFactorialDataApplication*](./OmnibusFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*OmnibusMixedDataApplication*](./OmnibusMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
-
-The **Exposition** pages implement a exposition pipe operator to simplify the use of subsets (like simple effects) in factorial and mixed designs:
-
-- [*ExpositionFactorialDataApplication*](./ExpositionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*ExpositionMixedDataApplication*](./ExpositionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
-
-The **FactorialBy** and **MixedBy** pages implement "by" functions designed to replicate the analyses of simple effects in factorial and mixed designs:
-
-- [*FactorialByDataApplication*](./FactorialByDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*MixedByDataApplication*](./MixedByDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
-
-### Exploratory Data Analyses
+### Enhanced and Custom Plotting
 
 The **Frequencies** pages provide basic data plots and frequency distributions for measures or groups:
 
@@ -46,7 +29,27 @@ The **Exploratory** pages build violin plots, beanplots, and raincloud plots:
 - [*ExploratoryOneWayDataApplication*](./ExploratoryOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*ExploratoryRepeatedMeasuresDataApplication*](./ExploratoryRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
+The **Layers** pages use advanced methods to build plots that combine various elements:
+
+- [*LayersOneWayDataApplication*](./LayersOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*LayersRepeatedMeasuresDataApplication*](./LayersRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+
+The **Themes** pages enhance different types of plots with colors and color themes:
+
+- [*ThemesOneWayDataApplication*](./ThemesOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ThemesRepeatedMeasuresDataApplication*](./ThemesRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+
 ### Contrast and Comparison Representations
+
+The **Contrasts** pages add data, plausibility curves, and other information to confidence interval plots of contrasts:
+
+- [*ContrastsOneWayDataApplication*](./ContrastsOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ContrastsRepeatedMeasuresDataApplication*](./ContrastsRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+
+The **Complex** pages analyze differences between two contrasts on the same measures or groups:
+
+- [*ComplexOneWayDataApplication*](./ComplexOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ComplexRepeatedMeasuresDataApplication*](./ComplexRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Pairwise** pages examine unadjusted pairwise comparisons and Tukey post hoc comparisons using traditional confidence interval plots and diffograms:
 
@@ -58,24 +61,19 @@ The **Relational** pages examine means and mean differences using the concepts o
 - [*RelationalOneWayDataApplication*](./RelationalOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*RelationalRepeatedMeasuresDataApplication*](./RelationalRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
-The **Complex** pages analyze differences between two contrasts on the same measures or groups:
+### Analyses of Factorial and Mixed Data
 
-- [*ComplexOneWayDataApplication*](./ComplexOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*ComplexRepeatedMeasuresDataApplication*](./ComplexRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+The **Omnibus** pages provide omnibus analyses in factorial and mixed designs:
 
-### Advanced and Custom Plotting
+- [*OmnibusFactorialDataApplication*](./OmnibusFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*OmnibusMixedDataApplication*](./OmnibusMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
 
-The **Contrasts** pages add data, plausibility curves, and other information to confidence interval plots of contrasts:
+The **Exposition** pages implement a exposition pipe operator to simplify the analyses of simple effects in factorial and mixed designs:
 
-- [*ContrastsOneWayDataApplication*](./ContrastsOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*ContrastsRepeatedMeasuresDataApplication*](./ContrastsRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+- [*ExpositionFactorialDataApplication*](./ExpositionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*ExpositionMixedDataApplication*](./ExpositionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
 
-The **Passthrough** pages use of passthrough capabilities and pipe operators to build plots that combine various elements:
+The **By** pages implement "by" functions designed to automate the analyses of simple effects in factorial and mixed designs:
 
-- [*PassthroughOneWayDataApplication*](./PassthroughOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*PassthroughRepeatedMeasuresDataApplication*](./PassthroughRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
-
-The **Theme** pages enhance different types of plots with EASI color themes:
-
-- [*ThemeOneWayDataApplication*](./ThemeOneWayDataApplication.md) - Uses one-way (between-subjects) data
-- [*ThemeRepeatedMeasuresDataApplication*](./ThemeRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+- [*ByFactorialDataApplication*](./ByFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*ByMixedDataApplication*](./ByMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data

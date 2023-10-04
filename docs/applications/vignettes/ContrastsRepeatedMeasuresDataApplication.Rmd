@@ -46,13 +46,13 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 ### Analyses of the Means
 
 Get a simple plot of the confidence intervals.
-```{r,Combination-Repeated-ConfidenceA}
+```{r,Contrasts-Repeated-ConfidenceA}
 (RepeatedData) |> estimateMeans()
 (RepeatedData) |> plotMeans()
 ```
 
 Get an enhanced plot of data and confidence intervals.
-```{r,Combination-Repeated-ConfidenceB}
+```{r,Contrasts-Repeated-ConfidenceB}
 customTheme <- c("darkred","darkblue","darkgoldenrod")
 (RepeatedData) |> plotData(main="Data and Confidence Intervals",method="jitter",col=customTheme)
 (RepeatedData) |> plotMeans(add=TRUE,values=FALSE,line=10,col=customTheme)
@@ -61,14 +61,14 @@ customTheme <- c("darkred","darkblue","darkgoldenrod")
 ### Analyses of a Comparison
 
 Create a comparison and get a simple plot of the confidence intervals.
-```{r,Combination-Repeated-ComparisonA}
+```{r,Contrasts-Repeated-ComparisonA}
 ComparisonData <- data.frame(Outcome1,Outcome2)
 (ComparisonData) |> estimateMeanComparison()
 (ComparisonData) |> plotMeanComparison()
 ```
 
 Get an enhanced plot of data and confidence intervals with a plausibility curve.
-```{r,Combination-Repeated-ComparisonB}
+```{r,Contrasts-Repeated-ComparisonB}
 comparisonTheme <- c("darkred","darkblue","black")
 (ComparisonData) |> plotMeanComparison(main="Data, Confidence Intervals, and a Plausibility Curve",ylim=c(0,20),values=FALSE,col=comparisonTheme)
 (ComparisonData) |> plotPlausible(add=TRUE,type=c("none","none","right"),col=comparisonTheme)
@@ -78,14 +78,14 @@ comparisonTheme <- c("darkred","darkblue","black")
 ### Analyses of a Mean Contrast
 
 Create a contrast and get a plot of the mean subsets and the contrast.
-```{r,Combination-Repeated-ContrastA}
+```{r,Contrasts-Repeated-ContrastA}
 O1vsOthers <- c(-1,.5,.5)
 (RepeatedData) |> estimateMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"))
 (RepeatedData) |> plotMeanSubsets(contrast=O1vsOthers,labels=c("Outcome1","Others"))
 ```
 
 Create side-by-side enhanced plots of the means and the mean subsets.
-```{r,Combination-Repeated-ContrastB}
+```{r,Contrasts-Repeated-ContrastB}
 contrastTheme <- c("darkred","darkblue","darkblue")
 par(mfrow=c(1,2))
 (RepeatedData) |> plotMeans(col=contrastTheme,ylim=c(0,20),values=FALSE,main="")

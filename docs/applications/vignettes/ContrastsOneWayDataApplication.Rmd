@@ -48,13 +48,13 @@ Outcome <- c(Group1,Group2,Group3)
 ### Analyses of the Means
 
 Estimate and get a simple plot of the confidence intervals.
-```{r,Combination-OneWay-ConfidenceA}
+```{r,Contrasts-OneWay-ConfidenceA}
 (Outcome~Factor) |> estimateMeans()
 (Outcome~Factor) |> plotMeans()
 ```
 
 Get an enhanced plot of data and confidence intervals.
-```{r,Combination-OneWay-ConfidenceB}
+```{r,Contrasts-OneWay-ConfidenceB}
 customTheme <- c("darkred","darkblue","darkgoldenrod")
 (Outcome~Factor) |> plotData(main="Data and Confidence Intervals",method="jitter",col=customTheme)
 (Outcome~Factor) |> plotMeans(add=TRUE,values=FALSE,line=10,col=customTheme)
@@ -63,14 +63,14 @@ customTheme <- c("darkred","darkblue","darkgoldenrod")
 ### Analyses of a Comparison
 
 Create a comparison and get a simple plot of the confidence intervals.
-```{r,Combination-OneWay-ComparisonA}
+```{r,Contrasts-OneWay-ComparisonA}
 Comparison <- factor(Factor,c("Group1","Group2"))
 (Outcome~Comparison) |> estimateMeanComparison()
 (Outcome~Comparison) |> plotMeanComparison()
 ```
 
 Get an enhanced plot of data and confidence intervals with a plausibility curve.
-```{r,Combination-OneWay-ComparisonB}
+```{r,Contrasts-OneWay-ComparisonB}
 comparisonTheme <- c("darkred","darkblue","black")
 (Outcome~Comparison) |> plotMeanComparison(main="Data, Confidence Intervals, and a Plausibility Curve",ylim=c(0,20),values=FALSE,col=comparisonTheme)
 (Outcome~Comparison) |> plotPlausible(add=TRUE,type=c("none","none","right"),col=comparisonTheme)
@@ -80,14 +80,14 @@ comparisonTheme <- c("darkred","darkblue","black")
 ### Analyses of a Mean Contrast
 
 Create a contrast and get a plot of the mean subsets and the contrast.
-```{r,Combination-OneWay-ContrastA}
+```{r,Contrasts-OneWay-ContrastA}
 G1vsOthers <- c(-1,.5,.5)
 (Outcome~Factor) |> estimateMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
 (Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
 ```
 
 Create side-by-side enhanced plots of the means and the mean subsets.
-```{r,Combination-OneWay-ContrastB}
+```{r,Contrasts-OneWay-ContrastB}
 contrastTheme <- c("darkred","darkblue","darkblue")
 par(mfrow=c(1,2))
 (Outcome~Factor) |> plotMeans(col=contrastTheme,ylim=c(0,20),values=FALSE,main="")
