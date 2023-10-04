@@ -1,8 +1,9 @@
 # Estimation Approach to Statistical Inference
 ## Operations to Make Functions Available
 
-### infixR
+### infixX
 
+export("%c%")
 export("%$>%")
 export("%.>%")
 export("%.>>%")
