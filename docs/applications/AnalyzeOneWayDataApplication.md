@@ -1,12 +1,22 @@
+
 ## Analyze One Way Data Application
 
 This page provides basic analyses using one-way (between-subjects) data.
+
+- [Data Management](#data-management)
+- [Analyze the Means](#analyze-the-means)
+- [Analyze a Mean Difference](#analyze-a-mean-difference)
+- [Analyze a Mean Contrast](#analyze-a-mean-contrast)
+- [Analyze the Omnibus Effect](#analyze-the-omnibus-effect)
+- [Analyze Pairwise Comparisons](#analyze-pairwise-comparisons)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
 Simulate some data.
 
-```r
+``` r
 Factor <- c(rep(1,50),rep(2,50),rep(3,50))
 Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
 Level1 <- round(rnorm(50,mean=7,sd=2),0)
@@ -17,228 +27,210 @@ Outcome <- c(Level1,Level2,Level3)
 
 ### Analyze the Means
 
-Estimate, test, and standardized the means, including altering the confidence level and setting a population value.
+Estimate, test, and standardized the means, including altering the
+confidence level and setting a population value.
 
-```r
+``` r
 (Outcome~Factor) |> analyzeMeans()
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##              M      SE      df      LL      UL
-## Level1   7.200   0.289  49.000   6.620   7.780
-## Level2  11.060   0.539  49.000   9.976  12.144
-## Level3  11.800   0.560  49.000  10.675  12.925
-## 
-## $`Hypothesis Tests for the Means`
-##           Diff      SE      df       t       p
-## Level1   7.200   0.289  49.000  24.952   0.000
-## Level2  11.060   0.539  49.000  20.504   0.000
-## Level3  11.800   0.560  49.000  21.076   0.000
-## 
-## $`Confidence Intervals for the Standardized Means`
-##              d      SE      LL      UL
-## Level1   3.529   0.377   2.776   4.275
-## Level2   2.900   0.321   2.260   3.533
-## Level3   2.981   0.328   2.327   3.628
-```
+    ## $`Confidence Intervals for the Means`
+    ##              M      SE      df      LL      UL
+    ## Level1   6.780   0.299  49.000   6.180   7.380
+    ## Level2  10.880   0.582  49.000   9.711  12.049
+    ## Level3  11.980   0.543  49.000  10.888  13.072
+    ## 
+    ## $`Hypothesis Tests for the Means`
+    ##           Diff      SE      df       t       p
+    ## Level1   6.780   0.299  49.000  22.699   0.000
+    ## Level2  10.880   0.582  49.000  18.701   0.000
+    ## Level3  11.980   0.543  49.000  22.053   0.000
+    ## 
+    ## $`Confidence Intervals for the Standardized Means`
+    ##              d      SE      LL      UL
+    ## Level1   3.210   0.348   2.515   3.899
+    ## Level2   2.645   0.298   2.050   3.233
+    ## Level3   3.119   0.340   2.440   3.791
 
-```r
+``` r
 (Outcome~Factor) |> analyzeMeans(conf.level=.99,mu=5)
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##           Diff      SE      df      LL      UL
-## Level1   2.200   0.289  49.000   1.427   2.973
-## Level2   6.060   0.539  49.000   4.614   7.506
-## Level3   6.800   0.560  49.000   5.300   8.300
-## 
-## $`Hypothesis Tests for the Means`
-##           Diff      SE      df       t       p
-## Level1   2.200   0.289  49.000   7.624   0.000
-## Level2   6.060   0.539  49.000  11.235   0.000
-## Level3   6.800   0.560  49.000  12.145   0.000
-## 
-## $`Confidence Intervals for the Standardized Means`
-##              d      SE      LL      UL
-## Level1   1.078   0.178   0.617   1.536
-## Level2   1.589   0.212   1.039   2.140
-## Level3   1.718   0.222   1.143   2.295
-```
+    ## $`Confidence Intervals for the Means`
+    ##           Diff      SE      df      LL      UL
+    ## Level1   1.780   0.299  49.000   0.980   2.580
+    ## Level2   5.880   0.582  49.000   4.321   7.439
+    ## Level3   6.980   0.543  49.000   5.524   8.436
+    ## 
+    ## $`Hypothesis Tests for the Means`
+    ##           Diff      SE      df       t       p
+    ## Level1   1.780   0.299  49.000   5.959   0.000
+    ## Level2   5.880   0.582  49.000  10.107   0.000
+    ## Level3   6.980   0.543  49.000  12.849   0.000
+    ## 
+    ## $`Confidence Intervals for the Standardized Means`
+    ##              d      SE      LL      UL
+    ## Level1   0.843   0.165   0.416   1.266
+    ## Level2   1.429   0.201   0.909   1.949
+    ## Level3   1.817   0.230   1.223   2.415
 
 ### Analyze a Mean Difference
 
 Determine and then estimate, test, and standardize a mean difference.
 
-```r
+``` r
 Comparison <- factor(Factor,c("Level1","Level2"))
 (Outcome~Comparison) |> analyzeMeanDifference()
 ```
 
-```
-## $`Confidence Interval for the Mean Difference`
-##               Diff      SE      df      LL      UL
-## Comparison   3.860   0.612  74.923   2.641   5.079
-## 
-## $`Hypothesis Test for the Mean Difference`
-##               Diff      SE      df       t       p
-## Comparison   3.860   0.612  74.923   6.310   0.000
-## 
-## $`Confidence Interval for the Standardized Mean Difference`
-##                  d      SE      LL      UL
-## Comparison   1.262   0.227   0.817   1.707
-```
+    ## $`Confidence Interval for the Mean Difference`
+    ##               Diff      SE      df      LL      UL
+    ## Comparison   4.100   0.654  73.153   2.797   5.403
+    ## 
+    ## $`Hypothesis Test for the Mean Difference`
+    ##               Diff      SE      df       t       p
+    ## Comparison   4.100   0.654  73.153   6.269   0.000
+    ## 
+    ## $`Confidence Interval for the Standardized Mean Difference`
+    ##                  d      SE      LL      UL
+    ## Comparison   1.254   0.227   0.809   1.699
 
-```r
+``` r
 (Outcome~Comparison) |> analyzeMeanDifference(conf.level=.99)
 ```
 
-```
-## $`Confidence Interval for the Mean Difference`
-##               Diff      SE      df      LL      UL
-## Comparison   3.860   0.612  74.923   2.243   5.477
-## 
-## $`Hypothesis Test for the Mean Difference`
-##               Diff      SE      df       t       p
-## Comparison   3.860   0.612  74.923   6.310   0.000
-## 
-## $`Confidence Interval for the Standardized Mean Difference`
-##                  d      SE      LL      UL
-## Comparison   1.262   0.227   0.678   1.846
-```
+    ## $`Confidence Interval for the Mean Difference`
+    ##               Diff      SE      df      LL      UL
+    ## Comparison   4.100   0.654  73.153   2.370   5.830
+    ## 
+    ## $`Hypothesis Test for the Mean Difference`
+    ##               Diff      SE      df       t       p
+    ## Comparison   4.100   0.654  73.153   6.269   0.000
+    ## 
+    ## $`Confidence Interval for the Standardized Mean Difference`
+    ##                  d      SE      LL      UL
+    ## Comparison   1.254   0.227   0.669   1.839
 
 ### Analyze a Mean Contrast
 
 Determine and then estimate, test, and standardize a mean contrast.
 
-```r
+``` r
 L1vsOthers <- c(-1,.5,.5)
 (Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers)
 ```
 
-```
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast   4.230   0.484 146.556   3.273   5.187
-## 
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast   4.230   0.484 146.556   8.738   0.000
-## 
-## $`Confidence Interval for the Standardized Mean Contrast`
-##              Est      SE      LL      UL
-## Contrast   1.249   0.165   0.926   1.573
-```
+    ## $`Confidence Interval for the Mean Contrast`
+    ##              Est      SE      df      LL      UL
+    ## Contrast   4.650   0.498 146.101   3.667   5.633
+    ## 
+    ## $`Hypothesis Test for the Mean Contrast`
+    ##              Est      SE      df       t       p
+    ## Contrast   4.650   0.498 146.101   9.345   0.000
+    ## 
+    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ##              Est      SE      LL      UL
+    ## Contrast   1.340   0.168   1.010   1.670
 
-```r
+``` r
 (Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers,conf.level=.99)
 ```
 
-```
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast   4.230   0.484 146.556   2.967   5.493
-## 
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast   4.230   0.484 146.556   8.738   0.000
-## 
-## $`Confidence Interval for the Standardized Mean Contrast`
-##              Est      SE      LL      UL
-## Contrast   1.249   0.165   0.824   1.675
-```
+    ## $`Confidence Interval for the Mean Contrast`
+    ##              Est      SE      df      LL      UL
+    ## Contrast   4.650   0.498 146.101   3.351   5.949
+    ## 
+    ## $`Hypothesis Test for the Mean Contrast`
+    ##              Est      SE      df       t       p
+    ## Contrast   4.650   0.498 146.101   9.345   0.000
+    ## 
+    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ##              Est      SE      LL      UL
+    ## Contrast   1.340   0.168   0.906   1.773
 
 ### Analyze the Omnibus Effect
 
-Obtain a ANOVA source table, test for significance, and estimate the proportion of variance accounted for.
+Obtain a ANOVA source table, test for significance, and estimate the
+proportion of variance accounted for.
 
-```r
+``` r
 (Outcome~Factor) |> analyzeMeansOmnibus()
 ```
 
-```
-## $`Source Table for the Model`
-##               SS      df      MS
-## Between  610.120   2.000 305.060
-## Within  1684.820 147.000  11.461
-## 
-## $`Hypothesis Test for the Model`
-##              F     df1     df2       p
-## Factor  26.616   2.000 147.000   0.000
-## 
-## $`Proportion of Variance Accounted For by the Model`
-##            Est      LL      UL
-## Factor   0.266   0.164   0.351
-```
+    ## $`Source Table for the Model`
+    ##               SS      df      MS
+    ## Between  751.000   2.000 375.500
+    ## Within  1770.840 147.000  12.047
+    ## 
+    ## $`Hypothesis Test for the Model`
+    ##              F     df1     df2       p
+    ## Factor  31.171   2.000 147.000   0.000
+    ## 
+    ## $`Proportion of Variance Accounted For by the Model`
+    ##            Est      LL      UL
+    ## Factor   0.298   0.193   0.382
 
-```r
+``` r
 (Outcome~Factor) |> analyzeMeansOmnibus(conf.level=.99)
 ```
 
-```
-## $`Source Table for the Model`
-##               SS      df      MS
-## Between  610.120   2.000 305.060
-## Within  1684.820 147.000  11.461
-## 
-## $`Hypothesis Test for the Model`
-##              F     df1     df2       p
-## Factor  26.616   2.000 147.000   0.000
-## 
-## $`Proportion of Variance Accounted For by the Model`
-##            Est      LL      UL
-## Factor   0.266   0.114   0.401
-```
+    ## $`Source Table for the Model`
+    ##               SS      df      MS
+    ## Between  751.000   2.000 375.500
+    ## Within  1770.840 147.000  12.047
+    ## 
+    ## $`Hypothesis Test for the Model`
+    ##              F     df1     df2       p
+    ## Factor  31.171   2.000 147.000   0.000
+    ## 
+    ## $`Proportion of Variance Accounted For by the Model`
+    ##            Est      LL      UL
+    ## Factor   0.298   0.141   0.431
 
 ### Analyze Pairwise Comparisons
 
 Estimate, test, and standardize all pairwise mean comparisons.
 
-```r
+``` r
 (Outcome~Factor) |> analyzeMeansPairwise()
 ```
 
-```
-## $`Confidence Intervals for the Pairwise Mean Comparisons`
-##                      MD      SE      df      LL      UL
-## Level1 v Level2   3.860   0.612  74.923   2.641   5.079
-## Level1 v Level3   4.600   0.630  73.316   3.345   5.855
-## Level2 v Level3   0.740   0.777  97.864  -0.803   2.283
-## 
-## $`Hypothesis Tests for the Pairwise Mean Comparisons`
-##                      MD      SE      df       t       p
-## Level1 v Level2   3.860   0.612  74.923   6.310   0.000
-## Level1 v Level3   4.600   0.630  73.316   7.303   0.000
-## Level2 v Level3   0.740   0.777  97.864   0.952   0.344
-## 
-## $`Confidence Intervals for the Pairwise Standardized Mean Comparisons`
-##                       d      SE      LL      UL
-## Level1 v Level2   1.262   0.227   0.817   1.707
-## Level1 v Level3   1.461   0.235   0.999   1.922
-## Level2 v Level3   0.190   0.202  -0.207   0.587
-```
+    ## $`Confidence Intervals for the Pairwise Mean Comparisons`
+    ##                      MD      SE      df      LL      UL
+    ## Level1 v Level2   4.100   0.654  73.153   2.797   5.403
+    ## Level1 v Level3   5.200   0.620  76.147   3.965   6.435
+    ## Level2 v Level3   1.100   0.796  97.543  -0.480   2.680
+    ## 
+    ## $`Hypothesis Tests for the Pairwise Mean Comparisons`
+    ##                      MD      SE      df       t       p
+    ## Level1 v Level2   4.100   0.654  73.153   6.269   0.000
+    ## Level1 v Level3   5.200   0.620  76.147   8.388   0.000
+    ## Level2 v Level3   1.100   0.796  97.543   1.382   0.170
+    ## 
+    ## $`Confidence Intervals for the Pairwise Standardized Mean Comparisons`
+    ##                       d      SE      LL      UL
+    ## Level1 v Level2   1.254   0.227   0.809   1.699
+    ## Level1 v Level3   1.678   0.244   1.200   2.155
+    ## Level2 v Level3   0.276   0.203  -0.121   0.674
 
-```r
+``` r
 (Outcome~Factor) |> analyzeMeansPairwise(conf.level=.99)
 ```
 
-```
-## $`Confidence Intervals for the Pairwise Mean Comparisons`
-##                      MD      SE      df      LL      UL
-## Level1 v Level2   3.860   0.612  74.923   2.243   5.477
-## Level1 v Level3   4.600   0.630  73.316   2.934   6.266
-## Level2 v Level3   0.740   0.777  97.864  -1.302   2.782
-## 
-## $`Hypothesis Tests for the Pairwise Mean Comparisons`
-##                      MD      SE      df       t       p
-## Level1 v Level2   3.860   0.612  74.923   6.310   0.000
-## Level1 v Level3   4.600   0.630  73.316   7.303   0.000
-## Level2 v Level3   0.740   0.777  97.864   0.952   0.344
-## 
-## $`Confidence Intervals for the Pairwise Standardized Mean Comparisons`
-##                       d      SE      LL      UL
-## Level1 v Level2   1.262   0.227   0.678   1.846
-## Level1 v Level3   1.461   0.235   0.855   2.067
-## Level2 v Level3   0.190   0.202  -0.331   0.712
-```
+    ## $`Confidence Intervals for the Pairwise Mean Comparisons`
+    ##                      MD      SE      df      LL      UL
+    ## Level1 v Level2   4.100   0.654  73.153   2.370   5.830
+    ## Level1 v Level3   5.200   0.620  76.147   3.562   6.838
+    ## Level2 v Level3   1.100   0.796  97.543  -0.991   3.191
+    ## 
+    ## $`Hypothesis Tests for the Pairwise Mean Comparisons`
+    ##                      MD      SE      df       t       p
+    ## Level1 v Level2   4.100   0.654  73.153   6.269   0.000
+    ## Level1 v Level3   5.200   0.620  76.147   8.388   0.000
+    ## Level2 v Level3   1.100   0.796  97.543   1.382   0.170
+    ## 
+    ## $`Confidence Intervals for the Pairwise Standardized Mean Comparisons`
+    ##                       d      SE      LL      UL
+    ## Level1 v Level2   1.254   0.227   0.669   1.839
+    ## Level1 v Level3   1.678   0.244   1.050   2.305
+    ## Level2 v Level3   0.276   0.203  -0.246   0.799

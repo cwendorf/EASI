@@ -1,12 +1,24 @@
+
 ## Set of Correlations Summary Statistics Tutorial
 
-This page analyzes ba set of correlations among variables using summary statistics input.
+This page analyzes ba set of correlations among variables using summary
+statistics input.
+
+- [Data Management](#data-management)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+  - [Confidence Interval](#confidence-interval)
+  - [Significance Test](#significance-test)
+- [Analyses of Several Correlations](#analyses-of-several-correlations)
+  - [Confidence Intervals](#confidence-intervals)
+  - [Significance Tests](#significance-tests)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
 This code inputs the variable summaries and creates a summary table.
 
-```r
+``` r
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
 Outcome2 <- c(N=4,M=6.000,SD=2.449)
 Outcome3 <- c(N=4,M=7.000,SD=2.449)
@@ -14,9 +26,10 @@ RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
 class(RepeatedSummary) <- "wss"
 ```
 
-This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
+This code creates a correlation matrix, enters just the top triangle,
+and then uses a function to fill in the whole matrix.
 
-```r
+``` r
 RepeatedCorr <- declareCorrelations("Outcome1","Outcome2","Outcome3")
 RepeatedCorr["Outcome1","Outcome2"] <- .500
 RepeatedCorr["Outcome1","Outcome3"] <- .056
@@ -28,9 +41,10 @@ RepeatedCorr <- fillCorrelations(RepeatedCorr)
 
 This section produces analyses of a single correlation.
 
-This code creates a tables that identify the two variables for correlating.
+This code creates a tables that identify the two variables for
+correlating.
 
-```r
+``` r
 CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
 class(CompSummary) <- "wss"
 CompCorr <- RepeatedCorr[c("Outcome1","Outcome2"),c("Outcome1","Outcome2")]
@@ -40,39 +54,39 @@ CompCorr <- RepeatedCorr[c("Outcome1","Outcome2"),c("Outcome1","Outcome2")]
 
 This code will provide the confidence interval for the correlation.
 
-```r
+``` r
 estimateCorrelations(CompSummary,CompCorr)
 ```
 
-```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
-```
+    ## $`Confidence Interval for the Correlation`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
 
-This code will produce a graph of the confidence interval for the correlation.
+This code will produce a graph of the confidence interval for the
+correlation.
 
-```r
+``` r
 plotCorrelations(CompSummary,CompCorr)
 ```
 
 ![](figures/SetCorrelations-Summary-IntervalsA-1.png)<!-- -->
 
-The code defaults to 95% confidence intervals. This can be changed if desired.
+The code defaults to 95% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateCorrelations(CompSummary,CompCorr,conf.level=.99)
 ```
 
-```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
-```
+    ## $`Confidence Interval for the Correlation`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
 
-Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
+Of course, it is possible to change from the default confidence level in
+the graph. It is also possible to add a comparison value and a region of
+practical equivalence.
 
-```r
+``` r
 plotCorrelations(CompSummary,CompCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
@@ -80,17 +94,16 @@ plotCorrelations(CompSummary,CompCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 
 #### Significance Test
 
-This code will produce a table of NHST for the correlation (against a value of zero).
+This code will produce a table of NHST for the correlation (against a
+value of zero).
 
-```r
+``` r
 testCorrelations(CompSummary,CompCorr)
 ```
 
-```
-## $`Hypothesis Test for the Correlation`
-##                           R      SE      df       t       p
-## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
-```
+    ## $`Hypothesis Test for the Correlation`
+    ##                           R      SE      df       t       p
+    ## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
 
 ### Analyses of Several Correlations
 
@@ -100,43 +113,43 @@ This section analyzes the correlations among multiple variables.
 
 This code will provide the confidence intervals for the correlations.
 
-```r
+``` r
 estimateCorrelations(RepeatedSummary,RepeatedCorr)
 ```
 
-```
-## $`Confidence Intervals for the Correlations`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
-## Outcome1 & Outcome3   0.056   1.000  -0.957   0.965
-## Outcome2 & Outcome3   0.389   1.000  -0.914   0.983
-```
+    ## $`Confidence Intervals for the Correlations`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
+    ## Outcome1 & Outcome3   0.056   1.000  -0.957   0.965
+    ## Outcome2 & Outcome3   0.389   1.000  -0.914   0.983
 
-This code will produce a graph of the confidence intervals for the correlations.
+This code will produce a graph of the confidence intervals for the
+correlations.
 
-```r
+``` r
 plotCorrelations(RepeatedSummary,RepeatedCorr)
 ```
 
 ![](figures/SetCorrelations-Summary-IntervalsC-1.png)<!-- -->
 
-The code defaults to 95% confidence intervals. This can be changed if desired.
+The code defaults to 95% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99)
 ```
 
-```
-## $`Confidence Intervals for the Correlations`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
-## Outcome1 & Outcome3   0.056   1.000  -0.987   0.990
-## Outcome2 & Outcome3   0.389   1.000  -0.974   0.995
-```
+    ## $`Confidence Intervals for the Correlations`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
+    ## Outcome1 & Outcome3   0.056   1.000  -0.987   0.990
+    ## Outcome2 & Outcome3   0.389   1.000  -0.974   0.995
 
-Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
+Of course, it is possible to change from the default confidence level in
+the graph. It is also possible to add a comparison value and a region of
+practical equivalence.
 
-```r
+``` r
 plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
@@ -144,16 +157,15 @@ plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,line=0,rope=c(-.2,.
 
 #### Significance Tests
 
-This code will produce a table of NHST for the correlations (against a value of zero).
+This code will produce a table of NHST for the correlations (against a
+value of zero).
 
-```r
+``` r
 testCorrelations(RepeatedSummary,RepeatedCorr)
 ```
 
-```
-## $`Hypothesis Tests for the Correlations`
-##                           R      SE      df       t       p
-## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
-## Outcome1 & Outcome3   0.056   0.706   2.000   0.079   0.944
-## Outcome2 & Outcome3   0.389   0.651   2.000   0.597   0.611
-```
+    ## $`Hypothesis Tests for the Correlations`
+    ##                           R      SE      df       t       p
+    ## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
+    ## Outcome1 & Outcome3   0.056   0.706   2.000   0.079   0.944
+    ## Outcome2 & Outcome3   0.389   0.651   2.000   0.597   0.611

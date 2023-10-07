@@ -1,13 +1,21 @@
+
 ## Holzel Summary Statistics Example
 
-This page analyzes a two-factor mixed design (one between-subjects and one within-subjects factor) using summary statistics input.
+This page analyzes a two-factor mixed design (one between-subjects and
+one within-subjects factor) using summary statistics input.
+
+- [Data Management](#data-management)
+- [Analyses of the Differences within
+  Conditions](#analyses-of-the-differences-within-conditions)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
-Create two tables of summary statistics for the first simple effect of interest.
+Create two tables of summary statistics for the first simple effect of
+interest.
 
-
-```r
+``` r
 PretestControl <- c(N=17,M=43.815,SD=4.910)
 PosttestControl <- c(N=17,M=43.932,SD=5.507)
 HolzelSummaryControl <- rbind(PretestControl,PosttestControl)
@@ -18,10 +26,10 @@ HolzelCorrControl["PretestControl","PosttestControl"] <- .970
 HolzelCorrControl <- fillCorrelations(HolzelCorrControl)
 ```
 
-Create two tables of summary statistics for the second simple effect of interest.
+Create two tables of summary statistics for the second simple effect of
+interest.
 
-
-```r
+``` r
 PretestMeditation <- c(N=16,M=43.705,SD=6.427)
 PosttestMeditation <- c(N=16,M=44.666,SD=6.303)
 HolzelSummaryMeditation <- rbind(PretestMeditation,PosttestMeditation)
@@ -34,70 +42,62 @@ HolzelCorrMeditation <- fillCorrelations(HolzelCorrMeditation)
 
 ### Analyses of the Differences within Conditions
 
-For each subset, obtain a difference plot comparing pretest and posttest.
+For each subset, obtain a difference plot comparing pretest and
+posttest.
 
-
-```r
+``` r
 estimateMeanComparison(HolzelSummaryControl,HolzelCorrControl)
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##                       M      SE      df      LL      UL
-## PretestControl   43.815   1.191  16.000  41.291  46.339
-## PosttestControl  43.932   1.336  16.000  41.101  46.763
-## 
-## $`Confidence Interval for the Mean Difference`
-##               Diff      SE      df      LL      UL
-## Comparison   0.117   0.341  16.000  -0.606   0.840
-```
+    ## $`Confidence Intervals for the Means`
+    ##                       M      SE      df      LL      UL
+    ## PretestControl   43.815   1.191  16.000  41.291  46.339
+    ## PosttestControl  43.932   1.336  16.000  41.101  46.763
+    ## 
+    ## $`Confidence Interval for the Mean Difference`
+    ##               Diff      SE      df      LL      UL
+    ## Comparison   0.117   0.341  16.000  -0.606   0.840
 
-```r
+``` r
 plotMeanComparison(HolzelSummaryControl,HolzelCorrControl,main="Pretest vs Posttest for the Control Group",ylab="Gray Matter",values=FALSE)
 ```
 
 ![](figures/Holzel-Summary-Comparison-1.png)<!-- -->
 
-```r
+``` r
 estimateMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation)
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##                          M      SE      df      LL      UL
-## PretestMeditation   43.705   1.607  15.000  40.280  47.130
-## PosttestMeditation  44.666   1.576  15.000  41.307  48.025
-## 
-## $`Confidence Interval for the Mean Difference`
-##               Diff      SE      df      LL      UL
-## Comparison   0.961   0.191  15.000   0.554   1.368
-```
+    ## $`Confidence Intervals for the Means`
+    ##                          M      SE      df      LL      UL
+    ## PretestMeditation   43.705   1.607  15.000  40.280  47.130
+    ## PosttestMeditation  44.666   1.576  15.000  41.307  48.025
+    ## 
+    ## $`Confidence Interval for the Mean Difference`
+    ##               Diff      SE      df      LL      UL
+    ## Comparison   0.961   0.191  15.000   0.554   1.368
 
-```r
+``` r
 plotMeanComparison(HolzelSummaryMeditation,HolzelCorrMeditation,main="Pretest vs Posttest for the Meditation Group",ylab="Gray Matter",values=FALSE)
 ```
 
 ![](figures/Holzel-Summary-Comparison-2.png)<!-- -->
 
-Then for each subset, obtain the standardized effect size comparing pretest to posttest.
+Then for each subset, obtain the standardized effect size comparing
+pretest to posttest.
 
-
-```r
+``` r
 estimateStandardizedMeanDifference(HolzelSummaryControl,HolzelCorrControl)
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean Difference`
-##                  d      SE      LL      UL
-## Comparison   0.022   0.068  -0.110   0.155
-```
+    ## $`Confidence Interval for the Standardized Mean Difference`
+    ##                  d      SE      LL      UL
+    ## Comparison   0.022   0.068  -0.110   0.155
 
-```r
+``` r
 estimateStandardizedMeanDifference(HolzelSummaryMeditation,HolzelCorrMeditation)
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean Difference`
-##                  d      SE      LL      UL
-## Comparison   0.151   0.041   0.070   0.232
-```
+    ## $`Confidence Interval for the Standardized Mean Difference`
+    ##                  d      SE      LL      UL
+    ## Comparison   0.151   0.041   0.070   0.232

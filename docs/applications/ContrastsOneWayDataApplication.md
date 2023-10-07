@@ -1,12 +1,22 @@
+
 ## Contrasts OneWay Data Application
 
-This page adds data, plausibility curves, and other information to confidence interval plots of contrasts using one-way (between-subjects) data.
+This page adds data, plausibility curves, and other information to
+confidence interval plots of contrasts using one-way (between-subjects)
+data.
+
+- [Data Management](#data-management)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of a Comparison](#analyses-of-a-comparison)
+- [Analyses of a Mean Contrast](#analyses-of-a-mean-contrast)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
 Simulate some data.
 
-```r
+``` r
 Factor <- c(rep(1,50),rep(2,50),rep(3,50))
 Factor <- factor(Factor,levels=c(1,2,3),labels=c("Group1","Group2","Group3"))
 Group1 <- round(rnorm(50,mean=7,sd=2),0)
@@ -19,19 +29,17 @@ Outcome <- c(Group1,Group2,Group3)
 
 Estimate and get a simple plot of the confidence intervals.
 
-```r
+``` r
 (Outcome~Factor) |> estimateMeans()
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##              M      SE      df      LL      UL
-## Group1   7.180   0.275  49.000   6.627   7.733
-## Group2  10.120   0.478  49.000   9.160  11.080
-## Group3  12.160   0.498  49.000  11.160  13.160
-```
+    ## $`Confidence Intervals for the Means`
+    ##              M      SE      df      LL      UL
+    ## Group1   7.100   0.295  49.000   6.508   7.692
+    ## Group2  11.380   0.618  49.000  10.138  12.622
+    ## Group3  11.980   0.496  49.000  10.983  12.977
 
-```r
+``` r
 (Outcome~Factor) |> plotMeans()
 ```
 
@@ -39,7 +47,7 @@ Estimate and get a simple plot of the confidence intervals.
 
 Get an enhanced plot of data and confidence intervals.
 
-```r
+``` r
 customTheme <- c("darkred","darkblue","darkgoldenrod")
 (Outcome~Factor) |> plotData(main="Data and Confidence Intervals",method="jitter",col=customTheme)
 (Outcome~Factor) |> plotMeans(add=TRUE,values=FALSE,line=10,col=customTheme)
@@ -51,31 +59,30 @@ customTheme <- c("darkred","darkblue","darkgoldenrod")
 
 Create a comparison and get a simple plot of the confidence intervals.
 
-```r
+``` r
 Comparison <- factor(Factor,c("Group1","Group2"))
 (Outcome~Comparison) |> estimateMeanComparison()
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##              M      SE      df      LL      UL
-## Group1   7.180   0.275  49.000   6.627   7.733
-## Group2  10.120   0.478  49.000   9.160  11.080
-## 
-## $`Confidence Interval for the Mean Difference`
-##               Diff      SE      df      LL      UL
-## Comparison   2.940   0.551  78.268   1.842   4.038
-```
+    ## $`Confidence Intervals for the Means`
+    ##              M      SE      df      LL      UL
+    ## Group1   7.100   0.295  49.000   6.508   7.692
+    ## Group2  11.380   0.618  49.000  10.138  12.622
+    ## 
+    ## $`Confidence Interval for the Mean Difference`
+    ##               Diff      SE      df      LL      UL
+    ## Comparison   4.280   0.685  70.163   2.915   5.645
 
-```r
+``` r
 (Outcome~Comparison) |> plotMeanComparison()
 ```
 
 ![](figures/Contrasts-OneWay-ComparisonA-1.png)<!-- -->
 
-Get an enhanced plot of data and confidence intervals with a plausibility curve.
+Get an enhanced plot of data and confidence intervals with a
+plausibility curve.
 
-```r
+``` r
 comparisonTheme <- c("darkred","darkblue","black")
 (Outcome~Comparison) |> plotMeanComparison(main="Data, Confidence Intervals, and a Plausibility Curve",ylim=c(0,20),values=FALSE,col=comparisonTheme)
 (Outcome~Comparison) |> plotPlausible(add=TRUE,type=c("none","none","right"),col=comparisonTheme)
@@ -88,23 +95,21 @@ comparisonTheme <- c("darkred","darkblue","black")
 
 Create a contrast and get a plot of the mean subsets and the contrast.
 
-```r
+``` r
 G1vsOthers <- c(-1,.5,.5)
 (Outcome~Factor) |> estimateMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
 ```
 
-```
-## $`Confidence Intervals for the Mean Subsets`
-##            Est      SE      df      LL      UL
-## Group1   7.180   0.275  49.000   6.627   7.733
-## Others  11.140   0.345  97.838  10.455  11.825
-## 
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast   3.960   0.441 144.865   3.088   4.832
-```
+    ## $`Confidence Intervals for the Mean Subsets`
+    ##            Est      SE      df      LL      UL
+    ## Group1   7.100   0.295  49.000   6.508   7.692
+    ## Others  11.680   0.396  93.621  10.893  12.467
+    ## 
+    ## $`Confidence Interval for the Mean Contrast`
+    ##              Est      SE      df      LL      UL
+    ## Contrast   4.580   0.494 142.526   3.604   5.556
 
-```r
+``` r
 (Outcome~Factor) |> plotMeanSubsets(contrast=G1vsOthers,labels=c("Group1","Others"))
 ```
 
@@ -112,7 +117,7 @@ G1vsOthers <- c(-1,.5,.5)
 
 Create side-by-side enhanced plots of the means and the mean subsets.
 
-```r
+``` r
 contrastTheme <- c("darkred","darkblue","darkblue")
 par(mfrow=c(1,2))
 (Outcome~Factor) |> plotMeans(col=contrastTheme,ylim=c(0,20),values=FALSE,main="")
@@ -123,6 +128,6 @@ par(mfrow=c(1,2))
 
 ![](figures/Contrasts-OneWay-ContrastB-1.png)<!-- -->
 
-```r
+``` r
 par(mfrow=c(1,1))
 ```

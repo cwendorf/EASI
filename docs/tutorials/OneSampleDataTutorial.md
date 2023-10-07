@@ -1,6 +1,18 @@
+
 ## One Sample Data Tutorial
 
-This page analyzes a single-group (one sample) design using raw data input.
+This page analyzes a single-group (one sample) design using raw data
+input.
+
+- [Data Management](#data-management)
+  - [Data Entry](#data-entry)
+  - [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of the Mean](#analyses-of-the-mean)
+  - [Confidence Interval](#confidence-interval)
+  - [Significance Test](#significance-test)
+  - [Standardized Effect Size](#standardized-effect-size)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
@@ -8,7 +20,7 @@ This page analyzes a single-group (one sample) design using raw data input.
 
 This code inputs the variable name and creates a viewable data frame.
 
-```r
+``` r
 Outcome <- c(0,0,3,5,4,7,4,9)
 OneSampleData <- data.frame(Outcome)
 ```
@@ -17,57 +29,56 @@ OneSampleData <- data.frame(Outcome)
 
 This code obtains the descriptive statistics for the data frame.
 
-```r
+``` r
 describeMeans(Outcome)
 ```
 
-```
-## $`Descriptive Statistics for the Data`
-##               N       M      SD    Skew    Kurt
-## Outcome   8.000   4.000   3.117   0.151  -0.467
-```
+    ## $`Descriptive Statistics for the Data`
+    ##               N       M      SD    Skew    Kurt
+    ## Outcome   8.000   4.000   3.117   0.151  -0.467
 
 ### Analyses of the Mean
 
-This section produces analyses that are equivalent to one-sample analyses for the variable.
+This section produces analyses that are equivalent to one-sample
+analyses for the variable.
 
 #### Confidence Interval
 
 This code will provide a confidence interval for the variable.
 
-```r
+``` r
 estimateMeans(Outcome)
 ```
 
-```
-## $`Confidence Interval for the Mean`
-##               M      SE      df      LL      UL
-## Outcome   4.000   1.102   7.000   1.394   6.606
-```
+    ## $`Confidence Interval for the Mean`
+    ##               M      SE      df      LL      UL
+    ## Outcome   4.000   1.102   7.000   1.394   6.606
 
-This code will produce a graph of the confidence interval for the variable.
+This code will produce a graph of the confidence interval for the
+variable.
 
-```r
+``` r
 plotMeans(Outcome)
 ```
 
 ![](figures/OneSample-Data-MeansA-1.png)<!-- -->
 
-The code defaults to 95% confidence intervals. This can be changed if desired.
+The code defaults to 95% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateMeans(Outcome,conf.level=.99)
 ```
 
-```
-## $`Confidence Interval for the Mean`
-##               M      SE      df      LL      UL
-## Outcome   4.000   1.102   7.000   0.144   7.856
-```
+    ## $`Confidence Interval for the Mean`
+    ##               M      SE      df      LL      UL
+    ## Outcome   4.000   1.102   7.000   0.144   7.856
 
-For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
+For the graph, it is possible to add a comparison line to represent a
+population (or test) value and a region of practical equivalence in
+addition to changing the confidence level.
 
-```r
+``` r
 plotMeans(Outcome,conf.level=.99,line=5,rope=c(3,7))
 ```
 
@@ -75,52 +86,50 @@ plotMeans(Outcome,conf.level=.99,line=5,rope=c(3,7))
 
 #### Significance Test
 
-This code will produce a table of NHST for the variable. In this case, the mean is tested against a value of zero.
+This code will produce a table of NHST for the variable. In this case,
+the mean is tested against a value of zero.
 
-```r
+``` r
 testMeans(Outcome)
 ```
 
-```
-## $`Hypothesis Test for the Mean`
-##            Diff      SE      df       t       p
-## Outcome   4.000   1.102   7.000   3.630   0.008
-```
+    ## $`Hypothesis Test for the Mean`
+    ##            Diff      SE      df       t       p
+    ## Outcome   4.000   1.102   7.000   3.630   0.008
 
-Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
+Often, the default test value of zero is not meaningful or plausible.
+This too can be altered (often in conjunction with what is presented in
+the plot).
 
-```r
+``` r
 testMeans(Outcome,mu=5)
 ```
 
-```
-## $`Hypothesis Test for the Mean`
-##            Diff      SE      df       t       p
-## Outcome  -1.000   1.102   7.000  -0.907   0.394
-```
+    ## $`Hypothesis Test for the Mean`
+    ##            Diff      SE      df       t       p
+    ## Outcome  -1.000   1.102   7.000  -0.907   0.394
 
 #### Standardized Effect Size
 
-This code will provide the standardized mean difference for the variable. In this case, the mean is compared to zero to form the effect size.
+This code will provide the standardized mean difference for the
+variable. In this case, the mean is compared to zero to form the effect
+size.
 
-```r
+``` r
 estimateStandardizedMeans(Outcome)
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean`
-##               d      SE      LL      UL
-## Outcome   1.283   0.482   0.304   2.217
-```
+    ## $`Confidence Interval for the Standardized Mean`
+    ##               d      SE      LL      UL
+    ## Outcome   1.283   0.482   0.304   2.217
 
-Here too it is possible to alter the width of the confidence interval and to establish a more plausible comparison value for the mean.
+Here too it is possible to alter the width of the confidence interval
+and to establish a more plausible comparison value for the mean.
 
-```r
+``` r
 estimateStandardizedMeans(Outcome,mu=5,conf.level=.99)
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean`
-##               d      SE      LL      UL
-## Outcome  -0.321   0.383  -1.247   0.625
-```
+    ## $`Confidence Interval for the Standardized Mean`
+    ##               d      SE      LL      UL
+    ## Outcome  -0.321   0.383  -1.247   0.625

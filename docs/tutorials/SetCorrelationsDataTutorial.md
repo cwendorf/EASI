@@ -1,6 +1,20 @@
+
 ## Set of Correlations Data Tutorial
 
-This page analyzes ba set of correlations among variables using raw data input.
+This page analyzes ba set of correlations among variables using raw data
+input.
+
+- [Data Management](#data-management)
+  - [Data Entry](#data-entry)
+  - [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+  - [Confidence Interval](#confidence-interval)
+  - [Significance Test](#significance-test)
+- [Analyses of Several Correlations](#analyses-of-several-correlations)
+  - [Confidence Intervals](#confidence-intervals)
+  - [Significance Tests](#significance-tests)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
@@ -8,7 +22,7 @@ This page analyzes ba set of correlations among variables using raw data input.
 
 This code inputs the variable names and creates a viewable data frame.
 
-```r
+``` r
 Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)
 Outcome3 <- c(9,6,4,9)
@@ -19,36 +33,31 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 This code obtains the descriptive statistics for the data frame.
 
-```r
+``` r
 describeMeans(RepeatedData)
 ```
 
-```
-## $`Descriptive Statistics for the Data`
-##                N       M      SD    Skew    Kurt
-## Outcome1   4.000   2.000   2.449   0.544  -2.944
-## Outcome2   4.000   6.000   2.449   0.544  -2.944
-## Outcome3   4.000   7.000   2.449  -0.544  -2.944
-```
+    ## $`Descriptive Statistics for the Data`
+    ##                N       M      SD    Skew    Kurt
+    ## Outcome1   4.000   2.000   2.449   0.544  -2.944
+    ## Outcome2   4.000   6.000   2.449   0.544  -2.944
+    ## Outcome3   4.000   7.000   2.449  -0.544  -2.944
 
-```r
+``` r
 describeCorrelations(RepeatedData)
 ```
 
-```
-## $`Correlation Matrix for the Variables`
-##          Outcome1 Outcome2 Outcome3
-## Outcome1    1.000    0.500    0.056
-## Outcome2    0.500    1.000    0.389
-## Outcome3    0.056    0.389    1.000
-```
+    ## $`Correlation Matrix for the Variables`
+    ##          Outcome1 Outcome2 Outcome3
+    ## Outcome1    1.000    0.500    0.056
+    ## Outcome2    0.500    1.000    0.389
+    ## Outcome3    0.056    0.389    1.000
 
 ### Analyses of a Correlation
 
 This section produces analyses of a single correlation.
 
-
-```r
+``` r
 ComparisonData <- cbind(Outcome1,Outcome2)
 ```
 
@@ -56,39 +65,39 @@ ComparisonData <- cbind(Outcome1,Outcome2)
 
 This code will provide the confidence interval for the correlation.
 
-```r
+``` r
 estimateCorrelations(ComparisonData)
 ```
 
-```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
-```
+    ## $`Confidence Interval for the Correlation`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
 
-This code will produce a graph of the confidence interval for the correlation.
+This code will produce a graph of the confidence interval for the
+correlation.
 
-```r
+``` r
 plotCorrelations(ComparisonData)
 ```
 
 ![](figures/SetCorrelations-Data-IntervalsA-1.png)<!-- -->
 
-The code defaults to 95% confidence intervals. This can be changed if desired.
+The code defaults to 95% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateCorrelations(ComparisonData,conf.level=.99)
 ```
 
-```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
-```
+    ## $`Confidence Interval for the Correlation`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
 
-Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
+Of course, it is possible to change from the default confidence level in
+the graph. It is also possible to add a comparison value and a region of
+practical equivalence.
 
-```r
+``` r
 plotCorrelations(ComparisonData,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
@@ -96,17 +105,16 @@ plotCorrelations(ComparisonData,conf.level=.99,line=0,rope=c(-.2,.2))
 
 #### Significance Test
 
-This code will produce a table of NHST for the correlation (against a value of zero).
+This code will produce a table of NHST for the correlation (against a
+value of zero).
 
-```r
+``` r
 testCorrelations(ComparisonData)
 ```
 
-```
-## $`Hypothesis Test for the Correlation`
-##                           R      SE      df       t       p
-## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
-```
+    ## $`Hypothesis Test for the Correlation`
+    ##                           R      SE      df       t       p
+    ## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
 
 ### Analyses of Several Correlations
 
@@ -116,43 +124,43 @@ This section analyzes the correlations among multiple variables.
 
 This code will provide the confidence intervals for the correlations.
 
-```r
+``` r
 estimateCorrelations(RepeatedData)
 ```
 
-```
-## $`Confidence Intervals for the Correlations`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
-## Outcome1 & Outcome3   0.056   1.000  -0.957   0.965
-## Outcome2 & Outcome3   0.389   1.000  -0.914   0.983
-```
+    ## $`Confidence Intervals for the Correlations`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
+    ## Outcome1 & Outcome3   0.056   1.000  -0.957   0.965
+    ## Outcome2 & Outcome3   0.389   1.000  -0.914   0.983
 
-This code will produce a graph of the confidence intervals for the correlations.
+This code will produce a graph of the confidence intervals for the
+correlations.
 
-```r
+``` r
 plotCorrelations(RepeatedData)
 ```
 
 ![](figures/SetCorrelations-Data-IntervalsC-1.png)<!-- -->
 
-The code defaults to 95% confidence intervals. This can be changed if desired.
+The code defaults to 95% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateCorrelations(RepeatedData,conf.level=.99)
 ```
 
-```
-## $`Confidence Intervals for the Correlations`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
-## Outcome1 & Outcome3   0.056   1.000  -0.987   0.990
-## Outcome2 & Outcome3   0.389   1.000  -0.974   0.995
-```
+    ## $`Confidence Intervals for the Correlations`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
+    ## Outcome1 & Outcome3   0.056   1.000  -0.987   0.990
+    ## Outcome2 & Outcome3   0.389   1.000  -0.974   0.995
 
-Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
+Of course, it is possible to change from the default confidence level in
+the graph. It is also possible to add a comparison value and a region of
+practical equivalence.
 
-```r
+``` r
 plotCorrelations(RepeatedData,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
@@ -160,16 +168,15 @@ plotCorrelations(RepeatedData,conf.level=.99,line=0,rope=c(-.2,.2))
 
 #### Significance Tests
 
-This code will produce a table of NHST for the correlations (against a value of zero).
+This code will produce a table of NHST for the correlations (against a
+value of zero).
 
-```r
+``` r
 testCorrelations(RepeatedData)
 ```
 
-```
-## $`Hypothesis Tests for the Correlations`
-##                           R      SE      df       t       p
-## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
-## Outcome1 & Outcome3   0.056   0.706   2.000   0.079   0.944
-## Outcome2 & Outcome3   0.389   0.651   2.000   0.597   0.611
-```
+    ## $`Hypothesis Tests for the Correlations`
+    ##                           R      SE      df       t       p
+    ## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
+    ## Outcome1 & Outcome3   0.056   0.706   2.000   0.079   0.944
+    ## Outcome2 & Outcome3   0.389   0.651   2.000   0.597   0.611

@@ -1,12 +1,22 @@
+
 ## Complex Repeated Measures Data Application
 
-This page analyzes differences between two contrasts on the same measures using repeated-measures (within-subjects) data.
+This page analyzes differences between two contrasts on the same
+measures using repeated-measures (within-subjects) data.
+
+- [Data Management](#data-management)
+- [Analyses of a Complex Mean
+  Contrast](#analyses-of-a-complex-mean-contrast)
+- [Analysis of a Difference Between Two
+  Contrasts](#analysis-of-a-difference-between-two-contrasts)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
 Simulate some data.
 
-```r
+``` r
 Outcome1 <- round(rnorm(50,mean=7,sd=2),0)
 Outcome2 <- round(rnorm(50,mean=11,sd=4),0)
 Outcome3 <- round(rnorm(50,mean=12,sd=4),0)
@@ -17,38 +27,35 @@ RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
 
 Estimate and plot the means for examination.
 
-```r
+``` r
 (RepeatedData) |> estimateMeans()
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##                M      SE      df      LL      UL
-## Outcome1   6.860   0.260  49.000   6.337   7.383
-## Outcome2  11.440   0.609  49.000  10.216  12.664
-## Outcome3  12.360   0.554  49.000  11.247  13.473
-```
+    ## $`Confidence Intervals for the Means`
+    ##                M      SE      df      LL      UL
+    ## Outcome1   6.820   0.242  49.000   6.334   7.306
+    ## Outcome2  11.020   0.513  49.000   9.989  12.051
+    ## Outcome3  12.300   0.584  49.000  11.127  13.473
 
-```r
+``` r
 (RepeatedData) |> plotMeans()
 ```
 
 ![](figures/Complex-Repeated-Means-1.png)<!-- -->
 
-Create a single contrast to compare the first variable to the grand mean (which requires some arithmetic). Then esimate and plot the contrast.
+Create a single contrast to compare the first variable to the grand mean
+(which requires some arithmetic). Then esimate and plot the contrast.
 
-```r
+``` r
 O1vsGrand <- c(.6667,-.3333,-.3333)
 (RepeatedData) |> estimateMeanContrast(contrast=O1vsGrand)
 ```
 
-```
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast  -3.359   0.311  49.000  -3.985  -2.733
-```
+    ## $`Confidence Interval for the Mean Contrast`
+    ##              Est      SE      df      LL      UL
+    ## Contrast  -3.226   0.283  49.000  -3.795  -2.657
 
-```r
+``` r
 (RepeatedData) |> plotMeanContrast(contrast=O1vsGrand)
 ```
 
@@ -56,31 +63,31 @@ O1vsGrand <- c(.6667,-.3333,-.3333)
 
 ### Analysis of a Difference Between Two Contrasts
 
-Rather than setting just one contrast, set two contrasts: one for the Grand Mean and one for Level 1.
+Rather than setting just one contrast, set two contrasts: one for the
+Grand Mean and one for Level 1.
 
-```r
+``` r
 GrandMean <- c(1/3,1/3,1/3)
 O1Only <- c(1,0,0)
 ```
 
-Estimate and plot the confidence intervals for each contrast and the difference between contrasts.
+Estimate and plot the confidence intervals for each contrast and the
+difference between contrasts.
 
-```r
+``` r
 (RepeatedData) |> estimateMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"))
 ```
 
-```
-## $`Confidence Intervals for the Mean Contrasts`
-##               Est      SE      df      LL      UL
-## GrandMean  10.220   0.317  49.000   9.584  10.856
-## O1Only      6.860   0.260  49.000   6.337   7.383
-## 
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast  -3.360   0.312  49.000  -3.986  -2.734
-```
+    ## $`Confidence Intervals for the Mean Contrasts`
+    ##               Est      SE      df      LL      UL
+    ## GrandMean  10.047   0.302  49.000   9.439  10.654
+    ## O1Only      6.820   0.242  49.000   6.334   7.306
+    ## 
+    ## $`Confidence Interval for the Mean Contrast`
+    ##              Est      SE      df      LL      UL
+    ## Contrast  -3.227   0.283  49.000  -3.796  -2.657
 
-```r
+``` r
 (RepeatedData) |> plotMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"))
 ```
 
@@ -88,7 +95,7 @@ Estimate and plot the confidence intervals for each contrast and the difference 
 
 Enhance the plot by adding colors and removing value labels.
 
-```r
+``` r
 comparisonTheme <- c("darkred","darkblue","black")
 (RepeatedData) |> plotMeanComplex(contrast1=GrandMean,contrast2=O1Only,labels=c("GrandMean","O1Only"),values=FALSE,col=comparisonTheme)
 ```

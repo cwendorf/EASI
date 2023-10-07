@@ -1,6 +1,18 @@
+
 ## Single Correlation Data Tutorial
 
-This page analyzes a single correlation between two variables using raw data input.
+This page analyzes a single correlation between two variables using raw
+data input.
+
+- [Data Management](#data-management)
+  - [Data Entry](#data-entry)
+  - [Plot of the Data](#plot-of-the-data)
+  - [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+  - [Confidence Interval](#confidence-interval)
+  - [Significance Test](#significance-test)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
@@ -8,7 +20,7 @@ This page analyzes a single correlation between two variables using raw data inp
 
 This code inputs the variable names and creates a viewable data frame.
 
-```r
+``` r
 Outcome1 <- c(0,0,3,5)
 Outcome2 <- c(4,7,4,9)
 PairedData <- data.frame(Outcome1,Outcome2)
@@ -18,15 +30,16 @@ PairedData <- data.frame(Outcome1,Outcome2)
 
 This code provides a scatterplot for the bivariate relationship.
 
-```r
+``` r
 plotScatter(PairedData)
 ```
 
 ![](figures/SingleCorrelation-Data-ScatterA-1.png)<!-- -->
 
-This code provides a scatterplot along with a 95% confidence ellipse for the data.
+This code provides a scatterplot along with a 95% confidence ellipse for
+the data.
 
-```r
+``` r
 plotScatter(PairedData,ellipse=TRUE)
 ```
 
@@ -34,7 +47,7 @@ plotScatter(PairedData,ellipse=TRUE)
 
 The ellipse can be altered for different confidence levels.
 
-```r
+``` r
 plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
 ```
 
@@ -44,27 +57,23 @@ plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
 
 This code obtains the descriptive statistics for the data frame.
 
-```r
+``` r
 describeMeans(PairedData)
 ```
 
-```
-## $`Descriptive Statistics for the Data`
-##                N       M      SD    Skew    Kurt
-## Outcome1   4.000   2.000   2.449   0.544  -2.944
-## Outcome2   4.000   6.000   2.449   0.544  -2.944
-```
+    ## $`Descriptive Statistics for the Data`
+    ##                N       M      SD    Skew    Kurt
+    ## Outcome1   4.000   2.000   2.449   0.544  -2.944
+    ## Outcome2   4.000   6.000   2.449   0.544  -2.944
 
-```r
+``` r
 describeCorrelations(PairedData)
 ```
 
-```
-## $`Correlation Matrix for the Variables`
-##          Outcome1 Outcome2
-## Outcome1    1.000    0.500
-## Outcome2    0.500    1.000
-```
+    ## $`Correlation Matrix for the Variables`
+    ##          Outcome1 Outcome2
+    ## Outcome1    1.000    0.500
+    ## Outcome2    0.500    1.000
 
 ### Analyses of a Correlation
 
@@ -74,39 +83,39 @@ This section produces analyses of the correlation.
 
 This code will provide the confidence interval for the correlation.
 
-```r
+``` r
 estimateCorrelations(PairedData)
 ```
 
-```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
-```
+    ## $`Confidence Interval for the Correlation`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
 
-This code will produce a graph of the confidence interval for the correlation.
+This code will produce a graph of the confidence interval for the
+correlation.
 
-```r
+``` r
 plotCorrelations(PairedData)
 ```
 
 ![](figures/SingleCorrelation-Data-IntervalsA-1.png)<!-- -->
 
-The code defaults to 95% confidence intervals. This can be changed if desired.
+The code defaults to 95% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateCorrelations(PairedData,conf.level=.99)
 ```
 
-```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
-```
+    ## $`Confidence Interval for the Correlation`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
 
-Of course, it is possible to change from the default confidence level and to add a comparison line and a region of practical equivalence to the graph.
+Of course, it is possible to change from the default confidence level
+and to add a comparison line and a region of practical equivalence to
+the graph.
 
-```r
+``` r
 plotCorrelations(PairedData,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
@@ -114,14 +123,13 @@ plotCorrelations(PairedData,conf.level=.99,line=0,rope=c(-.2,.2))
 
 #### Significance Test
 
-This code will produce a table of NHST for the correlation (against a value of zero).
+This code will produce a table of NHST for the correlation (against a
+value of zero).
 
-```r
+``` r
 testCorrelations(PairedData)
 ```
 
-```
-## $`Hypothesis Test for the Correlation`
-##                           R      SE      df       t       p
-## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
-```
+    ## $`Hypothesis Test for the Correlation`
+    ##                           R      SE      df       t       p
+    ## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500

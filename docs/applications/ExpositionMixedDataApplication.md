@@ -1,12 +1,22 @@
+
 ## Exposition Mixed Data Application
 
-This page analyzes simple effects with an exposition pipe operator using mixed design (between-subjects and within-subjects) data.
+This page analyzes simple effects with an exposition pipe operator using
+mixed design (between-subjects and within-subjects) data.
+
+- [Data Management](#data-management)
+- [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of a Comparison](#analyses-of-a-comparison)
+- [Analyses of a Contrast](#analyses-of-a-contrast)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
 Simulate some data.
 
-```r
+``` r
 Factor <- c(rep(1,30),rep(2,30))
 Outcome1 <- c(round(rnorm(30,mean=8,sd=2),0),round(rnorm(30,mean=8,sd=2),0))
 Outcome2 <- c(round(rnorm(30,mean=11,sd=4),0),round(rnorm(30,mean=8,sd=3),0))
@@ -14,9 +24,10 @@ Outcome3 <- c(round(rnorm(30,mean=12,sd=4),0),round(rnorm(30,mean=7,sd=4),0))
 Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
 MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 ```
+
 Subset the data for each simple effect.
 
-```r
+``` r
 MixedB1 <- subset(MixedData,Factor=="Level1")
 MixedB2 <- subset(MixedData,Factor=="Level2")
 ```
@@ -25,268 +36,229 @@ MixedB2 <- subset(MixedData,Factor=="Level2")
 
 Get the descriptive statistics separately for each simple effect.
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> describeMeans()
 ```
 
-```
-## $`Descriptive Statistics for the Data`
-##                N       M      SD    Skew    Kurt
-## Outcome1  30.000   7.933   2.116  -0.304  -0.550
-## Outcome2  30.000  11.333   4.342   0.052  -0.696
-## Outcome3  30.000  12.133   3.371  -0.129   0.029
-```
+    ## $`Descriptive Statistics for the Data`
+    ##                N       M      SD    Skew    Kurt
+    ## Outcome1  30.000   7.800   2.340  -0.226  -0.877
+    ## Outcome2  30.000  10.967   4.937   0.043  -0.716
+    ## Outcome3  30.000  11.600   4.423   0.486  -0.556
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> describeMeans()
 ```
 
-```
-## $`Descriptive Statistics for the Data`
-##                N       M      SD    Skew    Kurt
-## Outcome1  30.000   8.033   2.157  -0.201  -0.734
-## Outcome2  30.000   7.767   3.048  -0.530   0.154
-## Outcome3  30.000   7.800   3.156   0.246  -1.195
-```
+    ## $`Descriptive Statistics for the Data`
+    ##                N       M      SD    Skew    Kurt
+    ## Outcome1  30.000   7.967   1.732   0.183  -0.819
+    ## Outcome2  30.000   7.800   2.398   0.526   0.275
+    ## Outcome3  30.000   6.667   3.614   0.257  -0.715
 
 ### Analyses of the Means
 
-Use a similar process to obtain the tables of confidence interval estimates.
+Use a similar process to obtain the tables of confidence interval
+estimates.
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans()
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##                M      SE      df      LL      UL
-## Outcome1   7.933   0.386  29.000   7.143   8.724
-## Outcome2  11.333   0.793  29.000   9.712  12.955
-## Outcome3  12.133   0.615  29.000  10.875  13.392
-```
+    ## $`Confidence Intervals for the Means`
+    ##                M      SE      df      LL      UL
+    ## Outcome1   7.800   0.427  29.000   6.926   8.674
+    ## Outcome2  10.967   0.901  29.000   9.123  12.810
+    ## Outcome3  11.600   0.807  29.000   9.949  13.251
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans()
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##                M      SE      df      LL      UL
-## Outcome1   8.033   0.394  29.000   7.228   8.839
-## Outcome2   7.767   0.556  29.000   6.629   8.905
-## Outcome3   7.800   0.576  29.000   6.622   8.978
-```
+    ## $`Confidence Intervals for the Means`
+    ##                M      SE      df      LL      UL
+    ## Outcome1   7.967   0.316  29.000   7.320   8.613
+    ## Outcome2   7.800   0.438  29.000   6.904   8.696
+    ## Outcome3   6.667   0.660  29.000   5.317   8.016
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeans()
 ```
 
 ![](figures/Exposition-Mixed-Means-1.png)<!-- -->
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeans()
 ```
 
 ![](figures/Exposition-Mixed-Means-2.png)<!-- -->
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibus()
 ```
 
-```
-## $`Hypothesis Test for the Model`
-##                F     df1     df2       p
-## Measures  14.012   2.000  58.000   0.000
-```
+    ## $`Hypothesis Test for the Model`
+    ##                F     df1     df2       p
+    ## Measures   8.613   2.000  58.000   0.001
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibus()
 ```
 
-```
-## $`Hypothesis Test for the Model`
-##                F     df1     df2       p
-## Measures   0.086   2.000  58.000   0.917
-```
+    ## $`Hypothesis Test for the Model`
+    ##                F     df1     df2       p
+    ## Measures   1.850   2.000  58.000   0.166
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeans()
 ```
 
-```
-## $`Confidence Intervals for the Standardized Means`
-##                d      SE      LL      UL
-## Outcome1   3.749   0.511   2.719   4.769
-## Outcome2   2.610   0.380   1.846   3.363
-## Outcome3   3.600   0.493   2.606   4.584
-```
+    ## $`Confidence Intervals for the Standardized Means`
+    ##                d      SE      LL      UL
+    ## Outcome1   3.333   0.462   2.402   4.254
+    ## Outcome2   2.221   0.338   1.543   2.887
+    ## Outcome3   2.623   0.381   1.856   3.379
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeans()
 ```
 
-```
-## $`Confidence Intervals for the Standardized Means`
-##                d      SE      LL      UL
-## Outcome1   3.724   0.508   2.700   4.738
-## Outcome2   2.548   0.373   1.798   3.287
-## Outcome3   2.472   0.365   1.739   3.193
-```
+    ## $`Confidence Intervals for the Standardized Means`
+    ##                d      SE      LL      UL
+    ## Outcome1   4.600   0.613   3.364   5.827
+    ## Outcome2   3.252   0.453   2.341   4.154
+    ## Outcome3   1.845   0.299   1.246   2.432
 
 ### Analyses of a Comparison
 
 Analyze the specified comparison separately for each simple effect.
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2) |> estimateMeanDifference()
 ```
 
-```
-## $`Confidence Interval for the Mean Difference`
-##               Diff      SE      df      LL      UL
-## Comparison   3.400   0.887  29.000   1.585   5.215
-```
+    ## $`Confidence Interval for the Mean Difference`
+    ##               Diff      SE      df      LL      UL
+    ## Comparison   3.167   0.993  29.000   1.135   5.198
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2) |> estimateMeanDifference()
 ```
 
-```
-## $`Confidence Interval for the Mean Difference`
-##               Diff      SE      df      LL      UL
-## Comparison  -0.267   0.636  29.000  -1.567   1.034
-```
+    ## $`Confidence Interval for the Mean Difference`
+    ##               Diff      SE      df      LL      UL
+    ## Comparison  -0.167   0.557  29.000  -1.306   0.973
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2) |> plotMeanDifference()
 ```
 
 ![](figures/Exposition-Mixed-Comparison-1.png)<!-- -->
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2) |> plotMeanDifference()
 ```
 
 ![](figures/Exposition-Mixed-Comparison-2.png)<!-- -->
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2) |> testMeanDifference()
 ```
 
-```
-## $`Hypothesis Test for the Mean Difference`
-##               Diff      SE      df       t       p
-## Comparison   3.400   0.887  29.000   3.831   0.001
-```
+    ## $`Hypothesis Test for the Mean Difference`
+    ##               Diff      SE      df       t       p
+    ## Comparison   3.167   0.993  29.000   3.188   0.003
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2) |> testMeanDifference()
 ```
 
-```
-## $`Hypothesis Test for the Mean Difference`
-##               Diff      SE      df       t       p
-## Comparison  -0.267   0.636  29.000  -0.419   0.678
-```
+    ## $`Hypothesis Test for the Mean Difference`
+    ##               Diff      SE      df       t       p
+    ## Comparison  -0.167   0.557  29.000  -0.299   0.767
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifference()
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean Difference`
-##                  d      SE      LL      UL
-## Comparison   0.996   0.286   0.436   1.556
-```
+    ## $`Confidence Interval for the Standardized Mean Difference`
+    ##                  d      SE      LL      UL
+    ## Comparison   0.820   0.277   0.278   1.362
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifference()
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean Difference`
-##                  d      SE      LL      UL
-## Comparison  -0.101   0.245  -0.582   0.380
-```
+    ## $`Confidence Interval for the Standardized Mean Difference`
+    ##                  d      SE      LL      UL
+    ## Comparison  -0.080   0.271  -0.611   0.452
 
 ### Analyses of a Contrast
 
 Specify a contrast for a factor.
 
-```r
+``` r
 O1vsOthers <- c(-1,.5,.5)
 ```
 
 Analyze the specified contrast separately for each simple effect.
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast=O1vsOthers)
 ```
 
-```
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast   3.800   0.655  29.000   2.459   5.141
-```
+    ## $`Confidence Interval for the Mean Contrast`
+    ##              Est      SE      df      LL      UL
+    ## Contrast   3.483   0.762  29.000   1.925   5.042
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast=O1vsOthers)
 ```
 
-```
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast  -0.250   0.532  29.000  -1.337   0.837
-```
+    ## $`Confidence Interval for the Mean Contrast`
+    ##              Est      SE      df      LL      UL
+    ## Contrast  -0.733   0.486  29.000  -1.727   0.260
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast=O1vsOthers)
 ```
 
 ![](figures/Exposition-Mixed-Contrast-1.png)<!-- -->
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast=O1vsOthers)
 ```
 
 ![](figures/Exposition-Mixed-Contrast-2.png)<!-- -->
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> testMeanContrast(contrast=O1vsOthers)
 ```
 
-```
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast   3.800   0.655  29.000   5.797   0.000
-```
+    ## $`Hypothesis Test for the Mean Contrast`
+    ##              Est      SE      df       t       p
+    ## Contrast   3.483   0.762  29.000   4.571   0.000
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> testMeanContrast(contrast=O1vsOthers)
 ```
 
-```
-## $`Hypothesis Test for the Mean Contrast`
-##              Est      SE      df       t       p
-## Contrast  -0.250   0.532  29.000  -0.470   0.642
-```
+    ## $`Hypothesis Test for the Mean Contrast`
+    ##              Est      SE      df       t       p
+    ## Contrast  -0.733   0.486  29.000  -1.509   0.142
 
-```r
+``` r
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrast(contrast=O1vsOthers)
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean Contrast`
-##              Est      SE      LL      UL
-## Contrast   1.117   0.206   0.714   1.521
-```
+    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ##              Est      SE      LL      UL
+    ## Contrast   0.858   0.189   0.488   1.229
 
-```r
+``` r
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrast(contrast=O1vsOthers)
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean Contrast`
-##              Est      SE      LL      UL
-## Contrast  -0.089   0.194  -0.468   0.291
-```
+    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ##              Est      SE      LL      UL
+    ## Contrast  -0.272   0.203  -0.670   0.126

@@ -1,13 +1,21 @@
+
 ## Rattan Data Example
 
-This page analyzes a single-factor between-subjects (one-way) design using raw data input.
+This page analyzes a single-factor between-subjects (one-way) design
+using raw data input.
+
+- [Data Management](#data-management)
+- [Analyses of the Different Groups](#analyses-of-the-different-groups)
+- [Analysis of a Group Difference](#analysis-of-a-group-difference)
+- [Analysis of a Group Contrast](#analysis-of-a-group-contrast)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
 Prior to analyses, enter the data.
 
-
-```r
+``` r
 Feedback <- c(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3)
 Motivation <- c(5.5,5,5.5,6,1,2.5,4.5,1,3.5,1.5,5.5,6,1.5,1,3.5,2.5,3,1,2,6,4.5,4.5,6,7,3,7,3.5,5,4.5,5.5,6.5,6,6,7,5.5,6,2.5,4.5,3.5,6,5,6,3.5,4,3,5.5,3,6,3,5,6,6.5,3.5,2)
 Feedback <- factor(Feedback,levels=c(1,2,3),labels=c("Comfort","Challenge","Control"))
@@ -16,22 +24,20 @@ RattanData <- data.frame(Feedback,Motivation)
 
 ### Analyses of the Different Groups
 
-With multiple groups, it is useful to get descriptive statistics and confidence intervals for each group.
+With multiple groups, it is useful to get descriptive statistics and
+confidence intervals for each group.
 
-
-```r
+``` r
 estimateMeans(Motivation~Feedback)
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##                 M      SE      df      LL      UL
-## Comfort     3.333   0.452  17.000   2.380   4.287
-## Challenge   5.265   0.351  16.000   4.520   6.009
-## Control     4.447   0.329  18.000   3.757   5.138
-```
+    ## $`Confidence Intervals for the Means`
+    ##                 M      SE      df      LL      UL
+    ## Comfort     3.333   0.452  17.000   2.380   4.287
+    ## Challenge   5.265   0.351  16.000   4.520   6.009
+    ## Control     4.447   0.329  18.000   3.757   5.138
 
-```r
+``` r
 plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
@@ -39,28 +45,27 @@ plotMeans(Motivation~Feedback,main="Motivation as a Function of Feedback Type",y
 
 ### Analysis of a Group Difference
 
-The first research question is whether there is a difference between the two non-control groups.
+The first research question is whether there is a difference between the
+two non-control groups.
 
-First, set the comparison and obtain the difference plot for that comparison.
+First, set the comparison and obtain the difference plot for that
+comparison.
 
-
-```r
+``` r
 Comparison <- factor(Feedback,c("Comfort","Challenge"))
 estimateMeanComparison(Motivation~Comparison)
 ```
 
-```
-## $`Confidence Intervals for the Means`
-##                 M      SE      df      LL      UL
-## Comfort     3.333   0.452  17.000   2.380   4.287
-## Challenge   5.265   0.351  16.000   4.520   6.009
-## 
-## $`Confidence Interval for the Mean Difference`
-##               Diff      SE      df      LL      UL
-## Comparison   1.931   0.572  31.521   0.765   3.098
-```
+    ## $`Confidence Intervals for the Means`
+    ##                 M      SE      df      LL      UL
+    ## Comfort     3.333   0.452  17.000   2.380   4.287
+    ## Challenge   5.265   0.351  16.000   4.520   6.009
+    ## 
+    ## $`Confidence Interval for the Mean Difference`
+    ##               Diff      SE      df      LL      UL
+    ## Comparison   1.931   0.572  31.521   0.765   3.098
 
-```r
+``` r
 plotMeanComparison(Motivation~Comparison,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
@@ -68,41 +73,36 @@ plotMeanComparison(Motivation~Comparison,main="Influence of Comfort vs Challenge
 
 Then, obtain the standardized effect size for that comparison.
 
-
-```r
+``` r
 estimateStandardizedMeanDifference(Motivation~Comparison)
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean Difference`
-##                  d      SE      LL      UL
-## Comparison   1.137   0.376   0.401   1.873
-```
+    ## $`Confidence Interval for the Standardized Mean Difference`
+    ##                  d      SE      LL      UL
+    ## Comparison   1.137   0.376   0.401   1.873
 
 ### Analysis of a Group Contrast
 
-The second research question is whether the Comfort group differs from the other two groups.
+The second research question is whether the Comfort group differs from
+the other two groups.
 
 First, set the contrast and obtain a difference plot for the contrast.
 
-
-```r
+``` r
 ComfortvsOthers <- c(-1,.5,.5)
 estimateMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
 
-```
-## $`Confidence Intervals for the Mean Subsets`
-##                  Est      SE      df      LL      UL
-## Neg Weighted   3.333   0.452  17.000   2.380   4.287
-## Pos Weighted   4.856   0.241  33.474   4.367   5.345
-## 
-## $`Confidence Interval for the Mean Contrast`
-##              Est      SE      df      LL      UL
-## Contrast   1.523   0.512  26.898   0.472   2.573
-```
+    ## $`Confidence Intervals for the Mean Subsets`
+    ##                  Est      SE      df      LL      UL
+    ## Neg Weighted   3.333   0.452  17.000   2.380   4.287
+    ## Pos Weighted   4.856   0.241  33.474   4.367   5.345
+    ## 
+    ## $`Confidence Interval for the Mean Contrast`
+    ##              Est      SE      df      LL      UL
+    ## Contrast   1.523   0.512  26.898   0.472   2.573
 
-```r
+``` r
 plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
 ```
 
@@ -110,13 +110,10 @@ plotMeanSubsets(Motivation~Feedback,contrast=ComfortvsOthers,labels=c("Comfort",
 
 Then, estimate the standardized contrast.
 
-
-```r
+``` r
 estimateStandardizedMeanContrast(Motivation~Feedback,contrast=ComfortvsOthers)
 ```
 
-```
-## $`Confidence Interval for the Standardized Mean Contrast`
-##              Est      SE      LL      UL
-## Contrast   0.943   0.340   0.276   1.610
-```
+    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ##              Est      SE      LL      UL
+    ## Contrast   0.943   0.340   0.276   1.610

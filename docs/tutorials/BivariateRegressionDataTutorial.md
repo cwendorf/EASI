@@ -1,14 +1,33 @@
+
 ## Bivariate Regression Data Tutorial
 
 ### Data Management
 
 This page analyzes bivariate regression models using raw data input.
 
+- [Data Management](#data-management)
+  - [Data Entry](#data-entry)
+  - [Descriptive Statistics](#descriptive-statistics)
+- [Analyses of the Overall Model](#analyses-of-the-overall-model)
+  - [Confidence Interval](#confidence-interval)
+  - [Significance Test](#significance-test)
+- [Analyses of the Regression
+  Coefficients](#analyses-of-the-regression-coefficients)
+  - [Confidence Intervals](#confidence-intervals)
+  - [Significance Tests](#significance-tests)
+  - [Standardized Coefficient](#standardized-coefficient)
+- [Analyses of Regression Values](#analyses-of-regression-values)
+  - [Regression Line](#regression-line)
+  - [Confidence and Prediction
+    Intervals](#confidence-and-prediction-intervals)
+
+------------------------------------------------------------------------
+
 #### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
 
-```r
+``` r
 Predictor <- c(0,0,3,5)
 Criterion <- c(9,6,4,9)
 BivariateData <- data.frame(Predictor,Criterion)
@@ -18,27 +37,23 @@ BivariateData <- data.frame(Predictor,Criterion)
 
 This code obtains the descriptive statistics for the data frame.
 
-```r
+``` r
 describeMeans(BivariateData)
 ```
 
-```
-## $`Descriptive Statistics for the Data`
-##                 N       M      SD    Skew    Kurt
-## Predictor   4.000   2.000   2.449   0.544  -2.944
-## Criterion   4.000   7.000   2.449  -0.544  -2.944
-```
+    ## $`Descriptive Statistics for the Data`
+    ##                 N       M      SD    Skew    Kurt
+    ## Predictor   4.000   2.000   2.449   0.544  -2.944
+    ## Criterion   4.000   7.000   2.449  -0.544  -2.944
 
-```r
+``` r
 describeCorrelations(BivariateData)
 ```
 
-```
-## $`Correlation Matrix for the Variables`
-##           Predictor Criterion
-## Predictor     1.000     0.056
-## Criterion     0.056     1.000
-```
+    ## $`Correlation Matrix for the Variables`
+    ##           Predictor Criterion
+    ## Predictor     1.000     0.056
+    ## Criterion     0.056     1.000
 
 ### Analyses of the Overall Model
 
@@ -48,99 +63,96 @@ This section produces analyses of the overall regression model.
 
 This code will produce the confidence interval for R Squared.
 
-```r
+``` r
 estimateRegressionOmnibus(BivariateData)
 ```
 
-```
-## $`Proportion of Variance Accounted For by the Regression Model`
-##           Est      LL      UL
-## Model   0.003   0.000   0.050
-```
+    ## $`Proportion of Variance Accounted For by the Regression Model`
+    ##           Est      LL      UL
+    ## Model   0.003   0.000   0.050
 
-The code defaults to 90% confidence intervals. This can be changed if desired.
+The code defaults to 90% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateRegressionOmnibus(BivariateData,conf.level=.95)
 ```
 
-```
-## $`Proportion of Variance Accounted For by the Regression Model`
-##           Est      LL      UL
-## Model   0.003   0.000   0.286
-```
+    ## $`Proportion of Variance Accounted For by the Regression Model`
+    ##           Est      LL      UL
+    ## Model   0.003   0.000   0.286
 
 #### Significance Test
 
-This code will produce a source table associated with the regression model.
+This code will produce a source table associated with the regression
+model.
 
-```r
+``` r
 describeRegressionOmnibus(BivariateData)
 ```
 
-```
-## $`Source Table for the Regression Model`
-##            SS      df      MS
-## Model   0.056   1.000   0.056
-## Error  17.944   2.000   8.972
-## Total  18.000   3.000   6.000
-```
+    ## $`Source Table for the Regression Model`
+    ##            SS      df      MS
+    ## Model   0.056   1.000   0.056
+    ## Error  17.944   2.000   8.972
+    ## Total  18.000   3.000   6.000
 
 This code will calculate NHST for the regression model.
 
-```r
+``` r
 testRegressionOmnibus(BivariateData)
 ```
 
-```
-## $`Hypothesis Test for the Regression Model`
-##             F     df1     df2       p
-## Model   0.006   1.000   2.000   0.944
-```
+    ## $`Hypothesis Test for the Regression Model`
+    ##             F     df1     df2       p
+    ## Model   0.006   1.000   2.000   0.944
 
 ### Analyses of the Regression Coefficients
 
-This section analyses the regression coefficients obtained from the overall model.
+This section analyses the regression coefficients obtained from the
+overall model.
 
-#### Confidence Intervals 
+#### Confidence Intervals
 
-This code will provide a table of confidence intervals for each of the regression coefficients.
+This code will provide a table of confidence intervals for each of the
+regression coefficients.
 
-```r
+``` r
 estimateRegressionCoefficients(BivariateData)
 ```
 
-```
-## $`Confidence Intervals for the Regression Coefficients`
-##                 Est      SE      LL      UL
-## (Intercept)   6.889   2.058  -1.968  15.745
-## Predictor     0.056   0.706  -2.982   3.093
-```
+    ## $`Confidence Intervals for the Regression Coefficients`
+    ##                 Est      SE      LL      UL
+    ## (Intercept)   6.889   2.058  -1.968  15.745
+    ## Predictor     0.056   0.706  -2.982   3.093
 
-This code will produce a graph of the confidence intervals for each of the regression coefficients.
+This code will produce a graph of the confidence intervals for each of
+the regression coefficients.
 
-```r
+``` r
 plotRegressionCoefficients(BivariateData)
 ```
 
 ![](figures/Bivariate-Data-CoefficientsA-1.png)<!-- -->
 
-The code defaults to 95% confidence intervals. This can be changed if desired.
+The code defaults to 95% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateRegressionCoefficients(BivariateData,conf.level=.99)
 ```
 
-```
-## $`Confidence Intervals for the Regression Coefficients`
-##                 Est      SE      LL      UL
-## (Intercept)   6.889   2.058 -13.540  27.318
-## Predictor     0.056   0.706  -6.952   7.063
-```
+    ## $`Confidence Intervals for the Regression Coefficients`
+    ##                 Est      SE      LL      UL
+    ## (Intercept)   6.889   2.058 -13.540  27.318
+    ## Predictor     0.056   0.706  -6.952   7.063
 
-For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
+For the graph, it is possible to plot just coefficients for the
+predictors (minus the intercept) in addition to changing the confidence
+level. A comparison line and region of practical equivalence can also be
+added.
 
-```r
+``` r
 plotRegressionCoefficients(BivariateData,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
 ```
 
@@ -148,56 +160,55 @@ plotRegressionCoefficients(BivariateData,conf.level=.99,line=0,rope=c(-2,2),inte
 
 #### Significance Tests
 
-This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
+This code will produce a table of NHST separately for each of the
+regression coefficients. In this case, all the coefficients are tested
+against a value of zero.
 
-```r
+``` r
 testRegressionCoefficients(BivariateData)
 ```
 
-```
-## $`Hypothesis Tests for the Regression Coefficients`
-##                 Est      SE       t       p
-## (Intercept)   6.889   2.058   3.347   0.079
-## Predictor     0.056   0.706   0.079   0.944
-```
+    ## $`Hypothesis Tests for the Regression Coefficients`
+    ##                 Est      SE       t       p
+    ## (Intercept)   6.889   2.058   3.347   0.079
+    ## Predictor     0.056   0.706   0.079   0.944
 
 #### Standardized Coefficient
 
-This code will provide a table of confidence intervals for the standardized coefficient.
+This code will provide a table of confidence intervals for the
+standardized coefficient.
 
-```r
+``` r
 estimateStandardizedRegressionCoefficients(BivariateData)
 ```
 
-```
-## $`Confidence Intervals for the Standardized Regression Coefficients`
-##               Est      SE      LL      UL
-## Predictor   0.056   0.706  -2.982   3.093
-```
+    ## $`Confidence Intervals for the Standardized Regression Coefficients`
+    ##               Est      SE      LL      UL
+    ## Predictor   0.056   0.706  -2.982   3.093
 
-This code will produce a graph of the confidence intervals for the standardized coefficient.
+This code will produce a graph of the confidence intervals for the
+standardized coefficient.
 
-```r
+``` r
 plotStandardizedRegressionCoefficients(BivariateData)
 ```
 
 ![](figures/Bivariate-Data-StandardizedA-1.png)<!-- -->
 
-As in other places, the code defaults to a 95% confidence interval. This can be changed if desired.
+As in other places, the code defaults to a 95% confidence interval. This
+can be changed if desired.
 
-```r
+``` r
 estimateStandardizedRegressionCoefficients(BivariateData,conf.level=.99)
 ```
 
-```
-## $`Confidence Intervals for the Standardized Regression Coefficients`
-##               Est      SE      LL      UL
-## Predictor   0.056   0.706  -6.952   7.063
-```
+    ## $`Confidence Intervals for the Standardized Regression Coefficients`
+    ##               Est      SE      LL      UL
+    ## Predictor   0.056   0.706  -6.952   7.063
 
 For the graph, it is possible to change the confidence level.
 
-```r
+``` r
 plotStandardizedRegressionCoefficients(BivariateData,conf.level=.99)
 ```
 
@@ -209,9 +220,10 @@ This section provides analyses of individual predicted values.
 
 #### Regression Line
 
-This code produces a plot of the regression line (with confidence and prediction intervals suppressed).
+This code produces a plot of the regression line (with confidence and
+prediction intervals suppressed).
 
-```r
+``` r
 plotRegression(BivariateData,interval="none")
 ```
 
@@ -219,7 +231,7 @@ plotRegression(BivariateData,interval="none")
 
 This code adds a scatter of data points to the regression plot.
 
-```r
+``` r
 plotRegression(BivariateData,interval="none",points=TRUE)
 ```
 
@@ -227,29 +239,30 @@ plotRegression(BivariateData,interval="none",points=TRUE)
 
 #### Confidence and Prediction Intervals
 
-This code provides estimates confidence and prediction limits for a specific value of the Predictor (value=4).
+This code provides estimates confidence and prediction limits for a
+specific value of the Predictor (value=4).
 
-```r
+``` r
 estimateRegression(BivariateData,value=4)
 ```
 
-```
-## $`Confidence and Prediction Intervals for the Regression Value`
-##       Est   CI.LL   CI.UL   PI.LL   PI.UL
-## 4   7.111  -1.745  15.968  -8.527  22.749
-```
+    ## $`Confidence and Prediction Intervals for the Regression Value`
+    ##       Est   CI.LL   CI.UL   PI.LL   PI.UL
+    ## 4   7.111  -1.745  15.968  -8.527  22.749
 
-This code plots the confidence interval associated with the regression line and labels the interval for the specific value of the Predictor.
+This code plots the confidence interval associated with the regression
+line and labels the interval for the specific value of the Predictor.
 
-```r
+``` r
 plotRegression(BivariateData,value=4,interval="confidence")
 ```
 
 ![](figures/Bivariate-Data-ConfidenceA-1.png)<!-- -->
 
-This code plots the prediction interval associated with the regression line and labels the interval for the specific value of the Predictor.
+This code plots the prediction interval associated with the regression
+line and labels the interval for the specific value of the Predictor.
 
-```r
+``` r
 plotRegression(BivariateData,value=4,interval="prediction")
 ```
 

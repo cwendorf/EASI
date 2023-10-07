@@ -1,6 +1,17 @@
+
 ## Single Correlation Summary Statistics Tutorial
 
-This page analyzes a single correlation between two variables using summary statistics input.
+This page analyzes a single correlation between two variables using
+summary statistics input.
+
+- [Data Management](#data-management)
+  - [Data Entry](#data-entry)
+  - [Plot of the Data](#plot-of-the-data)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+  - [Confidence Interval](#confidence-interval)
+  - [Significance Test](#significance-test)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
@@ -8,7 +19,7 @@ This page analyzes a single correlation between two variables using summary stat
 
 This code inputs the variable summaries and creates a summary table.
 
-```r
+``` r
 Outcome1 <- c(N=4,M=2.000,SD=2.449)
 Outcome2 <- c(N=4,M=6.000,SD=2.449)
 PairedSummary <- rbind(Outcome1,Outcome2)
@@ -17,7 +28,7 @@ class(PairedSummary) <- "wss"
 
 This code creates a correlation matrix and enters single correlation.
 
-```r
+``` r
 PairedCorr <- declareCorrelations("Outcome1","Outcome2")
 PairedCorr["Outcome1","Outcome2"] <- .500
 PairedCorr <- fillCorrelations(PairedCorr)
@@ -25,9 +36,11 @@ PairedCorr <- fillCorrelations(PairedCorr)
 
 #### Plot of the Data
 
-This code provides a confidence ellipse for the bivariate relationship. Because there is no raw data, no data points are visible and the code defaults instead to an ellipse.
+This code provides a confidence ellipse for the bivariate relationship.
+Because there is no raw data, no data points are visible and the code
+defaults instead to an ellipse.
 
-```r
+``` r
 plotScatter(PairedSummary,PairedCorr)
 ```
 
@@ -35,7 +48,7 @@ plotScatter(PairedSummary,PairedCorr)
 
 The ellipse can be altered for different confidence levels.
 
-```r
+``` r
 plotScatter(PairedSummary,PairedCorr,conf.level=.99)
 ```
 
@@ -49,39 +62,39 @@ This section produces analyses of the correlation.
 
 This code will provide the confidence interval for the correlation.
 
-```r
+``` r
 estimateCorrelations(PairedSummary,PairedCorr)
 ```
 
-```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
-```
+    ## $`Confidence Interval for the Correlation`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.888   0.987
 
-This code will produce a graph of the confidence interval for the correlation.
+This code will produce a graph of the confidence interval for the
+correlation.
 
-```r
+``` r
 plotCorrelations(PairedSummary,PairedCorr)
 ```
 
 ![](figures/SingleCorrelation-Summary-IntervalsA-1.png)<!-- -->
 
-The code defaults to 95% confidence intervals. This can be changed if desired.
+The code defaults to 95% confidence intervals. This can be changed if
+desired.
 
-```r
+``` r
 estimateCorrelations(PairedSummary,PairedCorr,conf.level=.99)
 ```
 
-```
-## $`Confidence Interval for the Correlation`
-##                           R      SE      LL      UL
-## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
-```
+    ## $`Confidence Interval for the Correlation`
+    ##                           R      SE      LL      UL
+    ## Outcome1 & Outcome2   0.500   1.000  -0.966   0.996
 
-Of course, it is possible to change from the default confidence level and to add a comparison line and a region of practical equivalence to the graph.
+Of course, it is possible to change from the default confidence level
+and to add a comparison line and a region of practical equivalence to
+the graph.
 
-```r
+``` r
 plotCorrelations(PairedSummary,PairedCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 ```
 
@@ -89,14 +102,13 @@ plotCorrelations(PairedSummary,PairedCorr,conf.level=.99,line=0,rope=c(-.2,.2))
 
 #### Significance Test
 
-This code will produce a table of NHST for the correlation (against a value of zero).
+This code will produce a table of NHST for the correlation (against a
+value of zero).
 
-```r
+``` r
 testCorrelations(PairedSummary,PairedCorr)
 ```
 
-```
-## $`Hypothesis Test for the Correlation`
-##                           R      SE      df       t       p
-## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500
-```
+    ## $`Hypothesis Test for the Correlation`
+    ##                           R      SE      df       t       p
+    ## Outcome1 & Outcome2   0.500   0.612   2.000   0.816   0.500

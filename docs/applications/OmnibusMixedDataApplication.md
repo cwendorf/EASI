@@ -1,12 +1,21 @@
+
 ## Omnibus Mixed Data Application
 
-This page provides an omnibus analysis using mixed design (between-subjects and within-subjects) data.
+This page provides an omnibus analysis using mixed design
+(between-subjects and within-subjects) data.
+
+- [Data Management](#data-management)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of the Omnibus and Simple
+  Effects](#analyses-of-the-omnibus-and-simple-effects)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
 Simulate some data.
 
-```r
+``` r
 Factor <- c(rep(1,30),rep(2,30))
 Outcome1 <- c(round(rnorm(30,mean=8,sd=2),0),round(rnorm(30,mean=8,sd=2),0))
 Outcome2 <- c(round(rnorm(30,mean=11,sd=4),0),round(rnorm(30,mean=8,sd=3),0))
@@ -19,7 +28,7 @@ MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
 
 Plot the means and confidence intervals for the design as a whole.
 
-```r
+``` r
 cbind(Outcome1,Outcome2,Outcome3) |> plotMeansMultifactor(by=Factor,col=c("darkred","darkblue"))
 legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("darkred","darkblue"))
 ```
@@ -30,97 +39,85 @@ legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("d
 
 Get an ANOVA for the design as a whole.
 
-```r
+``` r
 cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusMultifactor(by=Factor)
 ```
 
-```
-## $`Source Table for the Model: Between Subjects`
-##               SS      df      MS
-## Blocks   281.250   1.000 281.250
-## Subjects 618.811  58.000  10.669
-## 
-## $`Source Table for the Model: Within Subjects`
-##                       SS      df      MS
-## Measures         123.744   2.000  61.872
-## Measures:Blocks  190.633   2.000  95.317
-## Residual        1020.956 116.000   8.801
-```
+    ## $`Source Table for the Model: Between Subjects`
+    ##               SS      df      MS
+    ## Blocks   457.606   1.000 457.606
+    ## Subjects 587.344  58.000  10.127
+    ## 
+    ## $`Source Table for the Model: Within Subjects`
+    ##                       SS      df      MS
+    ## Measures         165.900   2.000  82.950
+    ## Measures:Blocks  261.878   2.000 130.939
+    ## Residual        1244.222 116.000  10.726
 
-```r
+``` r
 cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusMultifactor(by=Factor)
 ```
 
-```
-## $`Proportion of Variance Accounted For by the Model: Between Subjects`
-##            Est      LL      UL
-## Blocks   0.312   0.153   0.445
-## 
-## $`Proportion of Variance Accounted For by the Model: Within Subjects`
-##                     Est      LL      UL
-## Measures          0.108   0.028   0.192
-## Measures:Blocks   0.157   0.061   0.248
-```
+    ## $`Proportion of Variance Accounted For by the Model: Between Subjects`
+    ##            Est      LL      UL
+    ## Blocks   0.438   0.274   0.554
+    ## 
+    ## $`Proportion of Variance Accounted For by the Model: Within Subjects`
+    ##                     Est      LL      UL
+    ## Measures          0.118   0.034   0.204
+    ## Measures:Blocks   0.174   0.073   0.266
 
-```r
+``` r
 cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusMultifactor(by=Factor)
 ```
 
-```
-## $`Hypothesis Tests for the Model: Between Subjects`
-##              F     df1     df2       p
-## Blocks  26.361   1.000  58.000   0.000
-## 
-## $`Hypothesis Tests for the Model: Within Subjects`
-##                       F     df1     df2       p
-## Measures          7.030   2.000 116.000   0.001
-## Measures:Blocks  10.830   2.000 116.000   0.000
-```
+    ## $`Hypothesis Tests for the Model: Between Subjects`
+    ##              F     df1     df2       p
+    ## Blocks  45.188   1.000  58.000   0.000
+    ## 
+    ## $`Hypothesis Tests for the Model: Within Subjects`
+    ##                       F     df1     df2       p
+    ## Measures          7.734   2.000 116.000   0.001
+    ## Measures:Blocks  12.208   2.000 116.000   0.000
 
 Get an ANOVA separately for each simple effect.
 
-```r
+``` r
 cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusBy(by=Factor)
 ```
 
-```
-## $`Source Table for the Model: Level1`
-##               SS      df      MS
-## Subjects 365.156  29.000  12.592
-## Measures 301.956   2.000 150.978
-## Error    592.711  58.000  10.219
-## 
-## $`Source Table for the Model: Level2`
-##               SS      df      MS
-## Subjects 253.656  29.000   8.747
-## Measures  12.422   2.000   6.211
-## Error    428.244  58.000   7.384
-```
+    ## $`Source Table for the Model: Level1`
+    ##               SS      df      MS
+    ## Subjects 387.956  29.000  13.378
+    ## Measures 399.489   2.000 199.744
+    ## Error    795.844  58.000  13.721
+    ## 
+    ## $`Source Table for the Model: Level2`
+    ##               SS      df      MS
+    ## Subjects 199.389  29.000   6.875
+    ## Measures  28.289   2.000  14.144
+    ## Error    448.378  58.000   7.731
 
-```r
+``` r
 cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusBy(by=Factor)
 ```
 
-```
-## $`Proportion of Variance Accounted For by the Model: Level1`
-##              Est      LL      UL
-## Measures   0.338   0.163   0.458
-## 
-## $`Proportion of Variance Accounted For by the Model: Level2`
-##              Est      LL      UL
-## Measures   0.028   0.000   0.105
-```
+    ## $`Proportion of Variance Accounted For by the Model: Level1`
+    ##              Est      LL      UL
+    ## Measures   0.334   0.160   0.455
+    ## 
+    ## $`Proportion of Variance Accounted For by the Model: Level2`
+    ##              Est      LL      UL
+    ## Measures   0.059   0.000   0.158
 
-```r
+``` r
 cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusBy(by=Factor)
 ```
 
-```
-## $`Hypothesis Test for the Model: Level1`
-##                F     df1     df2       p
-## Measures  14.774   2.000  58.000   0.000
-## 
-## $`Hypothesis Test for the Model: Level2`
-##                F     df1     df2       p
-## Measures   0.841   2.000  58.000   0.436
-```
+    ## $`Hypothesis Test for the Model: Level1`
+    ##                F     df1     df2       p
+    ## Measures  14.557   2.000  58.000   0.000
+    ## 
+    ## $`Hypothesis Test for the Model: Level2`
+    ##                F     df1     df2       p
+    ## Measures   1.830   2.000  58.000   0.170

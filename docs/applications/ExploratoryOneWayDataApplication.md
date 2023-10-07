@@ -1,12 +1,21 @@
+
 ## Exploratory OneWay Data Application
 
-This page provides violin plots, beanplots, and raincloud plots using one-way (between-subjects) data.
+This page provides violin plots, beanplots, and raincloud plots using
+one-way (between-subjects) data.
+
+- [Data Management](#data-management)
+- [Violin Plots](#violin-plots)
+- [Bean Plots](#bean-plots)
+- [Raincloud Plots](#raincloud-plots)
+
+------------------------------------------------------------------------
 
 ### Data Management
 
 Simulate some data with various distributional shapes.
 
-```r
+``` r
 Factor <- c(rep(1,100),rep(2,100),rep(3,100))
 Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
 Level1 <- round(rnorm(100,10,2),0)
@@ -19,7 +28,7 @@ Outcome <- c(Level1,Level2,Level3)
 
 Build violin plots using multiple basic plot calls.
 
-```r
+``` r
 (Outcome~Factor) |> plotBoxes(values=FALSE,main="Violin Plots")
 (Outcome~Factor) |> plotDensity(add=TRUE,offset=0,type="full")
 ```
@@ -28,7 +37,7 @@ Build violin plots using multiple basic plot calls.
 
 Obtain violin plots using one call (and enhance the plot).
 
-```r
+``` r
 (Outcome~Factor) |> plotViolins(col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
@@ -38,7 +47,7 @@ Obtain violin plots using one call (and enhance the plot).
 
 Build bean plots using multiple basic plot calls.
 
-```r
+``` r
 (Outcome~Factor) |> plotDensity(type="full",offset=0,main="Bean Plots")
 (Outcome~Factor) |> plotData(add=TRUE,offset=0,pch=95,method="overplot")
 ```
@@ -47,7 +56,7 @@ Build bean plots using multiple basic plot calls.
 
 Obtain bean plots using one call (and enhance the plot).
 
-```r
+``` r
 (Outcome~Factor) |> plotBeans(col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
@@ -57,7 +66,7 @@ Obtain bean plots using one call (and enhance the plot).
 
 Build raincloud plots using multiple basic plot calls.
 
-```r
+``` r
 (Outcome~Factor) |> plotBoxes(values=FALSE,main="Raincloud Plots")
 (Outcome~Factor) |> plotDensity(add=TRUE,offset=.1)
 (Outcome~Factor) |> plotData(add=TRUE,method="jitter",offset=-.15)
@@ -67,7 +76,7 @@ Build raincloud plots using multiple basic plot calls.
 
 Obtain raincloud plots using one call (and enhance the plot).
 
-```r
+``` r
 (Outcome~Factor) |> plotRainclouds(col=c("darkred","darkblue","darkgoldenrod"))
 ```
 
