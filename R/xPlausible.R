@@ -9,7 +9,7 @@
   return(out)
 }
 
-plotPlausible <- function(x,...) 
+plotPlausible <- function(x,...)
   UseMethod("plotPlausible")
 
 plotPlausible.default <- function(x,contrast=NULL,...) {
@@ -23,7 +23,7 @@ plotPlausible.default <- function(x,contrast=NULL,...) {
   else {
     z <- estimateMeans(x,...)
     plotPlausible(z,...)}
-  invisible(eval(x))    
+  invisible(eval(x))
 }
 
 plotPlausible.list <- function(results,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",slab="Difference",ylim=NULL,type="right",offset=0,scale=1,col="black",pch=16,...) {
@@ -41,7 +41,7 @@ plotPlausible.list <- function(results,conf.level=.95,add=FALSE,main=NULL,ylab="
     results <- .collapseList(results)
     graph <- .unformatFrame(.deList(results))[,c(1,2)]
     if(!add) {
-      if(is.null(main)) {main="Plausibility Plot"}      
+      if(is.null(main)) {main="Plausibility Plot"}
       results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))]
       .plotComp(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim,slab=slab,pch=pch)}
     graph[3,1] <- graph[3,1]+graph[1,1]

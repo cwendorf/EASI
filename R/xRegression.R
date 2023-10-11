@@ -22,7 +22,7 @@
   intervals
 }
 
-.estimateRegression <- function(x,...) 
+.estimateRegression <- function(x,...)
   UseMethod(".estimateRegression")
 
 .estimateRegression.wss <- function(DescStats,CorrStats,y=NULL,value=NULL,conf.level=.95,...) {
@@ -101,7 +101,7 @@ plotRegression.wss <- function(DescStats,CorrStats,y=NULL,line=TRUE,value=NULL,r
     xlim <- c(xmin,xmax)}
   else {
     xmin <- xlim[1]
-    xmax <- xlim[2]}    
+    xmax <- xlim[2]}
   if(is.null(range)) {range <- seq(xmin-.25,xmax+.25,by=.05)} else {range <- seq(range[1],range[2],by=.05)}
   intervals <- as.data.frame(.estimateRegression(DescStats,CorrStats,value=range,conf.level=conf.level))
   if(is.null(ylim)) {ylim <- c(min(intervals),max(intervals))}
@@ -111,7 +111,7 @@ plotRegression.wss <- function(DescStats,CorrStats,y=NULL,line=TRUE,value=NULL,r
     abline(h=DescStats[2,"M"],col=.colorTransparent(col,50))}
   if(line) {
     Est <- .unformatFrame(estimateRegressionCoefficients(DescStats,CorrStats)[[1]])[,"Est"]
-    abline(Est[1],Est[2],col=col)} 
+    abline(Est[1],Est[2],col=col)}
   if(!is.null(value)) {results <- .estimateRegression(DescStats,CorrStats,value=value,conf.level=conf.level)} else {results <- NULL}
   .prediction(intervals,results,interval=interval,values=values,conf.level=conf.level,digits=digits,col=col)
 }

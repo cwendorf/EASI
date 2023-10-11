@@ -45,14 +45,14 @@ plotDiamonds.list <- function(results,add=FALSE,line=NULL,rope=NULL,col="black",
   if(length(results) == 2 && nrow(results[[1]] != nrow(results[[2]]))) {
     results <- .collapseList(results)
     results[[1]] <- results[[1]][,c(1,(ncol(results[[1]])-1):ncol(results[[1]]))] 
-    graph <- .unformatFrame(.deList(results))    
+    graph <- .unformatFrame(.deList(results))
     graph[3,] <- graph[3,]+graph[1,1]
     if(!add) {
       .plotComp(results,...)
       arrows(1:2,graph[1:2,1],4.5,graph[1:2,1],code=3,length=0,lty=2,col=col)}
     if(!is.null(rope)) {
       graphrope <- rope+as.vector(graph[1,1])  
-      rect(2.6,graphrope[1],3.6,graphrope[2],col=.colorTransparent("black",15),border=NA)}      
+      rect(2.6,graphrope[1],3.6,graphrope[2],col=.colorTransparent("black",15),border=NA)}
     z <- asplit(graph,1)
     invisible(mapply(.diamond,z,loc=1:nrow(graph),col=col,hw=hw,offset=offset))
   }

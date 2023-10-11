@@ -3,12 +3,12 @@
 
 ### Confidence Intervals
 
-.estimateMeansPosthoc <- function(x,...) 
+.estimateMeansPosthoc <- function(x,...)
   UseMethod(".estimateMeansPosthoc")
 
 .estimateMeansPosthoc.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,...) {
   temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
-  dfe <- temptab["Error","df"] 
+  dfe <- temptab["Error","df"]
   MSe <- temptab["Error","MS"]
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
@@ -36,7 +36,7 @@
 
 .estimateMeansPosthoc.bss <- function(DescStats,conf.level=.95,mu=0,...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
-  dfw <- temptab["Within","df"] 
+  dfw <- temptab["Within","df"]
   MSw <- temptab["Within","MS"]
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
@@ -76,7 +76,7 @@
 estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansPosthoc(...)
   if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Posthoc Mean Comparisons"} else {main <- "Confidence Interval for the Posthoc Mean Comparison"}}  
-  results <- .formatList(list(results),main=main,digits=digits)  
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -87,7 +87,7 @@ estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
 
 .testMeansPosthoc.wss <- function(DescStats,CorrStats,mu=0,...) {
   temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
-  dfe <- temptab["Error","df"] 
+  dfe <- temptab["Error","df"]
   MSe <- temptab["Error","MS"]
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
@@ -153,7 +153,7 @@ estimateMeansPosthoc <- function(...,main=NULL,digits=3) {
 testMeansPosthoc <- function(...,main=NULL,digits=3) {
   results <- .testMeansPosthoc(...)
   if(is.null(main)) {if(nrow(results)>1) {main <- "Hypothesis Tests for the Posthoc Mean Comparisons"} else {main <- "Hypothesis Test for the Posthoc Mean Comparison"}}  
-  results <- .formatList(list(results),main=main,digits=digits)  
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 

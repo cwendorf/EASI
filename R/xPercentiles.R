@@ -3,14 +3,14 @@
 
 ### Descriptives
 
-.describePercentiles <- function(x,...) 
+.describePercentiles <- function(x,...)
   UseMethod(".describePercentiles")
 
 .describePercentiles.default <- function(frame,...) {
   data <- data.frame(frame)
   if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   results <- t(sapply(data,quantile))
-  colnames(results) <- c("Min","25%","50%","75%","Max")  
+  colnames(results) <- c("Min","25%","50%","75%","Max")
   return(results)
 }
 

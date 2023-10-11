@@ -3,14 +3,14 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeans <- function(x,...) 
+.estimateStandardizedMeans <- function(x,...)
   UseMethod(".estimateStandardizedMeans")
   
 .estimateStandardizedMeans.wss <- .estimateStandardizedMeans.bss <- function(DescStats,mu=0,conf.level=.95,...) {
   N <- DescStats[,"N"]
   M <- DescStats[,"M"]
   SD <- DescStats[,"SD"]
-  SE <- SD/sqrt(N)  
+  SE <- SD/sqrt(N)
   Diff <- M-mu
   t <- Diff/SE
   df <- N-1
@@ -57,7 +57,7 @@
 estimateStandardizedMeans <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeans(...)
   if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Standardized Means"} else {main <- "Confidence Interval for the Standardized Mean"}}  
-  results <- .formatList(list(results),main=main,digits=digits)  
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 

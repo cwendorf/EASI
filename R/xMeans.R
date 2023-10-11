@@ -34,13 +34,13 @@
   y
 }
 
-.describeMeans <- function(x,...) 
+.describeMeans <- function(x,...)
   UseMethod(".describeMeans")
 
 .describeMeans.default <- function(frame,...) {
   if(typeof(frame)=="double") {
     data <- data.frame(frame)
-    if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}} 
+    if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}}
     else {data=frame}
   N <- sapply(data,length)
   M <- sapply(data,mean,na.rm=TRUE)
@@ -62,8 +62,8 @@
 
 describeMeans <- function(...,main=NULL,digits=3) {
   results <- .describeMeans(...)
-  if(is.null(main)) {main <- "Descriptive Statistics for the Data"} 
-  results <- .formatList(list(results),main=main,digits=digits) 
+  if(is.null(main)) {main <- "Descriptive Statistics for the Data"}
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -103,13 +103,13 @@ describeMeans <- function(...,main=NULL,digits=3) {
 estimateMeans <- function(...,main=NULL,digits=3) {
   results <- .estimateMeans(...)
   if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Means"} else {main <- "Confidence Interval for the Mean"}}  
-  results <- .formatList(list(results),main=main,digits=digits)  
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testMeans <- function(x,...) 
+.testMeans <- function(x,...)
   UseMethod(".testMeans")
   
 .testMeans.wss <- .testMeans.bss <- function(DescStats,mu=0,...) {
@@ -127,7 +127,7 @@ estimateMeans <- function(...,main=NULL,digits=3) {
 
 .testMeans.default <- function(frame,mu=0,...) {
   data <- data.frame(frame)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}  
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   DescStats <- .describeMeans.default(data)
   .testMeans.wss(DescStats,mu=mu,main=main,digits=digits)
 }
@@ -139,14 +139,14 @@ estimateMeans <- function(...,main=NULL,digits=3) {
 
 testMeans <- function(...,main=NULL,digits=3) {
   results <- .testMeans(...)
-  if(is.null(main)) {if(nrow(results)>1) {main <- "Hypothesis Tests for the Means"} else {main <- "Hypothesis Test for the Mean"}}  
-  results <- .formatList(list(results),main=main,digits=digits)  
+  if(is.null(main)) {if(nrow(results)>1) {main <- "Hypothesis Tests for the Means"} else {main <- "Hypothesis Test for the Mean"}}
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
 ### Confidence Interval Plots
 
-plotMeans <- function(x,...) 
+plotMeans <- function(x,...)
   UseMethod("plotMeans")
 
 plotMeans.wss <- plotMeans.default <- function(...,mu=0,conf.level=.95,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,pos=2,pch=16,col="black",connect=TRUE,offset=0,intervals=TRUE) {

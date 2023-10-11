@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.estimateMeansPairwise <- function(x,...) 
+.estimateMeansPairwise <- function(x,...)
   UseMethod(".estimateMeansPairwise")
 
 .estimateMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,mu=0,...) {
@@ -67,9 +67,9 @@ estimateMeansPairwise <- function(...,main=NULL,digits=3) {
   return(results)
 }
 
-### Null Hypothesis Significance Tests 
+### Null Hypothesis Significance Tests
 
-.testMeansPairwise <- function(x,...) 
+.testMeansPairwise <- function(x,...)
   UseMethod(".testMeansPairwise")
 
 .testMeansPairwise.wss <- function(DescStats,CorrStats,mu=0,...) {
@@ -127,7 +127,7 @@ estimateMeansPairwise <- function(...,main=NULL,digits=3) {
 testMeansPairwise <- function(...,main=NULL,digits=3) {
   results <- .testMeansPairwise(...)
   if(is.null(main)) {if(nrow(results)>1) {main <- "Hypothesis Tests for the Pairwise Mean Comparisons"} else {main <- "Hypothesis Test for the Pairwise Mean Comparison"}}  
-  results <- .formatList(list(results),main=main,digits=digits)  
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 

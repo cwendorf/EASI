@@ -3,7 +3,7 @@
 
 ### Relational Intervals
 
-.estimateMeansRelational <- function(x,...) 
+.estimateMeansRelational <- function(x,...)
   UseMethod(".estimateMeansRelational")
 
 .estimateMeansRelational.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
@@ -11,7 +11,7 @@
   mymodel <- .describeMeansOmnibus.wss(DescStats,CorrStats)
   dfe <- mymodel[3,2]
   mse <- mymodel[3,3]
-  ntilde <- 1/mean(1/DescStats[,1]) 
+  ntilde <- 1/mean(1/DescStats[,1])
   a2 <- sqrt(2*mse/ntilde)
   a1 <- qt(1/2-conf.level/2,dfe,lower.tail=FALSE)
   rill <- results[,1]-a1*a2/2
@@ -51,7 +51,7 @@
 
 estimateMeansRelational <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansRelational(...)
-  if(is.null(main)) {main <- "Confidence and Relational Intervals for the Means"} 
+  if(is.null(main)) {main <- "Confidence and Relational Intervals for the Means"}
   results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }

@@ -16,14 +16,14 @@
   contrast <- contrast2-contrast1
   Diff <- .estimateMeanContrast(...,contrast=contrast,conf.level=conf.level)
   Diff <- list(Diff)
-  names(Diff) <- "Confidence Interval for the Mean Contrast"   
+  names(Diff) <- "Confidence Interval for the Mean Contrast"
   results <- c(Complex,Diff)
   return(results)
 }
 
 estimateMeanComplex <- function(...,main=NULL,digits=3) {
   results <- .estimateMeanComplex(...)
-  if(is.null(main)) {main <- names(results)} 
+  if(is.null(main)) {main <- names(results)}
   results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
@@ -57,7 +57,7 @@ testMeanComplex <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeanComplex <- function(x,...) 
+plotMeanComplex <- function(x,...)
   UseMethod("plotMeanComplex")
 
 plotMeanComplex.wss <- plotMeanComplex.default <- function(...,contrast1,contrast2,main=NULL,ylab="Mean Contrasts",xlab="",conf.level=.95,rope=NULL,add=FALSE,labels=NULL,values=TRUE,pos=c(2,2,4),connect=TRUE,ylim=NULL,digits=3,pch=c(15,15,17),col="black",offset=0,intervals=TRUE) {

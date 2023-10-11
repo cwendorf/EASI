@@ -18,7 +18,7 @@
   UL <- corr2-corr1+sqrt((UL1-corr1)^2+(corr2-LL2)^2)
   results <- data.frame(Diff=Diff,LL=LL,UL=UL)
   rownames(results)="Difference"
-  return(results)  
+  return(results)
 }
 
 estimateCorrelationDifference <- function(...,main=NULL,digits=3) {
@@ -30,7 +30,7 @@ estimateCorrelationDifference <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotCorrelationDifference <- function(x,...) 
+plotCorrelationDifference <- function(x,...)
   UseMethod("plotCorrelationDifference")
 
 plotCorrelationDifference.list <- function(CorrEst1,CorrEst2,add=FALSE,main=NULL,line=NULL,rope=NULL,ylab="Correlation",xlab="",values=TRUE,pos=2,connect=FALSE,ylim=NULL,digits=3,pch=17,col="black",offset=0,intervals=TRUE,...) {

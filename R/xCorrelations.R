@@ -43,7 +43,7 @@ fillCorrelations.default <- function(mat) {
 
 ### Descriptives
 
-.describeCorrelations <- function(x,...) 
+.describeCorrelations <- function(x,...)
   UseMethod(".describeCorrelations")
 
 .describeCorrelations.default <- function(frame,...) {
@@ -54,8 +54,8 @@ fillCorrelations.default <- function(mat) {
 
 describeCorrelations <- function(...,main=NULL,digits=3) {
   results <- .describeCorrelations(...)
-   if(is.null(main)) {main <- "Correlation Matrix for the Variables"}  
-  results <- .formatList(list(results),main=main,digits=digits) 
+   if(is.null(main)) {main <- "Correlation Matrix for the Variables"}
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -65,7 +65,7 @@ describeCorrelations <- function(...,main=NULL,digits=3) {
   return(covstats)
 }
 
-.describeCovariances <- function(x,...) 
+.describeCovariances <- function(x,...)
   UseMethod(".describeCovariances")
 
 .describeCovariances.wss <- function(DescStats,CorrStats,...) {
@@ -82,14 +82,14 @@ describeCorrelations <- function(...,main=NULL,digits=3) {
 
 describeCovariances <- function(...,main=NULL,digits=3) {
   results <- .describeCovariances(...)
-  if(is.null(main)) {main <- "Covariance Matrix for the Variables"} 
+  if(is.null(main)) {main <- "Covariance Matrix for the Variables"}
   results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
 ### Confidence Intervals
 
-.estimateCorrelations <- function(x,...) 
+.estimateCorrelations <- function(x,...)
   UseMethod(".estimateCorrelations")
 
 .estimateCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,...){
@@ -134,7 +134,7 @@ estimateCorrelations <- function(...,main=NULL,digits=3) {
 
 ### Null Hypothesis Significance Tests
 
-.testCorrelations <- function(x,...) 
+.testCorrelations <- function(x,...)
   UseMethod(".testCorrelations")
 
 .testCorrelations.wss <- function(DescStats,CorrStats,conf.level=.95,...){

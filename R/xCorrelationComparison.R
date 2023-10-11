@@ -3,16 +3,16 @@
 
 ### Confidence Intervals
 
-.estimateCorrelationComparison <- function(x,...) 
+.estimateCorrelationComparison <- function(x,...)
   UseMethod(".estimateCorrelationComparison")
 
 .estimateCorrelationComparison.list <- function(CorrEst1,CorrEst2,labels=NULL,...) {
   Est1 <- .unformatFrame(CorrEst1[[1]])
   Est2 <- .unformatFrame(CorrEst2[[1]])
   Corrs <- rbind(Est1,Est2)
-  if(is.null(labels)) {rownames(Corrs) <- c("Correlation 1","Correlation 2")} else {rownames(Corrs) <- labels} 
+  if(is.null(labels)) {rownames(Corrs) <- c("Correlation 1","Correlation 2")} else {rownames(Corrs) <- labels}
   Corrs <- list(Corrs)
-  names(Corrs) <- "Confidence Intervals for the Correlations"     
+  names(Corrs) <- "Confidence Intervals for the Correlations"
   Diff <- .estimateCorrelationDifference(CorrEst1,CorrEst2)
   Diff <- list(Diff)
   names(Diff) <- "Confidence Interval for the Correlation Difference"
@@ -29,7 +29,7 @@ estimateCorrelationComparison <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotCorrelationComparison <- function(x,...) 
+plotCorrelationComparison <- function(x,...)
   UseMethod("plotCorrelationComparison")
 
 plotCorrelationComparison.list <- function(CorrEst1,CorrEst2,add=FALSE,main=NULL,ylab="Correlation",xlab="",rope=NULL,labels=NULL,pos=c(2,2,4),connect=FALSE,values=TRUE,ylim=NULL,digits=3,col="black",offset=0,intervals=TRUE,...) {

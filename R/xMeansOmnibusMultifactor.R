@@ -41,7 +41,7 @@
   return(out)
 }
 
-.describeMeansOmnibusMultifactor <- function(x,...) 
+.describeMeansOmnibusMultifactor <- function(x,...)
   UseMethod(".describeMeansOmnibusMultifactor")
 
 .describeMeansOmnibusMultifactor.wss <- function(ListDescStats,ListCorrStats,...) {
@@ -51,7 +51,7 @@
   out1 <- rbind(main[1,],error[1,])
   rownames(out1) <- c("Blocks","Subjects")
   out2 <- rbind(main[2:3,],error[-1:-2,])
-  rownames(out2) <- c("Measures","Measures:Blocks","Residual")  
+  rownames(out2) <- c("Measures","Measures:Blocks","Residual")
   results <- list(out1,out2)
   names(results) <- c("Between Subjects","Within Subjects")
   return(results)
@@ -91,7 +91,7 @@ describeMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
 
 ### Confidence Intervals
 
-.estimateMeansOmnibusMultifactor <- function(x,...) 
+.estimateMeansOmnibusMultifactor <- function(x,...)
   UseMethod(".estimateMeansOmnibusMultifactor")
 
 .estimateMeansOmnibusMultifactor.wss <- function(ListDescStats,ListCorrStats,conf.level=.90,...) {
@@ -151,7 +151,7 @@ estimateMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeansOmnibusMultifactor <- function(x,...) 
+.testMeansOmnibusMultifactor <- function(x,...)
   UseMethod(".testMeansOmnibusMultifactor")
 
 .testMeansOmnibusMultifactor.wss <- function(ListDescStats,ListCorrStats,...) {
@@ -186,7 +186,7 @@ estimateMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
 
 .testMeansOmnibusMultifactor.default <- function(frame,by,...) {
   data <- data.frame(frame)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}  
+  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
   ListDescStats <- .describeMeansBy.default(data,by=by)
   ListCorrStats <- .describeCorrelationsBy.default(data,by=by)
   .testMeansOmnibusMultifactor.wss(ListDescStats,ListCorrStats)
@@ -199,7 +199,7 @@ estimateMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
 
 testMeansOmnibusMultifactor <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibusMultifactor(...)
-  if(is.null(main)) {main <- "Hypothesis Tests for the Model"} 
+  if(is.null(main)) {main <- "Hypothesis Tests for the Model"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)

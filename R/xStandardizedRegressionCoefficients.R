@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedRegressionCoefficients <- function(x,...) 
+.estimateStandardizedRegressionCoefficients <- function(x,...)
   UseMethod(".estimateStandardizedRegressionCoefficients")
 
 .estimateStandardizedRegressionCoefficients.wss <- function(DescStats,CorrStats,y=NULL,conf.level=.95,...) {
@@ -16,7 +16,7 @@
   temptab <- .estimateRegressionCoefficients.wss(DescStats,CorrStats,conf.level=conf.level)
   std <- DescStats[,"SD"]/DescStats[nrow(DescStats),"SD"]
   results <- data.frame(temptab*std)[-1,]
-  return(results)    
+  return(results)
 }
 
 .estimateStandardizedRegressionCoefficients.default <- function(frame,y=NULL,conf.level=.95,...) {
@@ -35,7 +35,7 @@
 estimateStandardizedRegressionCoefficients <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedRegressionCoefficients(...)
   if(is.null(main)) {main <- "Confidence Intervals for the Standardized Regression Coefficients"}  
-  results <- .formatList(list(results),main=main,digits=digits) 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 

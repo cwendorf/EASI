@@ -3,13 +3,13 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeansBy <- function(x,...) 
+.estimateStandardizedMeansBy <- function(x,...)
   UseMethod(".estimateStandardizedMeansBy")
 
 .estimateStandardizedMeansBy.wss <- function(ListDescStats,conf.level=.95,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeans.wss(ListDescStats[[i]],conf.level=conf.level,mu=mu)}
-  names(results) <- names(ListDescStats)  
+  names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
@@ -38,7 +38,7 @@
 
 estimateStandardizedMeansBy <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeansBy(...)
-  if(is.null(main)) {main <- "Confidence Intervals for the Standardized Means"} 
+  if(is.null(main)) {main <- "Confidence Intervals for the Standardized Means"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)

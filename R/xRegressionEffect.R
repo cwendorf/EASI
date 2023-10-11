@@ -3,7 +3,7 @@
 
 ### Descriptives
 
-.describeRegressionEffect <- function(x,...) 
+.describeRegressionEffect <- function(x,...)
   UseMethod(".describeRegressionEffect")
 
 .describeRegressionEffect.wss <- function(DescStats,CorrStats,y=NULL,...) {
@@ -51,7 +51,7 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
 
 ### Confidence Intervals
 
-.estimateRegressionEffect <- function(x,...) 
+.estimateRegressionEffect <- function(x,...)
   UseMethod(".estimateRegressionEffect")
 
 .estimateRegressionEffect.wss <- function(DescStats,CorrStats,y=NULL,conf.level=.90,...) {
@@ -88,6 +88,6 @@ describeRegressionEffect <- function(...,main=NULL,digits=3) {
 estimateRegressionEffect <- function(...,main=NULL,digits=3) {
   results <- .estimateRegressionEffect(...)
   if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"} 
-  results <- .formatList(list(results),main=main,digits=digits) 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }

@@ -3,22 +3,20 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeanContrastBy <- function(x,...) 
+.estimateStandardizedMeanContrastBy <- function(x,...)
   UseMethod(".estimateStandardizedMeanContrastBy")
 
 .estimateStandardizedMeanContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,conf.level=.95,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanContrast.wss(ListDescStats[[i]],ListCorrStats[[i]],contrast=contrast,conf.level=conf.level)
-  }
-  names(results) <- names(ListDescStats)  
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanContrast.wss(ListDescStats[[i]],ListCorrStats[[i]],contrast=contrast,conf.level=conf.level)}
+  names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
 .estimateStandardizedMeanContrastBy.bss <- function(ListDescStats,contrast,conf.level=.95,...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanContrast.bss(ListDescStats[[i]],contrast=contrast,conf.level=conf.level)
-  }
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanContrast.bss(ListDescStats[[i]],contrast=contrast,conf.level=conf.level)}
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
@@ -41,7 +39,7 @@
 
 estimateStandardizedMeanContrastBy <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeanContrastBy(...)
-  if(is.null(main)) {main <- "Confidence Interval for the Standardized Mean Contrast"} 
+  if(is.null(main)) {main <- "Confidence Interval for the Standardized Mean Contrast"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)

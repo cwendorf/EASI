@@ -3,7 +3,7 @@
 
 ### Descriptives
 
-.describeRegressionOmnibus <- function(x,...) 
+.describeRegressionOmnibus <- function(x,...)
   UseMethod(".describeRegressionOmnibus")
 
 .describeRegressionOmnibus.wss <- function(DescStats,CorrStats,y=NULL,...) {
@@ -52,7 +52,7 @@
 describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .describeRegressionOmnibus(...)
   if(is.null(main)) {main <- "Source Table for the Regression Model"}
-  results <- .formatList(list(results),main=main,digits=digits)  
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -105,14 +105,14 @@ describeRegressionOmnibus <- function(...,main=NULL,digits=3) {
 
 estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .estimateRegressionOmnibus(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Regression Model"} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Regression Model"}
   results <- .formatList(list(results),main=main,digits=digits)  
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testRegressionOmnibus <- function(x,...) 
+.testRegressionOmnibus <- function(x,...)
   UseMethod(".testRegressionOmnibus")
 
 .testRegressionOmnibus.wss <- function(DescStats,CorrStats,y=NULL,...) {
@@ -151,7 +151,7 @@ estimateRegressionOmnibus <- function(...,main=NULL,digits=3) {
 
 testRegressionOmnibus <- function(...,main=NULL,digits=3) {
   results <- .testRegressionOmnibus(...)
-  if(is.null(main)) {main <- "Hypothesis Test for the Regression Model"} 
-  results <- .formatList(list(results),main=main,digits=digits) 
+  if(is.null(main)) {main <- "Hypothesis Test for the Regression Model"}
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }

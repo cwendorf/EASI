@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.estimateMeanComparison <- function(x,...) 
+.estimateMeanComparison <- function(x,...)
   UseMethod(".estimateMeanComparison")
 
 .estimateMeanComparison.default <- .estimateMeanComparison.formula <- .estimateMeanComparison.wss <- .estimateMeanComparison.bss <- function(...,conf.level=.95,mu=0) {
@@ -27,7 +27,7 @@ estimateMeanComparison <- function(...,main=NULL,digits=3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeanComparison <- function(x,...) 
+.testMeanComparison <- function(x,...)
   UseMethod(".testMeanComparison")
 
 .testMeanComparison.default <- .testMeanComparison.formula <- .testMeanComparison.wss <- .testMeanComparison.bss <- function(...,mu=0) {
@@ -37,7 +37,7 @@ estimateMeanComparison <- function(...,main=NULL,digits=3) {
   names(Levels) <- "Hypothesis Tests for the Means"
   Diff <- .testMeanDifference(...,mu=mu)
   Diff <- list(Diff)
-  names(Diff) <- "Hypothesis Test for the Mean Difference"  
+  names(Diff) <- "Hypothesis Test for the Mean Difference"
   results <- c(Levels,Diff)
   return(results)
 } 

@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeanContrast <- function(x,...) 
+.estimateStandardizedMeanContrast <- function(x,...)
   UseMethod(".estimateStandardizedMeanContrast")
 
 .estimateStandardizedMeanContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,labels=NULL,...) {
@@ -67,7 +67,7 @@
 estimateStandardizedMeanContrast <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeanContrast(...)
   if(is.null(main)) {main <- "Confidence Interval for the Standardized Mean Contrast"}
-  results <- .formatList(list(results),main=main,digits=digits) 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 

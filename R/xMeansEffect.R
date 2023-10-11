@@ -3,7 +3,7 @@
 
 ### Descriptives
 
-.describeMeansEffect <- function(x,...) 
+.describeMeansEffect <- function(x,...)
   UseMethod(".describeMeansEffect")
 
 .describeMeansEffect.wss <- function(DescStats,CorrStats,...) {
@@ -12,7 +12,7 @@
   SSe <- temptab["Error","SS"]
   SSt <- SSf + SSe
   dff <- temptab["Measures","df"]
-  dfe <- temptab["Error","df"] 
+  dfe <- temptab["Error","df"]
   dft <- dff + dfe
   F <- (SSf/dff)/(SSe/dfe)
   etasq <- SSf / SSt
@@ -27,7 +27,7 @@
   SSw <- temptab["Within","SS"]
   SSt <- SSb + SSw
   dfb <- temptab["Between","df"]
-  dfw <- temptab["Within","df"] 
+  dfw <- temptab["Within","df"]
   dft <- dfb + dfw
   F <- (SSb/dfb)/(SSw/dfw) 
   etasq <- SSb / SSt
@@ -51,8 +51,8 @@
 
 describeMeansEffect <- function(...,main=NULL,digits=3) {
   results <- .describeMeansEffect(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
-  results <- .formatList(list(results),main=main,digits=digits)  
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"}
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -106,7 +106,7 @@ describeMeansEffect <- function(...,main=NULL,digits=3) {
 
 estimateMeansEffect <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansEffect(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"}
   results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }

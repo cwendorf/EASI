@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.estimateMeanDifference <- function(x,...) 
+.estimateMeanDifference <- function(x,...)
   UseMethod(".estimateMeanDifference")
   
 .estimateMeanDifference.wss <- function(CompStats,CorrStats,mu=0,conf.level=.95,labels=NULL,...) {

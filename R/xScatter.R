@@ -3,7 +3,7 @@
 
 ### Scatter Plots
 
-plotScatter <- function(x,...) 
+plotScatter <- function(x,...)
   UseMethod("plotScatter")
 
 plotScatter.wss <- function(DescStats,CorrStats,y=NULL,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,ellipse=TRUE,conf.level=.95,cross=FALSE,col="black",...) {
@@ -42,7 +42,7 @@ plotScatter.wss <- function(DescStats,CorrStats,y=NULL,main="Scatter Plot for th
   if(cross) {
     abline(v=mu[1],col=.colorTransparent(col,50))
     abline(h=mu[2],col=.colorTransparent(col,50))}
-  if(ellipse) {lines(transM,col=.colorTransparent(col,100))}  
+  if(ellipse) {lines(transM,col=.colorTransparent(col,100))}
 }
 
 plotScatter.default <- function(frame,y=NULL,main="Scatter Plot for the Variables",ylab=NULL,xlab=NULL,pch=16,xlim=NULL,ylim=NULL,add=FALSE,points=TRUE,ellipse=FALSE,conf.level=.95,cross=FALSE,col="black",...) {
@@ -84,5 +84,5 @@ plotScatter.default <- function(frame,y=NULL,main="Scatter Plot for the Variable
     abline(h=mu[2],col=.colorTransparent(col,50))}
   if(points) {points(frame,pch=pch,col=.colorTransparent(col,100))}
   if(ellipse) {lines(transM,col=.colorTransparent(col,100))}
-  invisible(eval(frame))  
+  invisible(eval(frame))
 }

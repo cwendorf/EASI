@@ -3,7 +3,7 @@
 
 ### Descriptives
 
-.describeCorrelationsBy <- function(x,...) 
+.describeCorrelationsBy <- function(x,...)
   UseMethod(".describeCorrelationsBy")
 
 .describeCorrelationsBy.default <- function(frame,by,...) {
@@ -17,7 +17,7 @@
 
 describeCorrelationsBy <- function(...,main=NULL,digits=3) {
   results <- .describeCorrelationsBy(...)
-  if(is.null(main)) {main <- "Correlation Matrix for the Variables"} 
+  if(is.null(main)) {main <- "Correlation Matrix for the Variables"}
   main <-  paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)

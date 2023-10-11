@@ -6,7 +6,7 @@
 plotViolins <- function(...,main=NULL,col="black") {
   if(is.null(main)) main="Violin Plots"
   plotBoxes(...,values=FALSE,main=main,col=col)
-  plotDensity(...,add=TRUE,offset=0,type="full",col=col)  
+  plotDensity(...,add=TRUE,offset=0,type="full",col=col)
 }
 
 plotBeans <- function(...,main=NULL,col="black") {

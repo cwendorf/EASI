@@ -3,13 +3,13 @@
 
 ### Confidence Intervals
 
-.estimateMeanContrastBy <- function(x,...) 
+.estimateMeanContrastBy <- function(x,...)
   UseMethod(".estimateMeanContrastBy")
 
 .estimateMeanContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,conf.level=.95,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeanContrast.wss(ListDescStats[[i]],ListCorrStats[[i]],contrast=contrast,conf.level=conf.level)}
-  names(results) <- names(ListDescStats)  
+  names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
@@ -17,7 +17,7 @@
 .estimateMeanContrastBy.bss <- function(ListDescStats,contrast,conf.level=.95,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateMeanContrast.bss(ListDescStats[[i]],contrast=contrast,conf.level=conf.level)}
-  names(results) <- names(ListDescStats)  
+  names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
@@ -39,21 +39,21 @@
 
 estimateMeanContrastBy <- function(...,contrast,conf.level=.95,main=NULL,digits=3) {
   results <- .estimateMeanContrastBy(...,contrast=contrast,conf.level=conf.level)
-  if(is.null(main)) {main <- "Confidence Interval for the Mean Contrast"} 
+  if(is.null(main)) {main <- "Confidence Interval for the Mean Contrast"}
   main <-  paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
-### Null Hypothesis Significance Tests 
+### Null Hypothesis Significance Tests
 
-.testMeanContrastBy <- function(x,...) 
+.testMeanContrastBy <- function(x,...)
   UseMethod(".testMeanContrastBy")
 
 .testMeanContrastBy.wss <- function(ListDescStats,ListCorrStats,contrast,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeanContrast.wss(ListDescStats[[i]],ListCorrStats[[i]],contrast=contrast,mu=mu)}
-  names(results) <- names(ListDescStats)  
+  names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
@@ -61,7 +61,7 @@ estimateMeanContrastBy <- function(...,contrast,conf.level=.95,main=NULL,digits=
 .testMeanContrastBy.bss <- function(ListDescStats,contrast,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeanContrast.bss(ListDescStats[[i]],contrast=contrast,mu=mu)}
-  names(results) <- names(ListDescStats)  
+  names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
@@ -83,7 +83,7 @@ estimateMeanContrastBy <- function(...,contrast,conf.level=.95,main=NULL,digits=
 
 testMeanContrastBy <- function(...,contrast,mu=0,main=NULL,digits=3) {
   results <- .testMeanContrastBy(...,contrast=contrast,mu=mu)
-  if(is.null(main)) {main <- "Hypothesis Test for the Mean Contrast"} 
+  if(is.null(main)) {main <- "Hypothesis Test for the Mean Contrast"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
@@ -98,5 +98,5 @@ plotMeanContrastBy <- function(...,by,contrast,main=NULL,ylab="Outcome",xlab="",
     plotIntervals(temp,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
     par(ask=TRUE)
   }
-  par(ask=FALSE) 
+  par(ask=FALSE)
 }

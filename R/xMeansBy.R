@@ -3,7 +3,7 @@
 
 #### Descriptives
 
-.describeMeansBy <- function(x,...) 
+.describeMeansBy <- function(x,...)
   UseMethod(".describeMeansBy")
 
 .describeMeansBy.default <- function(frame,by,...) {
@@ -26,7 +26,7 @@
 
 describeMeansBy <- function(...,main=NULL,digits=3) {
   results <- .describeMeansBy(...)
-  if(is.null(main)) {main <- "Descriptive Statistics for the Data"} 
+  if(is.null(main)) {main <- "Descriptive Statistics for the Data"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main,digits=digits)
   return(results)
@@ -34,7 +34,7 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
 
 ### Confidence Intervals
 
-.estimateMeansBy <- function(x,...) 
+.estimateMeansBy <- function(x,...)
   UseMethod(".estimateMeansBy")
 
 .estimateMeansBy.wss <- function(ListDescStats,conf.level=.95,...) {
@@ -69,21 +69,21 @@ describeMeansBy <- function(...,main=NULL,digits=3) {
 
 estimateMeansBy <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansBy(...)
-  if(is.null(main)) {main <- "Confidence Intervals for the Means"} 
+  if(is.null(main)) {main <- "Confidence Intervals for the Means"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
 }
 
-### Null Hypothesis Significance Tests 
+### Null Hypothesis Significance Tests
 
-.testMeansBy <- function(x,...) 
+.testMeansBy <- function(x,...)
   UseMethod(".testMeansBy")
 
 .testMeansBy.wss <- .testMeansBy.bss <- function(ListDescStats,mu=0,...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {results[[i]] <- .testMeans.wss(ListDescStats[[i]],mu=mu)}
-  names(results) <- names(ListDescStats)  
+  names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
@@ -104,7 +104,7 @@ estimateMeansBy <- function(...,main=NULL,digits=3) {
 
 testMeansBy <- function(...,main=NULL,digits=3) {
   results <- .testMeansBy(...)
-  if(is.null(main)) {main <- "Hypothesis Tests for the Means"} 
+  if(is.null(main)) {main <- "Hypothesis Tests for the Means"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
@@ -112,7 +112,7 @@ testMeansBy <- function(...,main=NULL,digits=3) {
 
 ### Confidence Interval Plots
 
-plotMeansBy <- function(x,...) 
+plotMeansBy <- function(x,...)
   UseMethod("plotMeansBy")
 
 plotMeansBy.wss <- plotMeansBy.default <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=TRUE,pch=16,col="black",offset=0,intervals=TRUE) {
@@ -122,7 +122,7 @@ plotMeansBy.wss <- plotMeansBy.default <- function(...,by,main=NULL,ylab="Outcom
     plotIntervals(temp,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
     par(ask=TRUE)
   }
-  par(ask=FALSE) 
+  par(ask=FALSE)
 }
 
 plotMeansBy.bss <- plotMeansBy.formula <- function(...,by,main=NULL,ylab="Outcome",xlab="",mu=0,line=NULL,rope=NULL,conf.level=.95,values=TRUE,ylim=NULL,add=FALSE,digits=3,pos=2,connect=FALSE,pch=16,col="black",offset=0,intervals=TRUE) {
@@ -132,5 +132,5 @@ plotMeansBy.bss <- plotMeansBy.formula <- function(...,by,main=NULL,ylab="Outcom
     plotIntervals(temp,add=add,main=main,xlab=xlab,ylab=ylab,ylim=ylim,values=values,line=line,rope=rope,digits=digits,connect=connect,pos=pos,col=col,offset=offset,intervals=intervals)
     par(ask=TRUE)
   }
-  par(ask=FALSE) 
+  par(ask=FALSE)
 }

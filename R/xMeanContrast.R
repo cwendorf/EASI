@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.estimateMeanContrast <- function(x,...) 
+.estimateMeanContrast <- function(x,...)
   UseMethod(".estimateMeanContrast")
 
 .estimateMeanContrast.wss <- function(DescStats,CorrStats,contrast,conf.level=.95,labels=NULL,...) {
@@ -63,7 +63,7 @@ estimateMeanContrast <- function(...,main=NULL,digits=3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeanContrast <- function(x,...) 
+.testMeanContrast <- function(x,...)
   UseMethod(".testMeanContrast")
   
 .testMeanContrast.bss <- function(DescStats,contrast,mu=0,labels=NULL,...) {

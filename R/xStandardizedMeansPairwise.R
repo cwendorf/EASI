@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeansPairwise <- function(x,...) 
+.estimateStandardizedMeansPairwise <- function(x,...)
   UseMethod(".estimateStandardizedMeansPairwise")
 
 .estimateStandardizedMeansPairwise.wss <- function(DescStats,CorrStats,conf.level=.95,...) {
@@ -19,7 +19,7 @@
   for( i in 1:(nr-1) ){
   for( j in (i+1):nr ){
     rownames(results)[comp] <- paste(rn[i],"v",rn[j])
-    R <- CorrStats[rn[1],rn[2]]  
+    R <- CorrStats[rn[1],rn[2]]
     ns <- N[rn[c(i,j)]]
 	  mns <- M[rn[c(i,j)]]
 	  sds <- SD[rn[c(i,j)]]
@@ -61,7 +61,7 @@
     Est <- (mns[2]-mns[1])/s
     SE <- sqrt(Est^2*(v1^2/(N[1]-1) + v2^2/(N[2]-1))/(8*s^4) + (v1/(N[1]-1) + v2/(N[2]-1))/s^2)
     LL <- Est-z*SE
-    UL <- Est+z*SE  
+    UL <- Est+z*SE
     results[comp,] <- c(Est,SE,LL,UL)
   	comp <- comp+1}}
   return(results)
@@ -83,7 +83,7 @@
 estimateStandardizedMeansPairwise <- function(...,main=NULL,digits=3) {
   results <- .estimateStandardizedMeansPairwise(...)
   if(is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Pairwise Standardized Mean Comparisons"} else {main <- "Confidence Interval for the Pairwise Standardized Mean Comparison"}}  
-  results <- .formatList(list(results),main=main,digits=digits)  
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 

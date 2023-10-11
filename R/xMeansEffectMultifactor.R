@@ -3,7 +3,7 @@
 
 ### Confidence Intervals
 
-.estimateMeansEffectMultifactor <- function(x,...) 
+.estimateMeansEffectMultifactor <- function(x,...)
   UseMethod(".estimateMeansEffectMultifactor")
 
 .estimateMeansEffectMultifactor.wss <- function(ListDescStats,ListCorrStats,conf.level=.90,...) {
@@ -55,7 +55,7 @@
 
 estimateMeansEffectMultifactor <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansEffectMultifactor(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"} 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)

@@ -3,7 +3,7 @@
 
 ### Descriptives
 
-.describeMeansOmnibus <- function(x,...) 
+.describeMeansOmnibus <- function(x,...)
   UseMethod(".describeMeansOmnibus")
 
 .describeMeansOmnibus.wss <- function(DescStats,CorrStats,...) {
@@ -69,7 +69,7 @@
 describeMeansOmnibus <- function(...,main=NULL,digits=3) {
   results <- .describeMeansOmnibus(...)
   if(is.null(main)) {main <- "Source Table for the Model"} 
-  results <- .formatList(list(results),main=main,digits=digits) 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
@@ -86,7 +86,7 @@ describeMeansOmnibus <- function(...,main=NULL,digits=3) {
   results
 }
 
-.estimateMeansOmnibus <- function(x,...) 
+.estimateMeansOmnibus <- function(x,...)
   UseMethod(".estimateMeansOmnibus")
 
 .estimateMeansOmnibus.wss <- function(DescStats,CorrStats,conf.level=.90,...) {
@@ -134,14 +134,14 @@ describeMeansOmnibus <- function(...,main=NULL,digits=3) {
 
 estimateMeansOmnibus <- function(...,main=NULL,digits=3) {
   results <- .estimateMeansOmnibus(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"} 
-  results <- .formatList(list(results),main=main,digits=digits) 
+  if(is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"}
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testMeansOmnibus <- function(x,...) 
+.testMeansOmnibus <- function(x,...)
   UseMethod(".testMeansOmnibus")
 
 .testMeansOmnibus.wss <- function(DescStats,CorrStats,...) {
@@ -168,7 +168,7 @@ estimateMeansOmnibus <- function(...,main=NULL,digits=3) {
   p <- 1-pf(F,dfb,dfw)
   results <- cbind(F,dfb,dfw,p)
   colnames(results) <- c("F","df1","df2","p")
-  rownames(results) <- c("Factor")  
+  rownames(results) <- c("Factor")
   return(results)
 }
 
@@ -188,6 +188,6 @@ estimateMeansOmnibus <- function(...,main=NULL,digits=3) {
 testMeansOmnibus <- function(...,main=NULL,digits=3) {
   results <- .testMeansOmnibus(...)
   if(is.null(main)) {main <- "Hypothesis Test for the Model"}
-  results <- .formatList(list(results),main=main,digits=digits) 
+  results <- .formatList(list(results),main=main,digits=digits)
   return(results)
 }
