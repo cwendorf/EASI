@@ -68,8 +68,8 @@ plotFrequencies.formula <- function(formula,add=FALSE,ylim=NULL,main=NULL,ylab=N
   data <- unstack(model.frame(formula))
   if(!add) {
     if(is.null(main)) {main="Frequencies for the Groups"}
-    if(is.null(ylab)) {ylab <- all.vars(formula)[1]}    
-    if(typeof(data)=="list") {z <- lapply(data,density)} else {z <- apply(data,2,density)} 
+    if(is.null(ylab)) {ylab <- all.vars(formula)[1]}
+    if(typeof(data)=="list") {z <- lapply(data,density)} else {z <- apply(data,2,density)}
     a <- sapply(z,"[","x")
     b <- lapply(a,function(x) c(min(x),max(x)))
     results <- data.frame(matrix(unlist(b), nrow=length(b), byrow=TRUE))
