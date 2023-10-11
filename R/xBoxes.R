@@ -56,7 +56,7 @@ describeBoxes <- function(...,main=NULL,digits=3) {
     text(1:nrow(results)+offset,as.numeric(results[,5]),results[,5],cex=.8,pos=pos,offset=tweak,col=col)}
 }
 
-plotBoxes <- function(x,...) 
+plotBoxes <- function(x,...)
   UseMethod("plotBoxes")
 
 plotBoxes.default <- function(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=1,col="black",values=TRUE,digits=3,pos=2) {
