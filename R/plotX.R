@@ -3,17 +3,17 @@
 
 ### Initialize Plots
 
-.plotMain <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,line=NULL,rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=2,pch=16,points=TRUE,col="black",...) {
+.plotMain <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,...) {
   if(is.null(main)) {main=names(results)} 
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
   results <- .unformatFrame(results[[1]])
   if(is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5),ceiling(max(results)+.5))))}
-  par(mar=c(5,5,5,3))   
+  par(mar=c(5,5,5,3))
   plot(NULL,xaxs="i",yaxs="i",xaxt="n",xlim=c(.4,nrow(results)+.6),ylim=ylim,xlab=xlab,cex.lab=1.15,ylab=ylab,main=main,las=1,bty="l")
   axis(1,1:nrow(results),row.names(results))
 }
 
-.plotComp <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,slab="Difference",rope=NULL,values=TRUE,digits=3,connect=FALSE,pos=c(2,2,4),pch=c(15,15,17),points=TRUE,col="black",...) {
+.plotComp <- function(results,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,slab="Difference",...) {
   if(is.null(main)) main=names(results[1])
   results <- .unformatFrame(results[[1]])
   main <- paste(strwrap(main,width = 0.7 * getOption("width")),collapse="\n")
@@ -29,7 +29,7 @@
   axis(2)
   axis(2,at=ylim,labels=FALSE,lwd.tick=0)
   if(results[1,1]<results[2,1]) {td <- graph[1,1]-axTicks(4)[max(which(axTicks(4)<graph[1,1]))]}
-  if(results[1,1]>=results[2,1]) {td <- graph[1,1]-axTicks(4)[min(which(axTicks(4)>graph[1,1]))]}  
+  if(results[1,1]>=results[2,1]) {td <- graph[1,1]-axTicks(4)[min(which(axTicks(4)>graph[1,1]))]}
   val <- axTicks(4)-graph[1,1]+td
   loc <- axTicks(4)+td
   axis(4,at=ylim,labels=FALSE,lwd.tick=0)
