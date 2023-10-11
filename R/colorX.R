@@ -17,6 +17,8 @@
 
 ### Color Themes
 
+transparent <- rgb(255,255,255,max=255,alpha=0)
+
 theme <- function(colors="black",type="main") {
   if(colors=="vibrant") {colors <- c(hsv(1,1,.784),hsv(.667,1,.784),hsv(.14,1,.784),hsv(.333,1,.784),hsv(.883,1,.784),hsv(.5,1,.784),hsv(.105,1,.784),hsv(.75,1,.784))}
   else if(colors=="muted") {colors <- c(hsv(1,1,.545),hsv(.667,1,.545),hsv(.14,1,.545),hsv(.333,1,.545),hsv(.883,1,.545),hsv(.5,1,.545),hsv(.105,1,.545),hsv(.75,1,.545))}
