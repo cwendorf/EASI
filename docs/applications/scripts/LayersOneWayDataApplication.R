@@ -16,10 +16,10 @@ Outcome <- c(Level1,Level2,Level3)
 
 ### Using the "add" Functions
 
-(Outcome~Factor) |> plotData() 
+(Outcome~Factor) |> plotData()
 (Outcome~Factor) |> plotBoxes(add=TRUE)
 
-(Outcome~Factor) |> plotData() 
+(Outcome~Factor) |> plotData()
 (Outcome~Factor) |> addBoxes()
 
 ### Using Passthrough Abilities
