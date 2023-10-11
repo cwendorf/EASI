@@ -12,7 +12,7 @@
   return(results)  
 }
 
-.describeFrequencies <- function(x,...) 
+.describeFrequencies <- function(x,...)
   UseMethod(".describeFrequencies")
 
 .describeFrequencies.default <- function(frame,...) {
@@ -23,15 +23,14 @@
 }
 
 .describeFrequencies.formula <- function(formula,...) {
-  group <- eval(formula[[3]])
-  outcome <- eval(formula[[2]])
-  results <- tapply(outcome,group,FUN=.frequencies)
+  data <- unstack(model.frame(formula))
+  if(typeof(data)=="list") {results <- lapply(data,.frequencies)} else {results <- apply(data,2,.frequencies)}
   return(results)
 }
 
 describeFrequencies <- function(...,main=NULL,digits=3) {
-  results <- .describeFrequencies(...) 
-  if(is.null(main)) {main <- "Frequency Distribution for the Data"} 
+  results <- .describeFrequencies(...)
+  if(is.null(main)) {main <- "Frequency Distribution for the Data"}
   main <- paste(main,names(results),sep=": ")
   results <- .formatList(results,main=main,digits=digits)
   return(results)
