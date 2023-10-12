@@ -1,5 +1,9 @@
 # Estimation Approach to Statistical Inference
 
+## Developmental Version
+
+- Rebuilt boxplots, histograms, and data plots
+
 ## EASI 5.3.230927
 
 - Added alternative color theme
