@@ -1,5 +1,5 @@
 
-## Exposition Factorial Data Application
+## Effects Factorial Data Application
 
 This page implements a exposition pipe operator to analyze simple effects using 
 factorial (between-subjects) data.
