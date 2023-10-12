@@ -61,7 +61,7 @@ Get descriptive statistics separately for each simple effect.
 ### Analyses of the Means
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
-```{r,Exposition-Factorial-Means}
+```{r,Effects-Factorial-Means}
 (FactorialB1) %$>% (Outcome~FactorA) |> estimateMeans()
 (FactorialB2) %$>% (Outcome~FactorA) |> estimateMeans()
 (FactorialB1) %$>% (Outcome~FactorA) |> plotMeans()
@@ -81,7 +81,7 @@ ComparisonB2 <- (FactorialB2) %$>% factor(FactorA,c("A1","A2"))
 ```
 
 Estimate, plot, test, and standardize the comparison separately for each simple effect.
-```{r,Exposition-Factorial-Comparison}
+```{r,Effects-Factorial-Comparison}
 (FactorialB1) %$>% (Outcome~ComparisonB1) |> estimateMeanDifference()
 (FactorialB2) %$>% (Outcome~ComparisonB2) |> estimateMeanDifference()
 (FactorialB1) %$>% (Outcome~ComparisonB1) |> plotMeanDifference()
@@ -100,7 +100,7 @@ A1vsOthers <- c(-1,.5,.5)
 ```
 
 Estimate, plot, test, and standardize the contrast separately for each simple effect.
-```{r,Exposition-Factorial-Contrast}
+```{r,Effects-Factorial-Contrast}
 (FactorialB1) %$>% (Outcome~FactorA) |> estimateMeanContrast(contrast=A1vsOthers)
 (FactorialB2) %$>% (Outcome~FactorA) |> estimateMeanContrast(contrast=A1vsOthers)
 (FactorialB1) %$>% (Outcome~FactorA) |> plotMeanContrast(contrast=A1vsOthers)

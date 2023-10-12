@@ -61,7 +61,7 @@ Get the descriptive statistics separately for each simple effect.
 ### Analyses of the Means
 
 Use a similar process to obtain the tables of confidence interval estimates.
-```{r,Exposition-Mixed-Means}
+```{r,Effects-Mixed-Means}
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans()
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeans()
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeans()
@@ -75,7 +75,7 @@ Use a similar process to obtain the tables of confidence interval estimates.
 ### Analyses of a Comparison
 
 Analyze the specified comparison separately for each simple effect.
-```{r,Exposition-Mixed-Comparison}
+```{r,Effects-Mixed-Comparison}
 (MixedB1) %$>% cbind(Outcome1,Outcome2) |> estimateMeanDifference()
 (MixedB2) %$>% cbind(Outcome1,Outcome2) |> estimateMeanDifference()
 (MixedB1) %$>% cbind(Outcome1,Outcome2) |> plotMeanDifference()
@@ -94,7 +94,7 @@ O1vsOthers <- c(-1,.5,.5)
 ```
 
 Analyze the specified contrast separately for each simple effect.
-```{r,Exposition-Mixed-Contrast}
+```{r,Effects-Mixed-Contrast}
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast=O1vsOthers)
 (MixedB2) %$>% cbind(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast=O1vsOthers)
 (MixedB1) %$>% cbind(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast=O1vsOthers)
