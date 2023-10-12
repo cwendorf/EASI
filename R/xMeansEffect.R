@@ -3,110 +3,110 @@
 
 ### Descriptives
 
-.describeMeansEffect <- function(x,...)
+.describeMeansEffect <- function(x, ...)
   UseMethod(".describeMeansEffect")
 
-.describeMeansEffect.wss <- function(DescStats,CorrStats,...) {
-  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
-  SSf <- temptab["Measures","SS"]
-  SSe <- temptab["Error","SS"]
+.describeMeansEffect.wss <- function(DescStats, CorrStats, ...) {
+  temptab <- .describeMeansOmnibus.wss(DescStats, CorrStats)
+  SSf <- temptab["Measures", "SS"]
+  SSe <- temptab["Error", "SS"]
   SSt <- SSf + SSe
-  dff <- temptab["Measures","df"]
-  dfe <- temptab["Error","df"]
+  dff <- temptab["Measures", "df"]
+  dfe <- temptab["Error", "df"]
   dft <- dff + dfe
-  F <- (SSf/dff)/(SSe/dfe)
+  F <- (SSf / dff) / (SSe / dfe)
   etasq <- SSf / SSt
-  results <- cbind(Est=etasq)
+  results <- cbind(Est = etasq)
   rownames(results) <- "Measures"
   return(results)
 }
 
-.describeMeansEffect.bss <- function(DescStats,...) {
+.describeMeansEffect.bss <- function(DescStats, ...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
-  SSb <- temptab["Between","SS"]
-  SSw <- temptab["Within","SS"]
+  SSb <- temptab["Between", "SS"]
+  SSw <- temptab["Within", "SS"]
   SSt <- SSb + SSw
-  dfb <- temptab["Between","df"]
-  dfw <- temptab["Within","df"]
+  dfb <- temptab["Between", "df"]
+  dfw <- temptab["Within", "df"]
   dft <- dfb + dfw
-  F <- (SSb/dfb)/(SSw/dfw) 
+  F <- (SSb / dfb) / (SSw / dfw)
   etasq <- SSb / SSt
-  results <- cbind(Est=etasq)
+  results <- cbind(Est = etasq)
   rownames(results) <- "Factor"
   return(results)
 }
 
-.describeMeansEffect.default <- function(frame,...) {
+.describeMeansEffect.default <- function(frame, ...) {
   data <- data.frame(frame)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) ==  1) {colnames(data) <- deparse(substitute(frame))}
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
-  .describeMeansEffect.wss(DescStats,CorrStats)
+  .describeMeansEffect.wss(DescStats, CorrStats)
 }
 
-.describeMeansEffect.formula <- function(formula,...) {
+.describeMeansEffect.formula <- function(formula, ...) {
   DescStats <- .describeMeans(formula)
   .describeMeansEffect.bss(DescStats)
 }
 
-describeMeansEffect <- function(...,main=NULL,digits=3) {
+describeMeansEffect <- function(..., main = NULL, digits = 3) {
   results <- .describeMeansEffect(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"}
-  results <- .formatList(list(results),main=main,digits=digits)
+  if (is.null(main)) {main <- "Proportion of Variance Accounted For"}
+  results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Confidence Intervals
 
-.estimateMeansEffect <- function(x,...) 
+.estimateMeansEffect <- function(x, ...) 
   UseMethod(".estimateMeansEffect")
 
-.estimateMeansEffect.wss <- function(DescStats,CorrStats,conf.level=.90,...) {
-  temptab <- .describeMeansOmnibus.wss(DescStats,CorrStats)
-  SSf <- temptab["Measures","SS"]
-  SSe <- temptab["Error","SS"]
+.estimateMeansEffect.wss <- function(DescStats, CorrStats, conf.level = .90, ...) {
+  temptab <- .describeMeansOmnibus.wss(DescStats, CorrStats)
+  SSf <- temptab["Measures", "SS"]
+  SSe <- temptab["Error", "SS"]
   SSt <- SSf + SSe
-  dff <- temptab["Measures","df"]
-  dfe <- temptab["Error","df"] 
+  dff <- temptab["Measures", "df"]
+  dfe <- temptab["Error", "df"]
   dft <- dff + dfe
-  F <- (SSf/dff)/(SSe/dfe)
+  F <- (SSf / dff) / (SSe / dfe)
   etasq <- SSf / SSt
-  results <- .ciEta2(F=F,dff=dff,dfe=dfe,etasq=etasq,conf.level=conf.level)
+  results <- .ciEta2(F = F, dff = dff, dfe = dfe, etasq = etasq, conf.level = conf.level)
   rownames(results) <- "Measures"
   return(results)
 }
 
-.estimateMeansEffect.bss <- function(DescStats,conf.level=.90,...) {
+.estimateMeansEffect.bss <- function(DescStats, conf.level = .90, ...) {
   temptab <- .describeMeansOmnibus.bss(DescStats)
-  SSb <- temptab["Between","SS"]
-  SSw <- temptab["Within","SS"]
+  SSb <- temptab["Between", "SS"]
+  SSw <- temptab["Within", "SS"]
   SSt <- SSb + SSw
-  dfb <- temptab["Between","df"]
-  dfw <- temptab["Within","df"] 
+  dfb <- temptab["Between", "df"]
+  dfw <- temptab["Within", "df"]
   dft <- dfb + dfw
-  F <- (SSb/dfb)/(SSw/dfw) 
+  F <- (SSb / dfb) / (SSw / dfw)
   etasq <- SSb / SSt
-  results <- .ciEta2(F=F,dff=dfb,dfe=dfw,etasq=etasq,conf.level=conf.level)
+  results <- .ciEta2(F = F, dff = dfb, dfe = dfw, etasq = etasq, conf.level = conf.level)
   rownames(results) <- "Factor"
   return(results)
 }
 
-.estimateMeansEffect.default <- function(frame,conf.level=.90,...) {
+.estimateMeansEffect.default <- function(frame, conf.level = .90, ...) {
   data <- data.frame(frame)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) ==  1) {colnames(data) <- deparse(substitute(frame))}
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
-  .estimateMeansEffect.wss(DescStats,CorrStats,conf.level)
+  .estimateMeansEffect.wss(DescStats, CorrStats, conf.level)
 }
 
-.estimateMeansEffect.formula <- function(formula,conf.level=.90,...) {
+.estimateMeansEffect.formula <- function(formula, conf.level = .90, ...) {
   DescStats <- .describeMeans(formula)
-  .estimateMeansEffect.bss(DescStats,conf.level)
+  .estimateMeansEffect.bss(DescStats, conf.level)
 }
 
-estimateMeansEffect <- function(...,main=NULL,digits=3) {
+estimateMeansEffect <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeansEffect(...)
-  if(is.null(main)) {main <- "Proportion of Variance Accounted For"}
-  results <- .formatList(list(results),main=main,digits=digits)
+  if (is.null(main)) {main <- "Proportion of Variance Accounted For"}
+  results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }

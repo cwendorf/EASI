@@ -4,41 +4,41 @@
 ### Functions to Add Elements to Plots
 
 addData <- function(...) {
-  plotData(...,add=TRUE)
+  plotData(..., add = TRUE)
 }
 
 addFrequencies <- function(...) {
-  plotFrequencies(...,add=TRUE)
+  plotFrequencies(..., add = TRUE)
 }
 
 addBoxes <- function(...) {
-  plotBoxes(...,add=TRUE)
+  plotBoxes(..., add = TRUE)
 }
 
 addDensity <- function(...) {
-  plotDensity(...,add=TRUE)
+  plotDensity(..., add = TRUE)
 }
 
 addMeans <- function(...) {
-  plotMeans(...,add=TRUE)
+  plotMeans(..., add = TRUE)
 }
 
 addIntervals <- function(...) {
-  plotIntervals(...,add=TRUE)
+  plotIntervals(..., add = TRUE)
 }
 
 addDiamonds <- function(...) {
-  plotDiamonds(...,add=TRUE)
+  plotDiamonds(..., add = TRUE)
 }
 
 addPlausible <- function(...) {
-  plotPlausible(...,add=TRUE)
+  plotPlausible(..., add = TRUE)
 }
 
 addScatter <- function(...) {
-  plotScatter(...,add=TRUE)
+  plotScatter(..., add = TRUE)
 }
 
 addRegression <- function(...) {
-  plotRegression(...,add=TRUE)
+  plotRegression(..., add = TRUE)
 }

@@ -3,44 +3,44 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeanDifferenceBy <- function(x,...)
+.estimateStandardizedMeanDifferenceBy <- function(x, ...)
   UseMethod(".estimateStandardizedMeanDifferenceBy")
 
-.estimateStandardizedMeanDifferenceBy.wss <- function(ListDescStats,ListCorrStats,conf.level=.95,...) {
+.estimateStandardizedMeanDifferenceBy.wss <- function(ListDescStats, ListCorrStats, conf.level = .95, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanDifference.wss(ListDescStats[[i]],ListCorrStats[[i]],conf.level=conf.level)}
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanDifference.wss(ListDescStats[[i]], ListCorrStats[[i]], conf.level = conf.level)}
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
-.estimateStandardizedMeanDifferenceBy.bss <- function(ListDescStats,conf.level=.95,...) {
+.estimateStandardizedMeanDifferenceBy.bss <- function(ListDescStats, conf.level = .95, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanDifference.bss(ListDescStats[[i]],conf.level=conf.level)}
+  for (i in 1:length(ListDescStats)) {results[[i]] <- .estimateStandardizedMeanDifference.bss(ListDescStats[[i]], conf.level = conf.level)}
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
-.estimateStandardizedMeanDifferenceBy.default <- function(frame,by,conf.level=.95,...) {
+.estimateStandardizedMeanDifferenceBy.default <- function(frame, by, conf.level = .95, ...) {
   data <- data.frame(frame)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
-  ListDescStats <- .describeMeansBy(data,by=by)
-  ListCorrStats <- .describeCorrelationsBy(data,by=by)
-  results <- .estimateStandardizedMeanDifferenceBy.wss(ListDescStats,ListCorrStats,conf.level=conf.level)
+  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  ListDescStats <- .describeMeansBy(data, by = by)
+  ListCorrStats <- .describeCorrelationsBy(data, by = by)
+  results <- .estimateStandardizedMeanDifferenceBy.wss(ListDescStats, ListCorrStats, conf.level = conf.level)
   return(results)
 }
 
-.estimateStandardizedMeanDifferenceBy.formula <- function(formula,by,conf.level=.95,...) {
-  ListDescStats <- .describeMeansBy(formula,by=by)
-  results <- .estimateStandardizedMeanDifferenceBy.bss(ListDescStats,conf.level=conf.level)
+.estimateStandardizedMeanDifferenceBy.formula <- function(formula, by, conf.level = .95, ...) {
+  ListDescStats <- .describeMeansBy(formula, by = by)
+  results <- .estimateStandardizedMeanDifferenceBy.bss(ListDescStats, conf.level = conf.level)
   return(results)
 }
 
-estimateStandardizedMeanDifferenceBy <- function(...,main=NULL,digits=3) {
+estimateStandardizedMeanDifferenceBy <- function(..., main = NULL, digits = 3) {
   results <- .estimateStandardizedMeanDifferenceBy(...)
-  if(is.null(main)) {main <- "Confidence Interval for the Standardized Mean Difference"}
-  main <- paste(main,names(results),sep=": ")
-  results <- .formatList(results,main=main,digits=digits)
+  if (is.null(main)) {main <- "Confidence Interval for the Standardized Mean Difference"}
+  main <- paste(main, names(results), sep = ": ")
+  results <- .formatList(results, main = main, digits = digits)
   return(results)
 }

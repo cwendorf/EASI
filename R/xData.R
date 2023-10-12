@@ -7,10 +7,10 @@
 dataChart <- function(x, ...) UseMethod("dataChart")
 
 dataChart.default <-
-function(x, method = "overplot", jitter = 0.1, offset = 1/3, vertical = FALSE,
-	 group.names, add = FALSE, at = NULL,
-	 xlim = NULL, ylim = NULL, ylab = NULL, xlab = NULL,
-         dlab = "", glab = "", log = "", pch = 0, col = par("fg"),
+function(x, method = "overplot", jitter = 0.1, offset = 1/3, vertical = FALSE, 
+	 group.names, add = FALSE, at = NULL, 
+	 xlim = NULL, ylim = NULL, ylab = NULL, xlab = NULL, 
+         dlab = "", glab = "", log = "", pch = 0, col = par("fg"), 
          cex = par("cex"), axes = TRUE, frame.plot = axes, ...)
 {
     method <- pmatch(method, c("overplot", "jitter", "stack", "swarm"))[1L]
@@ -35,7 +35,7 @@ function(x, method = "overplot", jitter = 0.1, offset = 1/3, vertical = FALSE,
 	if(method == 2L) { # jitter
 	    glim <- glim + jitter * if(n == 1) c(-5, 5) else c(-2, 2)
 	} else if(method == 3L || method == 4L) { # stack or swarm
-	    glim <- glim + if(n == 1L) c(-1,1) else c(0, 0.5)
+	    glim <- glim + if(n == 1L) c(-1, 1) else c(0, 0.5)
 	}
 	if(is.null(xlim))
 	    xlim <- if(vertical) glim else dlim
@@ -82,14 +82,14 @@ function(x, method = "overplot", jitter = 0.1, offset = 1/3, vertical = FALSE,
         x <- unlist(xg, use.names=FALSE)
 	    y <- rep.int(at[i], length(x)) + (unlist(xo, use.names=FALSE)) * offset * csize
 	}
-	if(vertical) points(y, x, col = col[(i - 1L) %% length(col) + 1L], pch = pch[(i - 1L) %% length(pch) + 1L], cex = cex, ...)
+	if (vertical) points(y, x, col = col[(i - 1L) %% length(col) + 1L], pch = pch[(i - 1L) %% length(pch) + 1L], cex = cex, ...)
 	else points(x, y, col = col[(i - 1L) %% length(col) + 1L], pch = pch[(i - 1L) %% length(pch) + 1L], cex = cex, ...)
     }
     invisible()
 }
 
 dataChart.formula <- function(x, data = NULL, dlab = NULL, ..., subset, na.action = NULL) {
-    if(missing(x) || (length(x) != 3L))
+  if (missing(x) || (length(x) != 3L))
 	stop("formula missing or incorrect")
     m <- match.call(expand.dots = FALSE)
     if(is.matrix(eval(m$data, parent.frame())))
@@ -108,31 +108,31 @@ dataChart.formula <- function(x, data = NULL, dlab = NULL, ..., subset, na.actio
 
 ### Data Plot
 
-plotData <- function(x,...)
+plotData <- function(x, ...)
   UseMethod("plotData")
 
-plotData.default <- function(frame,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,lty="solid",connect=FALSE,...) {
+plotData.default <- function(frame, add = FALSE, main = NULL, ylim = NULL, ylab = "Outcome", xlab = "", offset = .13, method = "stack", jitter = .05, col = "black", pch = 16, lty = "solid", connect = FALSE, ...) {
   data <- data.frame(frame)
-  if(ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
-  loc <- (1:length(data))+offset
-  if(!add) {
-    if(is.null(main)) {main="Data for the Variables"}
+  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  loc <- (1:length(data)) + offset
+  if (!add) {
+    if(is.null(main)) {main = "Data for the Variables"}
     results <- describePercentiles(data)
-    .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
-  dataChart(data,add=TRUE,at=loc,vertical=TRUE,method=method,jitter=jitter,col=.colorTransparent(col,70),pch=pch)
-  if(connect && method!="jitter") {
+    .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)}
+  dataChart(data, add = TRUE, at = loc, vertical = TRUE, method = method, jitter = jitter, col = .colorTransparent(col, 70), pch = pch)
+  if (connect && method != "jitter") {
     lesscol <- length(data)-1
-    for(i in 1:lesscol) {segments(loc[i],data[,i],loc[i+1],data[,i+1],col=.colorTransparent(col,70),lty=lty)}}
+    for (i in 1:lesscol) {segments(loc[i], data[, i], loc[i+1], data[, i+1], col = .colorTransparent(col, 70), lty = lty)}}
   invisible(eval(frame))
 }
 
-plotData.formula <- function(formula,add=FALSE,main=NULL,ylim=NULL,ylab="Outcome",xlab="",offset=.13,method="stack",jitter=.05,col="black",pch=16,...) {
-  if(!add) {
+plotData.formula <- function(formula, add = FALSE, main = NULL, ylim = NULL, ylab = "Outcome", xlab = "", offset = .13, method = "stack", jitter = .05, col = "black", pch = 16, ...) {
+  if (!add) {
     results <- describePercentiles(formula)
-    if(is.null(main)) {main="Data for the Groups"}
-    .plotMain(results,main=main,ylab=ylab,xlab=xlab,ylim=ylim)}
+    if (is.null(main)) {main = "Data for the Groups"}
+    .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)}
   data <- unstack(model.frame(formula))
-  loc <- (1:length(data))+offset
-  dataChart(data,add=TRUE,at=loc,vertical=TRUE,method=method,jitter=jitter,col=.colorTransparent(col,70),pch=pch)
+  loc <- (1:length(data)) + offset
+  dataChart(data, add = TRUE, at = loc, vertical = TRUE, method = method, jitter = jitter, col = .colorTransparent(col, 70), pch = pch)
   invisible(eval(formula))
 }
