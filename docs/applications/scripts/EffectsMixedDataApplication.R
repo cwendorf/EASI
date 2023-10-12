@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Exposition Mixed Data Application
+## Effects Mixed Data Application
 
 ### Package Loading
 

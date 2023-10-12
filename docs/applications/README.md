@@ -68,10 +68,10 @@ The **Omnibus** pages provide omnibus analyses in factorial and mixed designs:
 - [*OmnibusFactorialDataApplication*](./OmnibusFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
 - [*OmnibusMixedDataApplication*](./OmnibusMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
 
-The **Exposition** pages implement a exposition pipe operator to simplify the analyses of simple effects in factorial and mixed designs:
+The **Effects** pages implement a exposition pipe operator to analyze simple effects in factorial and mixed designs:
 
-- [*ExpositionFactorialDataApplication*](./ExpositionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*ExpositionMixedDataApplication*](./ExpositionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+- [*EffectsFactorialDataApplication*](./EffectsFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*EffectsMixedDataApplication*](./EffectsMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
 
 The **By** pages implement "by" functions designed to automate the analyses of simple effects in factorial and mixed designs:
 

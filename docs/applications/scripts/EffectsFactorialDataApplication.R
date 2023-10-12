@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Exposition Factorial Data Application
+## Effects Factorial Data Application
 
 ### Package Loading
 

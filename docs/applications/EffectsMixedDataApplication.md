@@ -1,7 +1,7 @@
 
 ## Exposition Mixed Data Application
 
-This page analyzes simple effects with an exposition pipe operator using
+This page implements a exposition pipe operator to analyze simple effects using
 mixed design (between-subjects and within-subjects) data.
 
 - [Data Management](#data-management)

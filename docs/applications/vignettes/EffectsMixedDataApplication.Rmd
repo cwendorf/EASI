@@ -1,10 +1,10 @@
 ---
-subtitle: "Exposition Mixed Data Application"
+subtitle: "Effects Mixed Data Application"
 output:
   github_document:
     preserve_yaml: FALSE
 vignette: >
-  %\VignetteIndexEntry{Exposition Mixed Data Application}
+  %\VignetteIndexEntry{Effects Mixed Data Application}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,9 +22,9 @@ remotes::install_github("cwendorf/EASI")}
 library(EASI)
 ```
 
-## Exposition Mixed Data Application
+## Effects Mixed Data Application
 
-This page analyzes simple effects with an exposition pipe operator using mixed design (between-subjects and within-subjects) data.
+This page implements a exposition pipe operator to analyze simple effects using mixed design (between-subjects and within-subjects) data.
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()

@@ -1,10 +1,10 @@
 ---
-subtitle: "Exposition Factorial Data Application"
+subtitle: "Effects Factorial Data Application"
 output:
   github_document:
     preserve_yaml: FALSE
 vignette: >
-  %\VignetteIndexEntry{Exposition Factorial Data Application}
+  %\VignetteIndexEntry{Effects Factorial Data Application}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,9 +22,9 @@ remotes::install_github("cwendorf/EASI")}
 library(EASI)
 ```
 
-## Exposition Factorial Data Application
+## Effects Factorial Data Application
 
-This page analyzes simple effects with an exposition pipe operator using factorial (between-subjects) data.
+This page implements a exposition pipe operator to analyze simple effects using factorial (between-subjects) data.
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
