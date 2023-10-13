@@ -37,9 +37,9 @@ function call (with any relevant additional parameters in parentheses).
 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.258   7.342
-    ## Level2  11.520   0.477  49.000  10.561  12.479
-    ## Level3  11.900   0.540  49.000  10.815  12.985
+    ## Level1   7.680   0.317  49.000   7.042   8.318
+    ## Level2  11.320   0.600  49.000  10.114  12.526
+    ## Level3  11.960   0.589  49.000  10.776  13.144
 
 ``` r
 (Outcome~Factor) |> estimateMeans(conf.level=.99)
@@ -47,9 +47,9 @@ function call (with any relevant additional parameters in parentheses).
 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.078   7.522
-    ## Level2  11.520   0.477  49.000  10.240  12.800
-    ## Level3  11.900   0.540  49.000  10.453  13.347
+    ## Level1   7.680   0.317  49.000   6.829   8.531
+    ## Level2  11.320   0.600  49.000   9.711  12.929
+    ## Level3  11.960   0.589  49.000  10.382  13.538
 
 However, the native pipe operator does not easily permit the piping of
 the variable, data frame, or formula to multiple functions on the
@@ -63,47 +63,41 @@ advanced piping options.
 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.258   7.342
-    ## Level2  11.520   0.477  49.000  10.561  12.479
-    ## Level3  11.900   0.540  49.000  10.815  12.985
+    ## Level1   7.680   0.317  49.000   7.042   8.318
+    ## Level2  11.320   0.600  49.000  10.114  12.526
+    ## Level3  11.960   0.589  49.000  10.776  13.144
 
 ``` r
-(Outcome~Factor) %.>% c(estimateMeans(.),testMeans(.))
+(Outcome~Factor) %.>% {c(estimateMeans(.),testMeans(.))}
 ```
 
-    ## [[1]]
-    ## Outcome ~ Factor
-    ## 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.258   7.342
-    ## Level2  11.520   0.477  49.000  10.561  12.479
-    ## Level3  11.900   0.540  49.000  10.815  12.985
+    ## Level1   7.680   0.317  49.000   7.042   8.318
+    ## Level2  11.320   0.600  49.000  10.114  12.526
+    ## Level3  11.960   0.589  49.000  10.776  13.144
     ## 
     ## $`Hypothesis Tests for the Means`
     ##           Diff      SE      df       t       p
-    ## Level1   6.800   0.270  49.000  25.228   0.000
-    ## Level2  11.520   0.477  49.000  24.129   0.000
-    ## Level3  11.900   0.540  49.000  22.036   0.000
+    ## Level1   7.680   0.317  49.000  24.194   0.000
+    ## Level2  11.320   0.600  49.000  18.857   0.000
+    ## Level3  11.960   0.589  49.000  20.306   0.000
 
 ``` r
-(Outcome~Factor) %.>% c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))
+(Outcome~Factor) %.>% {c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))}
 ```
 
-    ## [[1]]
-    ## Outcome ~ Factor
-    ## 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.078   7.522
-    ## Level2  11.520   0.477  49.000  10.240  12.800
-    ## Level3  11.900   0.540  49.000  10.453  13.347
+    ## Level1   7.680   0.317  49.000   6.829   8.531
+    ## Level2  11.320   0.600  49.000   9.711  12.929
+    ## Level3  11.960   0.589  49.000  10.382  13.538
     ## 
     ## $`Hypothesis Tests for the Means`
     ##           Diff      SE      df       t       p
-    ## Level1   1.800   0.270  49.000   6.678   0.000
-    ## Level2   6.520   0.477  49.000  13.656   0.000
-    ## Level3   6.900   0.540  49.000  12.777   0.000
+    ## Level1   2.680   0.317  49.000   8.443   0.000
+    ## Level2   6.320   0.600  49.000  10.528   0.000
+    ## Level3   6.960   0.589  49.000  11.817   0.000
 
 ### Using Through Pipes
 
@@ -118,15 +112,15 @@ also piped to the second call.
 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.258   7.342
-    ## Level2  11.520   0.477  49.000  10.561  12.479
-    ## Level3  11.900   0.540  49.000  10.815  12.985
+    ## Level1   7.680   0.317  49.000   7.042   8.318
+    ## Level2  11.320   0.600  49.000  10.114  12.526
+    ## Level3  11.960   0.589  49.000  10.776  13.144
     ## 
     ## $`Hypothesis Tests for the Means`
     ##           Diff      SE      df       t       p
-    ## Level1   6.800   0.270  49.000  25.228   0.000
-    ## Level2  11.520   0.477  49.000  24.129   0.000
-    ## Level3  11.900   0.540  49.000  22.036   0.000
+    ## Level1   7.680   0.317  49.000  24.194   0.000
+    ## Level2  11.320   0.600  49.000  18.857   0.000
+    ## Level3  11.960   0.589  49.000  20.306   0.000
 
 ``` r
 (Outcome~Factor) %.>>% estimateMeans(.,conf.level=.99) %.>>% testMeans(.,mu=5)
@@ -134,15 +128,15 @@ also piped to the second call.
 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.078   7.522
-    ## Level2  11.520   0.477  49.000  10.240  12.800
-    ## Level3  11.900   0.540  49.000  10.453  13.347
+    ## Level1   7.680   0.317  49.000   6.829   8.531
+    ## Level2  11.320   0.600  49.000   9.711  12.929
+    ## Level3  11.960   0.589  49.000  10.382  13.538
     ## 
     ## $`Hypothesis Tests for the Means`
     ##           Diff      SE      df       t       p
-    ## Level1   1.800   0.270  49.000   6.678   0.000
-    ## Level2   6.520   0.477  49.000  13.656   0.000
-    ## Level3   6.900   0.540  49.000  12.777   0.000
+    ## Level1   2.680   0.317  49.000   8.443   0.000
+    ## Level2   6.320   0.600  49.000  10.528   0.000
+    ## Level3   6.960   0.589  49.000  11.817   0.000
 
 In these examples, the through pipe is only required prior to the first
 analysis because the second one is the terminal call and thus nothing
@@ -155,15 +149,15 @@ the dot or the native pipe operator instead.
 
     ## $`Descriptive Statistics for the Data`
     ##              N       M      SD    Skew    Kurt
-    ## Level1  50.000   6.800   1.906  -0.365  -0.434
-    ## Level2  50.000  11.520   3.376  -0.308  -0.232
-    ## Level3  50.000  11.900   3.819  -0.238  -0.344
+    ## Level1  50.000   7.680   2.245  -0.427  -0.346
+    ## Level2  50.000  11.320   4.245   0.164  -0.288
+    ## Level3  50.000  11.960   4.165  -0.304  -0.418
 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.258   7.342
-    ## Level2  11.520   0.477  49.000  10.561  12.479
-    ## Level3  11.900   0.540  49.000  10.815  12.985
+    ## Level1   7.680   0.317  49.000   7.042   8.318
+    ## Level2  11.320   0.600  49.000  10.114  12.526
+    ## Level3  11.960   0.589  49.000  10.776  13.144
 
 ``` r
 (Outcome~Factor) %.>>% describeMeans(.) |> estimateMeans()
@@ -171,12 +165,12 @@ the dot or the native pipe operator instead.
 
     ## $`Descriptive Statistics for the Data`
     ##              N       M      SD    Skew    Kurt
-    ## Level1  50.000   6.800   1.906  -0.365  -0.434
-    ## Level2  50.000  11.520   3.376  -0.308  -0.232
-    ## Level3  50.000  11.900   3.819  -0.238  -0.344
+    ## Level1  50.000   7.680   2.245  -0.427  -0.346
+    ## Level2  50.000  11.320   4.245   0.164  -0.288
+    ## Level3  50.000  11.960   4.165  -0.304  -0.418
 
     ## $`Confidence Intervals for the Means`
     ##              M      SE      df      LL      UL
-    ## Level1   6.800   0.270  49.000   6.258   7.342
-    ## Level2  11.520   0.477  49.000  10.561  12.479
-    ## Level3  11.900   0.540  49.000  10.815  12.985
+    ## Level1   7.680   0.317  49.000   7.042   8.318
+    ## Level2  11.320   0.600  49.000  10.114  12.526
+    ## Level3  11.960   0.589  49.000  10.776  13.144
