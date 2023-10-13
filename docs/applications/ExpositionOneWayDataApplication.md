@@ -36,14 +36,14 @@ with(OneWayData,estimateMeans(Outcome~Factor))
 
     ## $`Confidence Intervals for the Means`
     ##               M      SE      df      LL      UL
-    ## Group 1   7.020   0.298  49.000   6.422   7.618
-    ## Group 2  10.680   0.641  49.000   9.392  11.968
-    ## Group 3  12.380   0.631  49.000  11.112  13.648
+    ## Group 1   7.200   0.323  49.000   6.550   7.850
+    ## Group 2   9.900   0.636  49.000   8.622  11.178
+    ## Group 3  11.640   0.580  49.000  10.475  12.805
 
 In EASI, this is accomplished more efficiently and flexibly by using an
 exposition operator (such as the included `%$>%`). This is particularly
-useful in cases where there is a desire to on specific variables (not
-that th data set contains more variables in this example).
+useful in cases where there is a desire to focus on specific variables
+(though again, not present in this data set).
 
 ``` r
 OneWayData %$>% (Outcome~Factor) |> estimateMeans()
@@ -51,9 +51,9 @@ OneWayData %$>% (Outcome~Factor) |> estimateMeans()
 
     ## $`Confidence Intervals for the Means`
     ##               M      SE      df      LL      UL
-    ## Group 1   7.020   0.298  49.000   6.422   7.618
-    ## Group 2  10.680   0.641  49.000   9.392  11.968
-    ## Group 3  12.380   0.631  49.000  11.112  13.648
+    ## Group 1   7.200   0.323  49.000   6.550   7.850
+    ## Group 2   9.900   0.636  49.000   8.622  11.178
+    ## Group 3  11.640   0.580  49.000  10.475  12.805
 
 ``` r
 OneWayData %$>% (Outcome~Factor) |> plotMeans()

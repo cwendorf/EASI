@@ -49,7 +49,7 @@ When larger or predefined data sets are used, it is necessary to identify the da
 with(OneWayData,estimateMeans(Outcome~Factor))
 ```
 
-In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). This is particularly useful in cases where there is a desire to on specific variables (not that th data set contains more variables in this example).
+In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). This is particularly useful in cases where there is a desire to focus on specific variables (though again, not present in this data set).
 ```{r,Exposition-OneWay-Basic}
 OneWayData %$>% (Outcome~Factor) |> estimateMeans()
 OneWayData %$>% (Outcome~Factor) |> plotMeans()

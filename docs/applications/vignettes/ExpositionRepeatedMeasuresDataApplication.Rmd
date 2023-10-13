@@ -48,7 +48,7 @@ When larger or predefined data sets are used, it is necessary to identify the da
 with(RepeatedData,estimateMeans(RepeatedData))
 ```
 
-In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). This is particularly useful in cases where there is a desire to on specific variables.
+In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). This is particularly useful in cases where there is a desire to focus on specific variables.
 ```{r,Exposition-Repeated-Basic}
 RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateMeans()
 RepeatedData %$>% cbind(Outcome1,Outcome2) |> plotMeans()

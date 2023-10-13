@@ -34,13 +34,13 @@ with(RepeatedData,estimateMeans(RepeatedData))
 
     ## $`Confidence Intervals for the Means`
     ##                M      SE      df      LL      UL
-    ## Outcome1   7.180   0.315  49.000   6.547   7.813
-    ## Outcome2  10.920   0.468  49.000   9.979  11.861
-    ## Outcome3  12.400   0.580  49.000  11.235  13.565
+    ## Outcome1   7.220   0.273  49.000   6.671   7.769
+    ## Outcome2  12.060   0.519  49.000  11.016  13.104
+    ## Outcome3  11.560   0.642  49.000  10.270  12.850
 
 In EASI, this is accomplished more efficiently and flexibly by using an
 exposition operator (such as the included `%$>%`). This is particularly
-useful in cases where there is a desire to on specific variables.
+useful in cases where there is a desire to focus on specific variables.
 
 ``` r
 RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateMeans()
@@ -48,8 +48,8 @@ RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateMeans()
 
     ## $`Confidence Intervals for the Means`
     ##                M      SE      df      LL      UL
-    ## Outcome1   7.180   0.315  49.000   6.547   7.813
-    ## Outcome2  10.920   0.468  49.000   9.979  11.861
+    ## Outcome1   7.220   0.273  49.000   6.671   7.769
+    ## Outcome2  12.060   0.519  49.000  11.016  13.104
 
 ``` r
 RepeatedData %$>% cbind(Outcome1,Outcome2) |> plotMeans()
