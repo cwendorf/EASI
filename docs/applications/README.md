@@ -5,12 +5,17 @@
 
 The advanced applications represent experimental and undocumented features of EASI. Data for these applications are from a variety of published and simulated sources. In the spirit of experimentation, all applications use pipe operators to identify data sources (rather than using standard R syntax).
 
-### Piping and Combining Analyses
+### Pipes and Operators to Combine Analyses
 
 The **Pipes** pages introduce a variety of simple pipe operators to implement basic analysis functions:
 
 - [*PipesOneWayDataApplication*](./PipesOneWayDataApplication.md) - Uses one-way (between-subjects) data
 - [*PipesRepeatedMeasuresDataApplication*](./PipesRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
+
+The **Exposition** pages explain the use of the exposition operator in analyzing defined data frames:
+
+- [*ExpositionOneWayDataApplication*](./ExpositionOneWayDataApplication.md) - Uses one-way (between-subjects) data
+- [*ExpositionRepeatedMeasuresDataApplication*](./ExpositionRepeatedMeasuresDataApplication.md) - Uses repeated measures (within-subjects) data
 
 The **Analyze** pages use a simple command to provide confidence intervals, significance tests, and standardized effect sizes at the same time:
 

@@ -55,8 +55,8 @@ In R versions 4.1 and greater, the native pipe operator can be used instead of s
 However, the native pipe operator does not easily permit the piping of the variable, data frame, or formula to multiple functions on the ride-hand side of the call simultaneously. EASI contains a very simple pipe operator that uses a period as a placeholder, permitting more advanced piping options.
 ```{r}
 (Outcome~Factor) %.>% estimateMeans(.)
-(Outcome~Factor) %.>% c(estimateMeans(.),testMeans(.))
-(Outcome~Factor) %.>% c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))
+(Outcome~Factor) %.>% {c(estimateMeans(.),testMeans(.))}
+(Outcome~Factor) %.>% {c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))}
 ```
 
 ### Using Through Pipes

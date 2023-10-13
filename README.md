@@ -42,9 +42,9 @@ The package includes a wide variety of tutorials, examples, and applications tha
 
 - [Quick Start Guide](./docs) - A quick start overview and summary of the package
 - [Details of the Functions](./docs/functions) - A manual describing the functions and their available options
-- [Tutorials from the Sourcebook](./docs/tutorials) - Vignettes with tutorial data that show the basic options 
-- [Examples from ITNS](./docs/examples) - Reanalyses of published textbook examples that highlight the estimation approach 
-- [Advanced Applications](./docs/applications) - Experimental and undocumented applications of the package
+- [Tutorials from the Sourcebook](./docs/tutorials) - Tutorial vignettes that show the default and basic output 
+- [Examples from ITNS](./docs/examples) - Reanalyses of published textbook examples that use custom output options 
+- [Advanced Applications](./docs/applications) - Advanced applications that demonstrate additional features
 
 ### Contact Me
 
