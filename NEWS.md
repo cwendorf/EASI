@@ -3,6 +3,7 @@
 ## Developmental Version
 
 - Rebuilt boxplots, histograms, and data plots
+- Enhanced support for exposition operators
 
 ## EASI 5.3.230927
 

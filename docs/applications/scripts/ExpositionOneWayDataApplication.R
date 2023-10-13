@@ -18,3 +18,9 @@ with(OneWayData,estimateMeans(Outcome~Factor))
 
 OneWayData %$>% (Outcome~Factor) |> estimateMeans()
 OneWayData %$>% (Outcome~Factor) |> plotMeans()
+
+### Advanced Uses of the Operator
+
+OneWayData %$>% (Outcome~factor(Factor,c("Group 1","Group 2"))) |> estimateMeanComparison()
+OneWayData %$>% (Outcome~factor(Factor,c("Group 1","Group 2"))) |> plotMeanComparison()
+OneWayData %$>% (Outcome~factor(Factor,c("Group 1","Group 2"))) |> estimateStandardizedMeanDifference()

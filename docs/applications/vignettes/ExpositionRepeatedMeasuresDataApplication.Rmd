@@ -41,15 +41,24 @@ RepeatedData <- data.frame(Outcome1=round(rnorm(50,mean=7,sd=2),0),
                           Outcome3=round(rnorm(50,mean=12,sd=4),0))
 ```
 
-### Using the Exposition Operator
+### Using an Exposition Operator
 
-When larger or predefined data sets are used, it is necessary to identify the data first and then select the variables from within the data set. In base R, this is accomplished using a `with` command (or built in data identification parameters). Note that this does not easily permit the use of pipe operators to work with the individual variables.
+When larger or predefined data sets are used, it is necessary to identify the data and the selected variables. In base R, this is accomplished using a `with` command.
 ```{r}
 with(RepeatedData,estimateMeans(RepeatedData))
 ```
 
-In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). This is particularly useful in cases where there is a desire to focus on specific variables.
+In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). Here, the data is identified first, then all of the variables are piped to the desired analyses.
 ```{r,Exposition-Repeated-Basic}
-RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateMeans()
-RepeatedData %$>% cbind(Outcome1,Outcome2) |> plotMeans()
+RepeatedData %$>% (RepeatedData) |> estimateMeans()
+RepeatedData %$>% (RepeatedData) |> plotMeans()
+```
+
+### Advanced Uses of the Operator
+
+This approach is particularly useful in cases where there is a desire to focus on specific variables. In this case, two specific variables are chosen for the sake of making a comparison.
+```{r,Exposition-Repeated-Comparison}
+RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateMeanComparison()
+RepeatedData %$>% cbind(Outcome1,Outcome2) |> plotMeanComparison()
+RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifference()
 ```

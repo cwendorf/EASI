@@ -15,5 +15,11 @@ RepeatedData <- data.frame(Outcome1=round(rnorm(50,mean=7,sd=2),0),
 
 with(RepeatedData,estimateMeans(RepeatedData))
 
-RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateMeans()
-RepeatedData %$>% cbind(Outcome1,Outcome2) |> plotMeans()
+RepeatedData %$>% (RepeatedData) |> estimateMeans()
+RepeatedData %$>% (RepeatedData) |> plotMeans()
+
+### Advanced Uses of the Operator
+
+RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateMeanComparison()
+RepeatedData %$>% cbind(Outcome1,Outcome2) |> plotMeanComparison()
+RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifference()

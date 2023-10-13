@@ -42,15 +42,24 @@ OneWayData <- data.frame(Factor = rep(factor(c("Group 1","Group 2","Group 3")),e
                         round(rnorm(50,mean=12,sd=4),0)))
 ```
 
-### Using the Exposition Operator
+### Using an Exposition Operator
 
-When larger or predefined data sets are used, it is necessary to identify the data first and then select the variables from within the data set. In base R, this is accomplished using a `with` command (or built in data identification parameters). Note that this syntax does permit the use of pipe operators to work with individual variables (not that the data set contains more variables in this example).
+When larger or predefined data sets are used, it is necessary to identify the data and the selected variables. In base R, this is accomplished using a `with` command.
 ```{r}
 with(OneWayData,estimateMeans(Outcome~Factor))
 ```
 
-In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). This is particularly useful in cases where there is a desire to focus on specific variables (though again, not present in this data set).
+In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). Here, the data is identified first, then variables are selected and all levels are piped to the desired analyses.
 ```{r,Exposition-OneWay-Basic}
 OneWayData %$>% (Outcome~Factor) |> estimateMeans()
 OneWayData %$>% (Outcome~Factor) |> plotMeans()
+```
+
+### Advanced Uses of the Operator
+
+This approach is particularly useful in cases where there is a desire to focus on specific variables. In this case, two specific levels are chosen for the sake of making a comparison.
+```{r,Exposition-OneWay-Comparison}
+OneWayData %$>% (Outcome~factor(Factor,c("Group 1","Group 2"))) |> estimateMeanComparison()
+OneWayData %$>% (Outcome~factor(Factor,c("Group 1","Group 2"))) |> plotMeanComparison()
+OneWayData %$>% (Outcome~factor(Factor,c("Group 1","Group 2"))) |> estimateStandardizedMeanDifference()
 ```
