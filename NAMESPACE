@@ -601,15 +601,6 @@ S3method(.testMeansOmnibusMultifactor,bss)
 export(.testMeansOmnibusMultifactor)
 export(testMeansOmnibusMultifactor)
 
-### xMeansEffectMultifactor
-
-S3method(.estimateMeansEffectMultifactor,default)
-S3method(.estimateMeansEffectMultifactor,formula)
-S3method(.estimateMeansEffectMultifactor,wss)
-S3method(.estimateMeansEffectMultifactor,bss)
-export(.estimateMeansEffectMultifactor)
-export(estimateMeansEffectMultifactor)
-
 ### xCorrelationsBy
 
 S3method(.describeCorrelationsBy,default)
