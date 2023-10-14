@@ -4,6 +4,7 @@
 
 - Rebuilt boxplots, histograms, and data plots
 - Enhanced support for exposition operators
+- Simplified regression and ANOVA options
 
 ## EASI 5.3.230927
 

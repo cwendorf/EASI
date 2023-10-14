@@ -1,5 +1,9 @@
 # Estimation Approach to Statistical Inference
-## Operations to Make Functions Available
+## Make Functions Available
+
+### colorX
+
+export(theme)
 
 ### infixX
 
@@ -8,21 +12,19 @@ export("%$>%")
 export("%.>%")
 export("%.>>%")
 
-### colorX
-
-export(theme)
-
 ### xData
 
 S3method(plotData,default)
 S3method(plotData,formula)
 export(plotData)
+export(addData)
 
 ### xDensity
 
 S3method(plotDensity,default)
 S3method(plotDensity,formula)
 export(plotDensity)
+export(addDensity)
 
 ### xBoxes
 
@@ -34,6 +36,7 @@ export(describeBoxes)
 S3method(plotBoxes,default)
 S3method(plotBoxes,formula)
 export(plotBoxes)
+export(addBoxes)
 
 ### xFrequencies
 
@@ -45,6 +48,7 @@ export(describeFrequencies)
 S3method(plotFrequencies,default)
 S3method(plotFrequencies,formula)
 export(plotFrequencies)
+export(addFrequencies)
 
 ### xPercentiles
 
@@ -64,18 +68,21 @@ export(plotRainclouds)
 S3method(plotIntervals,default)
 S3method(plotIntervals,list)
 export(plotIntervals)
+export(addIntervals)
 
 ### xPlausible
 
 S3method(plotPlausible,default)
 S3method(plotPlausible,list)
 export(plotPlausible)
+export(addPlausible)
 
 ### xDiamonds
 
 S3method(plotDiamonds,default)
 S3method(plotDiamonds,list)
 export(plotDiamonds)
+export(addDiamonds)
 
 ### xMeans
 
@@ -103,6 +110,9 @@ S3method(plotMeans,formula)
 S3method(plotMeans,wss)
 S3method(plotMeans,bss)
 export(plotMeans)
+export(addMeans)
+
+export(analyzeMeans)
 
 ### xStandardizedMeans
 
@@ -132,6 +142,8 @@ export(.testMeanDifference)
 export(testMeanDifference)
 
 export(plotMeanDifference)
+
+export(analyzeMeanDifference)
 
 ### xStandardizedMeanDifference
 
@@ -179,6 +191,8 @@ export(.testMeanContrast)
 export(testMeanContrast)
 
 export(plotMeanContrast)
+
+export(analyzeMeanContrast)
 
 ### xStandardizedMeanContrast
 
@@ -254,6 +268,8 @@ export(testMeansPairwise)
 export(plotMeansPairwise)
 export(plotMeansPairwiseDiffogram)
 
+export(analyzeMeansPairwise)
+
 ### xStandardizedMeansPairwise
 
 S3method(.estimateStandardizedMeansPairwise,default)
@@ -283,6 +299,8 @@ export(testMeansPosthoc)
 
 export(plotMeansPosthoc)
 export(plotMeansPosthocDiffogram)
+
+export(analyzeMeansPosthoc)
 
 ### xStandardizedMeansPosthoc
 
@@ -332,6 +350,8 @@ S3method(.estimateMeansOmnibus,wss)
 S3method(.estimateMeansOmnibus,bss)
 export(.estimateMeansOmnibus)
 export(estimateMeansOmnibus)
+
+export(analyzeMeansOmnibus)
 
 ### xMeansEffect
 
@@ -401,6 +421,7 @@ export(plotCorrelationComparison)
 S3method(plotScatter,default)
 S3method(plotScatter,wss)
 export(plotScatter)
+export(addScatter)
 
 ### xRegression
 
@@ -412,6 +433,7 @@ export(estimateRegression)
 S3method(plotRegression,default)
 S3method(plotRegression,wss)
 export(plotRegression)
+export(addRegression)
 
 ### xRegressionCoefficients
 
@@ -453,17 +475,7 @@ S3method(.estimateRegressionOmnibus,wss)
 export(.estimateRegressionOmnibus)
 export(estimateRegressionOmnibus)
 
-### xRegressionEffect
-
-S3method(.describeRegressionEffect,default)
-S3method(.describeRegressionEffect,wss)
-export(.describeRegressionEffect)
-export(describeRegressionEffect)
-
-S3method(.estimateRegressionEffect,default)
-S3method(.estimateRegressionEffect,wss)
-export(.estimateRegressionEffect)
-export(estimateRegressionEffect)
+export(analyzeRegressionOmnibus)
 
 ### xMeansBy
 
@@ -619,24 +631,3 @@ export(estimateMeansEffectMultifactor)
 S3method(.describeCorrelationsBy,default)
 export(.describeCorrelationsBy)
 export(describeCorrelationsBy)
-
-### analyzeX
-
-export(analyzeMeans)
-export(analyzeMeanDifference)
-export(analyzeMeanContrast)
-export(analyzeMeansOmnibus)
-export(analyzeMeansPairwise)
-
-### addX
-
-export(addData)
-export(addFrequencies)
-export(addBoxes)
-export(addDensity)
-export(addMeans)
-export(addIntervals)
-export(addDiamonds)
-export(addPlausible)
-export(addScatter)
-export(addRegression)

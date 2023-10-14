@@ -191,3 +191,13 @@ testMeansOmnibus <- function(..., main = NULL, digits = 3) {
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
+
+### Combined Analyses
+
+analyzeMeansOmnibus <- function(..., main = NULL, digits = 3) {
+  dMO <- describeMeansOmnibus(..., digits = digits)
+  tMO <- testMeansOmnibus(..., digits = digits)
+  eME <- estimateMeansOmnibus(..., digits = digits)
+  results <- c(dMO, tMO, eME)
+  return(results)
+}

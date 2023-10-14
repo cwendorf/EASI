@@ -8,16 +8,16 @@ Provides a Analysis of Variance source table.
 
 ```r
 ## Default S3 method
-describeMeanOmnibus(frame,main=NULL,digits=3)
+describeMeansOmnibus(frame,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-describeMeanOmnibus(formula,main=NULL,digits=3)
+describeMeansOmnibus(formula,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-describeMeanOmnibus(DescStats,CorrStats,main=NULL,digits=3)
+describeMeansOmnibus(DescStats,CorrStats,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-describeMeanOmnibus(DescStats,main=NULL,digits=3)
+describeMeansOmnibus(DescStats,main=NULL,digits=3)
 ```
 
 ### Arguments

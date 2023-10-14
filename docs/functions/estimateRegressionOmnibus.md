@@ -1,17 +1,17 @@
-## Describe Regression Effect
+## Estimate Regression Omnibus
 
 ### Description
 
-Calculates fit indices for the regression model.
+Calculates R Squared and its confidence interval.
 
 ### Usage
 
 ```r
 ## Default S3 method
-describeRegressionEffect(Predictors,Criterion,main=NULL,digits=3)
+estimateRegressionOmnibus(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-describeRegressionEffect(PredStats,CritStats,CorrStats,main=NULL,digits=3)
+estimateRegressionOmnibus(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
@@ -23,6 +23,7 @@ Argument | Description
 ```PredStats``` | a matrix/frame of descriptive/summary statistics for the predictors
 ```CritStats``` | a matrix/frame of descriptive/summary statistics for the criterion
 ```CorrStats``` | a matrix/frame of correlations for the data set
+```conf.level``` | confidence level of the interval
 ```main``` | a custom title for the table
 ```digits``` | the specified number of decimal places
 
@@ -32,6 +33,6 @@ The returned list contains one frame with the following components:
 
 Value | Description
 :-- | :--
-```R``` | the multiple correlation for the model
-```RSq``` | R Squared for the model
-```AdjRSq``` | Adjusted R Squared for the model
+```Est``` | the proportion of variance accounted for
+```LL``` | the lower limit of the confidence interval for the proportion of variance accounted for
+```UL``` | the upper limit of the confidence interval for the proportion of variance accounted for

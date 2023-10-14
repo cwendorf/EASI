@@ -1,4 +1,4 @@
-## Estimate Regression
+## Estimate Regression Coefficients
 
 ### Description
 
@@ -8,20 +8,18 @@ Provides a table of regression coefficients and their confidence intervals.
 
 ```r
 ## Default S3 method
-estimateRegression(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
+estimateRegressionCoefficients(frame,y=NULL,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateRegression(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateRegressionCoefficients(DescStats,CorrStats,y=NULL,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
 
 Argument | Description
 :-- | :--
-```Predictors``` | a set of (non-empty) numeric vectors of data values for the predictors
-```Criterion``` | a (non-empty) numeric vector of data values for the criterion
-```PredStats``` | a matrix/frame of descriptive/summary statistics for the predictors
-```CritStats``` | a matrix/frame of descriptive/summary statistics for the criterion
+```frame``` | a set of (non-empty) numeric vectors of data values
+```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations for the data set
 ```conf.level``` | confidence level of the interval
 ```main``` | a custom title for the table

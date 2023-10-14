@@ -30,10 +30,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`plotDensity`](./plotDensity.md)
 
-`Percentiles` - functions that summarize the percentiles for the groups, levels, or variables
-
-- [`describePercentiles`](./describePercentiles.md)
-
 `Boxes` - functions that summarize and provide boxplots for the groups, levels, or variables
 
 - [`describeBoxes`](./describeBoxes.md)
@@ -117,15 +113,11 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - [`estimateMeansRelational`](./estimateMeansRelational.md)
 - [`plotMeansRelational`](./plotMeansRelational.md)
 
-`MeansOmnibus` - functions that provide an analysis of variance across all group, level, or variable means
+`MeansOmnibus` - functions that provide an analysis of variance and effect size across all group, level, or variable means
 
 - [`describeMeansOmnibus`](./describeMeansOmnibus.md)
+- [`estimateMeansOmnibus`](./estimateMeansOmnibus.md)
 - [`testMeansOmnibus`](./testMeansOmnibus.md)
-
-`MeansEffect` - functions that obtain eta squared as an effect size across all group, level, or variable means
-
-- [`describeMeansEffect`](./describeMeansEffect.md)
-- [`estimateMeansEffect`](./estimateMeansEffect.md)
 
 ### Correlations and Regresion Models
 
@@ -146,18 +138,14 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - [`estimateCorrelationComparison`](./estimateCorrelationComparison.md)
 - [`plotCorrelationComparison`](./plotCorrelationComparison.md)
 
-`Regression` - functions that provide analyses of regression coefficients
+`RegressionCoefficients` - functions that provide analyses of regression coefficients
 
-- [`estimateRegression`](./estimateRegression.md)
-- [`testRegression`](./testRegression.md)
-- [`plotRegression`](./plotRegression.md)
+- [`estimateRegressionCoefficients`](./estimateRegressionCoefficients.md)
+- [`testRegressionCoefficients`](./testRegressionCoefficients.md)
+- [`plotRegressionCoefficients`](./plotRegressionCoefficients.md)
 
-`RegressionOmnibus` - functions that provide an analysis of variance for a regression model
+`RegressionOmnibus` - functions that provide an analysis of variance and effect size for a regression model
 
 - [`describeRegressionOmnibus`](./describeRegressionOmnibus.md)
+- [`estimateRegressionOmnibus`](./estimateRegressionOmnibus.md)
 - [`testRegressionOmnibus`](./testRegressionOmnibus.md)
-
-`RegressionEffect` - functions that obtain R squared as an effect size for a regression model
-
-- [`describeRegressionEffect`](./describeRegressionEffect.md)
-- [`estimateRegressionEffect`](./estimateRegressionEffect.md)

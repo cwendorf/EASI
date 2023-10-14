@@ -155,3 +155,13 @@ testRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
+
+### Combined Analyses
+
+analyzeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
+  dRO <- describeRegressionOmnibus(..., digits = digits)
+  tRO <- testRegressionOmnibus(..., digits = digits)
+  eRE <- estimateRegressionOmnibus(..., digits = digits)
+  results <- c(dRO, tRO, eRE)
+  return(results)
+}

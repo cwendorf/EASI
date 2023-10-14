@@ -1,4 +1,4 @@
-## Estimate Means Effect
+## Estimate Means Omnibus
 
 ### Description
 
@@ -8,16 +8,16 @@ Calculates the proportion of variance accounted for and its confidence interval.
 
 ```r
 ## Default S3 method
-estimateMeansEffect(frame,conf.level=.95,main=NULL,digits=3)
+estimateMeansOmnibus(frame,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'formula'
-estimateMeansEffect(formula,conf.level=.95,main=NULL,digits=3)
+estimateMeansOmnibus(formula,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateMeansEffect(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateMeansOmnibus(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'bss'
-estimateMeansEffect(DescStats,conf.level=.95,main=NULL,digits=3)
+estimateMeansOmnibus(DescStats,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments

@@ -147,3 +147,7 @@ plotRegression.default <- function(frame, y = NULL, line = TRUE, value = NULL, r
   if (!is.null(value)) {results <- .estimateRegression(frame, value = value, conf.level = conf.level)} else {results <- NULL}
   .prediction(intervals, results, interval = interval, values = values, conf.level = conf.level, digits = digits, col = col)
 }
+
+addRegression <- function(...) {
+  plotRegression(..., add = TRUE)
+}
