@@ -353,22 +353,6 @@ export(estimateMeansOmnibus)
 
 export(analyzeMeansOmnibus)
 
-### xMeansEffect
-
-S3method(.describeMeansEffect,default)
-S3method(.describeMeansEffect,formula)
-S3method(.describeMeansEffect,wss)
-S3method(.describeMeansEffect,bss)
-export(.describeMeansEffect)
-export(describeMeansEffect)
-
-S3method(.estimateMeansEffect,default)
-S3method(.estimateMeansEffect,formula)
-S3method(.estimateMeansEffect,wss)
-S3method(.estimateMeansEffect,bss)
-export(.estimateMeansEffect)
-export(estimateMeansEffect)
-
 ### xCorrelations
 
 S3method(declareCorrelations,default)
