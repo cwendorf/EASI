@@ -8,21 +8,20 @@ Provides a statistical significance test for a regression model.
 
 ```r
 ## Default S3 method
-testRegressionOmnibus(Predictors,Criterion,main=NULL,digits=3)
+testRegressionOmnibus(frame,y=NULL,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-testRegressionOmnibus(PredStats,CritStats,CorrStats,main=NULL,digits=3)
+testRegressionOmnibus(DescStats,CorrStats,y=NULL,main=NULL,digits=3)
 ```
 
 ### Arguments
 
 Argument | Description
 :-- | :--
-```Predictors``` | a set of (non-empty) numeric vectors of data values for the predictors
-```Criterion``` | a (non-empty) numeric vector of data values for the criterion
-```PredStats``` | a matrix/frame of descriptive/summary statistics for the predictors
-```CritStats``` | a matrix/frame of descriptive/summary statistics for the criterion
+```frame``` | a set of (non-empty) numeric vectors of data values
+```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations for the data set
+```y``` | the name of the criterion
 ```main``` | a custom title for the table
 ```digits``` | the specified number of decimal places
 

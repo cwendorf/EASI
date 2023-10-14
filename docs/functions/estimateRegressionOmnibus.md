@@ -8,21 +8,20 @@ Calculates R Squared and its confidence interval.
 
 ```r
 ## Default S3 method
-estimateRegressionOmnibus(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
+estimateRegressionOmnibus(frame,y=NULL,conf.level=.95,main=NULL,digits=3)
 
 ## S3 method for class 'wss'
-estimateRegressionOmnibus(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateRegressionOmnibus(DescStats,CorrStats,y=NULL,conf.level=.95,main=NULL,digits=3)
 ```
 
 ### Arguments
 
 Argument | Description
 :-- | :--
-```Predictors``` | a set of (non-empty) numeric vectors of data values for the predictors
-```Criterion``` | a (non-empty) numeric vector of data values for the criterion
-```PredStats``` | a matrix/frame of descriptive/summary statistics for the predictors
-```CritStats``` | a matrix/frame of descriptive/summary statistics for the criterion
+```frame``` | a set of (non-empty) numeric vectors of data values
+```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations for the data set
+```y``` | the name of the criterion
 ```conf.level``` | confidence level of the interval
 ```main``` | a custom title for the table
 ```digits``` | the specified number of decimal places
