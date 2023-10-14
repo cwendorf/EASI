@@ -79,3 +79,7 @@ plotFrequencies.formula <- function(formula, add = FALSE, ylim = NULL, main = NU
   invisible(mapply(.histogram, data, x = 1:length(data), type = type, offset = offset, col = col))
   invisible(eval(formula))
 }
+
+addFrequencies <- function(...) {
+  plotFrequencies(..., add = TRUE)
+}

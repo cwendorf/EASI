@@ -143,3 +143,13 @@ plotMeansPairwiseDiffogram <- function(..., main = "Confidence Intervals for the
   emp <- .estimateMeansPairwise(..., conf.level = conf.level)
   .intervalsDiffogram(dm = dm, emp = emp, main = main, ylab = ylab, xlab = xlab, ylim = ylim, pch = pch, col = col)
 }
+
+### Combined Analyses
+
+analyzeMeansPairwise <- function(..., main = NULL, digits = 3) {
+  eMP <- estimateMeansPairwise(..., digits = digits)
+  tMP <- testMeansPairwise(..., digits = digits)
+  eSMP <- estimateStandardizedMeansPairwise(..., digits = digits)
+  results <- c(eMP, tMP, eSMP)
+  return(results)
+}

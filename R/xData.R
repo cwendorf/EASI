@@ -4,7 +4,8 @@
 
 ### Modified stripchart
 
-dataChart <- function(x, ...) UseMethod("dataChart")
+dataChart <- function(x, ...) 
+  UseMethod("dataChart")
 
 dataChart.default <-
 function(x, method = "overplot", jitter = 0.1, offset = 1/3, vertical = FALSE, 
@@ -135,4 +136,8 @@ plotData.formula <- function(formula, add = FALSE, main = NULL, ylim = NULL, yla
   loc <- (1:length(data)) + offset
   dataChart(data, add = TRUE, at = loc, vertical = TRUE, method = method, jitter = jitter, col = .colorTransparent(col, 70), pch = pch)
   invisible(eval(formula))
+}
+
+addData <- function(...) {
+  plotData(..., add = TRUE)
 }

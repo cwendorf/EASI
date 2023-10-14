@@ -58,3 +58,7 @@ plotDiamonds.list <- function(results, add = FALSE, line = NULL, rope = NULL, co
   }
   invisible(out)
 }
+
+addDiamonds <- function(...) {
+  plotDiamonds(..., add = TRUE)
+}

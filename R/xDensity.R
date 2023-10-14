@@ -36,3 +36,7 @@ plotDensity.formula <- function(formula, type = "right", add = FALSE, main = NUL
   invisible(mapply(.plotCurve, z, loc = 1:length(data), type = type, offset = offset, scale = scale, col = col))
   invisible(eval(formula))
 }
+
+addDensity <- function(...) {
+  plotDensity(..., add = TRUE)
+}

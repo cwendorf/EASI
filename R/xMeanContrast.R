@@ -125,3 +125,13 @@ plotMeanContrast <- function(..., main = NULL, digits = 3, ylab = "Mean Contrast
   results <- estimateMeanContrast(..., conf.level = conf.level, main = main, digits = digits)
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
+
+### Combined Analyses
+
+analyzeMeanContrast <- function(..., main = NULL, digits = 3) {
+  eMC <- estimateMeanContrast(..., digits = digits)
+  tMC <- testMeanContrast(..., digits = digits)
+  eSMC <- estimateStandardizedMeanContrast(..., digits = digits)
+  results <- c(eMC, tMC, eSMC)
+  return(results)
+}

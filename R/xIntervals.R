@@ -107,3 +107,7 @@ plotIntervals.list <- function(results, add = FALSE, ...) {
     }
   invisible(out)
 }
+
+addIntervals <- function(...) {
+  plotIntervals(..., add = TRUE)
+}

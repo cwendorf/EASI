@@ -86,3 +86,7 @@ plotScatter.default <- function(frame, y = NULL, main = "Scatter Plot for the Va
   if (ellipse) {lines(transM, col = .colorTransparent(col, 100))}
   invisible(eval(frame))
 }
+
+addScatter <- function(...) {
+  plotScatter(..., add = TRUE)
+}

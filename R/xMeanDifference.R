@@ -125,3 +125,13 @@ plotMeanDifference <- function(..., main = NULL, digits = 3, ylab = "Mean Differ
   results <- estimateMeanDifference(..., mu = mu, conf.level = conf.level, main = main, digits = digits)
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
+
+### Combined Analyses
+
+analyzeMeanDifference <- function(..., main = NULL, digits = 3) {
+  eMD <- estimateMeanDifference(..., digits = digits)
+  tMD <- testMeanDifference(..., digits = digits)
+  eSMD <- estimateStandardizedMeanDifference(..., digits = digits)
+  results <- c(eMD, tMD, eSMD)
+  return(results)
+}

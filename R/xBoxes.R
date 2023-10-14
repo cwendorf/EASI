@@ -32,7 +32,7 @@ describeBoxes <- function(..., main = NULL, digits = 3) {
 
 ### Plots
 
-.bp <- function(results, main, ylab, xlab, ylim, values, digits, pos, connect, add, col, offset, scale) {
+.boxes <- function(results, main, ylab, xlab, ylim, values, digits, pos, connect, add, col, offset, scale) {
   results <- .unformatFrame(results[[1]])
   if (!add) {
     if (is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5), ceiling(max(results)+.5))))}
@@ -62,13 +62,17 @@ plotBoxes <- function(x, ...)
 plotBoxes.default <- function(frame, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, offset = 0, scale = 1, col = "black", values = TRUE, digits = 3, pos = 2) {
   results <- describeBoxes(frame, main = main, digits = digits)
   if (is.null(main)) {main <- names(results)}
-  .bp(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
+  .boxes(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
   invisible(eval(frame))
 }
 
 plotBoxes.formula <- function(formula, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, offset = 0, scale = 1, col = "black", values = TRUE, digits = 3, pos = 2) {
   results <- describeBoxes(formula, main = main, digits = digits)
   if (is.null(main)) {main <- names(results)}
-  .bp(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
+  .boxes(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
   invisible(eval(formula))
+}
+
+addBoxes <- function(...) {
+  plotBoxes(..., add = TRUE)
 }

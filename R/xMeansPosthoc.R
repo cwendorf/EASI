@@ -169,3 +169,13 @@ plotMeansPosthocDiffogram <- function(..., main = "Confidence Intervals for the 
   emp <- .estimateMeansPosthoc(..., conf.level = conf.level)
   .intervalsDiffogram(dm = dm, emp = emp, main = main, ylab = ylab, xlab = xlab, ylim = ylim, pch = pch, col = col)
 }
+  
+### Combined Analyses
+
+analyzeMeansPosthoc <- function(..., main = NULL, digits = 3) {
+  eMP <- estimateMeansPosthoc(..., digits = digits)
+  tMP <- testMeansPosthoc(..., digits = digits)
+  eSMP <- estimateStandardizedMeansPosthoc(..., digits = digits)
+  results <- c(eMP, tMP, eSMP)
+  return(results)
+}

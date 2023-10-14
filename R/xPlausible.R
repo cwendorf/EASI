@@ -50,3 +50,7 @@ plotPlausible.list <- function(results, conf.level = .95, add = FALSE, main = NU
   }
   invisible(out)
 }
+
+addPlausible <- function(...) {
+  plotPlausible(..., add = TRUE)
+}

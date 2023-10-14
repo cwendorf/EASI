@@ -160,3 +160,17 @@ plotMeans.bss <- plotMeans.formula <- function(..., mu = 0, conf.level = .95, ad
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals=intervals)
   invisible(eval(...))
 }
+
+addMeans <- function(...) {
+  plotMeans(..., add = TRUE)
+}
+
+### Combined Analyses
+
+analyzeMeans <- function(..., main = NULL, digits = 3) {
+  eM <- estimateMeans(..., digits = digits)
+  tM <- testMeans(..., digits = digits)
+  eSM <- estimateStandardizedMeans(..., digits = digits)
+  results <- c(eM, tM, eSM)
+  return(results)
+}
