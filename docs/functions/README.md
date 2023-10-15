@@ -15,7 +15,7 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 ### Data and Distributions
 
-> Data and distribution functions are only available for data (not summary statistics) input
+> Data and distribution functions are only available for data (and not summary statistics) input
 
 `Data` - functions that plot the data for the groups, levels, or variables
 
@@ -35,11 +35,9 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - [`describeBoxes`](./describeBoxes.md)
 - [`plotBoxes`](./plotBoxes.md)
 
-`Scatter` and `Regression` - functions that summarize and plot scatterplots and regression lines for the variables
+`Scatter` - functions that offer plot scatterplots of the variables
 
 - [`plotScatter`](./plotScatter.md)
-- [`plotRegression`](./plotRegression.md)
-- [`estimateRegression`](./estimateRegression.md)
 
 ### Means and Mean Differences
 
@@ -139,6 +137,11 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`estimateCorrelationComparison`](./estimateCorrelationComparison.md)
 - [`plotCorrelationComparison`](./plotCorrelationComparison.md)
+
+`Regression` - functions that provide analyses of the regression line and values
+
+- [`estimateRegression`](./estimateRegression.md)
+- [`plotRegression`](./plotRegression.md)
 
 `RegressionCoefficients` - functions that provide analyses of regression coefficients
 
