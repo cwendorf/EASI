@@ -433,6 +433,8 @@ export(testRegressionCoefficients)
 
 export(plotRegressionCoefficients)
 
+export(analyzeRegressionCoefficients)
+
 ### xStandardizedRegressionCoefficients
 
 S3method(.estimateStandardizedRegressionCoefficients,default)

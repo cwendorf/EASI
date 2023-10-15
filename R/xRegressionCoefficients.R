@@ -122,3 +122,13 @@ plotRegressionCoefficients <- function(..., intercept = TRUE, main = NULL, digit
   if (intercept == "FALSE") {results[[1]] <- tail(results[[1]], -1)}
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
+
+### Combined Analyses
+
+analyzeRegressionCoefficients <- function(..., main = NULL, digits = 3) {
+  eRC <- estimateRegressionCoefficients(..., digits = digits)
+  tRC <- testRegressionCoefficients(..., digits = digits)
+  eSRC <- estimateStandardizedRegressionCoefficients(..., digits = digits)
+  results <- c(eRC, tRC, eSRC)
+  return(results)
+}

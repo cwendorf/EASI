@@ -35,9 +35,11 @@ Then the functions add an object (the noun that indicates the parameter or item 
 - [`describeBoxes`](./describeBoxes.md)
 - [`plotBoxes`](./plotBoxes.md)
 
-`Scatter` - functions that plot scatterplots and regression lines for the variables
+`Scatter` and `Regression` - functions that summarize and plot scatterplots and regression lines for the variables
 
 - [`plotScatter`](./plotScatter.md)
+- [`plotRegression`](./plotRegression.md)
+- [`estimateRegression`](.estimateRegression.md)
 
 ### Means and Mean Differences
 
