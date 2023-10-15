@@ -34,7 +34,6 @@ Argument | Description
 ```values``` | whether the intervals should be labeled with their values
 ```digits``` | the specified number of decimal places
 ```add``` | whether the plot should be added to an existing plot
-}
 
 ### Values
 
@@ -45,4 +44,3 @@ Value | Description
 ```Est``` | the regression line
 ```LL``` | the lower limits of the intervals for the regression line
 ```UL``` | the upper limits of the intervals for the regression line
-}

@@ -39,7 +39,7 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`plotScatter`](./plotScatter.md)
 - [`plotRegression`](./plotRegression.md)
-- [`estimateRegression`](.estimateRegression.md)
+- [`estimateRegression`](./estimateRegression.md)
 
 ### Means and Mean Differences
 
