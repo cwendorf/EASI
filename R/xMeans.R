@@ -37,6 +37,10 @@
 .describeMeans <- function(x, ...)
   UseMethod(".describeMeans")
 
+.describeMeans.bss <- .describeMeans.wss <- function(frame, ...) {
+  unclass(frame)
+}
+
 .describeMeans.default <- function(frame, ...) {
   if (typeof(frame)=="double") {
     data <- data.frame(frame)
