@@ -5,7 +5,7 @@
 
 .estimateMeanDifference <- function(x, ...)
   UseMethod(".estimateMeanDifference")
-  
+
 .estimateMeanDifference.wss <- function(CompStats, CorrStats, mu = 0, conf.level = .95, labels = NULL, ...) {
   CompStats <- CompStats[1:2, ]
   N <- CompStats[, "N"]
@@ -65,7 +65,7 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
 
 .testMeanDifference <- function(x, ...) 
   UseMethod(".testMeanDifference")
-  
+
 .testMeanDifference.wss <- function(CompStats, CorrStats, mu = 0, labels = NULL, ...) {
   CompStats <- CompStats[1:2, ]
   N <- CompStats[, "N"]
