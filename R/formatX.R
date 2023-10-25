@@ -11,6 +11,11 @@
   apply(results, c(1, 2), FUN = as.numeric)
 }
 
+.pivotFrame <- function(results) {
+  out <- t(.unformatFrame(results))
+  .formatFrame(out)
+}
+
 ### Lists
 
 .formatList <- function(results, main = NULL, digits = 3) {
@@ -38,4 +43,11 @@
   out <- list(.deList(results))
   names(out) <- main
   return(out)
+}
+
+.pivotList <- function(results) {
+  main <- names(results)
+  out <- .unformatList(results)
+  out <- lapply(out, t)
+  .formatList(out, main=main)
 }
