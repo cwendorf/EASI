@@ -48,7 +48,7 @@ describeBoxes <- function(..., main = NULL, digits = 3) {
   if (connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i+offset, results[i, 3], i+1+offset, results[i+1, 3], code = 3, length = 0, lty = 1, col = col)}}
   if (values) {
     results <- .formatFrame(results, digits = digits)
-    tweak <- .5 + (scale - 1) / 4
+    tweak <- .8 + (scale - 1) / 4
     text(1:nrow(results) + offset, as.numeric(results[, 1]), results[, 1], cex = .8, pos = pos, offset = tweak, col = col)
     text(1:nrow(results) + offset, as.numeric(results[, 2]), results[, 2], cex = .8, pos = pos, offset = tweak, col = col)
     text(1:nrow(results) + offset, as.numeric(results[, 3]), results[, 3], cex = .8, pos = pos, offset = tweak, font = 2, col = col)

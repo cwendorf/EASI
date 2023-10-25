@@ -1,5 +1,40 @@
 # Estimation Approach to Statistical Inference
-## Infix and Pipe Operators
+## Grammar for Building and Handling Datasets
+
+### Frame Construction
+
+frame <- function(..., type="data") {
+  if (type == "bss" || type == "wss") {
+    out <- rbind(...)
+    class(out) <- type}
+  else if (type == "data") {
+    out <- data.frame(...)}
+  out
+}
+
+### Choose Variables
+
+choose <- function(x, ...) {
+  UseMethod("choose")
+}
+
+choose.bss <- choose.wss <- function(DescStats, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  results <- DescStats[chosen,]
+  class(results) <- class(DescStats)
+  return(results)
+}
+
+choose.default <- function(frame, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  subset(frame, select = chosen)
+}
+
+choose.formula <- function(formula, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  update <- paste("~ factor(.,", paste(deparse(chosen), collapse=","), ")")
+  update(formula, update)
+}
 
 ### Infix Operators
 

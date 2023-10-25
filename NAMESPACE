@@ -5,7 +5,15 @@
 
 export(theme)
 
-### infixX
+### grammarX
+
+export(frame)
+
+S3method(choose,default)
+S3method(choose,formula)
+S3method(choose,bss)
+S3method(choose,wss)
+export(choose)
 
 export("%c%")
 export("%$>%")
@@ -65,6 +73,8 @@ export(plotRainclouds)
 
 ### xIntervals
 
+export(estimateIntervals)
+
 S3method(plotIntervals,default)
 S3method(plotIntervals,list)
 export(plotIntervals)
@@ -88,6 +98,8 @@ export(addDiamonds)
 
 S3method(.describeMeans,default)
 S3method(.describeMeans,formula)
+S3method(.describeMeans,wss)
+S3method(.describeMeans,bss)
 export(.describeMeans)
 export(describeMeans)
 

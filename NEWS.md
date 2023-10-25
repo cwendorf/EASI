@@ -2,6 +2,7 @@
 
 ## Developmental Version
 
+- Added grammar for building and handling datasets
 - Rebuilt boxplots, histograms, and data plots
 - Enhanced support for exposition operators
 - Simplified regression and ANOVA options

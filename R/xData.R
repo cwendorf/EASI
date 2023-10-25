@@ -122,19 +122,18 @@ plotData.default <- function(frame, add = FALSE, main = NULL, ylim = NULL, ylab 
     .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)}
   dataChart(data, add = TRUE, at = loc, vertical = TRUE, method = method, jitter = jitter, col = .colorTransparent(col, 70), pch = pch)
   if (connect && method != "jitter") {
-    lesscol <- length(data)-1
+    lesscol <- length(data) - 1
     for (i in 1:lesscol) {segments(loc[i], data[, i], loc[i+1], data[, i+1], col = .colorTransparent(col, 70), lty = lty)}}
   invisible(eval(frame))
 }
 
 plotData.formula <- function(formula, add = FALSE, main = NULL, ylim = NULL, ylab = "Outcome", xlab = "", offset = .13, method = "stack", jitter = .05, col = "black", pch = 16, ...) {
+  results <- describePercentiles(formula)
   if (!add) {
-    results <- describePercentiles(formula)
     if (is.null(main)) {main = "Data for the Groups"}
     .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)}
-  data <- unstack(model.frame(formula))
-  loc <- (1:length(data)) + offset
-  dataChart(data, add = TRUE, at = loc, vertical = TRUE, method = method, jitter = jitter, col = .colorTransparent(col, 70), pch = pch)
+  loc <- (1:nrow(results[[1]])) + offset
+  dataChart(formula, add = TRUE, at=loc, vertical = TRUE, method = method, jitter = jitter, col = .colorTransparent(col, 70), pch = pch)
   invisible(eval(formula))
 }
 

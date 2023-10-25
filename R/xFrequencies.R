@@ -65,7 +65,7 @@ plotFrequencies.default <- function(frame, add = FALSE, ylim = NULL, main = NULL
 }
 
 plotFrequencies.formula <- function(formula, add = FALSE, ylim = NULL, main = NULL, ylab = NULL, xlab = "", type = "right", offset = .1, col = "black", ...) {
-  data <- unstack(model.frame(formula))
+  data <- unstack(data.frame(model.frame(formula)))
   if (!add) {
     if (is.null(main)) {main <- "Frequencies for the Groups"}
     if (is.null(ylab)) {ylab <- all.vars(formula)[1]}

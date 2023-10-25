@@ -23,7 +23,7 @@ plotDensity.default <- function(frame, type = "right", add = FALSE, main = NULL,
 }
 
 plotDensity.formula <- function(formula, type = "right", add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, offset = .1, scale = 1, col = "black", ...) {
-  data <- unstack(model.frame(formula))
+  data <- unstack(data.frame(model.frame(formula)))
   if (typeof(data) == "list") {z <- lapply(data, density)} else {z <- apply(data, 2, density)}
   if (!add) {
     if (is.null(main)) {main <- "Density Plots for the Groups"}
