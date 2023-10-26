@@ -30,16 +30,16 @@ estimateMeanContrast(FrendaSummary,contrast=Sleep)
 Nosleep <- c(0,.5,0,.5)
 estimateMeanContrast(FrendaSummary,contrast=Nosleep)
 
-### Analyses of Main Effects 
+### Analyses of Main Effects
 
-#### Analyses of the Factor A (Evening vs Morning) Main Effect
+#### Analyses of the Factor A Main Effect
 
 mainFactorA <- c(-.5,-.5,.5,.5)
 estimateMeanSubsets(FrendaSummary,contrast=mainFactorA)
 plotMeanSubsets(FrendaSummary,contrast=mainFactorA,labels=c("Evening","Morning"),main="Factor A Main Effect",ylab="False Memory",ylim=c(0,4),values=FALSE)
 estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorA)
 
-#### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
+#### Analyses of the Factor B Main Effect
 
 mainFactorB <- c(-.5,.5,-.5,.5)
 estimateMeanSubsets(FrendaSummary,contrast=mainFactorB)
@@ -51,14 +51,14 @@ estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorB)
 Interaction <- c(1,-1,-1,1)
 estimateMeanContrast(FrendaSummary,contrast=Interaction)
 
-#### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
+#### Analyses of the Factor B at A1 Simple Effect
 
 simpleBatA1 <- c(-1,1,0,0)
 estimateMeanSubsets(FrendaSummary,contrast=simpleBatA1)
 plotMeanSubsets(FrendaSummary,contrast=simpleBatA1,labels=c("Sleep","NoSleep"),main="Simple Effect of B at A1",ylab="False Memory",ylim=c(0,4),values=FALSE)
 estimateStandardizedMeanContrast(FrendaSummary,contrast=simpleBatA1)
 
-#### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect
+#### Analyses of the Factor B at A2 Simple Effect
 
 simpleBatA2 <- c(0,0,-1,1)
 estimateMeanSubsets(FrendaSummary,contrast=simpleBatA2)

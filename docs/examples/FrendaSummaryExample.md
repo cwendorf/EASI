@@ -8,15 +8,15 @@ using summary statistics input.
 - [Analyses of the Different Groups](#analyses-of-the-different-groups)
 - [Analyses of the Marginal Means](#analyses-of-the-marginal-means)
 - [Analyses of Main Effects](#analyses-of-main-effects)
-  - [Analyses of the Factor A (Evening vs Morning) Main
-    Effect](#analyses-of-the-factor-a-(evening-vs-morning)-main-effect)
-  - [Analyses of the Factor B (Sleep vs NoSleep) Main
-    Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-main-effect)
+  - [Analyses of the Factor A Main
+    Effect](#analyses-of-the-factor-a-main-effect)
+  - [Analyses of the Factor B Main
+    Effect](#analyses-of-the-factor-b-main-effect)
 - [Analyses of the Interaction](#analyses-of-the-interaction)
-  - [Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple
-    Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a1-(evening)-simple-effect)
-  - [Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple
-    Effect](#analyses-of-the-factor-b-(sleep-vs-nosleep)-at-a2-(morning)-simple-effect)
+  - [Analyses of the Factor B at A1 Simple
+    Effect](#analyses-of-the-factor-b-at-a1-simple-effect)
+  - [Analyses of the Factor B at A2 Simple
+    Effect](#analyses-of-the-factor-b-at-a2-simple-effect)
 
 ------------------------------------------------------------------------
 
@@ -107,7 +107,7 @@ estimateMeanContrast(FrendaSummary,contrast=Nosleep)
 
 ### Analyses of Main Effects
 
-#### Analyses of the Factor A (Evening vs Morning) Main Effect
+#### Analyses of the Factor A Main Effect
 
 To analyze the main effect of Factor A, set a contrast code and plot the
 marginal means and the difference between them.
@@ -142,7 +142,7 @@ estimateStandardizedMeanContrast(FrendaSummary,contrast=mainFactorA)
     ##              Est      SE      LL      UL
     ## Contrast   0.342   0.203  -0.056   0.739
 
-#### Analyses of the Factor B (Sleep vs NoSleep) Main Effect
+#### Analyses of the Factor B Main Effect
 
 To analyze the main effect of Factor B, set a contrast code and plot the
 marginal means and the difference between them.
@@ -190,7 +190,7 @@ estimateMeanContrast(FrendaSummary,contrast=Interaction)
     ##              Est      SE      df      LL      UL
     ## Contrast   1.200   0.554  87.919   0.098   2.302
 
-#### Analyses of the Factor B (Sleep vs NoSleep) at A1 (Evening) Simple Effect
+#### Analyses of the Factor B at A1 Simple Effect
 
 More helpfully, analyze the simple effect by setting the appropriate
 contrast and plotting.
@@ -225,7 +225,7 @@ estimateStandardizedMeanContrast(FrendaSummary,contrast=simpleBatA1)
     ##              Est      SE      LL      UL
     ## Contrast  -0.256   0.240  -0.727   0.214
 
-#### Analyses of the Factor B (Sleep vs NoSleep) at A2 (Morning) Simple Effect
+#### Analyses of the Factor B at A2 Simple Effect
 
 Next, analyze the other simple effect by setting the appropriate
 contrast and plotting.
