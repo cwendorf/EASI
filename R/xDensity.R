@@ -18,6 +18,7 @@ plotDensity.default <- function(frame, type = "right", add = FALSE, main = NULL,
     rownames(results) <- names(z)
     results <- list(results)
     .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)}
+  if (length(col) > length(data)) {col <- col[1:length(data)]}
   invisible(mapply(.plotCurve, z, loc = 1:length(data), type = type, offset = offset, scale = scale, col = col))
   invisible(eval(frame))
 }
@@ -33,6 +34,7 @@ plotDensity.formula <- function(formula, type = "right", add = FALSE, main = NUL
     rownames(results) <- names(z)
     results <- list(results)
     .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)}
+  if (length(col) > length(data)) {col <- col[1:length(data)]}
   invisible(mapply(.plotCurve, z, loc = 1:length(data), type = type, offset = offset, scale = scale, col = col))
   invisible(eval(formula))
 }

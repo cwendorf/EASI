@@ -40,6 +40,7 @@ plotDiamonds.list <- function(results, add = FALSE, line = NULL, rope = NULL, co
     if (!is.null(rope)) {rect(0, rope[1], nrow(results[[1]])+1, rope[2], col = .colorTransparent("black", 15), border = NA)}
     results <- .unformatFrame(.deList(results))
     z <- asplit(results, 1)
+    if (length(col) > nrow(results)) {col <- col[1:nrow(results)]}
     invisible(mapply(.diamond, z, loc = 1:nrow(results), col = col, hw = hw, offset = offset))
   }
   if (length(results)  ==  2 && nrow(results[[1]] !=  nrow(results[[2]]))) {
@@ -54,6 +55,7 @@ plotDiamonds.list <- function(results, add = FALSE, line = NULL, rope = NULL, co
       graphrope <- rope+as.vector(graph[1, 1])
       rect(2.6, graphrope[1], 3.6, graphrope[2], col = .colorTransparent("black", 15), border = NA)}
     z <- asplit(graph, 1)
+    if (length(col) > nrow(graph)) {col <- col[1:nrow(graph)]}
     invisible(mapply(.diamond, z, loc = 1:nrow(graph), col = col, hw = hw, offset = offset))
   }
   invisible(out)

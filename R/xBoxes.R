@@ -35,8 +35,8 @@ describeBoxes <- function(..., main = NULL, digits = 3) {
 .boxes <- function(results, main, ylab, xlab, ylim, values, digits, pos, connect, add, col, offset, scale) {
   results <- .unformatFrame(results[[1]])
   if (!add) {
-    if (is.null(ylim)) {ylim <- range(pretty(c(floor(min(results)-.5), ceiling(max(results)+.5))))}
-    plot(NULL, xaxs = "i", yaxs = "i", xaxt = "n", xlim = c(.4, nrow(results)+.6), ylim = ylim, xlab = xlab, cex.lab = 1.15, ylab = ylab, main = main, las = 1, bty = "l")
+    if (is.null(ylim)) {ylim <- range(pretty(c(floor(min(results) - .5), ceiling(max(results) + .5))))}
+    plot(NULL, xaxs = "i", yaxs = "i", xaxt = "n", xlim = c(.4, nrow(results) + .6), ylim = ylim, xlab = xlab, cex.lab = 1.15, ylab = ylab, main = main, las = 1, bty = "l")
     axis(1, 1:nrow(results), row.names(results))}
   width <- .03 * scale
   rect(1:nrow(results) + offset - width, results[, 2], 1:nrow(results) + offset + width, results[, 4], border = col, lwd = 2, col = .colorTransparent(col, 30))
@@ -45,7 +45,7 @@ describeBoxes <- function(..., main = NULL, digits = 3) {
   arrows(1:nrow(results) + offset - width, results[, 3], 1:nrow(results) + offset + width, results[, 3], length = 0, lwd = 3, col = col)
   arrows(1:nrow(results) + offset - width, results[, 1], 1:nrow(results) + offset + width, results[, 1], length = 0, lwd = 2, col = col)
   arrows(1:nrow(results) + offset - width, results[, 5], 1:nrow(results) + offset + width, results[, 5], length = 0, lwd = 2, col = col)
-  if (connect) {if(nrow(results)>1) {for (i in 1:(nrow(results)-1)) arrows(i+offset, results[i, 3], i+1+offset, results[i+1, 3], code = 3, length = 0, lty = 1, col = col)}}
+  if (connect) {if(nrow(results) > 1) {for (i in 1:(nrow(results) - 1)) arrows(i+offset, results[i, 3], i + 1 + offset, results[i + 1, 3], code = 3, length = 0, lty = 1, col = col)}}
   if (values) {
     results <- .formatFrame(results, digits = digits)
     tweak <- .8 + (scale - 1) / 4
