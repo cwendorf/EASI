@@ -3,8 +3,9 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeanContrast <- function(x, ...)
+.estimateStandardizedMeanContrast <- function(x, ...) {
   UseMethod(".estimateStandardizedMeanContrast")
+}
 
 .estimateStandardizedMeanContrast.wss <- function(DescStats, CorrStats, contrast, conf.level = .95, labels = NULL, ...) {
   N <- min(DescStats[, "N"])
@@ -26,7 +27,11 @@
   UL <- Est + z * SE
   results <- as.data.frame(t(c(Est, SE, LL, UL)))
   colnames(results) <- c("Est", "SE", "LL", "UL")
-  if(is.null(labels)) {rownames(results) <- c("Contrast")} else {rownames(results) <- labels}
+  if (is.null(labels)) {
+    rownames(results) <- c("Contrast")
+  } else {
+    rownames(results) <- labels
+  }
   return(results)
 }
 
@@ -47,13 +52,19 @@
   UL <- Est + z * SE
   results <- as.data.frame(t(c(Est, SE, LL, UL)))
   colnames(results) <- c("Est", "SE", "LL", "UL")
-  if(is.null(labels)) {rownames(results) <- c("Contrast")} else {rownames(results) <- labels}
+  if (is.null(labels)) {
+    rownames(results) <- c("Contrast")
+  } else {
+    rownames(results) <- labels
+  }
   return(results)
 }
 
 .estimateStandardizedMeanContrast.default <- function(frame, contrast, conf.level = .95, labels = NULL, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   .estimateStandardizedMeanContrast.wss(DescStats, CorrStats, contrast, conf.level = conf.level, labels = labels)
@@ -66,7 +77,9 @@
 
 estimateStandardizedMeanContrast <- function(..., main = NULL, digits = 3) {
   results <- .estimateStandardizedMeanContrast(...)
-  if (is.null(main)) {main <- "Confidence Interval for the Standardized Mean Contrast"}
+  if (is.null(main)) {
+    main <- "Confidence Interval for the Standardized Mean Contrast"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }

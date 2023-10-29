@@ -3,9 +3,10 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeans <- function(x, ...)
+.estimateStandardizedMeans <- function(x, ...) {
   UseMethod(".estimateStandardizedMeans")
-  
+}
+
 .estimateStandardizedMeans.wss <- .estimateStandardizedMeans.bss <- function(DescStats, mu = 0, conf.level = .95, ...) {
   N <- DescStats[, "N"]
   M <- DescStats[, "M"]
@@ -44,7 +45,9 @@
 
 .estimateStandardizedMeans.default <- function(frame, mu = 0, conf.level = .95, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans(data)
   .estimateStandardizedMeans.wss(DescStats, mu = mu, conf.level = conf.level)
 }
@@ -56,7 +59,13 @@
 
 estimateStandardizedMeans <- function(..., main = NULL, digits = 3) {
   results <- .estimateStandardizedMeans(...)
-  if (is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Standardized Means"} else {main <- "Confidence Interval for the Standardized Mean"}}  
+  if (is.null(main)) {
+    if (nrow(results) > 1) {
+      main <- "Confidence Intervals for the Standardized Means"
+    } else {
+      main <- "Confidence Interval for the Standardized Mean"
+    }
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }

@@ -3,51 +3,67 @@
 
 ### Descriptives
 
-.skewness <- function(x,  na.rm = FALSE,  type = 2) {
+.skewness <- function(x, na.rm = FALSE, type = 2) {
   if (any(ina <- is.na(x))) {
-    if (na.rm) x <- x[!ina]
-    else return(NA)}
-  if (!(type %in% (1 : 3))) stop("Invalid 'type' argument.")
+    if (na.rm) {
+      x <- x[!ina]
+    } else {
+      return(NA)
+    }
+  }
+  if (!(type %in% (1:3))) stop("Invalid 'type' argument.")
   n <- length(x)
   x <- x - mean(x)
-  y <- sqrt(n) * sum(x ^ 3) / (sum(x ^ 2) ^ (3/2))
+  y <- sqrt(n) * sum(x^3) / (sum(x^2)^(3 / 2))
   if (type == 2) {
     if (n < 3) stop("Need at least 3 complete observations.")
-    y <- y * sqrt(n * (n - 1)) / (n - 2)}
-    else if(type == 3) y <- y * ((1 - 1 / n)) ^ (3/2)
+    y <- y * sqrt(n * (n - 1)) / (n - 2)
+  } else if (type == 3) y <- y * ((1 - 1 / n))^(3 / 2)
   y
 }
 
-.kurtosis <- function(x,  na.rm = FALSE,  type = 2) {
+.kurtosis <- function(x, na.rm = FALSE, type = 2) {
   if (any(ina <- is.na(x))) {
-    if (na.rm) x <- x[!ina]
-    else return(NA)}
-  if(!(type %in% (1 : 3))) stop("Invalid 'type' argument.")
+    if (na.rm) {
+      x <- x[!ina]
+    } else {
+      return(NA)
+    }
+  }
+  if (!(type %in% (1:3))) stop("Invalid 'type' argument.")
   n <- length(x)
   x <- x - mean(x)
-  r <- n * sum(x ^ 4) / (sum(x ^ 2) ^ 2)
-  y <- if (type == 1) r - 3
-  else if (type == 2) {
+  r <- n * sum(x^4) / (sum(x^2)^2)
+  y <- if (type == 1) {
+    r - 3
+  } else if (type == 2) {
     if (n < 4) stop("Need at least 4 complete observations.")
-    ((n + 1) * (r - 3) + 6) * (n - 1) / ((n - 2) * (n - 3))}
-    else r * (1 - 1 / n) ^ 2 - 3
+    ((n + 1) * (r - 3) + 6) * (n - 1) / ((n - 2) * (n - 3))
+  } else {
+    r * (1 - 1 / n)^2 - 3
+  }
   y
 }
 
-.describeMeans <- function(x, ...)
+.describeMeans <- function(x, ...) {
   UseMethod(".describeMeans")
+}
 
 .describeMeans.bss <- .describeMeans.wss <- function(frame, ...) {
   frame <- unclass(frame)
-  frame <- frame[,c("N", "M", "SD")]
+  frame <- frame[, c("N", "M", "SD")]
   return(frame)
 }
 
 .describeMeans.default <- function(frame, ...) {
-  if (typeof(frame)=="double") {
+  if (typeof(frame) == "double") {
     data <- data.frame(frame)
-    if (ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}}
-    else {data = frame}
+    if (ncol(data) == 1) {
+      colnames(data) <- deparse(substitute(frame))
+    }
+  } else {
+    data <- frame
+  }
   N <- sapply(data, length)
   M <- sapply(data, mean, na.rm = TRUE)
   SD <- sapply(data, sd, na.rm = TRUE)
@@ -68,15 +84,18 @@
 
 describeMeans <- function(..., main = NULL, digits = 3) {
   results <- .describeMeans(...)
-  if (is.null(main)) {main <- "Descriptive Statistics for the Data"}
+  if (is.null(main)) {
+    main <- "Descriptive Statistics for the Data"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Confidence Intervals
 
-.estimateMeans <- function(x, ...) 
+.estimateMeans <- function(x, ...) {
   UseMethod(".estimateMeans")
+}
 
 .estimateMeans.wss <- .estimateMeans.bss <- function(DescStats, mu = 0, conf.level = .95, ...) {
   N <- DescStats[, "N"]
@@ -96,7 +115,9 @@ describeMeans <- function(..., main = NULL, digits = 3) {
 
 .estimateMeans.default <- function(frame, mu = 0, conf.level = .95, ...) {
   data <- data.frame(frame)
-  if (ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans.default(data)
   .estimateMeans.wss(DescStats, conf.level = conf.level, mu = mu)
 }
@@ -108,15 +129,22 @@ describeMeans <- function(..., main = NULL, digits = 3) {
 
 estimateMeans <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeans(...)
-  if (is.null(main)) {if(nrow(results)>1) {main <- "Confidence Intervals for the Means"} else {main <- "Confidence Interval for the Mean"}}  
+  if (is.null(main)) {
+    if (nrow(results) > 1) {
+      main <- "Confidence Intervals for the Means"
+    } else {
+      main <- "Confidence Interval for the Mean"
+    }
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testMeans <- function(x, ...)
+.testMeans <- function(x, ...) {
   UseMethod(".testMeans")
+}
 
 .testMeans.wss <- .testMeans.bss <- function(DescStats, mu = 0, ...) {
   N <- DescStats[, "N"]
@@ -133,7 +161,9 @@ estimateMeans <- function(..., main = NULL, digits = 3) {
 
 .testMeans.default <- function(frame, mu = 0, ...) {
   data <- data.frame(frame)
-  if (ncol(data)==1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans.default(data)
   .testMeans.wss(DescStats, mu = mu, main = main, digits = digits)
 }
@@ -145,15 +175,22 @@ estimateMeans <- function(..., main = NULL, digits = 3) {
 
 testMeans <- function(..., main = NULL, digits = 3) {
   results <- .testMeans(...)
-  if (is.null(main)) {if (nrow(results) > 1) {main <- "Hypothesis Tests for the Means"} else {main <- "Hypothesis Test for the Mean"}}
+  if (is.null(main)) {
+    if (nrow(results) > 1) {
+      main <- "Hypothesis Tests for the Means"
+    } else {
+      main <- "Hypothesis Test for the Mean"
+    }
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Confidence Interval Plots
 
-plotMeans <- function(x, ...)
+plotMeans <- function(x, ...) {
   UseMethod("plotMeans")
+}
 
 plotMeans.wss <- plotMeans.default <- function(..., mu = 0, conf.level = .95, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, line = NULL, rope = NULL, values = TRUE, digits = 3, pos = 2, pch = 16, col = "black", connect = TRUE, offset = 0, intervals = TRUE) {
   results <- estimateMeans(..., mu = mu, conf.level = conf.level, main = main, digits = digits)
@@ -163,7 +200,7 @@ plotMeans.wss <- plotMeans.default <- function(..., mu = 0, conf.level = .95, ad
 
 plotMeans.bss <- plotMeans.formula <- function(..., mu = 0, conf.level = .95, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, line = NULL, rope = NULL, values = TRUE, digits = 3, pos = 2, pch = 16, col = "black", connect = FALSE, offset = 0, intervals = TRUE) {
   results <- estimateMeans(..., mu = mu, conf.level = conf.level, main = main, digits = digits)
-  plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals=intervals)
+  plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
   invisible(eval(...))
 }
 

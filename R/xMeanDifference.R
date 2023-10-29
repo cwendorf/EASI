@@ -3,8 +3,9 @@
 
 ### Confidence Intervals
 
-.estimateMeanDifference <- function(x, ...)
+.estimateMeanDifference <- function(x, ...) {
   UseMethod(".estimateMeanDifference")
+}
 
 .estimateMeanDifference.wss <- function(CompStats, CorrStats, mu = 0, conf.level = .95, labels = NULL, ...) {
   CompStats <- CompStats[1:2, ]
@@ -21,7 +22,11 @@
   LL <- MD - tcrit * SE
   UL <- MD + tcrit * SE
   results <- data.frame(Diff = MD, SE = SE, df = df, LL = LL, UL = UL)
-  if (is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
+  if (is.null(labels)) {
+    rownames(results) <- c("Comparison")
+  } else {
+    rownames(results) <- labels
+  }
   return(results)
 }
 
@@ -37,13 +42,19 @@
   LL <- MD - tcrit * SE
   UL <- MD + tcrit * SE
   results <- data.frame(Diff = MD, SE = SE, df = df, LL = LL, UL = UL)
-  if (is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
+  if (is.null(labels)) {
+    rownames(results) <- c("Comparison")
+  } else {
+    rownames(results) <- labels
+  }
   return(results)
 }
 
 .estimateMeanDifference.default <- function(frame, mu = 0, conf.level = .95, labels = NULL, ...) {
   data <- data.frame(frame)
-  if(ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   CompStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   .estimateMeanDifference.wss(CompStats, CorrStats, conf.level = conf.level, labels = labels)
@@ -56,15 +67,18 @@
 
 estimateMeanDifference <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeanDifference(...)
-  if (is.null(main)) {main <- "Confidence Interval for the Mean Difference"}
+  if (is.null(main)) {
+    main <- "Confidence Interval for the Mean Difference"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testMeanDifference <- function(x, ...) 
+.testMeanDifference <- function(x, ...) {
   UseMethod(".testMeanDifference")
+}
 
 .testMeanDifference.wss <- function(CompStats, CorrStats, mu = 0, labels = NULL, ...) {
   CompStats <- CompStats[1:2, ]
@@ -80,7 +94,11 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
   t <- MD / SE
   p <- 2 * (1 - pt(abs(t), df))
   results <- data.frame(Diff = MD, SE = SE, df = df, t = t, p = p)
-  if (is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
+  if (is.null(labels)) {
+    rownames(results) <- c("Comparison")
+  } else {
+    rownames(results) <- labels
+  }
   return(results)
 }
 
@@ -95,13 +113,19 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
   t <- MD / SE
   p <- 2 * (1 - pt(abs(t), df))
   results <- data.frame(Diff = MD, SE = SE, df = df, t = t, p = p)
-  if (is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
+  if (is.null(labels)) {
+    rownames(results) <- c("Comparison")
+  } else {
+    rownames(results) <- labels
+  }
   return(results)
 }
 
 .testMeanDifference.default <- function(frame, mu = 0, labels = NULL, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   CompStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   .testMeanDifference.wss(CompStats, CorrStats, mu = mu, labels = labels)
@@ -114,7 +138,9 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
 
 testMeanDifference <- function(..., main = NULL, digits = 3) {
   results <- .testMeanDifference(...)
-  if (is.null(main)) {main <- "Hypothesis Test for the Mean Difference"}
+  if (is.null(main)) {
+    main <- "Hypothesis Test for the Mean Difference"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }

@@ -10,15 +10,16 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-#suppress the warnings and other messages from showing in the knitted file.
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+# suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -28,7 +29,7 @@ This page analyzes a two-factor between-subjects (factorial) design using raw da
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -39,26 +40,26 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
-FactorA <- c(1,1,1,1,2,2,2,2,3,3,3,3,1,1,1,1,2,2,2,2,3,3,3,3)
-FactorB <- c(1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2)
-Outcome <- c(0,0,3,5,4,7,4,9,4,9,6,9,9,4,6,9,6,3,3,8,5,3,8,8)
-FactorA <- factor(FactorA,levels=c(1,2,3),labels=c("A1","A2","A3"))
-FactorB <- factor(FactorB,levels=c(1,2),labels=c("B1","B2"))
-FactorialData <- data.frame(FactorA,FactorB,Outcome)
+FactorA <- c(1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3)
+FactorB <- c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2)
+Outcome <- c(0, 0, 3, 5, 4, 7, 4, 9, 4, 9, 6, 9, 9, 4, 6, 9, 6, 3, 3, 8, 5, 3, 8, 8)
+FactorA <- factor(FactorA, levels = c(1, 2, 3), labels = c("A1", "A2", "A3"))
+FactorB <- factor(FactorB, levels = c(1, 2), labels = c("B1", "B2"))
+FactorialData <- data.frame(FactorA, FactorB, Outcome)
 ```
 
 This code subsets the data into two different data frames (for simple effects analysis).
 ```{r}
-FactorialDataB1 <- subset(FactorialData,FactorB=="B1")
-FactorialDataB2 <- subset(FactorialData,FactorB=="B2")
+FactorialDataB1 <- subset(FactorialData, FactorB == "B1")
+FactorialDataB2 <- subset(FactorialData, FactorB == "B2")
 ```
 
 #### Descriptive Statistics
 
 This code obtains the descriptive statistics for the two data frames.
 ```{r}
-with(FactorialDataB1,describeMeans(Outcome~FactorA))
-with(FactorialDataB2,describeMeans(Outcome~FactorA))
+with(FactorialDataB1, describeMeans(Outcome ~ FactorA))
+with(FactorialDataB2, describeMeans(Outcome ~ FactorA))
 ```
 
 ### Analyses of the Means
@@ -69,54 +70,54 @@ This section produces analyses that are equivalent to one-sample analyses separa
 
 This code will provide tables of confidence intervals for each level of the factor.
 ```{r}
-with(FactorialDataB1,estimateMeans(Outcome~FactorA))
-with(FactorialDataB2,estimateMeans(Outcome~FactorA))
+with(FactorialDataB1, estimateMeans(Outcome ~ FactorA))
+with(FactorialDataB2, estimateMeans(Outcome ~ FactorA))
 ```
 
 This code will produce a graph of the confidence intervals for each level of the factor.
 ```{r,Factorial-Data-MeansA}
-with(FactorialDataB1,plotMeans(Outcome~FactorA))
-with(FactorialDataB2,plotMeans(Outcome~FactorA))
+with(FactorialDataB1, plotMeans(Outcome ~ FactorA))
+with(FactorialDataB2, plotMeans(Outcome ~ FactorA))
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-with(FactorialDataB1,estimateMeans(Outcome~FactorA,conf.level=.99))
-with(FactorialDataB2,estimateMeans(Outcome~FactorA,conf.level=.99))
+with(FactorialDataB1, estimateMeans(Outcome ~ FactorA, conf.level = .99))
+with(FactorialDataB2, estimateMeans(Outcome ~ FactorA, conf.level = .99))
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 ```{r,Factorial-Data-MeansB}
-with(FactorialDataB1,plotMeans(Outcome~FactorA,conf.level=.99,line=5,rope=c(3,7)))
-with(FactorialDataB2,plotMeans(Outcome~FactorA,conf.level=.99,line=5,rope=c(3,7)))
+with(FactorialDataB1, plotMeans(Outcome ~ FactorA, conf.level = .99, line = 5, rope = c(3, 7)))
+with(FactorialDataB2, plotMeans(Outcome ~ FactorA, conf.level = .99, line = 5, rope = c(3, 7)))
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```{r}
-with(FactorialDataB1,testMeans(Outcome~FactorA))
-with(FactorialDataB2,testMeans(Outcome~FactorA))
+with(FactorialDataB1, testMeans(Outcome ~ FactorA))
+with(FactorialDataB2, testMeans(Outcome ~ FactorA))
 ```
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```{r}
-with(FactorialDataB1,testMeans(Outcome~FactorA,mu=5))
-with(FactorialDataB2,testMeans(Outcome~FactorA,mu=5))
+with(FactorialDataB1, testMeans(Outcome ~ FactorA, mu = 5))
+with(FactorialDataB2, testMeans(Outcome ~ FactorA, mu = 5))
 ```
 
 #### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
-with(FactorialDataB1,estimateStandardizedMeans(Outcome~FactorA))
-with(FactorialDataB2,estimateStandardizedMeans(Outcome~FactorA))
+with(FactorialDataB1, estimateStandardizedMeans(Outcome ~ FactorA))
+with(FactorialDataB2, estimateStandardizedMeans(Outcome ~ FactorA))
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
-with(FactorialDataB1,estimateStandardizedMeans(Outcome~FactorA,mu=5,conf.level=.99))
-with(FactorialDataB1,estimateStandardizedMeans(Outcome~FactorA,mu=5,conf.level=.99))
+with(FactorialDataB1, estimateStandardizedMeans(Outcome ~ FactorA, mu = 5, conf.level = .99))
+with(FactorialDataB1, estimateStandardizedMeans(Outcome ~ FactorA, mu = 5, conf.level = .99))
 ```
 
 ### Analyses of a Comparison
@@ -125,86 +126,86 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code creates a new factor that identifies the two levels for comparison.
 ```{r}
-CompDataB1 <- with(FactorialDataB1,factor(FactorA,c("A1","A2")))
-CompDataB2 <- with(FactorialDataB2,factor(FactorA,c("A1","A2")))
+CompDataB1 <- with(FactorialDataB1, factor(FactorA, c("A1", "A2")))
+CompDataB2 <- with(FactorialDataB2, factor(FactorA, c("A1", "A2")))
 ```
 
 #### Confidence Intervals
 
 This code estimates the confidence interval of the difference.
 ```{r}
-with(FactorialDataB1,estimateMeanDifference(Outcome~CompDataB1))
-with(FactorialDataB2,estimateMeanDifference(Outcome~CompDataB2))
+with(FactorialDataB1, estimateMeanDifference(Outcome ~ CompDataB1))
+with(FactorialDataB2, estimateMeanDifference(Outcome ~ CompDataB2))
 ```
 
 This code obtains and plots the confidence intervals for the mean difference in the identified comparison.
 ```{r,Factorial-Data-DifferenceA}
-with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1))
-with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2))
+with(FactorialDataB1, plotMeanDifference(Outcome ~ CompDataB1))
+with(FactorialDataB2, plotMeanDifference(Outcome ~ CompDataB2))
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-with(FactorialDataB1,estimateMeanDifference(Outcome~CompDataB1,conf.level=.99))
-with(FactorialDataB2,estimateMeanDifference(Outcome~CompDataB2,conf.level=.99))
+with(FactorialDataB1, estimateMeanDifference(Outcome ~ CompDataB1, conf.level = .99))
+with(FactorialDataB2, estimateMeanDifference(Outcome ~ CompDataB2, conf.level = .99))
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r,Factorial-Data-DifferenceB}
-with(FactorialDataB1,plotMeanDifference(Outcome~CompDataB1,conf.level=.99,line=0,rope=c(-2,2)))
-with(FactorialDataB2,plotMeanDifference(Outcome~CompDataB2,conf.level=.99,line=0,rope=c(-2,2)))
+with(FactorialDataB1, plotMeanDifference(Outcome ~ CompDataB1, conf.level = .99, line = 0, rope = c(-2, 2)))
+with(FactorialDataB2, plotMeanDifference(Outcome ~ CompDataB2, conf.level = .99, line = 0, rope = c(-2, 2)))
 ```
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 ```{r}
-with(FactorialDataB1,estimateMeanComparison(Outcome~CompDataB1))
-with(FactorialDataB2,estimateMeanComparison(Outcome~CompDataB2))
+with(FactorialDataB1, estimateMeanComparison(Outcome ~ CompDataB1))
+with(FactorialDataB2, estimateMeanComparison(Outcome ~ CompDataB2))
 ```
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
 ```{r,Factorial-Data-ComparisonA}
-with(FactorialDataB1,plotMeanComparison(Outcome~CompDataB1))
-with(FactorialDataB2,plotMeanComparison(Outcome~CompDataB2))
+with(FactorialDataB1, plotMeanComparison(Outcome ~ CompDataB1))
+with(FactorialDataB2, plotMeanComparison(Outcome ~ CompDataB2))
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-with(FactorialDataB1,estimateMeanComparison(Outcome~CompDataB1,conf.level=.99))
-with(FactorialDataB2,estimateMeanComparison(Outcome~CompDataB2,conf.level=.99))
+with(FactorialDataB1, estimateMeanComparison(Outcome ~ CompDataB1, conf.level = .99))
+with(FactorialDataB2, estimateMeanComparison(Outcome ~ CompDataB2, conf.level = .99))
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r,Factorial-Data-ComparisonB}
-with(FactorialDataB1,plotMeanComparison(Outcome~CompDataB1,conf.level=.99,rope=c(-2,2)))
-with(FactorialDataB2,plotMeanComparison(Outcome~CompDataB2,conf.level=.99,rope=c(-2,2)))
+with(FactorialDataB1, plotMeanComparison(Outcome ~ CompDataB1, conf.level = .99, rope = c(-2, 2)))
+with(FactorialDataB2, plotMeanComparison(Outcome ~ CompDataB2, conf.level = .99, rope = c(-2, 2)))
 ```
 
 #### Significance Test
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```{r}
-with(FactorialDataB1,testMeanDifference(Outcome~CompDataB1))
-with(FactorialDataB2,testMeanDifference(Outcome~CompDataB2))
+with(FactorialDataB1, testMeanDifference(Outcome ~ CompDataB1))
+with(FactorialDataB2, testMeanDifference(Outcome ~ CompDataB2))
 ```
 
 If the default value of zero is not plausible, it too can be changed.
 ```{r}
-with(FactorialDataB1,testMeanDifference(Outcome~CompDataB1,mu=-2))
-with(FactorialDataB2,testMeanDifference(Outcome~CompDataB2,mu=-2))
+with(FactorialDataB1, testMeanDifference(Outcome ~ CompDataB1, mu = -2))
+with(FactorialDataB2, testMeanDifference(Outcome ~ CompDataB2, mu = -2))
 ```
 
 #### Standardized Effect Size
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```{r}
-with(FactorialDataB1,estimateStandardizedMeanDifference(Outcome~CompDataB1))
-with(FactorialDataB2,estimateStandardizedMeanDifference(Outcome~CompDataB2))
+with(FactorialDataB1, estimateStandardizedMeanDifference(Outcome ~ CompDataB1))
+with(FactorialDataB2, estimateStandardizedMeanDifference(Outcome ~ CompDataB2))
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-with(FactorialDataB1,estimateStandardizedMeanDifference(Outcome~CompDataB1,conf.level=.99))
-with(FactorialDataB2,estimateStandardizedMeanDifference(Outcome~CompDataB2,conf.level=.99))
+with(FactorialDataB1, estimateStandardizedMeanDifference(Outcome ~ CompDataB1, conf.level = .99))
+with(FactorialDataB2, estimateStandardizedMeanDifference(Outcome ~ CompDataB2, conf.level = .99))
 ```
 
 ### Analyses of a Contrast
@@ -213,83 +214,83 @@ This section produces analyses that are equivalent to analyses involving multipl
 
 This code identifies a contrast among the groups.
 ```{r}
-A1vsOthers <- c(-1,.5,.5)
+A1vsOthers <- c(-1, .5, .5)
 ```
 
 #### Confidence Intervals
 
 This code produces a confidence interval for that contrast.
 ```{r}
-with(FactorialDataB1,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
-with(FactorialDataB2,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
+with(FactorialDataB1, estimateMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers))
+with(FactorialDataB2, estimateMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers))
 ```
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```{r,Factorial-Data-ContrastA}
-with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
-with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
+with(FactorialDataB1, plotMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers))
+with(FactorialDataB2, plotMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers))
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```{r}
-with(FactorialDataB1,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
-with(FactorialDataB2,estimateMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
+with(FactorialDataB1, estimateMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers, conf.level = .99))
+with(FactorialDataB2, estimateMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers, conf.level = .99))
 ```
 
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r,Factorial-Data-ContrastB}
-with(FactorialDataB1,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2)))
-with(FactorialDataB2,plotMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99,line=0,rope=c(-2,2)))
+with(FactorialDataB1, plotMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers, conf.level = .99, line = 0, rope = c(-2, 2)))
+with(FactorialDataB2, plotMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers, conf.level = .99, line = 0, rope = c(-2, 2)))
 ```
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 ```{r}
-with(FactorialDataB1,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
-with(FactorialDataB2,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
+with(FactorialDataB1, estimateMeanSubsets(Outcome ~ FactorA, contrast = A1vsOthers))
+with(FactorialDataB2, estimateMeanSubsets(Outcome ~ FactorA, contrast = A1vsOthers))
 ```
 
 This code produces a difference plot using the confidence intervals for the mean subsets and the mean contrast.
 ```{r,Factorial-Data-SubsetsA}
-with(FactorialDataB1,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
-with(FactorialDataB2,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers))
+with(FactorialDataB1, plotMeanSubsets(Outcome ~ FactorA, contrast = A1vsOthers))
+with(FactorialDataB2, plotMeanSubsets(Outcome ~ FactorA, contrast = A1vsOthers))
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-with(FactorialDataB1,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
-with(FactorialDataB2,estimateMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
+with(FactorialDataB1, estimateMeanSubsets(Outcome ~ FactorA, contrast = A1vsOthers, conf.level = .99))
+with(FactorialDataB2, estimateMeanSubsets(Outcome ~ FactorA, contrast = A1vsOthers, conf.level = .99))
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r,Factorial-Data-SubsetsB}
-with(FactorialDataB1,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)))
-with(FactorialDataB2,plotMeanSubsets(Outcome~FactorA,contrast=A1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2)))
+with(FactorialDataB1, plotMeanSubsets(Outcome ~ FactorA, contrast = A1vsOthers, labels = c("Level1", "Others"), conf.level = .99, rope = c(-2, 2)))
+with(FactorialDataB2, plotMeanSubsets(Outcome ~ FactorA, contrast = A1vsOthers, labels = c("Level1", "Others"), conf.level = .99, rope = c(-2, 2)))
 ```
 
 #### Significance Test
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
-with(FactorialDataB1,testMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
-with(FactorialDataB2,testMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
+with(FactorialDataB1, testMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers))
+with(FactorialDataB2, testMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers))
 ```
 
 If desired, the contrast can be tested against other values.
 ```{r}
-with(FactorialDataB1,testMeanContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
-with(FactorialDataB2,testMeanContrast(Outcome~FactorA,contrast=A1vsOthers,mu=4))
+with(FactorialDataB1, testMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers, mu = 4))
+with(FactorialDataB2, testMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers, mu = 4))
 ```
 
 #### Standardized Effect Size
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}
-with(FactorialDataB1,estimateStandardizedMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
-with(FactorialDataB2,estimateStandardizedMeanContrast(Outcome~FactorA,contrast=A1vsOthers))
+with(FactorialDataB1, estimateStandardizedMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers))
+with(FactorialDataB2, estimateStandardizedMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers))
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-with(FactorialDataB1,estimateStandardizedMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
-with(FactorialDataB2,estimateStandardizedMeanContrast(Outcome~FactorA,contrast=A1vsOthers,conf.level=.99))
+with(FactorialDataB1, estimateStandardizedMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers, conf.level = .99))
+with(FactorialDataB2, estimateStandardizedMeanContrast(Outcome ~ FactorA, contrast = A1vsOthers, conf.level = .99))
 ```

@@ -3,12 +3,15 @@
 
 ### Descriptives
 
-.describePercentiles <- function(x, ...)
+.describePercentiles <- function(x, ...) {
   UseMethod(".describePercentiles")
+}
 
 .describePercentiles.default <- function(frame, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   results <- t(sapply(data, quantile))
   colnames(results) <- c("Min", "25%", "50%", "75%", "Max")
   return(results)
@@ -25,7 +28,9 @@
 
 describePercentiles <- function(..., main = NULL, digits = 3) {
   results <- .describePercentiles(...)
-  if (is.null(main)) {main <- "Percentiles for the Data"}
+  if (is.null(main)) {
+    main <- "Percentiles for the Data"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }

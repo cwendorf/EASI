@@ -3,8 +3,9 @@
 
 ### Confidence Intervals
 
-.estimateCorrelationDifference <- function(x, ...)
+.estimateCorrelationDifference <- function(x, ...) {
   UseMethod(".estimateCorrelationDifference")
+}
 
 .estimateCorrelationDifference.list <- function(CorrEst1, CorrEst2, ...) {
   corr1 <- .unformatFrame(CorrEst1[[1]])[1, 1]
@@ -23,18 +24,23 @@
 
 estimateCorrelationDifference <- function(..., main = NULL, digits = 3) {
   results <- .estimateCorrelationDifference(...)
-  if (is.null(main)) {main = "Confidence Interval for the Correlation Difference"}
+  if (is.null(main)) {
+    main <- "Confidence Interval for the Correlation Difference"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Confidence Interval Plots
 
-plotCorrelationDifference <- function(x, ...)
+plotCorrelationDifference <- function(x, ...) {
   UseMethod("plotCorrelationDifference")
+}
 
 plotCorrelationDifference.list <- function(CorrEst1, CorrEst2, add = FALSE, main = NULL, line = NULL, rope = NULL, ylab = "Correlation", xlab = "", values = TRUE, pos = 2, connect = FALSE, ylim = NULL, digits = 3, pch = 17, col = "black", offset = 0, intervals = TRUE, ...) {
   results <- estimateCorrelationDifference(CorrEst1, CorrEst2)
-  if (is.null(main)) {main <- "Confidence Interval for the \n Correlation Difference"}
+  if (is.null(main)) {
+    main <- "Confidence Interval for the \n Correlation Difference"
+  }
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, col = col, offset = offset, intervals = intervals)
 }

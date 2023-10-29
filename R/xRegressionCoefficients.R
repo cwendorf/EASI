@@ -3,8 +3,9 @@
 
 ### Confidence Intervals
 
-.estimateRegressionCoefficients <- function(x, ...)
+.estimateRegressionCoefficients <- function(x, ...) {
   UseMethod(".estimateRegressionCoefficients")
+}
 
 .estimateRegressionCoefficients.wss <- function(DescStats, CorrStats, y = NULL, conf.level = .95, ...) {
   if (!is.null(y)) {
@@ -12,7 +13,8 @@
     ri <- which(rn == deparse(substitute(y)))
     rn <- c(rn[-ri], rn[ri])
     DescStats <- DescStats[rn, ]
-    class(DescStats) <- "wss"}
+    class(DescStats) <- "wss"
+  }
   rn <- rownames(DescStats)
   CorrStats <- CorrStats[rn, rn]
   M <- DescStats[, "M"]
@@ -42,9 +44,10 @@
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
-    ci <- which(cn  ==  deparse(substitute(y)))
+    ci <- which(cn == deparse(substitute(y)))
     cn <- c(cn[-ci], cn[ci])
-    frame <- frame[, cn]}
+    frame <- frame[, cn]
+  }
   DescStats <- .describeMeans.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
@@ -54,15 +57,18 @@
 
 estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
   results <- .estimateRegressionCoefficients(...)
-  if (is.null(main)) {main <- "Confidence Intervals for the Regression Coefficients"}
+  if (is.null(main)) {
+    main <- "Confidence Intervals for the Regression Coefficients"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testRegressionCoefficients <- function(x, ...)
+.testRegressionCoefficients <- function(x, ...) {
   UseMethod(".testRegressionCoefficients")
+}
 
 .testRegressionCoefficients.wss <- function(DescStats, CorrStats, y = NULL, ...) {
   if (!is.null(y)) {
@@ -70,7 +76,8 @@ estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
     ri <- which(rn == deparse(substitute(y)))
     rn <- c(rn[-ri], rn[ri])
     DescStats <- DescStats[rn, ]
-    class(DescStats) <- "wss"}
+    class(DescStats) <- "wss"
+  }
   rn <- rownames(DescStats)
   CorrStats <- CorrStats[rn, rn]
   M <- DescStats[, "M"]
@@ -91,7 +98,7 @@ estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
   t <- b / SE
   p <- 2 * pt(abs(t), df, lower.tail = FALSE)
   results <- cbind(Est = b, SE = SE, t = t, p = p)
-  rownames(results)[1] = "(Intercept)"
+  rownames(results)[1] <- "(Intercept)"
   return(results)
 }
 
@@ -99,9 +106,10 @@ estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
-    ci <- which(cn  ==  deparse(substitute(y)))
+    ci <- which(cn == deparse(substitute(y)))
     cn <- c(cn[-ci], cn[ci])
-    frame <- frame[, cn]}
+    frame <- frame[, cn]
+  }
   DescStats <- .describeMeans.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
@@ -110,7 +118,9 @@ estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
 
 testRegressionCoefficients <- function(..., main = NULL, digits = 3) {
   results <- .testRegressionCoefficients(...)
-  if (is.null(main)) {main <- "Hypothesis Tests for the Regression Coefficients"}
+  if (is.null(main)) {
+    main <- "Hypothesis Tests for the Regression Coefficients"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
@@ -119,7 +129,9 @@ testRegressionCoefficients <- function(..., main = NULL, digits = 3) {
 
 plotRegressionCoefficients <- function(..., intercept = TRUE, main = NULL, digits = 3, ylab = "Regression Coefficient", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, pos = 2, connect = FALSE, ylim = NULL, add = FALSE, pch = 15, col = "black", offset = 0, intervals = TRUE) {
   results <- estimateRegressionCoefficients(..., conf.level = conf.level, main = main, digits = digits)
-  if (intercept == "FALSE") {results[[1]] <- tail(results[[1]], -1)}
+  if (intercept == "FALSE") {
+    results[[1]] <- tail(results[[1]], -1)
+  }
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 

@@ -3,8 +3,9 @@
 
 ### Descriptives
 
-.describeMeansOmnibus <- function(x, ...)
+.describeMeansOmnibus <- function(x, ...) {
   UseMethod(".describeMeansOmnibus")
+}
 
 .describeMeansOmnibus.wss <- function(DescStats, CorrStats, ...) {
   n <- DescStats[, "N"]
@@ -53,7 +54,9 @@
 
 .describeMeansOmnibus.default <- function(frame, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   results <- .describeMeansOmnibus.wss(DescStats, CorrStats)
@@ -68,7 +71,9 @@
 
 describeMeansOmnibus <- function(..., main = NULL, digits = 3) {
   results <- .describeMeansOmnibus(...)
-  if (is.null(main)) {main <- "Source Table for the Model"}
+  if (is.null(main)) {
+    main <- "Source Table for the Model"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
@@ -77,17 +82,20 @@ describeMeansOmnibus <- function(..., main = NULL, digits = 3) {
 
 .ciEta2 <- function(F, dff, dfe, etasq, conf.level) {
   delta.lower <- delta.upper <- numeric(length(etasq))
-  delta.lower <- try(.ncpF(F, dff, dfe, prob = (1+conf.level)/2), silent = TRUE)
-  delta.upper <- try(.ncpF(F, dff, dfe, prob = (1-conf.level)/2), silent = TRUE)
-  if (is.character(delta.lower)) {delta.lower <- 0}
+  delta.lower <- try(.ncpF(F, dff, dfe, prob = (1 + conf.level) / 2), silent = TRUE)
+  delta.upper <- try(.ncpF(F, dff, dfe, prob = (1 - conf.level) / 2), silent = TRUE)
+  if (is.character(delta.lower)) {
+    delta.lower <- 0
+  }
   etasq.lower <- delta.lower / (delta.lower + dff + dfe + 1)
   etasq.upper <- delta.upper / (delta.upper + dff + dfe + 1)
   results <- cbind(Est = etasq, LL = etasq.lower, UL = etasq.upper)
   results
 }
 
-.estimateMeansOmnibus <- function(x, ...)
+.estimateMeansOmnibus <- function(x, ...) {
   UseMethod(".estimateMeansOmnibus")
+}
 
 .estimateMeansOmnibus.wss <- function(DescStats, CorrStats, conf.level = .90, ...) {
   temptab <- .describeMeansOmnibus.wss(DescStats, CorrStats)
@@ -121,7 +129,9 @@ describeMeansOmnibus <- function(..., main = NULL, digits = 3) {
 
 .estimateMeansOmnibus.default <- function(frame, conf.level = .90, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   .estimateMeansOmnibus.wss(DescStats, CorrStats, conf.level)
@@ -134,15 +144,18 @@ describeMeansOmnibus <- function(..., main = NULL, digits = 3) {
 
 estimateMeansOmnibus <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeansOmnibus(...)
-  if (is.null(main)) {main <- "Proportion of Variance Accounted For by the Model"}
+  if (is.null(main)) {
+    main <- "Proportion of Variance Accounted For by the Model"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testMeansOmnibus <- function(x, ...)
+.testMeansOmnibus <- function(x, ...) {
   UseMethod(".testMeansOmnibus")
+}
 
 .testMeansOmnibus.wss <- function(DescStats, CorrStats, ...) {
   temptab <- .describeMeansOmnibus.wss(DescStats, CorrStats)
@@ -174,7 +187,9 @@ estimateMeansOmnibus <- function(..., main = NULL, digits = 3) {
 
 .testMeansOmnibus.default <- function(frame, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   .testMeansOmnibus.wss(DescStats, CorrStats)
@@ -187,7 +202,9 @@ estimateMeansOmnibus <- function(..., main = NULL, digits = 3) {
 
 testMeansOmnibus <- function(..., main = NULL, digits = 3) {
   results <- .testMeansOmnibus(...)
-  if (is.null(main)) {main <- "Hypothesis Test for the Model"}
+  if (is.null(main)) {
+    main <- "Hypothesis Test for the Model"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }

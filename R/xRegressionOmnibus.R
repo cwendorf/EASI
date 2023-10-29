@@ -3,8 +3,9 @@
 
 ### Descriptives
 
-.describeRegressionOmnibus <- function(x, ...)
+.describeRegressionOmnibus <- function(x, ...) {
   UseMethod(".describeRegressionOmnibus")
+}
 
 .describeRegressionOmnibus.wss <- function(DescStats, CorrStats, y = NULL, ...) {
   if (!is.null(y)) {
@@ -13,7 +14,8 @@
     rn <- c(rn[-ri], rn[ri])
     DescStats <- DescStats[rn, ]
     class(DescStats) <- "wss"
-    CorrStats <- CorrStats[rn, rn]}
+    CorrStats <- CorrStats[rn, rn]
+  }
   rn <- rownames(DescStats)
   rn <- head(rn, -1)
   PredCorr <- CorrStats[rn, rn]
@@ -41,8 +43,9 @@
   if (!is.null(y)) {
     cn <- colnames(frame)
     ci <- which(cn == deparse(substitute(y)))
-    cn <-  c(cn[-ci], cn[ci])
-    frame <- frame[, cn]}
+    cn <- c(cn[-ci], cn[ci])
+    frame <- frame[, cn]
+  }
   DescStats <- .describeMeans.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
@@ -51,7 +54,9 @@
 
 describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   results <- .describeRegressionOmnibus(...)
-  if (is.null(main)) {main <- "Source Table for the Regression Model"}
+  if (is.null(main)) {
+    main <- "Source Table for the Regression Model"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
@@ -62,15 +67,18 @@ describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   delta.lower <- delta.upper <- numeric(length(R2))
   delta.lower <- try(.ncpF(F, df1, df2, prob = (1 + conf.level) / 2), silent = TRUE)
   delta.upper <- try(.ncpF(F, df1, df2, prob = (1 - conf.level) / 2), silent = TRUE)
-  if (is.character(delta.lower)) {delta.lower <- 0}
+  if (is.character(delta.lower)) {
+    delta.lower <- 0
+  }
   R2.lower <- delta.lower / (delta.lower + df1 + df2 + 1)
   R2.upper <- delta.upper / (delta.upper + df1 + df2 + 1)
   results <- cbind(Est = R2, LL = R2.lower, UL = R2.upper)
   results
 }
 
-.estimateRegressionOmnibus <- function(x, ...) 
+.estimateRegressionOmnibus <- function(x, ...) {
   UseMethod(".estimateRegressionOmnibus")
+}
 
 .estimateRegressionOmnibus.wss <- function(DescStats, CorrStats, y = NULL, conf.level = .90, ...) {
   if (!is.null(y)) {
@@ -79,7 +87,8 @@ describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
     rn <- c(rn[-ri], rn[ri])
     DescStats <- DescStats[rn, ]
     class(DescStats) <- "wss"
-    CorrStats <- CorrStats[rn, rn]}
+    CorrStats <- CorrStats[rn, rn]
+  }
   temptab <- .describeRegressionOmnibus.wss(DescStats, CorrStats)
   df1 <- temptab["Model", "df"]
   df2 <- temptab["Error", "df"]
@@ -94,9 +103,10 @@ describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
-    ci <- which(cn  ==  deparse(substitute(y)))
-    cn <-  c(cn[-ci], cn[ci])
-    frame <- frame[, cn]}
+    ci <- which(cn == deparse(substitute(y)))
+    cn <- c(cn[-ci], cn[ci])
+    frame <- frame[, cn]
+  }
   DescStats <- .describeMeans.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
@@ -105,15 +115,18 @@ describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
 
 estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   results <- .estimateRegressionOmnibus(...)
-  if (is.null(main)) {main <- "Proportion of Variance Accounted For by the Regression Model"}
+  if (is.null(main)) {
+    main <- "Proportion of Variance Accounted For by the Regression Model"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testRegressionOmnibus <- function(x, ...)
+.testRegressionOmnibus <- function(x, ...) {
   UseMethod(".testRegressionOmnibus")
+}
 
 .testRegressionOmnibus.wss <- function(DescStats, CorrStats, y = NULL, ...) {
   if (!is.null(y)) {
@@ -122,7 +135,8 @@ estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
     rn <- c(rn[-ri], rn[ri])
     DescStats <- DescStats[rn, ]
     class(DescStats) <- "wss"
-    CorrStats <- CorrStats[rn, rn]}
+    CorrStats <- CorrStats[rn, rn]
+  }
   temptab <- .describeRegressionOmnibus.wss(DescStats, CorrStats)
   MSf <- temptab["Model", "MS"]
   MSe <- temptab["Error", "MS"]
@@ -140,9 +154,10 @@ estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
-    ci <- which(cn  ==  deparse(substitute(y)))
-    cn <-  c(cn[-ci], cn[ci])
-    frame <- frame[, cn]}
+    ci <- which(cn == deparse(substitute(y)))
+    cn <- c(cn[-ci], cn[ci])
+    frame <- frame[, cn]
+  }
   DescStats <- .describeMeans.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
@@ -151,7 +166,9 @@ estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
 
 testRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   results <- .testRegressionOmnibus(...)
-  if (is.null(main)) {main <- "Hypothesis Test for the Regression Model"}
+  if (is.null(main)) {
+    main <- "Hypothesis Test for the Regression Model"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }

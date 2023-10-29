@@ -31,15 +31,21 @@
 .deList <- function(results) {
   out <- results[[1]]
   colnames(out)[1] <- "Est"
-  if (length(results)>1) {
+  if (length(results) > 1) {
     for (i in 2:length(results)) {
       colnames(results[[i]])[1] <- "Est"
-      out <- rbind(out, results[[i]])}}
+      out <- rbind(out, results[[i]])
+    }
+  }
   return(out)
 }
 
 .collapseList <- function(results, main = NULL) {
-  if (is.null(main)) {main <- names(results)[2]} else {main <- main}
+  if (is.null(main)) {
+    main <- names(results)[2]
+  } else {
+    main <- main
+  }
   out <- list(.deList(results))
   names(out) <- main
   return(out)
@@ -49,5 +55,5 @@
   main <- names(results)
   out <- .unformatList(results)
   out <- lapply(out, t)
-  .formatList(out, main=main)
+  .formatList(out, main = main)
 }

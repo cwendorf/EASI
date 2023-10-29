@@ -3,12 +3,13 @@
 
 ### Frame Construction
 
-frame <- function(..., type="data") {
+frame <- function(..., type = "data") {
   if (type == "bss" || type == "wss") {
     out <- rbind(...)
-    class(out) <- type}
-  else if (type == "data") {
-    out <- data.frame(...)}
+    class(out) <- type
+  } else if (type == "data") {
+    out <- data.frame(...)
+  }
   out
 }
 
@@ -20,7 +21,7 @@ choose <- function(x, ...) {
 
 choose.bss <- choose.wss <- function(DescStats, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  results <- DescStats[chosen,]
+  results <- DescStats[chosen, ]
   class(results) <- class(DescStats)
   return(results)
 }
@@ -32,7 +33,7 @@ choose.default <- function(frame, ...) {
 
 choose.formula <- function(formula, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  update <- paste("~ factor(.,", paste(deparse(chosen), collapse=","), ")")
+  update <- paste("~ factor(.,", paste(deparse(chosen), collapse = ","), ")")
   update(formula, update)
 }
 
@@ -55,13 +56,17 @@ choose.formula <- function(formula, ...) {
 ### Dot Pipes
 
 insert_dot <- function(expr) {
-  if (is.symbol(expr)) {expr <- as.call(c(expr, quote(`.`)))}
-  else if (length(expr) == 1) {expr <- as.call(c(expr[[1]], quote(`.`)))}
-  else if (all(sapply(expr[-1], `!=`, quote(`.`)))) {expr <- as.call(c(expr[[1]], quote(`.`), as.list(expr[-1])))}
+  if (is.symbol(expr)) {
+    expr <- as.call(c(expr, quote(`.`)))
+  } else if (length(expr) == 1) {
+    expr <- as.call(c(expr[[1]], quote(`.`)))
+  } else if (all(sapply(expr[-1], `!=`, quote(`.`)))) {
+    expr <- as.call(c(expr[[1]], quote(`.`), as.list(expr[-1])))
+  }
   return(expr)
 }
 
-'%.>%' <- forwardPipe <- function(lhs, rhs) {
+"%.>%" <- forwardPipe <- function(lhs, rhs) {
   . <- eval(lhs)
   rhs <- substitute(rhs)
   rhs <- insert_dot(rhs)

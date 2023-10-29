@@ -3,8 +3,9 @@
 
 ### Confidence Intervals
 
-.estimateStandardizedMeanDifference <- function(x, ...)
+.estimateStandardizedMeanDifference <- function(x, ...) {
   UseMethod(".estimateStandardizedMeanDifference")
+}
 
 .estimateStandardizedMeanDifference.wss <- function(DescStats, CorrStats, conf.level = .95, labels = NULL, ...) {
   CompStats <- DescStats[1:2, ]
@@ -25,7 +26,11 @@
   UL <- Est + z * SE
   results <- as.data.frame(t(c(Est, SE, LL, UL)))
   colnames(results) <- c("d", "SE", "LL", "UL")
-  if (is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
+  if (is.null(labels)) {
+    rownames(results) <- c("Comparison")
+  } else {
+    rownames(results) <- labels
+  }
   return(results)
 }
 
@@ -44,13 +49,19 @@
   UL <- Est + z * SE
   results <- as.data.frame(t(c(Est, SE, LL, UL)))
   colnames(results) <- c("d", "SE", "LL", "UL")
-  if (is.null(labels)) {rownames(results) <- c("Comparison")} else {rownames(results) <- labels}
+  if (is.null(labels)) {
+    rownames(results) <- c("Comparison")
+  } else {
+    rownames(results) <- labels
+  }
   return(results)
 }
 
 .estimateStandardizedMeanDifference.default <- function(frame, conf.level = .95, labels = NULL, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   CompStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   .estimateStandardizedMeanDifference.wss(CompStats, CorrStats, conf.level = conf.level, labels = labels)
@@ -63,7 +74,9 @@
 
 estimateStandardizedMeanDifference <- function(..., main = NULL, digits = 3) {
   results <- .estimateStandardizedMeanDifference(...)
-  if (is.null(main)) {main <-"Confidence Interval for the Standardized Mean Difference"}
+  if (is.null(main)) {
+    main <- "Confidence Interval for the Standardized Mean Difference"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }

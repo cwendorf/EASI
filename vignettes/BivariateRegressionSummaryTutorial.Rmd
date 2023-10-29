@@ -10,15 +10,16 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-#suppress the warnings and other messages from showing in the knitted file.
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+# suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -28,7 +29,7 @@ This page analyzes bivariate regression models using summary statistics input.
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -37,16 +38,16 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the variable summaries and creates a summary table.
 ```{r}
-Predictor <- c(N=4,M=2.000,SD=2.449)
-Criterion <- c(N=4,M=7.000,SD=2.449)
-BivariateSummary <- rbind(Predictor,Criterion)
+Predictor <- c(N = 4, M = 2.000, SD = 2.449)
+Criterion <- c(N = 4, M = 7.000, SD = 2.449)
+BivariateSummary <- rbind(Predictor, Criterion)
 class(BivariateSummary) <- "wss"
 ```
 
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 ```{r}
-BivariateCorr <- declareCorrelations("Predictor","Criterion")
-BivariateCorr["Predictor","Criterion"] <- .056
+BivariateCorr <- declareCorrelations("Predictor", "Criterion")
+BivariateCorr["Predictor", "Criterion"] <- .056
 BivariateCorr <- fillCorrelations(BivariateCorr)
 ```
 
@@ -58,24 +59,24 @@ This section produces analyses of the overall regression model.
 
 This code will produce the confidence interval for R Squared.
 ```{r}
-estimateRegressionOmnibus(BivariateSummary,BivariateCorr)
+estimateRegressionOmnibus(BivariateSummary, BivariateCorr)
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionOmnibus(BivariateSummary,BivariateCorr,conf.level=.95)
+estimateRegressionOmnibus(BivariateSummary, BivariateCorr, conf.level = .95)
 ```
 
 #### Significance Test
 
 This code will produce a source table associated with the regression model.
 ```{r}
-describeRegressionOmnibus(BivariateSummary,BivariateCorr)
+describeRegressionOmnibus(BivariateSummary, BivariateCorr)
 ```
 
 This code will calculate NHST for the regression model.
 ```{r}
-testRegressionOmnibus(BivariateSummary,BivariateCorr)
+testRegressionOmnibus(BivariateSummary, BivariateCorr)
 ```
 
 ### Analyses of the Regression Coefficients
@@ -86,51 +87,51 @@ This section analyses the regression coefficients obtained from the overall mode
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
-estimateRegressionCoefficients(BivariateSummary,BivariateCorr)
+estimateRegressionCoefficients(BivariateSummary, BivariateCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 ```{r,Bivariate-Summary-CoefficientsA}
-plotRegressionCoefficients(BivariateSummary,BivariateCorr)
+plotRegressionCoefficients(BivariateSummary, BivariateCorr)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99)
+estimateRegressionCoefficients(BivariateSummary, BivariateCorr, conf.level = .99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level. A comparison line and region of practical equivalence can also be added.
 ```{r,Bivariate-Summary-CoefficientsB}
-plotRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
+plotRegressionCoefficients(BivariateSummary, BivariateCorr, conf.level = .99, line = 0, rope = c(-2, 2), intercept = FALSE)
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
-testRegressionCoefficients(BivariateSummary,BivariateCorr)
+testRegressionCoefficients(BivariateSummary, BivariateCorr)
 ```
 
 #### Standardized Coefficient
 
 This code will provide a table of confidence intervals for the standardized coefficient.
 ```{r}
-estimateStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr)
+estimateStandardizedRegressionCoefficients(BivariateSummary, BivariateCorr)
 ```
 
 This code will produce a graph of the confidence intervals for the standardized coefficient.
 ```{r,Bivariate-Summary-StandardizedA}
-plotStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr)
+plotStandardizedRegressionCoefficients(BivariateSummary, BivariateCorr)
 ```
 
 As in other places, the code defaults to a 95% confidence interval. This can be changed if desired.
 ```{r}
-estimateStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99)
+estimateStandardizedRegressionCoefficients(BivariateSummary, BivariateCorr, conf.level = .99)
 ```
 
 For the graph, it is possible to change the confidence level.
 ```{r,Bivariate-Summary-StandardizedB}
-plotStandardizedRegressionCoefficients(BivariateSummary,BivariateCorr,conf.level=.99)
+plotStandardizedRegressionCoefficients(BivariateSummary, BivariateCorr, conf.level = .99)
 ```
 
 ### Analyses of Regression Values
@@ -141,22 +142,22 @@ This section provides analyses of individual predicted values.
 
 This code produces a plot of the regression line (with confidence and prediction intervals suppressed).
 ```{r,Bivariate-Summary-LineA}
-plotRegression(BivariateSummary,BivariateCorr,interval="none")
+plotRegression(BivariateSummary, BivariateCorr, interval = "none")
 ```
 
 #### Confidence and Prediction Intervals
 
 This code provides estimates confidence and prediction limits for a specific value of the Predictor (value=4).
 ```{r}
-estimateRegression(BivariateSummary,BivariateCorr,value=4)
+estimateRegression(BivariateSummary, BivariateCorr, value = 4)
 ```
 
 This code plots the confidence interval associated with the regression line and labels the interval for the specific value of the Predictor.
 ```{r,Bivariate-Summary-ConfidenceA}
-plotRegression(BivariateSummary,BivariateCorr,value=4,interval="confidence")
+plotRegression(BivariateSummary, BivariateCorr, value = 4, interval = "confidence")
 ```
 
 This code plots the prediction interval associated with the regression line and labels the interval for the specific value of the Predictor.
 ```{r,Bivariate-Summary-ConfidenceB}
-plotRegression(BivariateSummary,BivariateCorr,value=4,interval="prediction")
+plotRegression(BivariateSummary, BivariateCorr, value = 4, interval = "prediction")
 ```

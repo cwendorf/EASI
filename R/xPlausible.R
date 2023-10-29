@@ -9,20 +9,22 @@
   return(out)
 }
 
-plotPlausible <- function(x, ...)
+plotPlausible <- function(x, ...) {
   UseMethod("plotPlausible")
+}
 
 plotPlausible.default <- function(x, contrast = NULL, ...) {
   howmany <- nrow(.estimateMeans(x))
   if (!is.null(contrast)) {
     z <- estimateMeanSubsets(x, contrast = contrast, conf.level = .95)
-    plotPlausible(z, ...)}
-  else if (howmany == 2) {
+    plotPlausible(z, ...)
+  } else if (howmany == 2) {
     z <- estimateMeanComparison(x, conf.level = .95)
-    plotPlausible(z, ...)}
-  else {
+    plotPlausible(z, ...)
+  } else {
     z <- estimateMeans(x, ...)
-    plotPlausible(z, ...)}
+    plotPlausible(z, ...)
+  }
   invisible(eval(x))
 }
 
@@ -30,24 +32,34 @@ plotPlausible.list <- function(results, conf.level = .95, add = FALSE, main = NU
   out <- results
   if (length(results) == 1) {
     graph <- .unformatFrame(.deList(results))
-    results[[1]] <- results[[1]][, c(1, (ncol(results[[1]])-1):ncol(results[[1]]))] 
+    results[[1]] <- results[[1]][, c(1, (ncol(results[[1]]) - 1):ncol(results[[1]]))]
     if (!add) {
-      if (is.null(main)) {main <- "Plausibility Plot"}
-      .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, pch = pch)}
+      if (is.null(main)) {
+        main <- "Plausibility Plot"
+      }
+      .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, pch = pch)
+    }
     z <- apply(graph, 1, FUN = .plausible)
-    if (length(col) > nrow(graph)) {col <- col[1:nrow(graph)]}
+    if (length(col) > nrow(graph)) {
+      col <- col[1:nrow(graph)]
+    }
     invisible(mapply(.plotCurve, z, loc = 1:nrow(graph), type = type, offset = offset, scale = 1, col = col))
   }
   if (length(results) == 2 && nrow(results[[1]] != nrow(results[[2]]))) {
     results <- .collapseList(results)
     graph <- .unformatFrame(.deList(results))[, c(1, 2)]
     if (!add) {
-      if (is.null(main)) {main = "Plausibility Plot"}
-      results[[1]] <- results[[1]][, c(1, (ncol(results[[1]])-1):ncol(results[[1]]))]
-      .plotComp(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, slab = slab, pch = pch)}
+      if (is.null(main)) {
+        main <- "Plausibility Plot"
+      }
+      results[[1]] <- results[[1]][, c(1, (ncol(results[[1]]) - 1):ncol(results[[1]]))]
+      .plotComp(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, slab = slab, pch = pch)
+    }
     graph[3, 1] <- graph[3, 1] + graph[1, 1]
     z <- apply(graph, 1, FUN = .plausible)
-    if (length(col) > nrow(graph)) {col <- col[1:nrow(graph)]}
+    if (length(col) > nrow(graph)) {
+      col <- col[1:nrow(graph)]
+    }
     invisible(mapply(.plotCurve, z, loc = 1:nrow(graph), type = type, offset = offset, scale = 1, col = col))
   }
   invisible(out)

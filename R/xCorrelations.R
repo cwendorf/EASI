@@ -3,8 +3,9 @@
 
 ### Declare and Fill Blanks in Matrices
 
-declareCorrelations <- function(x, ...)
+declareCorrelations <- function(x, ...) {
   UseMethod("declareCorrelations")
+}
 
 declareCorrelations.default <- function(...) {
   clist <- c(...)
@@ -15,8 +16,9 @@ declareCorrelations.default <- function(...) {
   return(results)
 }
 
-fillCorrelations <- function(x, ...)
+fillCorrelations <- function(x, ...) {
   UseMethod("fillCorrelations")
+}
 
 fillCorrelations.default <- function(mat) {
   nr <- nrow(mat)
@@ -26,16 +28,17 @@ fillCorrelations.default <- function(mat) {
   results <- matrix(data = NA, nr, nc)
   rownames(results) <- rn
   colnames(results) <- cn
-  for( i in 1:nr ) {
-  for( j in 1:nc ) {
-	if(!is.na(mat[rn[i], cn[j]])) {
-		if(mat[rn[i], cn[j]] == results[cn[j], rn[i]] || is.na(results[cn[j], rn[i]])){
-			results[cn[j], rn[i]] <- mat[rn[i], cn[j]]
-			results[rn[i], cn[j]] <- mat[rn[i], cn[j]]
-		}
-		else {return("error")}
-	}
-  }
+  for (i in 1:nr) {
+    for (j in 1:nc) {
+      if (!is.na(mat[rn[i], cn[j]])) {
+        if (mat[rn[i], cn[j]] == results[cn[j], rn[i]] || is.na(results[cn[j], rn[i]])) {
+          results[cn[j], rn[i]] <- mat[rn[i], cn[j]]
+          results[rn[i], cn[j]] <- mat[rn[i], cn[j]]
+        } else {
+          return("error")
+        }
+      }
+    }
   }
   diag(results) <- 1.000
   return(results)
@@ -43,8 +46,9 @@ fillCorrelations.default <- function(mat) {
 
 ### Descriptives
 
-.describeCorrelations <- function(x, ...)
+.describeCorrelations <- function(x, ...) {
   UseMethod(".describeCorrelations")
+}
 
 .describeCorrelations.default <- function(frame, ...) {
   data <- data.frame(frame)
@@ -54,7 +58,9 @@ fillCorrelations.default <- function(mat) {
 
 describeCorrelations <- function(..., main = NULL, digits = 3) {
   results <- .describeCorrelations(...)
-   if(is.null(main)) {main <- "Correlation Matrix for the Variables"}
+  if (is.null(main)) {
+    main <- "Correlation Matrix for the Variables"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
@@ -65,8 +71,9 @@ describeCorrelations <- function(..., main = NULL, digits = 3) {
   return(covstats)
 }
 
-.describeCovariances <- function(x, ...)
+.describeCovariances <- function(x, ...) {
   UseMethod(".describeCovariances")
+}
 
 .describeCovariances.wss <- function(DescStats, CorrStats, ...) {
   SD <- DescStats[, "SD"]
@@ -82,15 +89,18 @@ describeCorrelations <- function(..., main = NULL, digits = 3) {
 
 describeCovariances <- function(..., main = NULL, digits = 3) {
   results <- .describeCovariances(...)
-  if(is.null(main)) {main <- "Covariance Matrix for the Variables"}
+  if (is.null(main)) {
+    main <- "Covariance Matrix for the Variables"
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Confidence Intervals
 
-.estimateCorrelations <- function(x, ...)
+.estimateCorrelations <- function(x, ...) {
   UseMethod(".estimateCorrelations")
+}
 
 .estimateCorrelations.wss <- function(DescStats, CorrStats, conf.level = .95, ...) {
   N <- DescStats[, "N"]
@@ -100,26 +110,30 @@ describeCovariances <- function(..., main = NULL, digits = 3) {
   results <- data.frame(matrix(ncol = 4, nrow = ncomp))
   colnames(results) <- c("R", "SE", "LL", "UL")
   comp <- 1
-  for( i in 1:(nr-1) ){
-  for( j in (i+1):nr ){
-    rownames(results)[comp] <- paste(rn[i], "&", rn[j])
-    n <- min(N[rn[j]], N[rn[i]])
-    R <- CorrStats[rn[i], rn[j]]
-    z <- qnorm((1 + conf.level) / 2)
-    SE <- sqrt(1 / ((n - 3)))
-    zR <- log((1 + R) / (1 - R)) / 2
-    LL0 <- zR - z * SE
-    UL0 <- zR + z * SE
-    LL <- (exp(2 * LL0) - 1) / (exp(2 * LL0) + 1)
-    UL <- (exp(2 * UL0) - 1) / (exp(2 * UL0) + 1)
-    results[comp, ] <- c(R, SE, LL, UL)
-    comp <- comp + 1}}
+  for (i in 1:(nr - 1)) {
+    for (j in (i + 1):nr) {
+      rownames(results)[comp] <- paste(rn[i], "&", rn[j])
+      n <- min(N[rn[j]], N[rn[i]])
+      R <- CorrStats[rn[i], rn[j]]
+      z <- qnorm((1 + conf.level) / 2)
+      SE <- sqrt(1 / ((n - 3)))
+      zR <- log((1 + R) / (1 - R)) / 2
+      LL0 <- zR - z * SE
+      UL0 <- zR + z * SE
+      LL <- (exp(2 * LL0) - 1) / (exp(2 * LL0) + 1)
+      UL <- (exp(2 * UL0) - 1) / (exp(2 * UL0) + 1)
+      results[comp, ] <- c(R, SE, LL, UL)
+      comp <- comp + 1
+    }
+  }
   return(results)
 }
 
 .estimateCorrelations.default <- function(frame, conf.level = .95, ...) {
   data <- data.frame(frame)
-  if(ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   .estimateCorrelations.wss(DescStats, CorrStats, conf.level = conf.level)
@@ -127,17 +141,24 @@ describeCovariances <- function(..., main = NULL, digits = 3) {
 
 estimateCorrelations <- function(..., main = NULL, digits = 3) {
   results <- .estimateCorrelations(...)
-  if(is.null(main)) {if(nrow(results) > 1) {main <- "Confidence Intervals for the Correlations"} else {main <- "Confidence Interval for the Correlation"}}  
+  if (is.null(main)) {
+    if (nrow(results) > 1) {
+      main <- "Confidence Intervals for the Correlations"
+    } else {
+      main <- "Confidence Interval for the Correlation"
+    }
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
 
 ### Null Hypothesis Significance Tests
 
-.testCorrelations <- function(x, ...)
+.testCorrelations <- function(x, ...) {
   UseMethod(".testCorrelations")
+}
 
-.testCorrelations.wss <- function(DescStats, CorrStats, conf.level = .95, ...){
+.testCorrelations.wss <- function(DescStats, CorrStats, conf.level = .95, ...) {
   N <- DescStats[, "N"]
   rn <- rownames(DescStats)
   nr <- nrow(DescStats)
@@ -145,23 +166,27 @@ estimateCorrelations <- function(..., main = NULL, digits = 3) {
   results <- data.frame(matrix(ncol = 5, nrow = ncomp))
   colnames(results) <- c("R", "SE", "df", "t", "p")
   comp <- 1
-  for ( i in 1:(nr-1) ){
-  for ( j in (i+1):nr ){
-    rownames(results)[comp] <- paste(rn[i], "&", rn[j])
-    n <- min(N[rn[j]], N[rn[i]])
-    R <- CorrStats[rn[i], rn[j]]
-    df <- n - 2
-    SE <- sqrt((1 - R^2) / (df))
-    t <- R / SE
-    p <- 2 * (1 - pt(abs(t), df))
-    results[comp, ] <- c(R, SE, df, t, p)
-    comp <- comp + 1}}
+  for (i in 1:(nr - 1)) {
+    for (j in (i + 1):nr) {
+      rownames(results)[comp] <- paste(rn[i], "&", rn[j])
+      n <- min(N[rn[j]], N[rn[i]])
+      R <- CorrStats[rn[i], rn[j]]
+      df <- n - 2
+      SE <- sqrt((1 - R^2) / (df))
+      t <- R / SE
+      p <- 2 * (1 - pt(abs(t), df))
+      results[comp, ] <- c(R, SE, df, t, p)
+      comp <- comp + 1
+    }
+  }
   return(results)
 }
 
-.testCorrelations.default <- function(frame, conf.level = .95, ...){
+.testCorrelations.default <- function(frame, conf.level = .95, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {colnames(data) <- deparse(substitute(frame))}
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
   .testCorrelations.wss(DescStats, CorrStats, conf.level = conf.level)
@@ -169,7 +194,13 @@ estimateCorrelations <- function(..., main = NULL, digits = 3) {
 
 testCorrelations <- function(..., main = NULL, digits = 3) {
   results <- .testCorrelations(...)
-  if (is.null(main)) {if(nrow(results) > 1) {main <- "Hypothesis Tests for the Correlations"} else {main <- "Hypothesis Test for the Correlation"}}  
+  if (is.null(main)) {
+    if (nrow(results) > 1) {
+      main <- "Hypothesis Tests for the Correlations"
+    } else {
+      main <- "Hypothesis Test for the Correlation"
+    }
+  }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
 }
