@@ -4,6 +4,7 @@
 
 - Added grammar for building and handling datasets
 - Rebuilt boxplots, histograms, and data plots
+- Added mean and standard deviation plots
 - Enhanced support for exposition operators
 - Simplified regression and ANOVA options
 

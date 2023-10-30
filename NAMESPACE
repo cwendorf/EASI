@@ -34,6 +34,13 @@ S3method(plotDensity,formula)
 export(plotDensity)
 export(addDensity)
 
+### xDeviations
+
+S3method(plotDeviations,default)
+S3method(plotDeviations,formula)
+export(plotDeviations)
+export(addDeviations)
+
 ### xBoxes
 
 S3method(.describeBoxes,default)
@@ -70,6 +77,7 @@ export(describePercentiles)
 export(plotViolins)
 export(plotBeans)
 export(plotRainclouds)
+export(plotDescriptives)
 
 ### xIntervals
 

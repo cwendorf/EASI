@@ -21,3 +21,9 @@ plotRainclouds <- function(..., main = NULL, col = "black") {
   plotDensity(..., add = TRUE, offset = .1, col = col)
   plotData(..., add = TRUE, method = "jitter", offset = -.15, col = col)
 }
+
+plotDescriptives <- function(..., main = NULL, col = "black") {
+  if (is.null(main)) main <- "Frequencies and Descriptives Plot"
+  plotFrequencies(..., main = main, col = col)
+  plotDeviation(..., add = TRUE, offset = 0, col = col)
+}
