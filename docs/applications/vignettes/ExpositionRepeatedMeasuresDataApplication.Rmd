@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page explains the use of the exposition operator in analyzing defined data 
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,16 +37,18 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 Simulate some data, placing it directly into a data frame (as opposed to declaring the variables separately).
 ```{r}
-RepeatedData <- data.frame(Outcome1=round(rnorm(50,mean=7,sd=2),0),
-                          Outcome2=round(rnorm(50,mean=11,sd=4),0),
-                          Outcome3=round(rnorm(50,mean=12,sd=4),0))
+RepeatedData <- data.frame(
+  Outcome1 = round(rnorm(50, mean = 7, sd = 2), 0),
+  Outcome2 = round(rnorm(50, mean = 11, sd = 4), 0),
+  Outcome3 = round(rnorm(50, mean = 12, sd = 4), 0)
+)
 ```
 
 ### Using an Exposition Operator
 
 When larger or predefined data sets are used, it is necessary to identify the data and the selected variables. In base R, this is accomplished using a `with` command.
 ```{r}
-with(RepeatedData,estimateMeans(RepeatedData))
+with(RepeatedData, estimateMeans(RepeatedData))
 ```
 
 In EASI, this is accomplished more efficiently and flexibly by using an exposition operator (such as the included `%$>%`). Here, the data is identified first, then all of the variables are piped to the desired analyses.
@@ -58,7 +61,7 @@ RepeatedData %$>% (RepeatedData) |> plotMeans()
 
 This approach is particularly useful in cases where there is a desire to focus on specific variables. In this case, two specific variables are chosen for the sake of making a comparison.
 ```{r,Exposition-Repeated-Comparison}
-RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateMeanComparison()
-RepeatedData %$>% cbind(Outcome1,Outcome2) |> plotMeanComparison()
-RepeatedData %$>% cbind(Outcome1,Outcome2) |> estimateStandardizedMeanDifference()
+RepeatedData %$>% cbind(Outcome1, Outcome2) |> estimateMeanComparison()
+RepeatedData %$>% cbind(Outcome1, Outcome2) |> plotMeanComparison()
+RepeatedData %$>% cbind(Outcome1, Outcome2) |> estimateStandardizedMeanDifference()
 ```

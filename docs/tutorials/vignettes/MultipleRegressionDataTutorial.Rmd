@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes multiple regression models using raw data input.
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -38,10 +39,10 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
-Predictor1 <- c(0,0,3,5)
-Predictor2 <- c(4,7,4,9)
-Criterion <- c(9,6,4,9)
-RegressionData <- data.frame(Predictor1,Predictor2,Criterion)
+Predictor1 <- c(0, 0, 3, 5)
+Predictor2 <- c(4, 7, 4, 9)
+Criterion <- c(9, 6, 4, 9)
+RegressionData <- data.frame(Predictor1, Predictor2, Criterion)
 ```
 
 #### Descriptive Statistics
@@ -64,7 +65,7 @@ estimateRegressionOmnibus(RegressionData)
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionOmnibus(RegressionData,conf.level=.95)
+estimateRegressionOmnibus(RegressionData, conf.level = .95)
 ```
 
 #### Significance Test
@@ -97,12 +98,12 @@ plotRegressionCoefficients(RegressionData)
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionCoefficients(RegressionData,conf.level=.99)
+estimateRegressionCoefficients(RegressionData, conf.level = .99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 ```{r,Multiple-Data-CoefficientsB}
-plotRegressionCoefficients(RegressionData,conf.level=.99,line=0,intercept=FALSE)
+plotRegressionCoefficients(RegressionData, conf.level = .99, line = 0, intercept = FALSE)
 ```
 
 #### Significance Tests
@@ -126,10 +127,10 @@ plotStandardizedRegressionCoefficients(RegressionData)
 
 As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateStandardizedRegressionCoefficients(RegressionData,conf.level=.99)
+estimateStandardizedRegressionCoefficients(RegressionData, conf.level = .99)
 ```
 
 For the graph, it is possible to change the confidence level.
 ```{r,Multiple-Data-StandardizedB}
-plotStandardizedRegressionCoefficients(RegressionData,conf.level=.99)
+plotStandardizedRegressionCoefficients(RegressionData, conf.level = .99)
 ```

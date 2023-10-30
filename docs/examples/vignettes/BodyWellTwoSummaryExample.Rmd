@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page compares a correlation between two variables in two independent sample
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,30 +37,30 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the variable summaries and creates a summary table for the female participants.
 ```{r}
-BodySatisfactionL1 <- c(N=59,M=3.434,SD=0.668)
-WellbeingL1 <- c(N=59,M=4.934,SD=1.250)
-BodyWellTwoSummaryL1 <- rbind(BodySatisfactionL1,WellbeingL1)
+BodySatisfactionL1 <- c(N = 59, M = 3.434, SD = 0.668)
+WellbeingL1 <- c(N = 59, M = 4.934, SD = 1.250)
+BodyWellTwoSummaryL1 <- rbind(BodySatisfactionL1, WellbeingL1)
 class(BodyWellTwoSummaryL1) <- "wss"
 ```
 
 This code creates a correlation matrix and enters single correlation for the female participants.
 ```{r}
-BodyWellTwoCorrL1 <- declareCorrelations("BodySatisfactionL1","WellbeingL1")
-BodyWellTwoCorrL1["BodySatisfactionL1","WellbeingL1"] <- .415
+BodyWellTwoCorrL1 <- declareCorrelations("BodySatisfactionL1", "WellbeingL1")
+BodyWellTwoCorrL1["BodySatisfactionL1", "WellbeingL1"] <- .415
 ```
 
 And repeat the process to create the second subset (for the male participants).
 ```{r}
-BodySatisfactionL2 <- c(N=47,M=3.819,SD=0.587)
-WellbeingL2 <- c(N=47,M=5.206,SD=1.033)
-BodyWellTwoSummaryL2 <- rbind(BodySatisfactionL2,WellbeingL2)
+BodySatisfactionL2 <- c(N = 47, M = 3.819, SD = 0.587)
+WellbeingL2 <- c(N = 47, M = 5.206, SD = 1.033)
+BodyWellTwoSummaryL2 <- rbind(BodySatisfactionL2, WellbeingL2)
 class(BodyWellTwoSummaryL2) <- "wss"
 ```
 
 And for the correlation matrix of the second subset (for the male participants).
 ```{r}
-BodyWellTwoCorrL2 <- declareCorrelations("BodySatisfactionL2","WellbeingL2")
-BodyWellTwoCorrL2["BodySatisfactionL2","WellbeingL2"] <- .528
+BodyWellTwoCorrL2 <- declareCorrelations("BodySatisfactionL2", "WellbeingL2")
+BodyWellTwoCorrL2["BodySatisfactionL2", "WellbeingL2"] <- .528
 ```
 
 ### Analyses of a Correlation Comparison
@@ -68,12 +69,12 @@ The main question is whether the correlation between Body Satisfaction and Wellb
 
 First it is necessary to estimate the confidence intervals for each of the correlations.
 ```{r}
-CorrEstimateL1 <- estimateCorrelations(BodyWellTwoSummaryL1,BodyWellTwoCorrL1)
-CorrEstimateL2 <- estimateCorrelations(BodyWellTwoSummaryL2,BodyWellTwoCorrL2)
+CorrEstimateL1 <- estimateCorrelations(BodyWellTwoSummaryL1, BodyWellTwoCorrL1)
+CorrEstimateL2 <- estimateCorrelations(BodyWellTwoSummaryL2, BodyWellTwoCorrL2)
 ```
 
 Then we can estimate the correlations and the difference in the correlations.
 ```{r,BodyWellTwo-Summary-Comparison}
-estimateCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"))
-plotCorrelationComparison(CorrEstimateL1,CorrEstimateL2,main="Correlations for the Gender Groups",labels=c("Females","Males"),ylim=c(-1,1),values=FALSE)
+estimateCorrelationComparison(CorrEstimateL1, CorrEstimateL2, main = "Correlations for the Gender Groups", labels = c("Females", "Males"))
+plotCorrelationComparison(CorrEstimateL1, CorrEstimateL2, main = "Correlations for the Gender Groups", labels = c("Females", "Males"), ylim = c(-1, 1), values = FALSE)
 ```

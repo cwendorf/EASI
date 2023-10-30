@@ -6,9 +6,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Data Management
 
-Level1 <- c(N=4,M=2.000,SD=2.449)
-Level2 <- c(N=4,M=6.000,SD=2.449)
-IndependentSummary <- rbind(Level1,Level2)
+Level1 <- c(N = 4, M = 2.000, SD = 2.449)
+Level2 <- c(N = 4, M = 6.000, SD = 2.449)
+IndependentSummary <- rbind(Level1, Level2)
 class(IndependentSummary) <- "bss"
 IndependentSummary
 
@@ -19,19 +19,19 @@ IndependentSummary
 estimateMeans(IndependentSummary)
 plotMeans(IndependentSummary)
 
-estimateMeans(IndependentSummary,conf.level=.99)
-plotMeans(IndependentSummary,conf.level=.99,line=5,rope=c(3,7))
+estimateMeans(IndependentSummary, conf.level = .99)
+plotMeans(IndependentSummary, conf.level = .99, line = 5, rope = c(3, 7))
 
 #### Significance Tests
 
 testMeans(IndependentSummary)
-testMeans(IndependentSummary,mu=5)
+testMeans(IndependentSummary, mu = 5)
 
 #### Standardized Effect Sizes
 
 estimateStandardizedMeans(IndependentSummary)
-estimateStandardizedMeans(IndependentSummary,mu=5,conf.level=.99)
- 
+estimateStandardizedMeans(IndependentSummary, mu = 5, conf.level = .99)
+
 ### Analyses of the Comparison
 
 #### Confidence Intervals
@@ -39,21 +39,21 @@ estimateStandardizedMeans(IndependentSummary,mu=5,conf.level=.99)
 estimateMeanDifference(IndependentSummary)
 plotMeanDifference(IndependentSummary)
 
-estimateMeanDifference(IndependentSummary,conf.level=.99)
-plotMeanDifference(IndependentSummary,conf.level=.99,line=0,rope=c(-2,2))
+estimateMeanDifference(IndependentSummary, conf.level = .99)
+plotMeanDifference(IndependentSummary, conf.level = .99, line = 0, rope = c(-2, 2))
 
 estimateMeanComparison(IndependentSummary)
 plotMeanComparison(IndependentSummary)
 
-estimateMeanComparison(IndependentSummary,conf.level=.99)
-plotMeanComparison(IndependentSummary,conf.level=.99,rope=c(-2,2))
+estimateMeanComparison(IndependentSummary, conf.level = .99)
+plotMeanComparison(IndependentSummary, conf.level = .99, rope = c(-2, 2))
 
 #### Significance Test
 
 testMeanDifference(IndependentSummary)
-testMeanDifference(IndependentSummary,mu=2)
+testMeanDifference(IndependentSummary, mu = 2)
 
 #### Standardized Effect Size
 
 estimateStandardizedMeanDifference(IndependentSummary)
-estimateStandardizedMeanDifference(IndependentSummary,conf.level=.99)
+estimateStandardizedMeanDifference(IndependentSummary, conf.level = .99)

@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes a single-factor between-subjects (one-way) design using summa
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -37,10 +38,10 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 Prior to analyses, enter a table of summary statistics.
 
 ```{r}
-Comfort <- c(N=18,M=3.333,SD=1.917)
-Challenge <- c(N=17,M=5.265,SD=1.448)
-Control <- c(N=19,M=4.447,SD=1.433)
-RattanSummary <- rbind(Comfort,Challenge,Control)
+Comfort <- c(N = 18, M = 3.333, SD = 1.917)
+Challenge <- c(N = 17, M = 5.265, SD = 1.448)
+Control <- c(N = 19, M = 4.447, SD = 1.433)
+RattanSummary <- rbind(Comfort, Challenge, Control)
 class(RattanSummary) <- "bss"
 ```
 
@@ -50,7 +51,7 @@ With multiple groups, it is useful to get descriptive statistics and confidence 
 
 ```{r,Rattan-Summary-Means}
 estimateMeans(RattanSummary)
-plotMeans(RattanSummary,main="Motivation as a Function of Feedback Type",ylab="Motivation",ylim=c(0,7),values=FALSE)
+plotMeans(RattanSummary, main = "Motivation as a Function of Feedback Type", ylab = "Motivation", ylim = c(0, 7), values = FALSE)
 ```
 
 ### Analysis of a Group Difference
@@ -60,10 +61,10 @@ The first research question is whether there is a difference between the two non
 First, set the comparison and obtain the difference plot for that comparison.
 
 ```{r,Rattan-Summary-Comparison}
-ComfortvsChallenge <- rbind(Comfort,Challenge)
+ComfortvsChallenge <- rbind(Comfort, Challenge)
 class(ComfortvsChallenge) <- "bss"
 estimateMeanComparison(ComfortvsChallenge)
-plotMeanComparison(ComfortvsChallenge,main="Influence of Comfort vs Challenge Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
+plotMeanComparison(ComfortvsChallenge, main = "Influence of Comfort vs Challenge Feedback on Motivation", ylab = "Motivation", ylim = c(0, 7), values = FALSE)
 ```
 
 Then, obtain the standardized effect size for that comparison.
@@ -79,13 +80,13 @@ The second research question is whether the Comfort group differs from the other
 First, set the contrast and obtain a difference plot for the contrast.
 
 ```{r,Rattan-Summary-Contrast}
-ComfortvsOthers <- c(-1,.5,.5)
-estimateMeanSubsets(RattanSummary,contrast=ComfortvsOthers)
-plotMeanSubsets(RattanSummary,contrast=ComfortvsOthers,labels=c("Comfort","Others"),main="Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation",ylab="Motivation",ylim=c(0,7),values=FALSE)
+ComfortvsOthers <- c(-1, .5, .5)
+estimateMeanSubsets(RattanSummary, contrast = ComfortvsOthers)
+plotMeanSubsets(RattanSummary, contrast = ComfortvsOthers, labels = c("Comfort", "Others"), main = "Influence of Comfort Feedback vs \n Other Types of Feedback on Motivation", ylab = "Motivation", ylim = c(0, 7), values = FALSE)
 ```
 
 Then, estimate the standardized contrast.
 
 ```{r}
-estimateStandardizedMeanContrast(RattanSummary,contrast=ComfortvsOthers)
+estimateStandardizedMeanContrast(RattanSummary, contrast = ComfortvsOthers)
 ```

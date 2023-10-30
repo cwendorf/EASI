@@ -6,7 +6,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Data Management
 
-Outcome <- c(N=8,M=4.000,SD=3.117)
+Outcome <- c(N = 8, M = 4.000, SD = 3.117)
 OneSampleSummary <- rbind(Outcome)
 class(OneSampleSummary) <- "wss"
 
@@ -17,15 +17,15 @@ class(OneSampleSummary) <- "wss"
 estimateMeans(OneSampleSummary)
 plotMeans(OneSampleSummary)
 
-estimateMeans(OneSampleSummary,conf.level=.99)
-plotMeans(OneSampleSummary,conf.level=.99,line=5,rope=c(3,7))
+estimateMeans(OneSampleSummary, conf.level = .99)
+plotMeans(OneSampleSummary, conf.level = .99, line = 5, rope = c(3, 7))
 
 #### Significance Test
 
 testMeans(OneSampleSummary)
-testMeans(OneSampleSummary,mu=5)
+testMeans(OneSampleSummary, mu = 5)
 
 #### Standardized Effect Size
 
 estimateStandardizedMeans(OneSampleSummary)
-estimateStandardizedMeans(OneSampleSummary,mu=5,conf.level=.99)
+estimateStandardizedMeans(OneSampleSummary, mu = 5, conf.level = .99)

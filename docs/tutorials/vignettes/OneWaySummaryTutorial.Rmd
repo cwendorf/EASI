@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes a single-factor between-subjects (one-way) design using summa
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,10 +37,10 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the group summaries and creates a single summary table.
 ```{r}
-Level1 <- c(N=4,M=2.000,SD=2.449)
-Level2 <- c(N=4,M=6.000,SD=2.449)
-Level3 <- c(N=4,M=7.000,SD=2.449)
-OneWaySummary <- rbind(Level1,Level2,Level3)
+Level1 <- c(N = 4, M = 2.000, SD = 2.449)
+Level2 <- c(N = 4, M = 6.000, SD = 2.449)
+Level3 <- c(N = 4, M = 7.000, SD = 2.449)
+OneWaySummary <- rbind(Level1, Level2, Level3)
 class(OneWaySummary) <- "bss"
 ```
 
@@ -61,12 +62,12 @@ plotMeans(OneWaySummary)
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateMeans(OneWaySummary,conf.level=.99)
+estimateMeans(OneWaySummary, conf.level = .99)
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 ```{r,OneWay-Summary-MeansB}
-plotMeans(OneWaySummary,conf.level=.99,line=5,rope=c(3,7))
+plotMeans(OneWaySummary, conf.level = .99, line = 5, rope = c(3, 7))
 ```
 
 #### Significance Tests
@@ -78,7 +79,7 @@ testMeans(OneWaySummary)
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```{r}
-testMeans(OneWaySummary,mu=5)
+testMeans(OneWaySummary, mu = 5)
 ```
 
 #### Standardized Effect Sizes
@@ -90,7 +91,7 @@ estimateStandardizedMeans(OneWaySummary)
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
-estimateStandardizedMeans(OneWaySummary,mu=5,conf.level=.99)
+estimateStandardizedMeans(OneWaySummary, mu = 5, conf.level = .99)
 ```
  
 ### Analyses of a Comparison
@@ -99,7 +100,7 @@ This section produces analyses that are equivalent to comparisons of two levels 
 
 This code creates a new table that identifies the two levels for comparison.
 ```{r}
-CompSummary <- OneWaySummary[c("Level1","Level2"),]
+CompSummary <- OneWaySummary[c("Level1", "Level2"), ]
 class(CompSummary) <- "bss"
 ```
 
@@ -117,12 +118,12 @@ plotMeanDifference(CompSummary)
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-estimateMeanDifference(CompSummary,conf.level=.99)
+estimateMeanDifference(CompSummary, conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r,OneWay-Summary-DifferenceB}
-plotMeanDifference(CompSummary,conf.level=.99,line=0,rope=c(-2,2))
+plotMeanDifference(CompSummary, conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
@@ -137,12 +138,12 @@ plotMeanComparison(CompSummary)
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-estimateMeanComparison(CompSummary,conf.level=.99)
+estimateMeanComparison(CompSummary, conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r,OneWay-Summary-ComparisonB}
-plotMeanComparison(CompSummary,conf.level=.99,rope=c(-2,2))
+plotMeanComparison(CompSummary, conf.level = .99, rope = c(-2, 2))
 ```
 
 #### Significance Test
@@ -154,7 +155,7 @@ testMeanDifference(CompSummary)
 
 If the default value of zero is not plausible, it too can be changed.
 ```{r}
-testMeanDifference(CompSummary,mu=-2)
+testMeanDifference(CompSummary, mu = -2)
 ```
 
 #### Standardized Effect Size
@@ -166,7 +167,7 @@ estimateStandardizedMeanDifference(CompSummary)
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-estimateStandardizedMeanDifference(CompSummary,conf.level=.99)
+estimateStandardizedMeanDifference(CompSummary, conf.level = .99)
 ```
 
 ### Analyses of a Contrast
@@ -175,71 +176,71 @@ This section produces analyses that are equivalent to analyses involving multipl
 
 This code identifies a contrast among the groups
 ```{r}
-L1vsOthers <- c(-1,.5,.5)
+L1vsOthers <- c(-1, .5, .5)
 ```
 
 #### Confidence Intervals
 
 This code produces a confidence interval for that contrast.
 ```{r}
-estimateMeanContrast(OneWaySummary,contrast=L1vsOthers)
+estimateMeanContrast(OneWaySummary, contrast = L1vsOthers)
 ```
 
 This code obtains and plots the confidence intervals for the groups and the mean difference in the identified contrast.
 ```{r,OneWay-Summary-ContrastA}
-plotMeanContrast(OneWaySummary,contrast=L1vsOthers)
+plotMeanContrast(OneWaySummary, contrast = L1vsOthers)
 ```
 
 As in all other cases, the default value of the confidence interval can be changed.
 ```{r}
-estimateMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
+estimateMeanContrast(OneWaySummary, contrast = L1vsOthers, conf.level = .99)
 ```
 
 The width of the confidence interval for the contrast can be altered and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r,OneWay-Summary-ContrastB}
-plotMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99,line=0,rope=c(-2,2))
+plotMeanContrast(OneWaySummary, contrast = L1vsOthers, conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 ```{r}
-estimateMeanSubsets(OneWaySummary,contrast=L1vsOthers)
+estimateMeanSubsets(OneWaySummary, contrast = L1vsOthers)
 ```
 
 This code produces a difference plot using the confidence intervals for the mean subsets and the mean contrast.
 ```{r,OneWay-Summary-SubsetsA}
-plotMeanSubsets(OneWaySummary,contrast=L1vsOthers)
+plotMeanSubsets(OneWaySummary, contrast = L1vsOthers)
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-estimateMeanSubsets(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
+estimateMeanSubsets(OneWaySummary, contrast = L1vsOthers, conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r,OneWay-Summary-SubsetsB}
-plotMeanSubsets(OneWaySummary,contrast=L1vsOthers,labels=c("Level1","Others"),conf.level=.99,rope=c(-2,2))
+plotMeanSubsets(OneWaySummary, contrast = L1vsOthers, labels = c("Level1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
 #### Significance Test
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
-testMeanContrast(OneWaySummary,contrast=L1vsOthers)
+testMeanContrast(OneWaySummary, contrast = L1vsOthers)
 ```
 
 If desired, the contrast can be tested against other values.
 ```{r}
-testMeanContrast(OneWaySummary,contrast=L1vsOthers,mu=4)
+testMeanContrast(OneWaySummary, contrast = L1vsOthers, mu = 4)
 ```
 
 #### Standardized Effect Size
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}
-estimateStandardizedMeanContrast(OneWaySummary,contrast=L1vsOthers)
+estimateStandardizedMeanContrast(OneWaySummary, contrast = L1vsOthers)
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-estimateStandardizedMeanContrast(OneWaySummary,contrast=L1vsOthers,conf.level=.99)
+estimateStandardizedMeanContrast(OneWaySummary, contrast = L1vsOthers, conf.level = .99)
 ```

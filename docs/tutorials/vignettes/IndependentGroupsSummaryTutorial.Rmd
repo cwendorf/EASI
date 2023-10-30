@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes a two-group between-subjects (independent groups) design usin
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,9 +37,9 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the group summaries and creates a single summary table.
 ```{r}
-Level1 <- c(N=4,M=2.000,SD=2.449)
-Level2 <- c(N=4,M=6.000,SD=2.449)
-IndependentSummary <- rbind(Level1,Level2)
+Level1 <- c(N = 4, M = 2.000, SD = 2.449)
+Level2 <- c(N = 4, M = 6.000, SD = 2.449)
+IndependentSummary <- rbind(Level1, Level2)
 class(IndependentSummary) <- "bss"
 IndependentSummary
 ```
@@ -61,12 +62,12 @@ plotMeans(IndependentSummary)
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateMeans(IndependentSummary,conf.level=.99)
+estimateMeans(IndependentSummary, conf.level = .99)
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 ```{r,Independent-Summary-MeansB}
-plotMeans(IndependentSummary,conf.level=.99,line=5,rope=c(3,7))
+plotMeans(IndependentSummary, conf.level = .99, line = 5, rope = c(3, 7))
 ```
 
 #### Significance Tests
@@ -78,7 +79,7 @@ testMeans(IndependentSummary)
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```{r}
-testMeans(IndependentSummary,mu=5)
+testMeans(IndependentSummary, mu = 5)
 ```
 
 #### Standardized Effect Sizes
@@ -90,7 +91,7 @@ estimateStandardizedMeans(IndependentSummary)
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
-estimateStandardizedMeans(IndependentSummary,mu=5,conf.level=.99)
+estimateStandardizedMeans(IndependentSummary, mu = 5, conf.level = .99)
 ```
  
 ### Analyses of the Comparison
@@ -111,12 +112,12 @@ plotMeanDifference(IndependentSummary)
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-estimateMeanDifference(IndependentSummary,conf.level=.99)
+estimateMeanDifference(IndependentSummary, conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r,Independent-Summary-DifferenceB}
-plotMeanDifference(IndependentSummary,conf.level=.99,line=0,rope=c(-2,2))
+plotMeanDifference(IndependentSummary, conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
@@ -133,12 +134,12 @@ plotMeanComparison(IndependentSummary)
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-estimateMeanComparison(IndependentSummary,conf.level=.99)
+estimateMeanComparison(IndependentSummary, conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r,Independent-Summary-ComparisonB}
-plotMeanComparison(IndependentSummary,conf.level=.99,rope=c(-2,2))
+plotMeanComparison(IndependentSummary, conf.level = .99, rope = c(-2, 2))
 ```
 
 #### Significance Test
@@ -150,7 +151,7 @@ testMeanDifference(IndependentSummary)
 
 If the default value of zero is not plausible, it too can be changed.
 ```{r}
-testMeanDifference(IndependentSummary,mu=2)
+testMeanDifference(IndependentSummary, mu = 2)
 ```
 
 #### Standardized Effect Size
@@ -162,5 +163,5 @@ estimateStandardizedMeanDifference(IndependentSummary)
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-estimateStandardizedMeanDifference(IndependentSummary,conf.level=.99)
+estimateStandardizedMeanDifference(IndependentSummary, conf.level = .99)
 ```

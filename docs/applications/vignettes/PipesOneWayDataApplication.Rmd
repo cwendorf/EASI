@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page introduces a variety of native and simple pipe operators to implement 
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,39 +37,39 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 Simulate some data.
 ```{r}
-Factor <- c(rep(1,50),rep(2,50),rep(3,50))
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
-Level1 <- round(rnorm(50,mean=7,sd=2),0)
-Level2 <- round(rnorm(50,mean=11,sd=4),0)
-Level3 <- round(rnorm(50,mean=12,sd=4),0)
-Outcome <- c(Level1,Level2,Level3)
+Factor <- c(rep(1, 50), rep(2, 50), rep(3, 50))
+Factor <- factor(Factor, levels = c(1, 2, 3), labels = c("Level1", "Level2", "Level3"))
+Level1 <- round(rnorm(50, mean = 7, sd = 2), 0)
+Level2 <- round(rnorm(50, mean = 11, sd = 4), 0)
+Level3 <- round(rnorm(50, mean = 12, sd = 4), 0)
+Outcome <- c(Level1, Level2, Level3)
 ```
 
 ### Using the Native and Dot Pipes
 
 In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variable (or data frame or formula) is included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). 
 ```{r}
-(Outcome~Factor) |> estimateMeans()
-(Outcome~Factor) |> estimateMeans(conf.level=.99)
+(Outcome ~ Factor) |> estimateMeans()
+(Outcome ~ Factor) |> estimateMeans(conf.level = .99)
 ```
 
 However, the native pipe operator does not easily permit the piping of the variable, data frame, or formula to multiple functions on the ride-hand side of the call simultaneously. EASI contains a very simple pipe operator that uses a period as a placeholder, permitting more advanced piping options.
 ```{r}
-(Outcome~Factor) %.>% estimateMeans(.)
-(Outcome~Factor) %.>% {c(estimateMeans(.),testMeans(.))}
-(Outcome~Factor) %.>% {c(estimateMeans(.,conf.level=.99),testMeans(.,mu=5))}
+(Outcome ~ Factor) %.>% estimateMeans(.)
+(Outcome ~ Factor) %.>% {c(estimateMeans(.), testMeans(.))}
+(Outcome ~ Factor) %.>% {c(estimateMeans(., conf.level = .99), testMeans(., mu = 5))}
 ```
 
 ### Using Through Pipes
 
 Traditionally, a pipe operator sends the results (not the input) of each operation in sequence to the next operation. Sometimes, it is useful to implement a "pass though" instead, where the input for the first call is also piped to the second call.
 ```{r}
-(Outcome~Factor) %.>>% estimateMeans(.) %.>>% testMeans(.)
-(Outcome~Factor) %.>>% estimateMeans(.,conf.level=.99) %.>>% testMeans(.,mu=5)
+(Outcome ~ Factor) %.>>% estimateMeans(.) %.>>% testMeans(.)
+(Outcome ~ Factor) %.>>% estimateMeans(., conf.level = .99) %.>>% testMeans(., mu = 5)
 ```
 
 In these examples, the through pipe is only required prior to the first analysis because the second one is the terminal call and thus nothing needs to "pass though". As a result, the second pipe operator could be the dot or the native pipe operator instead.
 ```{r}
-(Outcome~Factor) %.>>% describeMeans(.) %.>% estimateMeans(.)
-(Outcome~Factor) %.>>% describeMeans(.) |> estimateMeans()
+(Outcome ~ Factor) %.>>% describeMeans(.) %.>% estimateMeans(.)
+(Outcome ~ Factor) %.>>% describeMeans(.) |> estimateMeans()
 ```

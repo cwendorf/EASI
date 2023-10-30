@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes a single correlation between two variables using raw data inp
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -38,9 +39,9 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
-Outcome1 <- c(0,0,3,5)
-Outcome2 <- c(4,7,4,9)
-PairedData <- data.frame(Outcome1,Outcome2)
+Outcome1 <- c(0, 0, 3, 5)
+Outcome2 <- c(4, 7, 4, 9)
+PairedData <- data.frame(Outcome1, Outcome2)
 ```
 
 #### Plot of the Data
@@ -52,12 +53,12 @@ plotScatter(PairedData)
 
 This code provides a scatterplot along with a 95% confidence ellipse for the data.
 ```{r,SingleCorrelation-Data-ScatterB}
-plotScatter(PairedData,ellipse=TRUE)
+plotScatter(PairedData, ellipse = TRUE)
 ```
 
 The ellipse can be altered for different confidence levels.
 ```{r,SingleCorrelation-Data-ScatterC}
-plotScatter(PairedData,ellipse=TRUE,conf.level=.99)
+plotScatter(PairedData, ellipse = TRUE, conf.level = .99)
 ```
 
 #### Descriptive Statistics
@@ -86,12 +87,12 @@ plotCorrelations(PairedData)
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateCorrelations(PairedData,conf.level=.99)
+estimateCorrelations(PairedData, conf.level = .99)
 ```
 
 Of course, it is possible to change from the default confidence level and to add a comparison line and a region of practical equivalence to the graph.
 ```{r,SingleCorrelation-Data-IntervalsB}
-plotCorrelations(PairedData,conf.level=.99,line=0,rope=c(-.2,.2))
+plotCorrelations(PairedData, conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 
 #### Significance Test

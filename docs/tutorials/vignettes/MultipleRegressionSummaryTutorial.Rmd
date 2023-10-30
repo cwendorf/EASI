@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes multiple regression models using summary statistics input.
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,19 +37,19 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the variable summaries and creates a summary table.
 ```{r}
-Predictor1 <- c(N=4,M=2.000,SD=2.449)
-Predictor2 <- c(N=4,M=6.000,SD=2.449)
-Criterion <- c(N=4,M=7.000,SD=2.449)
-RegressionSummary <- rbind(Predictor1,Predictor2,Criterion)
+Predictor1 <- c(N = 4, M = 2.000, SD = 2.449)
+Predictor2 <- c(N = 4, M = 6.000, SD = 2.449)
+Criterion <- c(N = 4, M = 7.000, SD = 2.449)
+RegressionSummary <- rbind(Predictor1, Predictor2, Criterion)
 class(RegressionSummary) <- "wss"
 ```
 
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 ```{r}
-RegressionCorr <- declareCorrelations("Predictor1","Predictor2","Criterion")
-RegressionCorr["Predictor1","Predictor2"] <- .500
-RegressionCorr["Predictor1","Criterion"] <- .056
-RegressionCorr["Predictor2","Criterion"] <- .389
+RegressionCorr <- declareCorrelations("Predictor1", "Predictor2", "Criterion")
+RegressionCorr["Predictor1", "Predictor2"] <- .500
+RegressionCorr["Predictor1", "Criterion"] <- .056
+RegressionCorr["Predictor2", "Criterion"] <- .389
 RegressionCorr <- fillCorrelations(RegressionCorr)
 ```
 
@@ -60,24 +61,24 @@ This section produces analyses of the overall regression model.
 
 This code will produce the confidence interval for R Squared.
 ```{r}
-estimateRegressionOmnibus(RegressionSummary,RegressionCorr)
+estimateRegressionOmnibus(RegressionSummary, RegressionCorr)
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionOmnibus(RegressionSummary,RegressionCorr,conf.level=.95)
+estimateRegressionOmnibus(RegressionSummary, RegressionCorr, conf.level = .95)
 ```
 
 #### Significance Test
 
 This code will produce a source table associated with the regression model.
 ```{r}
-describeRegressionOmnibus(RegressionSummary,RegressionCorr)
+describeRegressionOmnibus(RegressionSummary, RegressionCorr)
 ```
 
 This code will calculate NHST for the regression model.
 ```{r}
-testRegressionOmnibus(RegressionSummary,RegressionCorr)
+testRegressionOmnibus(RegressionSummary, RegressionCorr)
 ```
 
 ### Analyses of the Regression Coefficients
@@ -88,49 +89,49 @@ This section analyses the regression coefficients obtained from the overall mode
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
-estimateRegressionCoefficients(RegressionSummary,RegressionCorr)
+estimateRegressionCoefficients(RegressionSummary, RegressionCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 ```{r,Multiple-Summary-CoefficientsA}
-plotRegressionCoefficients(RegressionSummary,RegressionCorr)
+plotRegressionCoefficients(RegressionSummary, RegressionCorr)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
+estimateRegressionCoefficients(RegressionSummary, RegressionCorr, conf.level = .99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 ```{r,Multiple-Summary-CoefficientsB}
-plotRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99,line=0,intercept=FALSE)
+plotRegressionCoefficients(RegressionSummary, RegressionCorr, conf.level = .99, line = 0, intercept = FALSE)
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
-testRegressionCoefficients(RegressionSummary,RegressionCorr)
+testRegressionCoefficients(RegressionSummary, RegressionCorr)
 ```
 
 #### Standardized Coefficient
 
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 ```{r}
-estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
+estimateStandardizedRegressionCoefficients(RegressionSummary, RegressionCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the standardized coefficients.
 ```{r,Multiple-Summary-StandardizedA}
-plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr)
+plotStandardizedRegressionCoefficients(RegressionSummary, RegressionCorr)
 ```
 
 As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
+estimateStandardizedRegressionCoefficients(RegressionSummary, RegressionCorr, conf.level = .99)
 ```
 
 For the graph, it is possible to change the confidence level.
 ```{r,Multiple-Summary-StandardizedB}
-plotStandardizedRegressionCoefficients(RegressionSummary,RegressionCorr,conf.level=.99)
+plotStandardizedRegressionCoefficients(RegressionSummary, RegressionCorr, conf.level = .99)
 ```

@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page examines unadjusted pairwise comparisons and Tukey post hoc comparison
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,18 +37,18 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 Enter the data.
 ```{r}
-Factor <- c(rep(1,10),rep(2,10),rep(3,10),rep(4,10),rep(5,10))
-Outcome <- c(61,64,72,64,64,70,73,65,65,72,69,74,79,69,64,64,69,69,74,79,70,75,80,80,70,65,70,75,70,70,70,80,85,75,70,65,75,75,85,80,65,55,70,65,65,70,70,60,65,70)
-Factor <- factor(Factor,levels=c(1,2,3,4,5),labels=c("Level1","Level2","Level3","Level4","Level5"))
+Factor <- c(rep(1, 10), rep(2, 10), rep(3, 10), rep(4, 10), rep(5, 10))
+Outcome <- c(61, 64, 72, 64, 64, 70, 73, 65, 65, 72, 69, 74, 79, 69, 64, 64, 69, 69, 74, 79, 70, 75, 80, 80, 70, 65, 70, 75, 70, 70, 70, 80, 85, 75, 70, 65, 75, 75, 85, 80, 65, 55, 70, 65, 65, 70, 70, 60, 65, 70)
+Factor <- factor(Factor, levels = c(1, 2, 3, 4, 5), labels = c("Level1", "Level2", "Level3", "Level4", "Level5"))
 ```
 
 ### Omnibus Analyses
 
 Provide descriptive statistics and an ANOVA source table.
 ```{r}
-(Outcome~Factor) |> describeMeans()
-(Outcome~Factor) |> describeMeansOmnibus()
-(Outcome~Factor) |> testMeansOmnibus()
+(Outcome ~ Factor) |> describeMeans()
+(Outcome ~ Factor) |> describeMeansOmnibus()
+(Outcome ~ Factor) |> testMeansOmnibus()
 ```
 
 ### Analyses of Pairwise Comparisons
@@ -56,19 +57,19 @@ The analyses for the pairwise comparisons do not assume homogeneity of variance 
 
 Obtain tables of the interval estimates for the pairwise comparisons, tests of their statistical significance, and their standardized effect sizes.
 ```{r}
-(Outcome~Factor) |> estimateMeansPairwise()
-(Outcome~Factor) |> testMeansPairwise()
-(Outcome~Factor) |> estimateStandardizedMeansPairwise()
+(Outcome ~ Factor) |> estimateMeansPairwise()
+(Outcome ~ Factor) |> testMeansPairwise()
+(Outcome ~ Factor) |> estimateStandardizedMeansPairwise()
 ```
 
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
 ```{r,Pairwise-OneWay-Pairwise}
-(Outcome~Factor) |> plotMeansPairwise(line=0,values=FALSE)
+(Outcome ~ Factor) |> plotMeansPairwise(line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 ```{r,Pairwise-OneWay-DiffogramA}
-(Outcome~Factor) |> plotMeansPairwiseDiffogram(col=c("darkblue","darkred"))
+(Outcome ~ Factor) |> plotMeansPairwiseDiffogram(col = c("darkblue", "darkred"))
 ```
 
 ### Analyses of Post Hoc Comparisons
@@ -77,17 +78,17 @@ The analyses for the post hoc comparisons do assume homogeneity of variance and 
 
 Obtain tables of the interval estimates for the posthoc comparisons, tests of their statistical significance, and their standardized effect sizes.
 ```{r}
-(Outcome~Factor) |> estimateMeansPosthoc()
-(Outcome~Factor) |> testMeansPairwise()
-(Outcome~Factor) |> estimateStandardizedMeansPosthoc()
+(Outcome ~ Factor) |> estimateMeansPosthoc()
+(Outcome ~ Factor) |> testMeansPairwise()
+(Outcome ~ Factor) |> estimateStandardizedMeansPosthoc()
 ```
 
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 ```{r,Pairwise-OneWay-Posthoc}
-(Outcome~Factor) |> plotMeansPosthoc(line=0,values=FALSE)
+(Outcome ~ Factor) |> plotMeansPosthoc(line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 ```{r,Pairwise-OneWay-DiffogramB}
-(Outcome~Factor) |> plotMeansPosthocDiffogram(col=c("darkblue","darkred"))
+(Outcome ~ Factor) |> plotMeansPosthocDiffogram(col = c("darkblue", "darkred"))
 ```

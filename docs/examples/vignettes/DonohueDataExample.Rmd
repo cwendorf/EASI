@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes a single-factor within-subjects (repeated measures) design us
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -37,10 +38,10 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 Prior to analyses, enter the data.
 
 ```{r}
-Pretest <- c(7,11,11,13,15,17,18,18,19,19,19,19,21,22,25,25,25,26,27,29)
-Posttest <- c(16,20,25,22,28,12,16,26,21,22,26,30,23,27,23,27,28,24,28,28)
-Followup <- c(16,18,23,21,27,21,18,21,24,21,27,28,18,27,23,28,31,18,31,27)
-DonohueData <- data.frame(Pretest,Posttest,Followup)
+Pretest <- c(7, 11, 11, 13, 15, 17, 18, 18, 19, 19, 19, 19, 21, 22, 25, 25, 25, 26, 27, 29)
+Posttest <- c(16, 20, 25, 22, 28, 12, 16, 26, 21, 22, 26, 30, 23, 27, 23, 27, 28, 24, 28, 28)
+Followup <- c(16, 18, 23, 21, 27, 21, 18, 21, 24, 21, 27, 28, 18, 27, 23, 28, 31, 18, 31, 27)
+DonohueData <- data.frame(Pretest, Posttest, Followup)
 ```
 
 ### Analyses of the Different Variables
@@ -49,7 +50,7 @@ With multiple variables, it is useful to get descriptive statistics and confiden
 
 ```{r,Donohue-Data-Means}
 estimateMeans(DonohueData)
-plotMeans(DonohueData,main="Critical Thinking Scores at Pretest, Posttest, and Followup",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
+plotMeans(DonohueData, main = "Critical Thinking Scores at Pretest, Posttest, and Followup", ylab = "Critical Thinking Score", ylim = c(0, 30), values = FALSE)
 ```
  
 ### Analysis of a Variable Difference
@@ -60,7 +61,7 @@ First, set the comparison and obtain the difference plot for that comparison.
 
 ```{r,Donohue-Data-Comparison}
 estimateMeanComparison(DonohueData)
-plotMeanComparison(DonohueData,main="Critical Thinking Scores of Posttest vs Followup",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
+plotMeanComparison(DonohueData, main = "Critical Thinking Scores of Posttest vs Followup", ylab = "Critical Thinking Score", ylim = c(0, 30), values = FALSE)
 ```
 
 Then, obtain the standardized effect size for that comparison.
@@ -76,13 +77,13 @@ The second research question is whether the pretest differs from the posttest an
 First, set the contrast and obtain a difference plot for the contrast.
 
 ```{r,Donohue-Data-Contrast}
-PrevsPostFollow <- c(-1,.5,.5)
-estimateMeanSubsets(DonohueData,contrast=PrevsPostFollow)
-plotMeanSubsets(DonohueData,contrast=PrevsPostFollow,labels=c("Pretest","Post&Follow"),main="Critical Thinking Scores of Prestest vs Posttest and Followup Combined",ylab="Critical Thinking Score",ylim=c(0,30),values=FALSE)
+PrevsPostFollow <- c(-1, .5, .5)
+estimateMeanSubsets(DonohueData, contrast = PrevsPostFollow)
+plotMeanSubsets(DonohueData, contrast = PrevsPostFollow, labels = c("Pretest", "Post&Follow"), main = "Critical Thinking Scores of Prestest vs Posttest and Followup Combined", ylab = "Critical Thinking Score", ylim = c(0, 30), values = FALSE)
 ```
 
 Then, estimate the standardized contrast.
 
 ```{r}
-estimateStandardizedMeanContrast(DonohueData,contrast=PrevsPostFollow)
+estimateStandardizedMeanContrast(DonohueData, contrast = PrevsPostFollow)
 ```

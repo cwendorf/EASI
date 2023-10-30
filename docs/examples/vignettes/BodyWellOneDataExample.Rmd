@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes a single correlation between two variables using raw data inp
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -38,9 +39,9 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 First, enter the data.
 ```{r}
-BodySatisfaction <- c(4,2.4,3,3,3.1,2.4,2.9,3.1,3,3.3,2,3.1,2.4,3.1,3.3,3.4,3.3,3.6,2.7,3.3,3.6,2.3,3.7,4,2.7,3.1,3.3,3.4,4.4,3.3,3.3,4,4.1,3.3,3.6,3.9,4,5,3,3,3.3,3.9,3.9,4.7,5,2.6,2.9,3.4,3.4,3.9,4.3,2.6,3.1,3.4,3.7,4,4.1,4,5,4,2.4,3.7,3,3.6,2.9,2.7,3.3,4.3,3.1,4.3,4.4,4,3.3,3.7,2.9,3.4,3.6,4.7,4.1,3,4.1,3.7,4.1,4,3.1,3.7,3.3,4.4,4.3,4,4,4,3.4,4.9,3.7,3.3,3.9,4.6,4,3.9,4.7,4.3,4.4,4.4,4.6,4.3)
-Wellbeing <- c(1,2.4,2.3,2.4,2.8,3.2,3.4,3.4,3.6,3.6,3.8,3.8,4,4,4.2,4.2,4.4,4.4,4.6,4.6,4.6,4.8,4.8,4.8,5,5,5,5,5,5.2,5.3,5.2,5.2,5.6,5.6,5.6,5.6,5.6,5.8,5.7,5.8,5.8,5.9,5.8,5.8,6,6,6,6.1,6,6,6.2,6.2,6.2,6.4,6.4,6.4,6.6,7,2.8,3,3.2,3.2,3.4,3.4,3.8,4.2,4.4,4.4,4.6,4.6,4.6,4.8,4.8,4.8,5,5,5.2,5.2,5.4,5.6,5.6,5.5,5.6,5.6,5.7,5.6,5.6,5.6,5.8,5.8,6,6,6,6,6,6,6,6.1,6.2,6.2,6.2,6.2,6.4,6.6,7)
-BodyWellOneData <- data.frame(BodySatisfaction,Wellbeing)
+BodySatisfaction <- c(4, 2.4, 3, 3, 3.1, 2.4, 2.9, 3.1, 3, 3.3, 2, 3.1, 2.4, 3.1, 3.3, 3.4, 3.3, 3.6, 2.7, 3.3, 3.6, 2.3, 3.7, 4, 2.7, 3.1, 3.3, 3.4, 4.4, 3.3, 3.3, 4, 4.1, 3.3, 3.6, 3.9, 4, 5, 3, 3, 3.3, 3.9, 3.9, 4.7, 5, 2.6, 2.9, 3.4, 3.4, 3.9, 4.3, 2.6, 3.1, 3.4, 3.7, 4, 4.1, 4, 5, 4, 2.4, 3.7, 3, 3.6, 2.9, 2.7, 3.3, 4.3, 3.1, 4.3, 4.4, 4, 3.3, 3.7, 2.9, 3.4, 3.6, 4.7, 4.1, 3, 4.1, 3.7, 4.1, 4, 3.1, 3.7, 3.3, 4.4, 4.3, 4, 4, 4, 3.4, 4.9, 3.7, 3.3, 3.9, 4.6, 4, 3.9, 4.7, 4.3, 4.4, 4.4, 4.6, 4.3)
+Wellbeing <- c(1, 2.4, 2.3, 2.4, 2.8, 3.2, 3.4, 3.4, 3.6, 3.6, 3.8, 3.8, 4, 4, 4.2, 4.2, 4.4, 4.4, 4.6, 4.6, 4.6, 4.8, 4.8, 4.8, 5, 5, 5, 5, 5, 5.2, 5.3, 5.2, 5.2, 5.6, 5.6, 5.6, 5.6, 5.6, 5.8, 5.7, 5.8, 5.8, 5.9, 5.8, 5.8, 6, 6, 6, 6.1, 6, 6, 6.2, 6.2, 6.2, 6.4, 6.4, 6.4, 6.6, 7, 2.8, 3, 3.2, 3.2, 3.4, 3.4, 3.8, 4.2, 4.4, 4.4, 4.6, 4.6, 4.6, 4.8, 4.8, 4.8, 5, 5, 5.2, 5.2, 5.4, 5.6, 5.6, 5.5, 5.6, 5.6, 5.7, 5.6, 5.6, 5.6, 5.8, 5.8, 6, 6, 6, 6, 6, 6, 6, 6.1, 6.2, 6.2, 6.2, 6.2, 6.4, 6.6, 7)
+BodyWellOneData <- data.frame(BodySatisfaction, Wellbeing)
 ```
 
 #### Descriptive Statistics
@@ -64,5 +65,5 @@ estimateCorrelations(BodyWellOneData)
 
 This is the plot of correlation and its confidence interval.
 ```{r,BodyWellOne-Data-Correlation}
-plotCorrelations(BodyWellOneData,main="Correlation for the Entire Sample",ylim=c(-1,1),values=FALSE,line=0)
+plotCorrelations(BodyWellOneData, main = "Correlation for the Entire Sample", ylim = c(-1, 1), values = FALSE, line = 0)
 ```

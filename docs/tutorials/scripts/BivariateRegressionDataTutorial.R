@@ -8,9 +8,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 #### Data Entry
 
-Predictor <- c(0,0,3,5)
-Criterion <- c(9,6,4,9)
-BivariateData <- data.frame(Predictor,Criterion)
+Predictor <- c(0, 0, 3, 5)
+Criterion <- c(9, 6, 4, 9)
+BivariateData <- data.frame(Predictor, Criterion)
 
 #### Descriptive Statistics
 
@@ -22,7 +22,7 @@ describeCorrelations(BivariateData)
 #### Confidence Interval
 
 estimateRegressionOmnibus(BivariateData)
-estimateRegressionOmnibus(BivariateData,conf.level=.95)
+estimateRegressionOmnibus(BivariateData, conf.level = .95)
 
 #### Significance Test
 
@@ -31,12 +31,12 @@ testRegressionOmnibus(BivariateData)
 
 ### Analyses of the Regression Coefficients
 
-#### Confidence Intervals 
+#### Confidence Intervals
 
 estimateRegressionCoefficients(BivariateData)
 plotRegressionCoefficients(BivariateData)
-estimateRegressionCoefficients(BivariateData,conf.level=.99)
-plotRegressionCoefficients(BivariateData,conf.level=.99,line=0,rope=c(-2,2),intercept=FALSE)
+estimateRegressionCoefficients(BivariateData, conf.level = .99)
+plotRegressionCoefficients(BivariateData, conf.level = .99, line = 0, rope = c(-2, 2), intercept = FALSE)
 
 #### Significance Tests
 
@@ -46,18 +46,18 @@ testRegressionCoefficients(BivariateData)
 
 estimateStandardizedRegressionCoefficients(BivariateData)
 plotStandardizedRegressionCoefficients(BivariateData)
-estimateStandardizedRegressionCoefficients(BivariateData,conf.level=.99)
-plotStandardizedRegressionCoefficients(BivariateData,conf.level=.99)
+estimateStandardizedRegressionCoefficients(BivariateData, conf.level = .99)
+plotStandardizedRegressionCoefficients(BivariateData, conf.level = .99)
 
 ### Analyses of Regression Values
 
 #### Regression Line
 
-plotRegression(BivariateData,interval="none")
-plotRegression(BivariateData,interval="none",points=TRUE)
+plotRegression(BivariateData, interval = "none")
+plotRegression(BivariateData, interval = "none", points = TRUE)
 
 #### Confidence and Prediction Intervals
 
-estimateRegression(BivariateData,value=4)
-plotRegression(BivariateData,value=4,interval="confidence")
-plotRegression(BivariateData,value=4,interval="prediction")
+estimateRegression(BivariateData, value = 4)
+plotRegression(BivariateData, value = 4, interval = "confidence")
+plotRegression(BivariateData, value = 4, interval = "prediction")

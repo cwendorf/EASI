@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes a within-subjects (paired samples) design for two time points
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -38,9 +39,9 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
-Outcome1 <- c(0,0,3,5)
-Outcome2 <- c(4,7,4,9)
-PairedData <- data.frame(Outcome1,Outcome2)
+Outcome1 <- c(0, 0, 3, 5)
+Outcome2 <- c(4, 7, 4, 9)
+PairedData <- data.frame(Outcome1, Outcome2)
 ```
 
 #### Descriptive Statistics
@@ -68,12 +69,12 @@ plotMeans(PairedData)
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateMeans(PairedData,conf.level=.99)
+estimateMeans(PairedData, conf.level = .99)
 ```
 
 For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
 ```{r,Paired-Data-MeansB}
-plotMeans(PairedData,conf.level=.99,line=6,rope=c(4,8))
+plotMeans(PairedData, conf.level = .99, line = 6, rope = c(4, 8))
 ```
 
 #### Significance Tests
@@ -85,7 +86,7 @@ testMeans(PairedData)
 
 Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
 ```{r}
-testMeans(PairedData,mu=6)
+testMeans(PairedData, mu = 6)
 ```
 
 #### Standardized Effect Sizes
@@ -97,7 +98,7 @@ estimateStandardizedMeans(PairedData)
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
-estimateStandardizedMeans(PairedData,mu=6,conf.level=.99)
+estimateStandardizedMeans(PairedData, mu = 6, conf.level = .99)
 ```
 
 ### Analyses of the Comparison
@@ -118,12 +119,12 @@ plotMeanDifference(PairedData)
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-estimateMeanDifference(PairedData,conf.level=.99)
+estimateMeanDifference(PairedData, conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r,Paired-Data-DifferenceB}
-plotMeanDifference(PairedData,conf.level=.99,line=0,rope=c(-2,2))
+plotMeanDifference(PairedData, conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
@@ -138,12 +139,12 @@ plotMeanComparison(PairedData)
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-estimateMeanComparison(PairedData,conf.level=.99)
+estimateMeanComparison(PairedData, conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r,Paired-Data-ComparisonB}
-plotMeanComparison(PairedData,conf.level=.99,rope=c(-2,2))
+plotMeanComparison(PairedData, conf.level = .99, rope = c(-2, 2))
 ```
 
 #### Significance Test
@@ -155,7 +156,7 @@ testMeanDifference(PairedData)
 
 If the default value of zero is not plausible, it too can be changed.
 ```{r}
-testMeanDifference(PairedData,mu=-2)
+testMeanDifference(PairedData, mu = -2)
 ```
 
 #### Standardized Effect Size
@@ -167,5 +168,5 @@ estimateStandardizedMeanDifference(PairedData)
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-estimateStandardizedMeanDifference(PairedData,conf.level=.99)
+estimateStandardizedMeanDifference(PairedData, conf.level = .99)
 ```

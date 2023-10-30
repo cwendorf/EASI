@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page analyzes ba set of correlations among variables using summary statisti
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,19 +37,19 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 This code inputs the variable summaries and creates a summary table.
 ```{r}
-Outcome1 <- c(N=4,M=2.000,SD=2.449)
-Outcome2 <- c(N=4,M=6.000,SD=2.449)
-Outcome3 <- c(N=4,M=7.000,SD=2.449)
-RepeatedSummary <- rbind(Outcome1,Outcome2,Outcome3)
+Outcome1 <- c(N = 4, M = 2.000, SD = 2.449)
+Outcome2 <- c(N = 4, M = 6.000, SD = 2.449)
+Outcome3 <- c(N = 4, M = 7.000, SD = 2.449)
+RepeatedSummary <- rbind(Outcome1, Outcome2, Outcome3)
 class(RepeatedSummary) <- "wss"
 ```
 
 This code creates a correlation matrix, enters just the top triangle, and then uses a function to fill in the whole matrix.
 ```{r}
-RepeatedCorr <- declareCorrelations("Outcome1","Outcome2","Outcome3")
-RepeatedCorr["Outcome1","Outcome2"] <- .500
-RepeatedCorr["Outcome1","Outcome3"] <- .056
-RepeatedCorr["Outcome2","Outcome3"] <- .389
+RepeatedCorr <- declareCorrelations("Outcome1", "Outcome2", "Outcome3")
+RepeatedCorr["Outcome1", "Outcome2"] <- .500
+RepeatedCorr["Outcome1", "Outcome3"] <- .056
+RepeatedCorr["Outcome2", "Outcome3"] <- .389
 RepeatedCorr <- fillCorrelations(RepeatedCorr)
 ```
 
@@ -58,38 +59,38 @@ This section produces analyses of a single correlation.
 
 This code creates a tables that identify the two variables for correlating.
 ```{r}
-CompSummary <- RepeatedSummary[c("Outcome1","Outcome2"),]
+CompSummary <- RepeatedSummary[c("Outcome1", "Outcome2"), ]
 class(CompSummary) <- "wss"
-CompCorr <- RepeatedCorr[c("Outcome1","Outcome2"),c("Outcome1","Outcome2")]
+CompCorr <- RepeatedCorr[c("Outcome1", "Outcome2"), c("Outcome1", "Outcome2")]
 ```
 
 #### Confidence Interval
 
 This code will provide the confidence interval for the correlation.
 ```{r}
-estimateCorrelations(CompSummary,CompCorr)
+estimateCorrelations(CompSummary, CompCorr)
 ```
 
 This code will produce a graph of the confidence interval for the correlation.
 ```{r,SetCorrelations-Summary-IntervalsA}
-plotCorrelations(CompSummary,CompCorr)
+plotCorrelations(CompSummary, CompCorr)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateCorrelations(CompSummary,CompCorr,conf.level=.99)
+estimateCorrelations(CompSummary, CompCorr, conf.level = .99)
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,SetCorrelations-Summary-IntervalsB}
-plotCorrelations(CompSummary,CompCorr,conf.level=.99,line=0,rope=c(-.2,.2))
+plotCorrelations(CompSummary, CompCorr, conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 
 #### Significance Test
 
 This code will produce a table of NHST for the correlation (against a value of zero).
 ```{r}
-testCorrelations(CompSummary,CompCorr)
+testCorrelations(CompSummary, CompCorr)
 ```
 
 ### Analyses of Several Correlations
@@ -100,27 +101,27 @@ This section analyzes the correlations among multiple variables.
 
 This code will provide the confidence intervals for the correlations.
 ```{r}
-estimateCorrelations(RepeatedSummary,RepeatedCorr)
+estimateCorrelations(RepeatedSummary, RepeatedCorr)
 ```
 
 This code will produce a graph of the confidence intervals for the correlations.
 ```{r,SetCorrelations-Summary-IntervalsC}
-plotCorrelations(RepeatedSummary,RepeatedCorr)
+plotCorrelations(RepeatedSummary, RepeatedCorr)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-estimateCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99)
+estimateCorrelations(RepeatedSummary, RepeatedCorr, conf.level = .99)
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r,SetCorrelations-Summary-IntervalsD}
-plotCorrelations(RepeatedSummary,RepeatedCorr,conf.level=.99,line=0,rope=c(-.2,.2))
+plotCorrelations(RepeatedSummary, RepeatedCorr, conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST for the correlations (against a value of zero).
 ```{r}
-testCorrelations(RepeatedSummary,RepeatedCorr)
+testCorrelations(RepeatedSummary, RepeatedCorr)
 ```

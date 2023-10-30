@@ -8,7 +8,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 #### Data Entry
 
-Outcome <- c(0,0,3,5,4,7,4,9)
+Outcome <- c(0, 0, 3, 5, 4, 7, 4, 9)
 OneSampleData <- data.frame(Outcome)
 
 #### Descriptive Statistics
@@ -22,15 +22,15 @@ describeMeans(Outcome)
 estimateMeans(Outcome)
 plotMeans(Outcome)
 
-estimateMeans(Outcome,conf.level=.99)
-plotMeans(Outcome,conf.level=.99,line=5,rope=c(3,7))
+estimateMeans(Outcome, conf.level = .99)
+plotMeans(Outcome, conf.level = .99, line = 5, rope = c(3, 7))
 
 #### Significance Test
 
 testMeans(Outcome)
-testMeans(Outcome,mu=5)
+testMeans(Outcome, mu = 5)
 
 #### Standardized Effect Size
 
 estimateStandardizedMeans(Outcome)
-estimateStandardizedMeans(Outcome,mu=5,conf.level=.99)
+estimateStandardizedMeans(Outcome, mu = 5, conf.level = .99)

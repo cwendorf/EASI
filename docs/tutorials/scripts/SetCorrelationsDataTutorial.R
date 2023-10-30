@@ -8,10 +8,10 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 #### Data Entry
 
-Outcome1 <- c(0,0,3,5)
-Outcome2 <- c(4,7,4,9)
-Outcome3 <- c(9,6,4,9)
-RepeatedData <- data.frame(Outcome1,Outcome2,Outcome3)
+Outcome1 <- c(0, 0, 3, 5)
+Outcome2 <- c(4, 7, 4, 9)
+Outcome3 <- c(9, 6, 4, 9)
+RepeatedData <- data.frame(Outcome1, Outcome2, Outcome3)
 
 #### Descriptive Statistics
 
@@ -20,15 +20,15 @@ describeCorrelations(RepeatedData)
 
 ### Analyses of a Correlation
 
-ComparisonData <- cbind(Outcome1,Outcome2)
+ComparisonData <- cbind(Outcome1, Outcome2)
 
 #### Confidence Interval
 
 estimateCorrelations(ComparisonData)
 plotCorrelations(ComparisonData)
 
-estimateCorrelations(ComparisonData,conf.level=.99)
-plotCorrelations(ComparisonData,conf.level=.99,line=0,rope=c(-.2,.2))
+estimateCorrelations(ComparisonData, conf.level = .99)
+plotCorrelations(ComparisonData, conf.level = .99, line = 0, rope = c(-.2, .2))
 
 #### Significance Test
 
@@ -41,8 +41,8 @@ testCorrelations(ComparisonData)
 estimateCorrelations(RepeatedData)
 plotCorrelations(RepeatedData)
 
-estimateCorrelations(RepeatedData,conf.level=.99)
-plotCorrelations(RepeatedData,conf.level=.99,line=0,rope=c(-.2,.2))
+estimateCorrelations(RepeatedData, conf.level = .99)
+plotCorrelations(RepeatedData, conf.level = .99, line = 0, rope = c(-.2, .2))
 
 #### Significance Tests
 

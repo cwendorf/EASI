@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page provides basic analyses using one-way (between-subjects) data.
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,52 +37,52 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 Simulate some data.
 ```{r}
-Factor <- c(rep(1,50),rep(2,50),rep(3,50))
-Factor <- factor(Factor,levels=c(1,2,3),labels=c("Level1","Level2","Level3"))
-Level1 <- round(rnorm(50,mean=7,sd=2),0)
-Level2 <- round(rnorm(50,mean=11,sd=4),0)
-Level3 <- round(rnorm(50,mean=12,sd=4),0)
-Outcome <- c(Level1,Level2,Level3)
+Factor <- c(rep(1, 50), rep(2, 50), rep(3, 50))
+Factor <- factor(Factor, levels = c(1, 2, 3), labels = c("Level1", "Level2", "Level3"))
+Level1 <- round(rnorm(50, mean = 7, sd = 2), 0)
+Level2 <- round(rnorm(50, mean = 11, sd = 4), 0)
+Level3 <- round(rnorm(50, mean = 12, sd = 4), 0)
+Outcome <- c(Level1, Level2, Level3)
 ```
 
 ### Analyze the Means
 
 Estimate, test, and standardized the means, including altering the confidence level and setting a population value.
 ```{r}
-(Outcome~Factor) |> analyzeMeans()
-(Outcome~Factor) |> analyzeMeans(conf.level=.99,mu=5)
+(Outcome ~ Factor) |> analyzeMeans()
+(Outcome ~ Factor) |> analyzeMeans(conf.level = .99, mu = 5)
 ```
 
 ### Analyze a Mean Difference
 
 Determine and then estimate, test, and standardize a mean difference.
 ```{r}
-Comparison <- factor(Factor,c("Level1","Level2"))
-(Outcome~Comparison) |> analyzeMeanDifference()
-(Outcome~Comparison) |> analyzeMeanDifference(conf.level=.99)
+Comparison <- factor(Factor, c("Level1", "Level2"))
+(Outcome ~ Comparison) |> analyzeMeanDifference()
+(Outcome ~ Comparison) |> analyzeMeanDifference(conf.level = .99)
 ```
 
 ### Analyze a Mean Contrast
 
 Determine and then estimate, test, and standardize a mean contrast.
 ```{r}
-L1vsOthers <- c(-1,.5,.5)
-(Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers)
-(Outcome~Factor) |> analyzeMeanContrast(contrast=L1vsOthers,conf.level=.99)
+L1vsOthers <- c(-1, .5, .5)
+(Outcome ~ Factor) |> analyzeMeanContrast(contrast = L1vsOthers)
+(Outcome ~ Factor) |> analyzeMeanContrast(contrast = L1vsOthers, conf.level = .99)
 ```
 
 ### Analyze the Omnibus Effect
 
 Obtain a ANOVA source table, test for significance, and estimate the proportion of variance accounted for.
 ```{r}
-(Outcome~Factor) |> analyzeMeansOmnibus()
-(Outcome~Factor) |> analyzeMeansOmnibus(conf.level=.99)
+(Outcome ~ Factor) |> analyzeMeansOmnibus()
+(Outcome ~ Factor) |> analyzeMeansOmnibus(conf.level = .99)
 ```
 
 ### Analyze Pairwise Comparisons
 
 Estimate, test, and standardize all pairwise mean comparisons.
 ```{r}
-(Outcome~Factor) |> analyzeMeansPairwise()
-(Outcome~Factor) |> analyzeMeansPairwise(conf.level=.99)
+(Outcome ~ Factor) |> analyzeMeansPairwise()
+(Outcome ~ Factor) |> analyzeMeansPairwise(conf.level = .99)
 ```

@@ -10,14 +10,15 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(EASI)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/EASI")}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
 library(EASI)
 ```
 
@@ -27,7 +28,7 @@ This page provides an omnibus analysis using mixed design (between-subjects and 
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -36,34 +37,34 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 
 Simulate some data.
 ```{r}
-Factor <- c(rep(1,30),rep(2,30))
-Outcome1 <- c(round(rnorm(30,mean=8,sd=2),0),round(rnorm(30,mean=8,sd=2),0))
-Outcome2 <- c(round(rnorm(30,mean=11,sd=4),0),round(rnorm(30,mean=8,sd=3),0))
-Outcome3 <- c(round(rnorm(30,mean=12,sd=4),0),round(rnorm(30,mean=7,sd=4),0))
-Factor <- factor(Factor,levels=c(1,2),labels=c("Level1","Level2"))
-MixedData <- data.frame(Factor,Outcome1,Outcome2,Outcome3)
+Factor <- c(rep(1, 30), rep(2, 30))
+Outcome1 <- c(round(rnorm(30, mean = 8, sd = 2), 0), round(rnorm(30, mean = 8, sd = 2), 0))
+Outcome2 <- c(round(rnorm(30, mean = 11, sd = 4), 0), round(rnorm(30, mean = 8, sd = 3), 0))
+Outcome3 <- c(round(rnorm(30, mean = 12, sd = 4), 0), round(rnorm(30, mean = 7, sd = 4), 0))
+Factor <- factor(Factor, levels = c(1, 2), labels = c("Level1", "Level2"))
+MixedData <- data.frame(Factor, Outcome1, Outcome2, Outcome3)
 ```
 
 ### Analyses of the Means
 
 Plot the means and confidence intervals for the design as a whole.
 ```{r,MixedBy-Multifactor}
-cbind(Outcome1,Outcome2,Outcome3) |> plotMeansMultifactor(by=Factor,col=c("darkred","darkblue"))
-legend("topleft",inset=.01,box.lty=0,pch=16,legend=c("Level1","Level2"),col=c("darkred","darkblue"))
+cbind(Outcome1, Outcome2, Outcome3) |> plotMeansMultifactor(by = Factor, col = c("darkred", "darkblue"))
+legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("Level1", "Level2"), col = c("darkred", "darkblue"))
 ```
 
 ### Analyses of the Omnibus and Simple Effects
 
 Get an ANOVA for the design as a whole.
 ```{r}
-cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusMultifactor(by=Factor)
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusMultifactor(by=Factor)
-cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusMultifactor(by=Factor)
+cbind(Outcome1, Outcome2, Outcome3) |> describeMeansOmnibusMultifactor(by = Factor)
+cbind(Outcome1, Outcome2, Outcome3) |> estimateMeansOmnibusMultifactor(by = Factor)
+cbind(Outcome1, Outcome2, Outcome3) |> testMeansOmnibusMultifactor(by = Factor)
 ```
 
 Get an ANOVA separately for each simple effect.
 ```{r}
-cbind(Outcome1,Outcome2,Outcome3) |> describeMeansOmnibusBy(by=Factor)
-cbind(Outcome1,Outcome2,Outcome3) |> estimateMeansOmnibusBy(by=Factor)
-cbind(Outcome1,Outcome2,Outcome3) |> testMeansOmnibusBy(by=Factor)
+cbind(Outcome1, Outcome2, Outcome3) |> describeMeansOmnibusBy(by = Factor)
+cbind(Outcome1, Outcome2, Outcome3) |> estimateMeansOmnibusBy(by = Factor)
+cbind(Outcome1, Outcome2, Outcome3) |> testMeansOmnibusBy(by = Factor)
 ```
