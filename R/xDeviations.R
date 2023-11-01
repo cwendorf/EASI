@@ -1,6 +1,14 @@
 # Estimation Approach to Statistical Inference
 ## Standard Deviations
 
+### Descriptives
+
+.describeSummary <- function(x, ...) {
+  UseMethod(".describeMeans")
+}
+
+describeSummary <- describeMeans
+
 ### Plots
 
 .deviations <- function(results, main, ylab, xlab, ylim, values, digits, pos, pch, add, col, offset) {
@@ -75,3 +83,6 @@ plotDeviations.formula <- function(formula, add = FALSE, main = NULL, ylab = "Ou
 addDeviations <- function(...) {
   plotDeviations(..., add = TRUE)
 }
+
+plotSummary <- plotDeviations
+addSummary <- addDeviations

@@ -36,10 +36,14 @@ export(addDensity)
 
 ### xDeviations
 
+export(describeSummary)
+
 S3method(plotDeviations,default)
 S3method(plotDeviations,formula)
 export(plotDeviations)
 export(addDeviations)
+export(plotSummary)
+export(addSummary)
 
 ### xBoxes
 
@@ -59,11 +63,15 @@ S3method(.describeFrequencies,default)
 S3method(.describeFrequencies,formula)
 export(.describeFrequencies)
 export(describeFrequencies)
+export(.describeHistogram)
+export(describeHistogram)
 
 S3method(plotFrequencies,default)
 S3method(plotFrequencies,formula)
 export(plotFrequencies)
 export(addFrequencies)
+export(plotHistogram)
+export(addHistogram)
 
 ### xPercentiles
 

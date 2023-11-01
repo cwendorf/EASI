@@ -45,6 +45,12 @@ describeFrequencies <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
+.describeHistogram <- function(x, ...) {
+  UseMethod(".describeFrequencies")
+}
+
+describeHistogram <- describeFrequencies
+
 ### Plots
 
 .histogram <- function(y, x, type = "right", offset = 0, col = "black") {
@@ -115,3 +121,6 @@ plotFrequencies.formula <- function(formula, add = FALSE, ylim = NULL, main = NU
 addFrequencies <- function(...) {
   plotFrequencies(..., add = TRUE)
 }
+
+plotHistogram <- plotFrequencies
+addHistogram <- addFrequencies
