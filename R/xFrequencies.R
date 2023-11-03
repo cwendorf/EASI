@@ -62,7 +62,7 @@ describeHistogram <- describeFrequencies
   rect(x + offset, yhist$mids - .5, x + offset + yhist$density, yhist$mids + .5, border = col)
 }
 
-plotFrequencies <- function(x, ...) {
+plotFrequencies <- plotHistogram <- function(x, ...) {
   UseMethod("plotFrequencies")
 }
 
@@ -118,9 +118,6 @@ plotFrequencies.formula <- function(formula, add = FALSE, ylim = NULL, main = NU
   invisible(eval(formula))
 }
 
-addFrequencies <- function(...) {
+addFrequencies <- addHistogram <- function(...) {
   plotFrequencies(..., add = TRUE)
 }
-
-plotHistogram <- plotFrequencies
-addHistogram <- addFrequencies

@@ -36,8 +36,6 @@ export(addDensity)
 
 ### xDeviations
 
-export(describeSummary)
-
 S3method(plotDeviations,default)
 S3method(plotDeviations,formula)
 export(plotDeviations)
@@ -118,6 +116,7 @@ S3method(.describeMeans,wss)
 S3method(.describeMeans,bss)
 export(.describeMeans)
 export(describeMeans)
+export(describeSummary)
 
 S3method(.estimateMeans,default)
 S3method(.estimateMeans,formula)
