@@ -45,7 +45,7 @@
   y
 }
 
-.describeMeans <- function(x, ...) {
+.describeMeans <- .describeSummary <- function(x, ...) {
   UseMethod(".describeMeans")
 }
 
@@ -82,7 +82,7 @@
   return(results)
 }
 
-describeMeans <- function(..., main = NULL, digits = 3) {
+describeMeans <- describeSummary <- function(..., main = NULL, digits = 3) {
   results <- .describeMeans(...)
   if (is.null(main)) {
     main <- "Descriptive Statistics for the Data"
