@@ -51,7 +51,7 @@
 
 .describeMeans.bss <- .describeMeans.wss <- function(frame, ...) {
   frame <- unclass(frame)
-  frame <- frame[, c("N", "M", "SD")]
+  frame <- frame[, c("N", "M", "SD"), drop = FALSE]
   return(frame)
 }
 
