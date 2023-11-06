@@ -8,7 +8,7 @@
 
 \title{Estimation Approach to Statistical Inference}
 \description{
-\code{EASI} implements features of estimation statistics and data visualization. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs. Additional functions offer summaries and plots of data, frequencies, densities, and more. Most functions can take either raw data or summary statistics as input.
+\code{EASI} implements features of estimation statistics and data visualization. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs.
 }
 
 \details{
