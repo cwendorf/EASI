@@ -8,6 +8,10 @@ export(theme)
 ### grammarX
 
 export(frame)
+export(create)
+
+S3method(complete,corr)
+export(complete)
 
 S3method(choose,default)
 S3method(choose,formula)
@@ -382,13 +386,9 @@ export(analyzeMeansOmnibus)
 
 ### xCorrelations
 
-S3method(declareCorrelations,default)
-export(declareCorrelations)
-
-S3method(fillCorrelations,default)
-export(fillCorrelations)
-
 S3method(.describeCorrelations,default)
+S3method(.describeCorrelations,corr)
+S3method(.describeCorrelations,wss)
 export(.describeCorrelations)
 export(describeCorrelations)
 
