@@ -11,13 +11,13 @@
 **EASI** is an R package that implements features of estimation statistics and data visualization in a pipe-oriented framework. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs. Most functions can take either raw data or summary statistics as input.
 
 <a href="https://github.com/cwendorf/EASI">
-<p align="center"><kbd><img src="docs/cover/CoverImageOne.jpg"></kbd></p>
+<p align="center"><kbd><img src="docs/CoverImageOne.jpg"></kbd></p>
 </a>
 
 Additional functions extend the analysis capabilities much further. These extensions also offer summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations. 
 
 <a href="https://github.com/cwendorf/EASI">
-<p align="center"><kbd><img src="docs/cover/CoverImageTwo.jpg"></kbd></p>
+<p align="center"><kbd><img src="docs/CoverImageTwo.jpg"></kbd></p>
 </a>
 
 ### Installation
@@ -38,13 +38,12 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Usage
 
-The package includes a wide variety of tutorials, examples, and applications that demonstrate its use:
+The package includes a wide variety of materials that demonstrate its use:
 
-- [Quick Start Guide](./docs) - A quick start overview and summary of the package
-- [Details of the Functions](./docs/functions) - A manual describing the functions and their available options
-- [Tutorials from the Sourcebook](./docs/tutorials) - Tutorial vignettes that show the default and basic output 
-- [Examples from ITNS](./docs/examples) - Reanalyses of published textbook examples that use custom output options 
-- [Advanced Applications](./docs/applications) - Advanced applications that demonstrate additional features
+- [Overview](./docs) - A quick overview and summary of the package
+- [Manual](./.docs/manual) - Manual of the functions and their available options
+- [Examples](./docs/examples) - Examples that demonstrate basic analyses of simple datasets
+- [Applications](./docs/applications) - Applications that demonstrate advanced features
 
 ### Contact Me
 
