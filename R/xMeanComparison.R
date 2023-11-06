@@ -35,7 +35,7 @@ estimateMeanComparison <- function(..., main = NULL, digits = 3) {
 }
 
 .testMeanComparison.default <- .testMeanComparison.formula <- .testMeanComparison.wss <- .testMeanComparison.bss <- function(..., mu = 0) {
-  Levels <- .testMeans(...)
+  Levels <- .testMeans(..., mu = 0)
   Levels <- Levels[1:2, ]
   Levels <- list(Levels)
   names(Levels) <- "Hypothesis Tests for the Means"
