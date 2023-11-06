@@ -7,7 +7,7 @@ export(theme)
 
 ### grammarX
 
-export(frame)
+export(construct)
 export(create)
 
 S3method(complete,corr)

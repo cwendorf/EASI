@@ -3,7 +3,7 @@
 
 ### Frame Construction
 
-frame <- function(..., type = "data") {
+construct <- function(..., type = "data") {
   if (type == "bss" || type == "wss") {
     out <- rbind(...)
     class(out) <- type
@@ -61,7 +61,7 @@ complete.corr <- function(mat) {
   return(results)
 }
 
-### pick Variables
+### Pick Variables
 
 pick <- function(x, ...) {
   UseMethod("pick")
