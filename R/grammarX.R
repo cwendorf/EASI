@@ -28,7 +28,7 @@ create <- function(..., type = "corr") {
     colnames(results) <- c("N", "M", "SD")
   }
   rownames(results) <- clist
-  class(results) = type
+  class(results) <- type
   return(results)
 }
 
