@@ -61,25 +61,25 @@ complete.corr <- function(mat) {
   return(results)
 }
 
-### Choose Variables
+### pick Variables
 
-choose <- function(x, ...) {
-  UseMethod("choose")
+pick <- function(x, ...) {
+  UseMethod("pick")
 }
 
-choose.bss <- choose.wss <- function(DescStats, ...) {
+pick.bss <- pick.wss <- function(DescStats, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
   results <- DescStats[chosen, ]
   class(results) <- class(DescStats)
   return(results)
 }
 
-choose.default <- function(frame, ...) {
+pick.default <- function(frame, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
   subset(frame, select = chosen)
 }
 
-choose.formula <- function(formula, ...) {
+pick.formula <- function(formula, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
   update <- paste("~ factor(.,", paste(deparse(chosen), collapse = ","), ")")
   update(formula, update)
