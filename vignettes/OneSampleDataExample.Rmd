@@ -1,0 +1,101 @@
+---
+subtitle: "One Sample Data Example"
+output:
+  github_document:
+    preserve_yaml: FALSE
+vignette: >
+  %\VignetteIndexEntry{One Sample Data Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r globalOptions, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+## One Sample Data Example
+
+This page analyzes a single-group (one sample) design using raw data input.
+
+```{r toc, echo=FALSE}
+thisfile <- knitr::current_input()
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
+```
+
+---
+
+### Data Management
+
+#### Data Entry
+
+This code inputs the variable name and creates a viewable data frame.
+```{r}
+Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7)
+OneSampleData <- construct(Outcome)
+```
+
+#### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+(Outcome) |> describeMeans()
+```
+
+### Analyses of the Mean
+
+This section produces analyses that are equivalent to one-sample analyses for the variable.
+
+#### Confidence Interval
+
+This code will provide a confidence interval for the variable.
+```{r}
+(Outcome) |> estimateMeans()
+```
+
+This code will produce a graph of the confidence interval for the variable.
+```{r, OneSample-Data-MeansA}
+(Outcome) |> plotMeans()
+```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
+```{r}
+(Outcome) |> estimateMeans(conf.level = .99)
+```
+
+For the graph, it is possible to add a comparison line to represent a population (or test) value and a region of practical equivalence in addition to changing the confidence level.
+```{r, OneSample-Data-MeansB}
+(Outcome) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
+```
+
+#### Significance Test
+
+This code will produce a table of NHST for the variable. In this case, the mean is tested against a value of zero.
+```{r}
+(Outcome) |> testMeans()
+```
+
+Often, the default test value of zero is not meaningful or plausible. This too can be altered (often in conjunction with what is presented in the plot).
+```{r}
+(Outcome) |> testMeans(mu = 9)
+```
+
+#### Standardized Effect Size
+
+This code will provide the standardized mean difference for the variable. In this case, the mean is compared to zero to form the effect size.
+```{r}
+(Outcome) |> estimateStandardizedMeans()
+```
+
+Here too it is possible to alter the width of the confidence interval and to establish a more plausible comparison value for the mean.
+```{r}
+(Outcome) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+```

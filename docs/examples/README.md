@@ -1,57 +1,67 @@
-## Examples from ITNS
+## Examples
 
-### Overview of the Examples
+This page outlines examples that demonstrate basic analyses of simple datasets.
 
-Examples provide analyses of the data and summary statistics from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017). The results parallel those provided in the book, but vary slightly because *EASI* and *ITNS* make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.). The graphs are modified from the basic *EASI* output to more closely match the simpler output from *ITNS*.
+- [Means and Mean Differences](#means-and-mean-differences)
+- [Correlations and Regression Models](#correlations-and-regression-models)
 
-### Examples of Means and Mean Differences
+---
 
-The **PenLaptop** pages analyze a two-group between-subjects (independent groups) design (see Ch. 7):
+### Means and Mean Differences
 
-- [*PenLaptopDataExample*](./PenLaptopDataExample.md) - Uses raw data input
-- [*PenLaptopSummaryExample*](./PenLaptopSummaryExample.md) - Uses summary statistics input
+The **OneSample** pages analyze a single-group (one sample) design:
 
-The **Thomason** pages analyze a within-subjects design for two time points (paired samples, see Ch. 8):
+- [*OneSampleDataExample*](./OneSampleDataExample.md) - Uses raw data input
+- [*OneSampleSummaryExample*](./OneSampleSummaryExample.md) - Uses summary statistics input
 
-- [*ThomasonDataExample*](./ThomasonDataExample.md) - Uses raw data input
-- [*ThomasonSummaryExample*](./ThomasonSummaryExample.md) - Uses summary statistics input
+The **IndependentGroups** pages analyze a two-group between-subjects design (independent groups):
 
-The **Rattan** pages analyze a single-factor between-subjects design (see Ch. 14):
+- [*IndependentGroupsDataExample*](./IndependentGroupsDataExample.md) - Uses raw data input
+- [*IndependentGroupsSummaryExample*](./IndependentGroupsSummaryExample.md) - Uses summary statistics input
 
-- [*RattanDataExample*](./RattanDataExample.md) - Uses raw data input
-- [*RattanSummaryExample*](./RattanSummaryExample.md) - Uses summary statistics input
+The **PairedSamples** pages analyze a within-subjects design for two time points (paired samples):
 
-The **Donohue** pages analyze a single-factor within-subjects design (see Ch. 14):
+- [*PairedSamplesDataExample*](./PairedSamplesDataExample.md) - Uses raw data input
+- [*PairedSamplesSummaryExample*](./PairedSamplesSummaryExample.md) - Uses summary statistics input
 
-- [*DonohueDataExample*](./DonohueDataExample.md) - Uses raw data input
-- [*DonohueSummaryExample*](./DonohueSummaryExample.md) - Uses summary statistics input
+The **OneWay** pages analyze a single-factor between-subjects (one-way) design:
 
-The **Frenda** pages analyze a two-factor between-subjects design (see Ch. 15):
+- [*OneWayDataExample*](./OneWayDataExample.md) - Uses raw data input
+- [*OneWaySummaryExample*](./OneWaySummaryExample.md) - Uses summary statistics input
 
-- [*FrendaSummaryExample*](./FrendaSummaryExample.md) - Uses summary statistics input
+The **RepeatedMeasures** pages analyze a single-factor within-subjects (repeated measures) design:
 
-The **Holzel** pages analyze a two-factor mixed design (one between-subjects and one within-subjects factor) (see Ch. 15):
+- [*RepeatedMeasuresDataExample*](./RepeatedMeasuresDataExample.md) - Uses raw data input
+- [*RepeatedMeasuresSummaryExample*](./RepeatedMeasuresSummaryExample.md) - Uses summary statistics input
 
-- [*HolzelDataExample*](./HolzelDataExample.md) - Uses raw data input
-- [*HolzelSummaryExample*](./HolzelSummaryExample.md) - Uses summary statistics input
+The **FactorialDesign** pages analyze a two-factor between-subjects (factorial) design:
 
-### Examples of Correlations and Regression Models
+- [*FactorialDesignDataExample*](./FactorialDesignDataExample.md) - Uses raw data input
+- [*FactorialDesignSummaryExample*](./FactorialDesignSummaryExample.md) - Uses summary statistics input
 
-The **BodyWellOne** pages analyze a correlation in a single sample (see Ch. 11):
+The **MixedDesign** pages analyze a two-factor mixed design (one between-subjects and one within-subjects factor):
 
-- [*BodyWellOneDataExample*](./BodyWellOneDataExample.md) - Uses raw data input
-- [*BodyWellOneSummaryExample*](./BodyWellOneSummaryExample.md) - Uses summary statistics input
+- [*MixedDesignDataExample*](./MixedDesignDataExample.md) - Uses raw data input
+- [*MixedDesignSummaryExample*](./MixedDesignSummaryExample.md) - Uses summary statistics input
 
-The **BodyWellTwo** pages analyze a correlation in two samples (see Ch. 11):
+### Correlations and Regression Models
 
-- [*BodyWellTwoDataExample*](./BodyWellTwoDataExample.md) - Uses raw data input
-- [*BodyWellTwoSummaryExample*](./BodyWellTwoSummaryExample.md) - Uses summary statistics input
+The **SingleCorrelation** pages analyze a correlation between two variables:
 
-The **BodyWellRegression** pages analyze regression in a single sample (see Ch. 12):
+- [*SingleCorrelationDataExample*](./SingleCorrelationDataExample.md) - Uses raw data input
+- [*SingleCorrelationSummaryExample*](./SingleCorrelationSummaryExample.md) - Uses summary statistics input
 
-- [*BodyWellRegressionDataExample*](./BodyWellRegressionDataExample.md) - Uses raw data input
-- [*BodyWellRegressionSummaryExample*](./BodyWellRegressionSummaryExample.md) - Uses summary statistics input
+The **SetCorrelations** pages analyze a set of correlations among multiple variables:
 
-### References
+- [*SetCorrelationsDataExample*](./SetCorrelationsDataExample.md) - Uses raw data input
+- [*SetCorrelationsSummaryExample*](./SetCorrelationsSummaryExample.md) - Uses summary statistics input
 
-Cumming, G. & Calin-Jageman, R. (2017). *Introduction to the new statistics.* Routledge.
+The **BivariateRegression** pages analyze bivariate regression models:
+
+- [*BivariateRegressionDataExample*](./BivariateRegressionDataExample.md) - Uses raw data input
+- [*BivariateRegressionSummaryExample*](./BivariateRegressionSummaryExample.md) - Uses summary statistics input
+
+The **MultipleRegression** pages analyze multiple regression models:
+
+- [*MultipleRegressionDataExample*](./MultipleRegressionDataExample.md) - Uses raw data input
+- [*MultipleRegressionSummaryExample*](./MultipleRegressionSummaryExample.md) - Uses summary statistics input

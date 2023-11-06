@@ -1,0 +1,103 @@
+---
+subtitle: "Single Correlation Data Example"
+output:
+  github_document:
+    preserve_yaml: FALSE
+vignette: >
+  %\VignetteIndexEntry{Single Correlation Data Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+## Single Correlation Data Example
+
+This page analyzes a single correlation between two variables using raw data input.
+
+```{r toc, echo=FALSE}
+thisfile <- knitr::current_input()
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
+```
+
+---
+
+### Data Management
+
+#### Data Entry
+
+This code inputs the variable names and creates a viewable data frame.
+```{r}
+Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7)
+Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)
+PairedData <- construct(Outcome1, Outcome2)
+```
+
+#### Descriptive Statistics
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+(PairedData) |> describeMeans()
+(PairedData) |> describeCorrelations()
+```
+
+#### Plot of the Data
+
+This code provides a scatterplot for the bivariate relationship.
+```{r, SingleCorrelation-Data-ScatterA}
+(PairedData) |> plotScatter()
+```
+
+This code provides a scatterplot along with a 95% confidence ellipse for the data.
+```{r, SingleCorrelation-Data-ScatterB}
+(PairedData) |> plotScatter(ellipse = TRUE)
+```
+
+The ellipse can be altered for different confidence levels.
+```{r, SingleCorrelation-Data-ScatterC}
+(PairedData) |> plotScatter(ellipse = TRUE, conf.level = .99)
+```
+
+### Analyses of a Correlation
+
+This section produces analyses of the correlation.
+
+#### Confidence Interval
+
+This code will provide the confidence interval for the correlation.
+```{r}
+(PairedData) |> estimateCorrelations()
+```
+
+This code will produce a graph of the confidence interval for the correlation.
+```{r, SingleCorrelation-Data-IntervalsA}
+(PairedData) |> plotCorrelations()
+```
+
+The code defaults to 95% confidence intervals. This can be changed if desired.
+```{r}
+(PairedData) |> estimateCorrelations(conf.level = .99)
+```
+
+Of course, it is possible to change from the default confidence level and to add a comparison line and a region of practical equivalence to the graph.
+```{r, SingleCorrelation-Data-IntervalsB}
+(PairedData) |> plotCorrelations(conf.level = .99, line = 0, rope = c(-.2, .2))
+```
+
+#### Significance Test
+
+This code will produce a table of NHST for the correlation (against a value of zero).
+```{r}
+(PairedData) |> testCorrelations()
+```
