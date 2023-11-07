@@ -504,6 +504,8 @@ S3method(.describeMeansBy,default)
 S3method(.describeMeansBy,formula)
 export(.describeMeansBy)
 export(describeMeansBy)
+export(.describeSummaryBy)
+export(describeSummaryBy)
 
 S3method(.estimateMeansBy,default)
 S3method(.estimateMeansBy,formula)

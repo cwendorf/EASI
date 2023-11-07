@@ -3,7 +3,7 @@
 
 #### Descriptives
 
-.describeMeansBy <- function(x, ...) {
+.describeMeansBy <- .describeSummaryBy <- function(x, ...) {
   UseMethod(".describeMeansBy")
 }
 
@@ -27,7 +27,7 @@
   return(results)
 }
 
-describeMeansBy <- function(..., main = NULL, digits = 3) {
+describeMeansBy <- describeSummaryBy <- function(..., main = NULL, digits = 3) {
   results <- .describeMeansBy(...)
   if (is.null(main)) {
     main <- "Descriptive Statistics for the Data"
