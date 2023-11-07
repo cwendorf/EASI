@@ -49,13 +49,13 @@
   UseMethod(".describeSummary")
 }
 
-.describeSummary.bss <- .describeSummary.wss <- function(frame, ...) {
+.describeSummary.bss <- .describeSummary.wss <- .describeMeans.bss <- .describeMeans.wss <-function(frame, ...) {
   frame <- unclass(frame)
   frame <- frame[, c("N", "M", "SD"), drop = FALSE]
   return(frame)
 }
 
-.describeSummary.default <- function(frame, ...) {
+.describeSummary.default <- .describeMeans.default <-function(frame, ...) {
   if (typeof(frame) == "double") {
     data <- data.frame(frame)
     if (ncol(data) == 1) {
@@ -73,7 +73,7 @@
   return(results)
 }
 
-.describeSummary.formula <- function(formula, ...) {
+.describeSummary.formula <- .describeMeans.formula <-function(formula, ...) {
   results <- aggregate(formula, FUN = .describeSummary)
   rn <- results[, 1]
   results <- results[[2]]
