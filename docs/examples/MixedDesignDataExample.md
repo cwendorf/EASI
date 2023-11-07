@@ -53,7 +53,7 @@ This code obtains the descriptive statistics for the two data frames.
 (MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                N       M      SD    Skew    Kurt
     ## Outcome1  10.000   8.000   1.414   0.000  -0.738
     ## Outcome2  10.000  11.000   2.211  -0.617  -0.212
@@ -73,7 +73,7 @@ This code obtains the descriptive statistics for the two data frames.
 (MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                N       M      SD    Skew    Kurt
     ## Outcome1  10.000   8.000   2.449  -0.340  -1.102
     ## Outcome2  10.000   8.000   2.000  -0.417   0.735

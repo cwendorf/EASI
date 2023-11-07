@@ -70,7 +70,7 @@ This code confirms the descriptive statistics from the summary tables.
 (MixedSummaryL1) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                N       M      SD
     ## Outcome1  10.000   8.000   1.414
     ## Outcome2  10.000  11.000   2.211
@@ -90,7 +90,7 @@ This code confirms the descriptive statistics from the summary tables.
 (MixedSummaryL2) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                N       M      SD
     ## Outcome1  10.000   8.000   2.449
     ## Outcome2  10.000   8.000   2.000
