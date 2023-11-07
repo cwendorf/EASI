@@ -5,8 +5,8 @@
 
 plotViolins <- function(..., main = NULL, col = "black") {
   if (is.null(main)) main <- "Violin Plots"
-  plotBoxes(..., values = FALSE, main = main, col = col)
-  plotDensity(..., add = TRUE, offset = 0, type = "full", col = col)
+  plotDensity(..., main = main, offset = 0, type = "full", col = col)
+  plotBoxes(..., add = TRUE, values = FALSE, col = col)
 }
 
 plotBeans <- function(..., main = NULL, col = "black") {
@@ -17,13 +17,7 @@ plotBeans <- function(..., main = NULL, col = "black") {
 
 plotRainclouds <- function(..., main = NULL, col = "black") {
   if (is.null(main)) main <- "Raincloud Plots"
-  plotBoxes(..., main = main, values = FALSE, col = col)
-  plotDensity(..., add = TRUE, offset = .1, col = col)
+  plotDensity(..., main = main, offset = .1, col = col)
+  plotBoxes(..., add = TRUE, values = FALSE, col = col)
   plotData(..., add = TRUE, method = "jitter", offset = -.15, col = col)
-}
-
-plotDescriptives <- function(..., main = NULL, col = "black") {
-  if (is.null(main)) main <- "Frequencies and Descriptives Plot"
-  plotFrequencies(..., main = main, col = col)
-  plotDeviations(..., add = TRUE, offset = 0, col = col)
 }
