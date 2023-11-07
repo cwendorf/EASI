@@ -55,7 +55,7 @@
   return(frame)
 }
 
-.describeSummary.default <- .describeMeans.default <-function(frame, ...) {
+.describeSummary.default <- .describeMeans.default <- function(frame, ...) {
   if (typeof(frame) == "double") {
     data <- data.frame(frame)
     if (ncol(data) == 1) {
@@ -73,7 +73,7 @@
   return(results)
 }
 
-.describeSummary.formula <- .describeMeans.formula <-function(formula, ...) {
+.describeSummary.formula <- .describeMeans.formula <- function(formula, ...) {
   results <- aggregate(formula, FUN = .describeSummary)
   rn <- results[, 1]
   results <- results[[2]]
