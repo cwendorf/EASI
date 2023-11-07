@@ -6,7 +6,7 @@ statistics input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Mean](#analyses-of-the-mean)
   - [Confidence Interval](#confidence-interval)
   - [Significance Test](#significance-test)
@@ -25,12 +25,12 @@ Outcome <- c(N = 10, M = 8.000, SD = 1.414)
 OneSampleSummary <- construct(Outcome, type = "bss")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary table.
 
 ``` r
-(OneSampleSummary) |> describeMeans()
+(OneSampleSummary) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

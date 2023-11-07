@@ -6,7 +6,7 @@ design using summary statistics input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -30,12 +30,12 @@ Level2 <- c(N = 10, M = 11.000, SD = 2.211)
 IndependentSummary <- construct(Level1, Level2, type = "bss")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary table.
 
 ``` r
-(IndependentSummary) |> describeMeans()
+(IndependentSummary) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

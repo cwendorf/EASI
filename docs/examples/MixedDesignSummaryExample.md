@@ -6,7 +6,7 @@ one within-subjects factor) using summary statistics input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -62,12 +62,12 @@ Outcome3 <- c(.164, .553, 1.000)
 MixedCorrL2 <- construct(Outcome1, Outcome2, Outcome3, type = "corr")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 
 ``` r
-(MixedSummaryL1) |> describeMeans()
+(MixedSummaryL1) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`
@@ -87,7 +87,7 @@ This code confirms the descriptive statistics from the summary tables.
     ## Outcome3    0.385    0.574    1.000
 
 ``` r
-(MixedSummaryL2) |> describeMeans()
+(MixedSummaryL2) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

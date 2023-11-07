@@ -6,7 +6,7 @@ one within-subjects factor) using raw data input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -45,12 +45,12 @@ MixedDataL1 <- subset(MixedData, Factor == "Level1")
 MixedDataL2 <- subset(MixedData, Factor == "Level2")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the two data frames.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeMeans()
+(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`
@@ -70,7 +70,7 @@ This code obtains the descriptive statistics for the two data frames.
     ## Outcome3    0.385    0.574    1.000
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeMeans()
+(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

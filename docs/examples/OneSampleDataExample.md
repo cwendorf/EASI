@@ -6,7 +6,7 @@ input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Mean](#analyses-of-the-mean)
   - [Confidence Interval](#confidence-interval)
   - [Significance Test](#significance-test)
@@ -25,12 +25,12 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7)
 OneSampleData <- construct(Outcome)
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
 ``` r
-(Outcome) |> describeMeans()
+(Outcome) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

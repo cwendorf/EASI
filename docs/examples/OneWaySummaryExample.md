@@ -6,7 +6,7 @@ using summary statistics input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -35,12 +35,12 @@ Level3 <- c(N = 10, M = 12.000, SD = 2.449)
 OneWaySummary <- construct(Level1, Level2, Level3, type = "bss")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary table.
 
 ``` r
-(OneWaySummary) |> describeMeans()
+(OneWaySummary) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

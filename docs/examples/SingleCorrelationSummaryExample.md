@@ -6,7 +6,7 @@ summary statistics input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
   - [Plot of the Data](#plot-of-the-data)
 - [Analyses of a Correlation](#analyses-of-a-correlation)
   - [Confidence Interval](#confidence-interval)
@@ -34,12 +34,12 @@ Outcome2 <- c(.533, 1.000)
 PairedCorr <- construct(Outcome1, Outcome2, type = "corr")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 
 ``` r
-(PairedSummary) |> describeMeans()
+(PairedSummary) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

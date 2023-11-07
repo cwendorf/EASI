@@ -6,7 +6,7 @@ input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Overall Model](#analyses-of-the-overall-model)
   - [Confidence Interval](#confidence-interval)
   - [Significance Test](#significance-test)
@@ -40,12 +40,12 @@ Criterion <- c(.385, .574, 1.000)
 RegressionCorr <- construct(Predictor1, Predictor2, Criterion, type = "corr")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 
 ``` r
-(RegressionSummary) |> describeMeans()
+(RegressionSummary) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

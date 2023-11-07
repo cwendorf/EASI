@@ -6,7 +6,7 @@ time points using raw data input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -30,12 +30,12 @@ Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)
 PairedData <- construct(Outcome1, Outcome2)
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
 ``` r
-(PairedData) |> describeMeans()
+(PairedData) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

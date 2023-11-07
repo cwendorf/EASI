@@ -6,7 +6,7 @@ data input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
   - [Plot of the Data](#plot-of-the-data)
 - [Analyses of a Correlation](#analyses-of-a-correlation)
   - [Confidence Interval](#confidence-interval)
@@ -26,12 +26,12 @@ Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)
 PairedData <- construct(Outcome1, Outcome2)
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
 ``` r
-(PairedData) |> describeMeans()
+(PairedData) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

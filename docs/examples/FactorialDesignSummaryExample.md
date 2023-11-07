@@ -6,7 +6,7 @@ using summary statistics input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -45,12 +45,12 @@ A3 <- c(N = 10, M = 7.000, SD = 2.211)
 FactorialSummaryB2 <- construct(A1, A2, A3, type = "bss")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 
 ``` r
-(FactorialSummaryB1) |> describeMeans()
+(FactorialSummaryB1) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`
@@ -60,7 +60,7 @@ This code confirms the descriptive statistics from the summary tables.
     ## A3  10.000  12.000   2.449
 
 ``` r
-(FactorialSummaryB2) |> describeMeans()
+(FactorialSummaryB2) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

@@ -53,12 +53,12 @@ FactorialDataB1 <- subset(FactorialData, FactorB == "B1")
 FactorialDataB2 <- subset(FactorialData, FactorB == "B2")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the two data frames.
 ```{r}
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> describeMeans()
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> describeMeans()
+(FactorialDataB1) %$>% (Outcome ~ FactorA) |> describeSummary()
+(FactorialDataB2) %$>% (Outcome ~ FactorA) |> describeSummary()
 ```
 
 ### Analyses of the Means

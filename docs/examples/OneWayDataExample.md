@@ -6,7 +6,7 @@ using raw data input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -35,12 +35,12 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 7, 13, 11, 10, 13, 8, 11, 14, 12, 1
 OneWayData <- construct(Factor, Outcome)
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
 ``` r
-(Outcome ~ Factor) |> describeMeans()
+(Outcome ~ Factor) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

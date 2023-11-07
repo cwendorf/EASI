@@ -6,7 +6,7 @@ using raw data input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -45,12 +45,12 @@ FactorialDataB1 <- subset(FactorialData, FactorB == "B1")
 FactorialDataB2 <- subset(FactorialData, FactorB == "B2")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the two data frames.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> describeMeans()
+(FactorialDataB1) %$>% (Outcome ~ FactorA) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`
@@ -60,7 +60,7 @@ This code obtains the descriptive statistics for the two data frames.
     ## A3  10.000  12.000   2.449   0.340  -1.102
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> describeMeans()
+(FactorialDataB2) %$>% (Outcome ~ FactorA) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

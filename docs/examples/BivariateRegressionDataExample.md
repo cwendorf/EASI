@@ -5,7 +5,7 @@ This page analyzes bivariate regression models using raw data input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Overall Model](#analyses-of-the-overall-model)
   - [Confidence Interval](#confidence-interval)
   - [Significance Test](#significance-test)
@@ -33,12 +33,12 @@ Criterion <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)
 BivariateData <- construct(Predictor, Criterion)
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
 ``` r
-(BivariateData) |> describeMeans()
+(BivariateData) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

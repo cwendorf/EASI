@@ -6,7 +6,7 @@ statistics input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of a Correlation](#analyses-of-a-correlation)
   - [Confidence Interval](#confidence-interval)
   - [Significance Test](#significance-test)
@@ -39,12 +39,12 @@ Outcome3 <- c(.385, .574, 1.000)
 RepeatedCorr <- construct(Outcome1, Outcome2, Outcome3, type = "corr")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 
 ``` r
-(RepeatedSummary) |> describeMeans()
+(RepeatedSummary) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

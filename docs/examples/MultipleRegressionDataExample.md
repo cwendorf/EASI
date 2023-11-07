@@ -5,7 +5,7 @@ This page analyzes multiple regression models using raw data input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Overall Model](#analyses-of-the-overall-model)
   - [Confidence Interval](#confidence-interval)
   - [Significance Test](#significance-test)
@@ -30,12 +30,12 @@ Criterion <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
 RegressionData <- construct(Predictor1, Predictor2, Criterion)
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
 ``` r
-(RegressionData) |> describeMeans()
+(RegressionData) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

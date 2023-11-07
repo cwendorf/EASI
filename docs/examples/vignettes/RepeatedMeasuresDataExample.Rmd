@@ -45,11 +45,11 @@ Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
 RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 ```{r}
-(RepeatedData) |> describeMeans()
+(RepeatedData) |> describeSummary()
 ```
 
 ### Analyses of the Means

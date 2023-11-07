@@ -6,7 +6,7 @@ input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of a Correlation](#analyses-of-a-correlation)
   - [Confidence Interval](#confidence-interval)
   - [Significance Test](#significance-test)
@@ -29,12 +29,12 @@ Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
 RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 
 ``` r
-(RepeatedData) |> describeMeans()
+(RepeatedData) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

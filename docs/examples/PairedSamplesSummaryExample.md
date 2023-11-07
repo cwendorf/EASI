@@ -6,7 +6,7 @@ time points using summary statistics input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of the Means](#analyses-of-the-means)
   - [Confidence Intervals](#confidence-intervals)
   - [Significance Tests](#significance-tests)
@@ -38,12 +38,12 @@ Outcome2 <- c(.533, 1.000)
 PairedCorr <- construct(Outcome1, Outcome2, type = "corr")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 
 ``` r
-(PairedSummary) |> describeMeans()
+(PairedSummary) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`

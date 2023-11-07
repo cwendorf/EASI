@@ -45,11 +45,11 @@ Level3 <- c(N = 10, M = 12.000, SD = 2.449)
 OneWaySummary <- construct(Level1, Level2, Level3, type = "bss")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary table.
 ```{r}
-(OneWaySummary) |> describeMeans()
+(OneWaySummary) |> describeSummary()
 ```
 
 ### Analyses of the Means

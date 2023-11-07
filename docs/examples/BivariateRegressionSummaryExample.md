@@ -6,7 +6,7 @@ input.
 
 - [Data Management](#data-management)
   - [Data Entry](#data-entry)
-  - [Descriptive Statistics](#descriptive-statistics)
+  - [Summary Statistics](#summary-statistics)
 - [Analyses of Overall Model](#analyses-of-overall-model)
   - [Confidence Interval](#confidence-interval)
   - [Significance Test](#significance-test)
@@ -42,12 +42,12 @@ Criterion <- c(.533, 1.000)
 BivariateCorr <- construct(Predictor, Criterion, type = "corr")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 
 ``` r
-(BivariateSummary) |> describeMeans()
+(BivariateSummary) |> describeSummary()
 ```
 
     ## $`Descriptive Statistics for the Data`
