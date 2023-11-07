@@ -129,7 +129,7 @@ describeSummary <- describeMeans <- function(..., main = NULL, digits = 3) {
   }
 }
 
-plotSummary <- plotSummary <- function(x, ...) {
+plotSummary <- function(x, ...) {
   UseMethod("plotSummary")
 }
 
