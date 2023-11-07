@@ -1,10 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Make Functions Available
 
-### colorX
-
-export(theme)
-
 ### grammarX
 
 export(construct)
@@ -24,6 +20,10 @@ export("%$>%")
 export("%.>%")
 export("%.>>%")
 
+### colorX
+
+export(theme)
+
 ### xData
 
 S3method(plotData,default)
@@ -37,15 +37,6 @@ S3method(plotDensity,default)
 S3method(plotDensity,formula)
 export(plotDensity)
 export(addDensity)
-
-### xDeviations
-
-S3method(plotDeviations,default)
-S3method(plotDeviations,formula)
-export(plotDeviations)
-export(addDeviations)
-export(plotSummary)
-export(addSummary)
 
 ### xBoxes
 
@@ -87,7 +78,6 @@ export(describePercentiles)
 export(plotViolins)
 export(plotBeans)
 export(plotRainclouds)
-export(plotDescriptives)
 
 ### xIntervals
 
@@ -127,6 +117,13 @@ S3method(.describeMeans,wss)
 S3method(.describeMeans,bss)
 export(.describeMeans)
 export(describeMeans)
+
+S3method(plotSummary,default)
+S3method(plotSummary,formula)
+S3method(plotSummary,wss)
+S3method(plotSummary,bss)
+export(plotSummary)
+export(addSummary)
 
 ### Means
 
