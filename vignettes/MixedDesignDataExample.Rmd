@@ -53,13 +53,13 @@ MixedDataL1 <- subset(MixedData, Factor == "Level1")
 MixedDataL2 <- subset(MixedData, Factor == "Level2")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code obtains the descriptive statistics for the two data frames.
 ```{r}
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeMeans()
+(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeSummary()
 (MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeCorrelations()
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeMeans()
+(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeSummary()
 (MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeCorrelations()
 ```
 

@@ -69,13 +69,13 @@ Outcome3 <- c(.164, .553, 1.000)
 MixedCorrL2 <- construct(Outcome1, Outcome2, Outcome3, type = "corr")
 ```
 
-#### Descriptive Statistics
+#### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 ```{r}
-(MixedSummaryL1) |> describeMeans()
+(MixedSummaryL1) |> describeSummary()
 (MixedCorrL1) |> describeCorrelations()
-(MixedSummaryL2) |> describeMeans()
+(MixedSummaryL2) |> describeSummary()
 (MixedCorrL2) |> describeCorrelations()
 ```
 
