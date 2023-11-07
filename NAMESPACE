@@ -112,7 +112,14 @@ S3method(plotDiamonds,list)
 export(plotDiamonds)
 export(addDiamonds)
 
-### xMeans
+### Summary
+
+S3method(.describeSummary,default)
+S3method(.describeSummary,formula)
+S3method(.describeSummary,wss)
+S3method(.describeSummary,bss)
+export(.describeSummary)
+export(describeSummary)
 
 S3method(.describeMeans,default)
 S3method(.describeMeans,formula)
@@ -120,7 +127,8 @@ S3method(.describeMeans,wss)
 S3method(.describeMeans,bss)
 export(.describeMeans)
 export(describeMeans)
-export(describeSummary)
+
+### Means
 
 S3method(.estimateMeans,default)
 S3method(.estimateMeans,formula)
