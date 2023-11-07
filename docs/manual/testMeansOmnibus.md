@@ -8,16 +8,16 @@ Provides a statistical significance test for an Analysis of Variance.
 
 ```r
 ## Default S3 method
-testMeansOmnibus(frame,main=NULL,digits=3)
+testMeansOmnibus(frame, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeansOmnibus(formula,main=NULL,digits=3)
+testMeansOmnibus(formula, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeansOmnibus(DescStats,CorrStats,main=NULL,digits=3)
+testMeansOmnibus(DescStats, CorrStats, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeansOmnibus(DescStats,main=NULL,digits=3) 
+testMeansOmnibus(DescStats, main=NULL, digits=3) 
 ```
 
 ### Arguments

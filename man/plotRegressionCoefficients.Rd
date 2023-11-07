@@ -9,9 +9,9 @@
 \description{Provides a plot of the regression coefficients and their confidence intervals.}
 
 \usage{
-\method{plotRegressionCoefficients}{default}(frame,y=NULL,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotRegressionCoefficients}{default}(frame, y=NULL, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotRegressionCoefficients}{wss}(DescStats,CorrStats,y=NULL,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotRegressionCoefficients}{wss}(DescStats, CorrStats, y=NULL, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

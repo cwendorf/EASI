@@ -8,16 +8,16 @@ Provides the standardized effect size and its confidence interval for the contra
 
 ```r
 ## Default S3 method
-estimateStandardizedMeanContrast(frame,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanContrast(frame, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateStandardizedMeanContrast(formula,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanContrast(formula, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedMeanContrast(DescStats,CorrStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanContrast(DescStats, CorrStats, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateStandardizedMeanContrast(DescStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanContrast(DescStats, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

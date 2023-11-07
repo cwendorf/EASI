@@ -8,10 +8,10 @@ Provides a statistical significance test for correlations of the specified varia
 
 ```r
 ## Default S3 method
-testCorrelations(frame,main=NULL,digits=3)
+testCorrelations(frame, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testCorrelations(CompStats,CorrStats,main=NULL,digits=3)
+testCorrelations(CompStats, CorrStats, main=NULL, digits=3)
 ```
 
 ### Arguments

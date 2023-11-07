@@ -8,16 +8,16 @@ Provides the statistical significance tests for a mean contrasts and the differe
 
 ```r
 ## Default S3 method
-testMeanComplex(frame,contrast1,contrast2,main=NULL,digits=3)
+testMeanComplex(frame, contrast1, contrast2, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeanComplex(formula,contrast1,contrast2,main=NULL,digits=3)
+testMeanComplex(formula, contrast1, contrast2, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeanComplex(DescStats,CorrStats,contrast1,contrast2,CorrStats,main=NULL,digits=3)
+testMeanComplex(DescStats, CorrStats, contrast1, contrast2, CorrStats, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeanComplex(DescStats,contrast1,contrast2,main=NULL,digits=3)
+testMeanComplex(DescStats, contrast1, contrast2, main=NULL, digits=3)
 ```
 
 ### Arguments

@@ -8,10 +8,10 @@ Provides a table of regression coefficients and their confidence intervals.
 
 ```r
 ## Default S3 method
-estimateRegressionCoefficients(frame,y=NULL,conf.level=.95,main=NULL,digits=3)
+estimateRegressionCoefficients(frame, y=NULL, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateRegressionCoefficients(DescStats,CorrStats,y=NULL,conf.level=.95,main=NULL,digits=3)
+estimateRegressionCoefficients(DescStats, CorrStats, y=NULL, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

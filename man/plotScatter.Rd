@@ -9,9 +9,9 @@
 \description{Provides a scatterplot and/or confidence ellipse.}
 
 \usage{
-\method{plotScatter}{default}(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,ellipse=FALSE,conf.level=.95,points=TRUE,col="black",pch=16,add=FALSE)
+\method{plotScatter}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", xlim=NULL, ylim=NULL, ellipse=FALSE, conf.level=.95, points=TRUE, col="black", pch=16, add=FALSE)
 
-\method{plotScatter}{wss}(DescStats,CorrStats,add=FALSE,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,ellipse=TRUE,conf.level=.95,col="black",add=FALSE)
+\method{plotScatter}{wss}(DescStats, CorrStats, add=FALSE, main=NULL, ylab="Outcome", xlab="", xlim=NULL, ylim=NULL, ellipse=TRUE, conf.level=.95, col="black", add=FALSE)
 }
 
 \arguments{

@@ -11,13 +11,13 @@
 \description{Provides the confidence intervals for a standarized mean contrast and the standardized mean subsets that comprise that contrast.}
 
 \usage{
-\method{estimateStandardizedMeanSubsets}{default}(frame,contrast,mu=0,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateStandardizedMeanSubsets}{default}(frame, contrast, mu=0, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateStandardizedMeanSubsets}{formula}(formula,contrast,mu=0,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateStandardizedMeanSubsets}{formula}(formula, contrast, mu=0, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateStandardizedMeanSubsets}{wss}(DescStats,CorrStats,mu=0,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateStandardizedMeanSubsets}{wss}(DescStats, CorrStats, mu=0, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateStandardizedMeanSubsets}{bss}(DescStats,contrast,mu=0,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateStandardizedMeanSubsets}{bss}(DescStats, contrast, mu=0, conf.level=.95, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

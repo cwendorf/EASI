@@ -11,13 +11,13 @@
 \description{Provides the mean difference, standard error, and confidence interval of the difference.}
 
 \usage{
-\method{estimateMeanDifference}{default}(frame,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanDifference}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanDifference}{formula}(formula,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanDifference}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanDifference}{wss}(CompStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanDifference}{wss}(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanDifference}{bss}(CompStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanDifference}{bss}(CompStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

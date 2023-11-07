@@ -8,7 +8,7 @@
 \description{Provides a square matrix/frame of correlations for a data set.}
 
 \usage{
-\method{describeCorrelations}{default}(frame,main=NULL,digits=3)
+\method{describeCorrelations}{default}(frame, main=NULL, digits=3)
 }
 
 \arguments{

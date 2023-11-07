@@ -24,13 +24,11 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 ### Data and Distributions
 
-> Data and distribution functions are only available for data (and not summary statistics) input
-
 `Data` - Plot the data for the groups, levels, or variables:
 
 - [`plotData`](./plotData.md)
 
-`Frequencies` - Summarize and provide plots of frequencies for the groups, levels, or variables:
+`Frequencies` - Obtain and plot frequencies for the groups, levels, or variables:
 
 - [`describeFrequencies`](./describeFrequencies.md)
 - [`plotFrequencies`](./plotFrequencies.md)
@@ -39,10 +37,15 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 - [`plotDensity`](./plotDensity.md)
 
-`Boxes` - Summarize and provide boxplots for the groups, levels, or variables:
+`Boxes` - Obtain and plot boxplots for the groups, levels, or variables:
 
 - [`describeBoxes`](./describeBoxes.md)
 - [`plotBoxes`](./plotBoxes.md)
+
+`Summary` - Obtain and plot summary statistics of the variables:
+
+- [`describeSummary`](./describeSummary.md)
+- [`plotSummary`](./plotSummary.md)
 
 `Scatter` - Plot scatterplots of the variables:
 
@@ -52,7 +55,6 @@ Then the functions add an object (the noun that indicates the parameter or item 
 
 `Means` - Examine all individual group, level, or variable means:
 
-- [`describeMeans`](./describeMeans.md)
 - [`estimateMeans`](./estimateMeans.md)
 - [`plotMeans`](./plotMeans.md)
 - [`testMeans`](./testMeans.md)

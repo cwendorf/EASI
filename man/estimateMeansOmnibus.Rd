@@ -11,13 +11,13 @@
 \description{Calculates the proportion of variance accounted for and its confidence interval.}
 
 \usage{
-\method{estimateMeansOmnibus}{default}(frame,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansOmnibus}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansOmnibus}{formula}(formula,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansOmnibus}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansOmnibus}{wss}(DescStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansOmnibus}{wss}(DescStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansOmnibus}{bss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansOmnibus}{bss}(DescStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

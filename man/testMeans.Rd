@@ -11,13 +11,13 @@
 \description{Provides a statistical significance test for each group or level mean.}
 
 \usage{
-\method{testMeans}{default}(frame,mu=0,main=NULL,digits=3)
+\method{testMeans}{default}(frame, mu=0, main=NULL, digits=3)
 
-\method{testMeans}{formula}(formula,mu=0,main=NULL,digits=3)
+\method{testMeans}{formula}(formula, mu=0, main=NULL, digits=3)
 
-\method{testMeans}{wss}(DescStats,mu=0,main=NULL,digits=3)
+\method{testMeans}{wss}(DescStats, mu=0, main=NULL, digits=3)
 
-\method{testMeans}{bss}(DescStats,mu=0,main=NULL,digits=3)
+\method{testMeans}{bss}(DescStats, mu=0, main=NULL, digits=3)
 }
 
 \arguments{

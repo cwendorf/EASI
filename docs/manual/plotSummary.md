@@ -1,17 +1,23 @@
-## Plot Correlations
+## Plot Summary
 
 ### Description
 
-Provides a plot of all correlations and their confidence intervals for a list of variables.
+Provides a plot of all group or level means and standard deviations.
 
 ### Usage
 
 ```r
 ## Default S3 method
-plotCorrelations(frame, ylab="Correlation", xlab="", conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
+plotSummary(frame, ylab="Outcome", xlab="", values=TRUE, main=NULL, ylim=NULL, digits=3)
+
+## S3 method for class 'formula'
+plotSummary(formula, ylab="Outcome", xlab="", values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 ## S3 method for class 'wss'
-plotCorrelations(CompStats, CorrStats, ylab="Correlation", xlab="", conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
+plotSummary(DescStats, ylab="Outcome", xlab="", values=TRUE, main=NULL, ylim=NULL, digits=3)
+
+## S3 method for class 'bss'
+plotSummary(DescStats, ylab="Outcome", xlab="", values=TRUE, main=NULL, ylim=NULL, digits=3)
 ```
 
 ### Arguments
@@ -23,7 +29,6 @@ Argument | Description
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```ylab``` | a label for the y-axis
 ```xlab``` | a label for the x-axis
-```conf.level``` | confidence level of the interval
 ```values``` | whether the points should be labeled with their values
 ```main``` | a custom title for the graph
 ```ylim``` | custom limits for the y axis
@@ -35,6 +40,6 @@ The returned plot contains the following components:
 
 Value | Description
 :-- | :--
-```R``` | the correlations for the variables
-```LL``` | the lower limit of the confidence interval for the correlations
-```UL``` | the upper limit of the confidence interval for the correlations
+```N``` | the number of individuals for the variables or groups
+```M``` | the mean for the variables or groups
+```SD``` | the standard deviation for the variables or groups

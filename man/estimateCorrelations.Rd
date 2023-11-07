@@ -9,9 +9,9 @@
 \description{Provides correlations, their standard errors, and their confidence intervals for a list of variables.}
 
 \usage{
-\method{estimateCorrelations}{default}(frame,conf.level=.95,main=NULL,digits=3)
+\method{estimateCorrelations}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateCorrelations}{wss}(CompStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateCorrelations}{wss}(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

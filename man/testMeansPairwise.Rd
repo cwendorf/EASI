@@ -11,13 +11,13 @@
 \description{Provides a statistical significance test for all unadjusted pairwise comparisons.}
 
 \usage{
-\method{testMeansPairwise}{default}(frame,mu=0,main=NULL,digits=3)
+\method{testMeansPairwise}{default}(frame, mu=0, main=NULL, digits=3)
 
-\method{testMeansPairwise}{formula}(formula,mu=0,main=NULL,digits=3)
+\method{testMeansPairwise}{formula}(formula, mu=0, main=NULL, digits=3)
 
-\method{testMeansPairwise}{wss}(DescStats,mu=0,main=NULL,digits=3)
+\method{testMeansPairwise}{wss}(DescStats, mu=0, main=NULL, digits=3)
 
-\method{testMeansPairwise}{bss}(DescStats,mu=0,main=NULL,digits=3)
+\method{testMeansPairwise}{bss}(DescStats, mu=0, main=NULL, digits=3)
 }
 
 \arguments{

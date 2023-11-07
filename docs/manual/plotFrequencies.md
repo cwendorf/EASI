@@ -8,10 +8,10 @@ Provides a frequency distribution plot for each group or variable.
 
 ```r
 ## Default S3 method
-plotDensity(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,col=rgb(0,0,0,.1))
+plotDensity(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.1, col=rgb(0, 0, 0, .1))
 
 ## S3 method for class 'formula'
-plotDensity(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,col=rgb(0,0,0,.1))
+plotDensity(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.1, col=rgb(0, 0, 0, .1))
 ```
 
 ### Arguments

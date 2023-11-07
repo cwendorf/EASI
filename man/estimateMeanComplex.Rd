@@ -11,13 +11,13 @@
 \description{Provides the confidence intervals for mean contrasts and the difference between those contrasts.}
 
 \usage{
-\method{estimateMeanComplex}{default}(frame,contrast1,contrast2,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateMeanComplex}{default}(frame, contrast1, contrast2, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanComplex}{formula}(formula,contrast1,contrast2,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateMeanComplex}{formula}(formula, contrast1, contrast2, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanComplex}{wss}(DescStats,CorrStats,contrast1,contrast2,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateMeanComplex}{wss}(DescStats, CorrStats, contrast1, contrast2, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanComplex}{bss}(DescStats,contrast1,contrast2,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateMeanComplex}{bss}(DescStats, contrast1, contrast2, conf.level=.95, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

@@ -11,13 +11,13 @@
 \description{Provides a table of means, standard deviations, and confidence intervals for each group or level mean.}
 
 \usage{
-\method{estimateMeans}{default}(frame,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeans}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeans}{formula}(formula,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeans}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeans}{wss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeans}{wss}(DescStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeans}{bss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeans}{bss}(DescStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

@@ -2,16 +2,16 @@
 
 ### Description
 
-Provides a five number summary  for a data set.
+Provides a five number summary for a data set.
 
 ### Usage
 
 ```r
 ## Default S3 method
-describeBoxes(frame,main=NULL,digits=3)
+describeBoxes(frame, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-describeBoxes(formula,main=NULL,digits=3)
+describeBoxes(formula, main=NULL, digits=3)
 ```
 
 ### Arguments

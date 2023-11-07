@@ -8,7 +8,7 @@
 \description{Provides the confidence intervals for the correlations and correlation difference for independent samples.}
 
 \usage{
-\method{estimateCorrelationComparison}{default}(CorrEst1,CorrEst2,main=NULL,labels=NULL,digits=3)
+\method{estimateCorrelationComparison}{default}(CorrEst1, CorrEst2, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

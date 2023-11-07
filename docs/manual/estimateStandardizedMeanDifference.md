@@ -8,16 +8,16 @@ Provides the standardized effect size for the difference and its confidence inte
 
 ```r
 ## Default S3 method
-estimateStandardizedMeanDifference(frame,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanDifference(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateStandardizedMeanDifference(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanDifference(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedMeanDifference(CompStats,CorrStats,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanDifference(CompStats, CorrStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateStandardizedMeanDifference(CompStats,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanDifference(CompStats, mu=0, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

@@ -8,16 +8,16 @@ Provides a standardized effect size and its confidence interval for all unadjust
 
 ```r
 ## Default S3 method
-estimateStandardizedMeansPairwise(frame,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeansPairwise(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateStandardizedMeansPairwise(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeansPairwise(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedMeansPairwise(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeansPairwise(DescStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateStandardizedMeansPairwise(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeansPairwise(DescStats, mu=0, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

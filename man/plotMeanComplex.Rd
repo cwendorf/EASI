@@ -11,13 +11,13 @@
 \description{Provides the plot of the confidence intervals for mean contrasts and the difference between those contrasts.}
 
 \usage{
-\method{plotMeanComplex}{default}(frame,contrast,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+\method{plotMeanComplex}{default}(frame, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanComplex}{formula}(formula,contrast,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+\method{plotMeanComplex}{formula}(formula, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanComplex}{wss}(DescStats,CorrStats,contrast,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+\method{plotMeanComplex}{wss}(DescStats, CorrStats, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanComplex}{bss}(DescStats,contrast,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+\method{plotMeanComplex}{bss}(DescStats, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

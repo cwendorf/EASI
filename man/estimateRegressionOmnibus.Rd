@@ -9,9 +9,9 @@
 \description{Calculates R Squared and its confidence interval.}
 
 \usage{
-\method{estimateRegressionOmnibus}{default}(frame,y=NULL,conf.level=.95,main=NULL,digits=3)
+\method{estimateRegressionOmnibus}{default}(frame, y=NULL, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateRegressionOmnibus}{wss}(DescStats,CorrStats,y=NULL,conf.level=.95,main=NULL,digits=3)
+\method{estimateRegressionOmnibus}{wss}(DescStats, CorrStats, y=NULL, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

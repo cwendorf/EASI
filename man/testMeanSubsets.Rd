@@ -11,13 +11,13 @@
 \description{Provides the statistical significance tests for a mean contrast and the mean subsets that comprise that contrast.}
 
 \usage{
-\method{testMeanSubsets}{default}(frame,contrast,main=NULL,labels=NULL,digits=3)
+\method{testMeanSubsets}{default}(frame, contrast, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanSubsets}{formula}(formula,contrast,main=NULL,labels=NULL,digits=3)
+\method{testMeanSubsets}{formula}(formula, contrast, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanSubsets}{wss}(DescStats,CorrStats,contrast,main=NULL,labels=NULL,digits=3)
+\method{testMeanSubsets}{wss}(DescStats, CorrStats, contrast, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanSubsets}{bss}(DescStats,contrast,main=NULL,labels=NULL,digits=3)
+\method{testMeanSubsets}{bss}(DescStats, contrast, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

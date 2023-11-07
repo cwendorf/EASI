@@ -6,10 +6,10 @@ Provides a plot of the regression line and its intervals.
 
 ```r
 ## Default S3 method
-plotRegression(frame,y=NULL,line=TRUE,value=NULL,range=NULL,interval="both",conf.level=.95,main=NULL,xlim=NULL,ylim=NULL,points=TRUE,cross=FALSE,col="black",values=TRUE,digits=3,add=FALSE)
+plotRegression(frame, y=NULL, line=TRUE, value=NULL, range=NULL, interval="both", conf.level=.95, main=NULL, xlim=NULL, ylim=NULL, points=TRUE, cross=FALSE, col="black", values=TRUE, digits=3, add=FALSE)
 
 ## S3 method for class 'wss'
-plotRegression(DescStats,CorrStats,y=NULL,line=TRUE,value=NULL,range=NULL,interval="both",conf.level=.95,main=NULL,xlim=NULL,ylim=NULL,cross=FALSE,col="black",values=TRUE,digits=3,add=FALSE)
+plotRegression(DescStats, CorrStats, y=NULL, line=TRUE, value=NULL, range=NULL, interval="both", conf.level=.95, main=NULL, xlim=NULL, ylim=NULL, cross=FALSE, col="black", values=TRUE, digits=3, add=FALSE)
 ```
 
 ### Arguments

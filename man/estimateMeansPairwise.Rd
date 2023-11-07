@@ -11,13 +11,13 @@
 \description{Provides a table of confidence intervals for all unadjusted pairwise comparisons.}
 
 \usage{
-\method{estimateMeansPairwise}{default}(frame,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPairwise}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansPairwise}{formula}(formula,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPairwise}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansPairwise}{wss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPairwise}{wss}(DescStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansPairwise}{bss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPairwise}{bss}(DescStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

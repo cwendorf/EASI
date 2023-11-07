@@ -11,13 +11,13 @@
 \description{Provides a plot of arelational (confidence) and relational (comparative) intervals for each group or level mean.}
 
 \usage{
-\method{plotMeansRelational}{default}(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA)
+\method{plotMeansRelational}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
 
-\method{plotMeansRelational}{formula}(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA)
+\method{plotMeansRelational}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
 
-\method{plotMeansRelational}{wss}(DescStats,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA)
+\method{plotMeansRelational}{wss}(DescStats, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
 
-\method{plotMeansRelational}{bss}(DescStats,add=FALSE,main=NULL,ylab="Outcome",xlab="",conf.level=.95,mu=NULL,rope=NULL,values=TRUE,ylim=NULL,digits=3,col=rgb(.5,.5,.5,.4),border=NA)
+\method{plotMeansRelational}{bss}(DescStats, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
 }
 
 \arguments{

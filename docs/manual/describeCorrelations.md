@@ -8,7 +8,7 @@ Provides a square matrix/frame of correlations for a data set.
 
 ```r
 ## Default S3 method
-describeCorrelations(frame,main=NULL,digits=3)
+describeCorrelations(frame, main=NULL, digits=3)
 ```
 
 ### Arguments

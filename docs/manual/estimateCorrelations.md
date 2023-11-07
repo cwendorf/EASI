@@ -2,16 +2,16 @@
 
 ### Description
 
-Provides correlations, their standard errors, and their confidence intervals for a list of variables.
+Provides correlations,  their standard errors,  and their confidence intervals for a list of variables.
 
 ### Usage
 
 ```r
 ## Default S3 method
-estimateCorrelations(frame,conf.level=.95,main=NULL,digits=3)
+estimateCorrelations(frame, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateCorrelations(CompStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateCorrelations(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

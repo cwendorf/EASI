@@ -11,13 +11,13 @@
 \description{Provides the confidence intervals for a mean contrast and the mean subsets that comprise that contrast.}
 
 \usage{
-\method{estimateMeanSubsets}{default}(frame,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateMeanSubsets}{default}(frame, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanSubsets}{formula}(formula,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateMeanSubsets}{formula}(formula, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanSubsets}{wss}(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateMeanSubsets}{wss}(DescStats, CorrStats, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanSubsets}{bss}(DescStats,contrast,conf.level=.95,main=NULL,labels=NULL,digits=3)
+\method{estimateMeanSubsets}{bss}(DescStats, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

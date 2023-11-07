@@ -8,16 +8,16 @@ Provides the statistical significance tests for a mean contrast and the mean sub
 
 ```r
 ## Default S3 method
-testMeanSubsets(frame,contrast,main=NULL,labels=NULL,digits=3)
+testMeanSubsets(frame, contrast, main=NULL, labels=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeanSubsets(formula,contrast,main=NULL,labels=NULL,digits=3)
+testMeanSubsets(formula, contrast, main=NULL, labels=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeanSubsets(DescStats,CorrStats,contrast,main=NULL,labels=NULL,digits=3)
+testMeanSubsets(DescStats, CorrStats, contrast, main=NULL, labels=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeanSubsets(DescStats,contrast,main=NULL,labels=NULL,digits=3)
+testMeanSubsets(DescStats, contrast, main=NULL, labels=NULL, digits=3)
 ```
 
 ### Arguments

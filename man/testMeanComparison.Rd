@@ -11,13 +11,13 @@
 \description{Provides the statistical significances tests for the means and mean difference of a specified comparison.}
 
 \usage{
-\method{testMeanComparison}{default}(frame,main=NULL,digits=3)
+\method{testMeanComparison}{default}(frame, main=NULL, digits=3)
 
-\method{testMeanComparison}{formula}(formula,main=NULL,digits=3)
+\method{testMeanComparison}{formula}(formula, main=NULL, digits=3)
 
-\method{testMeanComparison}{wss}(CompStats,CorrStats,main=NULL,digits=3)
+\method{testMeanComparison}{wss}(CompStats, CorrStats, main=NULL, digits=3)
 
-\method{testMeanComparison}{bss}(CompStats,main=NULL,digits=3)
+\method{testMeanComparison}{bss}(CompStats, main=NULL, digits=3)
 }
 
 \arguments{

@@ -9,9 +9,9 @@
 \description{Provides a table of percentile statistics for each variable or group.}
 
 \usage{
-\method{describePercentiles}{default}(frame,main=NULL,digits=3)
+\method{describePercentiles}{default}(frame, main=NULL, digits=3)
 
-\method{describePercentiles}{formula}(formula,main=NULL,digits=3)
+\method{describePercentiles}{formula}(formula, main=NULL, digits=3)
 }
 
 \arguments{

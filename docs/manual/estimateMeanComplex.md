@@ -8,16 +8,16 @@ Provides the confidence intervals for a mean contrasts and the difference betwee
 
 ```r
 ## Default S3 method
-estimateMeanComplex(frame,contrast1,contrast2,conf.level=.95,main=NULL,digits=3)
+estimateMeanComplex(frame, contrast1, contrast2, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateMeanComplex(formula,contrast1,contrast2,conf.level=.95,main=NULL,digits=3)
+estimateMeanComplex(formula, contrast1, contrast2, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateMeanComplex(DescStats,CorrStats,contrast1,contrast2,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateMeanComplex(DescStats, CorrStats, contrast1, contrast2, CorrStats, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateMeanComplex(DescStats,contrast1,contrast2,conf.level=.95,main=NULL,digits=3)
+estimateMeanComplex(DescStats, contrast1, contrast2, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

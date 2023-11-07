@@ -11,13 +11,13 @@
 \description{Provides a table of confidence intervals for all Tukey HSD comparisons.}
 
 \usage{
-\method{estimateMeansPosthoc}{default}(frame,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPosthoc}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansPosthoc}{formula}(formula,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPosthoc}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansPosthoc}{wss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPosthoc}{wss}(DescStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansPosthoc}{bss}(DescStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeansPosthoc}{bss}(DescStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

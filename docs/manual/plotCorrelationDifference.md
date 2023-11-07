@@ -7,7 +7,7 @@ Provides a plot of the confidence interval for a correlation difference for inde
 ### Usage
 
 ```r
-plotCorrelationDifference(CorrEst1,CorrEst2,ylab="Outcome",xlab="",rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotCorrelationDifference(CorrEst1, CorrEst2, ylab="Outcome", xlab="", rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 ```
 
 ### Arguments

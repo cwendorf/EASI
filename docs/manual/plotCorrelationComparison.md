@@ -7,7 +7,7 @@ Provides a plot of the confidence intervals for the correlations and correlation
 ### Usage
 
 ```r
-plotCorrelationComparison(CorrEst1,CorrEst2,ylab="Outcome",xlab="",rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+plotCorrelationComparison(CorrEst1, CorrEst2, ylab="Outcome", xlab="", rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 ```
 
 ### Arguments

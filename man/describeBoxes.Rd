@@ -9,9 +9,9 @@
 \description{Provides a five number summary for a data set.}
 
 \usage{
-\method{describeBoxes}{default}(frame,main=NULL,digits=3)
+\method{describeBoxes}{default}(frame, main=NULL, digits=3)
 
-\method{describeBoxes}{formula}(formula,main=NULL,digits=3)
+\method{describeBoxes}{formula}(formula, main=NULL, digits=3)
 }
 
 \arguments{

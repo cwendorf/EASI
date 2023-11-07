@@ -8,16 +8,16 @@ Provides a statistical significance test of the mean difference.
 
 ```r
 ## Default S3 method
-testMeanDifference(frame,mu=0,main=NULL,digits=3)
+testMeanDifference(frame, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeanDifference(formula,mu=0,main=NULL,digits=3)
+testMeanDifference(formula, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeanDifference(CompStats,CorrStats,mu=0,main=NULL,digits=3)
+testMeanDifference(CompStats, CorrStats, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeanDifference(CompStats,mu=0,main=NULL,digits=3)
+testMeanDifference(CompStats, mu=0, main=NULL, digits=3)
 ```
 
 ### Arguments

@@ -8,16 +8,16 @@ Provides a plot of of arelational (confidence) and relational (comparative) inte
 
 ```r
 ## Default S3 method
-plotMeansRelational(frame,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeansRelational(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 ## S3 method for class 'formula'
-plotMeansRelational(formula,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeansRelational(formula, ylab="Outcome", xlab="", mu=0, conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 ## S3 method for class 'wss'
-plotMeansRelational(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeansRelational(DescStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 ## S3 method for class 'bss'
-plotMeansRelational(DescStats,ylab="Outcome",xlab="",mu=0,conf.level=.95,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeansRelational(DescStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
 ```
 
 ### Arguments
@@ -51,4 +51,4 @@ Value | Description
 
 ### References
 
-Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. *Methodology: European Journal of Research Methods for the Behavioral and Social Sciences, 8,* 125-133.
+Wendorf,  C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations,  clarifications,  extensions,  and representations. *Methodology: European Journal of Research Methods for the Behavioral and Social Sciences,  8, * 125-133.

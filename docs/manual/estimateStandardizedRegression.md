@@ -8,10 +8,10 @@ Provides a table of standardized regression coefficients and their confidence in
 
 ```r
 ## Default S3 method
-estimateStandardizedRegression(Predictors,Criterion,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedRegression(Predictors, Criterion, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedRegression(PredStats,CritStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedRegression(PredStats, CritStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

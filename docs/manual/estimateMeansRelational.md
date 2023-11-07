@@ -8,16 +8,16 @@ Provides a table of arelational (confidence) and relational (comparative) interv
 
 ```r
 ## Default S3 method
-estimateMeansRelational(frame,conf.level=.95,main=NULL,digits=3)
+estimateMeansRelational(frame, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateMeansRelational(formula,conf.level=.95,main=NULL,digits=3)
+estimateMeansRelational(formula, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateMeansRelational(DescStats,conf.level=.95,main=NULL,digits=3)
+estimateMeansRelational(DescStats, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateMeansRelational(DescStats,conf.level=.95,main=NULL,digits=3)
+estimateMeansRelational(DescStats, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments
@@ -45,4 +45,4 @@ Value | Description
 
 ### References
 
-Wendorf, C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations, clarifications, extensions, and representations. *Methodology: European Journal of Research Methods for the Behavioral and Social Sciences, 8,* 125-133.
+Wendorf,  C. A. (2012). Drawing inferences from multiple intervals in the single-factor design: Derivations,  clarifications,  extensions,  and representations. *Methodology: European Journal of Research Methods for the Behavioral and Social Sciences,  8, * 125-133.

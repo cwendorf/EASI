@@ -8,16 +8,16 @@ Provides a statistical significance test for all unadjusted pairwise comparisons
 
 ```r
 ## Default S3 method
-testMeansPairwise(frame,mu=0,main=NULL,digits=3)
+testMeansPairwise(frame, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeansPairwise(formula,mu=0,main=NULL,digits=3)
+testMeansPairwise(formula, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeansPairwise(DescStats,mu=0,main=NULL,digits=3)
+testMeansPairwise(DescStats, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeansPairwise(DescStats,mu=0,main=NULL,digits=3)
+testMeansPairwise(DescStats, mu=0, main=NULL, digits=3)
 ```
 
 ### Arguments

@@ -8,10 +8,10 @@ Provides a source table for the regression model.
 
 ```r
 ## Default S3 method
-describeRegressionOmnibus(frame,y=NULL,main=NULL,digits=3)
+describeRegressionOmnibus(frame, y=NULL, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-describeRegressionOmnibus(DescStats,CorrStats,y=NULL,main=NULL,digits=3)
+describeRegressionOmnibus(DescStats, CorrStats, y=NULL, main=NULL, digits=3)
 ```
 
 ### Arguments

@@ -11,13 +11,13 @@
 \description{Provides the confidence intervals for the standardized means and standardized mean difference of a specified comparison.}
 
 \usage{
-\method{estimateStandardizedMeanComparison}{default}(frame,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanComparison}{default}(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanComparison}{formula}(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanComparison}{formula}(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanComparison}{wss}(CompStats,CorrStats,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanComparison}{wss}(CompStats, CorrStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanComparison}{bss}(CompStats,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanComparison}{bss}(CompStats, mu=0, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

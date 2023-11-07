@@ -11,13 +11,13 @@
 \description{Provides a statistical significance test of the mean contrast.}
 
 \usage{
-\method{testContrast}{default}(frame,contrast,mu=0,main=NULL,digits=3)
+\method{testContrast}{default}(frame, contrast, mu=0, main=NULL, digits=3)
 
-\method{testContrast}{formula}(formula,contrast,mu=0,main=NULL,digits=3)
+\method{testContrast}{formula}(formula, contrast, mu=0, main=NULL, digits=3)
 
-\method{testContrast}{wss}(DescStats,CorrStats,contrast,mu=0,main=NULL,digits=3)
+\method{testContrast}{wss}(DescStats, CorrStats, contrast, mu=0, main=NULL, digits=3)
 
-\method{testContrast}{bss}(DescStats,contrast,mu=0,main=NULL,digits=3)
+\method{testContrast}{bss}(DescStats, contrast, mu=0, main=NULL, digits=3)
 }
 
 \arguments{

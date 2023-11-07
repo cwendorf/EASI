@@ -9,9 +9,9 @@
 \description{Provides a table of regression coefficients and their confidence intervals.}
 
 \usage{
-\method{estimateRegressionCoefficients}{default}(frame,y=NULL,conf.level=.95,main=NULL,digits=3)
+\method{estimateRegressionCoefficients}{default}(frame, y=NULL, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateRegressionCoefficients}{wss}(DescStats,CorrStats,y=NULL,conf.level=.95,main=NULL,digits=3)
+\method{estimateRegressionCoefficients}{wss}(DescStats, CorrStats, y=NULL, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

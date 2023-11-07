@@ -8,16 +8,16 @@ Provides the confidence intervals for the means and mean difference of a specifi
 
 ```r
 ## Default S3 method
-estimateMeanComparison(frame,conf.level=.95,main=NULL,digits=3)
+estimateMeanComparison(frame, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateMeanComparison(formula,conf.level=.95,main=NULL,digits=3)
+estimateMeanComparison(formula, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateMeanComparison(CompStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateMeanComparison(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateMeanComparison(CompStats,conf.level=.95,main=NULL,digits=3)
+estimateMeanComparison(CompStats, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

@@ -11,13 +11,13 @@
 \description{Provides the standardized effect size for the difference and its confidence interval.}
 
 \usage{
-\method{estimateStandardizedMeanDifference}{default}(frame,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanDifference}{default}(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanDifference}{formula}(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanDifference}{formula}(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanDifference}{wss}(CompStats,CorrStats,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanDifference}{wss}(CompStats, CorrStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanDifference}{bss}(CompStats,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanDifference}{bss}(CompStats, mu=0, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

@@ -8,10 +8,10 @@ Provides a frequency distributions for each variable or group.
 
 ```r
 ## Default S3 method
-describeFrequencies(frame,main=NULL,digits=3)
+describeFrequencies(frame, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-describeFrequencies(formula,main=NULL,digits=3)
+describeFrequencies(formula, main=NULL, digits=3)
 ```
 
 ### Arguments

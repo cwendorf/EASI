@@ -8,10 +8,10 @@ Provides a scatterplot and regression line.
 
 ```r
 ## Default S3 method
-plotScatter(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,points=TRUE,line=TRUE,col="black",pch=16)
+plotScatter(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", xlim=NULL, ylim=NULL, points=TRUE, line=TRUE, col="black", pch=16)
 
 ## S3 method for class 'wss'
-plotScatter(DescStats,CorrStats,main=NULL,ylab="Outcome",xlab="",xlim=NULL,ylim=NULL,points=FALSE,line=TRUE,col="black",pch=16)
+plotScatter(DescStats, CorrStats, main=NULL, ylab="Outcome", xlab="", xlim=NULL, ylim=NULL, points=FALSE, line=TRUE, col="black", pch=16)
 ```
 
 ### Arguments

@@ -8,16 +8,16 @@ Provides a statistical significance test of the mean contrast.
 
 ```r
 ## Default S3 method
-testMeanContrast(frame,contrast,mu=0,main=NULL,digits=3)
+testMeanContrast(frame, contrast, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeanContrast(formula,contrast,mu=0,main=NULL,digits=3)
+testMeanContrast(formula, contrast, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeanContrast(DescStats,CorrStats,contrast,mu=0,main=NULL,digits=3)
+testMeanContrast(DescStats, CorrStats, contrast, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeanContrast(DescStats,contrast,mu=0,main=NULL,digits=3)
+testMeanContrast(DescStats, contrast, mu=0, main=NULL, digits=3)
 ```
 
 ### Arguments

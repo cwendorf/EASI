@@ -9,9 +9,9 @@
 \description{Provides a frequency distribution for each group or variable.}
 
 \usage{
-\method{plotDensity}{default}(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,col=rgb(0,0,0,.1))
+\method{plotDensity}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.1, col=rgb(0, 0, 0, .1))
 
-\method{plotDensity}{formula}(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=.1,col=rgb(0,0,0,.1))
+\method{plotDensity}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.1, col=rgb(0, 0, 0, .1))
 }
 
 \arguments{

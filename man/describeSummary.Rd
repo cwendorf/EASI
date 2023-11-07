@@ -1,21 +1,23 @@
-% File man/describeMeans.Rd
+% File man/describeSummary.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{describeMeans}
-\alias{describeMeans}
-\alias{describeMeans.default}
-\alias{describeMeans.formula}
-\title{Describe Means}
+\name{describeSummary}
+\alias{describeSummary}
+\alias{describeSummary.default}
+\alias{describeSummary.formula}
+\alias{describeSummary.bss}
+\alias{describeSummary.wss}
+\title{Describe Summary}
 \description{Provides a table of descriptive/summary statistics for a data set.}
 
 \usage{
-\method{describeMeans}{default}(frame, main=NULL, digits=3)
+\method{describeSummary}{default}(frame, main=NULL, digits=3)
 
-\method{describeMeans}{formula}(formula, main=NULL, digits=3)
+\method{describeSummary}{formula}(formula, main=NULL, digits=3)
 
-\method{describeMeans}{wss}(DescStats, main=NULL, digits=3)
+\method{describeSummary}{wss}(DescStats, main=NULL, digits=3)
 
-\method{describeMeans}{bss}(DescStats, main=NULL, digits=3)
+\method{describeSummary}{bss}(DescStats, main=NULL, digits=3)
 }
 
 \arguments{

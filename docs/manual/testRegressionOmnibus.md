@@ -8,10 +8,10 @@ Provides a statistical significance test for a regression model.
 
 ```r
 ## Default S3 method
-testRegressionOmnibus(frame,y=NULL,main=NULL,digits=3)
+testRegressionOmnibus(frame, y=NULL, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testRegressionOmnibus(DescStats,CorrStats,y=NULL,main=NULL,digits=3)
+testRegressionOmnibus(DescStats, CorrStats, y=NULL, main=NULL, digits=3)
 ```
 
 ### Arguments

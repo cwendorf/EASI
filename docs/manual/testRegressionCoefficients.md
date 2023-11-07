@@ -8,10 +8,10 @@ Provides statistical significance tests for the regression coefficients.
 
 ```r
 ## Default S3 method
-testRegressionCoefficients(frame,y=NULL,main=NULL,digits=3)
+testRegressionCoefficients(frame, y=NULL, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testRegressionCoefficients(DescStats,CorrStats,y=NULL,main=NULL,digits=3)
+testRegressionCoefficients(DescStats, CorrStats, y=NULL, main=NULL, digits=3)
 ```
 
 ### Arguments

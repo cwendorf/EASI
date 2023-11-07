@@ -7,7 +7,7 @@ Provides the confidence intervals for the correlations and correlation differenc
 ### Usage
 
 ```r
-estimateCorrelationComparison(CorrEst1,CorrEst2,main=NULL,labels=NULL,digits=3)
+estimateCorrelationComparison(CorrEst1, CorrEst2, main=NULL, labels=NULL, digits=3)
 ```
 
 ### Arguments

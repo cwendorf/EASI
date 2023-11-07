@@ -7,7 +7,7 @@ Provides the confidence interval for a correlation difference for independent sa
 ### Usage
 
 ```r
-estimateCorrelationDifference(CorrEst1,CorrEst2,main=NULL,digits=3)
+estimateCorrelationDifference(CorrEst1, CorrEst2, main=NULL, digits=3)
 ```
 
 ### Arguments

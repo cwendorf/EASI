@@ -11,13 +11,13 @@
 \description{Provides a Analysis of Variance source table.}
 
 \usage{
-\method{describeMeansOmnibus}{default}(frame,main=NULL,digits=3)
+\method{describeMeansOmnibus}{default}(frame, main=NULL, digits=3)
 
-\method{describeMeansOmnibus}{formula}(formula,main=NULL,digits=3)
+\method{describeMeansOmnibus}{formula}(formula, main=NULL, digits=3)
 
-\method{describeMeansOmnibus}{wss}(DescStats,CorrStats,main=NULL,digits=3)
+\method{describeMeansOmnibus}{wss}(DescStats, CorrStats, main=NULL, digits=3)
 
-\method{describeMeansOmnibus}{bss}(DescStats,main=NULL,digits=3)
+\method{describeMeansOmnibus}{bss}(DescStats, main=NULL, digits=3)
 }
 
 \arguments{

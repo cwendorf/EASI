@@ -6,10 +6,10 @@ Provides a table of the regression estimate and its intervals.
 
 ```r
 ## Default S3 method
-estimateRegression(frame,y=NULL,value=NULL,conf.level=.95,main=NULL,digits=3)
+estimateRegression(frame, y=NULL, value=NULL, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateRegression(DescStats,CorrStats,y=NULL,value=NULL,conf.level=.95,main=NULL,digits=3)
+estimateRegression(DescStats, CorrStats, y=NULL, value=NULL, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

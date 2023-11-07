@@ -8,10 +8,10 @@ Provides a plot of the regression coefficients and their confidence intervals.
 
 ```r
 ## Default S3 method
-plotRegressionCoefficients(frame,y=NULL,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotRegressionCoefficients(frame, y=NULL, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 ## S3 method for class 'wss'
-plotRegressionCoefficients(DescStats,CorrStats,y=NULL,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotRegressionCoefficients(DescStats, CorrStats, y=NULL, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 ```
 
 ### Arguments

@@ -11,13 +11,13 @@
 \description{Provides the standardized effect size and its confidence interval for the contrast.}
 
 \usage{
-\method{estimateStandardizedMeanContrast}{default}(frame,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanContrast}{default}(frame, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanContrast}{formula}(formula,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanContrast}{formula}(formula, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanContrast}{wss}(DescStats,CorrStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanContrast}{wss}(DescStats, CorrStats, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanContrast}{bss}(DescStats,contrast,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeanContrast}{bss}(DescStats, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

@@ -8,7 +8,7 @@
 \description{Provides a plot of the confidence intervals for the correlations and correlation difference for independent samples.}
 
 \usage{
-\method{plotCorrelationComparison}{default}(CorrEst1,CorrEst2,ylab="Outcome",xlab="",rope=NULL,values=TRUE,main=NULL,labels=NULL,ylim=NULL,digits=3)
+\method{plotCorrelationComparison}{default}(CorrEst1, CorrEst2, ylab="Outcome", xlab="", rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

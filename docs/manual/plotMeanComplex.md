@@ -8,16 +8,16 @@ Provides the plot of the the confidence intervals for a mean contrasts and the d
 
 ```r
 ## Default S3 method
-plotMeanComplex(frame,contrast1,contrast2,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeanComplex(frame, contrast1, contrast2, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 ## S3 method for class 'formula'
-plotMeanComplex(formula,contrast1,contrast2,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeanComplex(formula, contrast1, contrast2, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 ## S3 method for class 'wss'
-plotMeanComplex(CompStats,CorrStats,contrast1,contrast2,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeanComplex(CompStats, CorrStats, contrast1, contrast2, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 ## S3 method for class 'bss'
-plotMeanComplex(CompStats,contrast1,contrast2,ylab="Mean Contrasts",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+plotMeanComplex(CompStats, contrast1, contrast2, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 ```
 
 ### Arguments

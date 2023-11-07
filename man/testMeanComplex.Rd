@@ -11,13 +11,13 @@
 \description{Provides the statistical significance tests for mean contrasts and the difference between those contrasts.}
 
 \usage{
-\method{testMeanComplex}{default}(frame,contrast1,contrast2,main=NULL,labels=NULL,digits=3)
+\method{testMeanComplex}{default}(frame, contrast1, contrast2, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanComplex}{formula}(formula,contrast1,contrast2,main=NULL,labels=NULL,digits=3)
+\method{testMeanComplex}{formula}(formula, contrast1, contrast2, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanComplex}{wss}(DescStats,CorrStats,contrast1,contrast2,main=NULL,labels=NULL,digits=3)
+\method{testMeanComplex}{wss}(DescStats, CorrStats, contrast1, contrast2, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanComplex}{bss}(DescStats,contrast1,contrast2,main=NULL,labels=NULL,digits=3)
+\method{testMeanComplex}{bss}(DescStats, contrast1, contrast2, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

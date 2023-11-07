@@ -11,13 +11,13 @@
 \description{Provides the confidence intervals for the means and mean difference of a specified comparison.}
 
 \usage{
-\method{estimateMeanComparison}{default}(frame,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanComparison}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanComparison}{formula}(formula,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanComparison}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanComparison}{wss}(CompStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanComparison}{wss}(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanComparison}{bss}(CompStats,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanComparison}{bss}(CompStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

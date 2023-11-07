@@ -8,16 +8,16 @@ Provides a table of confidence intervals for all unadjusted pairwise comparisons
 
 ```r
 ## Default S3 method
-estimateMeansPairwise(frame,conf.level=.95,main=NULL,digits=3)
+estimateMeansPairwise(frame, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateMeansPairwise(formula,conf.level=.95,main=NULL,digits=3)
+estimateMeansPairwise(formula, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateMeansPairwise(DescStats,conf.level=.95,main=NULL,digits=3)
+estimateMeansPairwise(DescStats, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateMeansPairwise(DescStats,conf.level=.95,main=NULL,digits=3)
+estimateMeansPairwise(DescStats, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

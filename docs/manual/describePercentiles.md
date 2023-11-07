@@ -8,10 +8,10 @@ Provides a table of percentile statistics for each variable or group.
 
 ```r
 ## Default S3 method
-describePercentiles(frame,main=NULL,digits=3)
+describePercentiles(frame, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-describePercentiles(formula,main=NULL,digits=3)
+describePercentiles(formula, main=NULL, digits=3)
 ```
 
 ### Arguments

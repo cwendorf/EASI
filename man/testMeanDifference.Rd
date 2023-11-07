@@ -11,13 +11,13 @@
 \description{Provides a statistical significance test of the mean difference.}
 
 \usage{
-\method{testMeanDifference}{default}(frame,mu=0,main=NULL,digits=3)
+\method{testMeanDifference}{default}(frame, mu=0, main=NULL, digits=3)
 
-\method{testMeanDifference}{formula}(formula,mu=0,main=NULL,digits=3)
+\method{testMeanDifference}{formula}(formula, mu=0, main=NULL, digits=3)
 
-\method{testMeanDifference}{wss}(CompStats,CorrStats,mu=0,main=NULL,digits=3)
+\method{testMeanDifference}{wss}(CompStats, CorrStats, mu=0, main=NULL, digits=3)
 
-\method{testMeanDifference}{bss}(CompStats,mu=0,main=NULL,digits=3)
+\method{testMeanDifference}{bss}(CompStats, mu=0, main=NULL, digits=3)
 }
 
 \arguments{

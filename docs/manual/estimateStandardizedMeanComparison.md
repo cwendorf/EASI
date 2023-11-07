@@ -8,16 +8,16 @@ Provides the confidence intervals for the standardized means and standardized me
 
 ```r
 ## Default S3 method
-estimateStandardizedMeanComparison(frame,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanComparison(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateStandardizedMeanComparison(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanComparison(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedMeanComparison(CompStats,CorrStats,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanComparison(CompStats, CorrStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateStandardizedMeanComparison(CompStats,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeanComparison(CompStats, mu=0, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

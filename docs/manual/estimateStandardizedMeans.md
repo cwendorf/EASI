@@ -8,16 +8,16 @@ Provides a standardized effect size and its confidence interval for each group o
 
 ```r
 ## Default S3 method
-estimateStandardizedMeans(frame,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeans(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateStandardizedMeans(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeans(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedMeans(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeans(DescStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateStandardizedMeans(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
+estimateStandardizedMeans(DescStats, mu=0, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

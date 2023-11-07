@@ -11,13 +11,13 @@
 \description{Provides a statistical significance test for an Analysis of Variance.}
 
 \usage{
-\method{testMeansOmnibus}{default}(frame,main=NULL,digits=3)
+\method{testMeansOmnibus}{default}(frame, main=NULL, digits=3)
 
-\method{testMeansOmnibus}{formula}(formula,main=NULL,digits=3)
+\method{testMeansOmnibus}{formula}(formula, main=NULL, digits=3)
 
-\method{testMeansOmnibus}{wss}(DescStats,CorrStats,main=NULL,digits=3)
+\method{testMeansOmnibus}{wss}(DescStats, CorrStats, main=NULL, digits=3)
 
-\method{testMeansOmnibus}{bss}(DescStats,main=NULL,digits=3)
+\method{testMeansOmnibus}{bss}(DescStats, main=NULL, digits=3)
 }
 
 \arguments{

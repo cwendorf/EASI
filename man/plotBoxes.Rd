@@ -9,9 +9,9 @@
 \description{Provides a boxplot for each group or variable.}
 
 \usage{
-\method{plotBoxes}{default}(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.8,border="black",col=rgb(0,0,0,0),values=TRUE)
+\method{plotBoxes}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=0, scale=.8, border="black", col=rgb(0, 0, 0, 0), values=TRUE)
 
-\method{plotBoxes}{formula}(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.8,border="black",col=rgb(0,0,0,0),values=TRUE)
+\method{plotBoxes}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=0, scale=.8, border="black", col=rgb(0, 0, 0, 0), values=TRUE)
 }
 
 \arguments{

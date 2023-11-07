@@ -8,10 +8,10 @@ Provides a boxplot for each group or variable.
 
 ```r
 ## Default S3 method
-plotBoxes(frame,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3)
+plotBoxes(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=0, scale=.6, border="black", col=rgb(0, 0, 0, 0), values=TRUE, digits=3)
 
 ## S3 method for class 'formula'
-plotBoxes(formula,add=FALSE,main=NULL,ylab="Outcome",xlab="",ylim=NULL,offset=0,scale=.6,border="black",col=rgb(0,0,0,0),values=TRUE,digits=3)
+plotBoxes(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=0, scale=.6, border="black", col=rgb(0, 0, 0, 0), values=TRUE, digits=3)
 ```
 
 ### Arguments

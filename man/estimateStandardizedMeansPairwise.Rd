@@ -11,13 +11,13 @@
 \description{Provides standardized effect sizes and their confidence intervals for all unadjusted pairwise comparisons.}
 
 \usage{
-\method{estimateStandardizedMeansPairwise}{default}(frame,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeansPairwise}{default}(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeansPairwise}{formula}(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeansPairwise}{formula}(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeansPairwise}{wss}(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeansPairwise}{wss}(DescStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeansPairwise}{bss}(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeansPairwise}{bss}(DescStats, mu=0, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

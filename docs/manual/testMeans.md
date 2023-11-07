@@ -8,16 +8,16 @@ Provides a statistical significance test for each group or level mean.
 
 ```r
 ## Default S3 method
-testMeans(frame,mu=0,main=NULL,digits=3)
+testMeans(frame, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeans(formula,mu=0,main=NULL,digits=3)
+testMeans(formula, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeans(DescStats,mu=0,main=NULL,digits=3)
+testMeans(DescStats, mu=0, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeans(DescStats,mu=0,main=NULL,digits=3)
+testMeans(DescStats, mu=0, main=NULL, digits=3)
 ```
 
 ### Arguments

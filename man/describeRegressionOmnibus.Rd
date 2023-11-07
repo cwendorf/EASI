@@ -9,9 +9,9 @@
 \description{Provides a source table for the regression model.}
 
 \usage{
-\method{describeRegressionOmnibus}{default}(frame,y=NULL,main=NULL,digits=3)
+\method{describeRegressionOmnibus}{default}(frame, y=NULL, main=NULL, digits=3)
 
-\method{describeRegressionOmnibus}{wss}(DescStats,CorrStats,y=NULL,main=NULL,digits=3)
+\method{describeRegressionOmnibus}{wss}(DescStats, CorrStats, y=NULL, main=NULL, digits=3)
 }
 
 \arguments{

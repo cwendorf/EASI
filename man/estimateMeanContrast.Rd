@@ -11,13 +11,13 @@
 \description{Provides the mean contrast, standard error, and confidence interval of the contrast.}
 
 \usage{
-\method{estimateMeanContrast}{default}(frame,contrast,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanContrast}{default}(frame, contrast, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanContrast}{formula}(formula,contrast,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanContrast}{formula}(formula, contrast, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanContrast}{wss}(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanContrast}{wss}(DescStats, CorrStats, contrast, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanContrast}{bss}(DescStats,contrast,conf.level=.95,main=NULL,digits=3)
+\method{estimateMeanContrast}{bss}(DescStats, contrast, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

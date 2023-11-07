@@ -8,16 +8,16 @@ Provides the confidence intervals for a standarized mean contrast and the standa
 
 ```r
 ## Default S3 method
-estimateStandardizedMeanSubsets(frame,contrast,mu=0,conf.level=.95,main=NULL,labels=NULL,digits=3)
+estimateStandardizedMeanSubsets(frame, contrast, mu=0, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateStandardizedMeanSubsets(formula,contrast,mu=0,conf.level=.95,main=NULL,labels=NULL,digits=3)
+estimateStandardizedMeanSubsets(formula, contrast, mu=0, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateStandardizedMeanSubsets(DescStats,CorrStats,contrast,mu=0,conf.level=.95,main=NULL,labels=NULL,digits=3)
+estimateStandardizedMeanSubsets(DescStats, CorrStats, contrast, mu=0, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateStandardizedMeanSubsets(DescStats,contrast,mu=0,conf.level=.95,main=NULL,labels=NULL,digits=3)
+estimateStandardizedMeanSubsets(DescStats, contrast, mu=0, conf.level=.95, main=NULL, labels=NULL, digits=3)
 ```
 
 ### Arguments

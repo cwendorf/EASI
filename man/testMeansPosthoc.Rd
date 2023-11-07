@@ -11,13 +11,13 @@
 \description{Provides a statistical significance test for all Tukey HSD comparisons.}
 
 \usage{
-\method{testMeansPosthoc}{default}(frame,mu=0,main=NULL,digits=3)
+\method{testMeansPosthoc}{default}(frame, mu=0, main=NULL, digits=3)
 
-\method{testMeansPosthoc}{formula}(formula,mu=0,main=NULL,digits=3)
+\method{testMeansPosthoc}{formula}(formula, mu=0, main=NULL, digits=3)
 
-\method{testMeansPosthoc}{wss}(DescStats,mu=0,main=NULL,digits=3)
+\method{testMeansPosthoc}{wss}(DescStats, mu=0, main=NULL, digits=3)
 
-\method{testMeansPosthoc}{bss}(DescStats,mu=0,main=NULL,digits=3)
+\method{testMeansPosthoc}{bss}(DescStats, mu=0, main=NULL, digits=3)
 }
 
 \arguments{

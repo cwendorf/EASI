@@ -8,16 +8,16 @@ Provides the mean contrast, standard error, and confidence interval of the contr
 
 ```r
 ## Default S3 method
-estimateMeanContrast(frame,contrast,conf.level=.95,main=NULL,digits=3)
+estimateMeanContrast(frame, contrast, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateMeanContrast(formula,contrast,conf.level=.95,main=NULL,digits=3)
+estimateMeanContrast(formula, contrast, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateMeanContrast(DescStats,CorrStats,contrast,conf.level=.95,main=NULL,digits=3)
+estimateMeanContrast(DescStats, CorrStats, contrast, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateMeanContrast(DescStats,contrast,conf.level=.95,main=NULL,digits=3)
+estimateMeanContrast(DescStats, contrast, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

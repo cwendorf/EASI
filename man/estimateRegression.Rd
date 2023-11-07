@@ -9,9 +9,9 @@
 \description{Provides a table of the regression estimate and its intervals.}
 
 \usage{
-\method{estimateRegression}{default}(frame,y=NULL,value=NULL,conf.level=.95,main=NULL,digits=3)
+\method{estimateRegression}{default}(frame, y=NULL, value=NULL, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateRegression}{wss}(DescStats,CorrStats,y=NULL,value=NULL,conf.level=.95,main=NULL,digits=3)
+\method{estimateRegression}{wss}(DescStats, CorrStats, y=NULL, value=NULL, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

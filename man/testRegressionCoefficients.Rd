@@ -9,9 +9,9 @@
 \description{Provides statistical significance tests for the regression coefficients.}
 
 \usage{
-\method{testRegressionCoefficients}{default}(frame,y=NULL,main=NULL,digits=3)
+\method{testRegressionCoefficients}{default}(frame, y=NULL, main=NULL, digits=3)
 
-\method{testRegressionCoefficients}{wss}(DescStats,CorrStats,y=NULL,main=NULL,digits=3)
+\method{testRegressionCoefficients}{wss}(DescStats, CorrStats, y=NULL, main=NULL, digits=3)
 }
 
 \arguments{

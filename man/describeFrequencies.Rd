@@ -9,9 +9,9 @@
 \description{Provides a frequency distributions for each variable or group.}
 
 \usage{
-\method{describeFrequencies}{default}(frame,main=NULL,digits=3)
+\method{describeFrequencies}{default}(frame, main=NULL, digits=3)
 
-\method{describeFrequencies}{formula}(formula,main=NULL,digits=3)
+\method{describeFrequencies}{formula}(formula, main=NULL, digits=3)
 }
 
 \arguments{

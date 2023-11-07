@@ -9,9 +9,9 @@
 \description{Provides a statistical significance test for a regression model.}
 
 \usage{
-\method{testRegressionOmnibus}{default}(frame,y=NULL,main=NULL,digits=3)
+\method{testRegressionOmnibus}{default}(frame, y=NULL, main=NULL, digits=3)
 
-\method{testRegressionOmnibus}{wss}(DescStats,CorrStats,y=NULL,main=NULL,digits=3)
+\method{testRegressionOmnibus}{wss}(DescStats, CorrStats, y=NULL, main=NULL, digits=3)
 }
 
 \arguments{

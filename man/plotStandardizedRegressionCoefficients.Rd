@@ -9,9 +9,9 @@
 \description{Provides a plot of the standardized regression coefficients and their confidence intervals.}
 
 \usage{
-\method{plotStandardizedRegressionCoefficients}{default}(frame,y=NULL,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotStandardizedRegressionCoefficients}{default}(frame, y=NULL, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotStandardizedRegressionCoefficients}{wss}(DescStats,CorrStats,y=NULL,ylab="Outcome",xlab="",mu=0,conf.level=.95,rope=NULL,values=TRUE,main=NULL,ylim=NULL,digits=3)
+\method{plotStandardizedRegressionCoefficients}{wss}(DescStats, CorrStats, y=NULL, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

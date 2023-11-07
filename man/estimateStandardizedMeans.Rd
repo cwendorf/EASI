@@ -11,13 +11,13 @@
 \description{Provides a standardized effect size and its confidence interval for each group or level mean.}
 
 \usage{
-\method{estimateStandardizedMeans}{default}(frame,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeans}{default}(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeans}{formula}(formula,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeans}{formula}(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeans}{wss}(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeans}{wss}(DescStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeans}{bss}(DescStats,mu=0,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedMeans}{bss}(DescStats, mu=0, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

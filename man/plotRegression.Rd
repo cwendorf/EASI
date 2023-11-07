@@ -9,9 +9,9 @@
 \description{Provides a plot of the regression line and its intervals.}
 
 \usage{
-\method{plotRegression}{default}(frame,y=NULL,line=TRUE,value=NULL,range=NULL,interval="both",conf.level=.95,main=NULL,xlim=NULL,ylim=NULL,points=TRUE,cross=FALSE,col="black",values=TRUE,digits=3,add=FALSE)
+\method{plotRegression}{default}(frame, y=NULL, line=TRUE, value=NULL, range=NULL, interval="both", conf.level=.95, main=NULL, xlim=NULL, ylim=NULL, points=TRUE, cross=FALSE, col="black", values=TRUE, digits=3, add=FALSE)
 
-\method{plotRegression}{wss}(DescStats,CorrStats,y=NULL,line=TRUE,value=NULL,range=NULL,interval="both",conf.level=.95,main=NULL,xlim=NULL,ylim=NULL,cross=FALSE,col="black",values=TRUE,digits=3,add=FALSE)
+\method{plotRegression}{wss}(DescStats, CorrStats, y=NULL, line=TRUE, value=NULL, range=NULL, interval="both", conf.level=.95, main=NULL, xlim=NULL, ylim=NULL, cross=FALSE, col="black", values=TRUE, digits=3, add=FALSE)
 }
 
 \arguments{

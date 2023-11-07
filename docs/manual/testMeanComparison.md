@@ -8,16 +8,16 @@ Provides the statistical significance tests for the means and mean difference of
 
 ```r
 ## Default S3 method
-testMeanComparison(frame,main=NULL,digits=3)
+testMeanComparison(frame, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeanComparison(formula,main=NULL,digits=3)
+testMeanComparison(formula, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeanComparison(CompStats,CorrStats,main=NULL,digits=3)
+testMeanComparison(CompStats, CorrStats, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeanComparison(CompStats,main=NULL,digits=3)
+testMeanComparison(CompStats, main=NULL, digits=3)
 ```
 
 ### Arguments
@@ -33,7 +33,7 @@ Argument | Description
 
 ### Details
 
-This function compares two groups or variables. As such, the supplied factor or table of summary statistics should contain only two groups or two variables.
+This function compares two groups or variables. As such,  the supplied factor or table of summary statistics should contain only two groups or two variables.
 
 ### Values
 

@@ -9,9 +9,9 @@
 \description{Provides a statistical significance test for correlations of the specified variables.}
 
 \usage{
-\method{testCorrelations}{default}(frame,main=NULL,digits=3)
+\method{testCorrelations}{default}(frame, main=NULL, digits=3)
 
-\method{testCorrelations}{wss}(CompStats,CorrStats,main=NULL,digits=3)
+\method{testCorrelations}{wss}(CompStats, CorrStats, main=NULL, digits=3)
 }
 
 \arguments{

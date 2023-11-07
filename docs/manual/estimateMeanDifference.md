@@ -8,16 +8,16 @@ Provides the mean difference, standard error, and confidence interval of the dif
 
 ```r
 ## Default S3 method
-estimateMeanDifference(frame,conf.level=.95,main=NULL,digits=3)
+estimateMeanDifference(frame, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-estimateMeanDifference(formula,conf.level=.95,main=NULL,digits=3)
+estimateMeanDifference(formula, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateMeanDifference(CompStats,CorrStats,conf.level=.95,main=NULL,digits=3)
+estimateMeanDifference(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-estimateMeanDifference(CompStats,conf.level=.95,main=NULL,digits=3)
+estimateMeanDifference(CompStats, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

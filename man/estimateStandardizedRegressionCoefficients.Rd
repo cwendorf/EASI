@@ -9,9 +9,9 @@
 \description{Provides a table of standardized regression coefficients and their confidence intervals.}
 
 \usage{
-\method{estimateStandardizedRegressionCoefficients}{default}(frame,y=NULL,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedRegressionCoefficients}{default}(frame, y=NULL, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedRegressionCoefficients}{wss}(DescStats,CorrStats,y=NULL,conf.level=.95,main=NULL,digits=3)
+\method{estimateStandardizedRegressionCoefficients}{wss}(DescStats, CorrStats, y=NULL, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

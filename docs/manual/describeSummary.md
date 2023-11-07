@@ -12,12 +12,6 @@ describeMeans(frame, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
 describeMeans(formula, main=NULL, digits=3)
-
-## S3 method for class 'wss'
-describeMeans(DescStats, main=NULL, digits=3)
-
-## S3 method for class 'bss'
-describeMeans(DescStats, main=NULL, digits=3)
 ```
 
 ### Arguments
