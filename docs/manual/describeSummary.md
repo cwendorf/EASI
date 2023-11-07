@@ -1,4 +1,4 @@
-## Describe Means
+## Describe Summary
 
 ### Description
 
@@ -8,10 +8,10 @@ Provides a table of descriptive/summary statistics for a data set.
 
 ```r
 ## Default S3 method
-describeMeans(frame, main=NULL, digits=3)
+describeSummary(frame, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-describeMeans(formula, main=NULL, digits=3)
+describeSummary(formula, main=NULL, digits=3)
 ```
 
 ### Arguments
