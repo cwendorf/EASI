@@ -208,6 +208,10 @@ S3method(.testMeanComparison,bss)
 export(.testMeanComparison)
 export(testMeanComparison)
 
+S3method(plotMeanComparison,default)
+S3method(plotMeanComparison,formula)
+S3method(plotMeanComparison,wss)
+S3method(plotMeanComparison,bss)
 export(plotMeanComparison)
 
 ### xMeanContrast
