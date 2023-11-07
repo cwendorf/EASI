@@ -85,7 +85,7 @@
 describeSummary <- describeMeans <- function(..., main = NULL, digits = 3) {
   results <- .describeSummary(...)
   if (is.null(main)) {
-    main <- "Descriptive Statistics for the Data"
+    main <- "Summary Statistics for the Data"
   }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
