@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-## Developmental Version
+## EASI 5.4.231107
 
 - Reorganized and redesigned all examples
 - Added data sets for exemplification
