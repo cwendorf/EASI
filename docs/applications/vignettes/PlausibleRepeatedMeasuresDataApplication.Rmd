@@ -1,0 +1,87 @@
+---
+subtitle: "Plausible Repeated Measures Data Application"
+output:
+  github_document:
+    preserve_yaml: FALSE
+vignette: >
+  %\VignetteIndexEntry{Plausible Repeated Measures Data Application}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+## Plausible Repeated Measures Data Application
+
+This page adds data and plausibility curves to confidence interval plots of comparisons and contrasts using repeated-measures (within-subjects) data.
+
+```{r toc, echo=FALSE}
+thisfile <- knitr::current_input()
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
+```
+
+---
+
+### Data Management
+
+This code inputs the variable names and creates a viewable data frame.
+```{r}
+Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7)
+Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)
+Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
+RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
+```
+
+### Analyses of the Means
+
+Get a simple plot of the confidence intervals.
+```{r, Plausible-Repeated-ConfidenceA}
+(RepeatedData) |> estimateMeans()
+(RepeatedData) |> plotMeans()
+```
+
+Get an enhanced plot of data and confidence intervals.
+```{r, Plausible-Repeated-ConfidenceB}
+(RepeatedData) |> plotData(main = "Data and Confidence Intervals", method = "stack", col = c("darkred", "darkblue", "darkgoldenrod"))
+(RepeatedData) |> addMeans(values = FALSE, line = 9, col = c("darkred", "darkblue", "darkgoldenrod"))
+```
+
+### Analyses of a Comparison
+
+Create a comparison and get a simple plot of the confidence intervals.
+```{r, Plausible-Repeated-ComparisonA}
+(RepeatedData) |> pick(Outcome1, Outcome2) |> estimateMeanComparison()
+(RepeatedData) |> pick(Outcome1, Outcome2) |> plotMeanComparison()
+```
+
+Get an enhanced plot of data and confidence intervals with a plausibility curve.
+```{r, Plausible-Repeated-ComparisonB}
+(RepeatedData) |> pick(Outcome1, Outcome2) |> plotMeanComparison(main = "Data, Confidence Intervals, and a Plausibility Curve", ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
+(RepeatedData) |> pick(Outcome1, Outcome2) |> addPlausible(type = c("none", "none", "right"), col = c("darkred", "darkblue", "black"))
+(RepeatedData) |> pick(Outcome1, Outcome2) |> addData(method = "stack", col = c("darkred", "darkblue", "black"))
+```
+
+### Analyses of a Mean Contrast
+
+Create a contrast and get a plot of the mean subsets and the contrast.
+```{r, Plausible-Repeated-ContrastA}
+(RepeatedData) |> estimateMeanSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"))
+(RepeatedData) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"))
+```
+
+Create an enhanced plot of the means and the mean subsets with a plausibility curve.
+```{r, Plausible-Repeated-ContrastB}
+(RepeatedData) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), main = "Confidence Intervals and a Plausibility Curve", ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
+(RepeatedData) |> addPlausible(contrast = c(-1, .5, .5), type = c("none", "none", "right"), col = c("darkred", "darkblue", "black"))
+```

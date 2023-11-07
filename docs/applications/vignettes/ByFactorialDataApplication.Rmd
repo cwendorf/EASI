@@ -9,12 +9,12 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r,include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
 devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
-```{r,include=FALSE}
+```{r, include=FALSE}
 if (!require(EASI)) {
   if (!require(remotes)) install.packages("remotes")
   remotes::install_github("cwendorf/EASI")
@@ -35,27 +35,27 @@ revised_toc(thisfile, base_level = 3, toc_depth = 4)
 
 ### Data Management
 
-Simulate some data.
+This code inputs the variable names and creates a viewable data frame.
 ```{r}
-FactorA <- c(rep(1, 30), rep(2, 30), rep(3, 30), rep(1, 30), rep(2, 30), rep(3, 30))
-FactorB <- c(rep(1, 90), rep(2, 90))
+FactorA <- c(rep(1, 20), rep(2, 20), rep(3, 20))
 FactorA <- factor(FactorA, levels = c(1, 2, 3), labels = c("A1", "A2", "A3"))
+FactorB <- c(rep(1, 10), rep(2, 10), rep(1, 10), rep(2, 10), rep(1, 10), rep(2, 10))
 FactorB <- factor(FactorB, levels = c(1, 2), labels = c("B1", "B2"))
-Outcome <- c(rnorm(30, mean = 8, sd = 2), rnorm(30, mean = 11, sd = 4), rnorm(30, mean = 12, sd = 4), rnorm(30, mean = 8, sd = 2), rnorm(30, mean = 8, sd = 3), rnorm(30, mean = 7, sd = 4))
-FactorialData <- data.frame(FactorA, FactorB, Outcome)
+Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8, 7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 7, 8, 7, 11, 10, 7, 8, 4, 8, 10, 9, 16, 11, 12, 15, 13, 9, 14, 11, 10, 8, 6, 8, 11, 5, 7, 9, 3, 6, 7)
+FactorialData <- construct(FactorA, FactorB, Outcome)
 ```
 
-### Descriptive Statistics
+### Summary Statistics
 
 Get descriptive statistics separately for each simple effect.
 ```{r}
-(Outcome ~ FactorA) |> describeMeansBy(by = FactorB)
+(Outcome ~ FactorA) |> describeSummaryBy(by = FactorB)
 ```
 
 ### Analyses of the Means
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
-```{r,By-Factorial-Means}
+```{r, By-Factorial-Means}
 (Outcome ~ FactorA) |> estimateMeansBy(by = FactorB)
 (Outcome ~ FactorA) |> plotMeansBy(by = FactorB)
 (Outcome ~ FactorA) |> testMeansBy(by = FactorB)
@@ -64,30 +64,20 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 
 ### Analyses of a Comparison
 
-Specify a comparison separately for each simple effect.
-```{r}
-Comparison <- factor(FactorB, c("A1", "A2"))
-```
-
 Analyze the specified comparison separately for each simple effect.
-```{r,By-Factorial-Comparison}
-(Outcome ~ FactorA) |> estimateMeanDifferenceBy(by = FactorB)
-(Outcome ~ FactorA) |> plotMeanDifferenceBy(by = FactorB)
-(Outcome ~ FactorA) |> testMeanDifferenceBy(by = FactorB)
-(Outcome ~ FactorA) |> estimateStandardizedMeanDifferenceBy(by = FactorB)
+```{r, By-Factorial-Comparison}
+(Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> pick(A1, A2) |> estimateStandardizedMeanDifferenceBy(by = FactorB)
 ```
 
 ### Analyses of a Contrast
 
-Specify a contrast for a factor.
-```{r}
-A1vsOthers <- c(-1, .5, .5)
-```
-
 Analyze the specified contrast separately for each simple effect.
-```{r,By-Factorial-Contrast}
-(Outcome ~ FactorA) |> estimateMeanContrastBy(by = FactorB, contrast = A1vsOthers)
-(Outcome ~ FactorA) |> plotMeanContrastBy(by = FactorB, contrast = A1vsOthers)
-(Outcome ~ FactorA) |> testMeanContrastBy(by = FactorB, contrast = A1vsOthers)
-(Outcome ~ FactorA) |> estimateStandardizedMeanContrastBy(by = FactorB, contrast = A1vsOthers)
+```{r, By-Factorial-Contrast}
+(Outcome ~ FactorA) |> estimateMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> plotMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> testMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> estimateStandardizedMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 ```

@@ -9,12 +9,12 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r,include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
 devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
-```{r,include=FALSE}
+```{r, include=FALSE}
 if (!require(EASI)) {
   if (!require(remotes)) install.packages("remotes")
   remotes::install_github("cwendorf/EASI")
@@ -35,54 +35,49 @@ revised_toc(thisfile, base_level = 3, toc_depth = 4)
 
 ### Data Management
 
-Simulate some data.
+This code inputs the variable names and creates a viewable data frame.
 ```{r}
-Factor <- c(rep(1, 30), rep(2, 30))
-Outcome1 <- c(round(rnorm(30, mean = 8, sd = 2), 0), round(rnorm(30, mean = 8, sd = 2), 0))
-Outcome2 <- c(round(rnorm(30, mean = 11, sd = 4), 0), round(rnorm(30, mean = 8, sd = 3), 0))
-Outcome3 <- c(round(rnorm(30, mean = 12, sd = 4), 0), round(rnorm(30, mean = 7, sd = 4), 0))
+Factor <- c(rep(1, 10), rep(2, 10))
 Factor <- factor(Factor, levels = c(1, 2), labels = c("Level1", "Level2"))
-MixedData <- data.frame(Factor, Outcome1, Outcome2, Outcome3)
+Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8)
+Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 7, 8, 7, 11, 10, 7, 8, 4, 8, 10)
+Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10, 8, 6, 8, 11, 5, 7, 9, 3, 6, 7)
+MixedData <- construct(Factor, Outcome1, Outcome2, Outcome3)
 ```
 
-### Descriptive Statistics
+### Summary Statistics
 
 Get the descriptive statistics separately for each simple effect.
 ```{r}
-cbind(Outcome1, Outcome2, Outcome3) |> describeMeansBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> describeSummaryBy(by = Factor)
 ```
 
 ### Analyses of the Means
 
 Estimate, plot, test, and standardize the means separately for each simple effect.
-```{r,By-Mixed-Means}
-cbind(Outcome1, Outcome2, Outcome3) |> estimateMeansBy(by = Factor)
-cbind(Outcome1, Outcome2, Outcome3) |> plotMeansBy(by = Factor)
-cbind(Outcome1, Outcome2, Outcome3) |> testMeansBy(by = Factor)
-cbind(Outcome1, Outcome2, Outcome3) |> estimateStandardizedMeansBy(by = Factor)
+```{r, By-Mixed-Means}
+construct(Outcome1, Outcome2, Outcome3) |> estimateMeansBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> plotMeansBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> testMeansBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> estimateStandardizedMeansBy(by = Factor)
 ```
 
 ### Analyses of a Comparison
 
 Analyze the specified comparison separately for each simple effect.
-```{r,By-Mixed-Comparison}
-cbind(Outcome1, Outcome2) |> estimateMeanDifferenceBy(by = Factor)
-cbind(Outcome1, Outcome2) |> plotMeanDifferenceBy(by = Factor)
-cbind(Outcome1, Outcome2) |> testMeanDifferenceBy(by = Factor)
-cbind(Outcome1, Outcome2) |> estimateStandardizedMeanDifferenceBy(by = Factor)
+```{r, By-Mixed-Comparison}
+construct(Outcome1, Outcome2) |> estimateMeanDifferenceBy(by = Factor)
+construct(Outcome1, Outcome2) |> plotMeanDifferenceBy(by = Factor)
+construct(Outcome1, Outcome2) |> testMeanDifferenceBy(by = Factor)
+construct(Outcome1, Outcome2) |> estimateStandardizedMeanDifferenceBy(by = Factor)
 ```
 
 ### Analyses of a Contrast
 
-Specify a contrast for a factor.
-```{r}
-O1vsOthers <- c(-1, .5, .5)
-```
-
 Analyze the specified contrast separately for each simple effect.
-```{r,By-Mixed-Contrast}
-cbind(Outcome1, Outcome2, Outcome3) |> estimateMeanContrastBy(by = Factor, contrast = O1vsOthers)
-cbind(Outcome1, Outcome2, Outcome3) |> plotMeanContrastBy(by = Factor, contrast = O1vsOthers)
-cbind(Outcome1, Outcome2, Outcome3) |> testMeanContrastBy(by = Factor, contrast = O1vsOthers)
-cbind(Outcome1, Outcome2, Outcome3) |> estimateStandardizedMeanContrastBy(by = Factor, contrast = O1vsOthers)
+```{r, By-Mixed-Contrast}
+construct(Outcome1, Outcome2, Outcome3) |> estimateMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
+construct(Outcome1, Outcome2, Outcome3) |> plotMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
+construct(Outcome1, Outcome2, Outcome3) |> testMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
+construct(Outcome1, Outcome2, Outcome3) |> estimateStandardizedMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
 ```

@@ -9,12 +9,12 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r,include=FALSE}
+```{r, include=FALSE}
 knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
 devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
-```{r,include=FALSE}
+```{r, include=FALSE}
 if (!require(EASI)) {
   if (!require(remotes)) install.packages("remotes")
   remotes::install_github("cwendorf/EASI")
@@ -35,47 +35,37 @@ revised_toc(thisfile, base_level = 3, toc_depth = 4)
 
 ### Data Management
 
-Simulate some data.
+This code inputs the variable names and creates a viewable data frame.
 ```{r}
-Factor <- c(rep(1, 50), rep(2, 50), rep(3, 50))
+Factor <- c(rep(1, 10), rep(2, 10), rep(3, 10))
 Factor <- factor(Factor, levels = c(1, 2, 3), labels = c("Level1", "Level2", "Level3"))
-Level1 <- round(rnorm(50, mean = 7, sd = 2), 0)
-Level2 <- round(rnorm(50, mean = 11, sd = 4), 0)
-Level3 <- round(rnorm(50, mean = 12, sd = 4), 0)
-Outcome <- c(Level1, Level2, Level3)
+Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
+OneWayData <- construct(Factor, Outcome)
 ```
 
 ### Analyses of a Complex Mean Contrast
 
 Estimate and plot the means for examination.
-```{r,Complex-OneWay-Means}
+```{r, Complex-OneWay-Means}
 (Outcome ~ Factor) |> estimateMeans()
 (Outcome ~ Factor) |> plotMeans()
 ```
 
 Create a single contrast to compare the first group to the grand mean (which requires some arithmetic). Then esimate and plot the contrast.
-```{r,Complex-OneWay-Contrast}
-L1vsGrand <- c(.6667, -.3333, -.3333)
-(Outcome ~ Factor) |> estimateMeanContrast(contrast = L1vsGrand)
-(Outcome ~ Factor) |> plotMeanContrast(contrast = L1vsGrand)
+```{r, Complex-OneWay-Contrast}
+(Outcome ~ Factor) |> estimateMeanContrast(contrast = c(2/3, -1/3, -1/3))
+(Outcome ~ Factor) |> plotMeanContrast(contrast = c(2/3, -1/3, -1/3))
 ```
 
 ### Analysis of a Difference Between Two Contrasts
 
-Rather than setting just one contrast, set two contrasts: one for the Grand Mean and one for Level 1.
-```{r}
-GrandMean <- c(1/3, 1/3, 1/3)
-L1Only <- c(1, 0, 0)
-```
-
-Estimate and plot the confidence intervals for each contrast and the difference between contrasts.
-```{r,Complex-OneWay-ComplexA}
-(Outcome ~ Factor) |> estimateMeanComplex(contrast1 = GrandMean, contrast2 = L1Only, labels = c("GrandMean", "L1Only"))
-(Outcome ~ Factor) |> plotMeanComplex(contrast1 = GrandMean, contrast2 = L1Only, labels = c("GrandMean", "L1Only"))
+Rather than setting just one contrast, set two contrasts: one for the Grand Mean and one for Level 1. Estimate and plot the confidence intervals for each contrast and the difference between contrasts.
+```{r, Complex-OneWay-ComplexA}
+(Outcome ~ Factor) |> estimateMeanComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"))
+(Outcome ~ Factor) |> plotMeanComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"))
 ```
 
 Enhance the plot by adding colors and removing value labels.
-```{r,Complex-OneWay-ComplexB}
-comparisonTheme <- c("darkred", "darkblue", "black")
-(Outcome ~ Factor) |> plotMeanComplex(contrast1 = GrandMean, contrast2 = L1Only, labels = c("GrandMean", "L1Only"), values = FALSE, col = comparisonTheme)
+```{r, Complex-OneWay-ComplexB}
+(Outcome ~ Factor) |> plotMeanComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"), values = FALSE, col = c("darkred", "darkblue", "black"))
 ```
