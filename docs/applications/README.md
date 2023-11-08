@@ -43,3 +43,8 @@ This page outlines applications that demonstrate advanced features.
 
 - [*ByFactorialDataApplication*](./ByFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
 - [*ByMixedDataApplication*](./ByMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+
+**Omnibus** - Provide a multifactor Analysis of Variance in factorial and mixed designs:
+
+- [*OmnibusFactorialDataApplication*](./OmnibusFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*OmnibusMixedDataApplication*](./OmnibusMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
