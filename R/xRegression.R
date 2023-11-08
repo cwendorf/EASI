@@ -37,7 +37,7 @@
   }
   dM <- DescStats[1, ]
   eR <- .estimateRegressionCoefficients(DescStats, CorrStats)
-  dRO <- .describeRegressionOmnibus(DescStats, CorrStats)
+  dRO <- .describeRegressionEffect(DescStats, CorrStats)
   .regression(dM, eR, dRO, value = value, conf.level = conf.level)
 }
 
@@ -51,7 +51,7 @@
   }
   dM <- .describeMeans(frame)[1, ]
   eR <- .estimateRegressionCoefficients(frame)
-  dRO <- .describeRegressionOmnibus(frame)
+  dRO <- .describeRegressionEffect(frame)
   .regression(dM, eR, dRO, value = value, conf.level = conf.level)
 }
 
