@@ -47,7 +47,7 @@
 
 .describeMeansFactorial.wss <- function(ListDescStats, ListCorrStats, ...) {
   main <- .main.list(ListDescStats)
-  ListSourceStats <- .describeMeansOmnibusBy.wss(ListDescStats, ListCorrStats)
+  ListSourceStats <- .describeMeansEffectBy.wss(ListDescStats, ListCorrStats)
   error <- .error.list(ListSourceStats)
   out1 <- rbind(main[1, ], error[1, ])
   rownames(out1) <- c("Blocks", "Subjects")
@@ -60,7 +60,7 @@
 
 .describeMeansFactorial.bss <- function(ListDescStats, ...) {
   main <- .main.list(ListDescStats)
-  ListSourceStats <- .describeMeansOmnibusBy.bss(ListDescStats)
+  ListSourceStats <- .describeMeansEffectBy.bss(ListDescStats)
   error <- .error.list(ListSourceStats)
   out <- rbind(main[1:3, ], error[-1, ])
   rownames(out) <- c("Factor", "Blocks", "Factor:Blocks", "Residual")
