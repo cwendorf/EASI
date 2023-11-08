@@ -38,7 +38,7 @@ This code obtains the descriptive statistics for the data frame.
 (RegressionData) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                  N       M      SD    Skew    Kurt
     ## Predictor1  10.000   8.000   1.414   0.000  -0.738
     ## Predictor2  10.000  11.000   2.211  -0.617  -0.212
@@ -58,12 +58,25 @@ This code obtains the descriptive statistics for the data frame.
 
 This section produces analyses of the overall regression model.
 
+This code will produce a source table associated with the regression
+model.
+
+``` r
+(RegressionData) |> describeRegressionEffect()
+```
+
+    ## $`Source Table for the Regression Model`
+    ##            SS      df      MS
+    ## Model  18.286   2.000   9.143
+    ## Error  35.714   7.000   5.102
+    ## Total  54.000   9.000   6.000
+
 #### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 
 ``` r
-(RegressionData) |> estimateRegressionOmnibus()
+(RegressionData) |> estimateRegressionEffect()
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -74,7 +87,7 @@ The code defaults to 90% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(RegressionData) |> estimateRegressionOmnibus(conf.level = .95)
+(RegressionData) |> estimateRegressionEffect(conf.level = .95)
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -83,23 +96,10 @@ desired.
 
 #### Significance Test
 
-This code will produce a source table associated with the regression
-model.
-
-``` r
-(RegressionData) |> describeRegressionOmnibus()
-```
-
-    ## $`Source Table for the Regression Model`
-    ##            SS      df      MS
-    ## Model  18.286   2.000   9.143
-    ## Error  35.714   7.000   5.102
-    ## Total  54.000   9.000   6.000
-
 This code will calculate NHST for the regression model.
 
 ``` r
-(RegressionData) |> testRegressionOmnibus()
+(RegressionData) |> testRegressionEffect()
 ```
 
     ## $`Hypothesis Test for the Regression Model`

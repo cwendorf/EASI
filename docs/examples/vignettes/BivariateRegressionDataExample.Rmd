@@ -56,28 +56,28 @@ This code obtains the descriptive statistics for the data frame.
 
 This section produces analyses of the overall regression model.
 
+This code will produce a source table associated with the regression model.
+```{r}
+(BivariateData) |> describeRegressionEffect()
+```
+
 #### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 ```{r}
-(BivariateData) |> estimateRegressionOmnibus()
+(BivariateData) |> estimateRegressionEffect()
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-(BivariateData) |> estimateRegressionOmnibus(conf.level = .95)
+(BivariateData) |> estimateRegressionEffect(conf.level = .95)
 ```
 
 #### Significance Test
 
-This code will produce a source table associated with the regression model.
-```{r}
-(BivariateData) |> describeRegressionOmnibus()
-```
-
 This code will calculate NHST for the regression model.
 ```{r}
-(BivariateData) |> testRegressionOmnibus()
+(BivariateData) |> testRegressionEffect()
 ```
 
 ### Analyses of the Regression Coefficients
@@ -155,15 +155,15 @@ This code adds a scatter of data points to the regression plot.
 
 This code provides estimates confidence and prediction limits for a specific value of the Predictor (value=4).
 ```{r}
-(BivariateData) |> estimateRegression(value = 4)
+(BivariateData) |> estimateRegression(value = 8)
 ```
 
 This code plots the confidence interval associated with the regression line and labels the interval for the specific value of the Predictor.
 ```{r, Bivariate-Data-ConfidenceA}
-(BivariateData) |> plotRegression(value = 4, interval = "confidence")
+(BivariateData) |> plotRegression(value = 8, interval = "confidence")
 ```
 
 This code plots the prediction interval associated with the regression line and labels the interval for the specific value of the Predictor.
 ```{r, Bivariate-Data-ConfidenceB}
-(BivariateData) |> plotRegression(value = 4, interval = "prediction")
+(BivariateData) |> plotRegression(value = 8, interval = "prediction")
 ```

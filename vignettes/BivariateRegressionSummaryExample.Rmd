@@ -63,28 +63,28 @@ This code confirms the descriptive statistics from the summary tables.
 
 This section produces analyses of the overall regression model.
 
+This code will produce a source table associated with the regression model.
+```{r}
+(BivariateSummary) |> describeRegressionEffect(BivariateCorr)
+```
+
 #### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 ```{r}
-(BivariateSummary) |> estimateRegressionOmnibus(BivariateCorr)
+(BivariateSummary) |> estimateRegressionEffect(BivariateCorr)
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-(BivariateSummary) |> estimateRegressionOmnibus(BivariateCorr, conf.level = .95)
+(BivariateSummary) |> estimateRegressionEffect(BivariateCorr, conf.level = .95)
 ```
 
 #### Significance Test
 
-This code will produce a source table associated with the regression model.
-```{r}
-(BivariateSummary) |> describeRegressionOmnibus(BivariateCorr)
-```
-
 This code will calculate NHST for the regression model.
 ```{r}
-(BivariateSummary) |> testRegressionOmnibus(BivariateCorr)
+(BivariateSummary) |> testRegressionEffect(BivariateCorr)
 ```
 
 ### Analyses of the Regression Coefficients
@@ -157,15 +157,15 @@ This code produces a plot of the regression line (with confidence and prediction
 
 This code provides estimates confidence and prediction limits for a specific value of the Predictor (value=4).
 ```{r}
-(BivariateSummary) |> estimateRegression(BivariateCorr, value = 4)
+(BivariateSummary) |> estimateRegression(BivariateCorr, value = 8)
 ```
 
 This code plots the confidence interval associated with the regression line and labels the interval for the specific value of the Predictor.
 ```{r, Bivariate-Summary-ConfidenceA}
-(BivariateSummary) |> plotRegression(BivariateCorr, value = 4, interval = "confidence")
+(BivariateSummary) |> plotRegression(BivariateCorr, value = 8, interval = "confidence")
 ```
 
 This code plots the prediction interval associated with the regression line and labels the interval for the specific value of the Predictor.
 ```{r, Bivariate-Summary-ConfidenceB}
-(BivariateSummary) |> plotRegression(BivariateCorr, value = 4, interval = "prediction")
+(BivariateSummary) |> plotRegression(BivariateCorr, value = 8, interval = "prediction")
 ```

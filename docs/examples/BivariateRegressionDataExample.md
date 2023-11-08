@@ -41,7 +41,7 @@ This code obtains the descriptive statistics for the data frame.
 (BivariateData) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                 N       M      SD    Skew    Kurt
     ## Predictor  10.000   8.000   1.414   0.000  -0.738
     ## Criterion  10.000  11.000   2.211  -0.617  -0.212
@@ -59,12 +59,25 @@ This code obtains the descriptive statistics for the data frame.
 
 This section produces analyses of the overall regression model.
 
+This code will produce a source table associated with the regression
+model.
+
+``` r
+(BivariateData) |> describeRegressionEffect()
+```
+
+    ## $`Source Table for the Regression Model`
+    ##            SS      df      MS
+    ## Model  12.500   1.000  12.500
+    ## Error  31.500   8.000   3.938
+    ## Total  44.000   9.000   4.889
+
 #### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 
 ``` r
-(BivariateData) |> estimateRegressionOmnibus()
+(BivariateData) |> estimateRegressionEffect()
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -75,7 +88,7 @@ The code defaults to 90% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(BivariateData) |> estimateRegressionOmnibus(conf.level = .95)
+(BivariateData) |> estimateRegressionEffect(conf.level = .95)
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -84,23 +97,10 @@ desired.
 
 #### Significance Test
 
-This code will produce a source table associated with the regression
-model.
-
-``` r
-(BivariateData) |> describeRegressionOmnibus()
-```
-
-    ## $`Source Table for the Regression Model`
-    ##            SS      df      MS
-    ## Model  12.500   1.000  12.500
-    ## Error  31.500   8.000   3.938
-    ## Total  44.000   9.000   4.889
-
 This code will calculate NHST for the regression model.
 
 ``` r
-(BivariateData) |> testRegressionOmnibus()
+(BivariateData) |> testRegressionEffect()
 ```
 
     ## $`Hypothesis Test for the Regression Model`
@@ -243,18 +243,18 @@ This code provides estimates confidence and prediction limits for a
 specific value of the Predictor (value=4).
 
 ``` r
-(BivariateData) |> estimateRegression(value = 4)
+(BivariateData) |> estimateRegression(value = 8)
 ```
 
     ## $`Confidence and Prediction Intervals for the Regression Value`
     ##       Est   CI.LL   CI.UL   PI.LL   PI.UL
-    ## 4   7.667   3.116  12.217   1.213  14.120
+    ## 8  11.000   9.553  12.447   6.201  15.799
 
 This code plots the confidence interval associated with the regression
 line and labels the interval for the specific value of the Predictor.
 
 ``` r
-(BivariateData) |> plotRegression(value = 4, interval = "confidence")
+(BivariateData) |> plotRegression(value = 8, interval = "confidence")
 ```
 
 ![](figures/Bivariate-Data-ConfidenceA-1.png)<!-- -->
@@ -263,7 +263,7 @@ This code plots the prediction interval associated with the regression
 line and labels the interval for the specific value of the Predictor.
 
 ``` r
-(BivariateData) |> plotRegression(value = 4, interval = "prediction")
+(BivariateData) |> plotRegression(value = 8, interval = "prediction")
 ```
 
 ![](figures/Bivariate-Data-ConfidenceB-1.png)<!-- -->

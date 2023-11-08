@@ -65,28 +65,28 @@ This code confirms the descriptive statistics from the summary tables.
 
 This section produces analyses of the overall regression model.
 
+This code will produce a source table associated with the regression model.
+```{r}
+(RegressionSummary) |> describeRegressionEffect(RegressionCorr)
+```
+
 #### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 ```{r}
-(RegressionSummary) |> estimateRegressionOmnibus(RegressionCorr)
+(RegressionSummary) |> estimateRegressionEffect(RegressionCorr)
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-(RegressionSummary) |> estimateRegressionOmnibus(RegressionCorr, conf.level = .95)
+(RegressionSummary) |> estimateRegressionEffect(RegressionCorr, conf.level = .95)
 ```
 
 #### Significance Test
 
-This code will produce a source table associated with the regression model.
-```{r}
-(RegressionSummary) |> describeRegressionOmnibus(RegressionCorr)
-```
-
 This code will calculate NHST for the regression model.
 ```{r}
-(RegressionSummary) |> testRegressionOmnibus(RegressionCorr)
+(RegressionSummary) |> testRegressionEffect(RegressionCorr)
 ```
 
 ### Analyses of the Regression Coefficients

@@ -48,7 +48,7 @@ This code confirms the descriptive statistics from the summary tables.
 (RegressionSummary) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                  N       M      SD
     ## Predictor1  10.000   8.000   1.414
     ## Predictor2  10.000  11.000   2.211
@@ -68,12 +68,25 @@ This code confirms the descriptive statistics from the summary tables.
 
 This section produces analyses of the overall regression model.
 
+This code will produce a source table associated with the regression
+model.
+
+``` r
+(RegressionSummary) |> describeRegressionEffect(RegressionCorr)
+```
+
+    ## $`Source Table for the Regression Model`
+    ##            SS      df      MS
+    ## Model  18.256   2.000   9.128
+    ## Error  35.723   7.000   5.103
+    ## Total  53.978   9.000   5.998
+
 #### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 
 ``` r
-(RegressionSummary) |> estimateRegressionOmnibus(RegressionCorr)
+(RegressionSummary) |> estimateRegressionEffect(RegressionCorr)
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -84,7 +97,7 @@ The code defaults to 90% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(RegressionSummary) |> estimateRegressionOmnibus(RegressionCorr, conf.level = .95)
+(RegressionSummary) |> estimateRegressionEffect(RegressionCorr, conf.level = .95)
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -93,23 +106,10 @@ desired.
 
 #### Significance Test
 
-This code will produce a source table associated with the regression
-model.
-
-``` r
-(RegressionSummary) |> describeRegressionOmnibus(RegressionCorr)
-```
-
-    ## $`Source Table for the Regression Model`
-    ##            SS      df      MS
-    ## Model  18.256   2.000   9.128
-    ## Error  35.723   7.000   5.103
-    ## Total  53.978   9.000   5.998
-
 This code will calculate NHST for the regression model.
 
 ``` r
-(RegressionSummary) |> testRegressionOmnibus(RegressionCorr)
+(RegressionSummary) |> testRegressionEffect(RegressionCorr)
 ```
 
     ## $`Hypothesis Test for the Regression Model`
