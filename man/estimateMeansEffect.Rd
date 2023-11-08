@@ -1,23 +1,23 @@
-% File man/estimateMeansOmnibus.Rd
+% File man/estimateMeansEffect.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateMeansOmnibus}
-\alias{estimateMeansOmnibus}
-\alias{estimateMeansOmnibus.default}
-\alias{estimateMeansOmnibus.formula}
-\alias{estimateMeansOmnibus.wss}
-\alias{estimateMeansOmnibus.bss}
-\title{Estimate Means Omnibus}
+\name{estimateMeansEffect}
+\alias{estimateMeansEffect}
+\alias{estimateMeansEffect.default}
+\alias{estimateMeansEffect.formula}
+\alias{estimateMeansEffect.wss}
+\alias{estimateMeansEffect.bss}
+\title{Estimate Means Effect}
 \description{Calculates the proportion of variance accounted for and its confidence interval.}
 
 \usage{
-\method{estimateMeansOmnibus}{default}(frame, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansEffect}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansOmnibus}{formula}(formula, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansEffect}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansOmnibus}{wss}(DescStats, CorrStats, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansEffect}{wss}(DescStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeansOmnibus}{bss}(DescStats, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansEffect}{bss}(DescStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

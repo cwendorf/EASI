@@ -1,13 +1,13 @@
 # Estimation Approach to Statistical Inference
-## Mean Omnibus (Analysis of Variance)
+## Means Effect (Analysis of Variance)
 
 ### Descriptives
 
-.describeMeansOmnibus <- function(x, ...) {
-  UseMethod(".describeMeansOmnibus")
+.describeMeansEffect <- function(x, ...) {
+  UseMethod(".describeMeansEffect")
 }
 
-.describeMeansOmnibus.wss <- function(DescStats, CorrStats, ...) {
+.describeMeansEffect.wss <- function(DescStats, CorrStats, ...) {
   n <- DescStats[, "N"]
   m <- DescStats[, "M"]
   sd <- DescStats[, "SD"]
@@ -34,7 +34,7 @@
   return(results)
 }
 
-.describeMeansOmnibus.bss <- function(DescStats, ...) {
+.describeMeansEffect.bss <- function(DescStats, ...) {
   N <- DescStats[, "N"]
   M <- DescStats[, "M"]
   SD <- DescStats[, "SD"]
@@ -52,25 +52,25 @@
   return(results)
 }
 
-.describeMeansOmnibus.default <- function(frame, ...) {
+.describeMeansEffect.default <- function(frame, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
-  results <- .describeMeansOmnibus.wss(DescStats, CorrStats)
+  results <- .describeMeansEffect.wss(DescStats, CorrStats)
   return(results)
 }
 
-.describeMeansOmnibus.formula <- function(formula, ...) {
+.describeMeansEffect.formula <- function(formula, ...) {
   DescStats <- .describeMeans(formula)
-  results <- .describeMeansOmnibus.bss(DescStats)
+  results <- .describeMeansEffect.bss(DescStats)
   return(results)
 }
 
-describeMeansOmnibus <- function(..., main = NULL, digits = 3) {
-  results <- .describeMeansOmnibus(...)
+describeMeansEffect <- function(..., main = NULL, digits = 3) {
+  results <- .describeMeansEffect(...)
   if (is.null(main)) {
     main <- "Source Table for the Model"
   }
@@ -93,12 +93,12 @@ describeMeansOmnibus <- function(..., main = NULL, digits = 3) {
   results
 }
 
-.estimateMeansOmnibus <- function(x, ...) {
-  UseMethod(".estimateMeansOmnibus")
+.estimateMeansEffect <- function(x, ...) {
+  UseMethod(".estimateMeansEffect")
 }
 
-.estimateMeansOmnibus.wss <- function(DescStats, CorrStats, conf.level = .90, ...) {
-  temptab <- .describeMeansOmnibus.wss(DescStats, CorrStats)
+.estimateMeansEffect.wss <- function(DescStats, CorrStats, conf.level = .90, ...) {
+  temptab <- .describeMeansEffect.wss(DescStats, CorrStats)
   SSf <- temptab["Measures", "SS"]
   SSe <- temptab["Error", "SS"]
   SSt <- SSf + SSe
@@ -112,8 +112,8 @@ describeMeansOmnibus <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.estimateMeansOmnibus.bss <- function(DescStats, conf.level = .90, ...) {
-  temptab <- .describeMeansOmnibus.bss(DescStats)
+.estimateMeansEffect.bss <- function(DescStats, conf.level = .90, ...) {
+  temptab <- .describeMeansEffect.bss(DescStats)
   SSb <- temptab["Between", "SS"]
   SSw <- temptab["Within", "SS"]
   SSt <- SSb + SSw
@@ -127,23 +127,23 @@ describeMeansOmnibus <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.estimateMeansOmnibus.default <- function(frame, conf.level = .90, ...) {
+.estimateMeansEffect.default <- function(frame, conf.level = .90, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
-  .estimateMeansOmnibus.wss(DescStats, CorrStats, conf.level)
+  .estimateMeansEffect.wss(DescStats, CorrStats, conf.level)
 }
 
-.estimateMeansOmnibus.formula <- function(formula, conf.level = .90, ...) {
+.estimateMeansEffect.formula <- function(formula, conf.level = .90, ...) {
   DescStats <- .describeMeans(formula)
-  .estimateMeansOmnibus.bss(DescStats, conf.level)
+  .estimateMeansEffect.bss(DescStats, conf.level)
 }
 
-estimateMeansOmnibus <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeansOmnibus(...)
+estimateMeansEffect <- function(..., main = NULL, digits = 3) {
+  results <- .estimateMeansEffect(...)
   if (is.null(main)) {
     main <- "Proportion of Variance Accounted For by the Model"
   }
@@ -153,12 +153,12 @@ estimateMeansOmnibus <- function(..., main = NULL, digits = 3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeansOmnibus <- function(x, ...) {
-  UseMethod(".testMeansOmnibus")
+.testMeansEffect <- function(x, ...) {
+  UseMethod(".testMeansEffect")
 }
 
-.testMeansOmnibus.wss <- function(DescStats, CorrStats, ...) {
-  temptab <- .describeMeansOmnibus.wss(DescStats, CorrStats)
+.testMeansEffect.wss <- function(DescStats, CorrStats, ...) {
+  temptab <- .describeMeansEffect.wss(DescStats, CorrStats)
   MSf <- temptab["Measures", "MS"]
   MSe <- temptab["Error", "MS"]
   dff <- temptab["Measures", "df"]
@@ -171,8 +171,8 @@ estimateMeansOmnibus <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.testMeansOmnibus.bss <- function(DescStats, ...) {
-  temptab <- .describeMeansOmnibus.bss(DescStats)
+.testMeansEffect.bss <- function(DescStats, ...) {
+  temptab <- .describeMeansEffect.bss(DescStats)
   MSb <- temptab["Between", "MS"]
   MSw <- temptab["Within", "MS"]
   dfb <- temptab["Between", "df"]
@@ -185,23 +185,23 @@ estimateMeansOmnibus <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.testMeansOmnibus.default <- function(frame, ...) {
+.testMeansEffect.default <- function(frame, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   DescStats <- .describeMeans(data)
   CorrStats <- .describeCorrelations(data)
-  .testMeansOmnibus.wss(DescStats, CorrStats)
+  .testMeansEffect.wss(DescStats, CorrStats)
 }
 
-.testMeansOmnibus.formula <- function(formula, ...) {
+.testMeansEffect.formula <- function(formula, ...) {
   DescStats <- .describeMeans(formula)
-  .testMeansOmnibus.bss(DescStats)
+  .testMeansEffect.bss(DescStats)
 }
 
-testMeansOmnibus <- function(..., main = NULL, digits = 3) {
-  results <- .testMeansOmnibus(...)
+testMeansEffect <- function(..., main = NULL, digits = 3) {
+  results <- .testMeansEffect(...)
   if (is.null(main)) {
     main <- "Hypothesis Test for the Model"
   }
@@ -211,10 +211,10 @@ testMeansOmnibus <- function(..., main = NULL, digits = 3) {
 
 ### Combined Analyses
 
-analyzeMeansOmnibus <- function(..., main = NULL, digits = 3) {
-  dMO <- describeMeansOmnibus(..., digits = digits)
-  tMO <- testMeansOmnibus(..., digits = digits)
-  eME <- estimateMeansOmnibus(..., digits = digits)
+analyzeMeansEffect <- function(..., main = NULL, digits = 3) {
+  dMO <- describeMeansEffect(..., digits = digits)
+  tMO <- testMeansEffect(..., digits = digits)
+  eME <- estimateMeansEffect(..., digits = digits)
   results <- c(dMO, tMO, eME)
   return(results)
 }

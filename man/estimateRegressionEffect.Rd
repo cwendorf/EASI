@@ -1,17 +1,17 @@
-% File man/estimateRegressionOmnibus.Rd
+% File man/estimateRegressionEffect.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateRegressionOmnibus}
-\alias{estimateRegressionOmnibus}
-\alias{estimateRegressionOmnibus.default}
-\alias{estimateRegressionOmnibus.wss}
-\title{Estimate Regression Omnibus}
+\name{estimateRegressionEffect}
+\alias{estimateRegressionEffect}
+\alias{estimateRegressionEffect.default}
+\alias{estimateRegressionEffect.wss}
+\title{Estimate Regression Effect}
 \description{Calculates R Squared and its confidence interval.}
 
 \usage{
-\method{estimateRegressionOmnibus}{default}(frame, y=NULL, conf.level=.95, main=NULL, digits=3)
+\method{estimateRegressionEffect}{default}(frame, y=NULL, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateRegressionOmnibus}{wss}(DescStats, CorrStats, y=NULL, conf.level=.95, main=NULL, digits=3)
+\method{estimateRegressionEffect}{wss}(DescStats, CorrStats, y=NULL, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

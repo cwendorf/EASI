@@ -368,30 +368,30 @@ S3method(plotMeansRelational,wss)
 S3method(plotMeansRelational,bss)
 export(plotMeansRelational)
 
-### xMeansOmnibus
+### xMeansEffect
 
-S3method(.describeMeansOmnibus,default)
-S3method(.describeMeansOmnibus,formula)
-S3method(.describeMeansOmnibus,wss)
-S3method(.describeMeansOmnibus,bss)
-export(.describeMeansOmnibus)
-export(describeMeansOmnibus)
+S3method(.describeMeansEffect,default)
+S3method(.describeMeansEffect,formula)
+S3method(.describeMeansEffect,wss)
+S3method(.describeMeansEffect,bss)
+export(.describeMeansEffect)
+export(describeMeansEffect)
 
-S3method(.testMeansOmnibus,default)
-S3method(.testMeansOmnibus,formula)
-S3method(.testMeansOmnibus,wss)
-S3method(.testMeansOmnibus,bss)
-export(.testMeansOmnibus)
-export(testMeansOmnibus)
+S3method(.testMeansEffect,default)
+S3method(.testMeansEffect,formula)
+S3method(.testMeansEffect,wss)
+S3method(.testMeansEffect,bss)
+export(.testMeansEffect)
+export(testMeansEffect)
 
-S3method(.estimateMeansOmnibus,default)
-S3method(.estimateMeansOmnibus,formula)
-S3method(.estimateMeansOmnibus,wss)
-S3method(.estimateMeansOmnibus,bss)
-export(.estimateMeansOmnibus)
-export(estimateMeansOmnibus)
+S3method(.estimateMeansEffect,default)
+S3method(.estimateMeansEffect,formula)
+S3method(.estimateMeansEffect,wss)
+S3method(.estimateMeansEffect,bss)
+export(.estimateMeansEffect)
+export(estimateMeansEffect)
 
-export(analyzeMeansOmnibus)
+export(analyzeMeansEffect)
 
 ### xCorrelations
 
@@ -480,33 +480,38 @@ export(estimateStandardizedRegressionCoefficients)
 
 export(plotStandardizedRegressionCoefficients)
 
-### xRegressionOmnibus
+### xRegressionEffect
 
-S3method(.describeRegressionOmnibus,default)
-S3method(.describeRegressionOmnibus,wss)
-export(.describeRegressionOmnibus)
-export(describeRegressionOmnibus)
+S3method(.describeRegressionEffect,default)
+S3method(.describeRegressionEffect,wss)
+export(.describeRegressionEffect)
+export(describeRegressionEffect)
 
-S3method(.testRegressionOmnibus,default)
-S3method(.testRegressionOmnibus,wss)
-export(.testRegressionOmnibus)
-export(testRegressionOmnibus)
+S3method(.testRegressionEffect,default)
+S3method(.testRegressionEffect,wss)
+export(.testRegressionEffect)
+export(testRegressionEffect)
 
-S3method(.estimateRegressionOmnibus,default)
-S3method(.estimateRegressionOmnibus,wss)
-export(.estimateRegressionOmnibus)
-export(estimateRegressionOmnibus)
+S3method(.estimateRegressionEffect,default)
+S3method(.estimateRegressionEffect,wss)
+export(.estimateRegressionEffect)
+export(estimateRegressionEffect)
 
-export(analyzeRegressionOmnibus)
+export(analyzeRegressionEffect)
 
-### xMeansBy
+### xSummaryBy
 
 S3method(.describeMeansBy,default)
 S3method(.describeMeansBy,formula)
 export(.describeMeansBy)
 export(describeMeansBy)
+
+S3method(.describeSummaryBy,default)
+S3method(.describeSummaryBy,formula)
 export(.describeSummaryBy)
 export(describeSummaryBy)
+
+### xMeansBy
 
 S3method(.estimateMeansBy,default)
 S3method(.estimateMeansBy,formula)
@@ -591,55 +596,53 @@ S3method(.estimateStandardizedMeanContrastBy,bss)
 export(.estimateStandardizedMeanContrastBy)
 export(estimateStandardizedMeanContrastBy)
 
-### xMeansOmnibusBy
+### xMeansEffectBy
 
-S3method(.describeMeansOmnibusBy,default)
-S3method(.describeMeansOmnibusBy,formula)
-S3method(.describeMeansOmnibusBy,wss)
-S3method(.describeMeansOmnibusBy,bss)
-export(.describeMeansOmnibusBy)
-export(describeMeansOmnibusBy)
+S3method(.describeMeansEffectBy,default)
+S3method(.describeMeansEffectBy,formula)
+S3method(.describeMeansEffectBy,wss)
+S3method(.describeMeansEffectBy,bss)
+export(.describeMeansEffectBy)
+export(describeMeansEffectBy)
 
-S3method(.estimateMeansOmnibusBy,default)
-S3method(.estimateMeansOmnibusBy,formula)
-S3method(.estimateMeansOmnibusBy,wss)
-S3method(.estimateMeansOmnibusBy,bss)
-export(.estimateMeansOmnibusBy)
-export(estimateMeansOmnibusBy)
+S3method(.estimateMeansEffectBy,default)
+S3method(.estimateMeansEffectBy,formula)
+S3method(.estimateMeansEffectBy,wss)
+S3method(.estimateMeansEffectBy,bss)
+export(.estimateMeansEffectBy)
+export(estimateMeansEffectBy)
 
-S3method(.testMeansOmnibusBy,default)
-S3method(.testMeansOmnibusBy,formula)
-S3method(.testMeansOmnibusBy,wss)
-S3method(.testMeansOmnibusBy,bss)
-export(.testMeansOmnibusBy)
-export(testMeansOmnibusBy)
+S3method(.testMeansEffectBy,default)
+S3method(.testMeansEffectBy,formula)
+S3method(.testMeansEffectBy,wss)
+S3method(.testMeansEffectBy,bss)
+export(.testMeansEffectBy)
+export(testMeansEffectBy)
 
-### xMeansMultifactor
+### xMeansFactorial
 
-export(plotMeansMultifactor)
+S3method(.describeMeansFactorial,default)
+S3method(.describeMeansFactorial,formula)
+S3method(.describeMeansFactorial,wss)
+S3method(.describeMeansFactorial,bss)
+export(.describeMeansFactorial)
+export(describeMeansFactorial)
 
-### xMeansOmnibusMultifactor
+S3method(.estimateMeansFactorial,default)
+S3method(.estimateMeansFactorial,formula)
+S3method(.estimateMeansFactorial,wss)
+S3method(.estimateMeansFactorial,bss)
+export(.estimateMeansFactorial)
+export(estimateMeansFactorial)
 
-S3method(.describeMeansOmnibusMultifactor,default)
-S3method(.describeMeansOmnibusMultifactor,formula)
-S3method(.describeMeansOmnibusMultifactor,wss)
-S3method(.describeMeansOmnibusMultifactor,bss)
-export(.describeMeansOmnibusMultifactor)
-export(describeMeansOmnibusMultifactor)
+S3method(.testMeansFactorial,default)
+S3method(.testMeansFactorial,formula)
+S3method(.testMeansFactorial,wss)
+S3method(.testMeansFactorial,bss)
+export(.testMeansFactorial)
+export(testMeansFactorial)
 
-S3method(.estimateMeansOmnibusMultifactor,default)
-S3method(.estimateMeansOmnibusMultifactor,formula)
-S3method(.estimateMeansOmnibusMultifactor,wss)
-S3method(.estimateMeansOmnibusMultifactor,bss)
-export(.estimateMeansOmnibusMultifactor)
-export(estimateMeansOmnibusMultifactor)
-
-S3method(.testMeansOmnibusMultifactor,default)
-S3method(.testMeansOmnibusMultifactor,formula)
-S3method(.testMeansOmnibusMultifactor,wss)
-S3method(.testMeansOmnibusMultifactor,bss)
-export(.testMeansOmnibusMultifactor)
-export(testMeansOmnibusMultifactor)
+export(plotMeansFactorial)
 
 ### xCorrelationsBy
 

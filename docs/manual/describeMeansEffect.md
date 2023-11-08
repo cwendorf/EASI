@@ -1,23 +1,23 @@
-## Test Means Omnibus
+## Describe Means Effect
 
 ### Description
 
-Provides a statistical significance test for an Analysis of Variance.
+Provides a Analysis of Variance source table.
 
 ### Usage
 
 ```r
 ## Default S3 method
-testMeansOmnibus(frame, main=NULL, digits=3)
+describeMeansEffect(frame, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-testMeansOmnibus(formula, main=NULL, digits=3)
+describeMeansEffect(formula, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-testMeansOmnibus(DescStats, CorrStats, main=NULL, digits=3)
+describeMeansEffect(DescStats, CorrStats, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-testMeansOmnibus(DescStats, main=NULL, digits=3) 
+describeMeansEffect(DescStats, main=NULL, digits=3)
 ```
 
 ### Arguments
@@ -37,7 +37,6 @@ The returned list contains one frame with the following components:
 
 Value | Description
 :-- | :--
-```F``` | the F value for the omnibus effect
-```dfb``` | the degrees of freedom for the omnibus effect
-```dfw``` | the degrees of freedom for the error term
-```p``` | the p value for the omnibus effect
+```SS``` | the sum of Squares for the various sources
+```df``` | the degrees of freedom for the various sources
+```MS``` | the mean squares for the various sources

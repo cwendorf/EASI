@@ -1,4 +1,4 @@
-## Estimate Regression Omnibus
+## Estimate Regression Effect
 
 ### Description
 
@@ -8,10 +8,10 @@ Calculates R Squared and its confidence interval.
 
 ```r
 ## Default S3 method
-estimateRegressionOmnibus(frame, y=NULL, conf.level=.95, main=NULL, digits=3)
+estimateRegressionEffect(frame, y=NULL, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-estimateRegressionOmnibus(DescStats, CorrStats, y=NULL, conf.level=.95, main=NULL, digits=3)
+estimateRegressionEffect(DescStats, CorrStats, y=NULL, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments

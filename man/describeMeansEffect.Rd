@@ -1,23 +1,23 @@
-% File man/describeMeansOmnibus.Rd
+% File man/describeMeansEffect.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{describeMeansOmnibus}
-\alias{describeMeansOmnibus}
-\alias{describeMeansOmnibus.default}
-\alias{describeMeansOmnibus.formula}
-\alias{describeMeansOmnibus.wss}
-\alias{describeMeansOmnibus.bss}
-\title{Describe Means Omnibus}
+\name{describeMeansEffect}
+\alias{describeMeansEffect}
+\alias{describeMeansEffect.default}
+\alias{describeMeansEffect.formula}
+\alias{describeMeansEffect.wss}
+\alias{describeMeansEffect.bss}
+\title{Describe Means Effect}
 \description{Provides a Analysis of Variance source table.}
 
 \usage{
-\method{describeMeansOmnibus}{default}(frame, main=NULL, digits=3)
+\method{describeMeansEffect}{default}(frame, main=NULL, digits=3)
 
-\method{describeMeansOmnibus}{formula}(formula, main=NULL, digits=3)
+\method{describeMeansEffect}{formula}(formula, main=NULL, digits=3)
 
-\method{describeMeansOmnibus}{wss}(DescStats, CorrStats, main=NULL, digits=3)
+\method{describeMeansEffect}{wss}(DescStats, CorrStats, main=NULL, digits=3)
 
-\method{describeMeansOmnibus}{bss}(DescStats, main=NULL, digits=3)
+\method{describeMeansEffect}{bss}(DescStats, main=NULL, digits=3)
 }
 
 \arguments{

@@ -1,23 +1,23 @@
-## Describe Means Omnibus
+## Estimate Means Effect
 
 ### Description
 
-Provides a Analysis of Variance source table.
+Calculates the proportion of variance accounted for and its confidence interval.
 
 ### Usage
 
 ```r
 ## Default S3 method
-describeMeansOmnibus(frame, main=NULL, digits=3)
+estimateMeansEffect(frame, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'formula'
-describeMeansOmnibus(formula, main=NULL, digits=3)
+estimateMeansEffect(formula, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'wss'
-describeMeansOmnibus(DescStats, CorrStats, main=NULL, digits=3)
+estimateMeansEffect(DescStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
 ## S3 method for class 'bss'
-describeMeansOmnibus(DescStats, main=NULL, digits=3)
+estimateMeansEffect(DescStats, conf.level=.95, main=NULL, digits=3)
 ```
 
 ### Arguments
@@ -28,6 +28,7 @@ Argument | Description
 ```formula``` | a formula of the form `lhs ~ rhs` where `lhs` is a numeric variable giving the data values and `rhs` a factor giving the corresponding groups
 ```DescStats``` | a matrix/frame of descriptive/summary statistics
 ```CorrStats``` | a matrix/frame of correlations for the data set
+```conf.level``` | confidence level of the interval
 ```main``` | a custom title for the table
 ```digits``` | the specified number of decimal places
 
@@ -37,6 +38,6 @@ The returned list contains one frame with the following components:
 
 Value | Description
 :-- | :--
-```SS``` | the sum of Squares for the various sources
-```df``` | the degrees of freedom for the various sources
-```MS``` | the mean squares for the various sources
+```Est``` | the proportion of variance accounted for
+```LL``` | the lower limit of the confidence interval for the proportion of variance accounted for
+```UL``` | the upper limit of the confidence interval for the proportion of variance accounted for

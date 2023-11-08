@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Mean Omnibus Analysis (Multifactor Designs)
+## Means Factorial (Factorial and Mixed Design ANOVA)
 
 ### Descriptives
 
@@ -41,11 +41,11 @@
   return(out)
 }
 
-.describeMeansOmnibusMultifactor <- function(x, ...) {
-  UseMethod(".describeMeansOmnibusMultifactor")
+.describeMeansFactorial <- function(x, ...) {
+  UseMethod(".describeMeansFactorial")
 }
 
-.describeMeansOmnibusMultifactor.wss <- function(ListDescStats, ListCorrStats, ...) {
+.describeMeansFactorial.wss <- function(ListDescStats, ListCorrStats, ...) {
   main <- .main.list(ListDescStats)
   ListSourceStats <- .describeMeansOmnibusBy.wss(ListDescStats, ListCorrStats)
   error <- .error.list(ListSourceStats)
@@ -58,7 +58,7 @@
   return(results)
 }
 
-.describeMeansOmnibusMultifactor.bss <- function(ListDescStats, ...) {
+.describeMeansFactorial.bss <- function(ListDescStats, ...) {
   main <- .main.list(ListDescStats)
   ListSourceStats <- .describeMeansOmnibusBy.bss(ListDescStats)
   error <- .error.list(ListSourceStats)
@@ -69,23 +69,23 @@
   return(results)
 }
 
-.describeMeansOmnibusMultifactor.default <- function(frame, by, ...) {
+.describeMeansFactorial.default <- function(frame, by, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   ListDescStats <- .describeMeansBy.default(data, by = by)
   ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
-  .describeMeansOmnibusMultifactor.wss(ListDescStats, ListCorrStats)
+  .describeMeansFactorial.wss(ListDescStats, ListCorrStats)
 }
 
-.describeMeansOmnibusMultifactor.formula <- function(formula, by, ...) {
+.describeMeansFactorial.formula <- function(formula, by, ...) {
   ListDescStats <- .describeMeansBy.formula(formula, by = by)
-  .describeMeansOmnibusMultifactor.bss(ListDescStats)
+  .describeMeansFactorial.bss(ListDescStats)
 }
 
-describeMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
-  results <- .describeMeansOmnibusMultifactor(...)
+describeMeansFactorial <- function(..., main = NULL, digits = 3) {
+  results <- .describeMeansFactorial(...)
   if (is.null(main)) {
     main <- "Source Table for the Model"
   }
@@ -96,12 +96,12 @@ describeMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
 
 ### Confidence Intervals
 
-.estimateMeansOmnibusMultifactor <- function(x, ...) {
-  UseMethod(".estimateMeansOmnibusMultifactor")
+.estimateMeansFactorial <- function(x, ...) {
+  UseMethod(".estimateMeansFactorial")
 }
 
-.estimateMeansOmnibusMultifactor.wss <- function(ListDescStats, ListCorrStats, conf.level = .90, ...) {
-  x <- .describeMeansOmnibusMultifactor.wss(ListDescStats, ListCorrStats)
+.estimateMeansFactorial.wss <- function(ListDescStats, ListCorrStats, conf.level = .90, ...) {
+  x <- .describeMeansFactorial.wss(ListDescStats, ListCorrStats)
   results <- cbind(x[[1]], F = NA, Est = NA, LL = NA, UL = NA)
   results[, 4] <- results[, 3] / tail(results[, 3], 1)
   results[, 5] <- results[, 1] / (results[, 1] + tail(results[, 1], 1))
@@ -121,8 +121,8 @@ describeMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.estimateMeansOmnibusMultifactor.bss <- function(ListDescStats, conf.level = .90, ...) {
-  x <- .describeMeansOmnibusMultifactor.bss(ListDescStats)
+.estimateMeansFactorial.bss <- function(ListDescStats, conf.level = .90, ...) {
+  x <- .describeMeansFactorial.bss(ListDescStats)
   results <- cbind(x[[1]], F = NA, Est = NA, LL = NA, UL = NA)
   results[, 4] <- results[, 3] / tail(results[, 3], 1)
   results[, 5] <- results[, 1] / (results[, 1] + tail(results[, 1], 1))
@@ -134,23 +134,23 @@ describeMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.estimateMeansOmnibusMultifactor.default <- function(frame, by, conf.level = .90, ...) {
+.estimateMeansFactorial.default <- function(frame, by, conf.level = .90, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   ListDescStats <- .describeMeansBy.default(data, by = by)
   ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
-  .estimateMeansOmnibusMultifactor.wss(ListDescStats, ListCorrStats, conf.level = conf.level)
+  .estimateMeansFactorial.wss(ListDescStats, ListCorrStats, conf.level = conf.level)
 }
 
-.estimateMeansOmnibusMultifactor.formula <- function(formula, by, conf.level = .90, ...) {
+.estimateMeansFactorial.formula <- function(formula, by, conf.level = .90, ...) {
   ListDescStats <- .describeMeansBy.formula(formula, by = by)
-  .estimateMeansOmnibusMultifactor.bss(ListDescStats, conf.level = conf.level)
+  .estimateMeansFactorial.bss(ListDescStats, conf.level = conf.level)
 }
 
-estimateMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeansOmnibusMultifactor(...)
+estimateMeansFactorial <- function(..., main = NULL, digits = 3) {
+  results <- .estimateMeansFactorial(...)
   if (is.null(main)) {
     main <- "Proportion of Variance Accounted For by the Model"
   }
@@ -161,12 +161,12 @@ estimateMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeansOmnibusMultifactor <- function(x, ...) {
-  UseMethod(".testMeansOmnibusMultifactor")
+.testMeansFactorial <- function(x, ...) {
+  UseMethod(".testMeansFactorial")
 }
 
-.testMeansOmnibusMultifactor.wss <- function(ListDescStats, ListCorrStats, ...) {
-  out <- .describeMeansOmnibusMultifactor.wss(ListDescStats, ListCorrStats)
+.testMeansFactorial.wss <- function(ListDescStats, ListCorrStats, ...) {
+  out <- .describeMeansFactorial.wss(ListDescStats, ListCorrStats)
   for (i in 1:length(out)) {
     out[[i]] <- cbind(out[[i]], NA, NA, NA, NA)
     out[[i]][, 4] <- out[[i]][, 3] / tail(out[[i]][, 3], 1)
@@ -182,8 +182,8 @@ estimateMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
   return(out)
 }
 
-.testMeansOmnibusMultifactor.bss <- function(ListDescStats, ...) {
-  out <- .describeMeansOmnibusMultifactor.bss(ListDescStats)
+.testMeansFactorial.bss <- function(ListDescStats, ...) {
+  out <- .describeMeansFactorial.bss(ListDescStats)
   i <- 1
   out[[i]] <- cbind(out[[i]], NA, NA, NA, NA)
   out[[i]][, 4] <- out[[i]][, 3] / tail(out[[i]][, 3], 1)
@@ -195,27 +195,38 @@ estimateMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
   return(out)
 }
 
-.testMeansOmnibusMultifactor.default <- function(frame, by, ...) {
+.testMeansFactorial.default <- function(frame, by, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   ListDescStats <- .describeMeansBy.default(data, by = by)
   ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
-  .testMeansOmnibusMultifactor.wss(ListDescStats, ListCorrStats)
+  .testMeansFactorial.wss(ListDescStats, ListCorrStats)
 }
 
-.testMeansOmnibusMultifactor.formula <- function(formula, by, ...) {
+.testMeansFactorial.formula <- function(formula, by, ...) {
   ListDescStats <- .describeMeansBy.formula(formula, by = by)
-  .testMeansOmnibusMultifactor.bss(ListDescStats)
+  .testMeansFactorial.bss(ListDescStats)
 }
 
-testMeansOmnibusMultifactor <- function(..., main = NULL, digits = 3) {
-  results <- .testMeansOmnibusMultifactor(...)
+testMeansFactorial <- function(..., main = NULL, digits = 3) {
+  results <- .testMeansFactorial(...)
   if (is.null(main)) {
     main <- "Hypothesis Tests for the Model"
   }
   main <- paste(main, names(results), sep = ": ")
   results <- .formatList(results, main = main, digits = digits)
   return(results)
+}
+
+### Confidence Interval Plots
+
+plotMeansFactorial <- function(..., by, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, col = "black") {
+  results <- .estimateMeansBy(..., by = by, conf.level = conf.level)
+  if (is.null(main)) {
+    main <- "Confidence Intervals for the Means"
+  }
+  .intervalsMulti(results, main = main, ylab = ylab, xlab = xlab, col = col)
+  invisible(eval(...))
 }

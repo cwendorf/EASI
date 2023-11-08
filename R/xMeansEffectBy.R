@@ -1,51 +1,51 @@
 # Estimation Approach to Statistical Inference
-## Mean Omnibus Analyses (with By Option)
+## Mean Effect Analyses (with By Option)
 
 ### Descriptives
 
-.describeMeansOmnibusBy <- function(x, ...) {
-  UseMethod(".describeMeansOmnibusBy")
+.describeMeansEffectBy <- function(x, ...) {
+  UseMethod(".describeMeansEffectBy")
 }
 
-.describeMeansOmnibusBy.wss <- function(ListDescStats, ListCorrStats, ...) {
+.describeMeansEffectBy.wss <- function(ListDescStats, ListCorrStats, ...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {
-    results[[i]] <- .describeMeansOmnibus.wss(ListDescStats[[i]], ListCorrStats[[i]])
+    results[[i]] <- .describeMeansEffect.wss(ListDescStats[[i]], ListCorrStats[[i]])
   }
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
-.describeMeansOmnibusBy.bss <- function(ListDescStats, ...) {
+.describeMeansEffectBy.bss <- function(ListDescStats, ...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {
-    results[[i]] <- .describeMeansOmnibus.bss(ListDescStats[[i]])
+    results[[i]] <- .describeMeansEffect.bss(ListDescStats[[i]])
   }
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
-.describeMeansOmnibusBy.default <- function(frame, by, ...) {
+.describeMeansEffectBy.default <- function(frame, by, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   ListDescStats <- .describeMeansBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
-  results <- .describeMeansOmnibusBy.wss(ListDescStats, ListCorrStats)
+  results <- .describeMeansEffectBy.wss(ListDescStats, ListCorrStats)
   return(results)
 }
 
-.describeMeansOmnibusBy.formula <- function(formula, by, ...) {
+.describeMeansEffectBy.formula <- function(formula, by, ...) {
   ListDescStats <- .describeMeansBy(formula, by = by)
-  results <- .describeMeansOmnibusBy.bss(ListDescStats)
+  results <- .describeMeansEffectBy.bss(ListDescStats)
   return(results)
 }
 
-describeMeansOmnibusBy <- function(..., main = NULL, digits = 3) {
-  results <- .describeMeansOmnibusBy(...)
+describeMeansEffectBy <- function(..., main = NULL, digits = 3) {
+  results <- .describeMeansEffectBy(...)
   if (is.null(main)) {
     main <- "Source Table for the Model"
   }
@@ -56,49 +56,49 @@ describeMeansOmnibusBy <- function(..., main = NULL, digits = 3) {
 
 ### Confidence Intervals
 
-.estimateMeansOmnibusBy <- function(x, ...) {
-  UseMethod(".estimateMeansOmnibusBy")
+.estimateMeansEffectBy <- function(x, ...) {
+  UseMethod(".estimateMeansEffectBy")
 }
 
-.estimateMeansOmnibusBy.wss <- function(ListDescStats, ListCorrStats, conf.level = .90, ...) {
+.estimateMeansEffectBy.wss <- function(ListDescStats, ListCorrStats, conf.level = .90, ...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {
-    results[[i]] <- .estimateMeansOmnibus.wss(ListDescStats[[i]], ListCorrStats[[i]], conf.level)
+    results[[i]] <- .estimateMeansEffect.wss(ListDescStats[[i]], ListCorrStats[[i]], conf.level)
   }
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
-.estimateMeansOmnibusBy.bss <- function(ListDescStats, conf.level = .90, ...) {
+.estimateMeansEffectBy.bss <- function(ListDescStats, conf.level = .90, ...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {
-    results[[i]] <- .estimateMeansOmnibus.bss(ListDescStats[[i]], conf.level)
+    results[[i]] <- .estimateMeansEffect.bss(ListDescStats[[i]], conf.level)
   }
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
-.estimateMeansOmnibusBy.default <- function(frame, by, conf.level = .90, ...) {
+.estimateMeansEffectBy.default <- function(frame, by, conf.level = .90, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   ListDescStats <- .describeMeansBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
-  results <- .estimateMeansOmnibusBy.wss(ListDescStats, ListCorrStats, conf.level)
+  results <- .estimateMeansEffectBy.wss(ListDescStats, ListCorrStats, conf.level)
   return(results)
 }
 
-.estimateMeansOmnibusBy.formula <- function(formula, by, conf.level = .90, ...) {
+.estimateMeansEffectBy.formula <- function(formula, by, conf.level = .90, ...) {
   ListDescStats <- .describeMeansBy(formula, by = by)
-  results <- .estimateMeansOmnibusBy.bss(ListDescStats, conf.level)
+  results <- .estimateMeansEffectBy.bss(ListDescStats, conf.level)
   return(results)
 }
 
-estimateMeansOmnibusBy <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeansOmnibusBy(...)
+estimateMeansEffectBy <- function(..., main = NULL, digits = 3) {
+  results <- .estimateMeansEffectBy(...)
   if (is.null(main)) {
     main <- "Proportion of Variance Accounted For by the Model"
   }
@@ -109,49 +109,49 @@ estimateMeansOmnibusBy <- function(..., main = NULL, digits = 3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeansOmnibusBy <- function(x, ...) {
-  UseMethod(".testMeansOmnibusBy")
+.testMeansEffectBy <- function(x, ...) {
+  UseMethod(".testMeansEffectBy")
 }
 
-.testMeansOmnibusBy.wss <- function(ListDescStats, ListCorrStats, ...) {
+.testMeansEffectBy.wss <- function(ListDescStats, ListCorrStats, ...) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {
-    results[[i]] <- .testMeansOmnibus.wss(ListDescStats[[i]], ListCorrStats[[i]])
+    results[[i]] <- .testMeansEffect.wss(ListDescStats[[i]], ListCorrStats[[i]])
   }
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
-.testMeansOmnibusBy.bss <- function(ListDescStats) {
+.testMeansEffectBy.bss <- function(ListDescStats) {
   results <- NULL
   for (i in 1:length(ListDescStats)) {
-    results[[i]] <- .testMeansOmnibus.bss(ListDescStats[[i]])
+    results[[i]] <- .testMeansEffect.bss(ListDescStats[[i]])
   }
   names(results) <- names(ListDescStats)
   class(results) <- NULL
   return(results)
 }
 
-.testMeansOmnibusBy.default <- function(frame, by, ...) {
+.testMeansEffectBy.default <- function(frame, by, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   ListDescStats <- .describeMeansBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
-  results <- .testMeansOmnibusBy.wss(ListDescStats, ListCorrStats)
+  results <- .testMeansEffectBy.wss(ListDescStats, ListCorrStats)
   return(results)
 }
 
-.testMeansOmnibusBy.formula <- function(formula, by, ...) {
+.testMeansEffectBy.formula <- function(formula, by, ...) {
   ListDescStats <- .describeMeansBy(formula, by = by)
-  results <- .testMeansOmnibusBy.bss(ListDescStats)
+  results <- .testMeansEffectBy.bss(ListDescStats)
   return(results)
 }
 
-testMeansOmnibusBy <- function(..., main = NULL, digits = 3) {
-  results <- .testMeansOmnibusBy(...)
+testMeansEffectBy <- function(..., main = NULL, digits = 3) {
+  results <- .testMeansEffectBy(...)
   if (is.null(main)) {
     main <- "Hypothesis Test for the Model"
   }

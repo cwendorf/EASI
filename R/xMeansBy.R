@@ -1,42 +1,6 @@
 # Estimation Approach to Statistical Inference
 ## Means (with By Option)
 
-#### Descriptives
-
-.describeMeansBy <- .describeSummaryBy <- function(x, ...) {
-  UseMethod(".describeMeansBy")
-}
-
-.describeMeansBy.default <- function(frame, by, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  MixedData <- data.frame(by, data)
-  SplitData <- split(MixedData[-1], by)
-  results <- lapply(SplitData, .describeMeans)
-  return(results)
-}
-
-.describeMeansBy.formula <- function(formula, by, ...) {
-  Group <- eval(formula[[3]])
-  Outcome <- eval(formula[[2]])
-  FactorialData <- data.frame(by, Group, Outcome)
-  SplitData <- split(FactorialData, by)
-  results <- lapply(SplitData, function(x) with(x, .describeMeans(Outcome ~ Group)))
-  return(results)
-}
-
-describeMeansBy <- describeSummaryBy <- function(..., main = NULL, digits = 3) {
-  results <- .describeMeansBy(...)
-  if (is.null(main)) {
-    main <- "Descriptive Statistics for the Data"
-  }
-  main <- paste(main, names(results), sep = ": ")
-  results <- .formatList(results, main, digits = digits)
-  return(results)
-}
-
 ### Confidence Intervals
 
 .estimateMeansBy <- function(x, ...) {

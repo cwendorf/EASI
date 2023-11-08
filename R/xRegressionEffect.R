@@ -1,13 +1,13 @@
 # Estimation Approach to Statistical Inference
-## Regression Omnibus (Analysis of Variance)
+## Regression Effect (Analysis of Variance)
 
 ### Descriptives
 
-.describeRegressionOmnibus <- function(x, ...) {
-  UseMethod(".describeRegressionOmnibus")
+.describeRegressionEffect <- function(x, ...) {
+  UseMethod(".describeRegressionEffect")
 }
 
-.describeRegressionOmnibus.wss <- function(DescStats, CorrStats, y = NULL, ...) {
+.describeRegressionEffect.wss <- function(DescStats, CorrStats, y = NULL, ...) {
   if (!is.null(y)) {
     rn <- rownames(DescStats)
     ri <- which(rn == deparse(substitute(y)))
@@ -38,7 +38,7 @@
   return(results)
 }
 
-.describeRegressionOmnibus.default <- function(frame, y = NULL, ...) {
+.describeRegressionEffect.default <- function(frame, y = NULL, ...) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
@@ -49,11 +49,11 @@
   DescStats <- .describeMeans.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
-  .describeRegressionOmnibus.wss(DescStats, CorrStats)
+  .describeRegressionEffect.wss(DescStats, CorrStats)
 }
 
-describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
-  results <- .describeRegressionOmnibus(...)
+describeRegressionEffect <- function(..., main = NULL, digits = 3) {
+  results <- .describeRegressionEffect(...)
   if (is.null(main)) {
     main <- "Source Table for the Regression Model"
   }
@@ -76,11 +76,11 @@ describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   results
 }
 
-.estimateRegressionOmnibus <- function(x, ...) {
-  UseMethod(".estimateRegressionOmnibus")
+.estimateRegressionEffect <- function(x, ...) {
+  UseMethod(".estimateRegressionEffect")
 }
 
-.estimateRegressionOmnibus.wss <- function(DescStats, CorrStats, y = NULL, conf.level = .90, ...) {
+.estimateRegressionEffect.wss <- function(DescStats, CorrStats, y = NULL, conf.level = .90, ...) {
   if (!is.null(y)) {
     rn <- rownames(DescStats)
     ri <- which(rn == deparse(substitute(y)))
@@ -89,7 +89,7 @@ describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
     class(DescStats) <- "wss"
     CorrStats <- CorrStats[rn, rn]
   }
-  temptab <- .describeRegressionOmnibus.wss(DescStats, CorrStats)
+  temptab <- .describeRegressionEffect.wss(DescStats, CorrStats)
   df1 <- temptab["Model", "df"]
   df2 <- temptab["Error", "df"]
   F <- temptab["Model", "MS"] / temptab["Error", "MS"]
@@ -99,7 +99,7 @@ describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.estimateRegressionOmnibus.default <- function(frame, y = NULL, conf.level = .90, ...) {
+.estimateRegressionEffect.default <- function(frame, y = NULL, conf.level = .90, ...) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
@@ -110,11 +110,11 @@ describeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   DescStats <- .describeMeans.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
-  .estimateRegressionOmnibus.wss(DescStats, CorrStats, conf.level = conf.level)
+  .estimateRegressionEffect.wss(DescStats, CorrStats, conf.level = conf.level)
 }
 
-estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
-  results <- .estimateRegressionOmnibus(...)
+estimateRegressionEffect <- function(..., main = NULL, digits = 3) {
+  results <- .estimateRegressionEffect(...)
   if (is.null(main)) {
     main <- "Proportion of Variance Accounted For by the Regression Model"
   }
@@ -124,11 +124,11 @@ estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
 
 ### Null Hypothesis Significance Tests
 
-.testRegressionOmnibus <- function(x, ...) {
-  UseMethod(".testRegressionOmnibus")
+.testRegressionEffect <- function(x, ...) {
+  UseMethod(".testRegressionEffect")
 }
 
-.testRegressionOmnibus.wss <- function(DescStats, CorrStats, y = NULL, ...) {
+.testRegressionEffect.wss <- function(DescStats, CorrStats, y = NULL, ...) {
   if (!is.null(y)) {
     rn <- rownames(DescStats)
     ri <- which(rn == deparse(substitute(y)))
@@ -137,7 +137,7 @@ estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
     class(DescStats) <- "wss"
     CorrStats <- CorrStats[rn, rn]
   }
-  temptab <- .describeRegressionOmnibus.wss(DescStats, CorrStats)
+  temptab <- .describeRegressionEffect.wss(DescStats, CorrStats)
   MSf <- temptab["Model", "MS"]
   MSe <- temptab["Error", "MS"]
   df1 <- temptab["Model", "df"]
@@ -150,7 +150,7 @@ estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.testRegressionOmnibus.default <- function(frame, y = NULL, ...) {
+.testRegressionEffect.default <- function(frame, y = NULL, ...) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
@@ -161,11 +161,11 @@ estimateRegressionOmnibus <- function(..., main = NULL, digits = 3) {
   DescStats <- .describeMeans.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
-  .testRegressionOmnibus.wss(DescStats, CorrStats)
+  .testRegressionEffect.wss(DescStats, CorrStats)
 }
 
-testRegressionOmnibus <- function(..., main = NULL, digits = 3) {
-  results <- .testRegressionOmnibus(...)
+testRegressionEffect <- function(..., main = NULL, digits = 3) {
+  results <- .testRegressionEffect(...)
   if (is.null(main)) {
     main <- "Hypothesis Test for the Regression Model"
   }
@@ -175,10 +175,10 @@ testRegressionOmnibus <- function(..., main = NULL, digits = 3) {
 
 ### Combined Analyses
 
-analyzeRegressionOmnibus <- function(..., main = NULL, digits = 3) {
-  dRO <- describeRegressionOmnibus(..., digits = digits)
-  tRO <- testRegressionOmnibus(..., digits = digits)
-  eRE <- estimateRegressionOmnibus(..., digits = digits)
+analyzeRegressionEffect <- function(..., main = NULL, digits = 3) {
+  dRO <- describeRegressionEffect(..., digits = digits)
+  tRO <- testRegressionEffect(..., digits = digits)
+  eRE <- estimateRegressionEffect(..., digits = digits)
   results <- c(dRO, tRO, eRE)
   return(results)
 }

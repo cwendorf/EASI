@@ -1,17 +1,17 @@
-% File man/testRegressionOmnibus.Rd
+% File man/testRegressionEffect.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{testRegressionOmnibus}
-\alias{testRegressionOmnibus}
-\alias{testRegressionOmnibus.default}
-\alias{testRegressionOmnibus.wss}
-\title{Test Regression Omnibus}
+\name{testRegressionEffect}
+\alias{testRegressionEffect}
+\alias{testRegressionEffect.default}
+\alias{testRegressionEffect.wss}
+\title{Test Regression Effect}
 \description{Provides a statistical significance test for a regression model.}
 
 \usage{
-\method{testRegressionOmnibus}{default}(frame, y=NULL, main=NULL, digits=3)
+\method{testRegressionEffect}{default}(frame, y=NULL, main=NULL, digits=3)
 
-\method{testRegressionOmnibus}{wss}(DescStats, CorrStats, y=NULL, main=NULL, digits=3)
+\method{testRegressionEffect}{wss}(DescStats, CorrStats, y=NULL, main=NULL, digits=3)
 }
 
 \arguments{
