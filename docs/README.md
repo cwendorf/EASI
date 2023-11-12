@@ -38,7 +38,7 @@ In standard R syntax, the function name is followed in parentheses by the variab
 (Outcome ~ Factor) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
 
-When larger or predefined data sets are used, it is necessary to identify the data first and then select the variables from within the data set. In base R, this is accomplished using a `with` command (or built in data identification parameters). In EASI, this is accomplished by using an exposition operator (such as the included `%$>%`).
+When individual variables are not directly accessible (like when the dataset is predefined) or when using subsets of larger datasets (like when analyzing factorial designs), it is typically necessary to identify the data first and then select the variables from within the data set. In base R, this is accomplished using a `with` command (or built in data identification parameters). In EASI, this is accomplished by using an exposition operator (such as the included `%$>%`).
 
 ```
 OneWayData %$>% (Outcome ~ Factor) |> estimateMeans()
