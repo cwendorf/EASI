@@ -4,6 +4,7 @@ This page outlines the general purpose and structure of the EASI project.
 
 - [Purpose of EASI](#purpose-of-easi)
 - [Scope of the Project](#scope-of-the-project)
+- [Function Calls](#function-calls)
 - [Table of Contents](#table-of-contents)
 
 ---
