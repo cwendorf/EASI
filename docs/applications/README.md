@@ -10,12 +10,12 @@ This page outlines applications that demonstrate advanced features.
 
 ### Data and Distributions
 
-**Frequencies** - Provide basic data plots and frequency distributions for measures or groups:
+**Frequencies** - Provide basic data plots, frequency distributions, and summary statistics for measures or groups:
 
 - [*FrequenciesOneWayDataExample*](./FrequenciesOneWayDataExample.md) - Uses one-way (between-subjects) data
 - [*FrequenciesRepeatedMeasuresDataExample*](./FrequenciesRepeatedMeasuresDataExample.md) - Uses repeated measures (within-subjects) data
 
-**Exploratory** - Use advanced methods to build plots that combine or layer various elements:
+**Exploratory** - Use advanced methods to build exploratory data analysis plots that combine or layer various elements:
 
 - [*ExploratoryOneWayDataExample*](./ExploratoryOneWayDataExample.md) - Uses one-way (between-subjects) data
 - [*ExploratoryRepeatedMeasuresDataExample*](./ExploratoryRepeatedMeasuresDataExample.md) - Uses repeated measures (within-subjects) data

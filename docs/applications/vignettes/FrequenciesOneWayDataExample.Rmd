@@ -61,7 +61,7 @@ Plot the frequencies as data points and enhance with color.
 
 It is often helpful to view the summary statistics in conjunction with the frequency distributions.
 
-Describe the frequency distributions.
+Describe the summary statistics.
 ```{r}
 (Outcome ~ Factor) |> describeSummary()
 ```

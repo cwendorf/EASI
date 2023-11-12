@@ -75,7 +75,7 @@ obtained from the same individuals are connected.
 It is often helpful to view the summary statistics in conjunction with
 the frequency distributions.
 
-Describe the frequency distributions.
+Describe the summary statistics.
 
 ``` r
 (RepeatedData) |> describeSummary()
