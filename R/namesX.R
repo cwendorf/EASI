@@ -59,7 +59,7 @@ plotSubsets <- function(x, ...) {
 
 ### Means Pairwise
 
-estimatePaiwise <- function(x, ...) {
+estimatePairwise <- function(x, ...) {
   UseMethod("estimateMeansPairwise")
 }
 
