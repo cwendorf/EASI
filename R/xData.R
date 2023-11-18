@@ -1,6 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Data Plots
-
+## Data
 
 ### Modified stripchart
 
