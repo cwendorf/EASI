@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Colors
+## Color
 
 ### Color Transformations
 
