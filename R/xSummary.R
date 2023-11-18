@@ -82,12 +82,23 @@
   return(results)
 }
 
-describeSummary <- describeMeans <- function(..., main = NULL, digits = 3) {
-  results <- .describeSummary(...)
+.describeSummary.list <- function(list, ...) {
+  results <- lapply(list, .describeSummary.bss)
+  return(results)
+}
+
+describeSummary <- function(..., main = NULL, digits = 3) {
   if (is.null(main)) {
     main <- "Summary Statistics for the Data"
   }
-  results <- .formatList(list(results), main = main, digits = digits)
+  if(typeof(...) == "list") {
+    results <- .describeSummary.list(...)
+    main <- paste(main, names(results), sep = ": ")
+    }
+  else {
+    results <- list(.describeSummary(...))
+    }
+  results <- .formatList(results, main = main, digits = digits)
   return(results)
 }
 
