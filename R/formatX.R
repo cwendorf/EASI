@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Formatting
+## Format
 
 ### Frames
 
@@ -14,6 +14,30 @@
 .pivotFrame <- function(results) {
   out <- t(.unformatFrame(results))
   .formatFrame(out)
+}
+
+### Split Data
+
+.splitData <- function(x, ...) {
+  UseMethod(".splitData")
+}
+
+.splitData.default <- function(frame, by, ...) {
+  data <- data.frame(frame)
+  if (ncol(data) == 1) {
+    colnames(data) <- deparse(substitute(frame))
+  }
+  MixedData <- data.frame(by, data)
+  SplitData <- split(MixedData[-1], by)
+  return(SplitData)
+}
+
+.splitData.formula <- function(formula, by, ...) {
+  Group <- eval(formula[[3]])
+  Outcome <- eval(formula[[2]])
+  FactorialData <- data.frame(by, Group, Outcome)
+  SplitData <- split(FactorialData[-1], by)
+  return(SplitData)
 }
 
 ### Lists
