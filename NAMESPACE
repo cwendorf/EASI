@@ -659,7 +659,7 @@ export(describeCorrelationsBy)
 ### Old Simplified Names
 
 export(estimateDifference)
-export(testDiffference)
+export(testDifference)
 export(plotDifference)
 
 export(estimateContrast)
