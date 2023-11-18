@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Grammar for Building and Handling Datasets
+## Grammar
 
 ### Frame Construction
 
@@ -59,6 +59,37 @@ complete.corr <- function(mat) {
   diag(results) <- 1.000
   class(results) <- "corr"
   return(results)
+}
+
+### Subsetting
+
+filters <- function(data, ...) {
+  filts <- (match.call(expand.dots = FALSE)$...)
+  for (i in seq_along(filts)) {data <- data[which(eval(filts[[i]])),]}
+  data <- na.omit(data)
+  return(data)
+}
+
+selects <- function(data, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  subset(data, select = chosen)
+}
+
+### Passing Frames and Formulas
+
+is.formula <- function(x) {
+   inherits(x, "formula")
+}
+
+reframe <- function(data, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  subset(data, select = chosen)
+}
+
+reform <- function(data, formula) {
+  data <- substitute(data)
+  formula <- substitute(formula)
+  do.call(with, list(data, formula))
 }
 
 ### Pick Variables
