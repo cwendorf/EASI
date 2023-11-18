@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Make Functions Available
+## Namespace
 
 ### grammarX
 
@@ -8,6 +8,12 @@ export(create)
 
 S3method(complete,corr)
 export(complete)
+
+export(reframe)
+export(reform)
+
+export(filters)
+export(selects)
 
 S3method(pick,default)
 S3method(pick,formula)
@@ -649,3 +655,51 @@ export(plotMeansFactorial)
 S3method(.describeCorrelationsBy,default)
 export(.describeCorrelationsBy)
 export(describeCorrelationsBy)
+
+### Old Simplified Names
+
+export(estimateDifference)
+export(testDiffference)
+export(plotDifference)
+
+export(estimateContrast)
+export(testContrast)
+export(plotContrast)
+
+export(estimateComparison)
+export(testComparison)
+export(plotComparison)
+
+export(estimateSubsets)
+export(testSubsets)
+export(plotSubsets)
+
+export(estimatePairwise)
+export(testPairwise)
+export(plotPairwise)
+
+export(estimatePosthoc)
+export(testPosthoc)
+export(plotPosthoc)
+
+export(describeEffect)
+export(estimateEffect)
+export(testEffect)
+
+export(describeFactorial)
+export(estimateFactorial)
+export(testFactorial)
+export(plotFactorial)
+
+export(estimateInteraction)
+export(testInteraction)
+export(plotInteraction)
+
+export(estimateCoefficients)
+export(testCoefficients)
+export(plotCoefficients)
+
+export(describeModel)
+export(estimateModel)
+export(testModel)
+export(plotModel)
