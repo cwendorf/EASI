@@ -3,163 +3,158 @@
 
 ### Mean Difference
 
-estimateDifference <- function(x, ...) {
-  UseMethod("estimateMeanDifference")
+estimateDifference <- function(...) {
+  estimateMeanDifference(...)
 }
 
-testDifference <- function(x, ...) {
-  UseMethod("testMeanDifference")
+testDifference <- function(...) {
+  testMeanDifference(...)
 }
 
-plotDifference <- function(x, ...) {
-  UseMethod("plotMeanDifference")
+plotDifference <- function(...) {
+  plotMeanDifference(...)
 }
 
 ### Mean Contrast
 
-estimateContrast <- function(x, ...) {
-  UseMethod("estimateMeanContrast")
+estimateContrast <- function(...) {
+  estimateMeanContrast(...)
 }
 
-testContrast <- function(x, ...) {
-  UseMethod("testMeanContrast")
+testContrast <- function(...) {
+  testMeanContrast(...)
 }
 
-plotContrast <- function(x, ...) {
-  UseMethod("plotMeanContrast")
+plotContrast <- function(...) {
+  plotMeanContrast(...)
 }
 
 ### Mean Comparison
 
-estimateComparison <- function(x, ...) {
-  UseMethod("estimateMeanComparison")
+estimateComparison <- function(...) {
+  estimateMeanComparison(...)
 }
 
-testComparison <- function(x, ...) {
-  UseMethod("testMeanComparison")
+testComparison <- function(...) {
+  testMeanComparison(...)
 }
 
-plotComparison <- function(x, ...) {
-  UseMethod("plotMeanComparison")
+plotComparison <- function(...) {
+  plotMeanComparison(...)
 }
 
 ### Mean Subsets
 
-estimateSubsets <- function(x, ...) {
-  UseMethod("estimateMeanSubsets")
+estimateSubsets <- function(...) {
+  estimateMeanSubsets(...)
 }
 
-testSubsets <- function(x, ...) {
-  UseMethod("testMeanSubsets")
+testSubsets <- function(...) {
+  testMeanSubsets(...)
 }
 
-plotSubsets <- function(x, ...) {
-  UseMethod("plotMeanSubsets")
+plotSubsets <- function(...) {
+  plotMeanSubsets(...)
 }
 
 ### Means Pairwise
 
-estimatePairwise <- function(x, ...) {
-  UseMethod("estimateMeansPairwise")
+estimatePairwise <- function(...) {
+  estimateMeansPairwise(...)
 }
 
-testPairwise <- function(x, ...) {
-  UseMethod("testMeansPairwise")
+testPairwise <- function(...) {
+  testMeansPairwise(...)
 }
 
-plotPairwise <- function(x, ...) {
-  UseMethod("plotMeansPairwise")
+plotPairwise <- function(...) {
+  plotMeansPairwise(...)
 }
 
 ### Means Posthoc
 
-estimatePosthoc <- function(x, ...) {
-  UseMethod("estimateMeansPosthoc")
+estimatePosthoc <- function(...) {
+  estimateMeansPosthoc(...)
 }
 
-testPosthoc <- function(x, ...) {
-  UseMethod("testMeansPosthoc")
+testPosthoc <- function(...) {
+  testMeansPosthoc(...)
 }
 
-plotPosthoc <- function(x, ...) {
-  UseMethod("plotMeansPosthoc")
+plotPosthoc <- function(...) {
+  plotMeansPosthoc(...)
 }
 
 ### Mean Effect
 
-describeEffect <- function(x, ...) {
-  UseMethod("describeMeansEffect")
+describeEffect <- function(...) {
+  describeMeansEffect(...)
 }
 
-estimateEffect <- function(x, ...) {
-  UseMethod("estimateMeansEffect")
+estimateEffect <- function(...) {
+  estimateMeansEffect(...)
 }
 
-testEffect <- function(x, ...) {
-  UseMethod("testMeansEffect")
+testEffect <- function(...) {
+  testMeansEffect(...)
 }
 
 ### Mean Factorial
 
-describeFactorial <- function(x, ...) {
-  UseMethod("describeMeansFactorial")
+describeFactorial <- function(...) {
+  describeMeansFactorial(...)
 }
 
-estimateFactorial <- function(x, ...) {
-  UseMethod("estimateMeansFactorial")
+estimateFactorial <- function(...) {
+  estimateMeansFactorial(...)
 }
 
-testFactorial <- function(x, ...) {
-  UseMethod("testMeansFactorial")
+testFactorial <- function(...) {
+  testMeansFactorial(...)
 }
 
-plotFactorial <- function(x, ...) {
-  UseMethod("plotMeansFactorial")
+plotFactorial <- function(...) {
+  plotMeansFactorial(...)
 }
 
 ### Mean Interaction
 
-estimateInteraction <- function(x, ...) {
-  UseMethod("estimateMeanInteraction")
+estimateInteraction <- function(...) {
+  estimateMeanInteraction(...)
 }
 
-testInteraction <- function(x, ...) {
-  UseMethod("testMeanInteraction")
+testInteraction <- function(...) {
+  testMeanInteraction(...)
 }
 
-plotInteraction <- function(x, ...) {
-  UseMethod("plotMeanInteraction")
+plotInteraction <- function(...) {
+  plotMeanInteraction(...)
 }
 
 ### Regression Coefficients
 
-estimateCoefficients <- function(x, ...) {
-  UseMethod("estimateRegressionCoefficients")
+estimateCoefficients <- function(...) {
+  estimateRegressionCoefficients(...)
 }
 
-testCoefficients <- function(x, ...) {
-  UseMethod("testRegressionCoefficients")
+testCoefficients <- function(...) {
+  testRegressionCoefficients(...)
 }
 
-plotCoefficients <- function(x, ...) {
-  UseMethod("plotRegressionCoefficients")
+plotCoefficients <- function(...) {
+  plotRegressionCoefficients(...)
 }
 
 ### Regression Model
 
-describeModel <- function(x, ...) {
-  UseMethod("describeRegressionEffect")
+describeModel <- function(...) {
+  describeRegressionEffect(...)
 }
 
-estimateModel <- function(x, ...) {
-  UseMethod("estimateRegressionEffect")
+estimateModel <- function(...) {
+  estimateRegressionEffect(...)
 }
 
-testModel <- function(x, ...) {
-  UseMethod("testRegressionEffect")
+testModel <- function(...) {
+  testRegressionEffect(...)
 }
-
-plotModel <- function(x, ...) {
-  UseMethod("plotRegressionEffect")
-}
-
