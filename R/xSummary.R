@@ -87,7 +87,7 @@
   return(results)
 }
 
-describeSummary <- function(..., main = NULL, digits = 3) {
+describeSummary <- desribeMeans <- function(..., main = NULL, digits = 3) {
   if (is.null(main)) {
     main <- "Summary Statistics for the Data"
   }
