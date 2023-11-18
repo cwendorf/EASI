@@ -656,7 +656,7 @@ S3method(.describeCorrelationsBy,default)
 export(.describeCorrelationsBy)
 export(describeCorrelationsBy)
 
-### Old Simplified Names
+### Aliases
 
 export(estimateDifference)
 export(testDifference)
