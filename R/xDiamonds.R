@@ -19,7 +19,7 @@ plotDiamonds <- function(x, ...) {
 }
 
 plotDiamonds.default <- function(x, contrast = NULL, ...) {
-  howmany <- nrow(.describeMeans(x))
+  howmany <- nrow(.describeSummary(x))
   if (!is.null(contrast)) {
     z <- estimateMeanSubsets(x, contrast = contrast, conf.level = .95)
     plotDiamonds(z, ...)

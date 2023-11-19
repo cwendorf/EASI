@@ -102,7 +102,7 @@ describeCovariances <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .estimateCorrelations.wss(DescStats, CorrStats, conf.level = conf.level)
 }
@@ -155,7 +155,7 @@ estimateCorrelations <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .testCorrelations.wss(DescStats, CorrStats, conf.level = conf.level)
 }

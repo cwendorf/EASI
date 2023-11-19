@@ -32,14 +32,14 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
   results <- .estimateMeanDifferenceBy.wss(ListDescStats, ListCorrStats, conf.level = conf.level)
   return(results)
 }
 
 .estimateMeanDifferenceBy.formula <- function(formula, by, conf.level = .95, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .estimateMeanDifferenceBy.bss(ListDescStats, conf.level = conf.level)
   return(results)
 }
@@ -85,14 +85,14 @@ estimateMeanDifferenceBy <- function(..., conf.level = .95, main = NULL, digits 
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
   results <- .testMeanDifferenceBy.wss(ListDescStats, ListCorrStats, mu = mu)
   return(results)
 }
 
 .testMeanDifferenceBy.formula <- function(formula, by, mu = 0, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .testMeanDifferenceBy.bss(ListDescStats, mu = mu)
   return(results)
 }

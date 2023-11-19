@@ -57,14 +57,14 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   results <- .describeMeansEffect.wss(DescStats, CorrStats)
   return(results)
 }
 
 .describeMeansEffect.formula <- function(formula, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   results <- .describeMeansEffect.bss(DescStats)
   return(results)
 }
@@ -132,13 +132,13 @@ describeMeansEffect <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .estimateMeansEffect.wss(DescStats, CorrStats, conf.level)
 }
 
 .estimateMeansEffect.formula <- function(formula, conf.level = .90, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .estimateMeansEffect.bss(DescStats, conf.level)
 }
 
@@ -190,13 +190,13 @@ estimateMeansEffect <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .testMeansEffect.wss(DescStats, CorrStats)
 }
 
 .testMeansEffect.formula <- function(formula, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .testMeansEffect.bss(DescStats)
 }
 

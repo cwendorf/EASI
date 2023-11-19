@@ -4,7 +4,7 @@
 ### Confidence Intervals
 
 estimateIntervals <- function(x, contrast = NULL, ...) {
-  howmany <- nrow(.describeMeans(x))
+  howmany <- nrow(.describeSummary(x))
   if (!is.null(contrast)) {
     estimateMeanSubsets(x, contrast = contrast, ...)
   } else if (howmany == 2) {

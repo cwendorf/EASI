@@ -32,14 +32,14 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
   results <- .describeMeansEffectBy.wss(ListDescStats, ListCorrStats)
   return(results)
 }
 
 .describeMeansEffectBy.formula <- function(formula, by, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .describeMeansEffectBy.bss(ListDescStats)
   return(results)
 }
@@ -85,14 +85,14 @@ describeMeansEffectBy <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
   results <- .estimateMeansEffectBy.wss(ListDescStats, ListCorrStats, conf.level)
   return(results)
 }
 
 .estimateMeansEffectBy.formula <- function(formula, by, conf.level = .90, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .estimateMeansEffectBy.bss(ListDescStats, conf.level)
   return(results)
 }
@@ -138,14 +138,14 @@ estimateMeansEffectBy <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
   results <- .testMeansEffectBy.wss(ListDescStats, ListCorrStats)
   return(results)
 }
 
 .testMeansEffectBy.formula <- function(formula, by, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .testMeansEffectBy.bss(ListDescStats)
   return(results)
 }

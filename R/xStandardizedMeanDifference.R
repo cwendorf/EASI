@@ -62,13 +62,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  CompStats <- .describeMeans(data)
+  CompStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .estimateStandardizedMeanDifference.wss(CompStats, CorrStats, conf.level = conf.level, labels = labels)
 }
 
 .estimateStandardizedMeanDifference.formula <- function(formula, contrast, conf.level = .95, labels = NULL, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .estimateStandardizedMeanDifference.bss(DescStats, contrast, conf.level = conf.level, labels = labels)
 }
 

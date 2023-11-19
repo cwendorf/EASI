@@ -55,13 +55,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  CompStats <- .describeMeans(data)
+  CompStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .estimateMeanDifference.wss(CompStats, CorrStats, conf.level = conf.level, labels = labels)
 }
 
 .estimateMeanDifference.formula <- function(formula, mu = 0, conf.level = .95, labels = NULL, ...) {
-  CompStats <- .describeMeans(formula)
+  CompStats <- .describeSummary(formula)
   .estimateMeanDifference.bss(CompStats, conf.level = conf.level, labels = labels)
 }
 
@@ -126,13 +126,13 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  CompStats <- .describeMeans(data)
+  CompStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .testMeanDifference.wss(CompStats, CorrStats, mu = mu, labels = labels)
 }
 
 .testMeanDifference.formula <- function(formula, mu = 0, labels = NULL, ...) {
-  CompStats <- .describeMeans(formula)
+  CompStats <- .describeSummary(formula)
   .testMeanDifference.bss(CompStats, mu = mu, labels = labels)
 }
 

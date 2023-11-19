@@ -32,14 +32,14 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
   results <- .estimateMeanContrastBy.wss(ListDescStats, ListCorrStats, contrast = contrast, conf.level = conf.level)
   return(results)
 }
 
 .estimateMeanContrastBy.formula <- function(formula, by, contrast, conf.level = .95, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .estimateMeanContrastBy.bss(ListDescStats, contrast = contrast, conf.level = conf.level)
   return(results)
 }
@@ -85,14 +85,14 @@ estimateMeanContrastBy <- function(..., contrast, conf.level = .95, main = NULL,
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
   results <- .testMeanContrastBy.wss(ListDescStats, ListCorrStats, contrast = contrast, mu = mu)
   return(results)
 }
 
 .testMeanContrastBy.formula <- function(formula, by, contrast, mu = 0, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .testMeanContrastBy.bss(ListDescStats, contrast = contrast, mu = mu)
   return(results)
 }

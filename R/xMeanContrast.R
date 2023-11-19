@@ -55,13 +55,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .estimateMeanContrast.wss(DescStats, CorrStats, contrast, conf.level = conf.level, labels = labels)
 }
 
 .estimateMeanContrast.formula <- function(formula, contrast, conf.level = .95, labels = NULL, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .estimateMeanContrast.bss(DescStats, contrast, conf.level = conf.level, labels = labels)
 }
 
@@ -126,13 +126,13 @@ estimateMeanContrast <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .testMeanContrast.wss(DescStats, CorrStats, contrast, mu = mu, labels = labels)
 }
 
 .testMeanContrast.formula <- function(formula, contrast, mu = 0, labels = NULL, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .testMeanContrast.bss(DescStats, contrast, mu = mu, labels = labels)
 }
 

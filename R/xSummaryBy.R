@@ -3,11 +3,11 @@
 
 #### Descriptives
 
-.describeSummaryBy <- .describeMeansBy <- function(x, ...) {
-  UseMethod(".describeMeansBy")
+.describeSummaryBy <- function(x, ...) {
+  UseMethod(".describeSummaryBy")
 }
 
-.describeSummaryBy.default <- .describeMeansBy.default <- function(frame, by, ...) {
+.describeSummaryBy.default <- function(frame, by, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
@@ -18,7 +18,7 @@
   return(results)
 }
 
-.describeSummaryBy.formula <- .describeMeansBy.formula <- function(formula, by, ...) {
+.describeSummaryBy.formula <- function(formula, by, ...) {
   Group <- eval(formula[[3]])
   Outcome <- eval(formula[[2]])
   FactorialData <- data.frame(by, Group, Outcome)
@@ -32,7 +32,7 @@
   return(results)
 }
 
-describeSummaryBy <- describeMeansBy <- function(..., main = NULL, digits = 3) {
+describeSummaryBy <- function(..., main = NULL, digits = 3) {
   results <- .describeSummaryBy(...)
   if (is.null(main)) {
     main <- "Summary Statistics for the Data"

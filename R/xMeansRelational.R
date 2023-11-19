@@ -9,7 +9,7 @@
 
 .estimateMeansRelational.wss <- function(DescStats, CorrStats, conf.level = .95, ...) {
   results <- .estimateMeans.wss(DescStats, conf.level = conf.level)
-  mymodel <- .describeMeansOmnibus.wss(DescStats, CorrStats)
+  mymodel <- .describeMeansEffect.wss(DescStats, CorrStats)
   dfe <- mymodel[3, 2]
   mse <- mymodel[3, 3]
   ntilde <- 1 / mean(1 / DescStats[, 1])
@@ -24,7 +24,7 @@
 
 .estimateMeansRelational.bss <- function(DescStats, conf.level = .95, ...) {
   results <- .estimateMeans.bss(DescStats, conf.level = conf.level)
-  mymodel <- .describeMeansOmnibus.bss(DescStats)
+  mymodel <- .describeMeansEffect.bss(DescStats)
   dfe <- mymodel[2, 2]
   mse <- mymodel[2, 3]
   ntilde <- 1 / mean(1 / DescStats[, 1])
@@ -42,13 +42,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .estimateMeansRelational.wss(DescStats, CorrStats, conf.level = conf.level)
 }
 
 .estimateMeansRelational.formula <- function(formula, conf.level = .95, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .estimateMeansRelational.bss(DescStats, conf.level = conf.level)
 }
 

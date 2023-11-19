@@ -32,14 +32,14 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   ListCorrStats <- .describeCorrelationsBy(data, by = by)
   results <- .estimateStandardizedMeanDifferenceBy.wss(ListDescStats, ListCorrStats, conf.level = conf.level)
   return(results)
 }
 
 .estimateStandardizedMeanDifferenceBy.formula <- function(formula, by, conf.level = .95, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .estimateStandardizedMeanDifferenceBy.bss(ListDescStats, conf.level = conf.level)
   return(results)
 }

@@ -28,12 +28,12 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans.default(data)
+  DescStats <- .describeSummary.default(data)
   .estimateMeans.wss(DescStats, conf.level = conf.level, mu = mu)
 }
 
 .estimateMeans.formula <- function(formula, mu = 0, conf.level = .95, ...) {
-  DescStats <- .describeMeans.formula(formula)
+  DescStats <- .describeSummary.formula(formula)
   .estimateMeans.bss(DescStats, conf.level = conf.level, mu = mu)
 }
 
@@ -74,12 +74,12 @@ estimateMeans <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans.default(data)
+  DescStats <- .describeSummary.default(data)
   .testMeans.wss(DescStats, mu = mu, main = main, digits = digits)
 }
 
 .testMeans.formula <- function(formula, mu = 0, ...) {
-  DescStats <- .describeMeans.formula(formula, ...)
+  DescStats <- .describeSummary.formula(formula, ...)
   .testMeans.bss(DescStats, mu = mu, main = main, digits = digits)
 }
 

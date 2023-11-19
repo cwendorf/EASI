@@ -48,12 +48,12 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   .estimateStandardizedMeans.wss(DescStats, mu = mu, conf.level = conf.level)
 }
 
 .estimateStandardizedMeans.formula <- function(formula, mu = 0, conf.level = .95, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .estimateStandardizedMeans.bss(DescStats, mu = mu, conf.level = conf.level)
 }
 

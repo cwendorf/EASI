@@ -32,13 +32,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   results <- .estimateMeansBy.wss(ListDescStats, conf.level = conf.level)
   return(results)
 }
 
 .estimateMeansBy.formula <- function(formula, by, conf.level = .95, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .estimateMeansBy.bss(ListDescStats, conf.level = conf.level)
   return(results)
 }
@@ -74,13 +74,13 @@ estimateMeansBy <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(data, by = by)
+  ListDescStats <- .describeSummaryBy(data, by = by)
   results <- .testMeansBy.wss(ListDescStats, mu = mu)
   return(results)
 }
 
 .testMeansBy.formula <- function(formula, by, mu = 0, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .testMeansBy.bss(ListDescStats, mu = mu)
   return(results)
 }

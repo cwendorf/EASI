@@ -74,13 +74,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy.default(data, by = by)
+  ListDescStats <- .describeSummaryBy.default(data, by = by)
   ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
   .describeMeansFactorial.wss(ListDescStats, ListCorrStats)
 }
 
 .describeMeansFactorial.formula <- function(formula, by, ...) {
-  ListDescStats <- .describeMeansBy.formula(formula, by = by)
+  ListDescStats <- .describeSummaryBy.formula(formula, by = by)
   .describeMeansFactorial.bss(ListDescStats)
 }
 
@@ -139,13 +139,13 @@ describeMeansFactorial <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy.default(data, by = by)
+  ListDescStats <- .describeSummaryBy.default(data, by = by)
   ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
   .estimateMeansFactorial.wss(ListDescStats, ListCorrStats, conf.level = conf.level)
 }
 
 .estimateMeansFactorial.formula <- function(formula, by, conf.level = .90, ...) {
-  ListDescStats <- .describeMeansBy.formula(formula, by = by)
+  ListDescStats <- .describeSummaryBy.formula(formula, by = by)
   .estimateMeansFactorial.bss(ListDescStats, conf.level = conf.level)
 }
 
@@ -200,13 +200,13 @@ estimateMeansFactorial <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy.default(data, by = by)
+  ListDescStats <- .describeSummaryBy.default(data, by = by)
   ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
   .testMeansFactorial.wss(ListDescStats, ListCorrStats)
 }
 
 .testMeansFactorial.formula <- function(formula, by, ...) {
-  ListDescStats <- .describeMeansBy.formula(formula, by = by)
+  ListDescStats <- .describeSummaryBy.formula(formula, by = by)
   .testMeansFactorial.bss(ListDescStats)
 }
 

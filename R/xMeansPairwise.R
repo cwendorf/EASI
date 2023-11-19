@@ -55,13 +55,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .estimateMeansPairwise.wss(DescStats, CorrStats, conf.level = conf.level, mu = mu)
 }
 
 .estimateMeansPairwise.formula <- function(formula, conf.level = .95, mu = 0, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .estimateMeansPairwise.bss(DescStats, conf.level = conf.level, mu = mu)
 }
 
@@ -130,13 +130,13 @@ estimateMeansPairwise <- function(..., main = NULL, digits = 3) {
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .testMeansPairwise.wss(DescStats, CorrStats, mu = mu)
 }
 
 .testMeansPairwise.formula <- function(formula, mu = 0, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .testMeansPairwise.bss(DescStats, mu = mu)
 }
 
@@ -161,7 +161,7 @@ plotMeansPairwise <- function(..., main = NULL, digits = 3, ylab = "Mean Differe
 }
 
 plotMeansPairwiseDiffogram <- function(..., main = "Confidence Intervals for the Pairwise Mean Comparisons", ylab = "", xlab = "", conf.level = .95, ylim = NULL, pch = 17, col = "black") {
-  dm <- .describeMeans(...)
+  dm <- .describeSummary(...)
   emp <- .estimateMeansPairwise(..., conf.level = conf.level)
   .intervalsDiffogram(dm = dm, emp = emp, main = main, ylab = ylab, xlab = xlab, ylim = ylim, pch = pch, col = col)
 }

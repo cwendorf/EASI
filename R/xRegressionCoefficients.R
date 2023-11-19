@@ -48,7 +48,7 @@
     cn <- c(cn[-ci], cn[ci])
     frame <- frame[, cn]
   }
-  DescStats <- .describeMeans.default(frame)
+  DescStats <- .describeSummary.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
   .estimateRegressionCoefficients.wss(DescStats, CorrStats, conf.level = conf.level)
@@ -110,7 +110,7 @@ estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
     cn <- c(cn[-ci], cn[ci])
     frame <- frame[, cn]
   }
-  DescStats <- .describeMeans.default(frame)
+  DescStats <- .describeSummary.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
   .testRegressionCoefficients.wss(DescStats, CorrStats)

@@ -49,7 +49,7 @@
     cn <- c(cn[-ci], cn[ci])
     frame <- frame[, cn]
   }
-  dM <- .describeMeans(frame)[1, ]
+  dM <- .describeSummary(frame)[1, ]
   eR <- .estimateRegressionCoefficients(frame)
   dRO <- .describeRegressionEffect(frame)
   .regression(dM, eR, dRO, value = value, conf.level = conf.level)
