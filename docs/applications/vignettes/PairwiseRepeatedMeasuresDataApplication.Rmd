@@ -47,8 +47,8 @@ RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 
 Provide an ANOVA source table.
 ```{r}
-(RepeatedData) |> describeMeansOmnibus()
-(RepeatedData) |> testMeansOmnibus()
+(RepeatedData) |> describeMeansEffect()
+(RepeatedData) |> testMeansEffect()
 ```
 
 ### Analyses of Pairwise Comparisons

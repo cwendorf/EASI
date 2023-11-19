@@ -33,13 +33,13 @@ Get descriptive statistics separately for each simple effect.
 (Outcome ~ FactorA) |> describeSummaryBy(by = FactorB)
 ```
 
-    ## $`Descriptive Statistics for the Data: B1`
+    ## $`Summary Statistics for the Data: B1`
     ##          N       M      SD    Skew    Kurt
     ## A1  10.000   8.000   1.414   0.000  -0.738
     ## A2  10.000  11.000   2.211  -0.617  -0.212
     ## A3  10.000  12.000   2.449   0.340  -1.102
     ## 
-    ## $`Descriptive Statistics for the Data: B2`
+    ## $`Summary Statistics for the Data: B2`
     ##          N       M      SD    Skew    Kurt
     ## A1  10.000   8.000   2.449  -0.340  -1.102
     ## A2  10.000   8.000   2.000  -0.417   0.735

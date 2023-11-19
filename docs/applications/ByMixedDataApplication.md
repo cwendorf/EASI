@@ -33,13 +33,13 @@ Get the descriptive statistics separately for each simple effect.
 construct(Outcome1, Outcome2, Outcome3) |> describeSummaryBy(by = Factor)
 ```
 
-    ## $`Descriptive Statistics for the Data: Level1`
+    ## $`Summary Statistics for the Data: Level1`
     ##                N       M      SD    Skew    Kurt
     ## Outcome1  10.000   8.000   1.414   0.000  -0.738
     ## Outcome2  10.000  11.000   2.211  -0.617  -0.212
     ## Outcome3  10.000  12.000   2.449   0.340  -1.102
     ## 
-    ## $`Descriptive Statistics for the Data: Level2`
+    ## $`Summary Statistics for the Data: Level2`
     ##                N       M      SD    Skew    Kurt
     ## Outcome1  10.000   8.000   2.449  -0.340  -1.102
     ## Outcome2  10.000   8.000   2.000  -0.417   0.735

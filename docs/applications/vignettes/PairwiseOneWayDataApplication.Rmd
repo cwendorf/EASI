@@ -47,8 +47,8 @@ OneWayData <- construct(Factor, Outcome)
 
 Provide an ANOVA source table.
 ```{r}
-(Outcome ~ Factor) |> describeMeansOmnibus()
-(Outcome ~ Factor) |> testMeansOmnibus()
+(Outcome ~ Factor) |> describeMeansEffect()
+(Outcome ~ Factor) |> testMeansEffect()
 ```
 
 ### Analyses of Pairwise Comparisons
