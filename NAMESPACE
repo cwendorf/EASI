@@ -582,7 +582,7 @@ export(plotMeansFactorial)
 S3method(.describeCorrelationsBy,default)
 export(describeCorrelationsBy)
 
-### Aliases
+### xAlias
 
 export(describeMeans)
 export(describeMeansBy)
