@@ -1,5 +1,15 @@
 # Estimation Approach to Statistical Inference
-## Old Simplified Names
+## Aliases
+
+### Means
+
+describeMeans <- function(...) {
+  describeSummary(...)
+}
+
+describeMeansBy <- function(...) {
+  describeSummaryBy(...)
+}
 
 ### Mean Difference
 
