@@ -22,7 +22,6 @@
   CorrStats <- CorrStats[, ncol(CorrStats)]
   CorrStats <- head(CorrStats, -1)
   R2 <- as.numeric(t(CorrStats) %*% solve(PredCorr) %*% CorrStats)
-  R <- sqrt(R2)
   df1 <- nrow(DescStats) - 1
   df2 <- DescStats[nrow(DescStats), "N"] - df1 - 1
   vt <- DescStats[nrow(DescStats), "SD"]^2

@@ -78,9 +78,9 @@ plotFrequencies.default <- function(frame, add = FALSE, ylim = NULL, main = NULL
     .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
   }
   if (length(col) > length(data)) {
-    col <- col[1:length(data)]
+    col <- col[seq_along(data)]
   }
-  invisible(mapply(.histogram, data, x = 1:length(data), type = type, offset = offset, col = col))
+  invisible(mapply(.histogram, data, x = seq_along(data), type = type, offset = offset, col = col))
   invisible(eval(frame))
 }
 
@@ -106,9 +106,9 @@ plotFrequencies.formula <- function(formula, add = FALSE, ylim = NULL, main = NU
     .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
   }
   if (length(col) > length(data)) {
-    col <- col[1:length(data)]
+    col <- col[seq_along(data)]
   }
-  invisible(mapply(.histogram, data, x = 1:length(data), type = type, offset = offset, col = col))
+  invisible(mapply(.histogram, data, x = seq_along(data), type = type, offset = offset, col = col))
   invisible(eval(formula))
 }
 

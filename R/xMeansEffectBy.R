@@ -9,7 +9,7 @@
 
 .describeMeansEffectBy.wss <- function(ListDescStats, ListCorrStats, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .describeMeansEffect.wss(ListDescStats[[i]], ListCorrStats[[i]])
   }
   names(results) <- names(ListDescStats)
@@ -19,7 +19,7 @@
 
 .describeMeansEffectBy.bss <- function(ListDescStats, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .describeMeansEffect.bss(ListDescStats[[i]])
   }
   names(results) <- names(ListDescStats)
@@ -62,7 +62,7 @@ describeMeansEffectBy <- function(..., main = NULL, digits = 3) {
 
 .estimateMeansEffectBy.wss <- function(ListDescStats, ListCorrStats, conf.level = .90, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .estimateMeansEffect.wss(ListDescStats[[i]], ListCorrStats[[i]], conf.level)
   }
   names(results) <- names(ListDescStats)
@@ -72,7 +72,7 @@ describeMeansEffectBy <- function(..., main = NULL, digits = 3) {
 
 .estimateMeansEffectBy.bss <- function(ListDescStats, conf.level = .90, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .estimateMeansEffect.bss(ListDescStats[[i]], conf.level)
   }
   names(results) <- names(ListDescStats)
@@ -115,7 +115,7 @@ estimateMeansEffectBy <- function(..., main = NULL, digits = 3) {
 
 .testMeansEffectBy.wss <- function(ListDescStats, ListCorrStats, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .testMeansEffect.wss(ListDescStats[[i]], ListCorrStats[[i]])
   }
   names(results) <- names(ListDescStats)
@@ -125,7 +125,7 @@ estimateMeansEffectBy <- function(..., main = NULL, digits = 3) {
 
 .testMeansEffectBy.bss <- function(ListDescStats) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .testMeansEffect.bss(ListDescStats[[i]])
   }
   names(results) <- names(ListDescStats)

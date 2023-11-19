@@ -9,7 +9,7 @@
 
 .estimateStandardizedMeansBy.wss <- function(ListDescStats, conf.level = .95, mu = 0, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .estimateStandardizedMeans.wss(ListDescStats[[i]], conf.level = conf.level, mu = mu)
   }
   names(results) <- names(ListDescStats)
@@ -19,7 +19,7 @@
 
 .estimateStandardizedMeansBy.bss <- function(ListDescStats, conf.level = .95, mu = 0, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .estimateStandardizedMeans.bss(ListDescStats[[i]], conf.level = conf.level, mu = mu)
   }
   names(results) <- names(ListDescStats)
@@ -32,13 +32,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  ListDescStats <- .describeMeansBy(frame, by = by)
+  ListDescStats <- .describeSummaryBy(frame, by = by)
   results <- .estimateStandardizedMeansBy.wss(ListDescStats, mu = mu, conf.level = conf.level)
   return(results)
 }
 
 .estimateStandardizedMeansBy.formula <- function(formula, by, mu = 0, conf.level = .95, ...) {
-  ListDescStats <- .describeMeansBy(formula, by = by)
+  ListDescStats <- .describeSummaryBy(formula, by = by)
   results <- .estimateStandardizedMeansBy.bss(ListDescStats, mu = mu, conf.level = conf.level)
   return(results)
 }

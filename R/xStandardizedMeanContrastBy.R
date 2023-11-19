@@ -9,7 +9,7 @@
 
 .estimateStandardizedMeanContrastBy.wss <- function(ListDescStats, ListCorrStats, contrast, conf.level = .95, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .estimateStandardizedMeanContrast.wss(ListDescStats[[i]], ListCorrStats[[i]], contrast = contrast, conf.level = conf.level)
   }
   names(results) <- names(ListDescStats)
@@ -19,7 +19,7 @@
 
 .estimateStandardizedMeanContrastBy.bss <- function(ListDescStats, contrast, conf.level = .95, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .estimateStandardizedMeanContrast.bss(ListDescStats[[i]], contrast = contrast, conf.level = conf.level)
   }
   names(results) <- names(ListDescStats)

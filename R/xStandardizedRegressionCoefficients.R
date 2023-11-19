@@ -29,7 +29,7 @@
     cn <- c(cn[-ci], cn[ci])
     frame <- frame[, cn]
   }
-  DescStats <- .describeMeans.default(frame)
+  DescStats <- .describeSummary.default(frame)
   rownames(DescStats) <- colnames(frame)
   CorrStats <- .describeCorrelations(frame)
   .estimateStandardizedRegressionCoefficients.wss(DescStats, CorrStats, conf.level = conf.level)

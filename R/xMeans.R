@@ -75,12 +75,12 @@ estimateMeans <- function(..., main = NULL, digits = 3) {
     colnames(data) <- deparse(substitute(frame))
   }
   DescStats <- .describeSummary.default(data)
-  .testMeans.wss(DescStats, mu = mu, main = main, digits = digits)
+  .testMeans.wss(DescStats, mu = mu)
 }
 
 .testMeans.formula <- function(formula, mu = 0, ...) {
   DescStats <- .describeSummary.formula(formula, ...)
-  .testMeans.bss(DescStats, mu = mu, main = main, digits = digits)
+  .testMeans.bss(DescStats, mu = mu)
 }
 
 testMeans <- function(..., main = NULL, digits = 3) {

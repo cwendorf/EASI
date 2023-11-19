@@ -54,7 +54,6 @@
   for (i in 1:(nr - 1)) {
     for (j in (i + 1):nr) {
       rownames(results)[comp] <- paste(rn[i], "v", rn[j])
-      ns <- N[rn[c(i, j)]]
       mns <- M[rn[c(i, j)]]
       sds <- SD[rn[c(i, j)]]
       z <- qnorm((1 - conf.level) / 2, lower.tail = FALSE)
@@ -77,13 +76,13 @@
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
-  DescStats <- .describeMeans(data)
+  DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
   .estimateStandardizedMeansPairwise.wss(DescStats, CorrStats, conf.level = conf.level)
 }
 
 .estimateStandardizedMeansPairwise.formula <- function(formula, conf.level = .95, ...) {
-  DescStats <- .describeMeans(formula)
+  DescStats <- .describeSummary(formula)
   .estimateStandardizedMeansPairwise.bss(DescStats, conf.level = conf.level)
 }
 

@@ -9,7 +9,7 @@
 
 .estimateMeanContrastBy.wss <- function(ListDescStats, ListCorrStats, contrast, conf.level = .95, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .estimateMeanContrast.wss(ListDescStats[[i]], ListCorrStats[[i]], contrast = contrast, conf.level = conf.level)
   }
   names(results) <- names(ListDescStats)
@@ -19,7 +19,7 @@
 
 .estimateMeanContrastBy.bss <- function(ListDescStats, contrast, conf.level = .95, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .estimateMeanContrast.bss(ListDescStats[[i]], contrast = contrast, conf.level = conf.level)
   }
   names(results) <- names(ListDescStats)
@@ -62,7 +62,7 @@ estimateMeanContrastBy <- function(..., contrast, conf.level = .95, main = NULL,
 
 .testMeanContrastBy.wss <- function(ListDescStats, ListCorrStats, contrast, mu = 0, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .testMeanContrast.wss(ListDescStats[[i]], ListCorrStats[[i]], contrast = contrast, mu = mu)
   }
   names(results) <- names(ListDescStats)
@@ -72,7 +72,7 @@ estimateMeanContrastBy <- function(..., contrast, conf.level = .95, main = NULL,
 
 .testMeanContrastBy.bss <- function(ListDescStats, contrast, mu = 0, ...) {
   results <- NULL
-  for (i in 1:length(ListDescStats)) {
+  for (i in seq_along(ListDescStats)) {
     results[[i]] <- .testMeanContrast.bss(ListDescStats[[i]], contrast = contrast, mu = mu)
   }
   names(results) <- names(ListDescStats)

@@ -17,18 +17,12 @@
   n2 <- length(y21)
   diff1 <- y12 - y11
   diff2 <- y22 - y21
-  ave1 <- (y11 + y12) / 2
-  ave2 <- (y21 + y22) / 2
   vd1 <- var(diff1)
   vd2 <- var(diff2)
-  va1 <- var(ave1)
-  va2 <- var(ave2)
   est1 <- mean(diff2) - mean(diff1)
   se1 <- sqrt(vd1 / n1 + vd2 / n2)
   df1 <- (se1^4) / (vd1^2 / (n1^3 - n1^2) + vd2^2 / (n2^3 - n2^2))
   tcrit1 <- qt((1 - conf.level) / 2, df1, lower.tail = FALSE)
-  t1 <- est1 / se1
-  p1 <- 2 * (1 - pt(abs(t1), df1))
   LL1 <- est1 - tcrit1 * se1
   UL1 <- est1 + tcrit1 * se1
   row1 <- c(est1, se1, df1, LL1, UL1)
@@ -73,7 +67,6 @@
   row1 <- c(est1, se1, df1, LL1, UL1)
   est4 <- t(v4) %*% m
   se4 <- sqrt(t(v4) %*% var %*% v4)
-  t4 <- est4 / se4
   df4 <- (se4^4) / sum(((v4^4) * (sd^4) / (n^2 * (n - 1))))
   tcrit4 <- qt((1 - conf.level) / 2, df4, lower.tail = FALSE)
   LL4 <- est4 - tcrit4 * se4
@@ -81,7 +74,6 @@
   row4 <- c(est4, se4, df4, LL4, UL4)
   est5 <- t(v5) %*% m
   se5 <- sqrt(t(v5) %*% var %*% v5)
-  t5 <- est5 / se5
   df5 <- (se5^4) / sum(((v5^4) * (sd^4) / (n^2 * (n - 1))))
   tcrit5 <- qt((1 - conf.level) / 2, df5, lower.tail = FALSE)
   LL5 <- est5 - tcrit5 * se5
@@ -126,12 +118,8 @@ estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
   n2 <- length(y21)
   diff1 <- y12 - y11
   diff2 <- y22 - y21
-  ave1 <- (y11 + y12) / 2
-  ave2 <- (y21 + y22) / 2
   vd1 <- var(diff1)
   vd2 <- var(diff2)
-  va1 <- var(ave1)
-  va2 <- var(ave2)
   est1 <- mean(diff2) - mean(diff1)
   se1 <- sqrt(vd1 / n1 + vd2 / n2)
   df1 <- (se1^4) / (vd1^2 / (n1^3 - n1^2) + vd2^2 / (n2^3 - n2^2))
