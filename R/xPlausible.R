@@ -41,9 +41,9 @@ plotPlausible.list <- function(results, conf.level = .95, add = FALSE, main = NU
     }
     z <- apply(graph, 1, FUN = .plausible)
     if (length(col) > nrow(graph)) {
-      col <- col[seq_along(nrow(graph))]
+      col <- col[1:nrow(graph)]
     }
-    invisible(mapply(.plotCurve, z, loc = seq_along(nrow(graph)), type = type, offset = offset, scale = 1, col = col))
+    invisible(mapply(.plotCurve, z, loc = 1:nrow(graph), type = type, offset = offset, scale = 1, col = col))
   }
   if (length(results) == 2 && nrow(results[[1]] != nrow(results[[2]]))) {
     results <- .collapseList(results)
@@ -58,9 +58,9 @@ plotPlausible.list <- function(results, conf.level = .95, add = FALSE, main = NU
     graph[3, 1] <- graph[3, 1] + graph[1, 1]
     z <- apply(graph, 1, FUN = .plausible)
     if (length(col) > nrow(graph)) {
-      col <- col[seq_along(nrow(graph))]
+      col <- col[1:nrow(graph)]
     }
-    invisible(mapply(.plotCurve, z, loc = seq_along(nrow(graph)), type = type, offset = offset, scale = 1, col = col))
+    invisible(mapply(.plotCurve, z, loc = 1:nrow(graph), type = type, offset = offset, scale = 1, col = col))
   }
   invisible(out)
 }
