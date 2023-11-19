@@ -1,5 +1,9 @@
 # Estimation Approach to Statistical Inference
 
+## Developental Version
+
+- Reintroduced original function names as aliases
+
 ## EASI 5.4.231107
 
 - Reorganized and redesigned all examples
