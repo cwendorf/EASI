@@ -203,7 +203,7 @@ plotMeanInteraction <- function(x, ...) {
   UseMethod("plotMeanInteraction")
 }
 
-plotMeanInteraction.bss <- plotMeanInteraction.formula <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = FALSE, pos = c(2, 2, 4), pch = c(16, 16, 17), col = "black", offset = 0, intervals = TRUE) {
+plotMeanInteraction.bss <- plotMeanInteraction.formula <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = FALSE, pos = c(2, 2, 4), pch = c(15, 15, 17), col = "black", offset = 0, intervals = TRUE) {
   results <- estimateMeanInteraction(..., conf.level = conf.level, main = main, digits = digits)
   if (is.null(main)) {
     main <- "Confidence Intervals for the Mean Interaction"
@@ -211,7 +211,7 @@ plotMeanInteraction.bss <- plotMeanInteraction.formula <- function(..., add = FA
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
-plotMeanInteraction.default <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = TRUE, pos = c(2, 2, 4), pch = c(16, 16, 17), col = "black", offset = 0, intervals = TRUE) {
+plotMeanInteraction.default <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = TRUE, pos = c(2, 2, 4), pch = c(15, 15, 17), col = "black", offset = 0, intervals = TRUE) {
   results <- estimateMeanInteraction(..., conf.level = conf.level, main = main, digits = digits)
   if (is.null(main)) {
     main <- "Confidence Intervals for the Mean Interaction"

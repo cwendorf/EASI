@@ -101,18 +101,18 @@
   ylimrange <- range(c(ylimmin, ylimmax))
   xlimrange <- c(.4, nrow(results[[1]]) + .6)
   plot(NULL, xaxs = "i", yaxs = "i", xaxt = "n", xlim = xlimrange, ylim = ylimrange, ylab = ylab, xlab = xlab, cex.lab = 1.15, main = main, bty = "l")
-  axis(1, seq_along(nrow(results[[1]])), row.names(results[[1]]))
+  axis(1, 1:nrow(results[[1]]), row.names(results[[1]]))
   for (i in seq_along(results)) {
     if (length(col) == 1) {
       tempcol <- col
     } else {
       tempcol <- col[i]
     }
-    for (j in seq_along(nrow(results[[i]]))) {
+    for (j in 1:nrow(results[[i]])) {
       lines(x = c(j + (i - (length(results) + 1) / 2) * .15, j + (i - (length(results) + 1) / 2) * .15), y = c(results[[i]][, 4][j], results[[i]][, 5][j]), lwd = 2, col = tempcol)
     }
-    if (class(results) == "wss") lines(seq_along(nrow(results[[i]])) + (i - (length(results) + 1) / 2) * .15, results[[i]][, 1], bty = "l", col = tempcol)
-    points(seq_along(nrow(results[[i]])) + (i - (length(results) + 1) / 2) * .15, results[[i]][, 1], cex = 1.5, pch = 16, bty = "l", col = tempcol, lwd = 2)
+    if (class(results) == "wss") lines(1:nrow(results[[i]]) + (i - (length(results) + 1) / 2) * .15, results[[i]][, 1], bty = "l", col = tempcol)
+    points(1:nrow(results[[i]]) + (i - (length(results) + 1) / 2) * .15, results[[i]][, 1], cex = 1.5, pch = 16, bty = "l", col = tempcol, lwd = 2)
   }
 }
 
