@@ -27,11 +27,6 @@
   return(results)
 }
 
-.describeSummaryBy.list <- function(list, ...) {
-  results <- lapply(list, .describeSummary.bss)
-  return(results)
-}
-
 describeSummaryBy <- function(..., main = NULL, digits = 3) {
   results <- .describeSummaryBy(...)
   if (is.null(main)) {
