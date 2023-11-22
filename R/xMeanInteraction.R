@@ -9,10 +9,10 @@
 
 .estimateMeanInteraction.default <- function(frame, by, conf.level = .95) {
   SplitData <- .splitData(frame, by)
-  y11 <- SplitData[[1]][,1]
-  y12 <- SplitData[[1]][,2]
-  y21 <- SplitData[[2]][,1]
-  y22 <- SplitData[[2]][,2]
+  y11 <- SplitData[[1]][, 1]
+  y12 <- SplitData[[1]][, 2]
+  y21 <- SplitData[[2]][, 1]
+  y22 <- SplitData[[2]][, 2]
   n1 <- length(y11)
   n2 <- length(y21)
   diff1 <- y12 - y11
@@ -51,8 +51,10 @@
 }
 
 .estimateMeanInteraction.bss <- function(ListDescStats, conf.level = .95) {
+  ListDescStats[[1]] <- ListDescStats[[1]][1:2, 1:3]
+  ListDescStats[[2]] <- ListDescStats[[2]][1:2, 1:3]
   DescStats <- .deList(.collapseList(ListDescStats))
-  colnames(DescStats) <- c("N", "M", "SD", "Skew", "Kurt")
+  colnames(DescStats) <- c("N", "M", "SD")
   v1 <- c(1, -1, -1, 1)
   v4 <- c(-1, 1, 0, 0)
   v5 <- c(0, 0, -1, 1)
@@ -114,10 +116,10 @@ estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
 
 .testMeanInteraction.default <- function(frame, by, ...) {
   SplitData <- .splitData(frame, by)
-  y11 <- SplitData[[1]][,1]
-  y12 <- SplitData[[1]][,2]
-  y21 <- SplitData[[2]][,1]
-  y22 <- SplitData[[2]][,2]
+  y11 <- SplitData[[1]][, 1]
+  y12 <- SplitData[[1]][, 2]
+  y21 <- SplitData[[2]][, 1]
+  y22 <- SplitData[[2]][, 2]
   n1 <- length(y11)
   n2 <- length(y21)
   diff1 <- y12 - y11
@@ -153,8 +155,10 @@ estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
 }
 
 .testMeanInteraction.bss <- function(ListDescStats) {
+  ListDescStats[[1]] <- ListDescStats[[1]][1:2, 1:3]
+  ListDescStats[[2]] <- ListDescStats[[2]][1:2, 1:3]
   DescStats <- .deList(.collapseList(ListDescStats))
-  colnames(DescStats) <- c("N", "M", "SD", "Skew", "Kurt")
+  colnames(DescStats) <- c("N", "M", "SD")
   v1 <- c(1, 1, -1, -1)
   v4 <- c(-1, 1, 0, 0)
   v5 <- c(0, 0, -1, 1)
