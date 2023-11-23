@@ -3,6 +3,7 @@
 ## Developental Version
 
 - Reintroduced original function names as aliases
+- Added interaction contrast estimates, tests, and plots for 2x2 designs
 
 ## EASI 5.4.231107
 

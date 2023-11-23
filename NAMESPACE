@@ -577,6 +577,23 @@ export(testMeansFactorial)
 
 export(plotMeansFactorial)
 
+### xMeanInteraction
+
+S3method(.estimateMeanInteraction,default)
+S3method(.estimateMeanInteraction,formula)
+S3method(.estimateMeanInteraction,bss)
+export(estimateMeanInteraction)
+
+S3method(.testMeanInteraction,default)
+S3method(.testMeanInteraction,formula)
+S3method(.testMeanInteraction,bss)
+export(testMeanInteraction)
+
+S3method(plotMeanInteraction,default)
+S3method(plotMeanInteraction,formula)
+S3method(plotMeanInteraction,bss)
+export(plotMeanInteraction)
+
 ### xCorrelationsBy
 
 S3method(.describeCorrelationsBy,default)
