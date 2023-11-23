@@ -45,7 +45,7 @@
   rownames(out)[2] <- paste("Simple Effect at", names(SplitData)[1], sep = " ")
   rownames(out)[3] <- paste("Simple Effect at", names(SplitData)[2], sep = " ")
   colnames(out) <- c("Est", "SE", "df", "LL", "UL")
-  out <- list(out[2:3,],out[1,])
+  out <- list(out[2:3, ], out[1, ])
   names(out) <- c("Confidence Intervals for the Simple Effect Constrasts", "Confidence Interval for the Interaction Contrast")
   return(out)
 }
@@ -88,7 +88,7 @@
   rownames(out)[2] <- paste("Simple Effect at", names(ListDescStats)[1], sep = " ")
   rownames(out)[3] <- paste("Simple Effect at", names(ListDescStats)[2], sep = " ")
   colnames(out) <- c("Est", "SE", "df", "LL", "UL")
-  out <- list(out[2:3,],out[1,])
+  out <- list(out[2:3, ], out[1, ])
   names(out) <- c("Confidence Intervals for the Simple Effect Constrasts", "Confidence Interval for the Interaction Contrast")
   return(out)
 }
@@ -149,7 +149,7 @@ estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
   rownames(out)[2] <- paste("Simple Effect at", names(SplitData)[1], sep = " ")
   rownames(out)[3] <- paste("Simple Effect at", names(SplitData)[2], sep = " ")
   colnames(out) <- c("Est", "SE", "t", "df", "p")
-  out <- list(out[2:3,],out[1,])
+  out <- list(out[2:3, ], out[1, ])
   names(out) <- c("Hypothesis Tests for the Main Effect Constrasts", "Hypothesis Test for the Interaction Contrast")
   return(out)
 }
@@ -189,7 +189,7 @@ estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
   rownames(out)[2] <- paste("Simple Effect at", names(ListDescStats)[1], sep = " ")
   rownames(out)[3] <- paste("Simple Effect at", names(ListDescStats)[2], sep = " ")
   colnames(out) <- c("Est", "SE", "t", "df", "p")
-  out <- list(out[2:3,],out[1,])
+  out <- list(out[2:3, ], out[1, ])
   names(out) <- c("Hypothesis Tests for the Main Effect Constrasts", "Hypothesis Test for the Interaction Contrast")
   return(out)
 }
