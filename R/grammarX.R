@@ -1,34 +1,40 @@
 # Estimation Approach to Statistical Inference
 ## Grammar
 
-### Frame Construction
+### Frame and List Construction
 
-construct <- function(..., type = "data") {
-  if (type == "bss" || type == "wss") {
+construct <- function(..., class = "data") {
+  if (class == "bss" || class == "wss") {
     out <- rbind(...)
-    class(out) <- type
-  } else if (type == "data") {
+    class(out) <- class
+  } else if (class == "data") {
     out <- data.frame(...)
-  } else if (type == "corr") {
+  } else if (class == "corr") {
     out <- rbind(...)
     colnames(out) <- rownames(out)
-    class(out) <- type
+    class(out) <- class
   }
-  out
+  return(out)
 }
 
-create <- function(..., type = "corr") {
+combine <- function(..., class = NULL) {
+  out <- list(...)
+  class(out) <- class
+  return(out)
+}
+
+create <- function(..., class = "corr") {
   clist <- as.character(match.call(expand.dots = FALSE)$...)
   nr <- length(clist)
-  if (type == "corr") {
+  if (class == "corr") {
     results <- matrix(data = NA, nr, nr)
     colnames(results) <- clist
-  } else if (type == "bss" || type == "wss") {
+  } else if (class == "bss" || class == "wss") {
     results <- matrix(data = NA, nr, 3)
     colnames(results) <- c("N", "M", "SD")
   }
   rownames(results) <- clist
-  class(results) <- type
+  class(results) <- class
   return(results)
 }
 
