@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(fig.width = 7, fig.height = 6, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
 devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
@@ -42,7 +42,7 @@ This code inputs the group summaries and creates a single summary table (for the
 A1 <- c(N = 10, M = 8.000, SD = 1.414)
 A2 <- c(N = 10, M = 11.000, SD = 2.211)
 A3 <- c(N = 10, M = 12.000, SD = 2.449)
-FactorialSummaryB1 <- construct(A1, A2, A3, type = "bss")
+FactorialSummaryB1 <- construct(A1, A2, A3, class = "bss")
 ```
 
 And repeat the process to create the second subset.
@@ -50,7 +50,7 @@ And repeat the process to create the second subset.
 A1 <- c(N = 10, M = 8.000, SD = 2.449)
 A2 <- c(N = 10, M = 8.000, SD = 2.000)
 A3 <- c(N = 10, M = 7.000, SD = 2.211)
-FactorialSummaryB2 <- construct(A1, A2, A3, type = "bss")
+FactorialSummaryB2 <- construct(A1, A2, A3, class = "bss")
 ```
 
 #### Summary Statistics

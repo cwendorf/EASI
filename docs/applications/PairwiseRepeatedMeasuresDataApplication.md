@@ -30,7 +30,7 @@ RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 Provide an ANOVA source table.
 
 ``` r
-(RepeatedData) |> describeMeansOmnibus()
+(RepeatedData) |> describeMeansEffect()
 ```
 
     ## $`Source Table for the Model`
@@ -40,7 +40,7 @@ Provide an ANOVA source table.
     ## Error     40.667  18.000   2.259
 
 ``` r
-(RepeatedData) |> testMeansOmnibus()
+(RepeatedData) |> testMeansEffect()
 ```
 
     ## $`Hypothesis Test for the Model`

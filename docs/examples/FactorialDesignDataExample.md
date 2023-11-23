@@ -53,7 +53,7 @@ This code obtains the descriptive statistics for the two data frames.
 (FactorialDataB1) %$>% (Outcome ~ FactorA) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##          N       M      SD    Skew    Kurt
     ## A1  10.000   8.000   1.414   0.000  -0.738
     ## A2  10.000  11.000   2.211  -0.617  -0.212
@@ -63,7 +63,7 @@ This code obtains the descriptive statistics for the two data frames.
 (FactorialDataB2) %$>% (Outcome ~ FactorA) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##          N       M      SD    Skew    Kurt
     ## A1  10.000   8.000   2.449  -0.340  -1.102
     ## A2  10.000   8.000   2.000  -0.417   0.735

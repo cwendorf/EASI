@@ -33,7 +33,7 @@ This code obtains the descriptive statistics for the data frame.
 (Outcome) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                 N       M      SD    Skew    Kurt
     ## (Outcome)  10.000   8.000   1.414   0.000  -0.738
 

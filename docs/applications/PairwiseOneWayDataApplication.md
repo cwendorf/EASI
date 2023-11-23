@@ -29,7 +29,7 @@ OneWayData <- construct(Factor, Outcome)
 Provide an ANOVA source table.
 
 ``` r
-(Outcome ~ Factor) |> describeMeansOmnibus()
+(Outcome ~ Factor) |> describeMeansEffect()
 ```
 
     ## $`Source Table for the Model`
@@ -38,7 +38,7 @@ Provide an ANOVA source table.
     ## Within  116.000  27.000   4.296
 
 ``` r
-(Outcome ~ Factor) |> testMeansOmnibus()
+(Outcome ~ Factor) |> testMeansEffect()
 ```
 
     ## $`Hypothesis Test for the Model`

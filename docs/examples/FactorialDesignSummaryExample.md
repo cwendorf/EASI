@@ -33,7 +33,7 @@ This code inputs the group summaries and creates a single summary table
 A1 <- c(N = 10, M = 8.000, SD = 1.414)
 A2 <- c(N = 10, M = 11.000, SD = 2.211)
 A3 <- c(N = 10, M = 12.000, SD = 2.449)
-FactorialSummaryB1 <- construct(A1, A2, A3, type = "bss")
+FactorialSummaryB1 <- construct(A1, A2, A3, class = "bss")
 ```
 
 And repeat the process to create the second subset.
@@ -42,7 +42,7 @@ And repeat the process to create the second subset.
 A1 <- c(N = 10, M = 8.000, SD = 2.449)
 A2 <- c(N = 10, M = 8.000, SD = 2.000)
 A3 <- c(N = 10, M = 7.000, SD = 2.211)
-FactorialSummaryB2 <- construct(A1, A2, A3, type = "bss")
+FactorialSummaryB2 <- construct(A1, A2, A3, class = "bss")
 ```
 
 #### Summary Statistics
@@ -53,7 +53,7 @@ This code confirms the descriptive statistics from the summary tables.
 (FactorialSummaryB1) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##          N       M      SD
     ## A1  10.000   8.000   1.414
     ## A2  10.000  11.000   2.211
@@ -63,7 +63,7 @@ This code confirms the descriptive statistics from the summary tables.
 (FactorialSummaryB2) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##          N       M      SD
     ## A1  10.000   8.000   2.449
     ## A2  10.000   8.000   2.000

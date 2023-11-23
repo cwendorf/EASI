@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(fig.width = 7, fig.height = 6, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
 devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
@@ -41,14 +41,14 @@ This code inputs the variable summaries and creates a summary table.
 ```{r}
 Outcome1 <- c(N = 10, M = 8.000, SD = 1.414)
 Outcome2 <- c(N = 10, M = 11.000, SD = 2.211)
-PairedSummary <- construct(Outcome1, Outcome2, type = "wss")
+PairedSummary <- construct(Outcome1, Outcome2, class = "wss")
 ```
 
 This code creates a correlation matrix.
 ```{r}
 Outcome1 <- c(1.000, .533)
 Outcome2 <- c(.533, 1.000)
-PairedCorr <- construct(Outcome1, Outcome2, type = "corr")
+PairedCorr <- construct(Outcome1, Outcome2, class = "corr")
 ```
 
 #### Summary Statistics

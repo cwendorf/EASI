@@ -26,7 +26,7 @@ This code inputs the variable summaries and creates a summary table.
 Outcome1 <- c(N = 10, M = 8.000, SD = 1.414)
 Outcome2 <- c(N = 10, M = 11.000, SD = 2.211)
 Outcome3 <- c(N = 10, M = 12.000, SD = 2.449)
-RepeatedSummary <- construct(Outcome1, Outcome2, Outcome3, type = "wss")
+RepeatedSummary <- construct(Outcome1, Outcome2, Outcome3, class = "wss")
 ```
 
 This code creates a correlation matrix, enters just the top triangle,
@@ -36,7 +36,7 @@ and then uses a function to fill in the whole matrix.
 Outcome1 <- c(1.000, .533, .385)
 Outcome2 <- c(.533, 1.000, .574)
 Outcome3 <- c(.385, .574, 1.000)
-RepeatedCorr <- construct(Outcome1, Outcome2, Outcome3, type = "corr")
+RepeatedCorr <- construct(Outcome1, Outcome2, Outcome3, class = "corr")
 ```
 
 #### Summary Statistics
@@ -47,7 +47,7 @@ This code confirms the descriptive statistics from the summary tables.
 (RepeatedSummary) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##                N       M      SD
     ## Outcome1  10.000   8.000   1.414
     ## Outcome2  10.000  11.000   2.211

@@ -32,7 +32,7 @@ This code inputs the variable summaries and creates a summary table.
 Outcome1 <- c(N = 10, M = 8.000, SD = 1.414)
 Outcome2 <- c(N = 10, M = 11.000, SD = 2.211)
 Outcome3 <- c(N = 10, M = 12.000, SD = 2.449)
-MixedSummaryL1 <- construct(Outcome1, Outcome2, Outcome3, type = "wss")
+MixedSummaryL1 <- construct(Outcome1, Outcome2, Outcome3, class = "wss")
 ```
 
 This code creates a correlation matrix.
@@ -41,7 +41,7 @@ This code creates a correlation matrix.
 Outcome1 <- c(1.000, .533, .385)
 Outcome2 <- c(.533, 1.000, .574)
 Outcome3 <- c(.385, .574, 1.000)
-MixedCorrL1 <- construct(Outcome1, Outcome2, Outcome3, type = "corr")
+MixedCorrL1 <- construct(Outcome1, Outcome2, Outcome3, class = "corr")
 ```
 
 And repeat the process to create the second subset.
@@ -50,7 +50,7 @@ And repeat the process to create the second subset.
 Outcome1 <- c(N = 10, M = 8.000, SD = 2.449)
 Outcome2 <- c(N = 10, M = 8.000, SD = 2.000)
 Outcome3 <- c(N = 10, M = 7.000, SD = 2.211)
-MixedSummaryL2 <- construct(Outcome1, Outcome2, Outcome3, type = "wss")
+MixedSummaryL2 <- construct(Outcome1, Outcome2, Outcome3, class = "wss")
 ```
 
 And for the correlation matrix of the second subset.
@@ -59,7 +59,7 @@ And for the correlation matrix of the second subset.
 Outcome1 <- c(1.000, .408, .164)
 Outcome2 <- c(.408, 1.000, .553)
 Outcome3 <- c(.164, .553, 1.000)
-MixedCorrL2 <- construct(Outcome1, Outcome2, Outcome3, type = "corr")
+MixedCorrL2 <- construct(Outcome1, Outcome2, Outcome3, class = "corr")
 ```
 
 #### Summary Statistics

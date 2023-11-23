@@ -27,7 +27,7 @@ This code inputs the group summaries and creates a single summary table.
 ``` r
 Level1 <- c(N = 10, M = 8.000, SD = 1.414)
 Level2 <- c(N = 10, M = 11.000, SD = 2.211)
-IndependentSummary <- construct(Level1, Level2, type = "bss")
+IndependentSummary <- construct(Level1, Level2, class = "bss")
 ```
 
 #### Summary Statistics
@@ -38,7 +38,7 @@ This code confirms the descriptive statistics from the summary table.
 (IndependentSummary) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##              N       M      SD
     ## Level1  10.000   8.000   1.414
     ## Level2  10.000  11.000   2.211

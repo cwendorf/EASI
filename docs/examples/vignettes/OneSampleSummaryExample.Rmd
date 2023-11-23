@@ -10,7 +10,7 @@ vignette: >
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+knitr::opts_chunk$set(fig.width = 7, fig.height = 6, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
 devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
@@ -40,7 +40,7 @@ revised_toc(thisfile, base_level = 3, toc_depth = 4)
 This code inputs the variable and creates a single summary table.
 ```{r}
 Outcome <- c(N = 10, M = 8.000, SD = 1.414)
-OneSampleSummary <- construct(Outcome, type = "bss")
+OneSampleSummary <- construct(Outcome, class = "bss")
 ```
 
 #### Summary Statistics

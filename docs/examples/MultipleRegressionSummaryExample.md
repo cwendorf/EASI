@@ -28,7 +28,7 @@ This code inputs the variable summaries and creates a summary table.
 Predictor1 <- c(N = 10, M = 8.000, SD = 1.414)
 Predictor2 <- c(N = 10, M = 11.000, SD = 2.211)
 Criterion <- c(N = 10, M = 12.000, SD = 2.449)
-RegressionSummary <- construct(Predictor1, Predictor2, Criterion, type = "wss")
+RegressionSummary <- construct(Predictor1, Predictor2, Criterion, class = "wss")
 ```
 
 This code creates a correlation matrix.
@@ -37,7 +37,7 @@ This code creates a correlation matrix.
 Predictor1 <- c(1.000, .533, .385)
 Predictor2 <- c(.533, 1.000, .574)
 Criterion <- c(.385, .574, 1.000)
-RegressionCorr <- construct(Predictor1, Predictor2, Criterion, type = "corr")
+RegressionCorr <- construct(Predictor1, Predictor2, Criterion, class = "corr")
 ```
 
 #### Summary Statistics

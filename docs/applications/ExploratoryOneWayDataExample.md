@@ -23,7 +23,7 @@ OneWayData <- construct(Factor, Outcome)
 
 ### Building Layers
 
-The typical way to build a plot is to use sepearate calls for each
+The typical way to build a plot is to use separate calls for each
 plotting elements (e.g., data, boxplots) and using the “add” parameter
 to put them on the same plot.
 

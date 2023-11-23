@@ -32,7 +32,7 @@ This code inputs the group summaries and creates a single summary table.
 Level1 <- c(N = 10, M = 8.000, SD = 1.414)
 Level2 <- c(N = 10, M = 11.000, SD = 2.211)
 Level3 <- c(N = 10, M = 12.000, SD = 2.449)
-OneWaySummary <- construct(Level1, Level2, Level3, type = "bss")
+OneWaySummary <- construct(Level1, Level2, Level3, class = "bss")
 ```
 
 #### Summary Statistics
@@ -43,7 +43,7 @@ This code confirms the descriptive statistics from the summary table.
 (OneWaySummary) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##              N       M      SD
     ## Level1  10.000   8.000   1.414
     ## Level2  10.000  11.000   2.211

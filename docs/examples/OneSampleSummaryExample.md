@@ -22,7 +22,7 @@ This code inputs the variable and creates a single summary table.
 
 ``` r
 Outcome <- c(N = 10, M = 8.000, SD = 1.414)
-OneSampleSummary <- construct(Outcome, type = "bss")
+OneSampleSummary <- construct(Outcome, class = "bss")
 ```
 
 #### Summary Statistics
@@ -33,7 +33,7 @@ This code confirms the descriptive statistics from the summary table.
 (OneSampleSummary) |> describeSummary()
 ```
 
-    ## $`Descriptive Statistics for the Data`
+    ## $`Summary Statistics for the Data`
     ##               N       M      SD
     ## Outcome  10.000   8.000   1.414
 

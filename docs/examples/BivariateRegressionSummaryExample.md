@@ -31,7 +31,7 @@ This code inputs the variable summaries and creates a summary table.
 ``` r
 Predictor <- c(N = 10, M = 8.000, SD = 1.414)
 Criterion <- c(N = 10, M = 11.000, SD = 2.211)
-BivariateSummary <- construct(Predictor, Criterion, type = "wss")
+BivariateSummary <- construct(Predictor, Criterion, class = "wss")
 ```
 
 This code creates a correlation matrix.
@@ -39,7 +39,7 @@ This code creates a correlation matrix.
 ``` r
 Predictor <- c(1.000, .533)
 Criterion <- c(.533, 1.000)
-BivariateCorr <- construct(Predictor, Criterion, type = "corr")
+BivariateCorr <- construct(Predictor, Criterion, class = "corr")
 ```
 
 #### Summary Statistics

@@ -27,7 +27,7 @@ This code inputs the variable summaries and creates a summary table.
 ``` r
 Outcome1 <- c(N = 10, M = 8.000, SD = 1.414)
 Outcome2 <- c(N = 10, M = 11.000, SD = 2.211)
-PairedSummary <- construct(Outcome1, Outcome2, type = "wss")
+PairedSummary <- construct(Outcome1, Outcome2, class = "wss")
 ```
 
 This code creates a correlation matrix.
@@ -35,7 +35,7 @@ This code creates a correlation matrix.
 ``` r
 Outcome1 <- c(1.000, .533)
 Outcome2 <- c(.533, 1.000)
-PairedCorr <- construct(Outcome1, Outcome2, type = "corr")
+PairedCorr <- construct(Outcome1, Outcome2, class = "corr")
 ```
 
 #### Summary Statistics
