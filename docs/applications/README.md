@@ -39,12 +39,12 @@ This page outlines applications that demonstrate advanced features.
 
 ### Analyses of Factorial and Mixed Data
 
-**By** - Implement "by" functions designed to automate the analyses of simple effects in factorial and mixed designs:
+**Effects** - Automate the analyses of simple effects in factorial and mixed designs:
 
-- [*ByFactorialDataApplication*](./ByFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*ByMixedDataApplication*](./ByMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+- [*EffectsFactorialDataApplication*](./EffectsFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*EffectsMixedDataApplication*](./EffectsMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
 
-**Omnibus** - Provide a multifactor Analysis of Variance in factorial and mixed designs:
+**Interaction** - Examine interactions and interaction contrasts in factorial and mixed designs:
 
-- [*OmnibusFactorialDataApplication*](./OmnibusFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
-- [*OmnibusMixedDataApplication*](./OmnibusMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
+- [*InteractionFactorialDataApplication*](./InteractionFactorialDataApplication.md) - Uses two-way factorial (between-subjects) data
+- [*InteractionMixedDataApplication*](./InteractionMixedDataApplication.md) - Uses two-way mixed design (between-subjects and within-subjects) data
