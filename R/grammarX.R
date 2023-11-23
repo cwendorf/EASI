@@ -81,24 +81,7 @@ selects <- function(data, ...) {
   subset(data, select = chosen)
 }
 
-### Passing Frames and Formulas
-
-is.formula <- function(x) {
-   inherits(x, "formula")
-}
-
-reframe <- function(data, ...) {
-  chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  subset(data, select = chosen)
-}
-
-reform <- function(data, formula) {
-  data <- substitute(data)
-  formula <- substitute(formula)
-  do.call(with, list(data, formula))
-}
-
-### Pick Variables
+### Pick Variables and Levels
 
 pick <- function(x, ...) {
   UseMethod("pick")
@@ -120,6 +103,23 @@ pick.formula <- function(formula, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
   update <- paste("~ factor(.,", paste(deparse(chosen), collapse = ","), ")")
   update(formula, update)
+}
+
+### Passing Frames and Formulas
+
+is.formula <- function(x) {
+   inherits(x, "formula")
+}
+
+reframe <- function(data, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  subset(data, select = chosen)
+}
+
+reform <- function(data, formula) {
+  data <- substitute(data)
+  formula <- substitute(formula)
+  do.call(with, list(data, formula))
 }
 
 ### Infix Operators
