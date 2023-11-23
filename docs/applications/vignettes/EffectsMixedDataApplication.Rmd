@@ -1,10 +1,10 @@
 ---
-subtitle: "By Mixed Data Application"
+subtitle: "Effects Mixed Data Application"
 output:
   github_document:
     preserve_yaml: FALSE
 vignette: >
-  %\VignetteIndexEntry{By Mixed Data Application}
+  %\VignetteIndexEntry{Effects Mixed Data Application}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,7 +22,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-## By Mixed Data Application
+## Effects Mixed Data Application
 
 This page analyzes simple effects using mixed design (between-subjects and within-subjects) data.
 
@@ -38,24 +38,31 @@ revised_toc(thisfile, base_level = 3, toc_depth = 4)
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
 Factor <- c(rep(1, 10), rep(2, 10))
-Factor <- factor(Factor, levels = c(1, 2), labels = c("Level1", "Level2"))
+Factor <- factor(Factor, levels = c(1, 2), labels = c("F1", "F2"))
 Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8)
 Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 7, 8, 7, 11, 10, 7, 8, 4, 8, 10)
 Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10, 8, 6, 8, 11, 5, 7, 9, 3, 6, 7)
 MixedData <- construct(Factor, Outcome1, Outcome2, Outcome3)
 ```
 
+### Analyses of the Simple Effects
+
+Get an ANOVA separately for each simple effect.
+```{r}
+construct(Outcome1, Outcome2, Outcome3) |> describeMeansEffectBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> estimateMeansEffectBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> testMeansEffectBy(by = Factor)
+```
+
 ### Summary Statistics
 
-Get the descriptive statistics separately for each simple effect.
+Get the summary statistics separately within each simple effect.
 ```{r}
 construct(Outcome1, Outcome2, Outcome3) |> describeSummaryBy(by = Factor)
 ```
 
-### Analyses of the Means
-
-Estimate, plot, test, and standardize the means separately for each simple effect.
-```{r, By-Mixed-Means}
+Estimate, plot, test, and standardize the means separately within each simple effect.
+```{r, Effects-Mixed-Means}
 construct(Outcome1, Outcome2, Outcome3) |> estimateMeansBy(by = Factor)
 construct(Outcome1, Outcome2, Outcome3) |> plotMeansBy(by = Factor)
 construct(Outcome1, Outcome2, Outcome3) |> testMeansBy(by = Factor)
@@ -64,8 +71,8 @@ construct(Outcome1, Outcome2, Outcome3) |> estimateStandardizedMeansBy(by = Fact
 
 ### Analyses of a Comparison
 
-Analyze the specified comparison separately for each simple effect.
-```{r, By-Mixed-Comparison}
+Analyze the specified comparison separately within each simple effect.
+```{r, Effects-Mixed-Comparison}
 construct(Outcome1, Outcome2) |> estimateMeanDifferenceBy(by = Factor)
 construct(Outcome1, Outcome2) |> plotMeanDifferenceBy(by = Factor)
 construct(Outcome1, Outcome2) |> testMeanDifferenceBy(by = Factor)
@@ -74,8 +81,8 @@ construct(Outcome1, Outcome2) |> estimateStandardizedMeanDifferenceBy(by = Facto
 
 ### Analyses of a Contrast
 
-Analyze the specified contrast separately for each simple effect.
-```{r, By-Mixed-Contrast}
+Analyze the specified contrast separately within each simple effect.
+```{r, Effects-Mixed-Contrast}
 construct(Outcome1, Outcome2, Outcome3) |> estimateMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
 construct(Outcome1, Outcome2, Outcome3) |> plotMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
 construct(Outcome1, Outcome2, Outcome3) |> testMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))

@@ -1,10 +1,10 @@
 ---
-subtitle: "By Factorial Data Application"
+subtitle: "Effects Factorial Data Application"
 output:
   github_document:
     preserve_yaml: FALSE
 vignette: >
-  %\VignetteIndexEntry{By Factorial Data Application}
+  %\VignetteIndexEntry{Effects Factorial Data Application}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,7 +22,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-## By Factorial Data Application
+## Effects Factorial Data Application
 
 This page analyzes simple effects using factorial (between-subjects) data.
 
@@ -45,17 +45,24 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8, 7,
 FactorialData <- construct(FactorA, FactorB, Outcome)
 ```
 
-### Summary Statistics
+### Analyses of Simple Effects
 
-Get descriptive statistics separately for each simple effect.
+Get an ANOVA separately for each simple effect.
 ```{r}
-(Outcome ~ FactorA) |> describeSummaryBy(by = FactorB)
+(Outcome ~ FactorA) |> describeMeansEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> estimateMeansEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> testMeansEffectBy(by = FactorB)
 ```
 
 ### Analyses of the Means
 
-Estimate, plot, test, and standardize the means separately for each simple effect.
-```{r, By-Factorial-Means}
+Get the summary statistics separately within each simple effect.
+```{r}
+(Outcome ~ FactorA) |> describeSummaryBy(by = FactorB)
+```
+
+Estimate, plot, test, and standardize the means separately within each simple effect.
+```{r, Effects-Factorial-Means}
 (Outcome ~ FactorA) |> estimateMeansBy(by = FactorB)
 (Outcome ~ FactorA) |> plotMeansBy(by = FactorB)
 (Outcome ~ FactorA) |> testMeansBy(by = FactorB)
@@ -64,8 +71,8 @@ Estimate, plot, test, and standardize the means separately for each simple effec
 
 ### Analyses of a Comparison
 
-Analyze the specified comparison separately for each simple effect.
-```{r, By-Factorial-Comparison}
+Analyze the specified comparison separately within each simple effect.
+```{r, Effects-Factorial-Comparison}
 (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifferenceBy(by = FactorB)
 (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifferenceBy(by = FactorB)
 (Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifferenceBy(by = FactorB)
@@ -74,8 +81,8 @@ Analyze the specified comparison separately for each simple effect.
 
 ### Analyses of a Contrast
 
-Analyze the specified contrast separately for each simple effect.
-```{r, By-Factorial-Contrast}
+Analyze the specified contrast separately within each simple effect.
+```{r, Effects-Factorial-Contrast}
 (Outcome ~ FactorA) |> estimateMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 (Outcome ~ FactorA) |> plotMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 (Outcome ~ FactorA) |> testMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))

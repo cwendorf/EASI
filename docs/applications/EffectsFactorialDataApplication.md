@@ -1,11 +1,11 @@
 
-## By Factorial Data Application
+## Effects Factorial Data Application
 
 This page analyzes simple effects using factorial (between-subjects)
 data.
 
 - [Data Management](#data-management)
-- [Summary Statistics](#summary-statistics)
+- [Analyses of Simple Effects](#analyses-of-simple-effects)
 - [Analyses of the Means](#analyses-of-the-means)
 - [Analyses of a Comparison](#analyses-of-a-comparison)
 - [Analyses of a Contrast](#analyses-of-a-contrast)
@@ -25,9 +25,51 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8, 7,
 FactorialData <- construct(FactorA, FactorB, Outcome)
 ```
 
-### Summary Statistics
+### Analyses of Simple Effects
 
-Get descriptive statistics separately for each simple effect.
+Get an ANOVA separately for each simple effect.
+
+``` r
+(Outcome ~ FactorA) |> describeMeansEffectBy(by = FactorB)
+```
+
+    ## $`Source Table for the Model: B1`
+    ##              SS      df      MS
+    ## Between  86.667   2.000  43.333
+    ## Within  116.000  27.000   4.296
+    ## 
+    ## $`Source Table for the Model: B2`
+    ##              SS      df      MS
+    ## Between   6.667   2.000   3.333
+    ## Within  134.000  27.000   4.963
+
+``` r
+(Outcome ~ FactorA) |> estimateMeansEffectBy(by = FactorB)
+```
+
+    ## $`Proportion of Variance Accounted For by the Model: B1`
+    ##            Est      LL      UL
+    ## Factor   0.428   0.157   0.569
+    ## 
+    ## $`Proportion of Variance Accounted For by the Model: B2`
+    ##            Est      LL      UL
+    ## Factor   0.047   0.000   0.173
+
+``` r
+(Outcome ~ FactorA) |> testMeansEffectBy(by = FactorB)
+```
+
+    ## $`Hypothesis Test for the Model: B1`
+    ##              F     df1     df2       p
+    ## Factor  10.086   2.000  27.000   0.001
+    ## 
+    ## $`Hypothesis Test for the Model: B2`
+    ##              F     df1     df2       p
+    ## Factor   0.672   2.000  27.000   0.519
+
+### Analyses of the Means
+
+Get the summary statistics separately within each simple effect.
 
 ``` r
 (Outcome ~ FactorA) |> describeSummaryBy(by = FactorB)
@@ -45,9 +87,7 @@ Get descriptive statistics separately for each simple effect.
     ## A2  10.000   8.000   2.000  -0.417   0.735
     ## A3  10.000   7.000   2.211   0.000   0.665
 
-### Analyses of the Means
-
-Estimate, plot, test, and standardize the means separately for each
+Estimate, plot, test, and standardize the means separately within each
 simple effect.
 
 ``` r
@@ -70,7 +110,7 @@ simple effect.
 (Outcome ~ FactorA) |> plotMeansBy(by = FactorB)
 ```
 
-![](figures/By-Factorial-Means-1.png)<!-- -->![](figures/By-Factorial-Means-2.png)<!-- -->
+![](figures/Effects-Factorial-Means-1.png)<!-- -->![](figures/Effects-Factorial-Means-2.png)<!-- -->
 
 ``` r
 (Outcome ~ FactorA) |> testMeansBy(by = FactorB)
@@ -106,7 +146,7 @@ simple effect.
 
 ### Analyses of a Comparison
 
-Analyze the specified comparison separately for each simple effect.
+Analyze the specified comparison separately within each simple effect.
 
 ``` r
 (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifferenceBy(by = FactorB)
@@ -124,7 +164,7 @@ Analyze the specified comparison separately for each simple effect.
 (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifferenceBy(by = FactorB)
 ```
 
-![](figures/By-Factorial-Comparison-1.png)<!-- -->![](figures/By-Factorial-Comparison-2.png)<!-- -->
+![](figures/Effects-Factorial-Comparison-1.png)<!-- -->![](figures/Effects-Factorial-Comparison-2.png)<!-- -->
 
 ``` r
 (Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifferenceBy(by = FactorB)
@@ -152,7 +192,7 @@ Analyze the specified comparison separately for each simple effect.
 
 ### Analyses of a Contrast
 
-Analyze the specified contrast separately for each simple effect.
+Analyze the specified contrast separately within each simple effect.
 
 ``` r
 (Outcome ~ FactorA) |> estimateMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
@@ -170,7 +210,7 @@ Analyze the specified contrast separately for each simple effect.
 (Outcome ~ FactorA) |> plotMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 ```
 
-![](figures/By-Factorial-Contrast-1.png)<!-- -->![](figures/By-Factorial-Contrast-2.png)<!-- -->
+![](figures/Effects-Factorial-Contrast-1.png)<!-- -->![](figures/Effects-Factorial-Contrast-2.png)<!-- -->
 
 ``` r
 (Outcome ~ FactorA) |> testMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
