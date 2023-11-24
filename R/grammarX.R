@@ -71,8 +71,8 @@ complete.corr <- function(mat) {
 
 filters <- function(data, ...) {
   filts <- (match.call(expand.dots = FALSE)$...)
-  for (i in seq_along(filts)) {data <- data[which(eval(filts[[i]])), ]}
-  data <- na.omit(data)
+  for (i in seq_along(filts)) {
+    data <- subset(data,eval(filts[[i]]))}
   return(data)
 }
 
