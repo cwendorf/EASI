@@ -7,8 +7,16 @@ describeMeans <- function(...) {
   describeSummary(...)
 }
 
+standardizeMeans <- function(...) {
+  estimateStandardizedMeans(...)
+}
+
 describeMeansBy <- function(...) {
   describeSummaryBy(...)
+}
+
+standardizeMeansBy <- function(...) {
+  estimateStandardizedMeansBy(...)
 }
 
 ### Mean Difference
@@ -25,6 +33,14 @@ plotDifference <- function(...) {
   plotMeanDifference(...)
 }
 
+standardizeDifference <- function(...) {
+  estimateStandardizedMeanDifference(...)
+}
+
+standardizeDifferenceBy <- function(...) {
+  estimateStandardizedMeanDifferenceBy(...)
+}
+
 ### Mean Contrast
 
 estimateContrast <- function(...) {
@@ -37,6 +53,14 @@ testContrast <- function(...) {
 
 plotContrast <- function(...) {
   plotMeanContrast(...)
+}
+
+standardizeContrast <- function(...) {
+  estimateStandardizedMeanContrast(...)
+}
+
+standardizeContrastBy <- function(...) {
+  estimateStandardizedMeanContrastBy(...)
 }
 
 ### Mean Comparison
@@ -81,6 +105,10 @@ plotPairwise <- function(...) {
   plotMeansPairwise(...)
 }
 
+standardizePairwise <- function(...) {
+  estimateStandardizedMeansPairwise(...)
+}
+
 ### Means Posthoc
 
 estimatePosthoc <- function(...) {
@@ -93,6 +121,10 @@ testPosthoc <- function(...) {
 
 plotPosthoc <- function(...) {
   plotMeansPosthoc(...)
+}
+
+standardizePosthoc <- function(...) {
+  estimateStandardizedMeansPosthoc(...)
 }
 
 ### Mean Effect
@@ -153,6 +185,10 @@ testCoefficients <- function(...) {
 
 plotCoefficients <- function(...) {
   plotRegressionCoefficients(...)
+}
+
+standardizeCoefficients <- function(...) {
+  estimateStandardizedRegressionCoefficients(...)
 }
 
 ### Regression Model
