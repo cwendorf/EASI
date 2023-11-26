@@ -119,6 +119,10 @@ plotPairwise <- function(...) {
   plotMeansPairwise(...)
 }
 
+plotPairwiseDiffogram <- function(...) {
+  plotMeansPairwiseDiffogram(...)
+}
+
 standardizePairwise <- function(...) {
   estimateStandardizedMeansPairwise(...)
 }
@@ -137,8 +141,22 @@ plotPosthoc <- function(...) {
   plotMeansPosthoc(...)
 }
 
+plotPosthocDiffogram <- function(...) {
+  plotMeansPosthocDiffogram(...)
+}
+
 standardizePosthoc <- function(...) {
   estimateStandardizedMeansPosthoc(...)
+}
+
+### Means Posthoc
+
+estimateRelational <- function(...) {
+  estimateMeansRelational(...)
+}
+
+plotRelational <- function(...) {
+  plotMeansRelational(...)
 }
 
 ### Mean Effect
