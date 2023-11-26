@@ -72,7 +72,7 @@ complete.corr <- function(mat) {
 filters <- function(data, ...) {
   filts <- (match.call(expand.dots = FALSE)$...)
   for (i in seq_along(filts)) {
-    data <- subset(data,eval(filts[[i]]))}
+    data <- subset(data, eval(filts[[i]]))}
   return(data)
 }
 
@@ -106,10 +106,6 @@ pick.formula <- function(formula, ...) {
 }
 
 ### Passing Frames and Formulas
-
-is.formula <- function(x) {
-   inherits(x, "formula")
-}
 
 reframe <- function(data, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
