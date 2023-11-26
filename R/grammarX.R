@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
-## Grammar
+## Grammar for Piping
 
-### Frame and List Construction
+### Construction
 
 construct <- function(..., class = "data") {
   if (class == "bss" || class == "wss") {
@@ -67,7 +67,11 @@ complete.corr <- function(mat) {
   return(results)
 }
 
-### Subsetting
+### Filtering and Focusing
+
+is.formula <- function(x) {
+   inherits(x, "formula")
+}
 
 filters <- function(data, ...) {
   filts <- (match.call(expand.dots = FALSE)$...)
@@ -76,49 +80,43 @@ filters <- function(data, ...) {
   return(data)
 }
 
-selects <- function(data, ...) {
-  chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  subset(data, select = chosen)
+focus <- function(x, ...) {
+  UseMethod("focus")
 }
 
-### Pick Variables and Levels
-
-pick <- function(x, ...) {
-  UseMethod("pick")
-}
-
-pick.bss <- pick.wss <- function(DescStats, ...) {
+focus.bss <- focus.wss <- function(DescStats, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
   results <- DescStats[chosen, ]
   class(results) <- class(DescStats)
   return(results)
 }
 
-pick.default <- function(frame, ...) {
-  chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  subset(frame, select = chosen)
+focus.data.frame <- function(frame, ...) {
+  filts <- (match.call(expand.dots = FALSE)$...)
+  chosen <- NULL
+  for (i in seq_along(filts)) {
+    if (is.formula(eval(filts[[i]]))) {
+      return(do.call(with, list(frame, filts[[i]])))
+      }
+    else if (is.logical(eval(filts[[i]]))) {
+      frame <- subset(frame, eval(filts[[i]]))
+      }
+    else {
+      chose <- as.character(filts[[i]])
+      chosen <- c(chosen, chose)
+      }
+    }
+  if (is.null(chosen)) {return(frame)}
+  else {return(subset(frame, select = chosen))}
 }
 
-pick.formula <- function(formula, ...) {
+focus.formula <- function(formula, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
   update <- paste("~ factor(.,", paste(deparse(chosen), collapse = ","), ")")
   update(formula, update)
 }
 
-### Passing Frames and Formulas
-
-reframe <- function(data, ...) {
-  chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  subset(data, select = chosen)
-}
-
-reform <- function(data, formula) {
-  data <- substitute(data)
-  formula <- substitute(formula)
-  do.call(with, list(data, formula))
-}
-
-### Exposition Pipe
+### Exposition
 
 "%$>%" <- function(lhs, rhs) {
   lhs <- substitute(lhs)

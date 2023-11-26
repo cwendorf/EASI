@@ -4,27 +4,20 @@
 ### grammarX
 
 export(construct)
-export(create)
+export(commbine)
 
+export(create)
 S3method(complete,corr)
 export(complete)
 
-export(reframe)
-export(reform)
-
+S3method(focus,default)
+S3method(focus,formula)
+S3method(focus,bss)
+S3method(focus,wss)
+export(focus)
 export(filters)
-export(selects)
 
-S3method(pick,default)
-S3method(pick,formula)
-S3method(pick,bss)
-S3method(pick,wss)
-export(pick)
-
-export("%c%")
 export("%$>%")
-export("%.>%")
-export("%.>>%")
 
 ### colorX
 
