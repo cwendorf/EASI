@@ -91,6 +91,20 @@ plotSubsets <- function(...) {
   plotMeanSubsets(...)
 }
 
+### Mean Complex
+
+estimateComplex <- function(...) {
+  estimateMeanSubsets(...)
+}
+
+testComplex <- function(...) {
+  testMeanSubsets(...)
+}
+
+plotComplex <- function(...) {
+  plotMeanSubsets(...)
+}
+
 ### Means Pairwise
 
 estimatePairwise <- function(...) {

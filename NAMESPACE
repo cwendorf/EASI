@@ -620,6 +620,10 @@ export(estimateSubsets)
 export(testSubsets)
 export(plotSubsets)
 
+export(estimateComplex)
+export(testComplex)
+export(plotComplex)
+
 export(estimatePairwise)
 export(testPairwise)
 export(plotPairwise)
