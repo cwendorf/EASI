@@ -81,9 +81,9 @@ estimateMeansPosthoc <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeansPosthoc(...)
   if (is.null(main)) {
     if (nrow(results) > 1) {
-      main <- "Confidence Intervals for the Posthoc Mean Comparisons"
+      main <- "Confidence Intervals for the Posthoc Comparisons of Means"
     } else {
-      main <- "Confidence Interval for the Posthoc Mean Comparison"
+      main <- "Confidence Interval for the Posthoc Comparison of Means"
     }
   }
   results <- .formatList(list(results), main = main, digits = digits)
@@ -168,9 +168,9 @@ testMeansPosthoc <- function(..., main = NULL, digits = 3) {
   results <- .testMeansPosthoc(...)
   if (is.null(main)) {
     if (nrow(results) > 1) {
-      main <- "Hypothesis Tests for the Posthoc Mean Comparisons"
+      main <- "Hypothesis Tests for the Posthoc Comparisons of Means"
     } else {
-      main <- "Hypothesis Test for the Posthoc Mean Comparison"
+      main <- "Hypothesis Test for the Posthoc Comparison of Means"
     }
   }
   results <- .formatList(list(results), main = main, digits = digits)
@@ -184,7 +184,7 @@ plotMeansPosthoc <- function(..., main = NULL, digits = 3, ylab = "Mean Differen
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
-plotMeansPosthocDiffogram <- function(..., main = "Confidence Intervals for the Posthoc Mean Comparisons", ylab = "", xlab = "", conf.level = .95, ylim = NULL, pch = 17, col = "black") {
+plotMeansPosthocDiffogram <- function(..., main = "Confidence Intervals for the Posthoc Comparisons of Means", ylab = "", xlab = "", conf.level = .95, ylim = NULL, pch = 17, col = "black") {
   dm <- .describeSummary(...)
   emp <- .estimateMeansPosthoc(..., conf.level = conf.level)
   .intervalsDiffogram(dm = dm, emp = emp, main = main, ylab = ylab, xlab = xlab, ylim = ylim, pch = pch, col = col)

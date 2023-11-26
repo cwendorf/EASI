@@ -17,11 +17,11 @@
     rownames(Complex) <- labels
   }
   Complex <- list(Complex)
-  names(Complex) <- "Confidence Intervals for the Mean Contrasts"
+  names(Complex) <- "Confidence Intervals for the Contrasts of Means"
   contrast <- contrast2 - contrast1
   Diff <- .estimateMeanContrast(..., contrast = contrast, conf.level = conf.level)
   Diff <- list(Diff)
-  names(Diff) <- "Confidence Interval for the Mean Contrast"
+  names(Diff) <- "Confidence Interval for the Contrast of Contrasts"
   results <- c(Complex, Diff)
   return(results)
 }
@@ -51,11 +51,11 @@ estimateMeanComplex <- function(..., main = NULL, digits = 3) {
     rownames(Complex) <- labels
   }
   Complex <- list(Complex)
-  names(Complex) <- "Hypthesis Tests for the Mean Contrasts"
+  names(Complex) <- "Hypthesis Tests for the Contrasts of Means"
   contrast <- contrast2 - contrast1
   Diff <- .testMeanContrast(..., contrast = contrast)
   Diff <- list(Diff)
-  names(Diff) <- "Hypothesis Test for the Mean Contrast"
+  names(Diff) <- "Hypothesis Test for the Contrast of Contrasts"
   results <- c(Complex, Diff)
   return(results)
 }
@@ -78,7 +78,7 @@ plotMeanComplex <- function(x, ...) {
 plotMeanComplex.wss <- plotMeanComplex.default <- function(..., contrast1, contrast2, main = NULL, ylab = "Mean Contrasts", xlab = "", conf.level = .95, rope = NULL, add = FALSE, labels = NULL, values = TRUE, pos = c(2, 2, 4), connect = TRUE, ylim = NULL, digits = 3, pch = c(15, 15, 17), col = "black", offset = 0, intervals = TRUE) {
   results <- estimateMeanComplex(..., contrast1 = contrast1, contrast2 = contrast2, conf.level = conf.level, labels = labels, main = main, digits = digits)
   if (is.null(main)) {
-    main <- "Confidence Intervals for the Mean Contrasts"
+    main <- "Confidence Intervals for the Contrast of Contrasts"
   }
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
@@ -86,7 +86,7 @@ plotMeanComplex.wss <- plotMeanComplex.default <- function(..., contrast1, contr
 plotMeanComplex.bss <- plotMeanComplex.formula <- function(..., contrast1, contrast2, main = NULL, ylab = "Mean Contrasts", xlab = "", conf.level = .95, rope = NULL, add = FALSE, labels = NULL, values = TRUE, pos = c(2, 2, 4), connect = FALSE, ylim = NULL, digits = 3, pch = c(15, 15, 17), col = "black", offset = 0, intervals = TRUE) {
   results <- estimateMeanComplex(..., contrast1 = contrast1, contrast2 = contrast2, conf.level = conf.level, labels = labels, main = main, digits = digits)
   if (is.null(main)) {
-    main <- "Confidence Intervals for the Mean Contrasts"
+    main <- "Confidence Intervals for the Contrast of Contrasts"
   }
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }

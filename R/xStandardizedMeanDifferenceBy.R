@@ -47,7 +47,7 @@
 estimateStandardizedMeanDifferenceBy <- function(..., main = NULL, digits = 3) {
   results <- .estimateStandardizedMeanDifferenceBy(...)
   if (is.null(main)) {
-    main <- "Confidence Interval for the Standardized Mean Difference"
+    main <- "Confidence Interval for the Standardized Difference of Means"
   }
   main <- paste(main, names(results), sep = ": ")
   results <- .formatList(results, main = main, digits = digits)

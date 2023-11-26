@@ -47,7 +47,7 @@
 estimateStandardizedMeanContrastBy <- function(..., main = NULL, digits = 3) {
   results <- .estimateStandardizedMeanContrastBy(...)
   if (is.null(main)) {
-    main <- "Confidence Interval for the Standardized Mean Contrast"
+    main <- "Confidence Interval for the Standardized Contrast of Means"
   }
   main <- paste(main, names(results), sep = ": ")
   results <- .formatList(results, main = main, digits = digits)

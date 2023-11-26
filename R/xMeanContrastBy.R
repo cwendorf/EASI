@@ -47,7 +47,7 @@
 estimateMeanContrastBy <- function(..., contrast, conf.level = .95, main = NULL, digits = 3) {
   results <- .estimateMeanContrastBy(..., contrast = contrast, conf.level = conf.level)
   if (is.null(main)) {
-    main <- "Confidence Interval for the Mean Contrast"
+    main <- "Confidence Interval for the Contrast of Means"
   }
   main <- paste(main, names(results), sep = ": ")
   results <- .formatList(results, main = main, digits = digits)
@@ -100,7 +100,7 @@ estimateMeanContrastBy <- function(..., contrast, conf.level = .95, main = NULL,
 testMeanContrastBy <- function(..., contrast, mu = 0, main = NULL, digits = 3) {
   results <- .testMeanContrastBy(..., contrast = contrast, mu = mu)
   if (is.null(main)) {
-    main <- "Hypothesis Test for the Mean Contrast"
+    main <- "Hypothesis Test for the Contrast of Means"
   }
   main <- paste(main, names(results), sep = ": ")
   results <- .formatList(results, main = main, digits = digits)

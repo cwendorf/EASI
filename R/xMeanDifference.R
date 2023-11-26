@@ -68,7 +68,7 @@
 estimateMeanDifference <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeanDifference(...)
   if (is.null(main)) {
-    main <- "Confidence Interval for the Mean Difference"
+    main <- "Confidence Interval for the Difference of Means"
   }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)
@@ -139,7 +139,7 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
 testMeanDifference <- function(..., main = NULL, digits = 3) {
   results <- .testMeanDifference(...)
   if (is.null(main)) {
-    main <- "Hypothesis Test for the Mean Difference"
+    main <- "Hypothesis Test for the Difference of Means"
   }
   results <- .formatList(list(results), main = main, digits = digits)
   return(results)

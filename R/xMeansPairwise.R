@@ -69,9 +69,9 @@ estimateMeansPairwise <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeansPairwise(...)
   if (is.null(main)) {
     if (nrow(results) > 1) {
-      main <- "Confidence Intervals for the Pairwise Mean Comparisons"
+      main <- "Confidence Intervals for the Pairwise Comparisons of Means"
     } else {
-      main <- "Confidence Interval for the Pairwise Mean Comparison"
+      main <- "Confidence Interval for the Pairwise Comparison of Means"
     }
   }
   results <- .formatList(list(results), main = main, digits = digits)
@@ -144,9 +144,9 @@ testMeansPairwise <- function(..., main = NULL, digits = 3) {
   results <- .testMeansPairwise(...)
   if (is.null(main)) {
     if (nrow(results) > 1) {
-      main <- "Hypothesis Tests for the Pairwise Mean Comparisons"
+      main <- "Hypothesis Tests for the Pairwise Comparisons of Means"
     } else {
-      main <- "Hypothesis Test for the Pairwise Mean Comparison"
+      main <- "Hypothesis Test for the Pairwise Comparison of Means"
     }
   }
   results <- .formatList(list(results), main = main, digits = digits)
@@ -160,7 +160,7 @@ plotMeansPairwise <- function(..., main = NULL, digits = 3, ylab = "Mean Differe
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
-plotMeansPairwiseDiffogram <- function(..., main = "Confidence Intervals for the Pairwise Mean Comparisons", ylab = "", xlab = "", conf.level = .95, ylim = NULL, pch = 17, col = "black") {
+plotMeansPairwiseDiffogram <- function(..., main = "Confidence Intervals for the Pairwise Comparisons of Means", ylab = "", xlab = "", conf.level = .95, ylim = NULL, pch = 17, col = "black") {
   dm <- .describeSummary(...)
   emp <- .estimateMeansPairwise(..., conf.level = conf.level)
   .intervalsDiffogram(dm = dm, emp = emp, main = main, ylab = ylab, xlab = xlab, ylim = ylim, pch = pch, col = col)
