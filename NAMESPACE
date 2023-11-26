@@ -4,7 +4,7 @@
 ### grammarX
 
 export(construct)
-export(commbine)
+export(combine)
 
 export(create)
 S3method(complete,corr)
