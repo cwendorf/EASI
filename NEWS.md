@@ -3,7 +3,9 @@
 ## Developental Version
 
 - Reintroduced original function names as aliases
+- Updated function naming for consistency
 - Added interaction contrast estimates, tests, and plots for 2x2 designs
+- Enhanced focusing function for filtering and selecting levels
 
 ## EASI 5.4.231107
 
