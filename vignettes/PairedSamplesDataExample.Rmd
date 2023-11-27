@@ -94,12 +94,12 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
-(PairedData) |> estimateStandardizedMeans()
+(PairedData) |> standardizeMeans()
 ```
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
-(PairedData) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(PairedData) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
 ### Analyses of the Comparison
@@ -110,64 +110,64 @@ This section produces analyses that examine the difference among the two levels 
 
 This code estimates the confidence interval of the difference.
 ```{r}
-(PairedData) |> estimateMeanDifference()
+(PairedData) |> estimateDifference()
 ```
 
 This code obtains and plots the confidence intervals for the mean difference.
 ```{r, Paired-Data-DifferenceA}
-(PairedData) |> plotMeanDifference()
+(PairedData) |> plotDifference()
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-(PairedData) |> estimateMeanDifference(conf.level = .99)
+(PairedData) |> estimateDifference(conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a comparison line to represent a population (or test) value and a region of practical equivalence can be added to the graph.
 ```{r, Paired-Data-DifferenceB}
-(PairedData) |> plotMeanDifference(conf.level = .99, line = 0, rope = c(-2, 2))
+(PairedData) |> plotDifference(conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 ```{r}
-(PairedData) |> estimateMeanComparison()
+(PairedData) |> estimateComparison()
 ```
 
 This code produces a difference plot using the confidence intervals for the means and the mean difference.
 ```{r, Paired-Data-ComparisonA}
-(PairedData) |> plotMeanComparison()
+(PairedData) |> plotComparison()
 ```
 
 Of course, you can change the confidence level from the default 95% if desired.
 ```{r}
-(PairedData) |> estimateMeanComparison(conf.level = .99)
+(PairedData) |> estimateComparison(conf.level = .99)
 ```
 
 Once again, the confidence levels can be changed away from the default and a region of practical equivalence can be added to the graph.
 ```{r, Paired-Data-ComparisonB}
-(PairedData) |> plotMeanComparison(conf.level = .99, rope = c(-2, 2))
+(PairedData) |> plotComparison(conf.level = .99, rope = c(-2, 2))
 ```
 
 #### Significance Test
 
 This code produces NHST for the mean difference (using a default test value of zero).
 ```{r}
-(PairedData) |> testMeanDifference()
+(PairedData) |> testDifference()
 ```
 
 If the default value of zero is not plausible, it too can be changed.
 ```{r}
-(PairedData) |> testMeanDifference(mu = -2)
+(PairedData) |> testDifference(mu = -2)
 ```
 
 #### Standardized Effect Size
 
 This code calculates a standardized mean difference and its confidence interval.
 ```{r}
-(PairedData) |> estimateStandardizedMeanDifference()
+(PairedData) |> standardizeDifference()
 ```
 
 The width of the confidence interval for the effect size can be altered if desired.
 ```{r}
-(PairedData) |> estimateStandardizedMeanDifference(conf.level = .99)
+(PairedData) |> standardizeDifference(conf.level = .99)
 ```
