@@ -4,8 +4,9 @@ This page outlines the general purpose and structure of the EASI project.
 
 - [Purpose of EASI](#purpose-of-easi)
 - [Scope of the Project](#scope-of-the-project)
+- [General Function Syntax](#general-function-syntax)
 - [Function Calls](#function-calls)
-- [Table of Contents](#table-of-contents)
+- [Demonstrations](#demonstrations)
 
 ---
 
@@ -28,6 +29,19 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 - Calculations run on the same underlying functions regardless of type of input
 - Output utilizes consistent layouts and labeling across different types of analyses
 
+### General Function Syntax
+
+EASI offers a general syntax for function names. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted). These are the basic options (though more elaborate functions also exist):
+
+Prefix | Description
+:-- | :--
+`describe` | describe the data or model with summary statistics
+`estimate` | estimate the statistic and its confidence interval
+`plot` | plot the descriptive statistics or the estimates
+`test` | test the estimates for statistical significance
+
+Then the functions add an object (the noun that indicates the parameter or item to be analyzed), such as `Means` or `Correlations`.
+
 ### Function Calls
 
 In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant additional parameters (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). This format is highlighted throughout EASI.
@@ -48,10 +62,9 @@ OneWayData %$>% (Outcome ~ Factor) |> plotMeans()
 OneWayData %$>% (Outcome ~ Factor) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
 
-### Table of Contents
+### Demonstrations
 
 The package includes a wide variety of materials that demonstrate its use:
 
-- [Manual](./manual) - Manual of the functions and their available options
 - [Examples](./examples) - Examples that demonstrate basic analyses of simple datasets
 - [Applications](./applications) - Applications that demonstrate advanced features

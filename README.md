@@ -41,7 +41,6 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 The package includes a wide variety of materials that demonstrate its use:
 
 - [Overview](./docs) - A quick overview and summary of the package
-- [Manual](./docs/manual) - Manual of the functions and their available options
 - [Examples](./docs/examples) - Examples that demonstrate basic analyses of simple datasets
 - [Applications](./docs/applications) - Applications that demonstrate advanced features
 
