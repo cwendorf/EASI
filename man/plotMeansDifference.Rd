@@ -1,23 +1,23 @@
-% File man/plotMeanDifference.Rd
+% File man/plotMeansDifference.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{plotMeanDifference}
-\alias{plotMeanDifference}
-\alias{plotMeanDifference.default}
-\alias{plotMeanDifference.formula}
-\alias{plotMeanDifference.wss}
-\alias{plotMeanDifference.bss}
-\title{Plot Mean Difference}
+\name{plotMeansDifference}
+\alias{plotMeansDifference}
+\alias{plotMeansDifference.default}
+\alias{plotMeansDifference.formula}
+\alias{plotMeansDifference.wss}
+\alias{plotMeansDifference.bss}
+\title{Plot Means Difference}
 \description{Provides a plot of the mean difference and its confidence interval.}
 
 \usage{
-\method{plotMeanDifference}{default}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansDifference}{default}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanDifference}{formula}(formula, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansDifference}{formula}(formula, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanDifference}{wss}(CompStats, CorrStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansDifference}{wss}(CompStats, CorrStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanDifference}{bss}(CompStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansDifference}{bss}(CompStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

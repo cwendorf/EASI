@@ -1,23 +1,23 @@
-% File man/plotMeanSubsets.Rd
+% File man/plotMeansSubsets.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{plotMeanSubsets}
-\alias{plotMeanSubsets}
-\alias{plotMeanSubsets.default}
-\alias{plotMeanSubsets.formula}
-\alias{plotMeanSubsets.wss}
-\alias{plotMeanSubsets.bss}
-\title{Plot Mean Subsets}
+\name{plotMeansSubsets}
+\alias{plotMeansSubsets}
+\alias{plotMeansSubsets.default}
+\alias{plotMeansSubsets.formula}
+\alias{plotMeansSubsets.wss}
+\alias{plotMeansSubsets.bss}
+\title{Plot Means Subsets}
 \description{Provides the plot of the mean subsets and mean contrast confidence intervals.}
 
 \usage{
-\method{plotMeanSubsets}{default}(frame, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansSubsets}{default}(frame, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanSubsets}{formula}(formula, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansSubsets}{formula}(formula, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanSubsets}{wss}(DescStats, CorrStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansSubsets}{wss}(DescStats, CorrStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanSubsets}{bss}(DescStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansSubsets}{bss}(DescStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

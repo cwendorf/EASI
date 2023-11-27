@@ -1,14 +1,14 @@
-% File man/plotCorrelationDifference.Rd
+% File man/plotCorrelationsDifference.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{plotCorrelationDifference}
-\alias{plotCorrelationDifference}
-\alias{plotCorrelationDifference.default}
-\title{Plot Correlation Difference}
+\name{plotCorrelationsDifference}
+\alias{plotCorrelationsDifference}
+\alias{plotCorrelationsDifference.default}
+\title{Plot Correlations Difference}
 \description{Provides a plot of the confidence interval for a correlation difference for independent samples.}
 
 \usage{
-\method{plotCorrelationDifference}{default}(CorrEst1, CorrEst2, ylab="Outcome", xlab="", rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotCorrelationsDifference}{default}(CorrEst1, CorrEst2, ylab="Outcome", xlab="", rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

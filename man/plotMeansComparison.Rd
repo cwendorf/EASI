@@ -1,23 +1,23 @@
-% File man/plotMeanComparison.Rd
+% File man/plotMeansComparison.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{plotMeanComparison}
-\alias{plotMeanComparison}
-\alias{plotMeanComparison.default}
-\alias{plotMeanComparison.formula}
-\alias{plotMeanComparison.wss}
-\alias{plotMeanComparison.bss}
-\title{Plot Mean Comparison}
+\name{plotMeansComparison}
+\alias{plotMeansComparison}
+\alias{plotMeansComparison.default}
+\alias{plotMeansComparison.formula}
+\alias{plotMeansComparison.wss}
+\alias{plotMeansComparison.bss}
+\title{Plot Means Comparison}
 \description{Provides a plot of the confidence intervals for the means and mean difference of a specified comparison.}
 
 \usage{
-\method{plotMeanComparison}{default}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansComparison}{default}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanComparison}{formula}(formula, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansComparison}{formula}(formula, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanComparison}{wss}(CompStats, CorrStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansComparison}{wss}(CompStats, CorrStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanComparison}{bss}(CompStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansComparison}{bss}(CompStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

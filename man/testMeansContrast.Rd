@@ -1,23 +1,23 @@
-% File man/testContrast.Rd
+% File man/testMeansContrast.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{testContrast}
-\alias{testContrast}
-\alias{testContrast.default}
-\alias{testContrast.formula}
-\alias{testContrast.wss}
-\alias{testContrast.bss}
-\title{Test Contrast}
+\name{testMeansContrast}
+\alias{testMeansContrast}
+\alias{testMeansContrast.default}
+\alias{testMeansContrast.formula}
+\alias{testMeansContrast.wss}
+\alias{testMeansContrast.bss}
+\title{Test Means Contrast}
 \description{Provides a statistical significance test of the mean contrast.}
 
 \usage{
-\method{testContrast}{default}(frame, contrast, mu=0, main=NULL, digits=3)
+\method{testMeansContrast}{default}(frame, contrast, mu=0, main=NULL, digits=3)
 
-\method{testContrast}{formula}(formula, contrast, mu=0, main=NULL, digits=3)
+\method{testMeansContrast}{formula}(formula, contrast, mu=0, main=NULL, digits=3)
 
-\method{testContrast}{wss}(DescStats, CorrStats, contrast, mu=0, main=NULL, digits=3)
+\method{testMeansContrast}{wss}(DescStats, CorrStats, contrast, mu=0, main=NULL, digits=3)
 
-\method{testContrast}{bss}(DescStats, contrast, mu=0, main=NULL, digits=3)
+\method{testMeansContrast}{bss}(DescStats, contrast, mu=0, main=NULL, digits=3)
 }
 
 \arguments{

@@ -1,23 +1,23 @@
-% File man/estimateMeanSubsets.Rd
+% File man/estimateMeansSubsets.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateMeanSubsets}
-\alias{estimateMeanSubsets}
-\alias{estimateMeanSubsets.default}
-\alias{estimateMeanSubsets.formula}
-\alias{estimateMeanSubsets.wss}
-\alias{estimateMeanSubsets.bss}
-\title{Estimate Mean Subsets}
+\name{estimateMeansSubsets}
+\alias{estimateMeansSubsets}
+\alias{estimateMeansSubsets.default}
+\alias{estimateMeansSubsets.formula}
+\alias{estimateMeansSubsets.wss}
+\alias{estimateMeansSubsets.bss}
+\title{Estimate Means Subsets}
 \description{Provides the confidence intervals for a mean contrast and the mean subsets that comprise that contrast.}
 
 \usage{
-\method{estimateMeanSubsets}{default}(frame, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
+\method{estimateMeansSubsets}{default}(frame, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanSubsets}{formula}(formula, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
+\method{estimateMeansSubsets}{formula}(formula, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanSubsets}{wss}(DescStats, CorrStats, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
+\method{estimateMeansSubsets}{wss}(DescStats, CorrStats, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 
-\method{estimateMeanSubsets}{bss}(DescStats, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
+\method{estimateMeansSubsets}{bss}(DescStats, contrast, conf.level=.95, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

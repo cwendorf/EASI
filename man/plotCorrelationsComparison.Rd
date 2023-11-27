@@ -1,14 +1,14 @@
-% File man/plotCorrelationComparison.Rd
+% File man/plotCorrelationsComparison.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{plotCorrelationComparison}
-\alias{plotCorrelationComparison}
-\alias{plotCorrelationComparison.default}
-\title{Plot Correlation Comparison}
+\name{plotCorrelationsComparison}
+\alias{plotCorrelationsComparison}
+\alias{plotCorrelationsComparison.default}
+\title{Plot Correlations Comparison}
 \description{Provides a plot of the confidence intervals for the correlations and correlation difference for independent samples.}
 
 \usage{
-\method{plotCorrelationComparison}{default}(CorrEst1, CorrEst2, ylab="Outcome", xlab="", rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotCorrelationsComparison}{default}(CorrEst1, CorrEst2, ylab="Outcome", xlab="", rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

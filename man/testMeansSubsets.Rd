@@ -1,23 +1,23 @@
-% File man/testMeanSubsets.Rd
+% File man/testMeansSubsets.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{testMeanSubsets}
-\alias{testMeanSubsets}
-\alias{testMeanSubsets.default}
-\alias{testMeanSubsets.formula}
-\alias{testMeanSubsets.wss}
-\alias{testMeanSubsets.bss}
-\title{Test Mean Subsets}
+\name{testMeansSubsets}
+\alias{testMeansSubsets}
+\alias{testMeansSubsets.default}
+\alias{testMeansSubsets.formula}
+\alias{testMeansSubsets.wss}
+\alias{testMeansSubsets.bss}
+\title{Test Means Subsets}
 \description{Provides the statistical significance tests for a mean contrast and the mean subsets that comprise that contrast.}
 
 \usage{
-\method{testMeanSubsets}{default}(frame, contrast, main=NULL, labels=NULL, digits=3)
+\method{testMeansSubsets}{default}(frame, contrast, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanSubsets}{formula}(formula, contrast, main=NULL, labels=NULL, digits=3)
+\method{testMeansSubsets}{formula}(formula, contrast, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanSubsets}{wss}(DescStats, CorrStats, contrast, main=NULL, labels=NULL, digits=3)
+\method{testMeansSubsets}{wss}(DescStats, CorrStats, contrast, main=NULL, labels=NULL, digits=3)
 
-\method{testMeanSubsets}{bss}(DescStats, contrast, main=NULL, labels=NULL, digits=3)
+\method{testMeansSubsets}{bss}(DescStats, contrast, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

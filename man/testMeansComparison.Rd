@@ -1,23 +1,23 @@
-% File man/testMeanComparison.Rd
+% File man/testMeansComparison.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{testMeanComparison}
-\alias{testMeanComparison}
-\alias{testMeanComparison.default}
-\alias{testMeanComparison.formula}
-\alias{testMeanComparison.wss}
-\alias{testMeanComparison.bss}
-\title{Test Mean Comparison}
+\name{testMeansComparison}
+\alias{testMeansComparison}
+\alias{testMeansComparison.default}
+\alias{testMeansComparison.formula}
+\alias{testMeansComparison.wss}
+\alias{testMeansComparison.bss}
+\title{Test Means Comparison}
 \description{Provides the statistical significances tests for the means and mean difference of a specified comparison.}
 
 \usage{
-\method{testMeanComparison}{default}(frame, main=NULL, digits=3)
+\method{testMeansComparison}{default}(frame, main=NULL, digits=3)
 
-\method{testMeanComparison}{formula}(formula, main=NULL, digits=3)
+\method{testMeansComparison}{formula}(formula, main=NULL, digits=3)
 
-\method{testMeanComparison}{wss}(CompStats, CorrStats, main=NULL, digits=3)
+\method{testMeansComparison}{wss}(CompStats, CorrStats, main=NULL, digits=3)
 
-\method{testMeanComparison}{bss}(CompStats, main=NULL, digits=3)
+\method{testMeansComparison}{bss}(CompStats, main=NULL, digits=3)
 }
 
 \arguments{

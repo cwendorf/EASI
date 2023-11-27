@@ -1,23 +1,23 @@
-% File man/estimateMeanDifference.Rd
+% File man/estimateMeansDifference.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateMeanDifference}
-\alias{estimateMeanDifference}
-\alias{estimateMeanDifference.default}
-\alias{estimateMeanDifference.formula}
-\alias{estimateMeanDifference.wss}
-\alias{estimateMeanDifference.bss}
-\title{Estimate Mean Difference}
+\name{estimateMeansDifference}
+\alias{estimateMeansDifference}
+\alias{estimateMeansDifference.default}
+\alias{estimateMeansDifference.formula}
+\alias{estimateMeansDifference.wss}
+\alias{estimateMeansDifference.bss}
+\title{Estimate Means Difference}
 \description{Provides the mean difference, standard error, and confidence interval of the difference.}
 
 \usage{
-\method{estimateMeanDifference}{default}(frame, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansDifference}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanDifference}{formula}(formula, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansDifference}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanDifference}{wss}(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansDifference}{wss}(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanDifference}{bss}(CompStats, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansDifference}{bss}(CompStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

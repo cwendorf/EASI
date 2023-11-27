@@ -1,23 +1,23 @@
-% File man/testMeanDifference.Rd
+% File man/testMeansDifference.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{testMeanDifference}
-\alias{testMeanDifference}
-\alias{testMeanDifference.default}
-\alias{testMeanDifference.formula}
-\alias{testMeanDifference.wss}
-\alias{testMeanDifference.bss}
-\title{Test Mean Difference}
+\name{testMeansDifference}
+\alias{testMeansDifference}
+\alias{testMeansDifference.default}
+\alias{testMeansDifference.formula}
+\alias{testMeansDifference.wss}
+\alias{testMeansDifference.bss}
+\title{Test Means Difference}
 \description{Provides a statistical significance test of the mean difference.}
 
 \usage{
-\method{testMeanDifference}{default}(frame, mu=0, main=NULL, digits=3)
+\method{testMeansDifference}{default}(frame, mu=0, main=NULL, digits=3)
 
-\method{testMeanDifference}{formula}(formula, mu=0, main=NULL, digits=3)
+\method{testMeansDifference}{formula}(formula, mu=0, main=NULL, digits=3)
 
-\method{testMeanDifference}{wss}(CompStats, CorrStats, mu=0, main=NULL, digits=3)
+\method{testMeansDifference}{wss}(CompStats, CorrStats, mu=0, main=NULL, digits=3)
 
-\method{testMeanDifference}{bss}(CompStats, mu=0, main=NULL, digits=3)
+\method{testMeansDifference}{bss}(CompStats, mu=0, main=NULL, digits=3)
 }
 
 \arguments{

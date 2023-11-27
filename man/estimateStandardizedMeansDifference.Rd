@@ -1,23 +1,23 @@
-% File man/estimateStandardizedMeanDifference.Rd
+% File man/estimateStandardizedMeansDifference.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateStandardizedMeanDifference}
-\alias{estimateStandardizedMeanDifference}
-\alias{estimateStandardizedMeanDifference.default}
-\alias{estimateStandardizedMeanDifference.formula}
-\alias{estimateStandardizedMeanDifference.wss}
-\alias{estimateStandardizedMeanDifference.bss}
-\title{Estimate Standardized Mean Difference}
+\name{estimateStandardizedMeansDifference}
+\alias{estimateStandardizedMeansDifference}
+\alias{estimateStandardizedMeansDifference.default}
+\alias{estimateStandardizedMeansDifference.formula}
+\alias{estimateStandardizedMeansDifference.wss}
+\alias{estimateStandardizedMeansDifference.bss}
+\title{Estimate Standardized Means Difference}
 \description{Provides the standardized effect size for the difference and its confidence interval.}
 
 \usage{
-\method{estimateStandardizedMeanDifference}{default}(frame, mu=0, conf.level=.95, main=NULL, digits=3)
+\method{estimateStandardizedMeansDifference}{default}(frame, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanDifference}{formula}(formula, mu=0, conf.level=.95, main=NULL, digits=3)
+\method{estimateStandardizedMeansDifference}{formula}(formula, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanDifference}{wss}(CompStats, CorrStats, mu=0, conf.level=.95, main=NULL, digits=3)
+\method{estimateStandardizedMeansDifference}{wss}(CompStats, CorrStats, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanDifference}{bss}(CompStats, mu=0, conf.level=.95, main=NULL, digits=3)
+\method{estimateStandardizedMeansDifference}{bss}(CompStats, mu=0, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

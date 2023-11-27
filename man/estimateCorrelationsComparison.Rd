@@ -1,14 +1,14 @@
-% File man/estimateCorrelationComparison.Rd
+% File man/estimateCorrelationsComparison.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateCorrelationComparison}
-\alias{estimateCorrelationComparison}
-\alias{estimateCorrelationComparison.default}
-\title{Estimate Correlation Comparison}
+\name{estimateCorrelationsComparison}
+\alias{estimateCorrelationsComparison}
+\alias{estimateCorrelationsComparison.default}
+\title{Estimate Correlations Comparison}
 \description{Provides the confidence intervals for the correlations and correlation difference for independent samples.}
 
 \usage{
-\method{estimateCorrelationComparison}{default}(CorrEst1, CorrEst2, main=NULL, labels=NULL, digits=3)
+\method{estimateCorrelationsComparison}{default}(CorrEst1, CorrEst2, main=NULL, labels=NULL, digits=3)
 }
 
 \arguments{

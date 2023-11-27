@@ -1,23 +1,23 @@
-% File man/estimateMeanComparison.Rd
+% File man/estimateMeansComparison.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateMeanComparison}
-\alias{estimateMeanComparison}
-\alias{estimateMeanComparison.default}
-\alias{estimateMeanComparison.formula}
-\alias{estimateMeanComparison.wss}
-\alias{estimateMeanComparison.bss}
-\title{Estimate Mean Comparison}
+\name{estimateMeansComparison}
+\alias{estimateMeansComparison}
+\alias{estimateMeansComparison.default}
+\alias{estimateMeansComparison.formula}
+\alias{estimateMeansComparison.wss}
+\alias{estimateMeansComparison.bss}
+\title{Estimate Means Comparison}
 \description{Provides the confidence intervals for the means and mean difference of a specified comparison.}
 
 \usage{
-\method{estimateMeanComparison}{default}(frame, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansComparison}{default}(frame, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanComparison}{formula}(formula, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansComparison}{formula}(formula, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanComparison}{wss}(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansComparison}{wss}(CompStats, CorrStats, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanComparison}{bss}(CompStats, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansComparison}{bss}(CompStats, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

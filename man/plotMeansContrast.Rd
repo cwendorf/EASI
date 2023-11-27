@@ -1,23 +1,23 @@
-% File man/plotMeanContrast.Rd
+% File man/plotMeansContrast.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{plotMeanContrast}
-\alias{plotMeanContrast}
-\alias{plotMeanContrast.default}
-\alias{plotMeanContrast.formula}
-\alias{plotMeanContrast.wss}
-\alias{plotMeanContrast.bss}
-\title{Plot Mean Contrast}
+\name{plotMeansContrast}
+\alias{plotMeansContrast}
+\alias{plotMeansContrast.default}
+\alias{plotMeansContrast.formula}
+\alias{plotMeansContrast.wss}
+\alias{plotMeansContrast.bss}
+\title{Plot Means Contrast}
 \description{Provides the plot of the mean contrast and its confidence interval.}
 
 \usage{
-\method{plotMeanContrast}{default}(frame, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansContrast}{default}(frame, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanContrast}{formula}(formula, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansContrast}{formula}(formula, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanContrast}{wss}(DescStats, CorrStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansContrast}{wss}(DescStats, CorrStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeanContrast}{bss}(DescStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansContrast}{bss}(DescStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{

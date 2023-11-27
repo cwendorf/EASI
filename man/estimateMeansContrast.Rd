@@ -1,23 +1,23 @@
-% File man/estimateMeanContrast.Rd
+% File man/estimateMeansContrast.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateMeanContrast}
-\alias{estimateMeanContrast}
-\alias{estimateMeanContrast.default}
-\alias{estimateMeanContrast.formula}
-\alias{estimateMeanContrast.wss}
-\alias{estimateMeanContrast.bss}
-\title{Estimate Mean Contrast}
+\name{estimateMeansContrast}
+\alias{estimateMeansContrast}
+\alias{estimateMeansContrast.default}
+\alias{estimateMeansContrast.formula}
+\alias{estimateMeansContrast.wss}
+\alias{estimateMeansContrast.bss}
+\title{Estimate Means Contrast}
 \description{Provides the mean contrast, standard error, and confidence interval of the contrast.}
 
 \usage{
-\method{estimateMeanContrast}{default}(frame, contrast, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansContrast}{default}(frame, contrast, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanContrast}{formula}(formula, contrast, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansContrast}{formula}(formula, contrast, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanContrast}{wss}(DescStats, CorrStats, contrast, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansContrast}{wss}(DescStats, CorrStats, contrast, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateMeanContrast}{bss}(DescStats, contrast, conf.level=.95, main=NULL, digits=3)
+\method{estimateMeansContrast}{bss}(DescStats, contrast, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{

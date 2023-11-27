@@ -1,23 +1,23 @@
-% File man/estimateStandardizedMeanContrast.Rd
+% File man/estimateStandardizedMeansContrast.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateStandardizedMeanContrast}
-\alias{estimateStandardizedMeanContrast}
-\alias{estimateStandardizedMeanContrast.default}
-\alias{estimateStandardizedMeanContrast.formula}
-\alias{estimateStandardizedMeanContrast.wss}
-\alias{estimateStandardizedMeanContrast.bss}
-\title{Estimate Standardized Mean Contrast}
+\name{estimateStandardizedMeansContrast}
+\alias{estimateStandardizedMeansContrast}
+\alias{estimateStandardizedMeansContrast.default}
+\alias{estimateStandardizedMeansContrast.formula}
+\alias{estimateStandardizedMeansContrast.wss}
+\alias{estimateStandardizedMeansContrast.bss}
+\title{Estimate Standardized Means Contrast}
 \description{Provides the standardized effect size and its confidence interval for the contrast.}
 
 \usage{
-\method{estimateStandardizedMeanContrast}{default}(frame, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
+\method{estimateStandardizedMeansContrast}{default}(frame, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanContrast}{formula}(formula, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
+\method{estimateStandardizedMeansContrast}{formula}(formula, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanContrast}{wss}(DescStats, CorrStats, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
+\method{estimateStandardizedMeansContrast}{wss}(DescStats, CorrStats, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 
-\method{estimateStandardizedMeanContrast}{bss}(DescStats, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
+\method{estimateStandardizedMeansContrast}{bss}(DescStats, contrast, mu=0, conf.level=.95, main=NULL, digits=3)
 }
 
 \arguments{
