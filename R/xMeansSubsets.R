@@ -3,11 +3,11 @@
 
 ### Confidence Interval Functions
 
-.estimateMeanSubsets <- function(x, ...) {
-  UseMethod(".estimateMeanSubsets")
+.estimateMeansSubsets <- function(x, ...) {
+  UseMethod(".estimateMeansSubsets")
 }
 
-.estimateMeanSubsets.default <- .estimateMeanSubsets.formula <- .estimateMeanSubsets.wss <- .estimateMeanSubsets.bss <- function(..., contrast, conf.level = .95, labels = NULL) {
+.estimateMeansSubsets.default <- .estimateMeansSubsets.formula <- .estimateMeansSubsets.wss <- .estimateMeansSubsets.bss <- function(..., contrast, conf.level = .95, labels = NULL) {
   con1 <- ifelse(contrast < 0, 0, contrast)
   res1 <- .estimateMeanContrast(..., contrast = con1, conf.level = conf.level)
   con2 <- ifelse(contrast > 0, 0, abs(contrast))
@@ -27,8 +27,8 @@
   return(results)
 }
 
-estimateMeanSubsets <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeanSubsets(...)
+estimateMeansSubsets <- function(..., main = NULL, digits = 3) {
+  results <- .estimateMeansSubsets(...)
   if (is.null(main)) {
     main <- names(results)
   }
@@ -38,11 +38,11 @@ estimateMeanSubsets <- function(..., main = NULL, digits = 3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeanSubsets <- function(x, ...) {
-  UseMethod(".testMeanSubsets")
+.testMeansSubsets <- function(x, ...) {
+  UseMethod(".testMeansSubsets")
 }
 
-.testMeanSubsets.default <- .testMeanSubsets.formula <- .testMeanSubsets.wss <- .testMeanSubsets.bss <- function(..., contrast, labels = NULL) {
+.testMeansSubsets.default <- .testMeansSubsets.formula <- .testMeansSubsets.wss <- .testMeansSubsets.bss <- function(..., contrast, labels = NULL) {
   con1 <- ifelse(contrast < 0, 0, contrast)
   res1 <- .testMeanContrast(..., contrast = con1)
   con2 <- ifelse(contrast > 0, 0, abs(contrast))
@@ -62,8 +62,8 @@ estimateMeanSubsets <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-testMeanSubsets <- function(..., main = NULL, digits = 3) {
-  results <- .testMeanSubsets(...)
+testMeansSubsets <- function(..., main = NULL, digits = 3) {
+  results <- .testMeansSubsets(...)
   if (is.null(main)) {
     main <- names(results)
   }
@@ -73,20 +73,20 @@ testMeanSubsets <- function(..., main = NULL, digits = 3) {
 
 ### Confidence Interval Plots
 
-plotMeanSubsets <- function(x, ...) {
-  UseMethod("plotMeanSubsets")
+plotMeansSubsets <- function(x, ...) {
+  UseMethod("plotMeansSubsets")
 }
 
-plotMeanSubsets.wss <- plotMeanSubsets.default <- function(..., contrast, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, pos = c(2, 2, 4), connect = TRUE, ylim = NULL, digits = 3, pch = c(15, 15, 17), col = "black", offset = 0, intervals = TRUE) {
-  results <- estimateMeanSubsets(..., contrast = contrast, conf.level = conf.level, labels = labels, main = main, digits = digits)
+plotMeansSubsets.wss <- plotMeansSubsets.default <- function(..., contrast, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, pos = c(2, 2, 4), connect = TRUE, ylim = NULL, digits = 3, pch = c(15, 15, 17), col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateMeansSubsets(..., contrast = contrast, conf.level = conf.level, labels = labels, main = main, digits = digits)
   if (is.null(main)) {
     main <- "Confidence Intervals for the Subsets of Means"
   }
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
-plotMeanSubsets.bss <- plotMeanSubsets.formula <- function(..., contrast, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, pos = c(2, 2, 4), connect = FALSE, ylim = NULL, digits = 3, pch = c(15, 15, 17), col = "black", offset = 0, intervals = TRUE) {
-  results <- estimateMeanSubsets(..., contrast = contrast, conf.level = conf.level, labels = labels, main = main, digits = digits)
+plotMeansSubsets.bss <- plotMeansSubsets.formula <- function(..., contrast, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, pos = c(2, 2, 4), connect = FALSE, ylim = NULL, digits = 3, pch = c(15, 15, 17), col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateMeansSubsets(..., contrast = contrast, conf.level = conf.level, labels = labels, main = main, digits = digits)
   if (is.null(main)) {
     main <- "Confidence Intervals for the Subsets of Means"
   }

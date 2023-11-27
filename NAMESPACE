@@ -87,13 +87,6 @@ S3method(plotPlausible,list)
 export(plotPlausible)
 export(addPlausible)
 
-### xDiamonds
-
-S3method(plotDiamonds,default)
-S3method(plotDiamonds,list)
-export(plotDiamonds)
-export(addDiamonds)
-
 ### Summary
 
 S3method(.describeSummary,default)
@@ -142,121 +135,121 @@ export(estimateStandardizedMeans)
 
 export(plotStandardizedMeans)
 
-### xMeanDifference
+### xMeansDifference
 
-S3method(.estimateMeanDifference,default)
-S3method(.estimateMeanDifference,formula)
-S3method(.estimateMeanDifference,wss)
-S3method(.estimateMeanDifference,bss)
-export(estimateMeanDifference)
+S3method(.estimateMeansDifference,default)
+S3method(.estimateMeansDifference,formula)
+S3method(.estimateMeansDifference,wss)
+S3method(.estimateMeansDifference,bss)
+export(estimateMeansDifference)
 
-S3method(.testMeanDifference,default)
-S3method(.testMeanDifference,formula)
-S3method(.testMeanDifference,wss)
-S3method(.testMeanDifference,bss)
-export(testMeanDifference)
+S3method(.testMeansDifference,default)
+S3method(.testMeansDifference,formula)
+S3method(.testMeansDifference,wss)
+S3method(.testMeansDifference,bss)
+export(testMeansDifference)
 
-export(plotMeanDifference)
+export(plotMeansDifference)
 
-export(analyzeMeanDifference)
+export(analyzeMeansDifference)
 
-### xStandardizedMeanDifference
+### xStandardizedMeansDifference
 
-S3method(.estimateStandardizedMeanDifference,default)
-S3method(.estimateStandardizedMeanDifference,formula)
-S3method(.estimateStandardizedMeanDifference,wss)
-S3method(.estimateStandardizedMeanDifference,bss)
-export(estimateStandardizedMeanDifference)
+S3method(.estimateStandardizedMeansDifference,default)
+S3method(.estimateStandardizedMeansDifference,formula)
+S3method(.estimateStandardizedMeansDifference,wss)
+S3method(.estimateStandardizedMeansDifference,bss)
+export(estimateStandardizedMeansDifference)
 
-export(plotStandardizedMeanDifference)
+export(plotStandardizedMeansDifference)
 
-### xMeanComparison
+### xMeansComparison
 
-S3method(.estimateMeanComparison,default)
-S3method(.estimateMeanComparison,formula)
-S3method(.estimateMeanComparison,wss)
-S3method(.estimateMeanComparison,bss)
-export(estimateMeanComparison)
+S3method(.estimateMeansComparison,default)
+S3method(.estimateMeansComparison,formula)
+S3method(.estimateMeansComparison,wss)
+S3method(.estimateMeansComparison,bss)
+export(estimateMeansComparison)
 
-S3method(.testMeanComparison,default)
-S3method(.testMeanComparison,formula)
-S3method(.testMeanComparison,wss)
-S3method(.testMeanComparison,bss)
-export(testMeanComparison)
+S3method(.testMeansComparison,default)
+S3method(.testMeansComparison,formula)
+S3method(.testMeansComparison,wss)
+S3method(.testMeansComparison,bss)
+export(testMeansComparison)
 
-S3method(plotMeanComparison,default)
-S3method(plotMeanComparison,formula)
-S3method(plotMeanComparison,wss)
-S3method(plotMeanComparison,bss)
-export(plotMeanComparison)
+S3method(plotMeansComparison,default)
+S3method(plotMeansComparison,formula)
+S3method(plotMeansComparison,wss)
+S3method(plotMeansComparison,bss)
+export(plotMeansComparison)
 
-### xMeanContrast
+### xMeansContrast
 
-S3method(.estimateMeanContrast,default)
-S3method(.estimateMeanContrast,formula)
-S3method(.estimateMeanContrast,wss)
-S3method(.estimateMeanContrast,bss)
-export(estimateMeanContrast)
+S3method(.estimateMeansContrast,default)
+S3method(.estimateMeansContrast,formula)
+S3method(.estimateMeansContrast,wss)
+S3method(.estimateMeansContrast,bss)
+export(estimateMeansContrast)
 
-S3method(.testMeanContrast,default)
-S3method(.testMeanContrast,formula)
-S3method(.testMeanContrast,wss)
-S3method(.testMeanContrast,bss)
-export(testMeanContrast)
+S3method(.testMeansContrast,default)
+S3method(.testMeansContrast,formula)
+S3method(.testMeansContrast,wss)
+S3method(.testMeansContrast,bss)
+export(testMeansContrast)
 
-export(plotMeanContrast)
+export(plotMeansContrast)
 
-export(analyzeMeanContrast)
+export(analyzeMeansContrast)
 
-### xStandardizedMeanContrast
+### xStandardizedMeansContrast
 
-S3method(.estimateStandardizedMeanContrast,default)
-S3method(.estimateStandardizedMeanContrast,formula)
-S3method(.estimateStandardizedMeanContrast,wss)
-S3method(.estimateStandardizedMeanContrast,bss)
-export(estimateStandardizedMeanContrast)
+S3method(.estimateStandardizedMeansContrast,default)
+S3method(.estimateStandardizedMeansContrast,formula)
+S3method(.estimateStandardizedMeansContrast,wss)
+S3method(.estimateStandardizedMeansContrast,bss)
+export(estimateStandardizedMeansContrast)
 
-export(plotStandardizedMeanContrast)
+export(plotStandardizedMeansContrast)
 
-### xMeanSubsets
+### xMeansSubsets
 
-S3method(.estimateMeanSubsets,default)
-S3method(.estimateMeanSubsets,formula)
-S3method(.estimateMeanSubsets,wss)
-S3method(.estimateMeanSubsets,bss)
-export(estimateMeanSubsets)
+S3method(.estimateMeansSubsets,default)
+S3method(.estimateMeansSubsets,formula)
+S3method(.estimateMeansSubsets,wss)
+S3method(.estimateMeansSubsets,bss)
+export(estimateMeansSubsets)
 
-S3method(.testMeanSubsets,default)
-S3method(.testMeanSubsets,formula)
-S3method(.testMeanSubsets,wss)
-S3method(.testMeanSubsets,bss)
-export(testMeanSubsets)
+S3method(.testMeansSubsets,default)
+S3method(.testMeansSubsets,formula)
+S3method(.testMeansSubsets,wss)
+S3method(.testMeansSubsets,bss)
+export(testMeansSubsets)
 
-S3method(plotMeanSubsets,default)
-S3method(plotMeanSubsets,formula)
-S3method(plotMeanSubsets,wss)
-S3method(plotMeanSubsets,bss)
-export(plotMeanSubsets)
+S3method(plotMeansSubsets,default)
+S3method(plotMeansSubsets,formula)
+S3method(plotMeansSubsets,wss)
+S3method(plotMeansSubsets,bss)
+export(plotMeansSubsets)
 
-### xMeanComplex
+### xMeansComplex
 
-S3method(.estimateMeanComplex,default)
-S3method(.estimateMeanComplex,formula)
-S3method(.estimateMeanComplex,wss)
-S3method(.estimateMeanComplex,bss)
-export(estimateMeanComplex)
+S3method(.estimateMeansComplex,default)
+S3method(.estimateMeansComplex,formula)
+S3method(.estimateMeansComplex,wss)
+S3method(.estimateMeansComplex,bss)
+export(estimateMeansComplex)
 
-S3method(.testMeanComplex,default)
-S3method(.testMeanComplex,formula)
-S3method(.testMeanComplex,wss)
-S3method(.testMeanComplex,bss)
-export(testMeanComplex)
+S3method(.testMeansComplex,default)
+S3method(.testMeansComplex,formula)
+S3method(.testMeansComplex,wss)
+S3method(.testMeansComplex,bss)
+export(testMeansComplex)
 
-S3method(plotMeanComplex,default)
-S3method(plotMeanComplex,formula)
-S3method(plotMeanComplex,wss)
-S3method(plotMeanComplex,bss)
-export(plotMeanComplex)
+S3method(plotMeansComplex,default)
+S3method(plotMeansComplex,formula)
+S3method(plotMeansComplex,wss)
+S3method(plotMeansComplex,bss)
+export(plotMeansComplex)
 
 ### xMeansPairwise
 
@@ -374,21 +367,21 @@ export(testCorrelations)
 
 export(plotCorrelations)
 
-### xCorrelationDifference
+### xCorrelationsDifference
 
-S3method(.estimateCorrelationDifference,list)
-export(estimateCorrelationDifference)
+S3method(.estimateCorrelationsDifference,list)
+export(estimateCorrelationsDifference)
 
-S3method(plotCorrelationDifference,list)
-export(plotCorrelationDifference)
+S3method(plotCorrelationsDifference,list)
+export(plotCorrelationsDifference)
 
-### xCorrelationComparison
+### xCorrelationsComparison
 
-S3method(.estimateCorrelationComparison,list)
-export(estimateCorrelationComparison)
+S3method(.estimateCorrelationsComparison,list)
+export(estimateCorrelationsComparison)
 
-S3method(plotCorrelationComparison,list)
-export(plotCorrelationComparison)
+S3method(plotCorrelationsComparison,list)
+export(plotCorrelationsComparison)
 
 ### xScatter
 
@@ -480,53 +473,53 @@ S3method(.estimateStandardizedMeansBy,wss)
 S3method(.estimateStandardizedMeansBy,bss)
 export(estimateStandardizedMeansBy)
 
-### xMeanDifferenceBy
+### xMeansDifferenceBy
 
-S3method(.estimateMeanDifferenceBy,default)
-S3method(.estimateMeanDifferenceBy,formula)
-S3method(.estimateMeanDifferenceBy,wss)
-S3method(.estimateMeanDifferenceBy,bss)
-export(estimateMeanDifferenceBy)
+S3method(.estimateMeansDifferenceBy,default)
+S3method(.estimateMeansDifferenceBy,formula)
+S3method(.estimateMeansDifferenceBy,wss)
+S3method(.estimateMeansDifferenceBy,bss)
+export(estimateMeansDifferenceBy)
 
-S3method(.testMeanDifferenceBy,default)
-S3method(.testMeanDifferenceBy,formula)
-S3method(.testMeanDifferenceBy,wss)
-S3method(.testMeanDifferenceBy,bss)
-export(testMeanDifferenceBy)
+S3method(.testMeansDifferenceBy,default)
+S3method(.testMeansDifferenceBy,formula)
+S3method(.testMeansDifferenceBy,wss)
+S3method(.testMeansDifferenceBy,bss)
+export(testMeansDifferenceBy)
 
-export(plotMeanDifferenceBy)
+export(plotMeansDifferenceBy)
 
-### xStandardizedMeanDifferenceBy
+### xStandardizedMeansDifferenceBy
 
-S3method(.estimateStandardizedMeanDifferenceBy,default)
-S3method(.estimateStandardizedMeanDifferenceBy,formula)
-S3method(.estimateStandardizedMeanDifferenceBy,wss)
-S3method(.estimateStandardizedMeanDifferenceBy,bss)
-export(estimateStandardizedMeanDifferenceBy)
+S3method(.estimateStandardizedMeansDifferenceBy,default)
+S3method(.estimateStandardizedMeansDifferenceBy,formula)
+S3method(.estimateStandardizedMeansDifferenceBy,wss)
+S3method(.estimateStandardizedMeansDifferenceBy,bss)
+export(estimateStandardizedMeansDifferenceBy)
 
-### xMeanContrastBy
+### xMeansContrastBy
 
-S3method(.estimateMeanContrastBy,default)
-S3method(.estimateMeanContrastBy,formula)
-S3method(.estimateMeanContrastBy,wss)
-S3method(.estimateMeanContrastBy,bss)
-export(estimateMeanContrastBy)
+S3method(.estimateMeansContrastBy,default)
+S3method(.estimateMeansContrastBy,formula)
+S3method(.estimateMeansContrastBy,wss)
+S3method(.estimateMeansContrastBy,bss)
+export(estimateMeansContrastBy)
 
-S3method(.testMeanContrastBy,default)
-S3method(.testMeanContrastBy,formula)
-S3method(.testMeanContrastBy,wss)
-S3method(.testMeanContrastBy,bss)
-export(testMeanContrastBy)
+S3method(.testMeansContrastBy,default)
+S3method(.testMeansContrastBy,formula)
+S3method(.testMeansContrastBy,wss)
+S3method(.testMeansContrastBy,bss)
+export(testMeansContrastBy)
 
-export(plotMeanContrastBy)
+export(plotMeansContrastBy)
 
-### xStandardizedMeanContrastBy
+### xStandardizedMeansContrastBy
 
-S3method(.estimateStandardizedMeanContrastBy,default)
-S3method(.estimateStandardizedMeanContrastBy,formula)
-S3method(.estimateStandardizedMeanContrastBy,wss)
-S3method(.estimateStandardizedMeanContrastBy,bss)
-export(estimateStandardizedMeanContrastBy)
+S3method(.estimateStandardizedMeansContrastBy,default)
+S3method(.estimateStandardizedMeansContrastBy,formula)
+S3method(.estimateStandardizedMeansContrastBy,wss)
+S3method(.estimateStandardizedMeansContrastBy,bss)
+export(estimateStandardizedMeansContrastBy)
 
 ### xMeansEffectBy
 
@@ -570,22 +563,22 @@ export(testMeansFactorial)
 
 export(plotMeansFactorial)
 
-### xMeanInteraction
+### xMeansInteraction
 
-S3method(.estimateMeanInteraction,default)
-S3method(.estimateMeanInteraction,formula)
-S3method(.estimateMeanInteraction,bss)
-export(estimateMeanInteraction)
+S3method(.estimateMeansInteraction,default)
+S3method(.estimateMeansInteraction,formula)
+S3method(.estimateMeansInteraction,bss)
+export(estimateMeansInteraction)
 
-S3method(.testMeanInteraction,default)
-S3method(.testMeanInteraction,formula)
-S3method(.testMeanInteraction,bss)
-export(testMeanInteraction)
+S3method(.testMeansInteraction,default)
+S3method(.testMeansInteraction,formula)
+S3method(.testMeansInteraction,bss)
+export(testMeansInteraction)
 
-S3method(plotMeanInteraction,default)
-S3method(plotMeanInteraction,formula)
-S3method(plotMeanInteraction,bss)
-export(plotMeanInteraction)
+S3method(plotMeansInteraction,default)
+S3method(plotMeansInteraction,formula)
+S3method(plotMeansInteraction,bss)
+export(plotMeansInteraction)
 
 ### xCorrelationsBy
 

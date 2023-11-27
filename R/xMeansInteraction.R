@@ -1,13 +1,13 @@
 # Estimation Approach to Statistical Inference
-## Mean Interaction Contrasts (Factorial and Mixed Design ANOVA)
+## Means Interaction Contrast (Factorial and Mixed Design ANOVA)
 
 ### Confidence Intervals
 
-.estimateMeanInteraction <- function(x, ...) {
-  UseMethod(".estimateMeanInteraction")
+.estimateMeansInteraction <- function(x, ...) {
+  UseMethod(".estimateMeansInteraction")
 }
 
-.estimateMeanInteraction.default <- function(frame, by, conf.level = .95) {
+.estimateMeansInteraction.default <- function(frame, by, conf.level = .95) {
   SplitData <- .splitData(frame, by)
   y11 <- SplitData[[1]][, 1]
   y12 <- SplitData[[1]][, 2]
@@ -50,7 +50,7 @@
   return(out)
 }
 
-.estimateMeanInteraction.bss <- function(ListDescStats, conf.level = .95) {
+.estimateMeansInteraction.bss <- function(ListDescStats, conf.level = .95) {
   ListDescStats[[1]] <- ListDescStats[[1]][1:2, 1:3]
   ListDescStats[[2]] <- ListDescStats[[2]][1:2, 1:3]
   DescStats <- .deList(.collapseList(ListDescStats))
@@ -93,14 +93,14 @@
   return(out)
 }
 
-.estimateMeanInteraction.formula <- function(formula, by, conf.level = .95, ...) {
+.estimateMeansInteraction.formula <- function(formula, by, conf.level = .95, ...) {
   ListDescStats <- .describeSummaryBy(formula, by = by)
-  results <- .estimateMeanInteraction.bss(ListDescStats, conf.level = conf.level)
+  results <- .estimateMeansInteraction.bss(ListDescStats, conf.level = conf.level)
   return(results)
 }
 
-estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeanInteraction(...)
+estimateMeansInteraction <- function(..., main = NULL, digits = 3) {
+  results <- .estimateMeansInteraction(...)
   if (is.null(main)) {
     main <- names(results)
   }
@@ -110,11 +110,11 @@ estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeanInteraction <- function(x, ...) {
-  UseMethod(".testMeanInteraction")
+.testMeansInteraction <- function(x, ...) {
+  UseMethod(".testMeansInteraction")
 }
 
-.testMeanInteraction.default <- function(frame, by, ...) {
+.testMeansInteraction.default <- function(frame, by, ...) {
   SplitData <- .splitData(frame, by)
   y11 <- SplitData[[1]][, 1]
   y12 <- SplitData[[1]][, 2]
@@ -154,7 +154,7 @@ estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
   return(out)
 }
 
-.testMeanInteraction.bss <- function(ListDescStats) {
+.testMeansInteraction.bss <- function(ListDescStats) {
   ListDescStats[[1]] <- ListDescStats[[1]][1:2, 1:3]
   ListDescStats[[2]] <- ListDescStats[[2]][1:2, 1:3]
   DescStats <- .deList(.collapseList(ListDescStats))
@@ -194,14 +194,14 @@ estimateMeanInteraction <- function(..., main = NULL, digits = 3) {
   return(out)
 }
 
-.testMeanInteraction.formula <- function(formula, by, ...) {
+.testMeansInteraction.formula <- function(formula, by, ...) {
   ListDescStats <- .describeSummaryBy(formula, by = by)
-  results <- .testMeanInteraction.bss(ListDescStats)
+  results <- .testMeansInteraction.bss(ListDescStats)
   return(results)
 }
 
-testMeanInteraction <- function(..., main = NULL, digits = 3) {
-  results <- .testMeanInteraction(...)
+testMeansInteraction <- function(..., main = NULL, digits = 3) {
+  results <- .testMeansInteraction(...)
   if (is.null(main)) {
     main <- names(results)
   }
@@ -211,20 +211,20 @@ testMeanInteraction <- function(..., main = NULL, digits = 3) {
 
 ### Confidence Interval Plots
 
-plotMeanInteraction <- function(x, ...) {
-  UseMethod("plotMeanInteraction")
+plotMeansInteraction <- function(x, ...) {
+  UseMethod("plotMeansInteraction")
 }
 
-plotMeanInteraction.bss <- plotMeanInteraction.formula <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = FALSE, pos = c(2, 2, 4), pch = c(17, 17, 18), col = "black", offset = 0, intervals = TRUE) {
-  results <- estimateMeanInteraction(..., conf.level = conf.level, main = main, digits = digits)
+plotMeansInteraction.bss <- plotMeansInteraction.formula <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = FALSE, pos = c(2, 2, 4), pch = c(17, 17, 18), col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateMeansInteraction(..., conf.level = conf.level, main = main, digits = digits)
   if (is.null(main)) {
     main <- "Confidence Intervals for the Mean Interaction"
   }
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
-plotMeanInteraction.default <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = TRUE, pos = c(2, 2, 4), pch = c(17, 17, 18), col = "black", offset = 0, intervals = TRUE) {
-  results <- estimateMeanInteraction(..., conf.level = conf.level, main = main, digits = digits)
+plotMeansInteraction.default <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = TRUE, pos = c(2, 2, 4), pch = c(17, 17, 18), col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateMeansInteraction(..., conf.level = conf.level, main = main, digits = digits)
   if (is.null(main)) {
     main <- "Confidence Intervals for the Mean Interaction"
   }

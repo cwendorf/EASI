@@ -1,13 +1,13 @@
 # Estimation Approach to Statistical Inference
-## Mean Contrasts
+## Means Contrast
 
 ### Confidence Intervals
 
-.estimateMeanContrast <- function(x, ...) {
-  UseMethod(".estimateMeanContrast")
+.estimateMeansContrast <- function(x, ...) {
+  UseMethod(".estimateMeansContrast")
 }
 
-.estimateMeanContrast.wss <- function(DescStats, CorrStats, contrast, conf.level = .95, labels = NULL, ...) {
+.estimateMeansContrast.wss <- function(DescStats, CorrStats, contrast, conf.level = .95, labels = NULL, ...) {
   N <- min(DescStats[, "N"])
   M <- DescStats[, "M"]
   SD <- DescStats[, "SD"]
@@ -28,7 +28,7 @@
   return(results)
 }
 
-.estimateMeanContrast.bss <- function(DescStats, contrast, conf.level = .95, labels = NULL, ...) {
+.estimateMeansContrast.bss <- function(DescStats, contrast, conf.level = .95, labels = NULL, ...) {
   N <- DescStats[, "N"]
   M <- DescStats[, "M"]
   SD <- DescStats[, "SD"]
@@ -49,23 +49,23 @@
   return(results)
 }
 
-.estimateMeanContrast.default <- function(frame, contrast, conf.level = .95, labels = NULL, ...) {
+.estimateMeansContrast.default <- function(frame, contrast, conf.level = .95, labels = NULL, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
-  .estimateMeanContrast.wss(DescStats, CorrStats, contrast, conf.level = conf.level, labels = labels)
+  .estimateMeansContrast.wss(DescStats, CorrStats, contrast, conf.level = conf.level, labels = labels)
 }
 
-.estimateMeanContrast.formula <- function(formula, contrast, conf.level = .95, labels = NULL, ...) {
+.estimateMeansContrast.formula <- function(formula, contrast, conf.level = .95, labels = NULL, ...) {
   DescStats <- .describeSummary(formula)
-  .estimateMeanContrast.bss(DescStats, contrast, conf.level = conf.level, labels = labels)
+  .estimateMeansContrast.bss(DescStats, contrast, conf.level = conf.level, labels = labels)
 }
 
-estimateMeanContrast <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeanContrast(...)
+estimateMeansContrast <- function(..., main = NULL, digits = 3) {
+  results <- .estimateMeansContrast(...)
   if (is.null(main)) {
     main <- "Confidence Interval for the Contrast of Means"
   }
@@ -75,11 +75,11 @@ estimateMeanContrast <- function(..., main = NULL, digits = 3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeanContrast <- function(x, ...) {
-  UseMethod(".testMeanContrast")
+.testMeansContrast <- function(x, ...) {
+  UseMethod(".testMeansContrast")
 }
 
-.testMeanContrast.bss <- function(DescStats, contrast, mu = 0, labels = NULL, ...) {
+.testMeansContrast.bss <- function(DescStats, contrast, mu = 0, labels = NULL, ...) {
   N <- DescStats[, "N"]
   M <- DescStats[, "M"]
   SD <- DescStats[, "SD"]
@@ -99,7 +99,7 @@ estimateMeanContrast <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.testMeanContrast.wss <- function(DescStats, CorrStats, contrast, mu = 0, labels = NULL, ...) {
+.testMeansContrast.wss <- function(DescStats, CorrStats, contrast, mu = 0, labels = NULL, ...) {
   N <- min(DescStats[, "N"])
   M <- DescStats[, "M"]
   SD <- DescStats[, "SD"]
@@ -119,23 +119,23 @@ estimateMeanContrast <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.testMeanContrast.default <- function(frame, contrast, mu = 0, labels = NULL, ...) {
+.testMeansContrast.default <- function(frame, contrast, mu = 0, labels = NULL, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   DescStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
-  .testMeanContrast.wss(DescStats, CorrStats, contrast, mu = mu, labels = labels)
+  .testMeansContrast.wss(DescStats, CorrStats, contrast, mu = mu, labels = labels)
 }
 
-.testMeanContrast.formula <- function(formula, contrast, mu = 0, labels = NULL, ...) {
+.testMeansContrast.formula <- function(formula, contrast, mu = 0, labels = NULL, ...) {
   DescStats <- .describeSummary(formula)
-  .testMeanContrast.bss(DescStats, contrast, mu = mu, labels = labels)
+  .testMeansContrast.bss(DescStats, contrast, mu = mu, labels = labels)
 }
 
-testMeanContrast <- function(..., main = NULL, digits = 3) {
-  results <- .testMeanContrast(...)
+testMeansContrast <- function(..., main = NULL, digits = 3) {
+  results <- .testMeansContrast(...)
   if (is.null(main)) {
     main <- "Hypothesis Test for the Contrast of Means"
   }
@@ -145,17 +145,17 @@ testMeanContrast <- function(..., main = NULL, digits = 3) {
 
 ### Confidence Interval Plots
 
-plotMeanContrast <- function(..., main = NULL, digits = 3, ylab = "Mean Contrast", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, connect = FALSE, values = TRUE, pos = 2, ylim = NULL, add = FALSE, pch = 17, col = "black", offset = 0, intervals = TRUE) {
-  results <- estimateMeanContrast(..., conf.level = conf.level, main = main, digits = digits)
+plotMeansContrast <- function(..., main = NULL, digits = 3, ylab = "Mean Contrast", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, connect = FALSE, values = TRUE, pos = 2, ylim = NULL, add = FALSE, pch = 17, col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateMeansContrast(..., conf.level = conf.level, main = main, digits = digits)
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
 ### Combined Analyses
 
-analyzeMeanContrast <- function(..., main = NULL, digits = 3) {
-  eMC <- estimateMeanContrast(..., digits = digits)
-  tMC <- testMeanContrast(..., digits = digits)
-  eSMC <- estimateStandardizedMeanContrast(..., digits = digits)
+analyzeMeansContrast <- function(..., main = NULL, digits = 3) {
+  eMC <- estimateMeansContrast(..., digits = digits)
+  tMC <- testMeansContrast(..., digits = digits)
+  eSMC <- estimateStandardizedMeansContrast(..., digits = digits)
   results <- c(eMC, tMC, eSMC)
   return(results)
 }

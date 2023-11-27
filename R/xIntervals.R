@@ -6,9 +6,9 @@
 estimateIntervals <- function(x, contrast = NULL, ...) {
   howmany <- nrow(.describeSummary(x))
   if (!is.null(contrast)) {
-    estimateMeanSubsets(x, contrast = contrast, ...)
+    estimateMeansSubsets(x, contrast = contrast, ...)
   } else if (howmany == 2) {
-    estimateMeanComparison(x, ...)
+    estimateMeansComparison(x, ...)
   } else {
     estimateMeans(x, ...)
   }
@@ -23,9 +23,9 @@ plotIntervals <- function(x, ...) {
 plotIntervals.default <- function(x, contrast = NULL, ...) {
   howmany <- nrow(.estimateMeans(x))
   if (!is.null(contrast)) {
-    plotMeanSubsets(x, contrast = contrast, ...)
+    plotMeansSubsets(x, contrast = contrast, ...)
   } else if (howmany == 2) {
-    plotMeanComparison(x, ...)
+    plotMeansComparison(x, ...)
   } else {
     plotMeans(x, ...)
   }

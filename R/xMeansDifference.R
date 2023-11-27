@@ -3,11 +3,11 @@
 
 ### Confidence Intervals
 
-.estimateMeanDifference <- function(x, ...) {
-  UseMethod(".estimateMeanDifference")
+.estimateMeansDifference <- function(x, ...) {
+  UseMethod(".estimateMeansDifference")
 }
 
-.estimateMeanDifference.wss <- function(CompStats, CorrStats, mu = 0, conf.level = .95, labels = NULL, ...) {
+.estimateMeansDifference.wss <- function(CompStats, CorrStats, mu = 0, conf.level = .95, labels = NULL, ...) {
   CompStats <- CompStats[1:2, ]
   N <- CompStats[, "N"]
   M <- CompStats[, "M"]
@@ -30,7 +30,7 @@
   return(results)
 }
 
-.estimateMeanDifference.bss <- function(CompStats, mu = 0, conf.level = .95, labels = NULL, ...) {
+.estimateMeansDifference.bss <- function(CompStats, mu = 0, conf.level = .95, labels = NULL, ...) {
   CompStats <- CompStats[1:2, ]
   N <- CompStats[, "N"]
   M <- CompStats[, "M"]
@@ -50,23 +50,23 @@
   return(results)
 }
 
-.estimateMeanDifference.default <- function(frame, mu = 0, conf.level = .95, labels = NULL, ...) {
+.estimateMeansDifference.default <- function(frame, mu = 0, conf.level = .95, labels = NULL, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   CompStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
-  .estimateMeanDifference.wss(CompStats, CorrStats, conf.level = conf.level, labels = labels)
+  .estimateMeansDifference.wss(CompStats, CorrStats, conf.level = conf.level, labels = labels)
 }
 
-.estimateMeanDifference.formula <- function(formula, mu = 0, conf.level = .95, labels = NULL, ...) {
+.estimateMeansDifference.formula <- function(formula, mu = 0, conf.level = .95, labels = NULL, ...) {
   CompStats <- .describeSummary(formula)
-  .estimateMeanDifference.bss(CompStats, conf.level = conf.level, labels = labels)
+  .estimateMeansDifference.bss(CompStats, conf.level = conf.level, labels = labels)
 }
 
-estimateMeanDifference <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeanDifference(...)
+estimateMeansDifference <- function(..., main = NULL, digits = 3) {
+  results <- .estimateMeansDifference(...)
   if (is.null(main)) {
     main <- "Confidence Interval for the Difference of Means"
   }
@@ -76,11 +76,11 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
 
 ### Null Hypothesis Significance Tests
 
-.testMeanDifference <- function(x, ...) {
-  UseMethod(".testMeanDifference")
+.testMeansDifference <- function(x, ...) {
+  UseMethod(".testMeansDifference")
 }
 
-.testMeanDifference.wss <- function(CompStats, CorrStats, mu = 0, labels = NULL, ...) {
+.testMeansDifference.wss <- function(CompStats, CorrStats, mu = 0, labels = NULL, ...) {
   CompStats <- CompStats[1:2, ]
   N <- CompStats[, "N"]
   M <- CompStats[, "M"]
@@ -102,7 +102,7 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.testMeanDifference.bss <- function(CompStats, mu = 0, labels = NULL, ...) {
+.testMeansDifference.bss <- function(CompStats, mu = 0, labels = NULL, ...) {
   CompStats <- CompStats[1:2, ]
   N <- CompStats[, "N"]
   M <- CompStats[, "M"]
@@ -121,23 +121,23 @@ estimateMeanDifference <- function(..., main = NULL, digits = 3) {
   return(results)
 }
 
-.testMeanDifference.default <- function(frame, mu = 0, labels = NULL, ...) {
+.testMeansDifference.default <- function(frame, mu = 0, labels = NULL, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
   }
   CompStats <- .describeSummary(data)
   CorrStats <- .describeCorrelations(data)
-  .testMeanDifference.wss(CompStats, CorrStats, mu = mu, labels = labels)
+  .testMeansDifference.wss(CompStats, CorrStats, mu = mu, labels = labels)
 }
 
-.testMeanDifference.formula <- function(formula, mu = 0, labels = NULL, ...) {
+.testMeansDifference.formula <- function(formula, mu = 0, labels = NULL, ...) {
   CompStats <- .describeSummary(formula)
-  .testMeanDifference.bss(CompStats, mu = mu, labels = labels)
+  .testMeansDifference.bss(CompStats, mu = mu, labels = labels)
 }
 
-testMeanDifference <- function(..., main = NULL, digits = 3) {
-  results <- .testMeanDifference(...)
+testMeansDifference <- function(..., main = NULL, digits = 3) {
+  results <- .testMeansDifference(...)
   if (is.null(main)) {
     main <- "Hypothesis Test for the Difference of Means"
   }
@@ -147,17 +147,17 @@ testMeanDifference <- function(..., main = NULL, digits = 3) {
 
 ### Confidence Interval Plots
 
-plotMeanDifference <- function(..., main = NULL, digits = 3, ylab = "Mean Difference", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, pos = 2, connect = FALSE, ylim = NULL, add = FALSE, pch = 17, col = "black", offset = 0, intervals = TRUE) {
-  results <- estimateMeanDifference(..., mu = mu, conf.level = conf.level, main = main, digits = digits)
+plotMeansDifference <- function(..., main = NULL, digits = 3, ylab = "Mean Difference", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, pos = 2, connect = FALSE, ylim = NULL, add = FALSE, pch = 17, col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateMeansDifference(..., mu = mu, conf.level = conf.level, main = main, digits = digits)
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
 ### Combined Analyses
 
-analyzeMeanDifference <- function(..., main = NULL, digits = 3) {
-  eMD <- estimateMeanDifference(..., digits = digits)
-  tMD <- testMeanDifference(..., digits = digits)
-  eSMD <- estimateStandardizedMeanDifference(..., digits = digits)
+analyzeMeansDifference <- function(..., main = NULL, digits = 3) {
+  eMD <- estimateMeansDifference(..., digits = digits)
+  tMD <- testMeansDifference(..., digits = digits)
+  eSMD <- estimateStandardizedMeansDifference(..., digits = digits)
   results <- c(eMD, tMD, eSMD)
   return(results)
 }

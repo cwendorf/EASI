@@ -19,90 +19,90 @@ standardizeMeansBy <- function(...) {
   estimateStandardizedMeansBy(...)
 }
 
-### Mean Difference
+### Means Difference
 
 estimateDifference <- function(...) {
-  estimateMeanDifference(...)
+  estimateMeansDifference(...)
 }
 
 testDifference <- function(...) {
-  testMeanDifference(...)
+  testMeansDifference(...)
 }
 
 plotDifference <- function(...) {
-  plotMeanDifference(...)
+  plotMeansDifference(...)
 }
 
 standardizeDifference <- function(...) {
-  estimateStandardizedMeanDifference(...)
+  estimateStandardizedMeansDifference(...)
 }
 
 standardizeDifferenceBy <- function(...) {
-  estimateStandardizedMeanDifferenceBy(...)
+  estimateStandardizedMeansDifferenceBy(...)
 }
 
-### Mean Contrast
+### Means Contrast
 
 estimateContrast <- function(...) {
-  estimateMeanContrast(...)
+  estimateMeansContrast(...)
 }
 
 testContrast <- function(...) {
-  testMeanContrast(...)
+  testMeansContrast(...)
 }
 
 plotContrast <- function(...) {
-  plotMeanContrast(...)
+  plotMeansContrast(...)
 }
 
 standardizeContrast <- function(...) {
-  estimateStandardizedMeanContrast(...)
+  estimateStandardizedMeansContrast(...)
 }
 
 standardizeContrastBy <- function(...) {
-  estimateStandardizedMeanContrastBy(...)
+  estimateStandardizedMeansContrastBy(...)
 }
 
-### Mean Comparison
+### Means Comparison
 
 estimateComparison <- function(...) {
-  estimateMeanComparison(...)
+  estimateMeansComparison(...)
 }
 
 testComparison <- function(...) {
-  testMeanComparison(...)
+  testMeansComparison(...)
 }
 
 plotComparison <- function(...) {
-  plotMeanComparison(...)
+  plotMeansComparison(...)
 }
 
-### Mean Subsets
+### Means Subsets
 
 estimateSubsets <- function(...) {
-  estimateMeanSubsets(...)
+  estimateMeansSubsets(...)
 }
 
 testSubsets <- function(...) {
-  testMeanSubsets(...)
+  testMeansSubsets(...)
 }
 
 plotSubsets <- function(...) {
-  plotMeanSubsets(...)
+  plotMeansSubsets(...)
 }
 
-### Mean Complex
+### Means Complex
 
 estimateComplex <- function(...) {
-  estimateMeanComplex(...)
+  estimateMeansComplex(...)
 }
 
 testComplex <- function(...) {
-  testMeanComplex(...)
+  testMeansComplex(...)
 }
 
 plotComplex <- function(...) {
-  plotMeanComplex(...)
+  plotMeansComplex(...)
 }
 
 ### Means Pairwise
@@ -194,15 +194,15 @@ plotFactorial <- function(...) {
 ### Mean Interaction
 
 estimateInteraction <- function(...) {
-  estimateMeanInteraction(...)
+  estimateMeansInteraction(...)
 }
 
 testInteraction <- function(...) {
-  testMeanInteraction(...)
+  testMeansInteraction(...)
 }
 
 plotInteraction <- function(...) {
-  plotMeanInteraction(...)
+  plotMeansInteraction(...)
 }
 
 ### Regression Coefficients
