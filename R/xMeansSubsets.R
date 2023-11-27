@@ -9,9 +9,9 @@
 
 .estimateMeansSubsets.default <- .estimateMeansSubsets.formula <- .estimateMeansSubsets.wss <- .estimateMeansSubsets.bss <- function(..., contrast, conf.level = .95, labels = NULL) {
   con1 <- ifelse(contrast < 0, 0, contrast)
-  res1 <- .estimateMeanContrast(..., contrast = con1, conf.level = conf.level)
+  res1 <- .estimateMeansContrast(..., contrast = con1, conf.level = conf.level)
   con2 <- ifelse(contrast > 0, 0, abs(contrast))
-  res2 <- .estimateMeanContrast(..., contrast = con2, conf.level = conf.level)
+  res2 <- .estimateMeansContrast(..., contrast = con2, conf.level = conf.level)
   Subsets <- rbind(res2, res1)
   if (is.null(labels)) {
     rownames(Subsets) <- c("Neg Weighted", "Pos Weighted")
@@ -20,7 +20,7 @@
   }
   Subsets <- list(Subsets)
   names(Subsets) <- "Confidence Intervals for the Subsets of Means"
-  Diff <- .estimateMeanContrast(..., contrast = contrast, conf.level = conf.level)
+  Diff <- .estimateMeansContrast(..., contrast = contrast, conf.level = conf.level)
   Diff <- list(Diff)
   names(Diff) <- "Confidence Interval for the Contrast of Means"
   results <- c(Subsets, Diff)
@@ -44,9 +44,9 @@ estimateMeansSubsets <- function(..., main = NULL, digits = 3) {
 
 .testMeansSubsets.default <- .testMeansSubsets.formula <- .testMeansSubsets.wss <- .testMeansSubsets.bss <- function(..., contrast, labels = NULL) {
   con1 <- ifelse(contrast < 0, 0, contrast)
-  res1 <- .testMeanContrast(..., contrast = con1)
+  res1 <- .testMeansContrast(..., contrast = con1)
   con2 <- ifelse(contrast > 0, 0, abs(contrast))
-  res2 <- .testMeanContrast(..., contrast = con2)
+  res2 <- .testMeansContrast(..., contrast = con2)
   Subsets <- rbind(res2, res1)
   if (is.null(labels)) {
     rownames(Subsets) <- c("Neg Weighted", "Pos Weighted")
@@ -55,7 +55,7 @@ estimateMeansSubsets <- function(..., main = NULL, digits = 3) {
   }
   Subsets <- list(Subsets)
   names(Subsets) <- "Hypothesis Tests for the Subsets of Means"
-  Diff <- .testMeanContrast(..., contrast = contrast)
+  Diff <- .testMeansContrast(..., contrast = contrast)
   Diff <- list(Diff)
   names(Diff) <- "Hypothesis Tests for the Contrast of Means"
   results <- c(Subsets, Diff)
