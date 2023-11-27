@@ -61,27 +61,27 @@ Get an enhanced plot of data and confidence intervals.
 
 Create a comparison and get a simple plot of the confidence intervals.
 ```{r, Plausible-Repeated-ComparisonA}
-(RepeatedData) |> pick(Outcome1, Outcome2) |> estimateMeanComparison()
-(RepeatedData) |> pick(Outcome1, Outcome2) |> plotMeanComparison()
+(RepeatedData) |> focus(Outcome1, Outcome2) |> estimateComparison()
+(RepeatedData) |> focus(Outcome1, Outcome2) |> plotComparison()
 ```
 
 Get an enhanced plot of data and confidence intervals with a plausibility curve.
 ```{r, Plausible-Repeated-ComparisonB}
-(RepeatedData) |> pick(Outcome1, Outcome2) |> plotMeanComparison(main = "Data, Confidence Intervals, and a Plausibility Curve", ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
-(RepeatedData) |> pick(Outcome1, Outcome2) |> addPlausible(type = c("none", "none", "right"), col = c("darkred", "darkblue", "black"))
-(RepeatedData) |> pick(Outcome1, Outcome2) |> addData(method = "stack", col = c("darkred", "darkblue", "black"))
+(RepeatedData) |> focus(Outcome1, Outcome2) |> plotComparison(main = "Data, Confidence Intervals, and a Plausibility Curve", ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
+(RepeatedData) |> focus(Outcome1, Outcome2) |> addPlausible(type = c("none", "none", "right"), col = c("darkred", "darkblue", "black"))
+(RepeatedData) |> focus(Outcome1, Outcome2) |> addData(method = "stack", col = c("darkred", "darkblue", "black"))
 ```
 
 ### Analyses of a Mean Contrast
 
 Create a contrast and get a plot of the mean subsets and the contrast.
 ```{r, Plausible-Repeated-ContrastA}
-(RepeatedData) |> estimateMeanSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"))
-(RepeatedData) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"))
+(RepeatedData) |> estimateSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"))
+(RepeatedData) |> plotSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"))
 ```
 
 Create an enhanced plot of the means and the mean subsets with a plausibility curve.
 ```{r, Plausible-Repeated-ContrastB}
-(RepeatedData) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), main = "Confidence Intervals and a Plausibility Curve", ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
+(RepeatedData) |> plotSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), main = "Confidence Intervals and a Plausibility Curve", ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
 (RepeatedData) |> addPlausible(contrast = c(-1, .5, .5), type = c("none", "none", "right"), col = c("darkred", "darkblue", "black"))
 ```

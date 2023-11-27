@@ -59,26 +59,26 @@ This section produces analyses of the overall regression model.
 
 This code will produce a source table associated with the regression model.
 ```{r}
-(RegressionData) |> describeRegressionEffect()
+(RegressionData) |> describeModel()
 ```
 
 #### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 ```{r}
-(RegressionData) |> estimateRegressionEffect()
+(RegressionData) |> estimateModel()
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-(RegressionData) |> estimateRegressionEffect(conf.level = .95)
+(RegressionData) |> estimateModel(conf.level = .95)
 ```
 
 #### Significance Test
 
 This code will calculate NHST for the regression model.
 ```{r}
-(RegressionData) |> testRegressionEffect()
+(RegressionData) |> testModel()
 ```
 
 ### Analyses of the Regression Coefficients
@@ -89,49 +89,39 @@ This section analyses the regression coefficients obtained from the overall mode
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
-(RegressionData) |> estimateRegressionCoefficients()
+(RegressionData) |> estimateCoefficients()
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 ```{r, Multiple-Data-CoefficientsA}
-(RegressionData) |> plotRegressionCoefficients()
+(RegressionData) |> plotCoefficients()
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-(RegressionData) |> estimateRegressionCoefficients(conf.level = .99)
+(RegressionData) |> estimateCoefficients(conf.level = .99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 ```{r, Multiple-Data-CoefficientsB}
-(RegressionData) |> plotRegressionCoefficients(conf.level = .99, line = 0, intercept = FALSE)
+(RegressionData) |> plotCoefficients(conf.level = .99, line = 0, intercept = FALSE)
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
-(RegressionData) |> testRegressionCoefficients()
+(RegressionData) |> testCoefficients()
 ```
 
 #### Standardized Coefficients
 
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 ```{r}
-(RegressionData) |> estimateStandardizedRegressionCoefficients()
-```
-
-This code will produce a graph of the confidence intervals for each of the standardized coefficients.
-```{r, Multiple-Data-StandardizedA}
-(RegressionData) |> plotStandardizedRegressionCoefficients()
+(RegressionData) |> standardizeCoefficients()
 ```
 
 As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-(RegressionData) |> estimateStandardizedRegressionCoefficients(conf.level = .99)
-```
-
-For the graph, it is possible to change the confidence level.
-```{r, Multiple-Data-StandardizedB}
-(RegressionData) |> plotStandardizedRegressionCoefficients(conf.level = .99)
+(RegressionData) |> standardizeCoefficients(conf.level = .99)
 ```

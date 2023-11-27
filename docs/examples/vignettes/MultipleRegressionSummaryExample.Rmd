@@ -67,26 +67,26 @@ This section produces analyses of the overall regression model.
 
 This code will produce a source table associated with the regression model.
 ```{r}
-(RegressionSummary) |> describeRegressionEffect(RegressionCorr)
+(RegressionSummary) |> describeModel(RegressionCorr)
 ```
 
 #### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 ```{r}
-(RegressionSummary) |> estimateRegressionEffect(RegressionCorr)
+(RegressionSummary) |> estimateModel(RegressionCorr)
 ```
 
 The code defaults to 90% confidence intervals. This can be changed if desired.
 ```{r}
-(RegressionSummary) |> estimateRegressionEffect(RegressionCorr, conf.level = .95)
+(RegressionSummary) |> estimateModel(RegressionCorr, conf.level = .95)
 ```
 
 #### Significance Test
 
 This code will calculate NHST for the regression model.
 ```{r}
-(RegressionSummary) |> testRegressionEffect(RegressionCorr)
+(RegressionSummary) |> testModel(RegressionCorr)
 ```
 
 ### Analyses of the Regression Coefficients
@@ -97,49 +97,39 @@ This section analyses the regression coefficients obtained from the overall mode
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
-(RegressionSummary) |> estimateRegressionCoefficients(RegressionCorr)
+(RegressionSummary) |> estimateCoefficients(RegressionCorr)
 ```
 
 This code will produce a graph of the confidence intervals for each of the regression coefficients.
 ```{r, Multiple-Summary-CoefficientsA}
-(RegressionSummary) |> plotRegressionCoefficients(RegressionCorr)
+(RegressionSummary) |> plotCoefficients(RegressionCorr)
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-(RegressionSummary) |> estimateRegressionCoefficients(RegressionCorr, conf.level = .99)
+(RegressionSummary) |> estimateCoefficients(RegressionCorr, conf.level = .99)
 ```
 
 For the graph, it is possible to plot just coefficients for the predictors (minus the intercept) in addition to changing the confidence level.
 ```{r, Multiple-Summary-CoefficientsB}
-(RegressionSummary) |> plotRegressionCoefficients(RegressionCorr, conf.level = .99, line = 0, intercept = FALSE)
+(RegressionSummary) |> plotCoefficients(RegressionCorr, conf.level = .99, line = 0, intercept = FALSE)
 ```
 
 #### Significance Tests
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
-(RegressionSummary) |> testRegressionCoefficients(RegressionCorr)
+(RegressionSummary) |> testCoefficients(RegressionCorr)
 ```
 
 #### Standardized Coefficients
 
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 ```{r}
-(RegressionSummary) |> estimateStandardizedRegressionCoefficients(RegressionCorr)
-```
-
-This code will produce a graph of the confidence intervals for each of the standardized coefficients.
-```{r, Multiple-Summary-StandardizedA}
-(RegressionSummary) |> plotStandardizedRegressionCoefficients(RegressionCorr)
+(RegressionSummary) |> standardizeCoefficients(RegressionCorr)
 ```
 
 As in other places, the code defaults to 95% confidence intervals. This can be changed if desired.
 ```{r}
-(RegressionSummary) |> estimateStandardizedRegressionCoefficients(RegressionCorr, conf.level = .99)
-```
-
-For the graph, it is possible to change the confidence level.
-```{r, Multiple-Summary-StandardizedB}
-(RegressionSummary) |> plotStandardizedRegressionCoefficients(RegressionCorr, conf.level = .99)
+(RegressionSummary) |> standardizeCoefficients(RegressionCorr, conf.level = .99)
 ```

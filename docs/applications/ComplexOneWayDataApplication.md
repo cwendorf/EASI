@@ -5,8 +5,8 @@ This page analyzes differences between two contrasts using one-way
 (between-subjects) data.
 
 - [Data Management](#data-management)
-- [Analyses of a Complex Mean
-  Contrast](#analyses-of-a-complex-mean-contrast)
+- [Analyses of a Complex Contrast of
+  Means](#analyses-of-a-complex-contrast-of-means)
 - [Analysis of a Difference Between Two
   Contrasts](#analysis-of-a-difference-between-two-contrasts)
 
@@ -23,7 +23,7 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 7, 13, 11, 10, 13, 8, 11, 14, 12, 1
 OneWayData <- construct(Factor, Outcome)
 ```
 
-### Analyses of a Complex Mean Contrast
+### Analyses of a Complex Contrast of Means
 
 Estimate and plot the means for examination.
 
@@ -47,15 +47,15 @@ Create a single contrast to compare the first group to the grand mean
 (which requires some arithmetic). Then esimate and plot the contrast.
 
 ``` r
-(Outcome ~ Factor) |> estimateMeanContrast(contrast = c(2/3, -1/3, -1/3))
+(Outcome ~ Factor) |> estimateContrast(contrast = c(2/3, -1/3, -1/3))
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -2.333   0.458  25.917  -3.275  -1.392
 
 ``` r
-(Outcome ~ Factor) |> plotMeanContrast(contrast = c(2/3, -1/3, -1/3))
+(Outcome ~ Factor) |> plotContrast(contrast = c(2/3, -1/3, -1/3))
 ```
 
 ![](figures/Complex-OneWay-Contrast-1.png)<!-- -->
@@ -67,20 +67,20 @@ Grand Mean and one for Level 1. Estimate and plot the confidence
 intervals for each contrast and the difference between contrasts.
 
 ``` r
-(Outcome ~ Factor) |> estimateMeanComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"))
+(Outcome ~ Factor) |> estimateComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"))
 ```
 
-    ## $`Confidence Intervals for the Mean Contrasts`
+    ## $`Confidence Intervals for the Contrasts of Means`
     ##               Est      SE      df      LL      UL
     ## GrandMean  10.333   0.378  23.397   9.551  11.115
     ## L1Only      8.000   0.447   9.000   6.988   9.012
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Contrasts`
     ##              Est      SE      df      LL      UL
     ## Contrast  -2.333   0.458  25.917  -3.275  -1.392
 
 ``` r
-(Outcome ~ Factor) |> plotMeanComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"))
+(Outcome ~ Factor) |> plotComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"))
 ```
 
 ![](figures/Complex-OneWay-ComplexA-1.png)<!-- -->
@@ -88,7 +88,7 @@ intervals for each contrast and the difference between contrasts.
 Enhance the plot by adding colors and removing value labels.
 
 ``` r
-(Outcome ~ Factor) |> plotMeanComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"), values = FALSE, col = c("darkred", "darkblue", "black"))
+(Outcome ~ Factor) |> plotComplex(contrast1 = c(1/3, 1/3, 1/3), contrast2 = c(1, 0, 0), labels = c("GrandMean", "L1Only"), values = FALSE, col = c("darkred", "darkblue", "black"))
 ```
 
 ![](figures/Complex-OneWay-ComplexB-1.png)<!-- -->

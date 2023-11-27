@@ -38,7 +38,7 @@ revised_toc(thisfile, base_level = 3, toc_depth = 4)
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
 Factor <- c(rep(1, 10), rep(2, 10))
-Factor <- factor(Factor, levels = c(1, 2), labels = c("F1", "F2"))
+Factor <- factor(Factor, levels = c(1, 2), labels = c("Level1", "Level2"))
 Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8)
 Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 7, 8, 7, 11, 10, 7, 8, 4, 8, 10)
 Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10, 8, 6, 8, 11, 5, 7, 9, 3, 6, 7)
@@ -49,9 +49,9 @@ MixedData <- construct(Factor, Outcome1, Outcome2, Outcome3)
 
 Get an ANOVA separately for each simple effect.
 ```{r}
-construct(Outcome1, Outcome2, Outcome3) |> describeMeansEffectBy(by = Factor)
-construct(Outcome1, Outcome2, Outcome3) |> estimateMeansEffectBy(by = Factor)
-construct(Outcome1, Outcome2, Outcome3) |> testMeansEffectBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> describeEffectBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> estimateEffectBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> testEffectBy(by = Factor)
 ```
 
 ### Summary Statistics
@@ -66,25 +66,25 @@ Estimate, plot, test, and standardize the means separately within each simple ef
 construct(Outcome1, Outcome2, Outcome3) |> estimateMeansBy(by = Factor)
 construct(Outcome1, Outcome2, Outcome3) |> plotMeansBy(by = Factor)
 construct(Outcome1, Outcome2, Outcome3) |> testMeansBy(by = Factor)
-construct(Outcome1, Outcome2, Outcome3) |> estimateStandardizedMeansBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> standardizeMeansBy(by = Factor)
 ```
 
 ### Analyses of a Comparison
 
 Analyze the specified comparison separately within each simple effect.
 ```{r, Effects-Mixed-Comparison}
-construct(Outcome1, Outcome2) |> estimateMeanDifferenceBy(by = Factor)
-construct(Outcome1, Outcome2) |> plotMeanDifferenceBy(by = Factor)
-construct(Outcome1, Outcome2) |> testMeanDifferenceBy(by = Factor)
-construct(Outcome1, Outcome2) |> estimateStandardizedMeanDifferenceBy(by = Factor)
+construct(Outcome1, Outcome2) |> estimateDifferenceBy(by = Factor)
+construct(Outcome1, Outcome2) |> plotDifferenceBy(by = Factor)
+construct(Outcome1, Outcome2) |> testDifferenceBy(by = Factor)
+construct(Outcome1, Outcome2) |> standardizeDifferenceBy(by = Factor)
 ```
 
 ### Analyses of a Contrast
 
 Analyze the specified contrast separately within each simple effect.
 ```{r, Effects-Mixed-Contrast}
-construct(Outcome1, Outcome2, Outcome3) |> estimateMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
-construct(Outcome1, Outcome2, Outcome3) |> plotMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
-construct(Outcome1, Outcome2, Outcome3) |> testMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
-construct(Outcome1, Outcome2, Outcome3) |> estimateStandardizedMeanContrastBy(by = Factor, contrast = c(-1, .5, .5))
+construct(Outcome1, Outcome2, Outcome3) |> estimateContrastBy(by = Factor, contrast = c(-1, .5, .5))
+construct(Outcome1, Outcome2, Outcome3) |> plotContrastBy(by = Factor, contrast = c(-1, .5, .5))
+construct(Outcome1, Outcome2, Outcome3) |> testContrastBy(by = Factor, contrast = c(-1, .5, .5))
+construct(Outcome1, Outcome2, Outcome3) |> standardizeContrastBy(by = Factor, contrast = c(-1, .5, .5))
 ```

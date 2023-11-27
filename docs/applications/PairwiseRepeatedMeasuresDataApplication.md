@@ -30,7 +30,7 @@ RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 Provide an ANOVA source table.
 
 ``` r
-(RepeatedData) |> describeMeansEffect()
+(RepeatedData) |> describeEffect()
 ```
 
     ## $`Source Table for the Model`
@@ -40,7 +40,7 @@ Provide an ANOVA source table.
     ## Error     40.667  18.000   2.259
 
 ``` r
-(RepeatedData) |> testMeansEffect()
+(RepeatedData) |> testEffect()
 ```
 
     ## $`Hypothesis Test for the Model`
@@ -58,30 +58,30 @@ tests of their statistical significance, and their standardized effect
 sizes.
 
 ``` r
-(RepeatedData) |> estimateMeansPairwise()
+(RepeatedData) |> estimatePairwise()
 ```
 
-    ## $`Confidence Intervals for the Pairwise Mean Comparisons`
+    ## $`Confidence Intervals for the Pairwise Comparisons of Means`
     ##                        Diff      SE      df      LL      UL
     ## Outcome1 v Outcome2   3.000   0.596   9.000   1.651   4.349
     ## Outcome1 v Outcome3   4.000   0.730   9.000   2.348   5.652
     ## Outcome2 v Outcome3   1.000   0.683   9.000  -0.545   2.545
 
 ``` r
-(RepeatedData) |> testMeansPairwise()
+(RepeatedData) |> testPairwise()
 ```
 
-    ## $`Hypothesis Tests for the Pairwise Mean Comparisons`
+    ## $`Hypothesis Tests for the Pairwise Comparisons of Means`
     ##                        Diff      SE      df       t       p
     ## Outcome1 v Outcome2   3.000   0.596   9.000   5.031   0.001
     ## Outcome1 v Outcome3   4.000   0.730   9.000   5.477   0.000
     ## Outcome2 v Outcome3   1.000   0.683   9.000   1.464   0.177
 
 ``` r
-(RepeatedData) |> estimateStandardizedMeansPairwise()
+(RepeatedData) |> standardizePairwise()
 ```
 
-    ## $`Confidence Intervals for the Pairwise Standardized Mean Comparisons`
+    ## $`Confidence Intervals for the Pairwise Standardized Comparisons of Means`
     ##                           d      SE      LL      UL
     ## Outcome1 v Outcome2   1.616   0.466   0.703   2.530
     ## Outcome1 v Outcome3   2.000   0.531   0.959   3.041
@@ -92,7 +92,7 @@ comparisons (including a line that represents no difference for the
 comparisons).
 
 ``` r
-(RepeatedData) |> plotMeansPairwise(line = 0, values = FALSE)
+(RepeatedData) |> plotPairwise(line = 0, values = FALSE)
 ```
 
 ![](figures/Pairwise-Repeated-Pairwise-1.png)<!-- -->
@@ -102,7 +102,7 @@ pairwise comparisons)and specify colors for intervals that do not
 include zero (darkblue) and those that do include zero (darkred).
 
 ``` r
-(RepeatedData) |> plotMeansPairwiseDiffogram(col = c("darkblue", "darkred"))
+(RepeatedData) |> plotPairwiseDiffogram(col = c("darkblue", "darkred"))
 ```
 
 ![](figures/Pairwise-Repeated-DiffogramA-1.png)<!-- -->
@@ -116,7 +116,7 @@ comparisons.
 Provide estimates of the arelational and relational intervals.
 
 ``` r
-(RepeatedData) |> estimateMeansRelational()
+(RepeatedData) |> estimateRelational()
 ```
 
     ## $`Confidence and Relational Intervals for the Means`
@@ -128,7 +128,7 @@ Provide estimates of the arelational and relational intervals.
 Plot the intervals and enhance with color.
 
 ``` r
-(RepeatedData) |> plotMeansRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
+(RepeatedData) |> plotRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
 ```
 
 ![](figures/Pairwise-Repeated-RelationalB-1.png)<!-- -->
@@ -144,30 +144,30 @@ tests of their statistical significance, and their standardized effect
 sizes.
 
 ``` r
-(RepeatedData) |> estimateMeansPosthoc()
+(RepeatedData) |> estimatePosthoc()
 ```
 
-    ## $`Confidence Intervals for the Posthoc Mean Comparisons`
+    ## $`Confidence Intervals for the Posthoc Comparisons of Means`
     ##                        Diff      SE      df      LL      UL
     ## Outcome1 v Outcome2   3.000   0.596   9.000   1.335   4.665
     ## Outcome1 v Outcome3   4.000   0.730   9.000   1.961   6.039
     ## Outcome2 v Outcome3   1.000   0.683   9.000  -0.907   2.907
 
 ``` r
-(RepeatedData) |> testMeansPairwise()
+(RepeatedData) |> testPairwise()
 ```
 
-    ## $`Hypothesis Tests for the Pairwise Mean Comparisons`
+    ## $`Hypothesis Tests for the Pairwise Comparisons of Means`
     ##                        Diff      SE      df       t       p
     ## Outcome1 v Outcome2   3.000   0.596   9.000   5.031   0.001
     ## Outcome1 v Outcome3   4.000   0.730   9.000   5.477   0.000
     ## Outcome2 v Outcome3   1.000   0.683   9.000   1.464   0.177
 
 ``` r
-(RepeatedData) |> estimateStandardizedMeansPosthoc()
+(RepeatedData) |> standardizePosthoc()
 ```
 
-    ## $`Confidence Intervals for the Posthoc Standardized Mean Comparisons`
+    ## $`Confidence Intervals for the Posthoc Standardized Comparisons of Means`
     ##                           d      SE      LL      UL
     ## Outcome1 v Outcome2   1.616   0.466   0.703   2.530
     ## Outcome1 v Outcome3   2.000   0.531   0.959   3.041
@@ -178,7 +178,7 @@ comparisons (including a line that represents no difference for the
 comparisons).
 
 ``` r
-(RepeatedData) |> plotMeansPosthoc(line = 0, values = FALSE)
+(RepeatedData) |> plotPosthoc(line = 0, values = FALSE)
 ```
 
 ![](figures/Pairwise-Repeated-Posthoc-1.png)<!-- -->
@@ -188,7 +188,7 @@ post hoc comparisons) and specify colors for intervals that do not
 include zero (darkblue) and those that do include zero (darkred).
 
 ``` r
-(RepeatedData) |> plotMeansPosthocDiffogram(col = c("darkblue", "darkred"))
+(RepeatedData) |> plotPosthocDiffogram(col = c("darkblue", "darkred"))
 ```
 
 ![](figures/Pairwise-Repeated-DiffogramB-1.png)<!-- -->

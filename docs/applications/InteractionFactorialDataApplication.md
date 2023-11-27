@@ -31,7 +31,7 @@ estimate of the proportion of variance accounted for, and an ANOVA test
 of the main effects and interaction.
 
 ``` r
-(Outcome ~ FactorA) |> describeMeansFactorial(by = FactorB)
+(Outcome ~ FactorA) |> describeFactorial(by = FactorB)
 ```
 
     ## $`Source Table for the Model: Between Subjects`
@@ -42,7 +42,7 @@ of the main effects and interaction.
     ## Residual      250.000  54.000   4.630
 
 ``` r
-(Outcome ~ FactorA) |> estimateMeansFactorial(by = FactorB)
+(Outcome ~ FactorA) |> estimateFactorial(by = FactorB)
 ```
 
     ## $`Proportion of Variance Accounted For by the Model: Between Subjects`
@@ -52,7 +52,7 @@ of the main effects and interaction.
     ## Factor:Blocks   0.202   0.014   0.248
 
 ``` r
-(Outcome ~ FactorA) |> testMeansFactorial(by = FactorB)
+(Outcome ~ FactorA) |> testFactorial(by = FactorB)
 ```
 
     ## $`Hypothesis Tests for the Model: Between Subjects`
@@ -64,7 +64,7 @@ of the main effects and interaction.
 Plot the means and confidence intervals for the design as a whole.
 
 ``` r
-(Outcome ~ FactorA) |> plotMeansFactorial(by = FactorB, col = c("darkred", "darkblue"))
+(Outcome ~ FactorA) |> plotFactorial(by = FactorB, col = c("darkred", "darkblue"))
 legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("B1", "B2"), col = c("darkred", "darkblue"))
 ```
 
@@ -78,7 +78,7 @@ test the interaction contrast (which includes the comparisons within
 each simple effect).
 
 ``` r
-(Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanInteraction(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> estimateInteraction(by = FactorB)
 ```
 
     ## $`Confidence Intervals for the Simple Effect Constrasts`
@@ -91,13 +91,13 @@ each simple effect).
     ## Interaction  -3.000   1.300  32.129  -5.647  -0.353
 
 ``` r
-(Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanInteraction(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> plotInteraction(by = FactorB)
 ```
 
 ![](figures/Interaction-Factorial-Contrasts-1.png)<!-- -->
 
 ``` r
-(Outcome ~ FactorA) |> pick(A1, A2) |> testMeanInteraction(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> testInteraction(by = FactorB)
 ```
 
     ## $`Hypothesis Tests for the Main Effect Constrasts`

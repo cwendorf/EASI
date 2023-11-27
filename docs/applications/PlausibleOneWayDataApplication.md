@@ -56,7 +56,7 @@ Get an enhanced plot of data and confidence intervals.
 Create a comparison and get a simple plot of the confidence intervals.
 
 ``` r
-(Outcome ~ Factor) |> pick(Level1, Level2) |> estimateMeanComparison()
+(Outcome ~ Factor) |> focus(Level1, Level2) |> estimateComparison()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -64,12 +64,12 @@ Create a comparison and get a simple plot of the confidence intervals.
     ## Level1   8.000   0.447   9.000   6.988   9.012
     ## Level2  11.000   0.699   9.000   9.418  12.582
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.830  15.308   1.234   4.766
 
 ``` r
-(Outcome ~ Factor) |> pick(Level1, Level2) |> plotMeanComparison()
+(Outcome ~ Factor) |> focus(Level1, Level2) |> plotComparison()
 ```
 
 ![](figures/Plausible-OneWay-ComparisonA-1.png)<!-- -->
@@ -78,9 +78,9 @@ Get an enhanced plot of data and confidence intervals with a
 plausibility curve.
 
 ``` r
-(Outcome ~ Factor) |> pick(Level1, Level2) |> plotMeanComparison(main = "Data, Confidence Intervals, and a Plausibility Curve", ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
-(Outcome ~ Factor) |> pick(Level1, Level2) |> addPlausible(type = c("none", "none", "right"), col = c("darkred", "darkblue", "black"))
-(Outcome ~ Factor) |> pick(Level1, Level2) |> addData(method = "stack", col = c("darkred", "darkblue", "black"))
+(Outcome ~ Factor) |> focus(Level1, Level2) |> plotComparison(main = "Data, Confidence Intervals, and a Plausibility Curve", ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
+(Outcome ~ Factor) |> focus(Level1, Level2) |> addPlausible(type = c("none", "none", "right"), col = c("darkred", "darkblue", "black"))
+(Outcome ~ Factor) |> focus(Level1, Level2) |> addData(method = "stack", col = c("darkred", "darkblue", "black"))
 ```
 
 ![](figures/Plausible-OneWay-ComparisonB-1.png)<!-- -->
@@ -90,20 +90,20 @@ plausibility curve.
 Create a contrast and get a plot of the mean subsets and the contrast.
 
 ``` r
-(Outcome ~ Factor) |> estimateMeanSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"))
+(Outcome ~ Factor) |> estimateSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"))
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##            Est      SE      df      LL      UL
     ## Level1   8.000   0.447   9.000   6.988   9.012
     ## Others  11.500   0.522  17.815  10.403  12.597
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.687  25.917   2.087   4.913
 
 ``` r
-(Outcome ~ Factor) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"))
+(Outcome ~ Factor) |> plotSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"))
 ```
 
 ![](figures/Plausible-OneWay-ContrastA-1.png)<!-- -->
@@ -112,7 +112,7 @@ Create an enhanced plot of the means and the mean subsets with a
 plausibility curve.
 
 ``` r
-(Outcome ~ Factor) |> plotMeanSubsets(contrast = c(-1, .5, .5), main = "Confidence Intervals and a Plausibility Curve", labels = c("Level1", "Others"), ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
+(Outcome ~ Factor) |> plotSubsets(contrast = c(-1, .5, .5), main = "Confidence Intervals and a Plausibility Curve", labels = c("Level1", "Others"), ylim = c(0, 20), values = FALSE, col = c("darkred", "darkblue", "black"))
 (Outcome ~ Factor) |> addPlausible(contrast = c(-1, .5, .5), type = c("none", "none", "right"), col = c("darkred", "darkblue", "black"))
 ```
 

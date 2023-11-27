@@ -62,7 +62,7 @@ This section produces analyses of a single correlation.
 This code will provide the confidence interval for the correlation.
 
 ``` r
-(RepeatedData) |> pick(Outcome1, Outcome2) |> estimateCorrelations()
+(RepeatedData) |> focus(Outcome1, Outcome2) |> estimateCorrelations()
 ```
 
     ## $`Confidence Interval for the Correlation`
@@ -73,7 +73,7 @@ This code will produce a graph of the confidence interval for the
 correlation.
 
 ``` r
-(RepeatedData) |> pick(Outcome1, Outcome2) |> plotCorrelations()
+(RepeatedData) |> focus(Outcome1, Outcome2) |> plotCorrelations()
 ```
 
 ![](figures/SetCorrelations-Data-IntervalsA-1.png)<!-- -->
@@ -82,7 +82,7 @@ The code defaults to 95% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(RepeatedData) |> pick(Outcome1, Outcome2) |> estimateCorrelations(conf.level = .99)
+(RepeatedData) |> focus(Outcome1, Outcome2) |> estimateCorrelations(conf.level = .99)
 ```
 
     ## $`Confidence Interval for the Correlation`
@@ -94,7 +94,7 @@ the graph. It is also possible to add a comparison value and a region of
 practical equivalence.
 
 ``` r
-(RepeatedData) |> pick(Outcome1, Outcome2) |> plotCorrelations(conf.level = .99, line = 0, rope = c(-.2, .2))
+(RepeatedData) |> focus(Outcome1, Outcome2) |> plotCorrelations(conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 
 ![](figures/SetCorrelations-Data-IntervalsB-1.png)<!-- -->
@@ -105,7 +105,7 @@ This code will produce a table of NHST for the correlation (against a
 value of zero).
 
 ``` r
-(RepeatedData) |> pick(Outcome1, Outcome2) |> testCorrelations()
+(RepeatedData) |> focus(Outcome1, Outcome2) |> testCorrelations()
 ```
 
     ## $`Hypothesis Test for the Correlation`

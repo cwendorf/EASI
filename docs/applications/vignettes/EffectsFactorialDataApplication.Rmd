@@ -49,9 +49,9 @@ FactorialData <- construct(FactorA, FactorB, Outcome)
 
 Get an ANOVA separately for each simple effect.
 ```{r}
-(Outcome ~ FactorA) |> describeMeansEffectBy(by = FactorB)
-(Outcome ~ FactorA) |> estimateMeansEffectBy(by = FactorB)
-(Outcome ~ FactorA) |> testMeansEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> describeEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> estimateEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> testEffectBy(by = FactorB)
 ```
 
 ### Analyses of the Means
@@ -66,25 +66,25 @@ Estimate, plot, test, and standardize the means separately within each simple ef
 (Outcome ~ FactorA) |> estimateMeansBy(by = FactorB)
 (Outcome ~ FactorA) |> plotMeansBy(by = FactorB)
 (Outcome ~ FactorA) |> testMeansBy(by = FactorB)
-(Outcome ~ FactorA) |> estimateStandardizedMeansBy(by = FactorB)
+(Outcome ~ FactorA) |> standardizeMeansBy(by = FactorB)
 ```
 
 ### Analyses of a Comparison
 
 Analyze the specified comparison separately within each simple effect.
 ```{r, Effects-Factorial-Comparison}
-(Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifferenceBy(by = FactorB)
-(Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifferenceBy(by = FactorB)
-(Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifferenceBy(by = FactorB)
-(Outcome ~ FactorA) |> pick(A1, A2) |> estimateStandardizedMeanDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> estimateDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> plotDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> testDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> standardizeDifferenceBy(by = FactorB)
 ```
 
 ### Analyses of a Contrast
 
 Analyze the specified contrast separately within each simple effect.
 ```{r, Effects-Factorial-Contrast}
-(Outcome ~ FactorA) |> estimateMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
-(Outcome ~ FactorA) |> plotMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
-(Outcome ~ FactorA) |> testMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
-(Outcome ~ FactorA) |> estimateStandardizedMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> estimateContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> plotContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> testContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> standardizeContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 ```

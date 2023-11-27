@@ -246,7 +246,7 @@ separately for each level of the factor. In this case, the mean is
 compared to zero to form the effect size.
 
 ``` r
-(MixedSummaryL1) |> estimateStandardizedMeans()
+(MixedSummaryL1) |> standardizeMeans()
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -256,7 +256,7 @@ compared to zero to form the effect size.
     ## Outcome3   4.900   1.096   2.580   7.204
 
 ``` r
-(MixedSummaryL2) |> estimateStandardizedMeans()
+(MixedSummaryL2) |> standardizeMeans()
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -269,7 +269,7 @@ Here too it is possible to alter the width of the confidence intervals
 and to establish a more plausible comparison value for the mean.
 
 ``` r
-(MixedSummaryL1) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(MixedSummaryL1) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -279,7 +279,7 @@ and to establish a more plausible comparison value for the mean.
     ## Outcome3   1.225   0.422   0.126   2.317
 
 ``` r
-(MixedSummaryL2) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(MixedSummaryL2) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -299,18 +299,18 @@ This code identifies the two levels for comparison and estimates the
 confidence interval of the difference.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> estimateMeanDifference(MixedCorrL1)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> estimateDifference(MixedCorrL1)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.651   4.349
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> estimateMeanDifference(MixedCorrL2)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> estimateDifference(MixedCorrL2)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   0.775   9.000  -1.752   1.752
 
@@ -318,13 +318,13 @@ This code obtains and plots the confidence intervals for the mean
 difference in the identified comparison.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> plotMeanDifference(MixedCorrL1)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> plotDifference(MixedCorrL1)
 ```
 
 ![](figures/Mixed-Summary-DifferenceA-1.png)<!-- -->
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> plotMeanDifference(MixedCorrL2)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> plotDifference(MixedCorrL2)
 ```
 
 ![](figures/Mixed-Summary-DifferenceA-2.png)<!-- -->
@@ -333,18 +333,18 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> estimateMeanDifference(MixedCorrL1, conf.level = .99)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> estimateDifference(MixedCorrL1, conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.062   4.938
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> estimateMeanDifference(MixedCorrL2, conf.level = .99)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> estimateDifference(MixedCorrL2, conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   0.775   9.000  -2.517   2.517
 
@@ -353,13 +353,13 @@ and a comparison line to represent a population (or test) value and a
 region of practical equivalence can be added to the graph.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> plotMeanDifference(MixedCorrL1, conf.level = .99, line = 0, rope = c(-2, 2))
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> plotDifference(MixedCorrL1, conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Summary-DifferenceB-1.png)<!-- -->
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> plotMeanDifference(MixedCorrL2, conf.level = .99, line = 0, rope = c(-2, 2))
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> plotDifference(MixedCorrL2, conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Summary-DifferenceB-2.png)<!-- -->
@@ -368,7 +368,7 @@ If you wish, you can get the confidence intervals for the means and the
 mean difference in one command.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> estimateMeanComparison(MixedCorrL1)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> estimateComparison(MixedCorrL1)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -376,12 +376,12 @@ mean difference in one command.
     ## Outcome1   8.000   0.447   9.000   6.988   9.012
     ## Outcome2  11.000   0.699   9.000   9.418  12.582
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.651   4.349
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> estimateMeanComparison(MixedCorrL2)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> estimateComparison(MixedCorrL2)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -389,7 +389,7 @@ mean difference in one command.
     ## Outcome1   8.000   0.774   9.000   6.248   9.752
     ## Outcome2   8.000   0.632   9.000   6.569   9.431
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   0.775   9.000  -1.752   1.752
 
@@ -397,13 +397,13 @@ This code produces a difference plot using the confidence intervals for
 the means and the mean difference.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> plotMeanComparison(MixedCorrL1)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> plotComparison(MixedCorrL1)
 ```
 
 ![](figures/Mixed-Summary-ComparisonA-1.png)<!-- -->
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> plotMeanComparison(MixedCorrL2)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> plotComparison(MixedCorrL2)
 ```
 
 ![](figures/Mixed-Summary-ComparisonA-2.png)<!-- -->
@@ -412,7 +412,7 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> estimateMeanComparison(MixedCorrL1, conf.level = .99)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> estimateComparison(MixedCorrL1, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -420,12 +420,12 @@ desired.
     ## Outcome1   8.000   0.447   9.000   6.547   9.453
     ## Outcome2  11.000   0.699   9.000   8.728  13.272
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.062   4.938
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> estimateMeanComparison(MixedCorrL2, conf.level = .99)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> estimateComparison(MixedCorrL2, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -433,7 +433,7 @@ desired.
     ## Outcome1   8.000   0.774   9.000   5.483  10.517
     ## Outcome2   8.000   0.632   9.000   5.945  10.055
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   0.775   9.000  -2.517   2.517
 
@@ -441,13 +441,13 @@ Once again, the confidence levels can be changed away from the default
 and a region of practical equivalence can be added to the graph.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> plotMeanComparison(MixedCorrL1, conf.level = .99, rope = c(-2, 2))
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> plotComparison(MixedCorrL1, conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Summary-ComparisonB-1.png)<!-- -->
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> plotMeanComparison(MixedCorrL2, conf.level = .99, rope = c(-2, 2))
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> plotComparison(MixedCorrL2, conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Summary-ComparisonB-2.png)<!-- -->
@@ -458,36 +458,36 @@ This code produces NHST for the identified comparison (using a default
 test value of zero).
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> testMeanDifference(MixedCorrL1)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> testDifference(MixedCorrL1)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   3.000   0.596   9.000   5.031   0.001
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> testMeanDifference(MixedCorrL2)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> testDifference(MixedCorrL2)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   0.000   0.775   9.000   0.000   1.000
 
 If the default value of zero is not plausible, it too can be changed.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> testMeanDifference(MixedCorrL1, mu = -2)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> testDifference(MixedCorrL1, mu = -2)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   5.000   0.596   9.000   8.386   0.000
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> testMeanDifference(MixedCorrL2, mu = -2)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> testDifference(MixedCorrL2, mu = -2)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   2.000   0.775   9.000   2.582   0.030
 
@@ -497,18 +497,18 @@ This code calculates a standardized mean difference for the comparison
 and its confidence interval.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> estimateStandardizedMeanDifference(MixedCorrL1)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> standardizeDifference(MixedCorrL1)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   1.617   0.466   0.703   2.530
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> estimateStandardizedMeanDifference(MixedCorrL2)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> standardizeDifference(MixedCorrL2)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   0.000   0.365  -0.716   0.716
 
@@ -516,18 +516,18 @@ The width of the confidence interval for the effect size can be altered
 if desired.
 
 ``` r
-(MixedSummaryL1) |> pick(Outcome1, Outcome2) |> estimateStandardizedMeanDifference(MixedCorrL1, conf.level = .99)
+(MixedSummaryL1) |> focus(Outcome1, Outcome2) |> standardizeDifference(MixedCorrL1, conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   1.617   0.466   0.416   2.817
 
 ``` r
-(MixedSummaryL2) |> pick(Outcome1, Outcome2) |> estimateStandardizedMeanDifference(MixedCorrL2, conf.level = .99)
+(MixedSummaryL2) |> focus(Outcome1, Outcome2) |> standardizeDifference(MixedCorrL2, conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   0.000   0.365  -0.941   0.941
 
@@ -540,18 +540,18 @@ This section produces analyses involving multiple levels of a factor.
 This code produces a confidence interval for that contrast.
 
 ``` r
-(MixedSummaryL1) |> estimateMeanContrast(MixedCorrL1, contrast = c(-1, .5, .5))
+(MixedSummaryL1) |> estimateContrast(MixedCorrL1, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.572   9.000   2.205   4.795
 
 ``` r
-(MixedSummaryL2) |> estimateMeanContrast(MixedCorrL2, contrast = c(-1, .5, .5))
+(MixedSummaryL2) |> estimateContrast(MixedCorrL2, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.810   9.000  -2.332   1.332
 
@@ -559,13 +559,13 @@ This code obtains and plots the confidence intervals for the mean
 difference in the identified contrast.
 
 ``` r
-(MixedSummaryL1) |> plotMeanContrast(MixedCorrL1, contrast = c(-1, .5, .5))
+(MixedSummaryL1) |> plotContrast(MixedCorrL1, contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Mixed-Summary-ContrastA-1.png)<!-- -->
 
 ``` r
-(MixedSummaryL2) |> plotMeanContrast(MixedCorrL2, contrast = c(-1, .5, .5))
+(MixedSummaryL2) |> plotContrast(MixedCorrL2, contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Mixed-Summary-ContrastA-2.png)<!-- -->
@@ -574,18 +574,18 @@ As in all other cases, the default value of the confidence interval can
 be changed.
 
 ``` r
-(MixedSummaryL1) |> estimateMeanContrast(MixedCorrL1, contrast = c(-1, .5, .5), conf.level = .99)
+(MixedSummaryL1) |> estimateContrast(MixedCorrL1, contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.572   9.000   1.640   5.360
 
 ``` r
-(MixedSummaryL2) |> estimateMeanContrast(MixedCorrL2, contrast = c(-1, .5, .5), conf.level = .99)
+(MixedSummaryL2) |> estimateContrast(MixedCorrL2, contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.810   9.000  -3.131   2.131
 
@@ -594,13 +594,13 @@ a comparison line to represent a population (or test) value and a region
 of practical equivalence can be added to the graph.
 
 ``` r
-(MixedSummaryL1) |> plotMeanContrast(MixedCorrL1, contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
+(MixedSummaryL1) |> plotContrast(MixedCorrL1, contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Summary-ContrastB-1.png)<!-- -->
 
 ``` r
-(MixedSummaryL2) |> plotMeanContrast(MixedCorrL2, contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
+(MixedSummaryL2) |> plotContrast(MixedCorrL2, contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Summary-ContrastB-2.png)<!-- -->
@@ -609,28 +609,28 @@ If you wish, you can get the confidence intervals for the mean subsets
 and the mean contrast in one command.
 
 ``` r
-(MixedSummaryL1) |> estimateMeanSubsets(MixedCorrL1, contrast = c(-1, .5, .5))
+(MixedSummaryL1) |> estimateSubsets(MixedCorrL1, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.447   9.000   6.988   9.012
     ## Pos Weighted  11.500   0.654   9.000  10.021  12.979
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.572   9.000   2.205   4.795
 
 ``` r
-(MixedSummaryL2) |> estimateMeanSubsets(MixedCorrL2, contrast = c(-1, .5, .5))
+(MixedSummaryL2) |> estimateSubsets(MixedCorrL2, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.774   9.000   6.248   9.752
     ## Pos Weighted   7.500   0.587   9.000   6.172   8.828
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.810   9.000  -2.332   1.332
 
@@ -638,13 +638,13 @@ This code produces a difference plot using the confidence intervals for
 the mean subsets and the mean contrast.
 
 ``` r
-(MixedSummaryL1) |> plotMeanSubsets(MixedCorrL1, contrast = c(-1, .5, .5))
+(MixedSummaryL1) |> plotSubsets(MixedCorrL1, contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Mixed-Summary-SubsetsA-1.png)<!-- -->
 
 ``` r
-(MixedSummaryL2) |> plotMeanSubsets(MixedCorrL2, contrast = c(-1, .5, .5))
+(MixedSummaryL2) |> plotSubsets(MixedCorrL2, contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Mixed-Summary-SubsetsA-2.png)<!-- -->
@@ -653,28 +653,28 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(MixedSummaryL1) |> estimateMeanSubsets(MixedCorrL1, contrast = c(-1, .5, .5), conf.level = .99)
+(MixedSummaryL1) |> estimateSubsets(MixedCorrL1, contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.447   9.000   6.547   9.453
     ## Pos Weighted  11.500   0.654   9.000   9.375  13.625
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.572   9.000   1.640   5.360
 
 ``` r
-(MixedSummaryL2) |> estimateMeanSubsets(MixedCorrL2, contrast = c(-1, .5, .5), conf.level = .99)
+(MixedSummaryL2) |> estimateSubsets(MixedCorrL2, contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.774   9.000   5.483  10.517
     ## Pos Weighted   7.500   0.587   9.000   5.593   9.407
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.810   9.000  -3.131   2.131
 
@@ -682,13 +682,13 @@ Once again, the confidence levels can be changed away from the default
 and a region of practical equivalence can be added to the graph.
 
 ``` r
-(MixedSummaryL1) |> plotMeanSubsets(MixedCorrL1, contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
+(MixedSummaryL1) |> plotSubsets(MixedCorrL1, contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Summary-SubsetsB-1.png)<!-- -->
 
 ``` r
-(MixedSummaryL2) |> plotMeanSubsets(MixedCorrL2, contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
+(MixedSummaryL2) |> plotSubsets(MixedCorrL2, contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Summary-SubsetsB-2.png)<!-- -->
@@ -699,36 +699,36 @@ This code produces a NHST for the identified contrast. It tests the
 contrast against a value of zero by default.
 
 ``` r
-(MixedSummaryL1) |> testMeanContrast(MixedCorrL1, contrast = c(-1, .5, .5))
+(MixedSummaryL1) |> testContrast(MixedCorrL1, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast   3.500   0.572   9.000   6.116   0.000
 
 ``` r
-(MixedSummaryL2) |> testMeanContrast(MixedCorrL2, contrast = c(-1, .5, .5))
+(MixedSummaryL2) |> testContrast(MixedCorrL2, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -0.500   0.810   9.000  -0.618   0.552
 
 If desired, the contrast can be tested against other values.
 
 ``` r
-(MixedSummaryL1) |> testMeanContrast(MixedCorrL1, contrast = c(-1, .5, .5), mu = 4)
+(MixedSummaryL1) |> testContrast(MixedCorrL1, contrast = c(-1, .5, .5), mu = 4)
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -0.500   0.572   9.000  -0.874   0.405
 
 ``` r
-(MixedSummaryL2) |> testMeanContrast(MixedCorrL2, contrast = c(-1, .5, .5), mu = 4)
+(MixedSummaryL2) |> testContrast(MixedCorrL2, contrast = c(-1, .5, .5), mu = 4)
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -4.500   0.810   9.000  -5.558   0.000
 
@@ -738,18 +738,18 @@ This code calculates a standardized contrast and its confidence
 interval.
 
 ``` r
-(MixedSummaryL1) |> estimateStandardizedMeanContrast(MixedCorrL1, contrast = c(-1, .5, .5))
+(MixedSummaryL1) |> standardizeContrast(MixedCorrL1, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast   1.689   0.371   0.962   2.415
 
 ``` r
-(MixedSummaryL2) |> estimateStandardizedMeanContrast(MixedCorrL2, contrast = c(-1, .5, .5))
+(MixedSummaryL2) |> standardizeContrast(MixedCorrL2, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast  -0.224   0.341  -0.892   0.443
 
@@ -757,17 +757,17 @@ The width of the confidence interval for the effect size can be altered
 if desired.
 
 ``` r
-(MixedSummaryL1) |> estimateStandardizedMeanContrast(MixedCorrL1, contrast = c(-1, .5, .5), conf.level = .99)
+(MixedSummaryL1) |> standardizeContrast(MixedCorrL1, contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast   1.689   0.371   0.734   2.644
 
 ``` r
-(MixedSummaryL2) |> estimateStandardizedMeanContrast(MixedCorrL2, contrast = c(-1, .5, .5), conf.level = .99)
+(MixedSummaryL2) |> standardizeContrast(MixedCorrL2, contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast  -0.224   0.341  -1.102   0.653

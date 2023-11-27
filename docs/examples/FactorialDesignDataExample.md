@@ -50,7 +50,7 @@ FactorialDataB2 <- subset(FactorialData, FactorB == "B2")
 This code obtains the descriptive statistics for the two data frames.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> describeSummary()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> describeSummary()
 ```
 
     ## $`Summary Statistics for the Data`
@@ -60,7 +60,7 @@ This code obtains the descriptive statistics for the two data frames.
     ## A3  10.000  12.000   2.449   0.340  -1.102
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> describeSummary()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> describeSummary()
 ```
 
     ## $`Summary Statistics for the Data`
@@ -80,7 +80,7 @@ This code will provide tables of confidence intervals for each level of
 the factor.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateMeans()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> estimateMeans()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -90,7 +90,7 @@ the factor.
     ## A3  12.000   0.775   9.000  10.248  13.752
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateMeans()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> estimateMeans()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -103,13 +103,13 @@ This code will produce a graph of the confidence intervals for each
 level of the factor.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> plotMeans()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> plotMeans()
 ```
 
 ![](figures/Factorial-Data-MeansA-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> plotMeans()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> plotMeans()
 ```
 
 ![](figures/Factorial-Data-MeansA-2.png)<!-- -->
@@ -118,7 +118,7 @@ The code defaults to 95% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateMeans(conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> estimateMeans(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -128,7 +128,7 @@ desired.
     ## A3  12.000   0.775   9.000   9.483  14.517
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateMeans(conf.level = .99)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> estimateMeans(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -142,13 +142,13 @@ population (or test) value and a region of practical equivalence in
 addition to changing the confidence level.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
 ```
 
 ![](figures/Factorial-Data-MeansB-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
 ```
 
 ![](figures/Factorial-Data-MeansB-2.png)<!-- -->
@@ -159,7 +159,7 @@ This code will produce a table of NHST separately for each level of the
 factor. In this case, all the means are tested against a value of zero.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> testMeans()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> testMeans()
 ```
 
     ## $`Hypothesis Tests for the Means`
@@ -169,7 +169,7 @@ factor. In this case, all the means are tested against a value of zero.
     ## A3  12.000   0.775   9.000  15.492   0.000
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> testMeans()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> testMeans()
 ```
 
     ## $`Hypothesis Tests for the Means`
@@ -183,7 +183,7 @@ This too can be altered (often in conjunction with what is presented in
 the plot).
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> testMeans(mu = 9)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> testMeans(mu = 9)
 ```
 
     ## $`Hypothesis Tests for the Means`
@@ -193,7 +193,7 @@ the plot).
     ## A3   3.000   0.775   9.000   3.873   0.004
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> testMeans(mu = 9)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> testMeans(mu = 9)
 ```
 
     ## $`Hypothesis Tests for the Means`
@@ -209,7 +209,7 @@ separately for each level of the factor. In this case, the mean is
 compared to zero to form the effect size.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateStandardizedMeans()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> standardizeMeans()
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -219,7 +219,7 @@ compared to zero to form the effect size.
     ## A3   4.899   1.096   2.579   7.203
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateStandardizedMeans()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> standardizeMeans()
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -232,7 +232,7 @@ Here too it is possible to alter the width of the confidence intervals
 and to establish a more plausible comparison value for the mean.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -242,7 +242,7 @@ and to establish a more plausible comparison value for the mean.
     ## A3   1.225   0.422   0.126   2.317
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -261,18 +261,18 @@ factor.
 This code estimates the confidence interval of the difference.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifference()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> estimateDifference()
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.830  15.308   1.234   4.766
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifference()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> estimateDifference()
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   1.000  17.308  -2.107   2.107
 
@@ -280,13 +280,13 @@ This code obtains and plots the confidence intervals for the mean
 difference in the identified comparison.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifference()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> plotDifference()
 ```
 
 ![](figures/Factorial-Data-DifferenceA-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifference()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> plotDifference()
 ```
 
 ![](figures/Factorial-Data-DifferenceA-2.png)<!-- -->
@@ -295,18 +295,18 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifference(conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> estimateDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.830  15.308   0.561   5.439
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifference(conf.level = .99)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> estimateDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   1.000  17.308  -2.892   2.892
 
@@ -315,13 +315,13 @@ and a comparison line to represent a population (or test) value and a
 region of practical equivalence can be added to the graph.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifference(conf.level = .99, line = 0, rope = c(-2, 2))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> plotDifference(conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Factorial-Data-DifferenceB-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifference(conf.level = .99, line = 0, rope = c(-2, 2))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> plotDifference(conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Factorial-Data-DifferenceB-2.png)<!-- -->
@@ -330,7 +330,7 @@ If you wish, you can get the confidence intervals for the means and the
 mean difference in one command.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanComparison()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> estimateComparison()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -338,12 +338,12 @@ mean difference in one command.
     ## A1   8.000   0.447   9.000   6.988   9.012
     ## A2  11.000   0.699   9.000   9.418  12.582
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.830  15.308   1.234   4.766
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanComparison()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> estimateComparison()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -351,7 +351,7 @@ mean difference in one command.
     ## A1   8.000   0.775   9.000   6.248   9.752
     ## A2   8.000   0.632   9.000   6.569   9.431
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   1.000  17.308  -2.107   2.107
 
@@ -359,13 +359,13 @@ This code produces a difference plot using the confidence intervals for
 the means and the mean difference.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanComparison()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> plotComparison()
 ```
 
 ![](figures/Factorial-Data-ComparisonA-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanComparison()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> plotComparison()
 ```
 
 ![](figures/Factorial-Data-ComparisonA-2.png)<!-- -->
@@ -374,7 +374,7 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanComparison(conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> estimateComparison(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -382,12 +382,12 @@ desired.
     ## A1   8.000   0.447   9.000   6.547   9.453
     ## A2  11.000   0.699   9.000   8.728  13.272
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.830  15.308   0.561   5.439
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanComparison(conf.level = .99)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> estimateComparison(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -395,7 +395,7 @@ desired.
     ## A1   8.000   0.775   9.000   5.483  10.517
     ## A2   8.000   0.632   9.000   5.945  10.055
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   1.000  17.308  -2.892   2.892
 
@@ -403,13 +403,13 @@ Once again, the confidence levels can be changed away from the default
 and a region of practical equivalence can be added to the graph.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanComparison(conf.level = .99, rope = c(-2, 2))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> plotComparison(conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Factorial-Data-ComparisonB-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanComparison(conf.level = .99, rope = c(-2, 2))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> plotComparison(conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Factorial-Data-ComparisonB-2.png)<!-- -->
@@ -420,36 +420,36 @@ This code produces NHST for the identified comparison (using a default
 test value of zero).
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifference()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> testDifference()
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   3.000   0.830  15.308   3.614   0.002
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifference()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> testDifference()
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   0.000   1.000  17.308   0.000   1.000
 
 If the default value of zero is not plausible, it too can be changed.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifference(mu = -2)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> testDifference(mu = -2)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   5.000   0.830  15.308   6.024   0.000
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifference(mu = -2)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> testDifference(mu = -2)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   2.000   1.000  17.308   2.000   0.061
 
@@ -459,18 +459,18 @@ This code calculates a standardized mean difference for the comparison
 and its confidence interval.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateStandardizedMeanDifference()
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> standardizeDifference()
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   1.616   0.555   0.529   2.703
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateStandardizedMeanDifference()
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> standardizeDifference()
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   0.000   0.471  -0.924   0.924
 
@@ -478,18 +478,18 @@ The width of the confidence interval for the effect size can be altered
 if desired.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateStandardizedMeanDifference(conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> standardizeDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   1.616   0.555   0.188   3.045
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> pick(A1, A2) |> estimateStandardizedMeanDifference(conf.level = .99)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> focus(A1, A2) |> standardizeDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   0.000   0.471  -1.214   1.214
 
@@ -502,18 +502,18 @@ This section produces analyses involving multiple levels of a factor.
 This code produces a confidence interval for that contrast.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateMeanContrast(contrast = c(-1, .5, .5))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> estimateContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.687  25.917   2.087   4.913
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateMeanContrast(contrast = c(-1, .5, .5))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> estimateContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.907  15.806  -2.424   1.424
 
@@ -521,13 +521,13 @@ This code obtains and plots the confidence intervals for the groups and
 the mean difference in the identified contrast.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> plotMeanContrast(contrast = c(-1, .5, .5))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> plotContrast(contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Factorial-Data-ContrastA-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> plotMeanContrast(contrast = c(-1, .5, .5))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> plotContrast(contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Factorial-Data-ContrastA-2.png)<!-- -->
@@ -536,18 +536,18 @@ As in all other cases, the default value of the confidence interval can
 be changed.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateMeanContrast(contrast = c(-1, .5, .5), conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> estimateContrast(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.687  25.917   1.590   5.410
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateMeanContrast(contrast = c(-1, .5, .5), conf.level = .99)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> estimateContrast(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.907  15.806  -3.153   2.153
 
@@ -556,13 +556,13 @@ a comparison line to represent a population (or test) value and a region
 of practical equivalence can be added to the graph.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> plotMeanContrast(contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> plotContrast(contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Factorial-Data-ContrastB-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> plotMeanContrast(contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> plotContrast(contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Factorial-Data-ContrastB-2.png)<!-- -->
@@ -571,28 +571,28 @@ If you wish, you can get the confidence intervals for the mean subsets
 and the mean contrast in one command.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateMeanSubsets(contrast = c(-1, .5, .5))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> estimateSubsets(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.447   9.000   6.988   9.012
     ## Pos Weighted  11.500   0.522  17.815  10.403  12.597
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.687  25.917   2.087   4.913
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateMeanSubsets(contrast = c(-1, .5, .5))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> estimateSubsets(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.775   9.000   6.248   9.752
     ## Pos Weighted   7.500   0.471  17.822   6.509   8.491
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.907  15.806  -2.424   1.424
 
@@ -600,13 +600,13 @@ This code produces a difference plot using the confidence intervals for
 the mean subsets and the mean contrast.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> plotMeanSubsets(contrast = c(-1, .5, .5))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> plotSubsets(contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Factorial-Data-SubsetsA-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> plotMeanSubsets(contrast = c(-1, .5, .5))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> plotSubsets(contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Factorial-Data-SubsetsA-2.png)<!-- -->
@@ -615,28 +615,28 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateMeanSubsets(contrast = c(-1, .5, .5), conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> estimateSubsets(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.447   9.000   6.547   9.453
     ## Pos Weighted  11.500   0.522  17.815   9.996  13.004
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.687  25.917   1.590   5.410
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateMeanSubsets(contrast = c(-1, .5, .5), conf.level = .99)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> estimateSubsets(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.775   9.000   5.483  10.517
     ## Pos Weighted   7.500   0.471  17.822   6.142   8.858
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.907  15.806  -3.153   2.153
 
@@ -644,13 +644,13 @@ Once again, the confidence levels can be changed away from the default
 and a region of practical equivalence can be added to the graph.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"), conf.level = .99, rope = c(-2, 2))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> plotSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Factorial-Data-SubsetsB-1.png)<!-- -->
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"), conf.level = .99, rope = c(-2, 2))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> plotSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Factorial-Data-SubsetsB-2.png)<!-- -->
@@ -661,36 +661,36 @@ This code produces a NHST for the identified contrast. It tests the
 contrast against a value of zero by default.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> testMeanContrast(contrast = c(-1, .5, .5))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> testContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast   3.500   0.687  25.917   5.093   0.000
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> testMeanContrast(contrast = c(-1, .5, .5))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> testContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -0.500   0.907  15.806  -0.551   0.589
 
 If desired, the contrast can be tested against other values.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> testMeanContrast(contrast = c(-1, .5, .5), mu = 4)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> testContrast(contrast = c(-1, .5, .5), mu = 4)
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -0.500   0.687  25.917  -0.728   0.473
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> testMeanContrast(contrast = c(-1, .5, .5), mu = 4)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> testContrast(contrast = c(-1, .5, .5), mu = 4)
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -4.500   0.907  15.806  -4.963   0.000
 
@@ -700,18 +700,18 @@ This code calculates a standardized contrast and its confidence
 interval.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateStandardizedMeanContrast(contrast = c(-1, .5, .5))
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> standardizeContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast   1.689   0.428   0.850   2.527
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateStandardizedMeanContrast(contrast = c(-1, .5, .5))
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> standardizeContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast  -0.224   0.430  -1.068   0.619
 
@@ -719,17 +719,17 @@ The width of the confidence interval for the effect size can be altered
 if desired.
 
 ``` r
-(FactorialDataB1) %$>% (Outcome ~ FactorA) |> estimateStandardizedMeanContrast(contrast = c(-1, .5, .5), conf.level = .99)
+(FactorialDataB1) |> focus(Outcome ~ FactorA) |> standardizeContrast(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast   1.689   0.428   0.586   2.791
 
 ``` r
-(FactorialDataB2) %$>% (Outcome ~ FactorA) |> estimateStandardizedMeanContrast(contrast = c(-1, .5, .5), conf.level = .99)
+(FactorialDataB2) |> focus(Outcome ~ FactorA) |> standardizeContrast(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast  -0.224   0.430  -1.332   0.884

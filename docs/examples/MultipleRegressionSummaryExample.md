@@ -72,7 +72,7 @@ This code will produce a source table associated with the regression
 model.
 
 ``` r
-(RegressionSummary) |> describeRegressionEffect(RegressionCorr)
+(RegressionSummary) |> describeModel(RegressionCorr)
 ```
 
     ## $`Source Table for the Regression Model`
@@ -86,7 +86,7 @@ model.
 This code will produce the confidence interval for R Squared.
 
 ``` r
-(RegressionSummary) |> estimateRegressionEffect(RegressionCorr)
+(RegressionSummary) |> estimateModel(RegressionCorr)
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -97,7 +97,7 @@ The code defaults to 90% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(RegressionSummary) |> estimateRegressionEffect(RegressionCorr, conf.level = .95)
+(RegressionSummary) |> estimateModel(RegressionCorr, conf.level = .95)
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -109,7 +109,7 @@ desired.
 This code will calculate NHST for the regression model.
 
 ``` r
-(RegressionSummary) |> testRegressionEffect(RegressionCorr)
+(RegressionSummary) |> testModel(RegressionCorr)
 ```
 
     ## $`Hypothesis Test for the Regression Model`
@@ -127,7 +127,7 @@ This code will provide a table of confidence intervals for each of the
 regression coefficients.
 
 ``` r
-(RegressionSummary) |> estimateRegressionCoefficients(RegressionCorr)
+(RegressionSummary) |> estimateCoefficients(RegressionCorr)
 ```
 
     ## $`Confidence Intervals for the Regression Coefficients`
@@ -140,7 +140,7 @@ This code will produce a graph of the confidence intervals for each of
 the regression coefficients.
 
 ``` r
-(RegressionSummary) |> plotRegressionCoefficients(RegressionCorr)
+(RegressionSummary) |> plotCoefficients(RegressionCorr)
 ```
 
 ![](figures/Multiple-Summary-CoefficientsA-1.png)<!-- -->
@@ -149,7 +149,7 @@ The code defaults to 95% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(RegressionSummary) |> estimateRegressionCoefficients(RegressionCorr, conf.level = .99)
+(RegressionSummary) |> estimateCoefficients(RegressionCorr, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Regression Coefficients`
@@ -163,7 +163,7 @@ predictors (minus the intercept) in addition to changing the confidence
 level.
 
 ``` r
-(RegressionSummary) |> plotRegressionCoefficients(RegressionCorr, conf.level = .99, line = 0, intercept = FALSE)
+(RegressionSummary) |> plotCoefficients(RegressionCorr, conf.level = .99, line = 0, intercept = FALSE)
 ```
 
 ![](figures/Multiple-Summary-CoefficientsB-1.png)<!-- -->
@@ -175,7 +175,7 @@ regression coefficients. In this case, all the coefficients are tested
 against a value of zero.
 
 ``` r
-(RegressionSummary) |> testRegressionCoefficients(RegressionCorr)
+(RegressionSummary) |> testCoefficients(RegressionCorr)
 ```
 
     ## $`Hypothesis Tests for the Regression Coefficients`
@@ -190,7 +190,7 @@ This code will provide a table of confidence intervals for each of the
 standardized coefficients.
 
 ``` r
-(RegressionSummary) |> estimateStandardizedRegressionCoefficients(RegressionCorr)
+(RegressionSummary) |> standardizeCoefficients(RegressionCorr)
 ```
 
     ## $`Confidence Intervals for the Standardized Regression Coefficients`
@@ -198,31 +198,14 @@ standardized coefficients.
     ## Predictor1   0.173   0.568  -1.171   1.516
     ## Predictor2   0.571   0.403  -0.381   1.522
 
-This code will produce a graph of the confidence intervals for each of
-the standardized coefficients.
-
-``` r
-(RegressionSummary) |> plotStandardizedRegressionCoefficients(RegressionCorr)
-```
-
-![](figures/Multiple-Summary-StandardizedA-1.png)<!-- -->
-
 As in other places, the code defaults to 95% confidence intervals. This
 can be changed if desired.
 
 ``` r
-(RegressionSummary) |> estimateStandardizedRegressionCoefficients(RegressionCorr, conf.level = .99)
+(RegressionSummary) |> standardizeCoefficients(RegressionCorr, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Regression Coefficients`
     ##                Est      SE      LL      UL
     ## Predictor1   0.173   0.568  -1.816   2.161
     ## Predictor2   0.571   0.403  -0.838   1.979
-
-For the graph, it is possible to change the confidence level.
-
-``` r
-(RegressionSummary) |> plotStandardizedRegressionCoefficients(RegressionCorr, conf.level = .99)
-```
-
-![](figures/Multiple-Summary-StandardizedB-1.png)<!-- -->

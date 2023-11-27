@@ -17,7 +17,7 @@ This code inputs the variable names and creates a viewable data frame.
 
 ``` r
 Factor <- c(rep(1, 10), rep(2, 10))
-Factor <- factor(Factor, levels = c(1, 2), labels = c("F1", "F2"))
+Factor <- factor(Factor, levels = c(1, 2), labels = c("Level1", "Level2"))
 Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8)
 Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 7, 8, 7, 11, 10, 7, 8, 4, 8, 10)
 Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10, 8, 6, 8, 11, 5, 7, 9, 3, 6, 7)
@@ -31,7 +31,7 @@ estimate of the proportion of variance accounted for, and an ANOVA test
 of the main effects and interaction.
 
 ``` r
-construct(Outcome1, Outcome2, Outcome3) |> describeMeansFactorial(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> describeFactorial(by = Factor)
 ```
 
     ## $`Source Table for the Model: Between Subjects`
@@ -46,7 +46,7 @@ construct(Outcome1, Outcome2, Outcome3) |> describeMeansFactorial(by = Factor)
     ## Residual         98.000  36.000   2.722
 
 ``` r
-construct(Outcome1, Outcome2, Outcome3) |> estimateMeansFactorial(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> estimateFactorial(by = Factor)
 ```
 
     ## $`Proportion of Variance Accounted For by the Model: Between Subjects`
@@ -59,7 +59,7 @@ construct(Outcome1, Outcome2, Outcome3) |> estimateMeansFactorial(by = Factor)
     ## Measures:Blocks   0.393   0.163   0.528
 
 ``` r
-construct(Outcome1, Outcome2, Outcome3) |> testMeansFactorial(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> testFactorial(by = Factor)
 ```
 
     ## $`Hypothesis Tests for the Model: Between Subjects`
@@ -74,8 +74,8 @@ construct(Outcome1, Outcome2, Outcome3) |> testMeansFactorial(by = Factor)
 Plot the means and confidence intervals for the design as a whole.
 
 ``` r
-construct(Outcome1, Outcome2, Outcome3) |> plotMeansFactorial(by = Factor, col = c("darkred", "darkblue"))
-legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("F1", "F2"), col = c("darkred", "darkblue"))
+construct(Outcome1, Outcome2, Outcome3) |> plotFactorial(by = Factor, col = c("darkred", "darkblue"))
+legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("Level1", "Level2"), col = c("darkred", "darkblue"))
 ```
 
 ![](figures/Interaction-Mixed-Omnibus-1.png)<!-- -->
@@ -88,33 +88,33 @@ test the interaction contrast (which includes the comparisons within
 each simple effect).
 
 ``` r
-construct(Outcome1, Outcome2) |> estimateMeanInteraction(by = Factor)
+construct(Outcome1, Outcome2) |> estimateInteraction(by = Factor)
 ```
 
     ## $`Confidence Intervals for the Simple Effect Constrasts`
-    ##                         Est      SE      df      LL      UL
-    ## Simple Effect at F1   3.000   0.596   9.000   1.651   4.349
-    ## Simple Effect at F2   0.000   0.775   9.000  -1.752   1.752
+    ##                             Est      SE      df      LL      UL
+    ## Simple Effect at Level1   3.000   0.596   9.000   1.651   4.349
+    ## Simple Effect at Level2   0.000   0.775   9.000  -1.752   1.752
     ## 
     ## $`Confidence Interval for the Interaction Contrast`
     ##                 Est      SE      df      LL      UL
     ## Interaction  -3.000   0.978  16.894  -5.063  -0.937
 
 ``` r
-construct(Outcome1, Outcome2) |> testMeanInteraction(by = Factor)
+construct(Outcome1, Outcome2) |> testInteraction(by = Factor)
 ```
 
     ## $`Hypothesis Tests for the Main Effect Constrasts`
-    ##                         Est      SE       t      df       p
-    ## Simple Effect at F1   3.000   0.596   5.031   9.000   0.001
-    ## Simple Effect at F2   0.000   0.775   0.000   9.000   1.000
+    ##                             Est      SE       t      df       p
+    ## Simple Effect at Level1   3.000   0.596   5.031   9.000   0.001
+    ## Simple Effect at Level2   0.000   0.775   0.000   9.000   1.000
     ## 
     ## $`Hypothesis Test for the Interaction Contrast`
     ##                 Est      SE       t      df       p
     ## Interaction  -3.000   0.978  -3.069  16.894   0.007
 
 ``` r
-construct(Outcome1, Outcome2) |> plotMeanInteraction(by = Factor)
+construct(Outcome1, Outcome2) |> plotInteraction(by = Factor)
 ```
 
 ![](figures/Interaction-Mixed-Contrasts-1.png)<!-- -->

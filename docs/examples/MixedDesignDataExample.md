@@ -50,7 +50,7 @@ MixedDataL2 <- subset(MixedData, Factor == "Level2")
 This code obtains the descriptive statistics for the two data frames.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeSummary()
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> describeSummary()
 ```
 
     ## $`Summary Statistics for the Data`
@@ -60,7 +60,7 @@ This code obtains the descriptive statistics for the two data frames.
     ## Outcome3  10.000  12.000   2.449   0.340  -1.102
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeCorrelations()
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> describeCorrelations()
 ```
 
     ## $`Correlation Matrix for the Variables`
@@ -70,7 +70,7 @@ This code obtains the descriptive statistics for the two data frames.
     ## Outcome3    0.385    0.574    1.000
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeSummary()
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> describeSummary()
 ```
 
     ## $`Summary Statistics for the Data`
@@ -80,7 +80,7 @@ This code obtains the descriptive statistics for the two data frames.
     ## Outcome3  10.000   7.000   2.211   0.000   0.665
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> describeCorrelations()
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> describeCorrelations()
 ```
 
     ## $`Correlation Matrix for the Variables`
@@ -100,7 +100,7 @@ This code will provide tables of confidence intervals for each level of
 the factor.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeans()
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> estimateMeans()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -110,7 +110,7 @@ the factor.
     ## Outcome3  12.000   0.775   9.000  10.248  13.752
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeans()
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> estimateMeans()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -123,13 +123,13 @@ This code will produce a graph of the confidence intervals for each
 level of the factor.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeans()
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> plotMeans()
 ```
 
 ![](figures/Mixed-Data-MeansA-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeans()
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> plotMeans()
 ```
 
 ![](figures/Mixed-Data-MeansA-2.png)<!-- -->
@@ -138,7 +138,7 @@ The code defaults to 95% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeans(conf.level = .99)
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> estimateMeans(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -148,7 +148,7 @@ desired.
     ## Outcome3  12.000   0.775   9.000   9.483  14.517
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeans(conf.level = .99)
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> estimateMeans(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -162,13 +162,13 @@ population (or test) value and a region of practical equivalence in
 addition to changing the confidence level.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
 ```
 
 ![](figures/Mixed-Data-MeansB-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
 ```
 
 ![](figures/Mixed-Data-MeansB-2.png)<!-- -->
@@ -179,7 +179,7 @@ This code will produce a table of NHST separately for each level of the
 factor. In this case, all the means are tested against a value of zero.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> testMeans()
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> testMeans()
 ```
 
     ## $`Hypothesis Tests for the Means`
@@ -189,7 +189,7 @@ factor. In this case, all the means are tested against a value of zero.
     ## Outcome3  12.000   0.775   9.000  15.492   0.000
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> testMeans()
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> testMeans()
 ```
 
     ## $`Hypothesis Tests for the Means`
@@ -203,7 +203,7 @@ This too can be altered (often in conjunction with what is presented in
 the plot).
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> testMeans(mu = 9)
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> testMeans(mu = 9)
 ```
 
     ## $`Hypothesis Tests for the Means`
@@ -213,7 +213,7 @@ the plot).
     ## Outcome3   3.000   0.775   9.000   3.873   0.004
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> testMeans(mu = 9)
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> testMeans(mu = 9)
 ```
 
     ## $`Hypothesis Tests for the Means`
@@ -229,7 +229,7 @@ separately for each level of the factor. In this case, the mean is
 compared to zero to form the effect size.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeans()
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> standardizeMeans()
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -239,7 +239,7 @@ compared to zero to form the effect size.
     ## Outcome3   4.899   1.096   2.579   7.203
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeans()
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> standardizeMeans()
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -252,7 +252,7 @@ Here too it is possible to alter the width of the confidence intervals
 and to establish a more plausible comparison value for the mean.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -262,7 +262,7 @@ and to establish a more plausible comparison value for the mean.
     ## Outcome3   1.225   0.422   0.126   2.317
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -282,18 +282,18 @@ This code identifies the two levels for comparison and estimates the
 confidence interval of the difference.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> estimateMeanDifference()
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> estimateDifference()
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.651   4.349
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> estimateMeanDifference()
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> estimateDifference()
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   0.775   9.000  -1.752   1.752
 
@@ -301,13 +301,13 @@ This code obtains and plots the confidence intervals for the mean
 difference in the identified comparison.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> plotMeanDifference()
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> plotDifference()
 ```
 
 ![](figures/Mixed-Data-DifferenceA-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> plotMeanDifference()
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> plotDifference()
 ```
 
 ![](figures/Mixed-Data-DifferenceA-2.png)<!-- -->
@@ -316,18 +316,18 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> estimateMeanDifference(conf.level = .99)
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> estimateDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.062   4.938
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> estimateMeanDifference(conf.level = .99)
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> estimateDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   0.775   9.000  -2.517   2.517
 
@@ -336,13 +336,13 @@ and a comparison line to represent a population (or test) value and a
 region of practical equivalence can be added to the graph.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> plotMeanDifference(conf.level = .99, line = 0, rope = c(-2, 2))
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> plotDifference(conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Data-DifferenceB-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> plotMeanDifference(conf.level = .99, line = 0, rope = c(-2, 2))
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> plotDifference(conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Data-DifferenceB-2.png)<!-- -->
@@ -351,7 +351,7 @@ If you wish, you can get the confidence intervals for the means and the
 mean difference in one command.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> estimateMeanComparison()
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> estimateComparison()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -359,12 +359,12 @@ mean difference in one command.
     ## Outcome1   8.000   0.447   9.000   6.988   9.012
     ## Outcome2  11.000   0.699   9.000   9.418  12.582
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.651   4.349
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> estimateMeanComparison()
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> estimateComparison()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -372,7 +372,7 @@ mean difference in one command.
     ## Outcome1   8.000   0.775   9.000   6.248   9.752
     ## Outcome2   8.000   0.632   9.000   6.569   9.431
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   0.775   9.000  -1.752   1.752
 
@@ -380,13 +380,13 @@ This code produces a difference plot using the confidence intervals for
 the means and the mean difference.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> plotMeanComparison()
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> plotComparison()
 ```
 
 ![](figures/Mixed-Data-ComparisonA-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> plotMeanComparison()
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> plotComparison()
 ```
 
 ![](figures/Mixed-Data-ComparisonA-2.png)<!-- -->
@@ -395,7 +395,7 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> estimateMeanComparison(conf.level = .99)
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> estimateComparison(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -403,12 +403,12 @@ desired.
     ## Outcome1   8.000   0.447   9.000   6.547   9.453
     ## Outcome2  11.000   0.699   9.000   8.728  13.272
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.062   4.938
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> estimateMeanComparison(conf.level = .99)
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> estimateComparison(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -416,7 +416,7 @@ desired.
     ## Outcome1   8.000   0.775   9.000   5.483  10.517
     ## Outcome2   8.000   0.632   9.000   5.945  10.055
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   0.775   9.000  -2.517   2.517
 
@@ -424,13 +424,13 @@ Once again, the confidence levels can be changed away from the default
 and a region of practical equivalence can be added to the graph.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> plotMeanComparison(conf.level = .99, rope = c(-2, 2))
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> plotComparison(conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Data-ComparisonB-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> plotMeanComparison(conf.level = .99, rope = c(-2, 2))
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> plotComparison(conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Data-ComparisonB-2.png)<!-- -->
@@ -441,36 +441,36 @@ This code produces NHST for the identified comparison (using a default
 test value of zero).
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> testMeanDifference()
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> testDifference()
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   3.000   0.596   9.000   5.031   0.001
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> testMeanDifference()
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> testDifference()
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   0.000   0.775   9.000   0.000   1.000
 
 If the default value of zero is not plausible, it too can be changed.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> testMeanDifference(mu = -2)
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> testDifference(mu = -2)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   5.000   0.596   9.000   8.385   0.000
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> testMeanDifference(mu = -2)
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> testDifference(mu = -2)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   2.000   0.775   9.000   2.582   0.030
 
@@ -480,18 +480,18 @@ This code calculates a standardized mean difference for the comparison
 and its confidence interval.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> estimateStandardizedMeanDifference()
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> standardizeDifference()
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   1.616   0.466   0.703   2.530
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> estimateStandardizedMeanDifference()
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> standardizeDifference()
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   0.000   0.365  -0.716   0.716
 
@@ -499,18 +499,18 @@ The width of the confidence interval for the effect size can be altered
 if desired.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1, Outcome2) |> estimateStandardizedMeanDifference(conf.level = .99)
+(MixedDataL1) |> focus(Outcome1, Outcome2) |> standardizeDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   1.616   0.466   0.416   2.816
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1, Outcome2) |> estimateStandardizedMeanDifference(conf.level = .99)
+(MixedDataL2) |> focus(Outcome1, Outcome2) |> standardizeDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   0.000   0.365  -0.941   0.941
 
@@ -523,18 +523,18 @@ This section produces analyses involving multiple levels of a factor.
 This code produces a confidence interval for that contrast.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast = c(-1, .5, .5))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> estimateContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.573   9.000   2.205   4.795
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast = c(-1, .5, .5))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> estimateContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.810   9.000  -2.332   1.332
 
@@ -542,13 +542,13 @@ This code obtains and plots the confidence intervals for the mean
 difference in the identified contrast.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast = c(-1, .5, .5))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> plotContrast(contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Mixed-Data-ContrastA-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast = c(-1, .5, .5))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> plotContrast(contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Mixed-Data-ContrastA-2.png)<!-- -->
@@ -557,18 +557,18 @@ As in all other cases, the default value of the confidence interval can
 be changed.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast = c(-1, .5, .5), conf.level = .99)
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> estimateContrast(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.573   9.000   1.639   5.361
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeanContrast(contrast = c(-1, .5, .5), conf.level = .99)
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> estimateContrast(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.810   9.000  -3.131   2.131
 
@@ -577,13 +577,13 @@ a comparison line to represent a population (or test) value and a region
 of practical equivalence can be added to the graph.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> plotContrast(contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Data-ContrastB-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeanContrast(contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> plotContrast(contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Data-ContrastB-2.png)<!-- -->
@@ -592,28 +592,28 @@ If you wish, you can get the confidence intervals for the mean subsets
 and the mean contrast in one command.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeanSubsets(contrast = c(-1, .5, .5))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> estimateSubsets(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.447   9.000   6.988   9.012
     ## Pos Weighted  11.500   0.654   9.000  10.020  12.980
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.573   9.000   2.205   4.795
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeanSubsets(contrast = c(-1, .5, .5))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> estimateSubsets(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.775   9.000   6.248   9.752
     ## Pos Weighted   7.500   0.587   9.000   6.172   8.828
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.810   9.000  -2.332   1.332
 
@@ -621,13 +621,13 @@ This code produces a difference plot using the confidence intervals for
 the mean subsets and the mean contrast.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeanSubsets(contrast = c(-1, .5, .5))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> plotSubsets(contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Mixed-Data-SubsetsA-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeanSubsets(contrast = c(-1, .5, .5))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> plotSubsets(contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Mixed-Data-SubsetsA-2.png)<!-- -->
@@ -636,28 +636,28 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeanSubsets(contrast = c(-1, .5, .5), conf.level = .99)
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> estimateSubsets(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.447   9.000   6.547   9.453
     ## Pos Weighted  11.500   0.654   9.000   9.374  13.626
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.573   9.000   1.639   5.361
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateMeanSubsets(contrast = c(-1, .5, .5), conf.level = .99)
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> estimateSubsets(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Intervals for the Mean Subsets`
+    ## $`Confidence Intervals for the Subsets of Means`
     ##                  Est      SE      df      LL      UL
     ## Neg Weighted   8.000   0.775   9.000   5.483  10.517
     ## Pos Weighted   7.500   0.587   9.000   5.593   9.407
     ## 
-    ## $`Confidence Interval for the Mean Contrast`
+    ## $`Confidence Interval for the Contrast of Means`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.810   9.000  -3.131   2.131
 
@@ -665,13 +665,13 @@ Once again, the confidence levels can be changed away from the default
 and a region of practical equivalence can be added to the graph.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> plotSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Data-SubsetsB-1.png)<!-- -->
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> plotMeanSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> plotSubsets(contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Mixed-Data-SubsetsB-2.png)<!-- -->
@@ -682,36 +682,36 @@ This code produces a NHST for the identified contrast. It tests the
 contrast against a value of zero by default.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> testMeanContrast(contrast = c(-1, .5, .5))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> testContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast   3.500   0.573   9.000   6.113   0.000
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> testMeanContrast(contrast = c(-1, .5, .5))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> testContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -0.500   0.810   9.000  -0.618   0.552
 
 If desired, the contrast can be tested against other values.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> testMeanContrast(contrast = c(-1, .5, .5), mu = 4)
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> testContrast(contrast = c(-1, .5, .5), mu = 4)
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -0.500   0.573   9.000  -0.873   0.405
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> testMeanContrast(contrast = c(-1, .5, .5), mu = 4)
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> testContrast(contrast = c(-1, .5, .5), mu = 4)
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast`
+    ## $`Hypothesis Test for the Contrast of Means`
     ##              Est      SE      df       t       p
     ## Contrast  -4.500   0.810   9.000  -5.558   0.000
 
@@ -721,18 +721,18 @@ This code calculates a standardized contrast and its confidence
 interval.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrast(contrast = c(-1, .5, .5))
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> standardizeContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast   1.689   0.371   0.962   2.415
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrast(contrast = c(-1, .5, .5))
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> standardizeContrast(contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast  -0.224   0.341  -0.892   0.443
 
@@ -740,17 +740,17 @@ The width of the confidence interval for the effect size can be altered
 if desired.
 
 ``` r
-(MixedDataL1) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrast(contrast = c(-1, .5, .5), conf.level = .99)
+(MixedDataL1) |> focus(Outcome1,Outcome2,Outcome3) |> standardizeContrast(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast   1.689   0.371   0.734   2.643
 
 ``` r
-(MixedDataL2) %$>% construct(Outcome1,Outcome2,Outcome3) |> estimateStandardizedMeanContrast(contrast = c(-1, .5, .5), conf.level = .99)
+(MixedDataL2) |> focus(Outcome1,Outcome2,Outcome3) |> standardizeContrast(contrast = c(-1, .5, .5), conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast`
+    ## $`Confidence Interval for the Standardized Contrast of Means`
     ##              Est      SE      LL      UL
     ## Contrast  -0.224   0.341  -1.102   0.653

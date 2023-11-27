@@ -136,7 +136,7 @@ separately for each level of the factor. In this case, the mean is
 compared to zero to form the effect size.
 
 ``` r
-(PairedData) |> estimateStandardizedMeans()
+(PairedData) |> standardizeMeans()
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -148,7 +148,7 @@ Here too it is possible to alter the width of the confidence intervals
 and to establish a more plausible comparison value for the mean.
 
 ``` r
-(PairedData) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(PairedData) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Means`
@@ -166,10 +166,10 @@ levels of the factor.
 This code estimates the confidence interval of the difference.
 
 ``` r
-(PairedData) |> estimateMeanDifference()
+(PairedData) |> estimateDifference()
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.651   4.349
 
@@ -177,7 +177,7 @@ This code obtains and plots the confidence intervals for the mean
 difference.
 
 ``` r
-(PairedData) |> plotMeanDifference()
+(PairedData) |> plotDifference()
 ```
 
 ![](figures/Paired-Data-DifferenceA-1.png)<!-- -->
@@ -186,10 +186,10 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(PairedData) |> estimateMeanDifference(conf.level = .99)
+(PairedData) |> estimateDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.062   4.938
 
@@ -198,7 +198,7 @@ and a comparison line to represent a population (or test) value and a
 region of practical equivalence can be added to the graph.
 
 ``` r
-(PairedData) |> plotMeanDifference(conf.level = .99, line = 0, rope = c(-2, 2))
+(PairedData) |> plotDifference(conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
 ![](figures/Paired-Data-DifferenceB-1.png)<!-- -->
@@ -207,7 +207,7 @@ If you wish, you can get the confidence intervals for the means and the
 mean difference in one command.
 
 ``` r
-(PairedData) |> estimateMeanComparison()
+(PairedData) |> estimateComparison()
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -215,7 +215,7 @@ mean difference in one command.
     ## Outcome1   8.000   0.447   9.000   6.988   9.012
     ## Outcome2  11.000   0.699   9.000   9.418  12.582
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.651   4.349
 
@@ -223,7 +223,7 @@ This code produces a difference plot using the confidence intervals for
 the means and the mean difference.
 
 ``` r
-(PairedData) |> plotMeanComparison()
+(PairedData) |> plotComparison()
 ```
 
 ![](figures/Paired-Data-ComparisonA-1.png)<!-- -->
@@ -232,7 +232,7 @@ Of course, you can change the confidence level from the default 95% if
 desired.
 
 ``` r
-(PairedData) |> estimateMeanComparison(conf.level = .99)
+(PairedData) |> estimateComparison(conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Means`
@@ -240,7 +240,7 @@ desired.
     ## Outcome1   8.000   0.447   9.000   6.547   9.453
     ## Outcome2  11.000   0.699   9.000   8.728  13.272
     ## 
-    ## $`Confidence Interval for the Mean Difference`
+    ## $`Confidence Interval for the Difference of Means`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.596   9.000   1.062   4.938
 
@@ -248,7 +248,7 @@ Once again, the confidence levels can be changed away from the default
 and a region of practical equivalence can be added to the graph.
 
 ``` r
-(PairedData) |> plotMeanComparison(conf.level = .99, rope = c(-2, 2))
+(PairedData) |> plotComparison(conf.level = .99, rope = c(-2, 2))
 ```
 
 ![](figures/Paired-Data-ComparisonB-1.png)<!-- -->
@@ -259,20 +259,20 @@ This code produces NHST for the mean difference (using a default test
 value of zero).
 
 ``` r
-(PairedData) |> testMeanDifference()
+(PairedData) |> testDifference()
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   3.000   0.596   9.000   5.031   0.001
 
 If the default value of zero is not plausible, it too can be changed.
 
 ``` r
-(PairedData) |> testMeanDifference(mu = -2)
+(PairedData) |> testDifference(mu = -2)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference`
+    ## $`Hypothesis Test for the Difference of Means`
     ##               Diff      SE      df       t       p
     ## Comparison   5.000   0.596   9.000   8.385   0.000
 
@@ -282,10 +282,10 @@ This code calculates a standardized mean difference and its confidence
 interval.
 
 ``` r
-(PairedData) |> estimateStandardizedMeanDifference()
+(PairedData) |> standardizeDifference()
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   1.616   0.466   0.703   2.530
 
@@ -293,9 +293,9 @@ The width of the confidence interval for the effect size can be altered
 if desired.
 
 ``` r
-(PairedData) |> estimateStandardizedMeanDifference(conf.level = .99)
+(PairedData) |> standardizeDifference(conf.level = .99)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference`
+    ## $`Confidence Interval for the Standardized Difference of Means`
     ##                  d      SE      LL      UL
     ## Comparison   1.616   0.466   0.416   2.816

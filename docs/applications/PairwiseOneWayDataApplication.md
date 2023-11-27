@@ -29,7 +29,7 @@ OneWayData <- construct(Factor, Outcome)
 Provide an ANOVA source table.
 
 ``` r
-(Outcome ~ Factor) |> describeMeansEffect()
+(Outcome ~ Factor) |> describeEffect()
 ```
 
     ## $`Source Table for the Model`
@@ -38,7 +38,7 @@ Provide an ANOVA source table.
     ## Within  116.000  27.000   4.296
 
 ``` r
-(Outcome ~ Factor) |> testMeansEffect()
+(Outcome ~ Factor) |> testEffect()
 ```
 
     ## $`Hypothesis Test for the Model`
@@ -57,30 +57,30 @@ tests of their statistical significance, and their standardized effect
 sizes.
 
 ``` r
-(Outcome ~ Factor) |> estimateMeansPairwise()
+(Outcome ~ Factor) |> estimatePairwise()
 ```
 
-    ## $`Confidence Intervals for the Pairwise Mean Comparisons`
+    ## $`Confidence Intervals for the Pairwise Comparisons of Means`
     ##                      MD      SE      df      LL      UL
     ## Level1 v Level2   3.000   0.830  15.308   1.234   4.766
     ## Level1 v Level3   4.000   0.894  14.400   2.087   5.913
     ## Level2 v Level3   1.000   1.043  17.815  -1.194   3.194
 
 ``` r
-(Outcome ~ Factor) |> testMeansPairwise()
+(Outcome ~ Factor) |> testPairwise()
 ```
 
-    ## $`Hypothesis Tests for the Pairwise Mean Comparisons`
+    ## $`Hypothesis Tests for the Pairwise Comparisons of Means`
     ##                      MD      SE      df       t       p
     ## Level1 v Level2   3.000   0.830  15.308   3.614   0.002
     ## Level1 v Level3   4.000   0.894  14.400   4.472   0.000
     ## Level2 v Level3   1.000   1.043  17.815   0.958   0.351
 
 ``` r
-(Outcome ~ Factor) |> estimateStandardizedMeansPairwise()
+(Outcome ~ Factor) |> standardizePairwise()
 ```
 
-    ## $`Confidence Intervals for the Pairwise Standardized Mean Comparisons`
+    ## $`Confidence Intervals for the Pairwise Standardized Comparisons of Means`
     ##                       d      SE      LL      UL
     ## Level1 v Level2   1.616   0.555   0.529   2.703
     ## Level1 v Level3   2.000   0.601   0.822   3.178
@@ -91,7 +91,7 @@ comparisons (including a line that represents no difference for the
 comparisons).
 
 ``` r
-(Outcome ~ Factor) |> plotMeansPairwise(line = 0, values = FALSE)
+(Outcome ~ Factor) |> plotPairwise(line = 0, values = FALSE)
 ```
 
 ![](figures/Pairwise-OneWay-Pairwise-1.png)<!-- -->
@@ -101,7 +101,7 @@ pairwise comparisons) and specify colors for intervals that do not
 include zero (darkblue) and those that do include zero (darkred).
 
 ``` r
-(Outcome ~ Factor) |> plotMeansPairwiseDiffogram(col = c("darkblue", "darkred"))
+(Outcome ~ Factor) |> plotPairwiseDiffogram(col = c("darkblue", "darkred"))
 ```
 
 ![](figures/Pairwise-OneWay-DiffogramA-1.png)<!-- -->
@@ -115,7 +115,7 @@ comparisons.
 Provide estimates of the arelational and relational intervals.
 
 ``` r
-(Outcome ~ Factor) |> estimateMeansRelational()
+(Outcome ~ Factor) |> estimateRelational()
 ```
 
     ## $`Confidence and Relational Intervals for the Means`
@@ -127,7 +127,7 @@ Provide estimates of the arelational and relational intervals.
 Plot the intervals and enhance with color.
 
 ``` r
-(Outcome ~ Factor) |> plotMeansRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
+(Outcome ~ Factor) |> plotRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
 ```
 
 ![](figures/Pairwise-OneWay-RelationalB-1.png)<!-- -->
@@ -143,30 +143,30 @@ tests of their statistical significance, and their standardized effect
 sizes.
 
 ``` r
-(Outcome ~ Factor) |> estimateMeansPosthoc()
+(Outcome ~ Factor) |> estimatePosthoc()
 ```
 
-    ## $`Confidence Intervals for the Posthoc Mean Comparisons`
+    ## $`Confidence Intervals for the Posthoc Comparisons of Means`
     ##                    Diff      SE      df      LL      UL
     ## Level1 v Level2   3.000   0.927  27.000   0.702   5.298
     ## Level1 v Level3   4.000   0.927  27.000   1.702   6.298
     ## Level2 v Level3   1.000   0.927  27.000  -1.298   3.298
 
 ``` r
-(Outcome ~ Factor) |> testMeansPairwise()
+(Outcome ~ Factor) |> testPairwise()
 ```
 
-    ## $`Hypothesis Tests for the Pairwise Mean Comparisons`
+    ## $`Hypothesis Tests for the Pairwise Comparisons of Means`
     ##                      MD      SE      df       t       p
     ## Level1 v Level2   3.000   0.830  15.308   3.614   0.002
     ## Level1 v Level3   4.000   0.894  14.400   4.472   0.000
     ## Level2 v Level3   1.000   1.043  17.815   0.958   0.351
 
 ``` r
-(Outcome ~ Factor) |> estimateStandardizedMeansPosthoc()
+(Outcome ~ Factor) |> standardizePosthoc()
 ```
 
-    ## $`Confidence Intervals for the Posthoc Standardized Mean Comparisons`
+    ## $`Confidence Intervals for the Posthoc Standardized Comparisons of Means`
     ##                       d      SE      LL      UL
     ## Level1 v Level2   1.616   0.555   0.529   2.703
     ## Level1 v Level3   2.000   0.601   0.822   3.178
@@ -177,7 +177,7 @@ comparisons (including a line that represents no difference for the
 comparisons).
 
 ``` r
-(Outcome ~ Factor) |> plotMeansPosthoc(line = 0, values = FALSE)
+(Outcome ~ Factor) |> plotPosthoc(line = 0, values = FALSE)
 ```
 
 ![](figures/Pairwise-OneWay-Posthoc-1.png)<!-- -->
@@ -187,7 +187,7 @@ post hoc comparisons) and specify colors for intervals that do not
 include zero (darkblue) and those that do include zero (darkred).
 
 ``` r
-(Outcome ~ Factor) |> plotMeansPosthocDiffogram(col = c("darkblue", "darkred"))
+(Outcome ~ Factor) |> plotPosthocDiffogram(col = c("darkblue", "darkred"))
 ```
 
 ![](figures/Pairwise-OneWay-DiffogramB-1.png)<!-- -->

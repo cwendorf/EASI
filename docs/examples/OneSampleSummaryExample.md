@@ -116,7 +116,7 @@ variable. In this case, the mean is compared to zero to form the effect
 size.
 
 ``` r
-(OneSampleSummary) |> estimateStandardizedMeans()
+(OneSampleSummary) |> standardizeMeans()
 ```
 
     ## $`Confidence Interval for the Standardized Mean`
@@ -127,7 +127,7 @@ Here too it is possible to alter the width of the confidence interval
 and to establish a more plausible comparison value for the mean.
 
 ``` r
-(OneSampleSummary) |> estimateStandardizedMeans(mu = 9, conf.level = .99)
+(OneSampleSummary) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
     ## $`Confidence Interval for the Standardized Mean`

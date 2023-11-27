@@ -72,7 +72,7 @@ This code will produce a source table associated with the regression
 model.
 
 ``` r
-(BivariateSummary) |> describeRegressionEffect(BivariateCorr)
+(BivariateSummary) |> describeModel(BivariateCorr)
 ```
 
     ## $`Source Table for the Regression Model`
@@ -86,7 +86,7 @@ model.
 This code will produce the confidence interval for R Squared.
 
 ``` r
-(BivariateSummary) |> estimateRegressionEffect(BivariateCorr)
+(BivariateSummary) |> estimateModel(BivariateCorr)
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -97,7 +97,7 @@ The code defaults to 90% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(BivariateSummary) |> estimateRegressionEffect(BivariateCorr, conf.level = .95)
+(BivariateSummary) |> estimateModel(BivariateCorr, conf.level = .95)
 ```
 
     ## $`Proportion of Variance Accounted For by the Regression Model`
@@ -109,7 +109,7 @@ desired.
 This code will calculate NHST for the regression model.
 
 ``` r
-(BivariateSummary) |> testRegressionEffect(BivariateCorr)
+(BivariateSummary) |> testModel(BivariateCorr)
 ```
 
     ## $`Hypothesis Test for the Regression Model`
@@ -127,7 +127,7 @@ This code will provide a table of confidence intervals for each of the
 regression coefficients.
 
 ``` r
-(BivariateSummary) |> estimateRegressionCoefficients(BivariateCorr)
+(BivariateSummary) |> estimateCoefficients(BivariateCorr)
 ```
 
     ## $`Confidence Intervals for the Regression Coefficients`
@@ -139,7 +139,7 @@ This code will produce a graph of the confidence intervals for each of
 the regression coefficients.
 
 ``` r
-(BivariateSummary) |> plotRegressionCoefficients(BivariateCorr)
+(BivariateSummary) |> plotCoefficients(BivariateCorr)
 ```
 
 ![](figures/Bivariate-Summary-CoefficientsA-1.png)<!-- -->
@@ -148,7 +148,7 @@ The code defaults to 95% confidence intervals. This can be changed if
 desired.
 
 ``` r
-(BivariateSummary) |> estimateRegressionCoefficients(BivariateCorr, conf.level = .99)
+(BivariateSummary) |> estimateCoefficients(BivariateCorr, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Regression Coefficients`
@@ -162,7 +162,7 @@ level. A comparison line and region of practical equivalence can also be
 added.
 
 ``` r
-(BivariateSummary) |> plotRegressionCoefficients(BivariateCorr, conf.level = .99, line = 0, rope = c(-.5, .5), intercept = FALSE)
+(BivariateSummary) |> plotCoefficients(BivariateCorr, conf.level = .99, line = 0, rope = c(-.5, .5), intercept = FALSE)
 ```
 
 ![](figures/Bivariate-Summary-CoefficientsB-1.png)<!-- -->
@@ -174,7 +174,7 @@ regression coefficients. In this case, all the coefficients are tested
 against a value of zero.
 
 ``` r
-(BivariateSummary) |> testRegressionCoefficients(BivariateCorr)
+(BivariateSummary) |> testCoefficients(BivariateCorr)
 ```
 
     ## $`Hypothesis Tests for the Regression Coefficients`
@@ -188,40 +188,23 @@ This code will provide a table of confidence intervals for the
 standardized coefficient.
 
 ``` r
-(BivariateSummary) |> estimateStandardizedRegressionCoefficients(BivariateCorr)
+(BivariateSummary) |> standardizeCoefficients(BivariateCorr)
 ```
 
     ## $`Confidence Intervals for the Standardized Regression Coefficients`
     ##               Est      SE      LL      UL
     ## Predictor   0.833   0.468  -0.245   1.912
 
-This code will produce a graph of the confidence intervals for the
-standardized coefficient.
-
-``` r
-(BivariateSummary) |> plotStandardizedRegressionCoefficients(BivariateCorr)
-```
-
-![](figures/Bivariate-Summary-StandardizedA-1.png)<!-- -->
-
 As in other places, the code defaults to a 95% confidence interval. This
 can be changed if desired.
 
 ``` r
-(BivariateSummary) |> estimateStandardizedRegressionCoefficients(BivariateCorr, conf.level = .99)
+(BivariateSummary) |> standardizeCoefficients(BivariateCorr, conf.level = .99)
 ```
 
     ## $`Confidence Intervals for the Standardized Regression Coefficients`
     ##               Est      SE      LL      UL
     ## Predictor   0.833   0.468  -0.736   2.403
-
-For the graph, it is possible to change the confidence level.
-
-``` r
-(BivariateSummary) |> plotStandardizedRegressionCoefficients(BivariateCorr, conf.level = .99)
-```
-
-![](figures/Bivariate-Summary-StandardizedB-1.png)<!-- -->
 
 ### Analyses of Regression Values
 

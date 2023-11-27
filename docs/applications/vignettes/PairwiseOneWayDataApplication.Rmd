@@ -47,8 +47,8 @@ OneWayData <- construct(Factor, Outcome)
 
 Provide an ANOVA source table.
 ```{r}
-(Outcome ~ Factor) |> describeMeansEffect()
-(Outcome ~ Factor) |> testMeansEffect()
+(Outcome ~ Factor) |> describeEffect()
+(Outcome ~ Factor) |> testEffect()
 ```
 
 ### Analyses of Pairwise Comparisons
@@ -57,19 +57,19 @@ The analyses for the pairwise comparisons do not assume homogeneity of variance 
 
 Obtain tables of the interval estimates for the pairwise comparisons, tests of their statistical significance, and their standardized effect sizes.
 ```{r}
-(Outcome ~ Factor) |> estimateMeansPairwise()
-(Outcome ~ Factor) |> testMeansPairwise()
-(Outcome ~ Factor) |> estimateStandardizedMeansPairwise()
+(Outcome ~ Factor) |> estimatePairwise()
+(Outcome ~ Factor) |> testPairwise()
+(Outcome ~ Factor) |> standardizePairwise()
 ```
 
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
 ```{r, Pairwise-OneWay-Pairwise}
-(Outcome ~ Factor) |> plotMeansPairwise(line = 0, values = FALSE)
+(Outcome ~ Factor) |> plotPairwise(line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 ```{r, Pairwise-OneWay-DiffogramA}
-(Outcome ~ Factor) |> plotMeansPairwiseDiffogram(col = c("darkblue", "darkred"))
+(Outcome ~ Factor) |> plotPairwiseDiffogram(col = c("darkblue", "darkred"))
 ```
 
 ### Analyses of Relational Intervals
@@ -78,12 +78,12 @@ The analyses for the relational confidence intervals do assume homogeneity of va
 
 Provide estimates of the arelational and relational intervals.
 ```{r, Pairwise-OneWay-RelationalA}
-(Outcome ~ Factor) |> estimateMeansRelational()
+(Outcome ~ Factor) |> estimateRelational()
 ```
 
 Plot the intervals and enhance with color.
 ```{r, Pairwise-OneWay-RelationalB}
-(Outcome ~ Factor) |> plotMeansRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
+(Outcome ~ Factor) |> plotRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
 ```
 
 ### Analyses of Post Hoc Comparisons
@@ -92,17 +92,17 @@ The analyses for the post hoc comparisons do assume homogeneity of variance and 
 
 Obtain tables of the interval estimates for the posthoc comparisons, tests of their statistical significance, and their standardized effect sizes.
 ```{r}
-(Outcome ~ Factor) |> estimateMeansPosthoc()
-(Outcome ~ Factor) |> testMeansPairwise()
-(Outcome ~ Factor) |> estimateStandardizedMeansPosthoc()
+(Outcome ~ Factor) |> estimatePosthoc()
+(Outcome ~ Factor) |> testPairwise()
+(Outcome ~ Factor) |> standardizePosthoc()
 ```
 
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 ```{r, Pairwise-OneWay-Posthoc}
-(Outcome ~ Factor) |> plotMeansPosthoc(line = 0, values = FALSE)
+(Outcome ~ Factor) |> plotPosthoc(line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
 ```{r, Pairwise-OneWay-DiffogramB}
-(Outcome ~ Factor) |> plotMeansPosthocDiffogram(col = c("darkblue", "darkred"))
+(Outcome ~ Factor) |> plotPosthocDiffogram(col = c("darkblue", "darkred"))
 ```
