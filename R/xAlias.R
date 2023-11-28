@@ -39,6 +39,9 @@ standardizeDifference <- function(...) {
   estimateStandardizedMeansDifference(...)
 }
 
+analyzeDifference <- function(...) {
+  analyzeMeansDifference(...)
+}
 
 ### Means Difference By
 
@@ -74,6 +77,10 @@ plotContrast <- function(...) {
 
 standardizeContrast <- function(...) {
   estimateStandardizedMeansContrast(...)
+}
+
+analyzeContrast <- function(...) {
+  analyzeMeansContrast(...)
 }
 
 ### Means Contrast By
@@ -158,6 +165,10 @@ standardizePairwise <- function(...) {
   estimateStandardizedMeansPairwise(...)
 }
 
+analyzePairwise <- function(...) {
+  analyzeMeansPairwise(...)
+}
+
 ### Means Posthoc
 
 estimatePosthoc <- function(...) {
@@ -180,7 +191,11 @@ standardizePosthoc <- function(...) {
   estimateStandardizedMeansPosthoc(...)
 }
 
-### Means Posthoc
+analyzePosthoc <- function(...) {
+  analyzeMeansPosthoc(...)
+}
+
+### Means Relational
 
 estimateRelational <- function(...) {
   estimateMeansRelational(...)
@@ -202,6 +217,10 @@ estimateEffect <- function(...) {
 
 testEffect <- function(...) {
   testMeansEffect(...)
+}
+
+analyzeEffect <- function(...) {
+  analyzeMeansEffect(...)
 }
 
 ### Means Effect By
