@@ -2,23 +2,12 @@
 
 This page outlines the general purpose and structure of the EASI project.
 
-- [Purpose of EASI](#purpose-of-easi)
 - [Scope of the Project](#scope-of-the-project)
 - [General Function Syntax](#general-function-syntax)
 - [Function Calls](#function-calls)
 - [Demonstrations](#demonstrations)
 
 ---
-
-### Purpose of EASI
-
-EASI is an R package that implements features of estimation statistics and data visualization in a pipe-oriented framework. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs. Most functions can take either raw data or summary statistics as input.
-
-![Basic EASI Output](./CoverImageOne.jpg)
-
-Additional functions extend the analysis capabilities much further. These offer summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations.
-
-![Advanced EASI Output](./CoverImageTwo.jpg)
 
 ### Scope of the Project
 
@@ -62,7 +51,7 @@ OneWayData %$>% (Outcome ~ Factor) |> plotMeans()
 OneWayData %$>% (Outcome ~ Factor) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
 
-### Demonstrations
+### Usage
 
 The package includes a wide variety of materials that demonstrate its use:
 
