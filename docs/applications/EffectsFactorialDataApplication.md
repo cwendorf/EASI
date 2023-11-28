@@ -30,7 +30,7 @@ FactorialData <- construct(FactorA, FactorB, Outcome)
 Get an ANOVA separately for each simple effect.
 
 ``` r
-(Outcome ~ FactorA) |> describeMeansEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> describeEffectBy(by = FactorB)
 ```
 
     ## $`Source Table for the Model: B1`
@@ -44,7 +44,7 @@ Get an ANOVA separately for each simple effect.
     ## Within  134.000  27.000   4.963
 
 ``` r
-(Outcome ~ FactorA) |> estimateMeansEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> estimateEffectBy(by = FactorB)
 ```
 
     ## $`Proportion of Variance Accounted For by the Model: B1`
@@ -56,7 +56,7 @@ Get an ANOVA separately for each simple effect.
     ## Factor   0.047   0.000   0.173
 
 ``` r
-(Outcome ~ FactorA) |> testMeansEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> testEffectBy(by = FactorB)
 ```
 
     ## $`Hypothesis Test for the Model: B1`
@@ -129,7 +129,7 @@ simple effect.
     ## A3   7.000   0.699   9.000  10.011   0.000
 
 ``` r
-(Outcome ~ FactorA) |> estimateStandardizedMeansBy(by = FactorB)
+(Outcome ~ FactorA) |> standardizeMeansBy(by = FactorB)
 ```
 
     ## $`Confidence Intervals for the Standardized Means: B1`
@@ -149,44 +149,44 @@ simple effect.
 Analyze the specified comparison separately within each simple effect.
 
 ``` r
-(Outcome ~ FactorA) |> pick(A1, A2) |> estimateMeanDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> estimateDifferenceBy(by = FactorB)
 ```
 
-    ## $`Confidence Interval for the Mean Difference: B1`
+    ## $`Confidence Interval for the Difference of Means: B1`
     ##               Diff      SE      df      LL      UL
     ## Comparison   3.000   0.830  15.308   1.234   4.766
     ## 
-    ## $`Confidence Interval for the Mean Difference: B2`
+    ## $`Confidence Interval for the Difference of Means: B2`
     ##               Diff      SE      df      LL      UL
     ## Comparison   0.000   1.000  17.308  -2.107   2.107
 
 ``` r
-(Outcome ~ FactorA) |> pick(A1, A2) |> plotMeanDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> plotDifferenceBy(by = FactorB)
 ```
 
 ![](figures/Effects-Factorial-Comparison-1.png)<!-- -->![](figures/Effects-Factorial-Comparison-2.png)<!-- -->
 
 ``` r
-(Outcome ~ FactorA) |> pick(A1, A2) |> testMeanDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> testDifferenceBy(by = FactorB)
 ```
 
-    ## $`Hypothesis Test for the Mean Difference: B1`
+    ## $`Hypothesis Test for the Difference of Means: B1`
     ##               Diff      SE      df       t       p
     ## Comparison   3.000   0.830  15.308   3.614   0.002
     ## 
-    ## $`Hypothesis Test for the Mean Difference: B2`
+    ## $`Hypothesis Test for the Difference of Means: B2`
     ##               Diff      SE      df       t       p
     ## Comparison   0.000   1.000  17.308   0.000   1.000
 
 ``` r
-(Outcome ~ FactorA) |> pick(A1, A2) |> estimateStandardizedMeanDifferenceBy(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> standardizeDifferenceBy(by = FactorB)
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Difference: B1`
+    ## $`Confidence Interval for the Standardized Difference of Means: B1`
     ##                  d      SE      LL      UL
     ## Comparison   1.616   0.555   0.529   2.703
     ## 
-    ## $`Confidence Interval for the Standardized Mean Difference: B2`
+    ## $`Confidence Interval for the Standardized Difference of Means: B2`
     ##                  d      SE      LL      UL
     ## Comparison   0.000   0.471  -0.924   0.924
 
@@ -195,43 +195,43 @@ Analyze the specified comparison separately within each simple effect.
 Analyze the specified contrast separately within each simple effect.
 
 ``` r
-(Outcome ~ FactorA) |> estimateMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> estimateContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Mean Contrast: B1`
+    ## $`Confidence Interval for the Contrast of Means: B1`
     ##              Est      SE      df      LL      UL
     ## Contrast   3.500   0.687  25.917   2.087   4.913
     ## 
-    ## $`Confidence Interval for the Mean Contrast: B2`
+    ## $`Confidence Interval for the Contrast of Means: B2`
     ##              Est      SE      df      LL      UL
     ## Contrast  -0.500   0.907  15.806  -2.424   1.424
 
 ``` r
-(Outcome ~ FactorA) |> plotMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> plotContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 ```
 
 ![](figures/Effects-Factorial-Contrast-1.png)<!-- -->![](figures/Effects-Factorial-Contrast-2.png)<!-- -->
 
 ``` r
-(Outcome ~ FactorA) |> testMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> testContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Hypothesis Test for the Mean Contrast: B1`
+    ## $`Hypothesis Test for the Contrast of Means: B1`
     ##              Est      SE      df       t       p
     ## Contrast   3.500   0.687  25.917   5.093   0.000
     ## 
-    ## $`Hypothesis Test for the Mean Contrast: B2`
+    ## $`Hypothesis Test for the Contrast of Means: B2`
     ##              Est      SE      df       t       p
     ## Contrast  -0.500   0.907  15.806  -0.551   0.589
 
 ``` r
-(Outcome ~ FactorA) |> estimateStandardizedMeanContrastBy(by = FactorB, contrast = c(-1, .5, .5))
+(Outcome ~ FactorA) |> standardizeContrastBy(by = FactorB, contrast = c(-1, .5, .5))
 ```
 
-    ## $`Confidence Interval for the Standardized Mean Contrast: B1`
+    ## $`Confidence Interval for the Standardized Contrast of Means: B1`
     ##              Est      SE      LL      UL
     ## Contrast   1.689   0.428   0.850   2.527
     ## 
-    ## $`Confidence Interval for the Standardized Mean Contrast: B2`
+    ## $`Confidence Interval for the Standardized Contrast of Means: B2`
     ##              Est      SE      LL      UL
     ## Contrast  -0.224   0.430  -1.068   0.619
