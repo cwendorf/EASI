@@ -80,6 +80,13 @@ S3method(plotIntervals,list)
 export(plotIntervals)
 export(addIntervals)
 
+### xDiamonds
+
+S3method(plotDiamonds,default)
+S3method(plotDiamonds,list)
+export(plotDiamonds)
+export(addDiamonds)
+
 ### xPlausible
 
 S3method(plotPlausible,default)
@@ -589,6 +596,7 @@ export(describeCorrelationsBy)
 
 export(describeMeans)
 export(standardizeMeans)
+export(analyzeMeans)
 
 export(describeMeansBy)
 export(standardizeMeansBy)
@@ -597,6 +605,7 @@ export(estimateDifference)
 export(testDifference)
 export(plotDifference)
 export(standardizeDifference)
+export(analyzeDifference)
 
 export(estimateDifferenceBy)
 export(testDifferenceBy)
@@ -607,6 +616,7 @@ export(estimateContrast)
 export(testContrast)
 export(plotContrast)
 export(standardizeContrast)
+export(analyzeContrast)
 
 export(estimateContrastBy)
 export(testContrastBy)
@@ -630,12 +640,14 @@ export(testPairwise)
 export(plotPairwise)
 export(plotPairwiseDiffogram)
 export(standardizePairwise)
+export(analyzePairwise)
 
 export(estimatePosthoc)
 export(testPosthoc)
 export(plotPosthoc)
 export(plotPosthocDiffogram)
 export(standardizePosthoc)
+export(analyzePosthoc)
 
 export(estimateRelational)
 export(plotRelational)
@@ -643,6 +655,7 @@ export(plotRelational)
 export(describeEffect)
 export(estimateEffect)
 export(testEffect)
+export(analyzeEffect)
 
 export(describeEffectBy)
 export(estimateEffectBy)
