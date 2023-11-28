@@ -1,6 +1,6 @@
 # Estimation Approach to Statistical Inference
 
-## EASI 6.0.231128
+## EASI 5.5.231128
 
 - Introduced focusing function for filtering and selecting levels
 - Reintroduced original function names as preferred aliases
