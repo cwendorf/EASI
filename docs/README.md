@@ -51,7 +51,7 @@ OneWayData %$>% (Outcome ~ Factor) |> plotMeans()
 OneWayData %$>% (Outcome ~ Factor) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
 
-### Usage
+### Demonstrations
 
 The package includes a wide variety of materials that demonstrate its use:
 
