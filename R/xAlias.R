@@ -11,6 +11,8 @@ standardizeMeans <- function(...) {
   estimateStandardizedMeans(...)
 }
 
+### Means By
+
 describeMeansBy <- function(...) {
   describeSummaryBy(...)
 }
@@ -37,6 +39,21 @@ standardizeDifference <- function(...) {
   estimateStandardizedMeansDifference(...)
 }
 
+
+### Means Difference By
+
+estimateDifferenceBy <- function(...) {
+  estimateMeansDifferenceBy(...)
+}
+
+testDifferenceBy <- function(...) {
+  testMeansDifferenceBy(...)
+}
+
+plotDifferenceBy <- function(...) {
+  plotMeansDifferenceBy(...)
+}
+
 standardizeDifferenceBy <- function(...) {
   estimateStandardizedMeansDifferenceBy(...)
 }
@@ -57,6 +74,20 @@ plotContrast <- function(...) {
 
 standardizeContrast <- function(...) {
   estimateStandardizedMeansContrast(...)
+}
+
+### Means Contrast By
+
+estimateContrastBy <- function(...) {
+  estimateMeansContrastBy(...)
+}
+
+testContrastBy <- function(...) {
+  testMeansContrastBy(...)
+}
+
+plotContrastBy <- function(...) {
+  plotMeansContrastBy(...)
 }
 
 standardizeContrastBy <- function(...) {
@@ -159,7 +190,7 @@ plotRelational <- function(...) {
   plotMeansRelational(...)
 }
 
-### Mean Effect
+### Means Effect
 
 describeEffect <- function(...) {
   describeMeansEffect(...)
@@ -173,7 +204,21 @@ testEffect <- function(...) {
   testMeansEffect(...)
 }
 
-### Mean Factorial
+### Means Effect By
+
+describeEffectBy <- function(...) {
+  describeMeansEffectBy(...)
+}
+
+estimateEffectBy <- function(...) {
+  estimateMeansEffectBy(...)
+}
+
+testEffectBy <- function(...) {
+  testMeansEffectBy(...)
+}
+
+### Means Factorial
 
 describeFactorial <- function(...) {
   describeMeansFactorial(...)
@@ -191,7 +236,7 @@ plotFactorial <- function(...) {
   plotMeansFactorial(...)
 }
 
-### Mean Interaction
+### Means Interaction
 
 estimateInteraction <- function(...) {
   estimateMeansInteraction(...)

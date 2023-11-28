@@ -588,21 +588,29 @@ export(describeCorrelationsBy)
 ### xAlias
 
 export(describeMeans)
-export(describeMeansBy)
-
 export(standardizeMeans)
+
+export(describeMeansBy)
 export(standardizeMeansBy)
 
 export(estimateDifference)
 export(testDifference)
 export(plotDifference)
 export(standardizeDifference)
+
+export(estimateDifferenceBy)
+export(testDifferenceBy)
+export(plotDifferenceBy)
 export(standardizeDifferenceBy)
 
 export(estimateContrast)
 export(testContrast)
 export(plotContrast)
 export(standardizeContrast)
+
+export(estimateContrastBy)
+export(testContrastBy)
+export(plotContrastBy)
 export(standardizeContrastBy)
 
 export(estimateComparison)
@@ -635,6 +643,10 @@ export(plotRelational)
 export(describeEffect)
 export(estimateEffect)
 export(testEffect)
+
+export(describeEffectBy)
+export(estimateEffectBy)
+export(testEffectBy)
 
 export(describeFactorial)
 export(estimateFactorial)
