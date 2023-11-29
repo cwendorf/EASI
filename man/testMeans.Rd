@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeans}
+\alias{testMeans}
 \title{Test Means}
 \description{Provides a statistical significance test for each group or level mean.}
 

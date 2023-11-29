@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotCorrelations}
+\alias{plotCorrelations}
 \title{Plot Correlations}
 \description{Provides a plot of all correlations and their confidence intervals for a list of variables.}
 

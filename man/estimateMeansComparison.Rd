@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansComparison}
+\alias{estimateMeansComparison}
 \alias{estimateComparison}
 \title{Estimate Means Comparison}
 \description{Provides the confidence intervals for the means and mean difference of a specified comparison.}

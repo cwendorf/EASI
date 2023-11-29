@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotRegressionCoefficients}
+\alias{plotRegressionCoefficients}
 \alias{plotCoefficients}
 \title{Plot Regression Coefficients}
 \description{Provides a plot of the regression coefficients and their confidence intervals.}

@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{describeRegressionEffect}
+\alias{describeRegressionEffect}
 \alias{describeModel}
 \title{Describe Regression Effect}
 \description{Provides a source table for the regression model.}

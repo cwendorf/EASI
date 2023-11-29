@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansEffect}
+\alias{estimateMeansEffect}
 \alias{estimateEffect}
 \title{Estimate Means Effect}
 \description{Calculates the proportion of variance accounted for and its confidence interval.}

@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansPairwise}
+\alias{estimateMeansPairwise}
 \alias{estimatePairwise}
 \title{Estimate Means Pairwise}
 \description{Provides a table of confidence intervals for all unadjusted pairwise comparisons.}

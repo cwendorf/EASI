@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansEffect}
+\alias{testMeansEffect}
 \alias{testEffect}
 \title{Test Means Effect}
 \description{Provides a statistical significance test for an Analysis of Variance.}

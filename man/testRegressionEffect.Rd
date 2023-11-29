@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testRegressionEffect}
+\alias{testRegressionEffect}
 \alias{testModel}
 \title{Test Regression Effect}
 \description{Provides a statistical significance test for a regression model.}

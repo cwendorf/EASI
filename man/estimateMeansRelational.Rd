@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansRelational}
+\alias{estimateMeansRelational}
 \alias{estimateRelational}
 \title{Estimate Means Relational}
 \description{Provides a table of arelational (confidence) and relational (comparative) intervals for each group or level mean.}

@@ -95,7 +95,7 @@ frame.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Outcome1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">9</span>, <span class="fl">8</span>, <span class="fl">7</span><span class="op">)</span></span>
 <span><span class="va">Outcome2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">7</span>, <span class="fl">13</span>, <span class="fl">11</span>, <span class="fl">10</span>, <span class="fl">13</span>, <span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">14</span>, <span class="fl">12</span>, <span class="fl">11</span><span class="op">)</span></span>
-<span><span class="va">PairedData</span> <span class="op">&lt;-</span> <span class="fu">construct</span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">PairedData</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="summary-statistics">Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"></a>
@@ -108,7 +108,7 @@ frame.</p>
 <span><span class="co">## Outcome1  10.000   8.000   1.414   0.000  -0.738</span></span>
 <span><span class="co">## Outcome2  10.000  11.000   2.211  -0.617  -0.212</span></span></code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeCorrelations</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeCorrelations.html">describeCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $`Correlation Matrix for the Variables`</span></span>
 <span><span class="co">##          Outcome1 Outcome2</span></span>
 <span><span class="co">## Outcome1    1.000    0.533</span></span>
@@ -119,17 +119,17 @@ frame.</p>
 </h3>
 <p>This code provides a scatterplot for the bivariate relationship.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotScatter</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../OneDrive%20-%20UWSP/GitHub/EASI/articles/figures/SingleCorrelation-Data-ScatterA-1.png" width="672"></p>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="SingleCorrelationDataExample_files/figure-html/SingleCorrelation-Data-ScatterA-1.png" width="700"></p>
 <p>This code provides a scatterplot along with a 95% confidence ellipse
 for the data.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotScatter</span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../OneDrive%20-%20UWSP/GitHub/EASI/articles/figures/SingleCorrelation-Data-ScatterB-1.png" width="672"></p>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><img src="SingleCorrelationDataExample_files/figure-html/SingleCorrelation-Data-ScatterB-1.png" width="700"></p>
 <p>The ellipse can be altered for different confidence levels.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotScatter</span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../OneDrive%20-%20UWSP/GitHub/EASI/articles/figures/SingleCorrelation-Data-ScatterC-1.png" width="672"></p>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
+<p><img src="SingleCorrelationDataExample_files/figure-html/SingleCorrelation-Data-ScatterC-1.png" width="700"></p>
 </div>
 </div>
 <div class="section level2">
@@ -142,19 +142,19 @@ for the data.</p>
 <p>This code will provide the confidence interval for the
 correlation.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateCorrelations</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $`Confidence Interval for the Correlation`</span></span>
 <span><span class="co">##                           R      SE      LL      UL</span></span>
 <span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.378  -0.145   0.870</span></span></code></pre>
 <p>This code will produce a graph of the confidence interval for the
 correlation.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotCorrelations</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../OneDrive%20-%20UWSP/GitHub/EASI/articles/figures/SingleCorrelation-Data-IntervalsA-1.png" width="672"></p>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="SingleCorrelationDataExample_files/figure-html/SingleCorrelation-Data-IntervalsA-1.png" width="700"></p>
 <p>The code defaults to 95% confidence intervals. This can be changed if
 desired.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateCorrelations</span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $`Confidence Interval for the Correlation`</span></span>
 <span><span class="co">##                           R      SE      LL      UL</span></span>
 <span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.378  -0.362   0.917</span></span></code></pre>
@@ -162,8 +162,8 @@ desired.</p>
 and to add a comparison line and a region of practical equivalence to
 the graph.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotCorrelations</span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.2</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../../../../OneDrive%20-%20UWSP/GitHub/EASI/articles/figures/SingleCorrelation-Data-IntervalsB-1.png" width="672"></p>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.2</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="SingleCorrelationDataExample_files/figure-html/SingleCorrelation-Data-IntervalsB-1.png" width="700"></p>
 </div>
 <div class="section level3">
 <h3 id="significance-test">Significance Test<a class="anchor" aria-label="anchor" href="#significance-test"></a>
@@ -171,7 +171,7 @@ the graph.</p>
 <p>This code will produce a table of NHST for the correlation (against a
 value of zero).</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testCorrelations</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">PairedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testCorrelations.html">testCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code><span><span class="co">## $`Hypothesis Test for the Correlation`</span></span>
 <span><span class="co">##                           R      SE      df       t       p</span></span>
 <span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.299   8.000   1.782   0.113</span></span></code></pre>

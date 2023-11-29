@@ -3,6 +3,7 @@
 
 \name{describeSummary}
 \alias{describeSummary}
+\alias{describeMeans}
 \title{Describe Summary}
 \description{Provides a table of descriptive/summary statistics for a data set.}
 

@@ -2,6 +2,8 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateStandardizedRegressionCoefficients}
+\alias{estimateStandardizedRegressionCoefficients}
+\alias{standardizeCoefficients}
 \title{Estimate Standardized Regression Coefficients}
 \description{Provides a table of standardized regression coefficients and their confidence intervals.}
 

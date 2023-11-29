@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansPosthoc}
+\alias{testMeansPosthoc}
 \alias{testPosthoc}
 \title{Test Means Posthoc}
 \description{Provides a statistical significance test for all Tukey HSD comparisons.}

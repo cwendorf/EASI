@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateStandardizedMeans}
+\alias{estimateStandardizedMeans}
 \alias{standardizeMeans}
 \title{Estimate Standardized Means}
 \description{Provides a standardized effect size and its confidence interval for each group or level mean.}

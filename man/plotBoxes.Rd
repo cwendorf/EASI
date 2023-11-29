@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotBoxes}
+\alias{plotBoxes}
 \title{Plot Boxes}
 \description{Provides a boxplot for each group or variable.}
 

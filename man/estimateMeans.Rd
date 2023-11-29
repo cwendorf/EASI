@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeans}
+\alias{estimateMeans}
 \title{Estimate Means}
 \description{Provides a table of means, standard deviations, and confidence intervals for each group or level mean.}
 

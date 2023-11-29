@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateRegression}
+\alias{estimateRegression}
 \title{Estimate Regression}
 \description{Provides a table of the regression estimate and its intervals.}
 

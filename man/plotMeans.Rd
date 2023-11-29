@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeans}
+\alias{plotMeans}
 \title{Plot Means}
 \description{Provides a plot of all group or level means and their confidence intervals.}
 

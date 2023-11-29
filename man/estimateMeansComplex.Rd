@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansComplex}
+\alias{estimateMeansComplex}
 \alias{estimateComplex}
 \title{Estimate Means Complex}
 \description{Provides the confidence intervals for mean contrasts and the difference between those contrasts.}

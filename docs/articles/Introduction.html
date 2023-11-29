@@ -109,6 +109,10 @@ first comprised of a prefix (the verb that indicates what procedure
 should be conducted). These are the basic options (though more elaborate
 functions also exist):</p>
 <table class="table">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">Prefix</th>
 <th align="left">Description</th>
@@ -130,6 +134,11 @@ functions also exist):</p>
 <td align="left"><code>test</code></td>
 <td align="left">test the estimates for statistical significance</td>
 </tr>
+<tr class="odd">
+<td align="left"><code>standardize</code></td>
+<td align="left">standardize the estimate and provide its confidence
+interval</td>
+</tr>
 </tbody>
 </table>
 <p>Then the functions add an object (the noun that indicates the
@@ -147,10 +156,10 @@ standard syntax. Here, the variables to be analyzed are included first,
 followed by the pipe operator, and then the function call (with any
 relevant additional parameters in parentheses). This format is
 highlighted throughout EASI.</p>
-<pre><code><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateMeans</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateMeans</span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, main <span class="op">=</span> <span class="st">"Custom Table Title"</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotMeans</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotMeans</span><span class="op">(</span>values <span class="op">=</span> <span class="cn">FALSE</span>, main <span class="op">=</span> <span class="st">"Custom Plot Title"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, main <span class="op">=</span> <span class="st">"Custom Table Title"</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeans.html">plotMeans</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeans.html">plotMeans</a></span><span class="op">(</span>values <span class="op">=</span> <span class="cn">FALSE</span>, main <span class="op">=</span> <span class="st">"Custom Plot Title"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span></code></pre>
 <p>When individual variables are not directly accessible (like when the
 dataset is predefined) or when using subsets of larger datasets (like
 when analyzing factorial designs), it is typically necessary to identify
@@ -159,10 +168,10 @@ In base R, this is accomplished using a <code>with</code> command (or
 built in data identification parameters). In EASI, this is accomplished
 by using the <code>focus</code> command (which has many related uses as
 well).</p>
-<pre><code><span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu">focus</span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateMeans</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu">focus</span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateMeans</span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, main <span class="op">=</span> <span class="st">"Custom Table Title"</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu">focus</span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotMeans</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu">focus</span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotMeans</span><span class="op">(</span>values <span class="op">=</span> <span class="cn">FALSE</span>, main <span class="op">=</span> <span class="st">"Custom Plot Title"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, main <span class="op">=</span> <span class="st">"Custom Table Title"</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeans.html">plotMeans</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeans.html">plotMeans</a></span><span class="op">(</span>values <span class="op">=</span> <span class="cn">FALSE</span>, main <span class="op">=</span> <span class="st">"Custom Plot Title"</span>, col <span class="op">=</span> <span class="st">"darkblue"</span><span class="op">)</span></span></code></pre>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

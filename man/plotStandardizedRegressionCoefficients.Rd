@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotStandardizedRegressionCoefficients}
+\alias{plotStandardizedRegressionCoefficients}
 \title{Plot Standardized Regression Coefficients}
 \description{Provides a plot of the standardized regression coefficients and their confidence intervals.}
 

@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotSummary}
+\alias{plotSummary}
 \title{Plot Summary}
 \description{Provides a plot of all group or level means and standard deviations.}
 

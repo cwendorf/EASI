@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateCorrelations}
+\alias{estimateCorrelations}
 \title{Estimate Correlations}
 \description{Provides correlations, their standard errors, and their confidence intervals for a list of variables.}
 

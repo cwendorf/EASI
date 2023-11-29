@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateStandardizedMeansDifference}
+\alias{estimateStandardizedMeansDifference}
 \alias{standardizeDifference}
 \title{Estimate Standardized Means Difference}
 \description{Provides the standardized effect size for the difference and its confidence interval.}

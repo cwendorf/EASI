@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotRegression}
+\alias{plotRegression}
 \title{Plot Regression}
 \description{Provides a plot of the regression line and its intervals.}
 

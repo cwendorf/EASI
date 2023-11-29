@@ -5,10 +5,6 @@ output:
     preserve_yaml: FALSE
 ---
 
-```{r globalOptions, include=FALSE}
-knitr::opts_chunk$set(fig.width = 7, fig.height = 6, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
-```
-
 ```{r, include=FALSE}
 if (!require(EASI)) {
   if (!require(remotes)) install.packages("remotes")

@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotScatter}
+\alias{plotScatter}
 \title{Plot Scatter}
 \description{Provides a scatterplot and/or confidence ellipse.}
 

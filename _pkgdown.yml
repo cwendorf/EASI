@@ -8,6 +8,14 @@ authors:
     href: https://cwendorf.github.io/
 
 reference:
+- title: Grammar and Manipulation
+
+- subtitle: Grammar
+  desc: Construct frames and focus on specific variables and factor levels
+  contents:
+  - construct
+  - focus
+
 - title: Data and Distributions
 
 - subtitle: Data

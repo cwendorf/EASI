@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansDifference}
+\alias{testMeansDifference}
 \alias{testDifference}
 \title{Test Means Difference}
 \description{Provides a statistical significance test of the mean difference.}

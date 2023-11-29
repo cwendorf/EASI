@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansComplex}
+\alias{testMeansComplex}
 \alias{testComplex}
 \title{Test Means Complex}
 \description{Provides the statistical significance tests for mean contrasts and the difference between those contrasts.}

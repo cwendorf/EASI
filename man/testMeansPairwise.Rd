@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansPairwise}
+\alias{testMeansPairwise}
 \alias{testPairwise}
 \title{Test Means Pairwise}
 \description{Provides a statistical significance test for all unadjusted pairwise comparisons.}

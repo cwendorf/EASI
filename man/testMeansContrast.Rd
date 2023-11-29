@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansContrast}
+\alias{testMeansContrast}
 \alias{testContrast}
 \title{Test Means Contrast}
 \description{Provides a statistical significance test of the mean contrast.}

@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testCorrelations}
+\alias{testCorrelations}
 \title{Test Correlations}
 \description{Provides a statistical significance test for correlations of the specified variables.}
 

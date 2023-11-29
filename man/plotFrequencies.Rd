@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotFrequencies}
+\alias{plotFrequencies}
 \title{Plot Frequencies}
 \description{Provides a frequency distribution for each group or variable.}
 

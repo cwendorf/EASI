@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testRegressionCoefficients}
+\alias{testRegressionCoefficients}
 \alias{testCoefficients}
 \title{Test Regression Coefficients}
 \description{Provides statistical significance tests for the regression coefficients.}

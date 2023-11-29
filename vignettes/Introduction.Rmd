@@ -38,6 +38,7 @@ Prefix | Description
 `estimate` | estimate the statistic and its confidence interval
 `plot` | plot the descriptive statistics or the estimates
 `test` | test the estimates for statistical significance
+`standardize` | standardize the estimate and provide its confidence interval
 
 Then the functions add an object (the noun that indicates the parameter or item to be analyzed), such as `Means` or `Correlations`.
 
