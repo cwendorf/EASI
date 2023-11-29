@@ -8,6 +8,7 @@ articles:
   FactorialDesignSummaryExample: FactorialDesignSummaryExample.html
   IndependentGroupsDataExample: IndependentGroupsDataExample.html
   IndependentGroupsSummaryExample: IndependentGroupsSummaryExample.html
+  Introduction: Introduction.html
   MixedDesignDataExample: MixedDesignDataExample.html
   MixedDesignSummaryExample: MixedDesignSummaryExample.html
   MultipleRegressionDataExample: MultipleRegressionDataExample.html
@@ -24,7 +25,7 @@ articles:
   SetCorrelationsSummaryExample: SetCorrelationsSummaryExample.html
   SingleCorrelationDataExample: SingleCorrelationDataExample.html
   SingleCorrelationSummaryExample: SingleCorrelationSummaryExample.html
-last_built: 2023-11-28T22:32Z
+last_built: 2023-11-29T15:53Z
 urls:
   reference: https://cwendorf.github.io/EASI/reference
   article: https://cwendorf.github.io/EASI/articles

@@ -2,3 +2,4 @@
 ^source-EASI.R
 docs/
 ^_pkgdown.yml
+vignettes/

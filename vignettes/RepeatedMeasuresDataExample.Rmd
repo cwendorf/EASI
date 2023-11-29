@@ -3,15 +3,10 @@ title: "Repeated Measures Data Example"
 output:
   github_document:
     preserve_yaml: FALSE
-vignette: >
-  %\VignetteIndexEntry{Repeated Measures Data Example}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(fig.width = 7, fig.height = 6, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r, include=FALSE}

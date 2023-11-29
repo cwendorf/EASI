@@ -1,8 +1,7 @@
 url: https://cwendorf.github.io/EASI
 
 template:
-  params:
-    bootswatch: cosmo
+  bootstrap: 5
 
 authors:
   Craig Wendorf:
@@ -172,6 +171,12 @@ reference:
   - testRegressionEffect
 
 articles:
+- title: Getting Started
+  desc: Learn the basics of the EASI package
+  navbar: ~
+  contents:
+  - Introduction
+
 - title: One Sample
   desc: Analyze a single-group (one sample) design
   contents:
