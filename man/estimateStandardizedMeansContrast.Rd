@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateStandardizedMeansContrast}
-\alias{estimateStandardizedMeansContrast}
-\alias{estimateStandardizedMeansContrast.default}
-\alias{estimateStandardizedMeansContrast.formula}
-\alias{estimateStandardizedMeansContrast.wss}
-\alias{estimateStandardizedMeansContrast.bss}
+\alias{standardizeContrast}
 \title{Estimate Standardized Means Contrast}
 \description{Provides the standardized effect size and its confidence interval for the contrast.}
 

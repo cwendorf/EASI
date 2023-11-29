@@ -1,4 +1,3 @@
-# Estimation Approach to Statistical Inference
 
 ## EASI 5.5.231128
 

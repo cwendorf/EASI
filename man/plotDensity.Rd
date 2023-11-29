@@ -2,9 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotDensity}
-\alias{plotDensity}
-\alias{plotDensity.default}
-\alias{plotDensity.formula}
 \title{Plot Density}
 \description{Provides a density plot for each group or variable.}
 

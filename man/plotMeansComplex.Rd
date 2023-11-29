@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeansComplex}
-\alias{plotMeansComplex}
-\alias{plotMeansComplex.default}
-\alias{plotMeansComplex.formula}
-\alias{plotMeansComplex.wss}
-\alias{plotMeansComplex.bss}
+\alias{plotComplex}
 \title{Plot Means Complex}
 \description{Provides the plot of the confidence intervals for mean contrasts and the difference between those contrasts.}
 

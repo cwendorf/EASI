@@ -2,11 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeans}
-\alias{plotMeans}
-\alias{plotMeans.default}
-\alias{plotMeans.formula}
-\alias{plotMeans.wss}
-\alias{plotMeans.bss}
 \title{Plot Means}
 \description{Provides a plot of all group or level means and their confidence intervals.}
 

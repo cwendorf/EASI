@@ -1,0 +1,31 @@
+pandoc: 2.19.2
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  BivariateRegressionDataExample: BivariateRegressionDataExample.html
+  BivariateRegressionSummaryExample: BivariateRegressionSummaryExample.html
+  FactorialDesignDataExample: FactorialDesignDataExample.html
+  FactorialDesignSummaryExample: FactorialDesignSummaryExample.html
+  IndependentGroupsDataExample: IndependentGroupsDataExample.html
+  IndependentGroupsSummaryExample: IndependentGroupsSummaryExample.html
+  MixedDesignDataExample: MixedDesignDataExample.html
+  MixedDesignSummaryExample: MixedDesignSummaryExample.html
+  MultipleRegressionDataExample: MultipleRegressionDataExample.html
+  MultipleRegressionSummaryExample: MultipleRegressionSummaryExample.html
+  OneSampleDataExample: OneSampleDataExample.html
+  OneSampleSummaryExample: OneSampleSummaryExample.html
+  OneWayDataExample: OneWayDataExample.html
+  OneWaySummaryExample: OneWaySummaryExample.html
+  PairedSamplesDataExample: PairedSamplesDataExample.html
+  PairedSamplesSummaryExample: PairedSamplesSummaryExample.html
+  RepeatedMeasuresDataExample: RepeatedMeasuresDataExample.html
+  RepeatedMeasuresSummaryExample: RepeatedMeasuresSummaryExample.html
+  SetCorrelationsDataExample: SetCorrelationsDataExample.html
+  SetCorrelationsSummaryExample: SetCorrelationsSummaryExample.html
+  SingleCorrelationDataExample: SingleCorrelationDataExample.html
+  SingleCorrelationSummaryExample: SingleCorrelationSummaryExample.html
+last_built: 2023-11-28T22:32Z
+urls:
+  reference: https://cwendorf.github.io/EASI/reference
+  article: https://cwendorf.github.io/EASI/articles
+

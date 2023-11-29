@@ -2,9 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotData}
-\alias{plotData}
-\alias{plotData.default}
-\alias{plotData.formula}
 \title{Plot Data}
 \description{Provides a plot of data points for each group or level mean.}
 

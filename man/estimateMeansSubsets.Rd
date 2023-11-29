@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansSubsets}
-\alias{estimateMeansSubsets}
-\alias{estimateMeansSubsets.default}
-\alias{estimateMeansSubsets.formula}
-\alias{estimateMeansSubsets.wss}
-\alias{estimateMeansSubsets.bss}
+\alias{estimateSubsets}
 \title{Estimate Means Subsets}
 \description{Provides the confidence intervals for a mean contrast and the mean subsets that comprise that contrast.}
 

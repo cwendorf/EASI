@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansComplex}
-\alias{estimateMeansComplex}
-\alias{estimateMeansComplex.default}
-\alias{estimateMeansComplex.formula}
-\alias{estimateMeansComplex.wss}
-\alias{estimateMeansComplex.bss}
+\alias{estimateComplex}
 \title{Estimate Means Complex}
 \description{Provides the confidence intervals for mean contrasts and the difference between those contrasts.}
 

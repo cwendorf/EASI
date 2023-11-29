@@ -2,9 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateRegressionCoefficients}
-\alias{estimateRegressionCoefficients}
-\alias{estimateRegressionCoefficients.default}
-\alias{estimateRegressionCoefficients.wss}
+\alias{estimateCoefficients}
 \title{Estimate Regression Coefficients}
 \description{Provides a table of regression coefficients and their confidence intervals.}
 

@@ -1,5 +1,5 @@
 ---
-subtitle: "Multiple Regression Data Example"
+title: "Multiple Regression Data Example"
 output:
   github_document:
     preserve_yaml: FALSE
@@ -22,20 +22,9 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-## Multiple Regression Data Example
+## Data Management
 
-This page analyzes multiple regression models using raw data input.
-
-```{r toc, echo=FALSE}
-thisfile <- knitr::current_input()
-revised_toc(thisfile, base_level = 3, toc_depth = 4)
-```
-
----
-
-### Data Management
-
-#### Data Entry
+### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
@@ -45,7 +34,7 @@ Criterion <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
 RegressionData <- construct(Predictor1, Predictor2, Criterion)
 ```
 
-#### Summary Statistics
+### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 ```{r}
@@ -53,7 +42,7 @@ This code obtains the descriptive statistics for the data frame.
 (RegressionData) |> describeCorrelations()
 ```
 
-### Analyses of the Overall Model
+## Analyses of the Overall Model
 
 This section produces analyses of the overall regression model.
 
@@ -62,7 +51,7 @@ This code will produce a source table associated with the regression model.
 (RegressionData) |> describeModel()
 ```
 
-#### Confidence Interval
+### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 ```{r}
@@ -74,18 +63,18 @@ The code defaults to 90% confidence intervals. This can be changed if desired.
 (RegressionData) |> estimateModel(conf.level = .95)
 ```
 
-#### Significance Test
+### Significance Test
 
 This code will calculate NHST for the regression model.
 ```{r}
 (RegressionData) |> testModel()
 ```
 
-### Analyses of the Regression Coefficients
+## Analyses of the Regression Coefficients
 
 This section analyses the regression coefficients obtained from the overall model.
 
-#### Confidence Intervals 
+### Confidence Intervals 
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
@@ -107,14 +96,14 @@ For the graph, it is possible to plot just coefficients for the predictors (minu
 (RegressionData) |> plotCoefficients(conf.level = .99, line = 0, intercept = FALSE)
 ```
 
-#### Significance Tests
+### Significance Tests
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
 (RegressionData) |> testCoefficients()
 ```
 
-#### Standardized Coefficients
+### Standardized Coefficients
 
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 ```{r}

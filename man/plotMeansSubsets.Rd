@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeansSubsets}
-\alias{plotMeansSubsets}
-\alias{plotMeansSubsets.default}
-\alias{plotMeansSubsets.formula}
-\alias{plotMeansSubsets.wss}
-\alias{plotMeansSubsets.bss}
+\alias{plotSubsets}
 \title{Plot Means Subsets}
 \description{Provides the plot of the mean subsets and mean contrast confidence intervals.}
 

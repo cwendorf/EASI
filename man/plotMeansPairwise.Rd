@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeansPairwise}
-\alias{plotMeansPairwise}
-\alias{plotMeansPairwise.default}
-\alias{plotMeansPairwise.formula}
-\alias{plotMeansPairwise.wss}
-\alias{plotMeansPairwise.bss}
+\alias{plotPairwise}
 \title{Plot Means Pairwise}
 \description{Provides a plot of all unadjusted pairwise comparisons and their confidence intervals.}
 

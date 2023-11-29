@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeansContrast}
-\alias{plotMeansContrast}
-\alias{plotMeansContrast.default}
-\alias{plotMeansContrast.formula}
-\alias{plotMeansContrast.wss}
-\alias{plotMeansContrast.bss}
+\alias{plotContrast}
 \title{Plot Means Contrast}
 \description{Provides the plot of the mean contrast and its confidence interval.}
 

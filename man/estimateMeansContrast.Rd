@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansContrast}
-\alias{estimateMeansContrast}
-\alias{estimateMeansContrast.default}
-\alias{estimateMeansContrast.formula}
-\alias{estimateMeansContrast.wss}
-\alias{estimateMeansContrast.bss}
+\alias{estimateContrast}
 \title{Estimate Means Contrast}
 \description{Provides the mean contrast, standard error, and confidence interval of the contrast.}
 

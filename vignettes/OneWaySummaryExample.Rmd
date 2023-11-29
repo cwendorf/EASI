@@ -1,5 +1,5 @@
 ---
-subtitle: "OneWay Summary Statistics Example"
+title: "OneWay Summary Statistics Example"
 output:
   github_document:
     preserve_yaml: FALSE
@@ -22,20 +22,9 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-## OneWay Summary Statistics Example
+## Data Management
 
-This page analyzes a single-factor between-subjects (one-way) design using summary statistics input.
-
-```{r toc, echo=FALSE}
-thisfile <- knitr::current_input()
-revised_toc(thisfile, base_level = 3, toc_depth = 4)
-```
-
----
-
-### Data Management
-
-#### Data Entry
+### Data Entry
 
 This code inputs the group summaries and creates a single summary table.
 ```{r}
@@ -45,18 +34,18 @@ Level3 <- c(N = 10, M = 12.000, SD = 2.449)
 OneWaySummary <- construct(Level1, Level2, Level3, class = "bss")
 ```
 
-#### Summary Statistics
+### Summary Statistics
 
 This code confirms the descriptive statistics from the summary table.
 ```{r}
 (OneWaySummary) |> describeSummary()
 ```
 
-### Analyses of the Means
+## Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
-#### Confidence Intervals
+### Confidence Intervals
 
 This code will provide a table of confidence intervals for each level of the factor.
 ```{r}
@@ -78,7 +67,7 @@ For the graph, it is possible to add a comparison line to represent a population
 (OneWaySummary) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
 ```
 
-#### Significance Tests
+### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```{r}
@@ -90,7 +79,7 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 (OneWaySummary) |> testMeans(mu = 9)
 ```
 
-#### Standardized Effect Sizes
+### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
@@ -102,11 +91,11 @@ Here too it is possible to alter the width of the confidence intervals and to es
 (OneWaySummary) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
  
-### Analyses of a Comparison
+## Analyses of a Comparison
 
 This section produces analyses involving comparisons of two levels of a factor.
 
-#### Confidence Intervals
+### Confidence Intervals
 
 This code estimates the confidence interval of the difference.
 ```{r}
@@ -148,7 +137,7 @@ Once again, the confidence levels can be changed away from the default and a reg
 (OneWaySummary) |> focus("Level1", "Level2") |> plotComparison(conf.level = .99, rope = c(-2, 2))
 ```
 
-#### Significance Test
+### Significance Test
 
 This code produces NHST for the identified comparison (using a default test value of zero).
 ```{r}
@@ -160,7 +149,7 @@ If the default value of zero is not plausible, it too can be changed.
 (OneWaySummary) |> focus("Level1", "Level2") |> testDifference(mu = -2)
 ```
 
-#### Standardized Effect Size
+### Standardized Effect Size
 
 This code calculates a standardized mean difference for the comparison and its confidence interval.
 ```{r}
@@ -172,11 +161,11 @@ The width of the confidence interval for the effect size can be altered if desir
 (OneWaySummary) |> focus("Level1", "Level2") |> standardizeDifference(conf.level = .99)
 ```
 
-### Analyses of a Contrast
+## Analyses of a Contrast
 
 This section produces analyses involving multiple levels of a factor.
 
-#### Confidence Intervals
+### Confidence Intervals
 
 This code produces a confidence interval for that contrast.
 ```{r}
@@ -218,7 +207,7 @@ Once again, the confidence levels can be changed away from the default and a reg
 (OneWaySummary) |> plotSubsets(contrast = c(-1, .5, .5), labels = c("Level1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
-#### Significance Test
+### Significance Test
 
 This code produces a NHST for the identified contrast. It tests the contrast against a value of zero by default.
 ```{r}
@@ -230,7 +219,7 @@ If desired, the contrast can be tested against other values.
 (OneWaySummary) |> testContrast(contrast = c(-1, .5, .5), mu = 4)
 ```
 
-#### Standardized Effect Size
+### Standardized Effect Size
 
 This code calculates a standardized contrast and its confidence interval.
 ```{r}

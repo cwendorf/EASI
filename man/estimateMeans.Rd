@@ -2,11 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeans}
-\alias{estimateMeans}
-\alias{estimateMeans.default}
-\alias{estimateMeans.formula}
-\alias{estimateMeans.wss}
-\alias{estimateMeans.bss}
 \title{Estimate Means}
 \description{Provides a table of means, standard deviations, and confidence intervals for each group or level mean.}
 

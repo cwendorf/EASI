@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansComparison}
-\alias{testMeansComparison}
-\alias{testMeansComparison.default}
-\alias{testMeansComparison.formula}
-\alias{testMeansComparison.wss}
-\alias{testMeansComparison.bss}
+\alias{testComparison}
 \title{Test Means Comparison}
 \description{Provides the statistical significances tests for the means and mean difference of a specified comparison.}
 

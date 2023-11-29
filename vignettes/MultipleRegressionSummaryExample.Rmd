@@ -1,5 +1,5 @@
 ---
-subtitle: "Multiple Regression Summary Statistics Example"
+title: "Multiple Regression Summary Statistics Example"
 output:
   github_document:
     preserve_yaml: FALSE
@@ -22,20 +22,9 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-## Multiple Regression Summary Statistics Example
+## Data Management
 
-This page analyzes multiple regression models using summary statistics input.
-
-```{r toc, echo=FALSE}
-thisfile <- knitr::current_input()
-revised_toc(thisfile, base_level = 3, toc_depth = 4)
-```
-
----
-
-### Data Management
-
-#### Data Entry
+### Data Entry
 
 This code inputs the variable summaries and creates a summary table.
 ```{r}
@@ -53,7 +42,7 @@ Criterion <- c(.385, .574, 1.000)
 RegressionCorr <- construct(Predictor1, Predictor2, Criterion, class = "corr")
 ```
 
-#### Summary Statistics
+### Summary Statistics
 
 This code confirms the descriptive statistics from the summary tables.
 ```{r}
@@ -61,7 +50,7 @@ This code confirms the descriptive statistics from the summary tables.
 (RegressionCorr) |> describeCorrelations()
 ```
 
-### Analyses of the Overall Model
+## Analyses of the Overall Model
 
 This section produces analyses of the overall regression model.
 
@@ -70,7 +59,7 @@ This code will produce a source table associated with the regression model.
 (RegressionSummary) |> describeModel(RegressionCorr)
 ```
 
-#### Confidence Interval
+### Confidence Interval
 
 This code will produce the confidence interval for R Squared.
 ```{r}
@@ -82,18 +71,18 @@ The code defaults to 90% confidence intervals. This can be changed if desired.
 (RegressionSummary) |> estimateModel(RegressionCorr, conf.level = .95)
 ```
 
-#### Significance Test
+### Significance Test
 
 This code will calculate NHST for the regression model.
 ```{r}
 (RegressionSummary) |> testModel(RegressionCorr)
 ```
 
-### Analyses of the Regression Coefficients
+## Analyses of the Regression Coefficients
 
 This section analyses the regression coefficients obtained from the overall model.
 
-#### Confidence Intervals
+### Confidence Intervals
 
 This code will provide a table of confidence intervals for each of the regression coefficients.
 ```{r}
@@ -115,14 +104,14 @@ For the graph, it is possible to plot just coefficients for the predictors (minu
 (RegressionSummary) |> plotCoefficients(RegressionCorr, conf.level = .99, line = 0, intercept = FALSE)
 ```
 
-#### Significance Tests
+### Significance Tests
 
 This code will produce a table of NHST separately for each of the regression coefficients. In this case, all the coefficients are tested against a value of zero.
 ```{r}
 (RegressionSummary) |> testCoefficients(RegressionCorr)
 ```
 
-#### Standardized Coefficients
+### Standardized Coefficients
 
 This code will provide a table of confidence intervals for each of the standardized coefficients.
 ```{r}

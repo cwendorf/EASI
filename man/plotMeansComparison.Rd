@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeansComparison}
-\alias{plotMeansComparison}
-\alias{plotMeansComparison.default}
-\alias{plotMeansComparison.formula}
-\alias{plotMeansComparison.wss}
-\alias{plotMeansComparison.bss}
+\alias{plotComparison}
 \title{Plot Means Comparison}
 \description{Provides a plot of the confidence intervals for the means and mean difference of a specified comparison.}
 

@@ -1,0 +1,239 @@
+url: https://cwendorf.github.io/EASI
+
+template:
+  params:
+    bootswatch: cosmo
+
+authors:
+  Craig Wendorf:
+    href: https://cwendorf.github.io/
+
+reference:
+- title: Data and Distributions
+
+- subtitle: Data
+  desc: Plot the data for the groups, levels, or variables
+  contents:
+  - plotData
+
+- subtitle: Frequencies
+  desc: Obtain and plot frequencies for the groups, levels, or variables
+  contents:
+  - describeFrequencies
+  - plotFrequencies
+
+- subtitle: Density
+  desc: Plot densities for the groups, levels, or variables
+  contents:
+  - plotDensity
+
+- subtitle: Boxes
+  desc: Obtain and plot boxplots for the groups, levels, or variables
+  contents:
+  - describeBoxes
+  - plotBoxes
+
+- subtitle: Summary
+  desc: Obtain and plot summary statistics of the variables
+  contents:
+  - describeSummary
+  - plotSummary
+
+- subtitle: Scatter
+  desc: Plot scatterplots of the variables
+  contents:
+  - plotScatter
+
+- title: Means and Mean Differences
+
+- subtitle: Means
+  desc: Examine all individual group, level, or variable means
+  contents:
+  - estimateMeans
+  - plotMeans
+  - testMeans
+
+- subtitle: Standardized Means
+  desc: Examine all individual standardized group, level, or variable means
+  contents:
+  - estimateStandardizedMeans
+
+- subtitle: Means Difference
+  desc: Examine a difference among two group, level, or variable means
+  contents:
+  - estimateMeansDifference
+  - plotMeansDifference
+  - testMeansDifference
+
+- subtitle: Standardized Means Difference
+  desc: Examine a standardized difference among two group, level, or variable means
+  contents:
+  - estimateStandardizedMeansDifference
+
+- subtitle: Means Comparison
+  desc: Examine a comparison among two group, level, or variable means
+  contents:
+  - estimateMeansComparison
+  - plotMeansComparison
+  - testMeansComparison
+
+- subtitle: Means Contrast
+  desc: Examine a contrast among all of the group, level, or variable means
+  contents:
+  - estimateMeansContrast
+  - plotMeansContrast
+  - testMeansContrast
+
+- subtitle: Standardized Means Contrast
+  desc: Examine a standardized contrast among all of the group, level, or variable means
+  contents:
+  - estimateStandardizedMeansContrast
+
+- subtitle: Means Subsets
+  desc: Examine a subset contrast among all of the group, level, or variable means
+  contents:
+  - estimateMeansSubsets
+  - plotMeansSubsets
+  - testMeansSubsets
+
+- subtitle: Means Complex
+  desc: Examine two contrasts among all of the group, level, or variable means and the differences between those contrasts
+  contents:
+  - estimateMeansComplex
+  - plotMeansComplex
+  - testMeansComplex
+
+- subtitle: Means Pairwise
+  desc: Examine all possible unadjusted pairwise comparisons among the group, level, or variable means
+  contents:
+  - estimateMeansPairwise
+  - plotMeansPairwise
+  - testMeansPairwise
+
+- subtitle: Standardized Means Pairwise
+  desc: Examine all possible unadjusted standardized pairwise comparisons among the group, level, or variable means
+  contents:
+  - estimateStandardizedMeansPairwise
+
+- subtitle: Means Posthoc
+  desc: Examine all possible Tukey posthoc comparisons among the group, level, or variable means
+  contents:
+  - estimateMeansPosthoc
+  - plotMeansPosthoc
+  - testMeansPosthoc
+
+- subtitle: Means Relational
+  desc: Provide both arelational (confidence) and relational (comparative) intervals for group, level, or variable means
+  contents:
+  - estimateMeansRelational
+  - plotMeansRelational
+
+- subtitle: Means Effect
+  desc: Provide an analysis of variance and effect size across all group, level, or variable means
+  contents:
+  - describeMeansEffect
+  - estimateMeansEffect
+  - testMeansEffect
+
+- title: Correlations and Regression Models
+
+- subtitle: Correlations
+  desc: Provide analyses of correlations among variables
+  contents:
+  - describeCorrelations
+  - estimateCorrelations
+  - plotCorrelations
+  - testCorrelations
+
+- subtitle: Regression
+  desc: Provide analyses of the regression line and values
+  contents:
+  - estimateRegression
+  - plotRegression
+
+- subtitle: Regression Coefficients
+  desc: Provide analyses of regression coefficients
+  contents:
+  - estimateRegressionCoefficients
+  - plotRegressionCoefficients
+  - testRegressionCoefficients
+
+- subtitle: Standardized Regression Coefficients
+  desc: Provide analyses of standardized regression coefficients
+  contents:
+  - estimateStandardizedRegressionCoefficients
+  - plotStandardizedRegressionCoefficients
+
+- subtitle: Regression Effect
+  desc: Provide an analysis of variance and effect size for a regression model
+  contents:
+  - describeRegressionEffect
+  - estimateRegressionEffect
+  - testRegressionEffect
+
+articles:
+- title: One Sample
+  desc: Analyze a single-group (one sample) design
+  contents:
+  - OneSampleDataExample
+  - OneSampleSummaryExample
+
+- title: Independent Groups
+  desc: Analyze a two-group between-subjects design (independent groups)
+  contents:
+  - IndependentGroupsDataExample
+  - IndependentGroupsSummaryExample
+
+- title: Paired Samples
+  desc: Analyze a within-subjects design for two time points (paired samples)
+  contents:
+  - PairedSamplesDataExample
+  - PairedSamplesSummaryExample
+
+- title: One Way
+  desc: Analyze a single-factor between-subjects (one-way) design
+  contents:
+  - OneWayDataExample
+  - OneWaySummaryExample
+
+- title: Repeated Measures
+  desc: Analyze a single-factor within-subjects (repeated measures) design
+  contents:
+  - RepeatedMeasuresDataExample
+  - RepeatedMeasuresSummaryExample
+
+- title: Factorial Design
+  desc: Analyze a two-factor between-subjects (factorial) design
+  contents:
+  - FactorialDesignDataExample
+  - FactorialDesignSummaryExample
+
+- title: Mixed Design
+  desc: Analyze a two-factor mixed design (one between-subjects and one within-subjects factor)
+  contents:
+  - MixedDesignDataExample
+  - MixedDesignSummaryExample
+
+- title: Single Correlation
+  desc: Analyze a correlation between two variables
+  contents:
+  - SingleCorrelationDataExample
+  - SingleCorrelationSummaryExample
+
+- title: Set of Correlations
+  desc: Analyze a set of correlations among multiple variables
+  contents:
+  - SetCorrelationsDataExample
+  - SetCorrelationsSummaryExample
+  
+- title: Bivariate Regression
+  desc: Analyze bivariate regression models
+  contents:
+  - BivariateRegressionDataExample
+  - BivariateRegressionSummaryExample
+  
+- title: Multiple Regression
+  desc: Analyze multiple regression models
+  contents:
+  - MultipleRegressionDataExample
+  - MultipleRegressionSummaryExample

@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeansPosthoc}
-\alias{plotMeansPosthoc}
-\alias{plotMeansPosthoc.default}
-\alias{plotMeansPosthoc.formula}
-\alias{plotMeansPosthoc.wss}
-\alias{plotMeansPosthoc.bss}
+\alias{plotPosthoc}
 \title{Plot Means Posthoc}
 \description{Provides a plot of all Tukey HSD comparisons and their confidence intervals.}
 

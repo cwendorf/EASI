@@ -2,9 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testCorrelations}
-\alias{testCorrelations}
-\alias{testCorrelations.default}
-\alias{testCorrelations.wss}
 \title{Test Correlations}
 \description{Provides a statistical significance test for correlations of the specified variables.}
 

@@ -2,9 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateRegressionEffect}
-\alias{estimateRegressionEffect}
-\alias{estimateRegressionEffect.default}
-\alias{estimateRegressionEffect.wss}
+\alias{estimateModel}
 \title{Estimate Regression Effect}
 \description{Calculates R Squared and its confidence interval.}
 

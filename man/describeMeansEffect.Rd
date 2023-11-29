@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{describeMeansEffect}
-\alias{describeMeansEffect}
-\alias{describeMeansEffect.default}
-\alias{describeMeansEffect.formula}
-\alias{describeMeansEffect.wss}
-\alias{describeMeansEffect.bss}
+\alias{describeEffect}
 \title{Describe Means Effect}
 \description{Provides a Analysis of Variance source table.}
 

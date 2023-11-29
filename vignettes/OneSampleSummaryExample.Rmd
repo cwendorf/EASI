@@ -1,5 +1,5 @@
 ---
-subtitle: "One Sample Summary Statistics Example"
+title: "One Sample Summary Statistics Example"
 output:
   github_document:
     preserve_yaml: FALSE
@@ -22,20 +22,9 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-## One Sample Summary Statistics Example
+## Data Management
 
-This page analyzes a single-group (one sample) design using summary statistics input.
-
-```{r toc, echo=FALSE}
-thisfile <- knitr::current_input()
-revised_toc(thisfile, base_level = 3, toc_depth = 4)
-```
-
----
-
-### Data Management
-
-#### Data Entry
+### Data Entry
 
 This code inputs the variable and creates a single summary table.
 ```{r}
@@ -43,18 +32,18 @@ Outcome <- c(N = 10, M = 8.000, SD = 1.414)
 OneSampleSummary <- construct(Outcome, class = "bss")
 ```
 
-#### Summary Statistics
+### Summary Statistics
 
 This code confirms the descriptive statistics from the summary table.
 ```{r}
 (OneSampleSummary) |> describeSummary()
 ```
 
-### Analyses of the Mean
+## Analyses of the Mean
 
 This section produces analyses that are equivalent to one-sample analyses for the variable.
 
-#### Confidence Interval
+### Confidence Interval
 
 This code will provide a confidence interval for the variable.
 ```{r}
@@ -76,7 +65,7 @@ For the graph, it is possible to add a comparison line to represent a population
 (OneSampleSummary) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
 ```
 
-#### Significance Test
+### Significance Test
 
 This code will produce a table of NHST for the variable. In this case, the mean is tested against a value of zero.
 ```{r}
@@ -88,7 +77,7 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 (OneSampleSummary) |> testMeans(mu = 9)
 ```
 
-#### Standardized Effect Size
+### Standardized Effect Size
 
 This code will provide the standardized mean difference for the variable. In this case, the mean is compared to zero to form the effect size.
 ```{r}

@@ -2,11 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotSummary}
-\alias{plotSummary}
-\alias{plotSummary.default}
-\alias{plotSummary.formula}
-\alias{plotSummary.wss}
-\alias{plotSummary.bss}
 \title{Plot Summary}
 \description{Provides a plot of all group or level means and standard deviations.}
 

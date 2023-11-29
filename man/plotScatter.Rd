@@ -2,9 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotScatter}
-\alias{plotScatter}
-\alias{plotScatter.default}
-\alias{plotScatter.wss}
 \title{Plot Scatter}
 \description{Provides a scatterplot and/or confidence ellipse.}
 

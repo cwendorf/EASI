@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeansDifference}
-\alias{plotMeansDifference}
-\alias{plotMeansDifference.default}
-\alias{plotMeansDifference.formula}
-\alias{plotMeansDifference.wss}
-\alias{plotMeansDifference.bss}
+\alias{plotDifference}
 \title{Plot Means Difference}
 \description{Provides a plot of the mean difference and its confidence interval.}
 

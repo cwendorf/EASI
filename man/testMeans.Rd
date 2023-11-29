@@ -2,11 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeans}
-\alias{testMeans}
-\alias{testMeans.default}
-\alias{testMeans.formula}
-\alias{testMeans.wss}
-\alias{testMeans.bss}
 \title{Test Means}
 \description{Provides a statistical significance test for each group or level mean.}
 

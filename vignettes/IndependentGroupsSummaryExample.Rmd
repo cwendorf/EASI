@@ -1,5 +1,5 @@
 ---
-subtitle: "Independent Groups Summary Statistics Example"
+title: "Independent Groups Summary Statistics Example"
 output:
   github_document:
     preserve_yaml: FALSE
@@ -22,20 +22,9 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-## Independent Groups Summary Statistics Example
+## Data Management
 
-This page analyzes a two-group between-subjects (independent groups) design using summary statistics input.
-
-```{r toc, echo=FALSE}
-thisfile <- knitr::current_input()
-revised_toc(thisfile, base_level = 3, toc_depth = 4)
-```
-
----
-
-### Data Management
-
-#### Data Entry
+### Data Entry
 
 This code inputs the group summaries and creates a single summary table.
 ```{r}
@@ -44,18 +33,18 @@ Level2 <- c(N = 10, M = 11.000, SD = 2.211)
 IndependentSummary <- construct(Level1, Level2, class = "bss")
 ```
 
-#### Summary Statistics
+### Summary Statistics
 
 This code confirms the descriptive statistics from the summary table.
 ```{r}
 (IndependentSummary) |> describeSummary()
 ```
 
-### Analyses of the Means
+## Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
 
-#### Confidence Intervals
+### Confidence Intervals
 
 This code will provide a table of confidence intervals for each level of the factor.
 ```{r}
@@ -77,7 +66,7 @@ For the graph, it is possible to add a comparison line to represent a population
 (IndependentSummary) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
 ```
 
-#### Significance Tests
+### Significance Tests
 
 This code will produce a table of NHST separately for each level of the factor. In this case, all the means are tested against a value of zero.
 ```{r}
@@ -89,7 +78,7 @@ Often, the default test value of zero is not meaningful or plausible. This too c
 (IndependentSummary) |> testMeans(mu = 9)
 ```
 
-#### Standardized Effect Sizes
+### Standardized Effect Sizes
 
 This code will produce a table of standardized mean differences separately for each level of the factor. In this case, the mean is compared to zero to form the effect size.
 ```{r}
@@ -101,11 +90,11 @@ Here too it is possible to alter the width of the confidence intervals and to es
 (IndependentSummary) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
  
-### Analyses of the Comparison
+## Analyses of the Comparison
 
 This section produces analyses that examine the difference among the two levels of the factor.
 
-#### Confidence Intervals
+### Confidence Intervals
 
 This code estimates the confidence interval of the difference.
 ```{r}
@@ -149,7 +138,7 @@ Once again, the confidence levels can be changed away from the default and a reg
 (IndependentSummary) |> plotComparison(conf.level = .99, rope = c(-2, 2))
 ```
 
-#### Significance Test
+### Significance Test
 
 This code produces NHST for the mean difference (using a default test value of zero).
 ```{r}
@@ -161,7 +150,7 @@ If the default value of zero is not plausible, it too can be changed.
 (IndependentSummary) |> testDifference(mu = 2)
 ```
 
-#### Standardized Effect Size
+### Standardized Effect Size
 
 This code calculates a standardized mean difference and its confidence interval.
 ```{r}

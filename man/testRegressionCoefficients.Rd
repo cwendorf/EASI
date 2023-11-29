@@ -2,9 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testRegressionCoefficients}
-\alias{testRegressionCoefficients}
-\alias{testRegressionCoefficients.default}
-\alias{testRegressionCoefficients.wss}
+\alias{testCoefficients}
 \title{Test Regression Coefficients}
 \description{Provides statistical significance tests for the regression coefficients.}
 

@@ -3,10 +3,6 @@
 
 \name{describeSummary}
 \alias{describeSummary}
-\alias{describeSummary.default}
-\alias{describeSummary.formula}
-\alias{describeSummary.bss}
-\alias{describeSummary.wss}
 \title{Describe Summary}
 \description{Provides a table of descriptive/summary statistics for a data set.}
 

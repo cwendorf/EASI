@@ -2,9 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{describeBoxes}
-\alias{describeBoxes}
-\alias{describeBoxes.default}
-\alias{describeBoxes.formula}
 \title{Describe Boxes}
 \description{Provides a five number summary for a data set.}
 

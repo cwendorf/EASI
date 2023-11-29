@@ -1,5 +1,5 @@
 ---
-subtitle: "Set of Correlations Data Example"
+title: "Set of Correlations Data Example"
 output:
   github_document:
     preserve_yaml: FALSE
@@ -22,20 +22,9 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-## Set of Correlations Data Example
+## Data Management
 
-This page analyzes ba set of correlations among variables using raw data input.
-
-```{r toc, echo=FALSE}
-thisfile <- knitr::current_input()
-revised_toc(thisfile, base_level = 3, toc_depth = 4)
-```
-
----
-
-### Data Management
-
-#### Data Entry
+### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
@@ -45,7 +34,7 @@ Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
 RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 ```
 
-#### Summary Statistics
+### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
 ```{r}
@@ -53,11 +42,11 @@ This code obtains the descriptive statistics for the data frame.
 (RepeatedData) |> describeCorrelations()
 ```
 
-### Analyses of a Correlation
+## Analyses of a Correlation
 
 This section produces analyses of a single correlation.
 
-#### Confidence Interval
+### Confidence Interval
 
 This code will provide the confidence interval for the correlation.
 ```{r}
@@ -79,18 +68,18 @@ Of course, it is possible to change from the default confidence level in the gra
 (RepeatedData) |> focus(Outcome1, Outcome2) |> plotCorrelations(conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 
-#### Significance Test
+### Significance Test
 
 This code will produce a table of NHST for the correlation (against a value of zero).
 ```{r}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> testCorrelations()
 ```
 
-### Analyses of Several Correlations
+## Analyses of Several Correlations
 
 This section analyzes the correlations among multiple variables.
 
-#### Confidence Intervals
+### Confidence Intervals
 
 This code will provide the confidence intervals for the correlations.
 ```{r}
@@ -112,7 +101,7 @@ Of course, it is possible to change from the default confidence level in the gra
 (RepeatedData) |> plotCorrelations(conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 
-#### Significance Tests
+### Significance Tests
 
 This code will produce a table of NHST for the correlations (against a value of zero).
 ```{r}

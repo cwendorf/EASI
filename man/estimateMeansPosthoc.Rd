@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansPosthoc}
-\alias{estimateMeansPosthoc}
-\alias{estimateMeansPosthoc.default}
-\alias{estimateMeansPosthoc.formula}
-\alias{estimateMeansPosthoc.wss}
-\alias{estimateMeansPosthoc.bss}
+\alias{estimatePosthoc}
 \title{Estimate Means Posthoc}
 \description{Provides a table of confidence intervals for all Tukey HSD comparisons.}
 

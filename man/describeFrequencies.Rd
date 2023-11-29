@@ -2,9 +2,6 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{describeFrequencies}
-\alias{describeFrequencies}
-\alias{describeFrequencies.default}
-\alias{describeFrequencies.formula}
 \title{Describe Frequencies}
 \description{Provides a frequency distributions for each variable or group.}
 

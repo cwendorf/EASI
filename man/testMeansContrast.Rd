@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansContrast}
-\alias{testMeansContrast}
-\alias{testMeansContrast.default}
-\alias{testMeansContrast.formula}
-\alias{testMeansContrast.wss}
-\alias{testMeansContrast.bss}
+\alias{testContrast}
 \title{Test Means Contrast}
 \description{Provides a statistical significance test of the mean contrast.}
 

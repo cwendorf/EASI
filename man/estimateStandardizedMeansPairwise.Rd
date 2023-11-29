@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateStandardizedMeansPairwise}
-\alias{estimateStandardizedMeansPairwise}
-\alias{estimateStandardizedMeansPairwise.default}
-\alias{estimateStandardizedMeansPairwise.formula}
-\alias{estimateStandardizedMeansPairwise.wss}
-\alias{estimateStandardizedMeansPairwise.bss}
+\alias{standardizePairwise}
 \title{Estimate Standardized Means Pairwise}
 \description{Provides standardized effect sizes and their confidence intervals for all unadjusted pairwise comparisons.}
 

@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{estimateMeansDifference}
-\alias{estimateMeansDifference}
-\alias{estimateMeansDifference.default}
-\alias{estimateMeansDifference.formula}
-\alias{estimateMeansDifference.wss}
-\alias{estimateMeansDifference.bss}
+\alias{estimateDifference}
 \title{Estimate Means Difference}
 \description{Provides the mean difference, standard error, and confidence interval of the difference.}
 

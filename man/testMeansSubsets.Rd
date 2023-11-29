@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{testMeansSubsets}
-\alias{testMeansSubsets}
-\alias{testMeansSubsets.default}
-\alias{testMeansSubsets.formula}
-\alias{testMeansSubsets.wss}
-\alias{testMeansSubsets.bss}
+\alias{testSubsets}
 \title{Test Means Subsets}
 \description{Provides the statistical significance tests for a mean contrast and the mean subsets that comprise that contrast.}
 

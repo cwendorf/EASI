@@ -2,11 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{plotMeansRelational}
-\alias{plotMeansRelational}
-\alias{plotMeansRelational.default}
-\alias{plotMeansRelational.formula}
-\alias{plotMeansRelational.wss}
-\alias{plotMeansRelational.bss}
+\alias{plotRelational}
 \title{Plot Means Relational}
 \description{Provides a plot of arelational (confidence) and relational (comparative) intervals for each group or level mean.}
 
