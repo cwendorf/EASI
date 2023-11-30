@@ -181,7 +181,6 @@ reference:
 articles:
 - title: Getting Started
   desc: Learn the basics of the EASI package
-  navbar: ~
   contents:
   - Introduction
 

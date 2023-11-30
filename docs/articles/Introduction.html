@@ -38,13 +38,8 @@
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
-<li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/Introduction.html">Introduction</a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="../articles/index.html">More articles...</a>
-  </div>
+<li class="active nav-item">
+  <a class="nav-link" href="../articles/index.html">Articles</a>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -104,46 +99,30 @@ types of analyses</li>
 <div class="section level2">
 <h2 id="general-function-syntax">General Function Syntax<a class="anchor" aria-label="anchor" href="#general-function-syntax"></a>
 </h2>
-<p>EASI offers a general syntax for function names. Each function is
+<p>EASI offers a general convention for function names. Each function is
 first comprised of a prefix (the verb that indicates what procedure
 should be conducted). These are the basic options (though more elaborate
 functions also exist):</p>
-<table class="table">
-<colgroup>
-<col width="50%">
-<col width="50%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">Prefix</th>
-<th align="left">Description</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>describe</code></td>
-<td align="left">describe the data or model with summary statistics</td>
-</tr>
-<tr class="even">
-<td align="left"><code>estimate</code></td>
-<td align="left">estimate the statistic and its confidence interval</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>plot</code></td>
-<td align="left">plot the descriptive statistics or the estimates</td>
-</tr>
-<tr class="even">
-<td align="left"><code>test</code></td>
-<td align="left">test the estimates for statistical significance</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>standardize</code></td>
-<td align="left">standardize the estimate and provide its confidence
-interval</td>
-</tr>
-</tbody>
-</table>
-<p>Then the functions add an object (the noun that indicates the
-parameter or item to be analyzed), such as <code>Means</code> or
-<code>Correlations</code>.</p>
+<ul>
+<li>
+<code>describe</code> = describe the data or model with summary
+statistics</li>
+<li>
+<code>estimate</code> = estimate the statistic and its confidence
+interval</li>
+<li>
+<code>plot</code> = plot the descriptive statistics or the
+estimates</li>
+<li>
+<code>test</code> = test the estimates for statistical
+significance</li>
+<li>
+<code>standardize</code> = standardize the estimate and provide its
+confidence interval</li>
+</ul>
+<p>Then the functions append an appropriate statistical element (the
+noun that indicates the statistics or items to be analyzed), such as
+<code>Means</code> or <code>Correlations</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="function-calls">Function Calls<a class="anchor" aria-label="anchor" href="#function-calls"></a>
@@ -154,8 +133,8 @@ the variables to be analyzed and any relevant additional parameters
 4.1 and greater, the native pipe operator can be used instead of
 standard syntax. Here, the variables to be analyzed are included first,
 followed by the pipe operator, and then the function call (with any
-relevant additional parameters in parentheses). This format is
-highlighted throughout EASI.</p>
+relevant additional parameters in parentheses). This format is used
+throughout EASI.</p>
 <pre><code><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, main <span class="op">=</span> <span class="st">"Custom Table Title"</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeans.html">plotMeans</a></span><span class="op">(</span><span class="op">)</span></span>
