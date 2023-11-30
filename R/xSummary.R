@@ -49,7 +49,7 @@
   UseMethod(".describeSummary")
 }
 
-.describeSummary.bss <- .describeSummary.wss <-function(frame, ...) {
+.describeSummary.bss <- .describeSummary.wss <- function(frame, ...) {
   frame <- unclass(frame)
   frame <- frame[, c("N", "M", "SD"), drop = FALSE]
   return(frame)
