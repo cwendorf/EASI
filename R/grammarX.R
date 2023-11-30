@@ -70,13 +70,14 @@ complete.corr <- function(mat) {
 ### Filtering and Focusing
 
 is.formula <- function(x) {
-   inherits(x, "formula")
+  inherits(x, "formula")
 }
 
 filters <- function(data, ...) {
   filts <- (match.call(expand.dots = FALSE)$...)
   for (i in seq_along(filts)) {
-    data <- subset(data, eval(filts[[i]]))}
+    data <- subset(data, eval(filts[[i]]))
+  }
   return(data)
 }
 
@@ -97,17 +98,18 @@ focus.data.frame <- function(frame, ...) {
   for (i in seq_along(filts)) {
     if (is.formula(eval(filts[[i]]))) {
       return(do.call(with, list(frame, filts[[i]])))
-      }
-    else if (is.logical(eval(filts[[i]]))) {
+    } else if (is.logical(eval(filts[[i]]))) {
       frame <- subset(frame, eval(filts[[i]]))
-      }
-    else {
+    } else {
       chose <- as.character(filts[[i]])
       chosen <- c(chosen, chose)
-      }
     }
-  if (is.null(chosen)) {return(frame)}
-  else {return(subset(frame, select = chosen))}
+  }
+  if (is.null(chosen)) {
+    return(frame)
+  } else {
+    return(subset(frame, select = chosen))
+  }
 }
 
 focus.formula <- function(formula, ...) {
