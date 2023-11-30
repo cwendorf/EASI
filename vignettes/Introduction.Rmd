@@ -30,21 +30,19 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 
 ## General Function Syntax
 
-EASI offers a general syntax for function names. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted). These are the basic options (though more elaborate functions also exist):
+EASI offers a general convention for function names. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted). These are the basic options (though more elaborate functions also exist):
 
-Prefix | Description
-:-- | :--
-`describe` | describe the data or model with summary statistics
-`estimate` | estimate the statistic and its confidence interval
-`plot` | plot the descriptive statistics or the estimates
-`test` | test the estimates for statistical significance
-`standardize` | standardize the estimate and provide its confidence interval
+- `describe` = describe the data or model with summary statistics
+- `estimate` = estimate the statistic and its confidence interval
+- `plot` = plot the descriptive statistics or the estimates
+- `test` = test the estimates for statistical significance
+- `standardize` = standardize the estimate and provide its confidence interval
 
-Then the functions add an object (the noun that indicates the parameter or item to be analyzed), such as `Means` or `Correlations`.
+Then the functions append an appropriate statistical element (the noun that indicates the statistics or items to be analyzed), such as `Means` or `Correlations`.
 
 ## Function Calls
 
-In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant additional parameters (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). This format is highlighted throughout EASI.
+In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant additional parameters (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). This format is used throughout EASI.
 
 ```
 (Outcome ~ Factor) |> estimateMeans()
