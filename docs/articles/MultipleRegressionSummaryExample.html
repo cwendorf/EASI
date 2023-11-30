@@ -111,18 +111,18 @@ table.</p>
 tables.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeSummary.html">describeSummary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Summary Statistics for the Data`</span></span>
-<span><span class="co">##                  N       M      SD</span></span>
-<span><span class="co">## Predictor1  10.000   8.000   1.414</span></span>
-<span><span class="co">## Predictor2  10.000  11.000   2.211</span></span>
-<span><span class="co">## Criterion   10.000  12.000   2.449</span></span></code></pre>
+<pre><code>$`Summary Statistics for the Data`
+                 N       M      SD
+Predictor1  10.000   8.000   1.414
+Predictor2  10.000  11.000   2.211
+Criterion   10.000  12.000   2.449</code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionCorr</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeCorrelations.html">describeCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Correlation Matrix for the Variables`</span></span>
-<span><span class="co">##            Predictor1 Predictor2 Criterion</span></span>
-<span><span class="co">## Predictor1      1.000      0.533     0.385</span></span>
-<span><span class="co">## Predictor2      0.533      1.000     0.574</span></span>
-<span><span class="co">## Criterion       0.385      0.574     1.000</span></span></code></pre>
+<pre><code>$`Correlation Matrix for the Variables`
+           Predictor1 Predictor2 Criterion
+Predictor1      1.000      0.533     0.385
+Predictor2      0.533      1.000     0.574
+Criterion       0.385      0.574     1.000</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -133,27 +133,27 @@ tables.</p>
 model.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeRegressionEffect.html">describeModel</a></span><span class="op">(</span><span class="va">RegressionCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Source Table for the Regression Model`</span></span>
-<span><span class="co">##            SS      df      MS</span></span>
-<span><span class="co">## Model  18.256   2.000   9.128</span></span>
-<span><span class="co">## Error  35.723   7.000   5.103</span></span>
-<span><span class="co">## Total  53.978   9.000   5.998</span></span></code></pre>
+<pre><code>$`Source Table for the Regression Model`
+           SS      df      MS
+Model  18.256   2.000   9.128
+Error  35.723   7.000   5.103
+Total  53.978   9.000   5.998</code></pre>
 <div class="section level3">
 <h3 id="confidence-interval">Confidence Interval<a class="anchor" aria-label="anchor" href="#confidence-interval"></a>
 </h3>
 <p>This code will produce the confidence interval for R Squared.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateRegressionEffect.html">estimateModel</a></span><span class="op">(</span><span class="va">RegressionCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Proportion of Variance Accounted For by the Regression Model`</span></span>
-<span><span class="co">##           Est      LL      UL</span></span>
-<span><span class="co">## Model   0.338   0.000   0.548</span></span></code></pre>
+<pre><code>$`Proportion of Variance Accounted For by the Regression Model`
+          Est      LL      UL
+Model   0.338   0.000   0.548</code></pre>
 <p>The code defaults to 90% confidence intervals. This can be changed if
 desired.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateRegressionEffect.html">estimateModel</a></span><span class="op">(</span><span class="va">RegressionCorr</span>, conf.level <span class="op">=</span> <span class="fl">.95</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Proportion of Variance Accounted For by the Regression Model`</span></span>
-<span><span class="co">##           Est      LL      UL</span></span>
-<span><span class="co">## Model   0.338   0.000   0.598</span></span></code></pre>
+<pre><code>$`Proportion of Variance Accounted For by the Regression Model`
+          Est      LL      UL
+Model   0.338   0.000   0.598</code></pre>
 </div>
 <div class="section level3">
 <h3 id="significance-test">Significance Test<a class="anchor" aria-label="anchor" href="#significance-test"></a>
@@ -161,9 +161,9 @@ desired.</p>
 <p>This code will calculate NHST for the regression model.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testRegressionEffect.html">testModel</a></span><span class="op">(</span><span class="va">RegressionCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Hypothesis Test for the Regression Model`</span></span>
-<span><span class="co">##             F     df1     df2       p</span></span>
-<span><span class="co">## Model   1.789   2.000   7.000   0.236</span></span></code></pre>
+<pre><code>$`Hypothesis Test for the Regression Model`
+            F     df1     df2       p
+Model   1.789   2.000   7.000   0.236</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -178,31 +178,31 @@ overall model.</p>
 the regression coefficients.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateRegressionCoefficients.html">estimateCoefficients</a></span><span class="op">(</span><span class="va">RegressionCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Confidence Intervals for the Regression Coefficients`</span></span>
-<span><span class="co">##                 Est      SE      LL      UL</span></span>
-<span><span class="co">## (Intercept)   4.193   4.659  -6.822  15.209</span></span>
-<span><span class="co">## Predictor1    0.191   0.629  -1.297   1.680</span></span>
-<span><span class="co">## Predictor2    0.571   0.403  -0.381   1.522</span></span></code></pre>
+<pre><code>$`Confidence Intervals for the Regression Coefficients`
+                Est      SE      LL      UL
+(Intercept)   4.193   4.659  -6.822  15.209
+Predictor1    0.191   0.629  -1.297   1.680
+Predictor2    0.571   0.403  -0.381   1.522</code></pre>
 <p>This code will produce a graph of the confidence intervals for each
 of the regression coefficients.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotRegressionCoefficients.html">plotCoefficients</a></span><span class="op">(</span><span class="va">RegressionCorr</span><span class="op">)</span></span></code></pre></div>
-<p><img src="MultipleRegressionSummaryExample_files/figure-html/Multiple-Summary-CoefficientsA-1.png" width="700"></p>
+<p><img src="MultipleRegressionSummaryExample_files/figure-html/Multiple-Summary-CoefficientsA-1.png" width="672"></p>
 <p>The code defaults to 95% confidence intervals. This can be changed if
 desired.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateRegressionCoefficients.html">estimateCoefficients</a></span><span class="op">(</span><span class="va">RegressionCorr</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Confidence Intervals for the Regression Coefficients`</span></span>
-<span><span class="co">##                 Est      SE      LL      UL</span></span>
-<span><span class="co">## (Intercept)   4.193   4.659 -12.109  20.496</span></span>
-<span><span class="co">## Predictor1    0.191   0.629  -2.011   2.394</span></span>
-<span><span class="co">## Predictor2    0.571   0.403  -0.838   1.979</span></span></code></pre>
+<pre><code>$`Confidence Intervals for the Regression Coefficients`
+                Est      SE      LL      UL
+(Intercept)   4.193   4.659 -12.109  20.496
+Predictor1    0.191   0.629  -2.011   2.394
+Predictor2    0.571   0.403  -0.838   1.979</code></pre>
 <p>For the graph, it is possible to plot just coefficients for the
 predictors (minus the intercept) in addition to changing the confidence
 level.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotRegressionCoefficients.html">plotCoefficients</a></span><span class="op">(</span><span class="va">RegressionCorr</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, intercept <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="MultipleRegressionSummaryExample_files/figure-html/Multiple-Summary-CoefficientsB-1.png" width="700"></p>
+<p><img src="MultipleRegressionSummaryExample_files/figure-html/Multiple-Summary-CoefficientsB-1.png" width="672"></p>
 </div>
 <div class="section level3">
 <h3 id="significance-tests">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests"></a>
@@ -212,11 +212,11 @@ regression coefficients. In this case, all the coefficients are tested
 against a value of zero.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testRegressionCoefficients.html">testCoefficients</a></span><span class="op">(</span><span class="va">RegressionCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Hypothesis Tests for the Regression Coefficients`</span></span>
-<span><span class="co">##                 Est      SE       t       p</span></span>
-<span><span class="co">## (Intercept)   4.193   4.659   0.900   0.398</span></span>
-<span><span class="co">## Predictor1    0.191   0.629   0.304   0.770</span></span>
-<span><span class="co">## Predictor2    0.571   0.403   1.418   0.199</span></span></code></pre>
+<pre><code>$`Hypothesis Tests for the Regression Coefficients`
+                Est      SE       t       p
+(Intercept)   4.193   4.659   0.900   0.398
+Predictor1    0.191   0.629   0.304   0.770
+Predictor2    0.571   0.403   1.418   0.199</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-coefficients">Standardized Coefficients<a class="anchor" aria-label="anchor" href="#standardized-coefficients"></a>
@@ -225,18 +225,18 @@ against a value of zero.</p>
 the standardized coefficients.</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateStandardizedRegressionCoefficients.html">standardizeCoefficients</a></span><span class="op">(</span><span class="va">RegressionCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Confidence Intervals for the Standardized Regression Coefficients`</span></span>
-<span><span class="co">##                Est      SE      LL      UL</span></span>
-<span><span class="co">## Predictor1   0.173   0.568  -1.171   1.516</span></span>
-<span><span class="co">## Predictor2   0.571   0.403  -0.381   1.522</span></span></code></pre>
+<pre><code>$`Confidence Intervals for the Standardized Regression Coefficients`
+               Est      SE      LL      UL
+Predictor1   0.173   0.568  -1.171   1.516
+Predictor2   0.571   0.403  -0.381   1.522</code></pre>
 <p>As in other places, the code defaults to 95% confidence intervals.
 This can be changed if desired.</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RegressionSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateStandardizedRegressionCoefficients.html">standardizeCoefficients</a></span><span class="op">(</span><span class="va">RegressionCorr</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Confidence Intervals for the Standardized Regression Coefficients`</span></span>
-<span><span class="co">##                Est      SE      LL      UL</span></span>
-<span><span class="co">## Predictor1   0.173   0.568  -1.816   2.161</span></span>
-<span><span class="co">## Predictor2   0.571   0.403  -0.838   1.979</span></span></code></pre>
+<pre><code>$`Confidence Intervals for the Standardized Regression Coefficients`
+               Est      SE      LL      UL
+Predictor1   0.173   0.568  -1.816   2.161
+Predictor2   0.571   0.403  -0.838   1.979</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

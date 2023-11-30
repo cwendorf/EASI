@@ -6,6 +6,10 @@ output:
 ---
 
 ```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 6, comment = NA)
+```
+
+```{r, include=FALSE}
 if (!require(EASI)) {
   if (!require(remotes)) install.packages("remotes")
   remotes::install_github("cwendorf/EASI")

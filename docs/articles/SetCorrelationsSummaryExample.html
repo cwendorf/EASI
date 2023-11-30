@@ -112,18 +112,18 @@ and then uses a function to fill in the whole matrix.</p>
 tables.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeSummary.html">describeSummary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Summary Statistics for the Data`</span></span>
-<span><span class="co">##                N       M      SD</span></span>
-<span><span class="co">## Outcome1  10.000   8.000   1.414</span></span>
-<span><span class="co">## Outcome2  10.000  11.000   2.211</span></span>
-<span><span class="co">## Outcome3  10.000  12.000   2.449</span></span></code></pre>
+<pre><code>$`Summary Statistics for the Data`
+               N       M      SD
+Outcome1  10.000   8.000   1.414
+Outcome2  10.000  11.000   2.211
+Outcome3  10.000  12.000   2.449</code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedCorr</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeCorrelations.html">describeCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Correlation Matrix for the Variables`</span></span>
-<span><span class="co">##          Outcome1 Outcome2 Outcome3</span></span>
-<span><span class="co">## Outcome1    1.000    0.533    0.385</span></span>
-<span><span class="co">## Outcome2    0.533    1.000    0.574</span></span>
-<span><span class="co">## Outcome3    0.385    0.574    1.000</span></span></code></pre>
+<pre><code>$`Correlation Matrix for the Variables`
+         Outcome1 Outcome2 Outcome3
+Outcome1    1.000    0.533    0.385
+Outcome2    0.533    1.000    0.574
+Outcome3    0.385    0.574    1.000</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -137,27 +137,27 @@ tables.</p>
 correlation.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Confidence Interval for the Correlation`</span></span>
-<span><span class="co">##                           R      SE      LL      UL</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.378  -0.145   0.870</span></span></code></pre>
+<pre><code>$`Confidence Interval for the Correlation`
+                          R      SE      LL      UL
+Outcome1 &amp; Outcome2   0.533   0.378  -0.145   0.870</code></pre>
 <p>This code will produce a graph of the confidence interval for the
 correlation.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span><span class="op">)</span></span></code></pre></div>
-<p><img src="SetCorrelationsSummaryExample_files/figure-html/SetCorrelations-Summary-IntervalsA-1.png" width="700"></p>
+<p><img src="SetCorrelationsSummaryExample_files/figure-html/SetCorrelations-Summary-IntervalsA-1.png" width="672"></p>
 <p>The code defaults to 95% confidence intervals. This can be changed if
 desired.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Confidence Interval for the Correlation`</span></span>
-<span><span class="co">##                           R      SE      LL      UL</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.378  -0.362   0.917</span></span></code></pre>
+<pre><code>$`Confidence Interval for the Correlation`
+                          R      SE      LL      UL
+Outcome1 &amp; Outcome2   0.533   0.378  -0.362   0.917</code></pre>
 <p>Of course, it is possible to change from the default confidence level
 in the graph. It is also possible to add a comparison value and a region
 of practical equivalence.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.2</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="SetCorrelationsSummaryExample_files/figure-html/SetCorrelations-Summary-IntervalsB-1.png" width="700"></p>
+<p><img src="SetCorrelationsSummaryExample_files/figure-html/SetCorrelations-Summary-IntervalsB-1.png" width="672"></p>
 </div>
 <div class="section level3">
 <h3 id="significance-test">Significance Test<a class="anchor" aria-label="anchor" href="#significance-test"></a>
@@ -166,9 +166,9 @@ of practical equivalence.</p>
 value of zero).</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testCorrelations.html">testCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Hypothesis Test for the Correlation`</span></span>
-<span><span class="co">##                           R      SE      df       t       p</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.299   8.000   1.782   0.113</span></span></code></pre>
+<pre><code>$`Hypothesis Test for the Correlation`
+                          R      SE      df       t       p
+Outcome1 &amp; Outcome2   0.533   0.299   8.000   1.782   0.113</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -182,31 +182,31 @@ value of zero).</p>
 correlations.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Confidence Intervals for the Correlations`</span></span>
-<span><span class="co">##                           R      SE      LL      UL</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.378  -0.145   0.870</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome3   0.385   0.378  -0.323   0.817</span></span>
-<span><span class="co">## Outcome2 &amp; Outcome3   0.574   0.378  -0.087   0.884</span></span></code></pre>
+<pre><code>$`Confidence Intervals for the Correlations`
+                          R      SE      LL      UL
+Outcome1 &amp; Outcome2   0.533   0.378  -0.145   0.870
+Outcome1 &amp; Outcome3   0.385   0.378  -0.323   0.817
+Outcome2 &amp; Outcome3   0.574   0.378  -0.087   0.884</code></pre>
 <p>This code will produce a graph of the confidence intervals for the
 correlations.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span><span class="op">)</span></span></code></pre></div>
-<p><img src="SetCorrelationsSummaryExample_files/figure-html/SetCorrelations-Summary-IntervalsC-1.png" width="700"></p>
+<p><img src="SetCorrelationsSummaryExample_files/figure-html/SetCorrelations-Summary-IntervalsC-1.png" width="672"></p>
 <p>The code defaults to 95% confidence intervals. This can be changed if
 desired.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Confidence Intervals for the Correlations`</span></span>
-<span><span class="co">##                           R      SE      LL      UL</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.378  -0.362   0.917</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome3   0.385   0.378  -0.514   0.881</span></span>
-<span><span class="co">## Outcome2 &amp; Outcome3   0.574   0.378  -0.310   0.926</span></span></code></pre>
+<pre><code>$`Confidence Intervals for the Correlations`
+                          R      SE      LL      UL
+Outcome1 &amp; Outcome2   0.533   0.378  -0.362   0.917
+Outcome1 &amp; Outcome3   0.385   0.378  -0.514   0.881
+Outcome2 &amp; Outcome3   0.574   0.378  -0.310   0.926</code></pre>
 <p>Of course, it is possible to change from the default confidence level
 in the graph. It is also possible to add a comparison value and a region
 of practical equivalence.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.2</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="SetCorrelationsSummaryExample_files/figure-html/SetCorrelations-Summary-IntervalsD-1.png" width="700"></p>
+<p><img src="SetCorrelationsSummaryExample_files/figure-html/SetCorrelations-Summary-IntervalsD-1.png" width="672"></p>
 </div>
 <div class="section level3">
 <h3 id="significance-tests">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests"></a>
@@ -215,11 +215,11 @@ of practical equivalence.</p>
 a value of zero).</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testCorrelations.html">testCorrelations</a></span><span class="op">(</span><span class="va">RepeatedCorr</span><span class="op">)</span></span></code></pre></div>
-<pre><code><span><span class="co">## $`Hypothesis Tests for the Correlations`</span></span>
-<span><span class="co">##                           R      SE      df       t       p</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome2   0.533   0.299   8.000   1.782   0.113</span></span>
-<span><span class="co">## Outcome1 &amp; Outcome3   0.385   0.326   8.000   1.180   0.272</span></span>
-<span><span class="co">## Outcome2 &amp; Outcome3   0.574   0.290   8.000   1.983   0.083</span></span></code></pre>
+<pre><code>$`Hypothesis Tests for the Correlations`
+                          R      SE      df       t       p
+Outcome1 &amp; Outcome2   0.533   0.299   8.000   1.782   0.113
+Outcome1 &amp; Outcome3   0.385   0.326   8.000   1.180   0.272
+Outcome2 &amp; Outcome3   0.574   0.290   8.000   1.983   0.083</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
