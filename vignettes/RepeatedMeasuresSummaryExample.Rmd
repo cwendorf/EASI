@@ -1,8 +1,8 @@
 ---
 title: "Repeated Measures Summary Statistics Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page analyzes a single-factor within-subjects (repeated measures) design using summary statistics input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}

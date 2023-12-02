@@ -1,8 +1,8 @@
 ---
 title: "Factorial Data Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page analyzes a two-factor between-subjects (factorial) design using raw data input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}

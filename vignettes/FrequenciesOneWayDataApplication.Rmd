@@ -1,0 +1,59 @@
+---
+title: "Frequencies OneWay Data Application"
+description: >
+  This page provides basic data plots and frequency distributions using one-way (between-subjects) data.
+output: rmarkdown::html_vignette
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 6, comment = NA)
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+This page provides basic data plots and frequency distributions using one-way (between-subjects) data.
+
+## Data Management
+
+This code inputs the variable names and creates a viewable data frame.
+```{r}
+Factor <- c(rep(1, 10), rep(2, 10), rep(3, 10))
+Factor <- factor(Factor, levels = c(1, 2, 3), labels = c("Level1", "Level2", "Level3"))
+Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
+OneWayData <- construct(Factor, Outcome)
+```
+
+## Frequency Distributions
+
+Frequency distributions and data plots are often a first step in analyzing data.
+
+Describe the frequency distributions.
+```{r}
+(Outcome ~ Factor) |> describeFrequencies()
+```
+
+Plot the frequencies as data points and enhance with color.
+```{r, Frequencies-OneWay-Data}
+(Outcome ~ Factor) |> plotData(offset = 0, method = "swarm", col = c("darkred", "darkblue", "darkgoldenrod"))
+```
+
+## Summary Statistics
+
+It is often helpful to view the summary statistics in conjunction with the frequency distributions.
+
+Describe the summary statistics.
+```{r}
+(Outcome ~ Factor) |> describeSummary()
+```
+
+Plot the frequency distributions as histograms and add the summary statistics. The bars represent standard deviations, with dotted lines as the default but solid lines representing the sides with more skew.
+```{r, Frequencies-OneWay-Summary}
+(Outcome ~ Factor) |> plotFrequencies(main = "Frequencies and Summary Statistics for the Data", col = c("darkred", "darkblue", "darkgoldenrod"))
+(Outcome ~ Factor) |> plotSummary(add = TRUE, col = c("darkred", "darkblue", "darkgoldenrod"))
+```

@@ -1,8 +1,8 @@
 ---
 title: "Paired Samples Summary Statistics Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page analyzes a within-subjects design for two time points (paired samples) using summary statistics input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page analyzes a within-subjects (paired samples) design for two time points using summary statistics input.
+This page analyzes a within-subjects design for two time points (paired samples) using summary statistics input.
 
 ## Data Management
 

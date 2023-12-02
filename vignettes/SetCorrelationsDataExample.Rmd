@@ -1,8 +1,8 @@
 ---
 title: "Set of Correlations Data Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page analyzes ba set of correlations among variables using raw data input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}

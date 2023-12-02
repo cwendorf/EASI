@@ -1,0 +1,56 @@
+---
+title: "Interaction Factorial Data Application"
+description: >
+  This page provides analyses of interactions using factorial (between-subjects) data.
+output: rmarkdown::html_vignette
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 6, comment = NA)
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+This page provides analyses of interactions using factorial (between-subjects) data.
+
+## Data Management
+
+This code inputs the variable names and creates a viewable data frame.
+```{r}
+FactorA <- c(rep(1, 20), rep(2, 20), rep(3, 20))
+FactorA <- factor(FactorA, levels = c(1, 2, 3), labels = c("A1", "A2", "A3"))
+FactorB <- c(rep(1, 10), rep(2, 10), rep(1, 10), rep(2, 10), rep(1, 10), rep(2, 10))
+FactorB <- factor(FactorB, levels = c(1, 2), labels = c("B1", "B2"))
+Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8, 7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 7, 8, 7, 11, 10, 7, 8, 4, 8, 10, 9, 16, 11, 12, 15, 13, 9, 14, 11, 10, 8, 6, 8, 11, 5, 7, 9, 3, 6, 7)
+FactorialData <- construct(FactorA, FactorB, Outcome)
+```
+
+## Analyses of the Omnibus Design
+
+Get an ANOVA for the design as a whole, including a source table, an estimate of the proportion of variance accounted for, and an ANOVA test of the main effects and interaction.
+```{r}
+(Outcome ~ FactorA) |> describeFactorial(by = FactorB)
+(Outcome ~ FactorA) |> estimateFactorial(by = FactorB)
+(Outcome ~ FactorA) |> testFactorial(by = FactorB)
+```
+
+Plot the means and confidence intervals for the design as a whole.
+```{r, Interaction-Factorial-Omnibus}
+(Outcome ~ FactorA) |> plotFactorial(by = FactorB, col = c("darkred", "darkblue"))
+legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("B1", "B2"), col = c("darkred", "darkblue"))
+```
+
+## Analyses of Interaction Contrasts
+
+Identify a 2 x 2 interaction of interest (in this case, two levels of FactorA and the existing two levels of FactorB). Estimate, plot, and test the interaction contrast (which includes the comparisons within each simple effect).
+```{r, Interaction-Factorial-Contrasts}
+(Outcome ~ FactorA) |> focus(A1, A2) |> estimateInteraction(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> plotInteraction(by = FactorB)
+(Outcome ~ FactorA) |> focus(A1, A2) |> testInteraction(by = FactorB)
+```

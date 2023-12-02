@@ -1,8 +1,8 @@
 ---
 title: "Repeated Measures Data Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page analyzes a single-factor within-subjects (repeated measures) design using raw data input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}
@@ -16,6 +16,8 @@ if (!require(EASI)) {
 }
 library(EASI)
 ```
+
+This page analyzes a single-factor within-subjects (repeated measures) design using raw data input.
 
 ## Data Management
 

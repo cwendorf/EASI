@@ -1,8 +1,8 @@
 ---
 title: "Single Correlation Summary Statistics Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page analyzes a single correlation between two variables using summary statistics input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}

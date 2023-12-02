@@ -1,8 +1,8 @@
 ---
 title: "Introduction"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page outlines the general purpose and structure of the EASI project.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}

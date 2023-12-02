@@ -1,8 +1,8 @@
 ---
 title: "One Sample Data Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  TThis page analyzes a single-group (one sample) design using raw data input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}

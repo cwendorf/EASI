@@ -1,8 +1,8 @@
 ---
 title: "OneWay Data Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page analyzes a single-factor between-subjects (one-way) design using raw data input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}
@@ -85,7 +85,7 @@ This code will produce a table of standardized mean differences separately for e
 
 Here too it is possible to alter the width of the confidence intervals and to establish a more plausible comparison value for the mean.
 ```{r}
-(Outcome ~ Factor) |> standardizeMeans(mu = 59, conf.level = .99)
+(Outcome ~ Factor) |> standardizeMeans(mu = 9, conf.level = .99)
 ```
 
 ## Analyses of a Comparison

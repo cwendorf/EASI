@@ -1,8 +1,8 @@
 ---
 title: "Mixed Design Data Example"
-output:
-  github_document:
-    preserve_yaml: FALSE
+description: >
+  This page analyzes a two-factor mixed design (one between-subjects and one within-subjects factor) using raw data input.
+output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}

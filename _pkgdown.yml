@@ -184,68 +184,58 @@ articles:
   contents:
   - Introduction
 
-- title: One Sample
-  desc: Analyze a single-group (one sample) design
+- title: Basic Examples | Means and Mean Differences
+  desc: These pages demonstrate basic principles of estimation statistics for analyses of mean differences
   contents:
   - OneSampleDataExample
   - OneSampleSummaryExample
-
-- title: Independent Groups
-  desc: Analyze a two-group between-subjects design (independent groups)
-  contents:
   - IndependentGroupsDataExample
   - IndependentGroupsSummaryExample
-
-- title: Paired Samples
-  desc: Analyze a within-subjects design for two time points (paired samples)
-  contents:
   - PairedSamplesDataExample
   - PairedSamplesSummaryExample
-
-- title: One Way
-  desc: Analyze a single-factor between-subjects (one-way) design
-  contents:
   - OneWayDataExample
   - OneWaySummaryExample
-
-- title: Repeated Measures
-  desc: Analyze a single-factor within-subjects (repeated measures) design
-  contents:
   - RepeatedMeasuresDataExample
   - RepeatedMeasuresSummaryExample
-
-- title: Factorial Design
-  desc: Analyze a two-factor between-subjects (factorial) design
-  contents:
   - FactorialDesignDataExample
   - FactorialDesignSummaryExample
-
-- title: Mixed Design
-  desc: Analyze a two-factor mixed design (one between-subjects and one within-subjects factor)
-  contents:
   - MixedDesignDataExample
   - MixedDesignSummaryExample
 
-- title: Single Correlation
-  desc: Analyze a correlation between two variables
+- title: Basic Examples | Correlations and Regression Coefficients
+  desc: These pages demonstrate basic principles of estimation statistics for correlational and regression analyses
   contents:
   - SingleCorrelationDataExample
   - SingleCorrelationSummaryExample
-
-- title: Set of Correlations
-  desc: Analyze a set of correlations among multiple variables
-  contents:
   - SetCorrelationsDataExample
   - SetCorrelationsSummaryExample
-  
-- title: Bivariate Regression
-  desc: Analyze bivariate regression models
-  contents:
   - BivariateRegressionDataExample
   - BivariateRegressionSummaryExample
-  
-- title: Multiple Regression
-  desc: Analyze multiple regression models
-  contents:
   - MultipleRegressionDataExample
   - MultipleRegressionSummaryExample
+
+- title: Advanced Applications | Data and Distributions
+  desc: These pages demonstrate advanced or undocumented features for exploring data
+  contents:
+  - FrequenciesOneWayDataApplication
+  - FrequenciesRepeatedMeasuresDataApplication
+  - ExploratoryOneWayDataApplication
+  - ExploratoryRepeatedMeasuresDataApplication
+
+- title: Advanced Applications | Contrast and Comparison Representations
+  desc: These pages demonstrate advanced or undocumented features for examining mean differences
+  contents:
+  - PlausibleOneWayDataApplication
+  - PlausibleRepeatedMeasuresDataApplication
+  - ComplexOneWayDataApplication
+  - ComplexRepeatedMeasuresDataApplication
+  - PairwiseOneWayDataApplication
+  - PairwiseRepeatedMeasuresDataApplication
+
+- title: Advanced Applications | Analyses of Factorial and Mixed Data
+  desc: These pages demonstrate advanced or unndocumented features for analyzing mean differences in factorial and mixed designs
+  contents:
+  - EffectsFactorialDataApplication
+  - EffectsMixedDataApplication
+  - InteractionFactorialDataApplication
+  - InteractionMixedDataApplication
