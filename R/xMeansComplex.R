@@ -8,8 +8,8 @@
 }
 
 .estimateMeansComplex.default <- .estimateMeansComplex.formula <- .estimateMeansComplex.wss <- .estimateMeansComplex.bss <- function(..., contrast1, contrast2, conf.level = .95, labels = NULL) {
-  res1 <- .estimateMeanContrast(..., contrast = contrast1, conf.level = conf.level)
-  res2 <- .estimateMeanContrast(..., contrast = contrast2, conf.level = conf.level)
+  res1 <- .estimateMeansContrast(..., contrast = contrast1, conf.level = conf.level)
+  res2 <- .estimateMeansContrast(..., contrast = contrast2, conf.level = conf.level)
   Complex <- rbind(res1, res2)
   if (is.null(labels)) {
     rownames(Complex) <- c("Contrast1", "Contrast2")
@@ -19,7 +19,7 @@
   Complex <- list(Complex)
   names(Complex) <- "Confidence Intervals for the Contrasts of Means"
   contrast <- contrast2 - contrast1
-  Diff <- .estimateMeanContrast(..., contrast = contrast, conf.level = conf.level)
+  Diff <- .estimateMeansContrast(..., contrast = contrast, conf.level = conf.level)
   Diff <- list(Diff)
   names(Diff) <- "Confidence Interval for the Contrast of Contrasts"
   results <- c(Complex, Diff)
@@ -42,8 +42,8 @@ estimateMeansComplex <- function(..., main = NULL, digits = 3) {
 }
 
 .testMeansComplex.default <- .testMeansComplex.formula <- .testMeansComplex.wss <- .testMeansComplex.bss <- function(..., contrast1, contrast2, labels = NULL) {
-  res1 <- .testMeanContrast(..., contrast = contrast1)
-  res2 <- .testMeanContrast(..., contrast = contrast2)
+  res1 <- .testMeansContrast(..., contrast = contrast1)
+  res2 <- .testMeansContrast(..., contrast = contrast2)
   Complex <- rbind(res1, res2)
   if (is.null(labels)) {
     rownames(Complex) <- c("Contrast1", "Contrast2")
@@ -53,7 +53,7 @@ estimateMeansComplex <- function(..., main = NULL, digits = 3) {
   Complex <- list(Complex)
   names(Complex) <- "Hypthesis Tests for the Contrasts of Means"
   contrast <- contrast2 - contrast1
-  Diff <- .testMeanContrast(..., contrast = contrast)
+  Diff <- .testMeansContrast(..., contrast = contrast)
   Diff <- list(Diff)
   names(Diff) <- "Hypothesis Test for the Contrast of Contrasts"
   results <- c(Complex, Diff)
