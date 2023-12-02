@@ -16,10 +16,10 @@ plotPlausible <- function(x, ...) {
 plotPlausible.default <- function(x, contrast = NULL, ...) {
   howmany <- nrow(.estimateMeans(x))
   if (!is.null(contrast)) {
-    z <- estimateMeanSubsets(x, contrast = contrast, conf.level = .95)
+    z <- estimateMeansSubsets(x, contrast = contrast, conf.level = .95)
     plotPlausible(z, ...)
   } else if (howmany == 2) {
-    z <- estimateMeanComparison(x, conf.level = .95)
+    z <- estimateMeansComparison(x, conf.level = .95)
     plotPlausible(z, ...)
   } else {
     z <- estimateMeans(x, ...)
