@@ -1,5 +1,5 @@
 ^README.md
 ^source-EASI.R
-docs/
 ^_pkgdown.yml
+docs/
 vignettes/
