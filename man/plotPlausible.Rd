@@ -1,16 +1,16 @@
-% File man/plotDensity.Rd
+% File man/plotPlausible.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{plotDensity}
-\alias{plotDensity}
-\alias{addDensity}
-\title{Plot Density}
-\description{Provides a density plot for each group or variable.}
+\name{plotPlausible}
+\alias{plotPlausible}
+\alias{addPlausible}
+\title{Plot Plausible}
+\description{Provides a plausibility curve for each group or variable.}
 
 \usage{
-\method{plotDensity}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.07, scale=.8, border=rgb(0, 0, 0, .2), col=rgb(0, 0, 0, .1))
+\method{plotPlausible}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, type="right", offset=0, scale=1, col="black")
 
-\method{plotDensity}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.07, scale=.8, border=rgb(0, 0, 0, .2), col=rgb(0, 0, 0, .1))
+\method{plotPlausible}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, type="right", offset=0, scale=1, col="black")
 }
 
 \arguments{
@@ -21,14 +21,14 @@
 \item{xlab}{a label for the x-axis}
 \item{main}{a custom title for the graph}
 \item{ylim}{custom limits for the y axis}
+\item{type}{sides of the plot to be included}
 \item{offset}{a value indicating the offset of the plot}
 \item{scale}{a value that indicates the width of the plot}
 \item{col}{a value for the shaded color of the plot}
-\item{border}{a value for the border color of the plot}
 }
 
 \details{
-`plotDensity` can be used to initialize a new plot or add to an existing plot (using the `add` argument). `addDensity` is identical to `plotDensity` without the need to utilize the `add` argument.
+`plotPlausible` can be used to initialize a new plot or add to an existing plot (using the `add` argument). `addPlausible` is identical to `plotPlausible` without the need to utilize the `add` argument.
 }
 
 \value{

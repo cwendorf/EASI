@@ -3,6 +3,7 @@
 
 \name{plotFrequencies}
 \alias{plotFrequencies}
+\alias{addFrequencies}
 \title{Plot Frequencies}
 \description{Provides a frequency distribution for each group or variable.}
 
@@ -22,6 +23,10 @@
 \item{ylim}{custom limits for the y axis}
 \item{offset}{a value indicating the offset of the plot}
 \item{col}{a value for the shaded color of the plot}
+}
+
+\details{
+`plotFrequencies` can be used to initialize a new plot or add to an existing plot (using the `add` argument). `addFrequencies` is identical to `plotFrequencies` without the need to utilize the `add` argument.
 }
 
 \value{

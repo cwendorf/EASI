@@ -3,6 +3,7 @@
 
 \name{plotMeans}
 \alias{plotMeans}
+\alias{addMeans}
 \title{Plot Means}
 \description{Provides a plot of all group or level means and their confidence intervals.}
 
@@ -30,6 +31,10 @@
 \item{main}{a custom title for the graph}
 \item{ylim}{custom limits for the y axis}
 \item{digits}{the specified number of decimal places}
+}
+
+\details{
+`plotMeans` can be used to initialize a new plot or add to an existing plot (using the `add` argument). `addMeans` is identical to `plotMeans` without the need to utilize the `add` argument.
 }
 
 \value{

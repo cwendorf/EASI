@@ -3,6 +3,7 @@
 
 \name{plotSummary}
 \alias{plotSummary}
+\alias{addSummary}
 \title{Plot Summary}
 \description{Provides a plot of all group or level means and standard deviations.}
 
@@ -26,6 +27,10 @@
 \item{main}{a custom title for the graph}
 \item{ylim}{custom limits for the y axis}
 \item{digits}{the specified number of decimal places}
+}
+
+\details{
+`plotSummary` can be used to initialize a new plot or add to an existing plot (using the `add` argument). `addSummary` is identical to `plotSummary` without the need to utilize the `add` argument.
 }
 
 \value{

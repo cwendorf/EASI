@@ -3,6 +3,7 @@
 
 \name{plotData}
 \alias{plotData}
+\alias{addData}
 \title{Plot Data}
 \description{Provides a plot of data points for each group or level mean.}
 
@@ -28,6 +29,10 @@
 \item{pch}{a value indicating the symbol for the points}
 }
 
-\value{
+\details{
+`plotData` can be used to initialize a new plot or add to an existing plot (using the `add` argument). `addData` is identical to `plotData` without the need to utilize the `add` argument.
+}
 
-The returned plot contains the data for the groups or variables.}
+\value{
+The returned plot contains the data for the groups or variables.
+}

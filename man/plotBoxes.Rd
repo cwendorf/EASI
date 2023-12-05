@@ -3,6 +3,7 @@
 
 \name{plotBoxes}
 \alias{plotBoxes}
+\alias{addBoxes}
 \title{Plot Boxes}
 \description{Provides a boxplot for each group or variable.}
 
@@ -27,6 +28,10 @@
 \item{border}{a value for the border color of the boxplot}
 \item{values}{whether the values should be added to the boxplot}
 \item{digits}{the specified number of decimal places}
+}
+
+\details{
+`plotBoxes` can be used to initialize a new plot or add to an existing plot (using the `add` argument). `addBoxes` is identical to `plotBoxes` without the need to utilize the `add` argument.
 }
 
 \value{
