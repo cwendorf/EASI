@@ -191,12 +191,12 @@ Outcome1 v Outcome2   3.000   0.596   9.000   1.335   4.665
 Outcome1 v Outcome3   4.000   0.730   9.000   1.961   6.039
 Outcome2 v Outcome3   1.000   0.683   9.000  -0.907   2.907</code></pre>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansPairwise.html">testPairwise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<pre><code>$`Hypothesis Tests for the Pairwise Comparisons of Means`
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansPosthoc.html">testPosthoc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>$`Hypothesis Tests for the Posthoc Comparisons of Means`
                        Diff      SE      df       t       p
-Outcome1 v Outcome2   3.000   0.596   9.000   5.031   0.001
-Outcome1 v Outcome3   4.000   0.730   9.000   5.477   0.000
-Outcome2 v Outcome3   1.000   0.683   9.000   1.464   0.177</code></pre>
+Outcome1 v Outcome2   3.000   0.596   9.000   5.031   0.002
+Outcome1 v Outcome3   4.000   0.730   9.000   5.477   0.001
+Outcome2 v Outcome3   1.000   0.683   9.000   1.464   0.352</code></pre>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizePosthoc</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Posthoc Standardized Comparisons of Means`

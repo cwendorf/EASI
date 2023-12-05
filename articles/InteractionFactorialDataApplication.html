@@ -101,7 +101,7 @@ frame.</p>
 estimate of the proportion of variance accounted for, and an ANOVA test
 of the main effects and interaction.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMeansFactorial.html">describeFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: Between Subjects`
                    SS      df      MS
 Factor        106.667   1.000 106.667
@@ -109,14 +109,14 @@ Blocks         30.000   2.000  15.000
 Factor:Blocks  63.333   2.000  31.667
 Residual      250.000  54.000   4.630</code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansFactorial.html">estimateFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: Between Subjects`
                   Est      LL      UL
 Factor          0.299   0.136   0.437
 Blocks          0.107   0.000   0.176
 Factor:Blocks   0.202   0.014   0.248</code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansFactorial.html">testFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Model: Between Subjects`
                     F     df1     df2       p
 Factor         23.040   1.000  54.000   0.000
@@ -137,7 +137,7 @@ FactorA and the existing two levels of FactorB). Estimate, plot, and
 test the interaction contrast (which includes the comparisons within
 each simple effect).</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateInteraction</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansInteraction.html">estimateInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Simple Effect Constrasts`
                         Est      SE      df      LL      UL
 Simple Effect at B1   3.000   0.830  15.308   1.234   4.766
@@ -147,10 +147,10 @@ $`Confidence Interval for the Interaction Contrast`
                 Est      SE      df      LL      UL
 Interaction  -3.000   1.300  32.129  -5.647  -0.353</code></pre>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotInteraction</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansInteraction.html">plotInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <p><img src="InteractionFactorialDataApplication_files/figure-html/Interaction-Factorial-Contrasts-1.png" width="672"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testInteraction</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansInteraction.html">testInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Main Effect Constrasts`
                         Est      SE       t      df       p
 Simple Effect at B1   3.000   0.830   3.614  15.308   0.002

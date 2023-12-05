@@ -101,7 +101,7 @@ frame.</p>
 estimate of the proportion of variance accounted for, and an ANOVA test
 of the main effects and interaction.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMeansFactorial.html">describeFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: Between Subjects`
               SS      df      MS
 Blocks   106.667   1.000 106.667
@@ -113,7 +113,7 @@ Measures         30.000   2.000  15.000
 Measures:Blocks  63.333   2.000  31.667
 Residual         98.000  36.000   2.722</code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansFactorial.html">estimateFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: Between Subjects`
            Est      LL      UL
 Blocks   0.412   0.114   0.595
@@ -123,7 +123,7 @@ $`Proportion of Variance Accounted For by the Model: Within Subjects`
 Measures          0.234   0.040   0.385
 Measures:Blocks   0.393   0.163   0.528</code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansFactorial.html">testFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Model: Between Subjects`
              F     df1     df2       p
 Blocks  12.632   1.000  18.000   0.002
@@ -147,7 +147,7 @@ Outcome and the existing two levels of the Factor). Estimate, plot, and
 test the interaction contrast (which includes the comparisons within
 each simple effect).</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateInteraction</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansInteraction.html">estimateInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Simple Effect Constrasts`
                             Est      SE      df      LL      UL
 Simple Effect at Level1   3.000   0.596   9.000   1.651   4.349
@@ -157,7 +157,7 @@ $`Confidence Interval for the Interaction Contrast`
                 Est      SE      df      LL      UL
 Interaction  -3.000   0.978  16.894  -5.063  -0.937</code></pre>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testInteraction</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansInteraction.html">testInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Main Effect Constrasts`
                             Est      SE       t      df       p
 Simple Effect at Level1   3.000   0.596   5.031   9.000   0.001
@@ -167,7 +167,7 @@ $`Hypothesis Test for the Interaction Contrast`
                 Est      SE       t      df       p
 Interaction  -3.000   0.978  -3.069  16.894   0.007</code></pre>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotInteraction</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansInteraction.html">plotInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <p><img src="InteractionMixedDataApplication_files/figure-html/Interaction-Mixed-Contrasts-1.png" width="672"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

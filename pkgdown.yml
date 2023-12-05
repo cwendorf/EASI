@@ -4,6 +4,8 @@ pkgdown_sha: ~
 articles:
   BivariateRegressionDataExample: BivariateRegressionDataExample.html
   BivariateRegressionSummaryExample: BivariateRegressionSummaryExample.html
+  CompareCorrelationsDataExample: CompareCorrelationsDataExample.html
+  CompareCorrelationsSummaryExample: CompareCorrelationsSummaryExample.html
   ComplexOneWayDataApplication: ComplexOneWayDataApplication.html
   ComplexRepeatedMeasuresDataApplication: ComplexRepeatedMeasuresDataApplication.html
   EffectsFactorialDataApplication: EffectsFactorialDataApplication.html
@@ -39,7 +41,7 @@ articles:
   SetCorrelationsSummaryExample: SetCorrelationsSummaryExample.html
   SingleCorrelationDataExample: SingleCorrelationDataExample.html
   SingleCorrelationSummaryExample: SingleCorrelationSummaryExample.html
-last_built: 2023-12-02T11:42Z
+last_built: 2023-12-05T11:07Z
 urls:
   reference: https://cwendorf.github.io/EASI/reference
   article: https://cwendorf.github.io/EASI/articles

@@ -10,6 +10,12 @@
     <loc>https://cwendorf.github.io/EASI/articles/BivariateRegressionSummaryExample.html</loc>
   </url>
   <url>
+    <loc>https://cwendorf.github.io/EASI/articles/CompareCorrelationsDataExample.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/articles/CompareCorrelationsSummaryExample.html</loc>
+  </url>
+  <url>
     <loc>https://cwendorf.github.io/EASI/articles/ComplexOneWayDataApplication.html</loc>
   </url>
   <url>
@@ -145,6 +151,12 @@
     <loc>https://cwendorf.github.io/EASI/reference/describeMeansEffect.html</loc>
   </url>
   <url>
+    <loc>https://cwendorf.github.io/EASI/reference/describeMeansFactorial.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/describePercentiles.html</loc>
+  </url>
+  <url>
     <loc>https://cwendorf.github.io/EASI/reference/describeRegressionEffect.html</loc>
   </url>
   <url>
@@ -152,6 +164,12 @@
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/estimateCorrelations.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/estimateCorrelationsComparison.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/estimateCorrelationsDifference.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/estimateMeans.html</loc>
@@ -170,6 +188,12 @@
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/estimateMeansEffect.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/estimateMeansFactorial.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/estimateMeansInteraction.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/estimateMeansPairwise.html</loc>
@@ -220,6 +244,12 @@
     <loc>https://cwendorf.github.io/EASI/reference/plotCorrelations.html</loc>
   </url>
   <url>
+    <loc>https://cwendorf.github.io/EASI/reference/plotCorrelationsComparison.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/plotCorrelationsDifference.html</loc>
+  </url>
+  <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotData.html</loc>
   </url>
   <url>
@@ -244,6 +274,12 @@
     <loc>https://cwendorf.github.io/EASI/reference/plotMeansDifference.html</loc>
   </url>
   <url>
+    <loc>https://cwendorf.github.io/EASI/reference/plotMeansFactorial.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/plotMeansInteraction.html</loc>
+  </url>
+  <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotMeansPairwise.html</loc>
   </url>
   <url>
@@ -254,6 +290,9 @@
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotMeansSubsets.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/plotPlausible.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotRegression.html</loc>
@@ -290,6 +329,12 @@
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/testMeansEffect.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/testMeansFactorial.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/testMeansInteraction.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/testMeansPairwise.html</loc>

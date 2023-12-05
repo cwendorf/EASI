@@ -130,13 +130,13 @@ noun that indicates the statistics or items to be analyzed), such as
 <h2 id="function-calls">Function Calls<a class="anchor" aria-label="anchor" href="#function-calls"></a>
 </h2>
 <p>In standard R syntax, the function name is followed in parentheses by
-the variables to be analyzed and any relevant additional parameters
-(such as different confidence levels, null values, etc.). In R versions
-4.1 and greater, the native pipe operator can be used instead of
-standard syntax. Here, the variables to be analyzed are included first,
-followed by the pipe operator, and then the function call (with any
-relevant additional parameters in parentheses). This format is used
-throughout EASI.</p>
+the variables to be analyzed and any relevant additional arguments (such
+as different confidence levels, null values, etc.). In R versions 4.1
+and greater, the native pipe operator can be used instead of standard
+syntax. Here, the variables to be analyzed are included first, followed
+by the pipe operator, and then the function call (with any relevant
+additional arguments in parentheses). This format is used throughout
+EASI.</p>
 <pre><code><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, main <span class="op">=</span> <span class="st">"Custom Table Title"</span>, digits <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeans.html">plotMeans</a></span><span class="op">(</span><span class="op">)</span></span>
@@ -146,7 +146,7 @@ dataset is predefined) or when using subsets of larger datasets (like
 when analyzing factorial designs), it is typically necessary to identify
 the data first and then select the variables from within the data set.
 In base R, this is accomplished using a <code>with</code> command (or
-built in data identification parameters). In EASI, this is accomplished
+built in data identification arguments). In EASI, this is accomplished
 by using the <code>focus</code> command (which has many related uses as
 well).</p>
 <pre><code><span><span class="va">OneWayData</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeans.html">estimateMeans</a></span><span class="op">(</span><span class="op">)</span></span>
