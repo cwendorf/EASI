@@ -247,7 +247,7 @@ articles:
   - SetCorrelationsDataExample
   - SetCorrelationsSummaryExample
   - CompareCorrelationsDataExample
-  - CommpareCorrelationsSummaryExample
+  - CompareCorrelationsSummaryExample
   - BivariateRegressionDataExample
   - BivariateRegressionSummaryExample
   - MultipleRegressionDataExample
