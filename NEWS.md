@@ -1,7 +1,7 @@
 
 ## EASI 5.5.231128
 
-- Move all documentation and examples to a pkgdown-based website
+- Moved all documentation and examples to a pkgdown-based website
 - Introduced focusing function for filtering and selecting levels
 - Reintroduced original function names as preferred aliases
 - Updated function naming for consistency
