@@ -33,7 +33,7 @@
 
 ## EASI 5.1.220202
 
-- Improved extraneous parameter handling
+- Improved extraneous argument handling
 - Added offset option to interval plots
 - Added smart diamonds, intervals, and plausible functions
 - Added "analyze" meta functions to automate basic analyses
