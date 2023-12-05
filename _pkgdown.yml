@@ -37,7 +37,7 @@ reference:
 - subtitle: Plausible
   desc: Plot plausibility curves for the groups, levels, or variables
   contents:
-  - plotDensity
+  - plotPlausible
 
 - subtitle: Percentiles
   desc: Describe percentiles for the groups, levels, or variables
