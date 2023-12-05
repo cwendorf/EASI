@@ -34,6 +34,16 @@ reference:
   contents:
   - plotDensity
 
+- subtitle: Plausible
+  desc: Plot plausibility curves for the groups, levels, or variables
+  contents:
+  - plotDensity
+
+- subtitle: Percentiles
+  desc: Describe percentiles for the groups, levels, or variables
+  contents:
+  - describePercentiles
+
 - subtitle: Boxes
   desc: Obtain and plot boxplots for the groups, levels, or variables
   contents:
@@ -142,6 +152,21 @@ reference:
   - estimateMeansEffect
   - testMeansEffect
 
+- subtitle: Means Factorial
+  desc: Provide a factorial analysis of variance and effect size across all group, level, or variable means
+  contents:
+  - describeMeansFactorial
+  - estimateMeansFactorial
+  - testMeansFactorial
+  - plotMeansFactorial
+
+- subtitle: Means Interaction
+  desc: Provide analyses 2x2 interaction contrasts in factorial and mixed designs
+  contents:
+  - estimateMeansInteraction
+  - testMeansInteraction
+  - plotMeansInteraction
+
 - title: Correlations and Regression Models
 
 - subtitle: Correlations
@@ -151,6 +176,18 @@ reference:
   - estimateCorrelations
   - plotCorrelations
   - testCorrelations
+
+- subtitle: Correlations Difference
+  desc: Provide analyses of differences of a correlation in multiple samples
+  contents:
+  - estimateCorrelationsDifference
+  - plotCorrelationsDifference
+
+- subtitle: Correlations Comparison
+  desc: Provide analyses of a comparison of a correlation in multiple samples
+  contents:
+  - estimateCorrelationsComparison
+  - plotCorrelationsComparison
 
 - subtitle: Regression
   desc: Provide analyses of the regression line and values
@@ -209,6 +246,8 @@ articles:
   - SingleCorrelationSummaryExample
   - SetCorrelationsDataExample
   - SetCorrelationsSummaryExample
+  - CompareCorrelationsDataExample
+  - CommpareCorrelationsSummaryExample
   - BivariateRegressionDataExample
   - BivariateRegressionSummaryExample
   - MultipleRegressionDataExample
