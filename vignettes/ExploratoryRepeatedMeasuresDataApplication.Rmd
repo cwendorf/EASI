@@ -1,7 +1,7 @@
 ---
 title: "Exploratory Repeated Measures Data Application"
 description: >
-  This page utilize advnaced methods to build plots that combine various elements using repeated measures (within-subjects) data.
+  This page utilizes advanced methods to build plots that combine various elements using repeated measures (within-subjects) data.
 output: rmarkdown::html_vignette
 ---
 
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page utilize advnaced methods to build plots that combine various elements using repeated measures (within-subjects) data.
+This page utilizes advanced methods to build plots that combine various elements using repeated measures (within-subjects) data.
 
 ## Data Management
 
@@ -31,13 +31,13 @@ RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 
 ## Building Layers
 
-The typical way to build a plot is to use separate calls for each plotting elements (e.g., data, boxplots) and using the "add" parameter to put them on the same plot.
+The typical way to build a plot is to use separate calls for each plotting elements (e.g., data, boxplots) and using the "add" argument to put them on the same plot.
 ```{r, Exploratory-Repeated-Traditional}
 (RepeatedData) |> plotData()
 (RepeatedData) |> plotBoxes(add = TRUE)
 ```
 
-This can be simplified by using an "add" version of the function call instead of using the longer "add" parameter for the function call.
+This can be simplified by using an "add" version of the function call instead of using the longer "add" argument for the function call.
 ```{r, Exploratory-Repeated-Add}
 (RepeatedData) |> plotData()
 (RepeatedData) |> addBoxes()

@@ -42,7 +42,7 @@ Then the functions append an appropriate statistical element (the noun that indi
 
 ## Function Calls
 
-In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant additional parameters (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional parameters in parentheses). This format is used throughout EASI.
+In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant additional arguments (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional arguments in parentheses). This format is used throughout EASI.
 
 ```
 (Outcome ~ Factor) |> estimateMeans()
@@ -51,7 +51,7 @@ In standard R syntax, the function name is followed in parentheses by the variab
 (Outcome ~ Factor) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
 
-When individual variables are not directly accessible (like when the dataset is predefined) or when using subsets of larger datasets (like when analyzing factorial designs), it is typically necessary to identify the data first and then select the variables from within the data set. In base R, this is accomplished using a `with` command (or built in data identification parameters). In EASI, this is accomplished by using the `focus` command (which has many related uses as well).
+When individual variables are not directly accessible (like when the dataset is predefined) or when using subsets of larger datasets (like when analyzing factorial designs), it is typically necessary to identify the data first and then select the variables from within the data set. In base R, this is accomplished using a `with` command (or built in data identification arguments). In EASI, this is accomplished by using the `focus` command (which has many related uses as well).
 
 ```
 OneWayData |> focus(Outcome ~ Factor) |> estimateMeans()

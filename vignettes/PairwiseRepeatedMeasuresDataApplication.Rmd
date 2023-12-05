@@ -79,7 +79,7 @@ The analyses for the post hoc comparisons do assume homogeneity of variance and 
 Obtain tables of the interval estimates for the posthoc comparisons, tests of their statistical significance, and their standardized effect sizes.
 ```{r}
 (RepeatedData) |> estimatePosthoc()
-(RepeatedData) |> testPairwise()
+(RepeatedData) |> testPosthoc()
 (RepeatedData) |> standardizePosthoc()
 ```
 
