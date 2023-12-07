@@ -23,7 +23,7 @@ library(EASI)
 
 If you do not wish a full install, the latest functions can be made available using these R commands:
 
-```r
+``` r
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 ```
 
@@ -34,3 +34,13 @@ The package includes a wide variety of materials that demonstrate its use:
 - [Introduction](https://cwendorf.github.io/EASI/articles/Introduction.html) - A quick overview and summary of the package
 - [Reference](https://cwendorf.github.io/EASI/reference/index.html) - Reference documentation of the functions of the package
 - [Articles](https://cwendorf.github.io/EASI/articles/index.html) - Examples and applications of features of the package
+
+### Contact Me
+
+- GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
+- Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
+- Author Homepage: [https://cwendorf.github.io](https://cwendorf.github.io)
+
+### Citation
+
+Wendorf, C. A. (2022). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
