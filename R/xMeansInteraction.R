@@ -138,7 +138,7 @@ estimateMeansInteraction <- function(..., main = NULL, digits = 3) {
   ListDescStats[[2]] <- ListDescStats[[2]][1:2, 1:3]
   DescStats <- .deList(.collapseList(ListDescStats))
   colnames(DescStats) <- c("N", "M", "SD")
-  v1 <- c(1, 1, -1, -1)
+  v1 <- c(1, -1, -1, 1)
   v4 <- c(-1, 1, 0, 0)
   v5 <- c(0, 0, -1, 1)
   m <- DescStats[, 2]
