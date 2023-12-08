@@ -67,6 +67,19 @@ complete.corr <- function(mat) {
   return(results)
 }
 
+### Assign and Retain
+
+retain <- function(x, name, where = parent.frame()) {
+  name_string <- deparse(substitute(name))
+  if (is.null(where)) {
+    sys_calls <- sys.calls()
+    func_calls <- grepl("\\<retain\\(", sys_calls) & !grepl("\\<retain\\(\\.",sys_calls)
+    where <- sys.frame(max(which(func_calls)) - 1)
+  }
+  assign(name_string, value = x, pos = where)
+  invisible(x)
+}
+
 ### Filtering and Focusing
 
 is.formula <- function(x) {
@@ -96,11 +109,10 @@ focus.data.frame <- function(frame, ...) {
   filts <- (match.call(expand.dots = FALSE)$...)
   chosen <- NULL
   for (i in seq_along(filts)) {
-    if (is.formula(eval(filts[[i]]))) {
-      return(do.call(with, list(frame, filts[[i]])))
-    } else if (is.logical(eval(filts[[i]]))) {
-      frame <- subset(frame, eval(filts[[i]]))
-    } else {
+    type <- typeof(do.call(with, list(frame, filts[[i]])))
+    if (type == "logical") {frame <- subset(frame, eval(filts[[i]]))}
+    else if (type == "language") {return(do.call(with, list(frame, filts[[i]])))}
+    else {
       chose <- as.character(filts[[i]])
       chosen <- c(chosen, chose)
     }

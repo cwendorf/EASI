@@ -10,6 +10,8 @@ export(create)
 S3method(complete,corr)
 export(complete)
 
+export(retain)
+
 S3method(focus,data.frame)
 S3method(focus,formula)
 S3method(focus,bss)
