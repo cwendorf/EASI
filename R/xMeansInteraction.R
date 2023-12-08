@@ -7,47 +7,35 @@
   UseMethod(".estimateMeansInteraction")
 }
 
-.estimateMeansInteraction.default <- function(frame, by, conf.level = .95) {
-  SplitData <- .splitData(frame, by)
-  y11 <- SplitData[[1]][, 1]
-  y12 <- SplitData[[1]][, 2]
-  y21 <- SplitData[[2]][, 1]
-  y22 <- SplitData[[2]][, 2]
-  n1 <- length(y11)
-  n2 <- length(y21)
-  diff1 <- y12 - y11
-  diff2 <- y22 - y21
-  vd1 <- var(diff1)
-  vd2 <- var(diff2)
-  est1 <- mean(diff2) - mean(diff1)
+.estimateMeansInteraction.wss <- function(ListDescStats, ListCorrStats, conf.level = .95) {
+  row4 <- .estimateMeansDifference.wss(ListDescStats[[1]], ListCorrStats[[1]])
+  row5 <- .estimateMeansDifference.wss(ListDescStats[[2]], ListCorrStats[[2]])
+  n1 <- row4[[3]] + 1
+  n2 <- row5[[3]] + 1
+  vd1 <- row4[[2]]^2 * n1
+  vd2 <- row5[[2]]^2 * n2
+  est1 <- row5[[1]] - row4[[1]]
   se1 <- sqrt(vd1 / n1 + vd2 / n2)
   df1 <- (se1^4) / (vd1^2 / (n1^3 - n1^2) + vd2^2 / (n2^3 - n2^2))
   tcrit1 <- qt((1 - conf.level) / 2, df1, lower.tail = FALSE)
   LL1 <- est1 - tcrit1 * se1
   UL1 <- est1 + tcrit1 * se1
   row1 <- c(est1, se1, df1, LL1, UL1)
-  est4 <- mean(diff1)
-  se4 <- sqrt(vd1 / n1)
-  df4 <- n1 - 1
-  tcrit4 <- qt((1 - conf.level) / 2, df4, lower.tail = FALSE)
-  LL4 <- est4 - tcrit4 * se4
-  UL4 <- est4 + tcrit4 * se4
-  row4 <- c(est4, se4, df4, LL4, UL4)
-  est5 <- mean(diff2)
-  se5 <- sqrt(vd2 / n2)
-  df5 <- n2 - 1
-  tcrit5 <- qt((1 - conf.level) / 2, df5, lower.tail = FALSE)
-  LL5 <- est5 - tcrit5 * se5
-  UL5 <- est5 + tcrit5 * se5
-  row5 <- c(est5, se5, df5, LL5, UL5)
   out <- data.frame(rbind(row1, row4, row5))
   rownames(out) <- c("Interaction", "Simple Effect at 1", "Simple Effect at 2")
-  rownames(out)[2] <- paste("Simple Effect at", names(SplitData)[1], sep = " ")
-  rownames(out)[3] <- paste("Simple Effect at", names(SplitData)[2], sep = " ")
+  rownames(out)[2] <- paste("Simple Effect at", names(ListDescStats)[1], sep = " ")
+  rownames(out)[3] <- paste("Simple Effect at", names(ListDescStats)[2], sep = " ")
   colnames(out) <- c("Est", "SE", "df", "LL", "UL")
   out <- list(out[2:3, ], out[1, ])
   names(out) <- c("Confidence Intervals for the Simple Effect Constrasts", "Confidence Interval for the Interaction Contrast")
   return(out)
+}
+
+.estimateMeansInteraction.default <- function(frame, by, conf.level = .95, ...) {
+  ListDescStats <- .describeSummaryBy(frame, by = by)
+  ListCorrStats <- .describeCorrelationsBy(frame, by = by)
+  results <- .estimateMeansInteraction.wss(ListDescStats, ListCorrStats, conf.level = conf.level)
+  return(results)
 }
 
 .estimateMeansInteraction.bss <- function(ListDescStats, conf.level = .95) {
@@ -114,44 +102,35 @@ estimateMeansInteraction <- function(..., main = NULL, digits = 3) {
   UseMethod(".testMeansInteraction")
 }
 
-.testMeansInteraction.default <- function(frame, by, ...) {
-  SplitData <- .splitData(frame, by)
-  y11 <- SplitData[[1]][, 1]
-  y12 <- SplitData[[1]][, 2]
-  y21 <- SplitData[[2]][, 1]
-  y22 <- SplitData[[2]][, 2]
-  n1 <- length(y11)
-  n2 <- length(y21)
-  diff1 <- y12 - y11
-  diff2 <- y22 - y21
-  vd1 <- var(diff1)
-  vd2 <- var(diff2)
-  est1 <- mean(diff2) - mean(diff1)
+.testMeansInteraction.wss <- function(ListDescStats, ListCorrStats) {
+  row4 <- .testMeansDifference.wss(ListDescStats[[1]], ListCorrStats[[1]])
+  row5 <- .testMeansDifference.wss(ListDescStats[[2]], ListCorrStats[[2]])
+  n1 <- row4[[3]] + 1
+  n2 <- row5[[3]] + 1
+  vd1 <- row4[[2]]^2 * n1
+  vd2 <- row5[[2]]^2 * n2
+  est1 <- row5[[1]] - row4[[1]]
   se1 <- sqrt(vd1 / n1 + vd2 / n2)
   df1 <- (se1^4) / (vd1^2 / (n1^3 - n1^2) + vd2^2 / (n2^3 - n2^2))
   t1 <- est1 / se1
   p1 <- 2 * (1 - pt(abs(t1), df1))
   row1 <- c(est1, se1, t1, df1, p1)
-  est4 <- mean(diff1)
-  se4 <- sqrt(vd1 / n1)
-  df4 <- n1 - 1
-  t4 <- est4 / se4
-  p4 <- 2 * (1 - pt(abs(t4), df4))
-  row4 <- c(est4, se4, t4, df4, p4)
-  est5 <- mean(diff2)
-  se5 <- sqrt(vd2 / n2)
-  df5 <- n2 - 1
-  t5 <- est5 / se5
-  p5 <- 2 * (1 - pt(abs(t5), df5))
-  row5 <- c(est5, se5, t5, df5, p5)
+  row1 <- c(est1, se1, t1, df1, p1)
   out <- data.frame(rbind(row1, row4, row5))
   rownames(out) <- c("Interaction", "Simple Effect at 1", "Simple Effect at 2")
-  rownames(out)[2] <- paste("Simple Effect at", names(SplitData)[1], sep = " ")
-  rownames(out)[3] <- paste("Simple Effect at", names(SplitData)[2], sep = " ")
+  rownames(out)[2] <- paste("Simple Effect at", names(ListDescStats)[1], sep = " ")
+  rownames(out)[3] <- paste("Simple Effect at", names(ListDescStats)[2], sep = " ")
   colnames(out) <- c("Est", "SE", "t", "df", "p")
   out <- list(out[2:3, ], out[1, ])
   names(out) <- c("Hypothesis Tests for the Main Effect Constrasts", "Hypothesis Test for the Interaction Contrast")
   return(out)
+}
+
+.testMeansInteraction.default <- function(frame, by, ...) {
+  ListDescStats <- .describeSummaryBy(frame, by = by)
+  ListCorrStats <- .describeCorrelationsBy(frame, by = by)
+  results <- .testMeansInteraction.wss(ListDescStats, ListCorrStats)
+  return(results)
 }
 
 .testMeansInteraction.bss <- function(ListDescStats) {
@@ -223,7 +202,7 @@ plotMeansInteraction.bss <- plotMeansInteraction.formula <- function(..., add = 
   plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
-plotMeansInteraction.default <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = TRUE, pos = c(2, 2, 4), pch = c(17, 17, 18), col = "black", offset = 0, intervals = TRUE) {
+plotMeansInteraction.default <- plotMeansInteraction.wss <- function(..., add = FALSE, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, rope = NULL, labels = NULL, values = TRUE, ylim = NULL, digits = 3, connect = TRUE, pos = c(2, 2, 4), pch = c(17, 17, 18), col = "black", offset = 0, intervals = TRUE) {
   results <- estimateMeansInteraction(..., conf.level = conf.level, main = main, digits = digits)
   if (is.null(main)) {
     main <- "Confidence Intervals for the Mean Interaction"
