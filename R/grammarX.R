@@ -130,6 +130,13 @@ focus.formula <- function(formula, ...) {
   update(formula, update)
 }
 
+focus.corr <- function(CorrStats, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  results <- CorrStats[chosen, chosen]
+  class(results) <- class(CorrStats)
+  return(results)
+}
+
 ### Exposition
 
 "%$>%" <- function(lhs, rhs) {

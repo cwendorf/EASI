@@ -16,6 +16,7 @@ S3method(focus,data.frame)
 S3method(focus,formula)
 S3method(focus,bss)
 S3method(focus,wss)
+S3method(focus,corr)
 export(focus)
 export(filters)
 
@@ -577,16 +578,19 @@ export(plotMeansFactorial)
 S3method(.estimateMeansInteraction,default)
 S3method(.estimateMeansInteraction,formula)
 S3method(.estimateMeansInteraction,bss)
+S3method(.estimateMeansInteraction,wss)
 export(estimateMeansInteraction)
 
 S3method(.testMeansInteraction,default)
 S3method(.testMeansInteraction,formula)
 S3method(.testMeansInteraction,bss)
+S3method(.testMeansInteraction,wss)
 export(testMeansInteraction)
 
 S3method(plotMeansInteraction,default)
 S3method(plotMeansInteraction,formula)
 S3method(plotMeansInteraction,bss)
+S3method(plotMeansInteraction,wss)
 export(plotMeansInteraction)
 
 ### xCorrelationsBy
