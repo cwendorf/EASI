@@ -24,14 +24,26 @@
   return(results)
 }
 
+.describeCorrelations.list <- function(list, ...) {
+  results <- lapply(list, .describeCorrelations.corr)
+  return(results)
+}
+
 describeCorrelations <- function(..., main = NULL, digits = 3) {
-  results <- .describeCorrelations(...)
   if (is.null(main)) {
     main <- "Correlation Matrix for the Variables"
   }
-  results <- .formatList(list(results), main = main, digits = digits)
+  if(typeof(...) ==  "list" & class(...) != "data.frame") {
+    results <- .describeCorrelations.list(...)
+    main <- paste(main, names(results), sep = ": ")
+    }
+  else {
+    results <- list(.describeCorrelations(...))
+    }
+  results <- .formatList(results, main = main, digits = digits)
   return(results)
 }
+
 
 .cortocov <- function(CorrStats, SD) {
   sdsquare <- SD %*% t(SD)
