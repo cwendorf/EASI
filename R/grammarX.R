@@ -106,12 +106,12 @@ focus.bss <- focus.wss <- function(DescStats, ...) {
       DescStats[[i]] <- DescStats[[i]][chosen, ]
       class(DescStats[[i]]) <- newclass
     }
-  return(DescStats)
+    return(DescStats)
   }
   else {
-  results <- DescStats[chosen, ]
-  class(results) <- class(DescStats)
-  return(results)
+    results <- DescStats[chosen, ]
+    class(results) <- class(DescStats)
+    return(results)
   }
 }
 
@@ -142,9 +142,19 @@ focus.formula <- function(formula, ...) {
 
 focus.corr <- function(CorrStats, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  results <- CorrStats[chosen, chosen]
-  class(results) <- class(CorrStats)
-  return(results)
+  if (typeof(CorrStats) == "list") {
+    for (i in seq_along(CorrStats)) {
+      newclass <- class(CorrStats[[i]])
+      CorrStats[[i]] <- CorrStats[[i]][chosen, chosen]
+      class(CorrStats[[i]]) <- newclass
+    }
+    return(CorrStats)
+  }
+  else {
+    results <- CorrStats[chosen, chosen]
+    class(results) <- class(CorrStats)
+    return(results)
+  }
 }
 
 ### Exposition
