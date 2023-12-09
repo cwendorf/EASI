@@ -100,9 +100,19 @@ focus <- function(x, ...) {
 
 focus.bss <- focus.wss <- function(DescStats, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  if (typeof(DescStats) == "list") {
+    for (i in seq_along(DescStats)) {
+      newclass <- class(DescStats[[i]])
+      DescStats[[i]] <- DescStats[[i]][chosen, ]
+      class(DescStats[[i]]) <- newclass
+    }
+  return(DescStats)
+  }
+  else {
   results <- DescStats[chosen, ]
   class(results) <- class(DescStats)
   return(results)
+  }
 }
 
 focus.data.frame <- function(frame, ...) {
