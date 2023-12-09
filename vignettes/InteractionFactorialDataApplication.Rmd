@@ -31,6 +31,11 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8, 7,
 FactorialData <- construct(FactorA, FactorB, Outcome)
 ```
 
+This code provides a table of summary statistics.
+```{r}
+(Outcome ~ FactorA) |> describeSummaryBy(by = FactorB)
+```
+
 ## Analyses of the Omnibus Design
 
 Get an ANOVA for the design as a whole, including a source table, an estimate of the proportion of variance accounted for, and an ANOVA test of the main effects and interaction.

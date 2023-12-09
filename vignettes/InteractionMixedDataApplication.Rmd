@@ -31,6 +31,12 @@ Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10, 8, 6, 8, 11, 5, 7, 9, 3, 6, 
 MixedData <- construct(Factor, Outcome1, Outcome2, Outcome3)
 ```
 
+This code provides a table of summary statistics and a table of correlations.
+```{r}
+construct(Outcome1, Outcome2, Outcome3) |> describeSummaryBy(by = Factor)
+construct(Outcome1, Outcome2, Outcome3) |> describeCorrelationsBy(by = Factor)
+```
+
 ## Analyses of the Omnibus Design
 
 Get an ANOVA for the design as a whole, including a source table, an estimate of the proportion of variance accounted for, and an ANOVA test of the main effects and interaction.
