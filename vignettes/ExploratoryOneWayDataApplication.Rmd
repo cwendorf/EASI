@@ -50,6 +50,8 @@ Rather than separate lines for function calls, all plotting elements have passth
 
 ## Common Layered Plots
 
+Certain types of layered plots are common enough that they are built into EASI.
+
 Obtain violin plots using one call (and enhance the plot).
 ```{r, Exploratory-OneWay-Violins}
 (Outcome ~ Factor) |> plotViolins(col = c("darkred", "darkblue", "darkgoldenrod"))
