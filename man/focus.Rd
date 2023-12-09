@@ -14,12 +14,15 @@
 \method{focus}{wss}(DescStats, ...)
 
 \method{focus}{bss}(DescStats, ...)
+
+\method{focus}{corr}(CorrStats, ...)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
 \item{DescStats}{a matrix/frame of descriptive/summary statistics}
+\item{CorrStats}{a matrix/frame of correlations}
 \item{...}{a set of variables or factor levels to be analyzed}
 }
 
