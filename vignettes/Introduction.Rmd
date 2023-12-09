@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
 description: >
-  This page outlines the general purpose and structure of the EASI project.
+  This page outlines the general purpose and structure of the EASI functions.
 output: rmarkdown::html_vignette
 ---
 
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page outlines the general purpose and structure of the EASI project.
+This page outlines the general purpose and structure of the EASI functions.
 
 ## Scope of the Project
 
@@ -28,34 +28,41 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 - Calculations run on the same underlying functions regardless of type of input
 - Output utilizes consistent layouts and labeling across different types of analyses
 
-## General Function Syntax
+## Function Names
 
 EASI offers a general convention for function names. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted). These are the basic options (though more elaborate functions also exist):
 
-- `describe` = describe the data or model with summary statistics
-- `estimate` = estimate the statistic and its confidence interval
-- `plot` = plot the descriptive statistics or the estimates
-- `test` = test the estimates for statistical significance
-- `standardize` = standardize the estimate and provide its confidence interval
+- `describe` - describe the data or model with summary statistics
+- `estimate` - estimate the statistic and its confidence interval
+- `test` - test the estimates for statistical significance
+- `standardize` - standardize the estimate and provide its confidence interval
 
-Then the functions append an appropriate statistical element (the noun that indicates the statistics or items to be analyzed), such as `Means` or `Correlations`.
+The functions then append an appropriate statistical element (the noun that indicates the statistics to be analyzed or items to be provided). For example:
+
+- `describeCorrelations` - provides the correlations among of a set of variables
+- `estimateMeans` - provides the means and their confidence intervals for a set of data
+
+Additionally, the `plot` versions offer graphs of the descriptive statistics, estimates, or confidence intervals from the above. For example:
+
+- `plotScatter` - provides a scatterplot of the data from two variables
+- `plotMeans` - provides a graph of the means and their confidence intervals
 
 ## Function Calls
 
 In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant additional arguments (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional arguments in parentheses). This format is used throughout EASI.
 
-```
+```{r, eval=FALSE}
 (Outcome ~ Factor) |> estimateMeans()
 (Outcome ~ Factor) |> estimateMeans(conf.level = .99, main = "Custom Table Title", digits = 2)
-(Outcome ~ Factor) |> plotMeans()
-(Outcome ~ Factor) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
+cbind(Outcome1, Outcome2) |> plotMeans()
+cbind(Outcome1, Outcome2) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
 
 When individual variables are not directly accessible (like when the dataset is predefined) or when using subsets of larger datasets (like when analyzing factorial designs), it is typically necessary to identify the data first and then select the variables to be analyzed from within the data set. In base R, this is accomplished using a `with` command (or built in data identification arguments). In EASI, this is accomplished by using the `focus` command (which has many related uses as well).
 
-```
+```{r, eval=FALSE}
 (OneWayData) |> focus(Outcome ~ Factor) |> estimateMeans()
 (OneWayData) |> focus(Outcome ~ Factor) |> estimateMeans(conf.level = .99, main = "Custom Table Title", digits = 2)
-(OneWayData) |> focus(Outcome ~ Factor) |> plotMeans()
-(OneWayData) |> focus(Outcome ~ Factor) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
+(RepeatedData) |> focus(Outcome1, Outcome2) |> plotMeans()
+(RepeatedData) |> focus(Outcome1, Outcome2) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
