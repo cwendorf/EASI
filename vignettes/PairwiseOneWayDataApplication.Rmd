@@ -34,6 +34,7 @@ OneWayData <- construct(Factor, Outcome)
 Provide an ANOVA source table.
 ```{r}
 (Outcome ~ Factor) |> describeEffect()
+(Outcome ~ Factor) |> estimateEffect()
 (Outcome ~ Factor) |> testEffect()
 ```
 
