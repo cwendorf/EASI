@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Standardized Means (with By Option)
+## Standardized Means By
 
 ### Confidence Intervals
 

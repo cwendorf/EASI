@@ -115,6 +115,20 @@ plotComparison <- function(...) {
   plotMeansComparison(...)
 }
 
+### Means Comparison By
+
+estimateComparisonBy <- function(...) {
+  estimateMeansComparisonBy(...)
+}
+
+testComparisonBy <- function(...) {
+  testMeansComparisonBy(...)
+}
+
+plotComparisonBy <- function(...) {
+  plotMeansComparisonBy(...)
+}
+
 ### Means Subsets
 
 estimateSubsets <- function(...) {
@@ -127,6 +141,20 @@ testSubsets <- function(...) {
 
 plotSubsets <- function(...) {
   plotMeansSubsets(...)
+}
+
+### Means Subsets By
+
+estimateSubsetsBy <- function(...) {
+  estimateMeansSubsetsBy(...)
+}
+
+testSubsetsBy <- function(...) {
+  testMeansSubsetsBy(...)
+}
+
+plotSubsetsBy <- function(...) {
+  plotMeansSubsetsBy(...)
 }
 
 ### Means Complex

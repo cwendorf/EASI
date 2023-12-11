@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Mean Differences
+## Means Difference
 
 ### Confidence Intervals
 

@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Mean Subsets
+## Means Subsets
 
 ### Confidence Interval Functions
 
@@ -18,19 +18,15 @@
   } else {
     rownames(Subsets) <- labels
   }
-  Subsets <- list(Subsets)
-  names(Subsets) <- "Confidence Intervals for the Subsets of Means"
   Diff <- .estimateMeansContrast(..., contrast = contrast, conf.level = conf.level)
-  Diff <- list(Diff)
-  names(Diff) <- "Confidence Interval for the Contrast of Means"
-  results <- c(Subsets, Diff)
+  results <- list(Subsets, Diff)
   return(results)
 }
 
 estimateMeansSubsets <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeansSubsets(...)
   if (is.null(main)) {
-    main <- names(results)
+    main <- c("Confidence Intervals for the Subsets of Means", "Confidence Interval for the Contrast of Means")
   }
   results <- .formatList(results, main = main, digits = digits)
   return(results)
@@ -53,19 +49,15 @@ estimateMeansSubsets <- function(..., main = NULL, digits = 3) {
   } else {
     rownames(Subsets) <- labels
   }
-  Subsets <- list(Subsets)
-  names(Subsets) <- "Hypothesis Tests for the Subsets of Means"
   Diff <- .testMeansContrast(..., contrast = contrast)
-  Diff <- list(Diff)
-  names(Diff) <- "Hypothesis Tests for the Contrast of Means"
-  results <- c(Subsets, Diff)
+  results <- list(Subsets, Diff)
   return(results)
 }
 
 testMeansSubsets <- function(..., main = NULL, digits = 3) {
   results <- .testMeansSubsets(...)
   if (is.null(main)) {
-    main <- names(results)
+    main <- c("Hypothesis Tests for the Subsets of Means", "Hypothesis Tests for the Contrast of Means")
   }
   results <- .formatList(results, main = main, digits = digits)
   return(results)

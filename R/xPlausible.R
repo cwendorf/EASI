@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Plausibility Plots
+## Plausible
 
 ### Plausibility Plot
 

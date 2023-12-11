@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Means Interaction Contrast (Factorial and Mixed Design ANOVA)
+## Means Interaction
 
 ### Confidence Intervals
 

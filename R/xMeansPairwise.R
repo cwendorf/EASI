@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Pairwise Comparisons
+## Means Pairwise
 
 ### Confidence Intervals
 

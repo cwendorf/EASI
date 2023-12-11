@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Diamond Plots
+## Diamonds
 
 ### Diamond Plots
 

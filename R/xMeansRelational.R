@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Mean Relational Intervals
+## Means Relational
 
 ### Relational Intervals
 

@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Density Plots
+## Density
 
 ### Density Plot
 

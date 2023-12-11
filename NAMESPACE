@@ -103,6 +103,7 @@ S3method(.describeSummary,default)
 S3method(.describeSummary,formula)
 S3method(.describeSummary,wss)
 S3method(.describeSummary,bss)
+S3method(.describeSummary,list)
 export(describeSummary)
 
 S3method(plotSummary,default)
@@ -360,6 +361,7 @@ export(analyzeMeansEffect)
 S3method(.describeCorrelations,default)
 S3method(.describeCorrelations,corr)
 S3method(.describeCorrelations,wss)
+S3method(.describeCorrelations,list)
 export(describeCorrelations)
 
 S3method(.describeCovariances,default)
@@ -453,6 +455,8 @@ export(analyzeRegressionEffect)
 
 S3method(.describeSummaryBy,default)
 S3method(.describeSummaryBy,formula)
+S3method(.describeSummaryBy,wss)
+S3method(.describeSummaryBy,bss)
 export(describeSummaryBy)
 
 ### xMeansBy
@@ -596,9 +600,10 @@ export(plotMeansInteraction)
 ### xCorrelationsBy
 
 S3method(.describeCorrelationsBy,default)
+S3method(.describeCorrelationsBy,corr)
 export(describeCorrelationsBy)
 
-### xAlias
+### xAliases
 
 export(describeMeans)
 export(standardizeMeans)

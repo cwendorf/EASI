@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Means Factorial (Factorial and Mixed Design ANOVA)
+## Means Factorial
 
 ### Descriptives
 

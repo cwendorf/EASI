@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Summary Statistics (with By Option)
+## Summary By
 
 #### Descriptives
 
@@ -24,6 +24,11 @@
   FactorialData <- data.frame(by, Group, Outcome)
   SplitData <- split(FactorialData, by)
   results <- lapply(SplitData, function(x) with(x, .describeSummary(Outcome ~ Group)))
+  return(results)
+}
+
+.describeSummaryBy.bss <- .describeSummaryBy.wss <- function(list, ...) {
+  results <- lapply(list, .describeSummary.bss)
   return(results)
 }
 

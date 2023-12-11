@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Pairwise Standardized Mean Comparisons
+## Standardized Mean Pairwise
 
 ### Confidence Intervals
 

@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Grammar for Piping
+## Grammar
 
 ### Construction
 

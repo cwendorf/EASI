@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Standardized Means Difference (with By Option)
+## Standardized Means Difference By
 
 ### Confidence Intervals
 

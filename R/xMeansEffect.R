@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Means Effect (Analysis of Variance)
+## Means Effect
 
 ### Descriptives
 

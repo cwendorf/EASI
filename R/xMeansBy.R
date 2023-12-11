@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Means (with By Option)
+## Means By
 
 ### Confidence Intervals
 
@@ -103,7 +103,7 @@ plotMeansBy <- function(x, ...) {
 
 plotMeansBy.wss <- plotMeansBy.default <- function(..., by, main = NULL, ylab = "Outcome", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, ylim = NULL, add = FALSE, digits = 3, pos = 2, connect = TRUE, pch = 16, col = "black", offset = 0, intervals = TRUE) {
   results <- estimateMeansBy(..., by = by, conf.level = conf.level)
-  for (i in 1:nlevels(by)) {
+  for (i in seq_along(results)) {
     temp <- results[i]
     plotIntervals(temp, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, col = col, offset = offset, intervals = intervals)
     par(ask = TRUE)
@@ -113,7 +113,7 @@ plotMeansBy.wss <- plotMeansBy.default <- function(..., by, main = NULL, ylab = 
 
 plotMeansBy.bss <- plotMeansBy.formula <- function(..., by, main = NULL, ylab = "Outcome", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, ylim = NULL, add = FALSE, digits = 3, pos = 2, connect = FALSE, pch = 16, col = "black", offset = 0, intervals = TRUE) {
   results <- estimateMeansBy(..., by = by, conf.level = conf.level)
-  for (i in 1:nlevels(by)) {
+  for (i in seq_along(results)) {
     temp <- results[i]
     plotIntervals(temp, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, col = col, offset = offset, intervals = intervals)
     par(ask = TRUE)

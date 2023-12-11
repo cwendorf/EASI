@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Summary Statistics
+## Summary
 
 ### Descriptives
 
@@ -91,7 +91,7 @@ describeSummary <- function(..., main = NULL, digits = 3) {
   if (is.null(main)) {
     main <- "Summary Statistics for the Data"
   }
-  if (typeof(...) ==  "list" & class(...) != "data.frame") {
+  if (typeof(...) ==  "list" && class(...) != "data.frame") {
     results <- .describeSummary.list(...)
     main <- paste(main, names(results), sep = ": ")
     }

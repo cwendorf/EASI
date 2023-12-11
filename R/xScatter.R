@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Bivariate Scatterplots
+## Scatter
 
 ### Scatter Plots
 

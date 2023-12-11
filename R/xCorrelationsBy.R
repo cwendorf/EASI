@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Correlations (with By Option)
+## Correlations By
 
 ### Descriptives
 
@@ -15,6 +15,11 @@
   MixedData <- data.frame(by, data)
   SplitData <- split(MixedData[-1], by)
   results <- lapply(SplitData, .describeCorrelations)
+  return(results)
+}
+
+.describeCorrelationsBy.corr <- function(list, ...) {
+  results <- lapply(list, .describeCorrelations.corr)
   return(results)
 }
 

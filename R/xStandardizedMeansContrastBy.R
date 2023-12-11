@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-### Standardized Means Contrast (with By Option))
+### Standardized Means Contrast By
 
 ### Confidence Intervals
 

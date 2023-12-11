@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Regression Effect (Analysis of Variance)
+## Regression Effect
 
 ### Descriptives
 

@@ -1,5 +1,5 @@
 # Estimation Approach to Statistical Inference
-## Means Comparisons
+## Means Comparison
 
 ### Confidence Intervals
 
@@ -8,21 +8,16 @@
 }
 
 .estimateMeansComparison.default <- .estimateMeansComparison.formula <- .estimateMeansComparison.wss <- .estimateMeansComparison.bss <- function(..., conf.level = .95, mu = 0) {
-  Levels <- .estimateMeans(..., conf.level = conf.level, mu = 0)
-  Levels <- Levels[1:2, ]
-  Levels <- list(Levels)
-  names(Levels) <- "Confidence Intervals for the Means"
+  Levels <- .estimateMeans(..., conf.level = conf.level, mu = 0)[1:2, ]
   Diff <- .estimateMeansDifference(..., conf.level = conf.level, mu = 0)
-  Diff <- list(Diff)
-  names(Diff) <- "Confidence Interval for the Difference of Means"
-  results <- c(Levels, Diff)
+  results <- list(Levels, Diff)
   return(results)
 }
 
 estimateMeansComparison <- function(..., main = NULL, digits = 3) {
   results <- .estimateMeansComparison(...)
   if (is.null(main)) {
-    main <- names(results)
+    main <- c("Confidence Intervals for the Means", "Confidence Interval for the Difference of Means")
   }
   results <- .formatList(results, main = main, digits = digits)
   return(results)
@@ -35,21 +30,16 @@ estimateMeansComparison <- function(..., main = NULL, digits = 3) {
 }
 
 .testMeansComparison.default <- .testMeansComparison.formula <- .testMeansComparison.wss <- .testMeansComparison.bss <- function(..., mu = 0) {
-  Levels <- .testMeans(..., mu = 0)
-  Levels <- Levels[1:2, ]
-  Levels <- list(Levels)
-  names(Levels) <- "Hypothesis Tests for the Means"
+  Levels <- .testMeans(..., mu = 0)[1:2, ]
   Diff <- .testMeansDifference(..., mu = mu)
-  Diff <- list(Diff)
-  names(Diff) <- "Hypothesis Test for the Difference of Means"
-  results <- c(Levels, Diff)
+  results <- list(Levels, Diff)
   return(results)
 }
 
 testMeansComparison <- function(..., main = NULL, digits = 3) {
   results <- .testMeansComparison(...)
   if (is.null(main)) {
-    main <- names(results)
+    main <- c("Hypothesis Tests for the Means", "Hypothesis Test for the Difference of Means")
   }
   results <- .formatList(results, main = main, digits = digits)
   return(results)
