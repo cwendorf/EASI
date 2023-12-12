@@ -503,6 +503,22 @@ export(testMeansDifferenceBy)
 
 export(plotMeansDifferenceBy)
 
+### xMeansComparisonBy
+
+S3method(.estimateMeansComparisonBy,default)
+S3method(.estimateMeansComparisonBy,formula)
+S3method(.estimateMeansComparisonBy,wss)
+S3method(.estimateMeansComparisonBy,bss)
+export(estimateMeansComparisonBy)
+
+S3method(.testMeansComparisonBy,default)
+S3method(.testMeansComparisonBy,formula)
+S3method(.testMeansComparisonBy,wss)
+S3method(.testMeansComparisonBy,bss)
+export(testMeansComparisonBy)
+
+export(plotMeansComparisonBy)
+
 ### xStandardizedMeansDifferenceBy
 
 S3method(.estimateStandardizedMeansDifferenceBy,default)
@@ -526,6 +542,22 @@ S3method(.testMeansContrastBy,bss)
 export(testMeansContrastBy)
 
 export(plotMeansContrastBy)
+
+### xMeansSubsetsBy
+
+S3method(.estimateMeansSubsetsBy,default)
+S3method(.estimateMeansSubsetsBy,formula)
+S3method(.estimateMeansSubsetsBy,wss)
+S3method(.estimateMeansSubsetsBy,bss)
+export(estimateMeansSubsetsBy)
+
+S3method(.testMeansSubsetsBy,default)
+S3method(.testMeansSubsetsBy,formula)
+S3method(.testMeansSubsetsBy,wss)
+S3method(.testMeansSubsetsBy,bss)
+export(testMeansSubsetsBy)
+
+export(plotMeansSubsetsBy)
 
 ### xStandardizedMeansContrastBy
 
@@ -638,9 +670,17 @@ export(estimateComparison)
 export(testComparison)
 export(plotComparison)
 
+export(estimateComparisonBy)
+export(testComparisonBy)
+export(plotComparisonBy)
+
 export(estimateSubsets)
 export(testSubsets)
 export(plotSubsets)
+
+export(estimateSubsetsBy)
+export(testSubsetsBy)
+export(plotSubsetsBy)
 
 export(estimateComplex)
 export(testComplex)
