@@ -73,6 +73,18 @@ Of course, it is possible to change from the default confidence level in the gra
 (RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotCorrelations(RepeatedCorr, conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 
+### Scatterlot and Confidence Ellipse
+
+This code provides a confidence ellipse for the bivariate relationship. Because there is no raw data, no data points are visible and the code defaults instead to an ellipse.
+```{r, Correlations-Summary-ScatterD}
+(RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotScatter(RepeatedCorr)
+```
+
+The ellipse can be altered for different confidence levels.
+```{r, Correlations-Summary-ScatterE}
+(RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotScatter(RepeatedCorr, conf.level = .99)
+```
+
 ### Significance Test
 
 This code will produce a table of NHST for the correlation (against a value of zero).

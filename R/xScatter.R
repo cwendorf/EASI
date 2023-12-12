@@ -16,7 +16,7 @@ plotScatter.wss <- function(DescStats, CorrStats, y = NULL, main = "Scatter Plot
     class(DescStats) <- "wss"
   }
   mu <- DescStats[1:2, 2]
-  P <- CorrStats
+  P <- CorrStats[1:2, 1:2]
   evals <- eigen(P)$values
   evecs <- eigen(P)$vectors
   a <- seq(0, 2 * pi, len = 100)
