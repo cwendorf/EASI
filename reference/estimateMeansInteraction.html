@@ -61,7 +61,10 @@
 <span><span class="fu">estimateMeansInteraction</span><span class="op">(</span><span class="va">formula</span>, <span class="va">by</span>, conf.level<span class="op">=</span><span class="fl">.95</span>, main<span class="op">=</span><span class="cn">NULL</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># S3 method for bss</span></span>
-<span><span class="fu">estimateMeansInteraction</span><span class="op">(</span><span class="va">CompStats</span>, <span class="va">by</span>, conf.level<span class="op">=</span><span class="fl">.95</span>, main<span class="op">=</span><span class="cn">NULL</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">estimateMeansInteraction</span><span class="op">(</span><span class="va">CompStats</span>, conf.level<span class="op">=</span><span class="fl">.95</span>, main<span class="op">=</span><span class="cn">NULL</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># S3 method for wss</span></span>
+<span><span class="fu">estimateMeansInteraction</span><span class="op">(</span><span class="va">CompStats</span>, <span class="va">CorrStats</span>, conf.level<span class="op">=</span><span class="fl">.95</span>, main<span class="op">=</span><span class="cn">NULL</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -73,7 +76,10 @@
 <dd><p>a formula of the form <code>lhs ~ rhs</code> where <code>lhs</code> is a numeric variable giving the data values and <code>rhs</code> a factor giving the corresponding groups</p></dd>
 
 <dt>CompStats</dt>
-<dd><p>a matrix/frame of descriptive/summary statistics</p></dd>
+<dd><p>a list of matrices/frames of descriptive/summary statistics</p></dd>
+
+<dt>CorrStats</dt>
+<dd><p>a list of matrices/frames of correlations</p></dd>
 
 <dt>by</dt>
 <dd><p>a factor used for blocking</p></dd>

@@ -10,64 +10,46 @@
     <loc>https://cwendorf.github.io/EASI/articles/BivariateRegressionSummaryExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/CompareCorrelationsDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/FactorialAlternativeDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/CompareCorrelationsSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/FactorialAlternativeSummaryExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/ComplexOneWayDataApplication.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/FactorialTraditionalDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/ComplexRepeatedMeasuresDataApplication.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/FactorialTraditionalSummaryExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/EffectsFactorialDataApplication.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/IndependentCorrelationsDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/EffectsMixedDataApplication.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/ExploratoryOneWayDataApplication.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/ExploratoryRepeatedMeasuresDataApplication.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/FactorialDesignDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/FactorialDesignSummaryExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/FrequenciesOneWayDataApplication.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/FrequenciesRepeatedMeasuresDataApplication.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/IndependentGroupsDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/IndependentGroupsSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/IndependentCorrelationsSummaryExample.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/InteractionFactorialDataApplication.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/InteractionMixedDataApplication.html</loc>
-  </url>
-  <url>
     <loc>https://cwendorf.github.io/EASI/articles/Introduction.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MixedDesignDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/MixedAlternativeDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MixedDesignSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/MixedAlternativeSummaryExample.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/articles/MixedTraditionalDataExample.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/articles/MixedTraditionalSummaryExample.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/articles/MultipleCorrelationsDataExample.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/articles/MultipleCorrelationsSummaryExample.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/articles/MultipleRegressionDataExample.html</loc>
@@ -76,52 +58,34 @@
     <loc>https://cwendorf.github.io/EASI/articles/MultipleRegressionSummaryExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneSampleDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/OneWayAlternativeDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneSampleSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/OneWayAlternativeSummaryExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneWayDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/OneWayExplorationDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneWaySummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/OneWayTraditionalDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/PairedSamplesDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/OneWayTraditionalSummaryExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/PairedSamplesSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedAlternativeDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/PairwiseOneWayDataApplication.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedAlternativeSummaryExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/PairwiseRepeatedMeasuresDataApplication.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedExplorationDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/PlausibleOneWayDataApplication.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedTraditionalDataExample.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/PlausibleRepeatedMeasuresDataApplication.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/RepeatedMeasuresDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/RepeatedMeasuresSummaryExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/SetCorrelationsDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/SetCorrelationsSummaryExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/SingleCorrelationDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/SingleCorrelationSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedTraditionalSummaryExample.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/authors.html</loc>
