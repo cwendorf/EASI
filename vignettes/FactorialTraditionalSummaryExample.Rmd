@@ -1,0 +1,64 @@
+---
+title: "Factorial Traditional Summary Example"
+description: >
+  This page examines a two-factor between-subjects (factorial) design using summary statistics input, focusing on omnibus and simple effects analyses.
+output: rmarkdown::html_vignette
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 6, comment = NA)
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+This page examines a two-factor between-subjects (factorial) design using summary statistics input, focusing on omnibus and simple effects analyses.
+
+## Data Management
+
+This code inputs the group summaries and creates a single summary table
+```{r}
+A1 <- c(N = 10, M = 8.000, SD = 1.414)
+A2 <- c(N = 10, M = 11.000, SD = 2.211)
+A3 <- c(N = 10, M = 12.000, SD = 2.449)
+FactorialSummaryB1 <- construct(A1, A2, A3, class = "bss")
+A1 <- c(N = 10, M = 8.000, SD = 2.449)
+A2 <- c(N = 10, M = 8.000, SD = 2.000)
+A3 <- c(N = 10, M = 7.000, SD = 2.211)
+FactorialSummaryB2 <- construct(A1, A2, A3, class = "bss")
+FactorialSummary <- combine(B1 = FactorialSummaryB1, B2 = FactorialSummaryB2, class = "bss")
+```
+
+This code confirms the descriptive statistics from the summary tables.
+```{r}
+(FactorialSummary) |> describeSummary()
+```
+
+## Analyses of the Omnibus Effects
+
+Get an ANOVA for the design as a whole, including a source table, an estimate of the proportion of variance accounted for, and an ANOVA test of the main effects and interaction.
+```{r}
+(FactorialSummary) |> describeFactorial()
+(FactorialSummary) |> estimateFactorial()
+(FactorialSummary) |> testFactorial()
+```
+
+Plot the means and confidence intervals for the design as a whole.
+```{r, Interaction-Factorial-Omnibus}
+(FactorialSummary) |> plotFactorial(col = c("darkred", "darkblue"))
+legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("B1", "B2"), col = c("darkred", "darkblue"))
+```
+
+## Analyses of the Simple Effects
+
+Obtain a source table, estimate of proportion of variance accounted for, and an ANOVA test of statistical significance for the simple effect of FactorA (separately for the levels of FactorB).
+```{r}
+(FactorialSummary) |> describeEffectBy()
+(FactorialSummary) |> estimateEffectBy()
+(FactorialSummary) |> testEffectBy()
+```

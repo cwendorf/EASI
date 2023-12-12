@@ -23,7 +23,7 @@ This page analyzes bivariate regression models using summary statistics input.
 
 ### Data Entry
 
-This code inputs the variable summaries and creates a summary table.
+This code inputs the variable summaries and creates a summary table. Note that analyses assume that the second variable is the criterion and the first variable the predictors.
 ```{r}
 Predictor <- c(N = 10, M = 8.000, SD = 1.414)
 Criterion <- c(N = 10, M = 11.000, SD = 2.211)

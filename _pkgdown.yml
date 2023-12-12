@@ -215,64 +215,49 @@ reference:
 
 articles:
 - title: Getting Started
-  desc: Learn the basics of the EASI package
   contents:
   - Introduction
 
-- title: Basic Examples | Means and Mean Differences
-  desc: These pages demonstrate basic principles of estimation statistics for analyses of mean differences
+- title: OneWay (Between-Subjects) Analyses
   contents:
-  - OneSampleDataExample
-  - OneSampleSummaryExample
-  - IndependentGroupsDataExample
-  - IndependentGroupsSummaryExample
-  - PairedSamplesDataExample
-  - PairedSamplesSummaryExample
-  - OneWayDataExample
-  - OneWaySummaryExample
-  - RepeatedMeasuresDataExample
-  - RepeatedMeasuresSummaryExample
-  - FactorialDesignDataExample
-  - FactorialDesignSummaryExample
-  - MixedDesignDataExample
-  - MixedDesignSummaryExample
+  - OneWayExplorationDataExample
+  - OneWayAlternativeDataExample
+  - OneWayTraditionalDataExample
+  - OneWayAlternativeSummaryExample
+  - OneWayTraditionalSummaryExample
 
-- title: Basic Examples | Correlations and Regression Coefficients
-  desc: These pages demonstrate basic principles of estimation statistics for correlational and regression analyses
+- title: Repeated Measures (Within-Subjects) Analyses
   contents:
-  - SingleCorrelationDataExample
-  - SingleCorrelationSummaryExample
-  - SetCorrelationsDataExample
-  - SetCorrelationsSummaryExample
-  - CompareCorrelationsDataExample
-  - CompareCorrelationsSummaryExample
+  - RepeatedExplorationDataExample
+  - RepeatedAlternativeDataExample
+  - RepeatedTraditionalDataExample
+  - RepeatedAlternativeSummaryExample
+  - RepeatedTraditionalSummaryExample
+
+- title: Factorial (Between-Subjects) Analyses
+  contents:
+  - FactorialAlternativeDataExample
+  - FactorialTraditionalDataExample
+  - FactorialAlternativeSummaryExample
+  - FactorialTraditionalSummaryExample
+
+- title: Mixed (Between-Subjects and Within-Subjects) Analyses
+  contents:
+  - MixedAlternativeDataExample
+  - MixedTraditionalDataExample
+  - MixedAlternativeSummaryExample
+  - MixedTraditionalSummaryExample
+
+- title: Correlational Analyses
+  contents:
+  - MultipleCorrelationsDataExample
+  - MultipleCorrelationsSummaryExample
+  - IndependentCorrelationsDataExample
+  - IndependentCorrelationsSummaryExample
+
+- title: Regression Analyses
+  contents:
   - BivariateRegressionDataExample
   - BivariateRegressionSummaryExample
   - MultipleRegressionDataExample
   - MultipleRegressionSummaryExample
-
-- title: Advanced Applications | Data and Distributions
-  desc: These pages demonstrate advanced or undocumented features for exploring data
-  contents:
-  - FrequenciesOneWayDataApplication
-  - FrequenciesRepeatedMeasuresDataApplication
-  - ExploratoryOneWayDataApplication
-  - ExploratoryRepeatedMeasuresDataApplication
-
-- title: Advanced Applications | Contrast and Comparison Representations
-  desc: These pages demonstrate advanced or undocumented features for examining mean differences
-  contents:
-  - PlausibleOneWayDataApplication
-  - PlausibleRepeatedMeasuresDataApplication
-  - ComplexOneWayDataApplication
-  - ComplexRepeatedMeasuresDataApplication
-  - PairwiseOneWayDataApplication
-  - PairwiseRepeatedMeasuresDataApplication
-
-- title: Advanced Applications | Analyses of Factorial and Mixed Data
-  desc: These pages demonstrate advanced or unndocumented features for analyzing mean differences in factorial and mixed designs
-  contents:
-  - EffectsFactorialDataApplication
-  - EffectsMixedDataApplication
-  - InteractionFactorialDataApplication
-  - InteractionMixedDataApplication

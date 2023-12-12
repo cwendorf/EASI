@@ -1,7 +1,7 @@
 ---
-title: "Interaction Factorial Data Application"
+title: "Factorial Traditional Data Example"
 description: >
-  This page provides analyses of interactions using factorial (between-subjects) data.
+  This page examines a two-factor between-subjects (factorial) design using raw data input, focusing on omnibus and simple effects analyses.
 output: rmarkdown::html_vignette
 ---
 
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page provides analyses of interactions using factorial (between-subjects) data.
+This page examines a two-factor between-subjects (factorial) design using raw data input, focusing on omnibus and simple effects analyses.
 
 ## Data Management
 
@@ -36,7 +36,7 @@ This code provides a table of summary statistics.
 (Outcome ~ FactorA) |> describeSummaryBy(by = FactorB)
 ```
 
-## Analyses of the Omnibus Design
+## Analyses of the Omnibus Effects
 
 Get an ANOVA for the design as a whole, including a source table, an estimate of the proportion of variance accounted for, and an ANOVA test of the main effects and interaction.
 ```{r}
@@ -51,11 +51,11 @@ Plot the means and confidence intervals for the design as a whole.
 legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("B1", "B2"), col = c("darkred", "darkblue"))
 ```
 
-## Analyses of Interaction Contrasts
+## Analyses of the Simple Effects
 
-Identify a 2 x 2 interaction of interest (in this case, two levels of FactorA and the existing two levels of FactorB). Estimate, plot, and test the interaction contrast (which includes the comparisons within each simple effect).
-```{r, Interaction-Factorial-Contrasts}
-(Outcome ~ FactorA) |> focus(A1, A2) |> estimateInteraction(by = FactorB)
-(Outcome ~ FactorA) |> focus(A1, A2) |> plotInteraction(by = FactorB)
-(Outcome ~ FactorA) |> focus(A1, A2) |> testInteraction(by = FactorB)
+Obtain a source table, estimate of proportion of variance accounted for, and an ANOVA test of statistical significance for the simple effect of FactorA (separately for the levels of FactorB).
+```{r}
+(Outcome ~ FactorA) |> describeEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> estimateEffectBy(by = FactorB)
+(Outcome ~ FactorA) |> testEffectBy(by = FactorB)
 ```

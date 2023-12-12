@@ -1,5 +1,5 @@
 ---
-title: "Compare Correlations Data Example"
+title: "Independent Correlations Data Example"
 description: >
   This page compares a correlation between two variables in two independent samples using raw data input.
 output: rmarkdown::html_vignette
@@ -35,18 +35,16 @@ MixedData <- construct(Factor, Outcome1, Outcome2, Outcome3)
 
 This code subsets the data into two different data frames (one for each group).
 ```{r}
-MixedDataL1 <- subset(MixedData, Factor == "Level1")
-MixedDataL2 <- subset(MixedData, Factor == "Level2")
+MixedDataL1 <- (MixedData) |> focus(Factor == "Level1")
+MixedDataL2 <- (MixedData) |> focus(Factor == "Level2")
 ```
 
 ### Summary Statistics
 
 This code obtains the descriptive statistics for the two data frames.
 ```{r}
-(MixedDataL1) |> focus(Outcome1, Outcome2, Outcome3) |> describeSummary()
-(MixedDataL1) |> focus(Outcome1, Outcome2, Outcome3) |> describeCorrelations()
-(MixedDataL2) |> focus(Outcome1, Outcome2, Outcome3) |> describeSummary()
-(MixedDataL2) |> focus(Outcome1, Outcome2, Outcome3) |> describeCorrelations()
+(MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> describeSummaryBy(by = Factor)
+(MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> describeCorrelationsBy(by = Factor)
 ```
 
 ## Analyses of a Correlation Comparison

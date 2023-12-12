@@ -1,7 +1,7 @@
 ---
-title: "Pairwise Repeated Measures Data Application"
+title: "Repeated Traditional Data Example"
 description: >
-  This page examines unadjusted pairwise comparisons and Tukey post hoc comparisons with traditional confidence interval plots, relational interval plots, and diffograms using repeated-measures (within-subjects) data.
+  This page examines a single-factor within-subjects (repeated measures) design using raw data input, focusing on omnibus and pairwise analyses.
 output: rmarkdown::html_vignette
 ---
 
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page examines unadjusted pairwise comparisons and Tukey post hoc comparisons with traditional confidence interval plots, relational interval plots, and diffograms using repeated-measures (within-subjects) data.
+This page examines a single-factor within-subjects (repeated measures) design using raw data input, focusing on omnibus and pairwise analyses.
 
 ## Data Management
 
@@ -29,7 +29,7 @@ Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
 RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 ```
 
-## Omnibus Analyses
+## Analyses of the Omnibus Effect
 
 Provide an ANOVA source table.
 ```{r}

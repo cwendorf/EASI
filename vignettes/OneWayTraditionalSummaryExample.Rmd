@@ -1,0 +1,94 @@
+---
+title: "OneWay Traditional Summary Example"
+description: >
+  This page examines a single-factor between-subjects (one-way) design using summary statistics input, focusing on omnibus and pairwise analyses.
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 6, comment = NA)
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+This page examines a single-factor between-subjects (one-way) design using summary statistics input, focusing on omnibus and pairwise analyses.
+
+## Data Management
+
+This code inputs the group summaries and creates a single summary table.
+```{r}
+Level1 <- c(N = 10, M = 8.000, SD = 1.414)
+Level2 <- c(N = 10, M = 11.000, SD = 2.211)
+Level3 <- c(N = 10, M = 12.000, SD = 2.449)
+OneWaySummary <- construct(Level1, Level2, Level3, class = "bss")
+```
+
+## Analyses of the Omnibus Effect
+
+Provide an ANOVA source table.
+```{r}
+(OneWaySummary) |> describeEffect()
+(OneWaySummary) |> estimateEffect()
+(OneWaySummary) |> testEffect()
+```
+
+## Analyses of Pairwise Comparisons
+
+The analyses for the pairwise comparisons do not assume homogeneity of variance and do not make adjustments for multiple comparisons (and are therefore effectively equivalent to a series of independent samples t tests).
+
+Obtain tables of the interval estimates for the pairwise comparisons, tests of their statistical significance, and their standardized effect sizes.
+```{r}
+(OneWaySummary) |> estimatePairwise()
+(OneWaySummary) |> testPairwise()
+(OneWaySummary) |> standardizePairwise()
+```
+
+Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
+```{r, Pairwise-OneWay-Pairwise}
+(OneWaySummary) |> plotPairwise(line = 0, values = FALSE)
+```
+
+Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
+```{r, Pairwise-OneWay-DiffogramA}
+(OneWaySummary) |> plotPairwiseDiffogram(col = c("darkblue", "darkred"))
+```
+
+## Analyses of Relational Intervals
+
+The analyses for the relational confidence intervals do assume homogeneity of variance but do not make adjustments for multiple comparisons.
+
+Provide estimates of the arelational and relational intervals.
+```{r, Pairwise-OneWay-RelationalA}
+(OneWaySummary) |> estimateRelational()
+```
+
+Plot the intervals and enhance with color.
+```{r, Pairwise-OneWay-RelationalB}
+(OneWaySummary) |> plotRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
+```
+
+## Analyses of Post Hoc Comparisons
+
+The analyses for the post hoc comparisons do assume homogeneity of variance and do make adjustments for multiple comparisons (based on Tukey HSD procedures).
+
+Obtain tables of the interval estimates for the posthoc comparisons, tests of their statistical significance, and their standardized effect sizes.
+```{r}
+(OneWaySummary) |> estimatePosthoc()
+(OneWaySummary) |> testPosthoc()
+(OneWaySummary) |> standardizePosthoc()
+```
+
+Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
+```{r, Pairwise-OneWay-Posthoc}
+(OneWaySummary) |> plotPosthoc(line = 0, values = FALSE)
+```
+
+Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
+```{r, Pairwise-OneWay-DiffogramB}
+(OneWaySummary) |> plotPosthocDiffogram(col = c("darkblue", "darkred"))
+```

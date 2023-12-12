@@ -1,7 +1,7 @@
 ---
-title: "Set of Correlations Summary Statistics Example"
+title: "Multiple Correlations Summary Example"
 description: >
-  This page analyzes ba set of correlations among variables using summary statistics input.
+  This page analyzes a set of correlations among variables using summary statistics input.
 output: rmarkdown::html_vignette
 ---
 
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page analyzes ba set of correlations among variables using summary statistics input.
+This page analyzes a set of correlations among variables using summary statistics input.
 
 ## Data Management
 
@@ -59,7 +59,7 @@ This code will provide the confidence interval for the correlation.
 ```
 
 This code will produce a graph of the confidence interval for the correlation.
-```{r, SetCorrelations-Summary-IntervalsA}
+```{r, Correlations-Summary-IntervalsA}
 (RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotCorrelations(RepeatedCorr)
 ```
 
@@ -69,7 +69,7 @@ The code defaults to 95% confidence intervals. This can be changed if desired.
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
-```{r, SetCorrelations-Summary-IntervalsB}
+```{r, Correlations-Summary-IntervalsB}
 (RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotCorrelations(RepeatedCorr, conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 
@@ -92,7 +92,7 @@ This code will provide the confidence intervals for the correlations.
 ```
 
 This code will produce a graph of the confidence intervals for the correlations.
-```{r, SetCorrelations-Summary-IntervalsC}
+```{r, Correlations-Summary-IntervalsC}
 (RepeatedSummary) |> plotCorrelations(RepeatedCorr)
 ```
 
@@ -102,7 +102,7 @@ The code defaults to 95% confidence intervals. This can be changed if desired.
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
-```{r, SetCorrelations-Summary-IntervalsD}
+```{r, Correlations-Summary-IntervalsD}
 (RepeatedSummary) |> plotCorrelations(RepeatedCorr, conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
 

@@ -1,7 +1,7 @@
 ---
-title: "Pairwise OneWay Data Application"
+title: "OneWay Traditional Data Example"
 description: >
-  This page examines unadjusted pairwise comparisons and Tukey post hoc comparisons with traditional confidence interval plots, relational interval plots, and diffograms using one-way (between-subjects) data.
+  This page examines a single-factor between-subjects (one-way) design using raw data input, focusing on omnibus and pairwise analyses.
 output: rmarkdown::html_vignette
 ---
 
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page examines unadjusted pairwise comparisons and Tukey post hoc comparisons with traditional confidence interval plots, relational interval plots, and diffograms using one-way (between-subjects) data.
+This page examines a single-factor between-subjects (one-way) design using raw data input, focusing on omnibus and pairwise analyses.
 
 ## Data Management
 
@@ -29,7 +29,7 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 7, 13, 11, 10, 13, 8, 11, 14, 12, 1
 OneWayData <- construct(Factor, Outcome)
 ```
 
-## Omnibus Analyses
+## Analyses of the Omnibus Effect
 
 Provide an ANOVA source table.
 ```{r}

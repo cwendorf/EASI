@@ -23,7 +23,7 @@ This page analyzes bivariate regression models using raw data input.
 
 ### Data Entry
 
-This code inputs the variable names and creates a viewable data frame.
+This code inputs the variable names and creates a viewable data frame. Note that analyses assume that the second variable is the criterion and the first variable the predictors.
 ```{r}
 Predictor <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7)
 Criterion <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)

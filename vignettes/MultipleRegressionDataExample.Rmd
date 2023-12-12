@@ -23,7 +23,7 @@ This page analyzes multiple regression models using raw data input.
 
 ### Data Entry
 
-This code inputs the variable names and creates a viewable data frame.
+This code inputs the variable names and creates a viewable data frame. Note that analyses assume that the last variable is the criterion and the previous variables are the predictors.
 ```{r}
 Predictor1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7)
 Predictor2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)
