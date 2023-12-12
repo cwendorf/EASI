@@ -1,5 +1,5 @@
 ---
-title: "Multiple Regression Summary Statistics Example"
+title: "Multiple Regression Summary Example"
 description: >
   This page analyzes multiple regression models using summary statistics input.
 output: rmarkdown::html_vignette

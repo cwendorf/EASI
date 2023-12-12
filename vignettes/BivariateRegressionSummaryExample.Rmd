@@ -1,5 +1,5 @@
 ---
-title: "Bivariate Regression Summary Statistics Example"
+title: "Bivariate Regression Summary Example"
 description: >
   This page analyzes bivariate regression models using summary statistics input.
 output: rmarkdown::html_vignette
