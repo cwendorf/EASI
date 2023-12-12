@@ -1,7 +1,7 @@
 ---
-title: "OneWay Data Exploration Example"
+title: "OneWay Exploration Data Example"
 description: >
-  This page builds exploratory data analysis plots using one-way (between-subjects) data.
+  This page examines a single-factor between-subjects (one-way) design using raw data input, focusing on exploratory data analyses.
 output: rmarkdown::html_vignette
 ---
 
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page builds exploratory data analysis plots using one-way (between-subjects) data.
+This page examines a single-factor between-subjects (one-way) design using raw data input, focusing on exploratory data analyses.
 
 ## Data Management
 
@@ -49,7 +49,7 @@ Plot the frequencies as data points.
 
 To make the plots more informative, it is often desirable to layer multiple elements on the same plot.
 
-### Building with Multiple Calls
+### Using Separate Calls
 
 The typical way to build a plot is to use separate calls for each plotting elements (e.g., data, boxplots) and using the "add" argument to put them on the same plot.
 ```{r, OneWay-Data-AddplotA}
