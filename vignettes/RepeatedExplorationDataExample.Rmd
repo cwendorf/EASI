@@ -67,7 +67,7 @@ This can be simplified by using an "add" version of the function call instead of
 
 Rather than separate lines for function calls, all plotting elements have passthrough capabilities that allow the them to be placed on the same line. Note that additional arguments can still be used.
 ```{r, Repeated-Data-PassthroughA}
-(RepeatedData) |> plotData(main = "Data and Boxplots") |> addBoxes()
+(RepeatedData) |> plotData(main = "Data and Boxplots") |> addBoxes(values = FALSE)
 ```
 
 As a second example, plot the frequency distributions as histograms and add the summary statistics. The bars represent standard deviations, with dotted lines as the default but solid lines representing the sides with more skew.

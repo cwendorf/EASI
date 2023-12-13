@@ -1,6 +1,7 @@
 url: https://cwendorf.github.io/EASI
 
 template:
+  package: preferably
   bootstrap: 5
 
 authors:

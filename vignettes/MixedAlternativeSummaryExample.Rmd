@@ -51,7 +51,15 @@ MixedCorr <- combine(L1 = MixedCorrL1, L2 = MixedCorrL2, class = "corr")
 
 ### Summary Statistics
 
-This code confirms the descriptive statistics from the summary tables.
+This code obtains the descriptive statistics as separate tables, each corresponding to a simple effect.
+```{r}
+(MixedSummaryL1) |> describeSummary()
+(MixedCorrL1) |> describeCorrelations()
+(MixedSummaryL2) |> describeSummary()
+(MixedCorrL2) |> describeCorrelations()
+```
+
+These statistics can also be confirmed using fewer function calls, a procedure that is then paralleled for the subsequent analyses.
 ```{r}
 (MixedSummary) |> describeSummaryBy()
 (MixedCorr) |> describeCorrelationsBy()

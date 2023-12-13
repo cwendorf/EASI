@@ -35,7 +35,13 @@ FactorialData <- construct(FactorA, FactorB, Outcome)
 
 ### Summary Statistics
 
-This code obtains the descriptive statistics for the two data frames.
+This code obtains the descriptive statistics as two separate tables, each corresponding to a simple effect.
+```{r}
+(FactorialData) |> focus(FactorB == "B1") |> focus(Outcome~FactorA) |> describeSummary()
+(FactorialData) |> focus(FactorB == "B2") |> focus(Outcome~FactorA) |> describeSummary()
+```
+
+These statistics can also be obtained using a simpler function call, a procedure that is then paralleled for the subsequent analyses.
 ```{r}
 (Outcome ~ FactorA) |> describeSummaryBy(by = FactorB)
 ```

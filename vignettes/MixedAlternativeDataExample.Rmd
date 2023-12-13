@@ -35,7 +35,15 @@ MixedData <- construct(Factor, Outcome1, Outcome2, Outcome3)
 
 ### Summary Statistics
 
-This code obtains the descriptive statistics for the two data frames.
+This code obtains the descriptive statistics as separate tables, each corresponding to a simple effect.
+```{r}
+(MixedData) |> focus(Factor == "Level1") |> focus(Outcome1, Outcome2, Outcome3) |> describeSummary()
+(MixedData) |> focus(Factor == "Level1") |> focus(Outcome1, Outcome2, Outcome3) |> describeCorrelations()
+(MixedData) |> focus(Factor == "Level2") |> focus(Outcome1, Outcome2, Outcome3) |> describeSummary()
+(MixedData) |> focus(Factor == "Level2") |> focus(Outcome1, Outcome2, Outcome3) |> describeCorrelations()
+```
+
+These statistics can also be obtained using fewer function calls, a procedure that is then paralleled for the subsequent analyses.
 ```{r}
 (MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> describeSummaryBy(by = Factor)
 (MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> describeCorrelationsBy(by = Factor)

@@ -38,7 +38,13 @@ FactorialSummary <- combine(B1 = FactorialSummaryB1, B2 = FactorialSummaryB2, cl
 
 ### Summary Statistics
 
-This code confirms the descriptive statistics from the summary tables.
+This code confirms the descriptive statistics from the two summary tables, each corresponding to a simple effect.
+```{r}
+(FactorialSummaryB1) |> describeSummary()
+(FactorialSummaryB2) |> describeSummary()
+```
+
+These statistics can also be confirmed using a simpler function call, a procedure that is then paralleled for the subsequent analyses.
 ```{r}
 (FactorialSummary) |> describeSummaryBy()
 ```
