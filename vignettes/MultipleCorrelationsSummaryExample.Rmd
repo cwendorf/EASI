@@ -51,6 +51,18 @@ This code confirms the descriptive statistics from the summary tables.
 
 This section produces analyses of a single correlation.
 
+### Scatterlot and Confidence Ellipse
+
+This code provides a confidence ellipse for the bivariate relationship. Because there is no raw data, no data points are visible and the code defaults instead to an ellipse.
+```{r, Correlations-Summary-ScatterD}
+(RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotScatter(RepeatedCorr)
+```
+
+The ellipse can be altered for different confidence levels.
+```{r, Correlations-Summary-ScatterE}
+(RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotScatter(RepeatedCorr, conf.level = .99)
+```
+
 ### Confidence Interval
 
 This code will provide the confidence interval for the correlation.
@@ -71,18 +83,6 @@ The code defaults to 95% confidence intervals. This can be changed if desired.
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
 ```{r, Correlations-Summary-IntervalsB}
 (RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotCorrelations(RepeatedCorr, conf.level = .99, line = 0, rope = c(-.2, .2))
-```
-
-### Scatterlot and Confidence Ellipse
-
-This code provides a confidence ellipse for the bivariate relationship. Because there is no raw data, no data points are visible and the code defaults instead to an ellipse.
-```{r, Correlations-Summary-ScatterD}
-(RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotScatter(RepeatedCorr)
-```
-
-The ellipse can be altered for different confidence levels.
-```{r, Correlations-Summary-ScatterE}
-(RepeatedSummary) |> focus(Outcome1, Outcome2) |> plotScatter(RepeatedCorr, conf.level = .99)
 ```
 
 ### Significance Test
