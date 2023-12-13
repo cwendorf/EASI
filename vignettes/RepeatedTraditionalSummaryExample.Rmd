@@ -19,7 +19,9 @@ library(EASI)
 
 This page examines a single-factor within-subjects (repeated measures) design using summary statistics input, focusing on omnibus and pairwise analyses.
 
-## Data Management
+## Preliminary Tasks
+
+### Data Entry
 
 This code inputs the variable summaries and creates a summary table.
 ```{r}
@@ -37,12 +39,36 @@ Outcome3 <- c(.385, .574, 1.000)
 RepeatedCorr <- construct(Outcome1, Outcome2, Outcome3, class = "corr")
 ```
 
+### Summary Statistics
+
+This code confirms the descriptive statistics from the summary table and matrix.
+```{r}
+(RepeatedSummary) |> describeSummary()
+(RepeatedCorr) |> describeCorrelations()
+```
+
 ## Analyses of the Omnibus Effect
 
-Provide an ANOVA source table.
+The Analysis of Variance examines the overall differences among the means.
+
+### Source Table
+
+Display the source table.
 ```{r}
 (RepeatedSummary) |> describeEffect(RepeatedCorr)
+```
+
+### Proportion of Variance Accounted for
+
+Get an estimate of the proportion of variance account for by the factor (and the confidence interval for that estimate).
+```{r}
 (RepeatedSummary) |> estimateEffect(RepeatedCorr)
+```
+
+### Significance Test
+
+Test the overall differences for statistical significance.
+```{r}
 (RepeatedSummary) |> testEffect(RepeatedCorr)
 ```
 
@@ -50,34 +76,48 @@ Provide an ANOVA source table.
 
 The analyses for the pairwise comparisons do not assume homogeneity of variance and do not make adjustments for multiple comparisons (and are therefore effectively equivalent to a series of paired samples t tests).
 
-Obtain tables of the interval estimates for the pairwise comparisons, tests of their statistical significance, and their standardized effect sizes.
+### Confidence Intervals
+
+Obtain interval estimates for the pairwise comparisons.
 ```{r}
 (RepeatedSummary) |> estimatePairwise(RepeatedCorr)
-(RepeatedSummary) |> testPairwise(RepeatedCorr)
-(RepeatedSummary) |> standardizePairwise(RepeatedCorr)
 ```
 
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
-```{r, Pairwise-Repeated-Pairwise}
+```{r, Repeated-Summary-Pairwise}
 (RepeatedSummary) |> plotPairwise(RepeatedCorr, line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons)and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
-```{r, Pairwise-Repeated-DiffogramA}
+```{r, Repeated-Summary-PairwiseDiffogram}
 (RepeatedSummary) |> plotPairwiseDiffogram(RepeatedCorr, col = c("darkblue", "darkred"))
+```
+
+### Significance Tests
+
+Test the pairwise comparisons for statistical significance.
+```{r}
+(RepeatedSummary) |> testPairwise(RepeatedCorr)
+```
+
+### Standardized Effect Sizes
+
+Get the standardized effect sizes (and their confidence intervals) for the pairwise comparisons.
+```{r}
+(RepeatedSummary) |> standardizePairwise(RepeatedCorr)
 ```
 
 ## Analyses of Relational Intervals
 
-The analyses for the relational confidence intervals do assume homogeneity of variance but do not make adjustments for multiple comparisons.
+Relational intervals are values (and boxes on a graph) that indicate whether two conditions are statistically significantly different. The analyses for the relational confidence intervals do assume homogeneity of variance but do not make adjustments for multiple comparisons.
 
 Provide estimates of the arelational and relational intervals.
-```{r, Pairwise-Repeated-RelationalA}
+```{r}
 (RepeatedSummary) |> estimateRelational(RepeatedCorr)
 ```
 
 Plot the intervals and enhance with color.
-```{r, Pairwise-Repeated-RelationalB}
+```{r, Repeated-Summary-Relational}
 (RepeatedSummary) |> plotRelational(RepeatedCorr, col = c("darkred", "darkblue", "darkgoldenrod"))
 ```
 
@@ -85,19 +125,33 @@ Plot the intervals and enhance with color.
 
 The analyses for the post hoc comparisons do assume homogeneity of variance and do make adjustments for multiple comparisons (based on Tukey HSD procedures).
 
-Obtain tables of the interval estimates for the posthoc comparisons, tests of their statistical significance, and their standardized effect sizes.
+### Confidence Intervals
+
+Obtain interval estimates for the post hoc comparisons.
 ```{r}
 (RepeatedSummary) |> estimatePosthoc(RepeatedCorr)
-(RepeatedSummary) |> testPosthoc(RepeatedCorr)
-(RepeatedSummary) |> standardizePosthoc(RepeatedCorr)
 ```
 
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
-```{r, Pairwise-Repeated-Posthoc}
+```{r, Repeated-Summary-Posthoc}
 (RepeatedSummary) |> plotPosthoc(RepeatedCorr, line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
-```{r, Pairwise-Repeated-DiffogramB}
+```{r, Repeated-Summary-PosthocDiffogram}
 (RepeatedSummary) |> plotPosthocDiffogram(RepeatedCorr, col = c("darkblue", "darkred"))
+```
+
+### Significance Tests
+
+Test the post hoc comparisons for statistical significance.
+```{r}
+(RepeatedSummary) |> testPosthoc(RepeatedCorr)
+```
+
+### Standardized Effect Sizes
+
+Get the standardized effect sizes (and their confidence intervals) for the post hoc comparisons.
+```{r}
+(RepeatedSummary) |> standardizePosthoc(RepeatedCorr)
 ```

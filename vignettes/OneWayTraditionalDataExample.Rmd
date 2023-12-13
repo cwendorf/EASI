@@ -19,7 +19,9 @@ library(EASI)
 
 This page examines a single-factor between-subjects (one-way) design using raw data input, focusing on omnibus and pairwise analyses.
 
-## Data Management
+## Preliminary Tasks
+
+### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
 ```{r}
@@ -29,12 +31,35 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 7, 13, 11, 10, 13, 8, 11, 14, 12, 1
 OneWayData <- construct(Factor, Outcome)
 ```
 
+### Summary Statistics
+
+This code obtains the descriptive statistics for the data frame.
+```{r}
+(Outcome ~ Factor) |> describeSummary()
+```
+
 ## Analyses of the Omnibus Effect
 
-Provide an ANOVA source table.
+The Analysis of Variance examines the overall differences among the means.
+
+### Source Table
+
+Display the source table.
 ```{r}
 (Outcome ~ Factor) |> describeEffect()
+```
+
+### Proportion of Variance Accounted for
+
+Get an estimate of the proportion of variance account for by the factor (and the confidence interval for that estimate).
+```{r}
 (Outcome ~ Factor) |> estimateEffect()
+```
+
+### Significance Test
+
+Test the overall differences for statistical significance.
+```{r}
 (Outcome ~ Factor) |> testEffect()
 ```
 
@@ -42,34 +67,48 @@ Provide an ANOVA source table.
 
 The analyses for the pairwise comparisons do not assume homogeneity of variance and do not make adjustments for multiple comparisons (and are therefore effectively equivalent to a series of independent samples t tests).
 
-Obtain tables of the interval estimates for the pairwise comparisons, tests of their statistical significance, and their standardized effect sizes.
+### Confidence Intervals
+
+Obtain interval estimates for the pairwise comparisons.
 ```{r}
 (Outcome ~ Factor) |> estimatePairwise()
-(Outcome ~ Factor) |> testPairwise()
-(Outcome ~ Factor) |> standardizePairwise()
 ```
 
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
-```{r, Pairwise-OneWay-Pairwise}
+```{r, OneWay-Data-Pairwise}
 (Outcome ~ Factor) |> plotPairwise(line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
-```{r, Pairwise-OneWay-DiffogramA}
+```{r, OneWay-Data-PairwiseDiffogram}
 (Outcome ~ Factor) |> plotPairwiseDiffogram(col = c("darkblue", "darkred"))
+```
+
+### Significance Tests
+
+Test the pairwise comparisons for statistical significance.
+```{r}
+(Outcome ~ Factor) |> testPairwise()
+```
+
+### Standardized Effect Sizes
+
+Get the standardized effect sizes (and their confidence intervals) for the pairwise comparisons.
+```{r}
+(Outcome ~ Factor) |> standardizePairwise()
 ```
 
 ## Analyses of Relational Intervals
 
-The analyses for the relational confidence intervals do assume homogeneity of variance but do not make adjustments for multiple comparisons.
+Relational intervals are values (and boxes on a graph) that indicate whether two conditions are statistically significantly different. The analyses for the relational confidence intervals do assume homogeneity of variance but do not make adjustments for multiple comparisons.
 
 Provide estimates of the arelational and relational intervals.
-```{r, Pairwise-OneWay-RelationalA}
+```{r}
 (Outcome ~ Factor) |> estimateRelational()
 ```
 
 Plot the intervals and enhance with color.
-```{r, Pairwise-OneWay-RelationalB}
+```{r, OneWay-Data-Relational}
 (Outcome ~ Factor) |> plotRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
 ```
 
@@ -77,19 +116,33 @@ Plot the intervals and enhance with color.
 
 The analyses for the post hoc comparisons do assume homogeneity of variance and do make adjustments for multiple comparisons (based on Tukey HSD procedures).
 
-Obtain tables of the interval estimates for the posthoc comparisons, tests of their statistical significance, and their standardized effect sizes.
+### Confidence Intervals
+
+Obtain interval estimates for the post hoc comparisons.
 ```{r}
 (Outcome ~ Factor) |> estimatePosthoc()
-(Outcome ~ Factor) |> testPosthoc()
-(Outcome ~ Factor) |> standardizePosthoc()
 ```
 
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
-```{r, Pairwise-OneWay-Posthoc}
+```{r, OneWay-Data-Posthoc}
 (Outcome ~ Factor) |> plotPosthoc(line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
-```{r, Pairwise-OneWay-DiffogramB}
+```{r, OneWay-Data-PosthocDiffogram}
 (Outcome ~ Factor) |> plotPosthocDiffogram(col = c("darkblue", "darkred"))
+```
+
+### Significance Tests
+
+Test the post hoc comparisons for statistical significance.
+```{r}
+(Outcome ~ Factor) |> testPosthoc()
+```
+
+### Standardized Effect Sizes
+
+Get the standardized effect sizes (and their confidence intervals) for the post hoc comparisons.
+```{r}
+(Outcome ~ Factor) |> standardizePosthoc()
 ```

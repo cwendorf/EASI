@@ -19,7 +19,7 @@ library(EASI)
 
 This page analyzes multiple regression models using raw data input.
 
-## Data Management
+## Preliminary Tasks
 
 ### Data Entry
 

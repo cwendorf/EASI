@@ -19,7 +19,7 @@ library(EASI)
 
 This page analyzes a set of correlations among variables using summary statistics input.
 
-## Data Management
+## Preliminary Tasks
 
 ### Data Entry
 

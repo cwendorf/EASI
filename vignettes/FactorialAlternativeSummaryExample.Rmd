@@ -19,7 +19,7 @@ library(EASI)
 
 This page examines a two-factor between-subjects (factorial) design using summary statistics input, focusing on comparisons and contrasts.
 
-## Data Management
+## Preliminary Tasks
 
 ### Data Entry
 

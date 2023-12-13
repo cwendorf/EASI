@@ -19,7 +19,7 @@ library(EASI)
 
 This page examines a single-factor between-subjects (one-way) design using raw data input, focusing on comparisons and contrasts.
 
-## Data Management
+## Preliminary Tasks
 
 ### Data Entry
 

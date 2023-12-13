@@ -19,7 +19,7 @@ library(EASI)
 
 This page examines a two-factor mixed design (one between-subjects and one within-subjects factor) using summary statistics input, focusing on comparisons and contrasts.
 
-## Data Management
+## Preliminary Tasks
 
 ### Data Entry
 

@@ -19,7 +19,9 @@ library(EASI)
 
 This page examines a two-factor mixed design (one between-subjects and one within-subjects factor) using summary statistics input, focusing on omnibus and simple effects analyses.
 
-## Data Management
+## Preliminary Tasks
+
+### Data Entry
 
 This code inputs the variable summaries and creates a summary table.
 ```{r}
@@ -47,19 +49,12 @@ MixedCorrL2 <- construct(Outcome1, Outcome2, Outcome3, class = "corr")
 MixedCorr <- combine(L1 = MixedCorrL1, L2 = MixedCorrL2, class = "corr")
 ```
 
+### Summary Statistics
+
 This code confirms the descriptive statistics from the summary tables.
 ```{r}
 (MixedSummary) |> describeSummary()
 (MixedCorr) |> describeCorrelations()
-```
-
-## Analyses of the Omnibus Effects
-
-Get an ANOVA for the design as a whole, including a source table, an estimate of the proportion of variance accounted for, and an ANOVA test of the main effects and interaction.
-```{r}
-(MixedSummary) |> describeFactorial(MixedCorr)
-(MixedSummary) |> estimateFactorial(MixedCorr)
-(MixedSummary) |> testFactorial(MixedCorr)
 ```
 
 Plot the means and confidence intervals for the design as a whole.
@@ -68,11 +63,53 @@ Plot the means and confidence intervals for the design as a whole.
 legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("Level1", "Level2"), col = c("darkred", "darkblue"))
 ```
 
+## Analyses of the Omnibus Effects
+
+The omnibus analysis usually consists of an Analysis of Variance.
+
+### Source Table
+
+Get the source table associated with the main effects and the interaction.
+
+```{r}
+(MixedSummary) |> describeFactorial(MixedCorr)
+```
+
+### Proportion of Variance Accounted For
+
+Get estimates of the proportion of variance accounted for by each effect (along with their confidence intervals).
+```{r}
+(MixedSummary) |> estimateFactorial(MixedCorr)
+```
+
+### Significance Tests
+
+Finally, test the various effects for statistical significance.
+```{r}
+(MixedSummary) |> testFactorial(MixedCorr)
+```
+
 ## Analyses of the Simple Effects
 
-Obtain a source table, estimate of proportion of variance accounted for, and an ANOVA test of statistical significance for the simple effect of Outcome (separately for the levels of Factor).
+As a follow-up to an Analysis of Variance, it is cusotmary to examine the simple effects (essentially a single-factor ANOVA separately across the levels of another factor).
+
+### Source Table
+
+Get the source tables separately for the simple effects.
 ```{r}
 (MixedSummary) |> describeEffectBy(MixedCorr)
+```
+
+### Proportion of Variance Accounted For
+
+Get an estimate of the proportion of variance account for by the simple effect (and the confidence interval for that estimate).
+```{r}
 (MixedSummary) |> estimateEffectBy(MixedCorr)
+```
+
+### Significance Tests
+
+Finally, test the simple effects for statistical significance.
+```{r}
 (MixedSummary) |> testEffectBy(MixedCorr)
 ```

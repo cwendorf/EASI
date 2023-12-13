@@ -19,7 +19,7 @@ library(EASI)
 
 This page examines a single-factor within-subjects (repeated measures) design using summary statistics input, focusing on comparisons and contrasts.
 
-## Data Management
+## Preliminary Tasks
 
 ### Data Entry
 
@@ -41,7 +41,7 @@ RepeatedCorr <- construct(Outcome1, Outcome2, Outcome3, class = "corr")
 
 ### Summary Statistics
 
-This code confirms the descriptive statistics from the summary table.
+This code confirms the descriptive statistics from the summary table and matrix.
 ```{r}
 (RepeatedSummary) |> describeSummary()
 (RepeatedCorr) |> describeCorrelations()

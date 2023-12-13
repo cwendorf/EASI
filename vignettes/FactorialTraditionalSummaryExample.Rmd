@@ -19,7 +19,9 @@ library(EASI)
 
 This page examines a two-factor between-subjects (factorial) design using summary statistics input, focusing on omnibus and simple effects analyses.
 
-## Data Management
+## Preliminary Tasks
+
+### Data Entry
 
 This code inputs the group summaries and creates a single summary table
 ```{r}
@@ -34,31 +36,65 @@ FactorialSummaryB2 <- construct(A1, A2, A3, class = "bss")
 FactorialSummary <- combine(B1 = FactorialSummaryB1, B2 = FactorialSummaryB2, class = "bss")
 ```
 
+### Summary Statistics
+
 This code confirms the descriptive statistics from the summary tables.
 ```{r}
 (FactorialSummary) |> describeSummary()
 ```
 
-## Analyses of the Omnibus Effects
-
-Get an ANOVA for the design as a whole, including a source table, an estimate of the proportion of variance accounted for, and an ANOVA test of the main effects and interaction.
-```{r}
-(FactorialSummary) |> describeFactorial()
-(FactorialSummary) |> estimateFactorial()
-(FactorialSummary) |> testFactorial()
-```
-
-Plot the means and confidence intervals for the design as a whole.
+Plot the means and their confidence intervals for the design as a whole.
 ```{r, Interaction-Factorial-Omnibus}
 (FactorialSummary) |> plotFactorial(col = c("darkred", "darkblue"))
 legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("B1", "B2"), col = c("darkred", "darkblue"))
 ```
 
+## Analyses of the Omnibus Effects
+
+The omnibus analysis usually consists of an Analysis of Variance.
+
+### Source Table
+
+Get the source table associated with the main effects and the interaction.
+```{r}
+(FactorialSummary) |> describeFactorial()
+```
+
+### Proportion of Variance Accounted For
+
+Get estimates of the proportion of variance accounted for by each effect (along with their confidence intervals).
+```{r}
+(FactorialSummary) |> estimateFactorial()
+```
+
+### Significance Tests
+
+Finally, test the various effects for statistical significance.
+```{r}
+(FactorialSummary) |> testFactorial()
+```
+
 ## Analyses of the Simple Effects
 
-Obtain a source table, estimate of proportion of variance accounted for, and an ANOVA test of statistical significance for the simple effect of FactorA (separately for the levels of FactorB).
+As a follow-up to an Analysis of Variance, it is cusotmary to examine the simple effects (essentially a single-factor ANOVA separately across the levels of another factor).
+
+### Source Table
+
+Get the source tables separately for the simple effects.
 ```{r}
 (FactorialSummary) |> describeEffectBy()
+```
+
+### Proportion of Variance Accounted For
+
+Get an estimate of the proportion of variance account for by the simple effect (and the confidence interval for that estimate).
+```{r}
 (FactorialSummary) |> estimateEffectBy()
+```
+
+### Significance Tests
+
+Finally, test the simple effects for statistical significance.
+```{r}
 (FactorialSummary) |> testEffectBy()
 ```
