@@ -82,7 +82,7 @@
 <p>This page analyzes a set of correlations among variables using raw
 data input.</p>
 <div class="section level2">
-<h2 id="data-management">Data Management<a class="anchor" aria-label="anchor" href="#data-management"></a>
+<h2 id="preliminary-tasks">Preliminary Tasks<a class="anchor" aria-label="anchor" href="#preliminary-tasks"></a>
 </h2>
 <div class="section level3">
 <h3 id="data-entry">Data Entry<a class="anchor" aria-label="anchor" href="#data-entry"></a>
@@ -119,24 +119,41 @@ Outcome3    0.385    0.574    1.000</code></pre>
 <h2 id="analyses-of-a-correlation">Analyses of a Correlation<a class="anchor" aria-label="anchor" href="#analyses-of-a-correlation"></a>
 </h2>
 <p>This section produces analyses of a single correlation.</p>
+<div class="section level4">
+<h4 id="scatterlot-and-confidence-ellipse">Scatterlot and Confidence Ellipse<a class="anchor" aria-label="anchor" href="#scatterlot-and-confidence-ellipse"></a>
+</h4>
+<p>This code provides a scatterplot for the bivariate relationship.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlation-Data-ScatterA-1.png" width="672"></p>
+<p>This code provides a scatterplot along with a 95% confidence ellipse
+for the data.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-ScatterB-1.png" width="672"></p>
+<p>The ellipse can be altered for different confidence levels.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
+<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-ScatterC-1.png" width="672"></p>
+</div>
 <div class="section level3">
 <h3 id="confidence-interval">Confidence Interval<a class="anchor" aria-label="anchor" href="#confidence-interval"></a>
 </h3>
 <p>This code will provide the confidence interval for the
 correlation.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Correlation`
                           R      SE      LL      UL
 Outcome1 &amp; Outcome2   0.533   0.378  -0.145   0.870</code></pre>
 <p>This code will produce a graph of the confidence interval for the
 correlation.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-IntervalsA-1.png" width="672"></p>
 <p>The code defaults to 95% confidence intervals. This can be changed if
 desired.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Correlation`
                           R      SE      LL      UL
@@ -144,26 +161,9 @@ Outcome1 &amp; Outcome2   0.533   0.378  -0.362   0.917</code></pre>
 <p>Of course, it is possible to change from the default confidence level
 in the graph. It is also possible to add a comparison value and a region
 of practical equivalence.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.2</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-IntervalsB-1.png" width="672"></p>
-<div class="section level4">
-<h4 id="scatterlot-and-confidence-ellipse">Scatterlot and Confidence Ellipse<a class="anchor" aria-label="anchor" href="#scatterlot-and-confidence-ellipse"></a>
-</h4>
-<p>This code provides a scatterplot for the bivariate relationship.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlation-Data-ScatterA-1.png" width="672"></p>
-<p>This code provides a scatterplot along with a 95% confidence ellipse
-for the data.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-ScatterB-1.png" width="672"></p>
-<p>The ellipse can be altered for different confidence levels.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
-<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-ScatterC-1.png" width="672"></p>
-</div>
 </div>
 <div class="section level3">
 <h3 id="significance-test">Significance Test<a class="anchor" aria-label="anchor" href="#significance-test"></a>

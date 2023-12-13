@@ -83,8 +83,11 @@
 and one within-subjects factor) using summary statistics input, focusing
 on omnibus and simple effects analyses.</p>
 <div class="section level2">
-<h2 id="data-management">Data Management<a class="anchor" aria-label="anchor" href="#data-management"></a>
+<h2 id="preliminary-tasks">Preliminary Tasks<a class="anchor" aria-label="anchor" href="#preliminary-tasks"></a>
 </h2>
+<div class="section level3">
+<h3 id="data-entry">Data Entry<a class="anchor" aria-label="anchor" href="#data-entry"></a>
+</h3>
 <p>This code inputs the variable summaries and creates a summary
 table.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -108,6 +111,10 @@ table.</p>
 <span><span class="va">Outcome3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.164</span>, <span class="fl">.553</span>, <span class="fl">1.000</span><span class="op">)</span></span>
 <span><span class="va">MixedCorrL2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span>, class <span class="op">=</span> <span class="st">"corr"</span><span class="op">)</span></span>
 <span><span class="va">MixedCorr</span> <span class="op">&lt;-</span> <span class="fu">combine</span><span class="op">(</span>L1 <span class="op">=</span> <span class="va">MixedCorrL1</span>, L2 <span class="op">=</span> <span class="va">MixedCorrL2</span>, class <span class="op">=</span> <span class="st">"corr"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="summary-statistics">Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"></a>
+</h3>
 <p>This code confirms the descriptive statistics from the summary
 tables.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -136,14 +143,24 @@ $`Correlation Matrix for the Variables: L2`
 Outcome1    1.000    0.408    0.164
 Outcome2    0.408    1.000    0.553
 Outcome3    0.164    0.553    1.000</code></pre>
+<p>Plot the means and confidence intervals for the design as a
+whole.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotFactorial</span><span class="op">(</span><span class="va">MixedCorr</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>, inset <span class="op">=</span> <span class="fl">.01</span>, box.lty <span class="op">=</span> <span class="fl">0</span>, pch <span class="op">=</span> <span class="fl">16</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Level1"</span>, <span class="st">"Level2"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="MixedTraditionalSummaryExample_files/figure-html/Interaction-Mixed-Omnibus-1.png" width="672"></p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="analyses-of-the-omnibus-effects">Analyses of the Omnibus Effects<a class="anchor" aria-label="anchor" href="#analyses-of-the-omnibus-effects"></a>
 </h2>
-<p>Get an ANOVA for the design as a whole, including a source table, an
-estimate of the proportion of variance accounted for, and an ANOVA test
-of the main effects and interaction.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<p>The omnibus analysis usually consists of an Analysis of Variance.</p>
+<div class="section level3">
+<h3 id="source-table">Source Table<a class="anchor" aria-label="anchor" href="#source-table"></a>
+</h3>
+<p>Get the source table associated with the main effects and the
+interaction.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMeansFactorial.html">describeFactorial</a></span><span class="op">(</span><span class="va">MixedCorr</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: Between Subjects`
               SS      df      MS
@@ -155,7 +172,13 @@ $`Source Table for the Model: Within Subjects`
 Measures         30.000   2.000  15.000
 Measures:Blocks  63.333   2.000  31.667
 Residual         97.994  36.000   2.722</code></pre>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+</div>
+<div class="section level3">
+<h3 id="proportion-of-variance-accounted-for">Proportion of Variance Accounted For<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for"></a>
+</h3>
+<p>Get estimates of the proportion of variance accounted for by each
+effect (along with their confidence intervals).</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansFactorial.html">estimateFactorial</a></span><span class="op">(</span><span class="va">MixedCorr</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: Between Subjects`
            Est      LL      UL
@@ -165,7 +188,12 @@ $`Proportion of Variance Accounted For by the Model: Within Subjects`
                     Est      LL      UL
 Measures          0.234   0.040   0.385
 Measures:Blocks   0.393   0.163   0.528</code></pre>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+</div>
+<div class="section level3">
+<h3 id="significance-tests">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests"></a>
+</h3>
+<p>Finally, test the various effects for statistical significance.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansFactorial.html">testFactorial</a></span><span class="op">(</span><span class="va">MixedCorr</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Model: Between Subjects`
              F     df1     df2       p
@@ -175,19 +203,18 @@ $`Hypothesis Tests for the Model: Within Subjects`
                       F     df1     df2       p
 Measures          5.511   2.000  36.000   0.008
 Measures:Blocks  11.633   2.000  36.000   0.000</code></pre>
-<p>Plot the means and confidence intervals for the design as a
-whole.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotFactorial</span><span class="op">(</span><span class="va">MixedCorr</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>, inset <span class="op">=</span> <span class="fl">.01</span>, box.lty <span class="op">=</span> <span class="fl">0</span>, pch <span class="op">=</span> <span class="fl">16</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Level1"</span>, <span class="st">"Level2"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="MixedTraditionalSummaryExample_files/figure-html/Interaction-Mixed-Omnibus-1.png" width="672"></p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="analyses-of-the-simple-effects">Analyses of the Simple Effects<a class="anchor" aria-label="anchor" href="#analyses-of-the-simple-effects"></a>
 </h2>
-<p>Obtain a source table, estimate of proportion of variance accounted
-for, and an ANOVA test of statistical significance for the simple effect
-of Outcome (separately for the levels of Factor).</p>
+<p>As a follow-up to an Analysis of Variance, it is cusotmary to examine
+the simple effects (essentially a single-factor ANOVA separately across
+the levels of another factor).</p>
+<div class="section level3">
+<h3 id="source-table-1">Source Table<a class="anchor" aria-label="anchor" href="#source-table-1"></a>
+</h3>
+<p>Get the source tables separately for the simple effects.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeEffectBy</span><span class="op">(</span><span class="va">MixedCorr</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: L1`
@@ -201,6 +228,12 @@ $`Source Table for the Model: L2`
 Subjects  76.649   9.000   8.517
 Measures   6.667   2.000   3.333
 Error     57.326  18.000   3.185</code></pre>
+</div>
+<div class="section level3">
+<h3 id="proportion-of-variance-accounted-for-1">Proportion of Variance Accounted For<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for-1"></a>
+</h3>
+<p>Get an estimate of the proportion of variance account for by the
+simple effect (and the confidence interval for that estimate).</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateEffectBy</span><span class="op">(</span><span class="va">MixedCorr</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: L1`
@@ -210,6 +243,11 @@ Measures   0.681   0.389   0.772
 $`Proportion of Variance Accounted For by the Model: L2`
              Est      LL      UL
 Measures   0.104   0.000   0.282</code></pre>
+</div>
+<div class="section level3">
+<h3 id="significance-tests-1">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests-1"></a>
+</h3>
+<p>Finally, test the simple effects for statistical significance.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testEffectBy</span><span class="op">(</span><span class="va">MixedCorr</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Model: L1`
@@ -219,6 +257,7 @@ Measures  19.180   2.000  18.000   0.000
 $`Hypothesis Test for the Model: L2`
                F     df1     df2       p
 Measures   1.047   2.000  18.000   0.372</code></pre>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>

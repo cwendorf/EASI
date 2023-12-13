@@ -83,8 +83,11 @@
 using raw data input, focusing on omnibus and simple effects
 analyses.</p>
 <div class="section level2">
-<h2 id="data-management">Data Management<a class="anchor" aria-label="anchor" href="#data-management"></a>
+<h2 id="preliminary-tasks">Preliminary Tasks<a class="anchor" aria-label="anchor" href="#preliminary-tasks"></a>
 </h2>
+<div class="section level3">
+<h3 id="data-entry">Data Entry<a class="anchor" aria-label="anchor" href="#data-entry"></a>
+</h3>
 <p>This code inputs the variable names and creates a viewable data
 frame.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -94,6 +97,10 @@ frame.</p>
 <span><span class="va">FactorB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">FactorB</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">Outcome</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">9</span>, <span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">5</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">9</span>, <span class="fl">11</span>, <span class="fl">4</span>, <span class="fl">11</span>, <span class="fl">7</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">13</span>, <span class="fl">11</span>, <span class="fl">10</span>, <span class="fl">13</span>, <span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">14</span>, <span class="fl">12</span>, <span class="fl">11</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">11</span>, <span class="fl">10</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">4</span>, <span class="fl">8</span>, <span class="fl">10</span>, <span class="fl">9</span>, <span class="fl">16</span>, <span class="fl">11</span>, <span class="fl">12</span>, <span class="fl">15</span>, <span class="fl">13</span>, <span class="fl">9</span>, <span class="fl">14</span>, <span class="fl">11</span>, <span class="fl">10</span>, <span class="fl">8</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">11</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="fl">9</span>, <span class="fl">3</span>, <span class="fl">6</span>, <span class="fl">7</span><span class="op">)</span></span>
 <span><span class="va">FactorialData</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">FactorA</span>, <span class="va">FactorB</span>, <span class="va">Outcome</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="summary-statistics">Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"></a>
+</h3>
 <p>This code provides a table of summary statistics.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeSummaryBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
@@ -108,14 +115,24 @@ $`Summary Statistics for the Data: B2`
 A1  10.000   8.000   2.449  -0.340  -1.102
 A2  10.000   8.000   2.000  -0.417   0.735
 A3  10.000   7.000   2.211   0.000   0.665</code></pre>
+<p>Plot the means and their confidence intervals for the design as a
+whole.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>, inset <span class="op">=</span> <span class="fl">.01</span>, box.lty <span class="op">=</span> <span class="fl">0</span>, pch <span class="op">=</span> <span class="fl">16</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p><img src="FactorialTraditionalDataExample_files/figure-html/Interaction-Factorial-Omnibus-1.png" width="672"></p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="analyses-of-the-omnibus-effects">Analyses of the Omnibus Effects<a class="anchor" aria-label="anchor" href="#analyses-of-the-omnibus-effects"></a>
 </h2>
-<p>Get an ANOVA for the design as a whole, including a source table, an
-estimate of the proportion of variance accounted for, and an ANOVA test
-of the main effects and interaction.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<p>The omnibus analysis usually consists of an Analysis of Variance.</p>
+<div class="section level3">
+<h3 id="source-table">Source Table<a class="anchor" aria-label="anchor" href="#source-table"></a>
+</h3>
+<p>Get the source table associated with the main effects and the
+interaction.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMeansFactorial.html">describeFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: Between Subjects`
                    SS      df      MS
@@ -123,33 +140,43 @@ Factor        106.667   1.000 106.667
 Blocks         30.000   2.000  15.000
 Factor:Blocks  63.333   2.000  31.667
 Residual      250.000  54.000   4.630</code></pre>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+</div>
+<div class="section level3">
+<h3 id="proportion-of-variance-accounted-for">Proportion of Variance Accounted For<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for"></a>
+</h3>
+<p>Get estimates of the proportion of variance accounted for by each
+effect (along with their confidence intervals).</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansFactorial.html">estimateFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: Between Subjects`
                   Est      LL      UL
 Factor          0.299   0.136   0.437
 Blocks          0.107   0.000   0.176
 Factor:Blocks   0.202   0.014   0.248</code></pre>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+</div>
+<div class="section level3">
+<h3 id="significance-tests">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests"></a>
+</h3>
+<p>Finally, test the various effects for statistical significance.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansFactorial.html">testFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Model: Between Subjects`
                     F     df1     df2       p
 Factor         23.040   1.000  54.000   0.000
 Blocks          3.240   2.000  54.000   0.047
 Factor:Blocks   6.840   2.000  54.000   0.002</code></pre>
-<p>Plot the means and confidence intervals for the design as a
-whole.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>, inset <span class="op">=</span> <span class="fl">.01</span>, box.lty <span class="op">=</span> <span class="fl">0</span>, pch <span class="op">=</span> <span class="fl">16</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="FactorialTraditionalDataExample_files/figure-html/Interaction-Factorial-Omnibus-1.png" width="672"></p>
+</div>
 </div>
 <div class="section level2">
 <h2 id="analyses-of-the-simple-effects">Analyses of the Simple Effects<a class="anchor" aria-label="anchor" href="#analyses-of-the-simple-effects"></a>
 </h2>
-<p>Obtain a source table, estimate of proportion of variance accounted
-for, and an ANOVA test of statistical significance for the simple effect
-of FactorA (separately for the levels of FactorB).</p>
+<p>As a follow-up to an Analysis of Variance, it is cusotmary to examine
+the simple effects (essentially a single-factor ANOVA separately across
+the levels of another factor).</p>
+<div class="section level3">
+<h3 id="source-table-1">Source Table<a class="anchor" aria-label="anchor" href="#source-table-1"></a>
+</h3>
+<p>Get the source tables separately for the simple effects.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: B1`
@@ -161,6 +188,12 @@ $`Source Table for the Model: B2`
              SS      df      MS
 Between   6.667   2.000   3.333
 Within  134.000  27.000   4.963</code></pre>
+</div>
+<div class="section level3">
+<h3 id="proportion-of-variance-accounted-for-1">Proportion of Variance Accounted For<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for-1"></a>
+</h3>
+<p>Get an estimate of the proportion of variance account for by the
+simple effect (and the confidence interval for that estimate).</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: B1`
@@ -170,6 +203,11 @@ Factor   0.428   0.157   0.569
 $`Proportion of Variance Accounted For by the Model: B2`
            Est      LL      UL
 Factor   0.047   0.000   0.173</code></pre>
+</div>
+<div class="section level3">
+<h3 id="significance-tests-1">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests-1"></a>
+</h3>
+<p>Finally, test the simple effects for statistical significance.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Model: B1`
@@ -179,6 +217,7 @@ Factor  10.086   2.000  27.000   0.001
 $`Hypothesis Test for the Model: B2`
              F     df1     df2       p
 Factor   0.672   2.000  27.000   0.519</code></pre>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
