@@ -147,13 +147,30 @@ of practical equivalence.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.2</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-IntervalsB-1.png" width="672"></p>
+<div class="section level4">
+<h4 id="scatterlot-and-confidence-ellipse">Scatterlot and Confidence Ellipse<a class="anchor" aria-label="anchor" href="#scatterlot-and-confidence-ellipse"></a>
+</h4>
+<p>This code provides a scatterplot for the bivariate relationship.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlation-Data-ScatterA-1.png" width="672"></p>
+<p>This code provides a scatterplot along with a 95% confidence ellipse
+for the data.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-ScatterB-1.png" width="672"></p>
+<p>The ellipse can be altered for different confidence levels.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotScatter.html">plotScatter</a></span><span class="op">(</span>ellipse <span class="op">=</span> <span class="cn">TRUE</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
+<p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-ScatterC-1.png" width="672"></p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="significance-test">Significance Test<a class="anchor" aria-label="anchor" href="#significance-test"></a>
 </h3>
 <p>This code will produce a table of NHST for the correlation (against a
 value of zero).</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testCorrelations.html">testCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Correlation`
                           R      SE      df       t       p
@@ -169,7 +186,7 @@ Outcome1 &amp; Outcome2   0.533   0.299   8.000   1.782   0.113</code></pre>
 </h3>
 <p>This code will provide the confidence intervals for the
 correlations.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Correlations`
                           R      SE      LL      UL
@@ -178,12 +195,12 @@ Outcome1 &amp; Outcome3   0.385   0.378  -0.323   0.817
 Outcome2 &amp; Outcome3   0.574   0.378  -0.086   0.884</code></pre>
 <p>This code will produce a graph of the confidence intervals for the
 correlations.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-IntervalsC-1.png" width="672"></p>
 <p>The code defaults to 95% confidence intervals. This can be changed if
 desired.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Correlations`
                           R      SE      LL      UL
@@ -193,7 +210,7 @@ Outcome2 &amp; Outcome3   0.574   0.378  -0.309   0.926</code></pre>
 <p>Of course, it is possible to change from the default confidence level
 in the graph. It is also possible to add a comparison value and a region
 of practical equivalence.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotCorrelations.html">plotCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">.2</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="MultipleCorrelationsDataExample_files/figure-html/Correlations-Data-IntervalsD-1.png" width="672"></p>
 </div>
@@ -202,7 +219,7 @@ of practical equivalence.</p>
 </h3>
 <p>This code will produce a table of NHST for the correlations (against
 a value of zero).</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testCorrelations.html">testCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Correlations`
                           R      SE      df       t       p

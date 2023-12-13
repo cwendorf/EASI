@@ -100,9 +100,25 @@ frame.</p>
 <div class="section level3">
 <h3 id="summary-statistics">Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"></a>
 </h3>
-<p>This code obtains the descriptive statistics for the two data
-frames.</p>
+<p>This code obtains the descriptive statistics as two separate tables,
+each corresponding to a simple effect.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">FactorialData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">FactorB</span> <span class="op">==</span> <span class="st">"B1"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome</span><span class="op">~</span><span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeSummary.html">describeSummary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>$`Summary Statistics for the Data`
+         N       M      SD    Skew    Kurt
+A1  10.000   8.000   1.414   0.000  -0.738
+A2  10.000  11.000   2.211  -0.617  -0.212
+A3  10.000  12.000   2.449   0.340  -1.102</code></pre>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">FactorialData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">FactorB</span> <span class="op">==</span> <span class="st">"B2"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome</span><span class="op">~</span><span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeSummary.html">describeSummary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>$`Summary Statistics for the Data`
+         N       M      SD    Skew    Kurt
+A1  10.000   8.000   2.449  -0.340  -1.102
+A2  10.000   8.000   2.000  -0.417   0.735
+A3  10.000   7.000   2.211   0.000   0.665</code></pre>
+<p>These statistics can also be obtained using a simpler function call,
+a procedure that is then paralleled for the subsequent analyses.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeSummaryBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Summary Statistics for the Data: B1`
          N       M      SD    Skew    Kurt
@@ -127,7 +143,7 @@ analyses separately for each level of a factor.</p>
 </h3>
 <p>This code will provide tables of confidence intervals for each level
 of the factor.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateMeansBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Means: B1`
          M      SE      df      LL      UL
@@ -142,12 +158,12 @@ A2   8.000   0.632   9.000   6.569   9.431
 A3   7.000   0.699   9.000   5.418   8.582</code></pre>
 <p>This code will produce a graph of the confidence intervals for each
 level of the factor.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotMeansBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-MeansA-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-MeansA-2.png" width="672"></p>
 <p>The code defaults to 95% confidence intervals. This can be changed if
 desired.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateMeansBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Means: B1`
          M      SE      df      LL      UL
@@ -163,7 +179,7 @@ A3   7.000   0.699   9.000   4.728   9.272</code></pre>
 <p>For the graph, it is possible to add a comparison line to represent a
 population (or test) value and a region of practical equivalence in
 addition to changing the confidence level.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotMeansBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">9</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-MeansB-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-MeansB-2.png" width="672"></p>
 </div>
@@ -173,7 +189,7 @@ addition to changing the confidence level.</p>
 <p>This code will produce a table of NHST separately for each level of
 the factor. In this case, all the means are tested against a value of
 zero.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testMeansBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Means: B1`
       Diff      SE      df       t       p
@@ -189,7 +205,7 @@ A3   7.000   0.699   9.000  10.011   0.000</code></pre>
 <p>Often, the default test value of zero is not meaningful or plausible.
 This too can be altered (often in conjunction with what is presented in
 the plot).</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testMeansBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, mu <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Means: B1`
       Diff      SE      df       t       p
@@ -209,7 +225,7 @@ A3  -2.000   0.699   9.000  -2.860   0.019</code></pre>
 <p>This code will produce a table of standardized mean differences
 separately for each level of the factor. In this case, the mean is
 compared to zero to form the effect size.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizeMeansBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Standardized Means: B1`
          d      SE      LL      UL
@@ -225,7 +241,7 @@ A3   3.166   0.752   1.586   4.721</code></pre>
 <p>Here too it is possible to alter the width of the confidence
 intervals and to establish a more plausible comparison value for the
 mean.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizeMeansBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, mu <span class="op">=</span> <span class="fl">9</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Standardized Means: B1`
          d      SE      LL      UL
@@ -249,7 +265,7 @@ a factor.</p>
 <h3 id="confidence-intervals-1">Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals-1"></a>
 </h3>
 <p>This code estimates the confidence interval of the difference.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateDifferenceBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Difference of Means: B1`
               Diff      SE      df      LL      UL
@@ -260,12 +276,12 @@ $`Confidence Interval for the Difference of Means: B2`
 Comparison   0.000   1.000  17.308  -2.107   2.107</code></pre>
 <p>This code obtains and plots the confidence intervals for the mean
 difference in the identified comparison.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotDifferenceBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-DifferenceA-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-DifferenceA-2.png" width="672"></p>
 <p>Of course, you can change the confidence level from the default 95%
 if desired.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateDifferenceBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Difference of Means: B1`
               Diff      SE      df      LL      UL
@@ -277,12 +293,12 @@ Comparison   0.000   1.000  17.308  -2.892   2.892</code></pre>
 <p>Once again, the confidence levels can be changed away from the
 default and a comparison line to represent a population (or test) value
 and a region of practical equivalence can be added to the graph.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotDifferenceBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-DifferenceB-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-DifferenceB-2.png" width="672"></p>
 <p>If you wish, you can get the confidence intervals for the means and
 the mean difference in one command.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateComparisonBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Means: B1`
          M      SE      df      LL      UL
@@ -303,12 +319,12 @@ $`Confidence Interval for the Difference of Means: B2`
 Comparison   0.000   1.000  17.308  -2.107   2.107</code></pre>
 <p>This code produces a difference plot using the confidence intervals
 for the means and the mean difference.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotComparisonBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-ComparisonA-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-ComparisonA-2.png" width="672"></p>
 <p>Of course, you can change the confidence level from the default 95%
 if desired.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateComparisonBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Means: B1`
          M      SE      df      LL      UL
@@ -330,7 +346,7 @@ Comparison   0.000   1.000  17.308  -2.892   2.892</code></pre>
 <p>Once again, the confidence levels can be changed away from the
 default and a region of practical equivalence can be added to the
 graph.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotComparisonBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-ComparisonB-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-ComparisonB-2.png" width="672"></p>
 </div>
@@ -339,7 +355,7 @@ graph.</p>
 </h3>
 <p>This code produces NHST for the identified comparison (using a
 default test value of zero).</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testDifferenceBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Difference of Means: B1`
               Diff      SE      df       t       p
@@ -350,7 +366,7 @@ $`Hypothesis Test for the Difference of Means: B2`
 Comparison   0.000   1.000  17.308   0.000   1.000</code></pre>
 <p>If the default value of zero is not plausible, it too can be
 changed.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testDifferenceBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, mu <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Difference of Means: B1`
               Diff      SE      df       t       p
@@ -361,7 +377,7 @@ $`Hypothesis Test for the Difference of Means: B2`
 Comparison   2.000   1.000  17.308   2.000   0.061</code></pre>
 <p>If you wish, you can get the NHST for the means and the mean
 difference in one command (using a default test value of zero).</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testComparisonBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Means: B1`
       Diff      SE      df       t       p
@@ -382,7 +398,7 @@ $`Hypothesis Test for the Difference of Means: B2`
 Comparison   0.000   1.000  17.308   0.000   1.000</code></pre>
 <p>If the default value of zero is not plausible, it too can be
 changed.</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testComparisonBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, mu <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Means: B1`
       Diff      SE      df       t       p
@@ -407,7 +423,7 @@ Comparison   2.000   1.000  17.308   2.000   0.061</code></pre>
 </h3>
 <p>This code calculates a standardized mean difference for the
 comparison and its confidence interval.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizeDifferenceBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Standardized Difference of Means: B1`
                  d      SE      LL      UL
@@ -418,7 +434,7 @@ $`Confidence Interval for the Standardized Difference of Means: B2`
 Comparison   0.000   0.471  -0.924   0.924</code></pre>
 <p>The width of the confidence interval for the effect size can be
 altered if desired.</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizeDifferenceBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Standardized Difference of Means: B1`
                  d      SE      LL      UL
@@ -439,7 +455,7 @@ factor.</p>
 </h3>
 <p>This code produces a confidence interval for a specified
 contrast.</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateContrastBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Contrast of Means: B1`
              Est      SE      df      LL      UL
@@ -450,12 +466,12 @@ $`Confidence Interval for the Contrast of Means: B2`
 Contrast  -0.500   0.907  15.806  -2.424   1.424</code></pre>
 <p>This code obtains and plots the confidence intervals for the groups
 and the mean difference in the identified contrast.</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotContrastBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-ContrastA-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-ContrastA-2.png" width="672"></p>
 <p>As in all other cases, the default value of the confidence interval
 can be changed.</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateContrastBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Contrast of Means: B1`
              Est      SE      df      LL      UL
@@ -467,12 +483,12 @@ Contrast  -0.500   0.907  15.806  -3.153   2.153</code></pre>
 <p>The width of the confidence interval for the contrast can be altered
 and a comparison line to represent a population (or test) value and a
 region of practical equivalence can be added to the graph.</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotContrastBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-ContrastB-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-ContrastB-2.png" width="672"></p>
 <p>If you wish, you can get the confidence intervals for the mean
 subsets and the mean contrast in one command.</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateSubsetsBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for Subsets of Means: B1`
                  Est      SE      df      LL      UL
@@ -493,12 +509,12 @@ $`Confidence Interval for the Contrast of Means: B2`
 Contrast  -0.500   0.907  15.806  -2.424   1.424</code></pre>
 <p>This code produces a difference plot using the confidence intervals
 for the mean subsets and the mean contrast.</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotSubsetsBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-SubsetsA-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-SubsetsA-2.png" width="672"></p>
 <p>Of course, you can change the confidence level from the default 95%
 if desired.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateSubsetsBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for Subsets of Means: B1`
                  Est      SE      df      LL      UL
@@ -520,7 +536,7 @@ Contrast  -0.500   0.907  15.806  -3.153   2.153</code></pre>
 <p>Once again, the confidence levels can be changed away from the
 default and a region of practical equivalence can be added to the
 graph.</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotSubsetsBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Level1"</span>, <span class="st">"Others"</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-SubsetsB-1.png" width="672"><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-SubsetsB-2.png" width="672"></p>
 </div>
@@ -529,7 +545,7 @@ graph.</p>
 </h3>
 <p>This code produces a NHST for the identified contrast. It tests the
 contrast against a value of zero by default.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testContrastBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Contrast of Means: B1`
              Est      SE      df       t       p
@@ -539,7 +555,7 @@ $`Hypothesis Test for the Contrast of Means: B2`
              Est      SE      df       t       p
 Contrast  -0.500   0.907  15.806  -0.551   0.589</code></pre>
 <p>If desired, the contrast can be tested against other values.</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testContrastBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, mu <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Contrast of Means: B1`
              Est      SE      df       t       p
@@ -550,7 +566,7 @@ $`Hypothesis Test for the Contrast of Means: B2`
 Contrast  -4.500   0.907  15.806  -4.963   0.000</code></pre>
 <p>If you wish, you can get the NHST for the means and the mean contrast
 in one command (using a default test value of zero).</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testSubsetsBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for Subsets the Means: B1`
                  Est      SE      df       t       p
@@ -571,7 +587,7 @@ $`Hypothesis Test for the Contrast of Means: B2`
 Contrast  -0.500   0.907  15.806  -0.551   0.589</code></pre>
 <p>If the default value of zero is not plausible, it too can be
 changed.</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testSubsetsBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, mu <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for Subsets the Means: B1`
                  Est      SE      df       t       p
@@ -596,7 +612,7 @@ Contrast  -4.500   0.907  15.806  -4.963   0.000</code></pre>
 </h3>
 <p>This code calculates a standardized contrast and its confidence
 interval.</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizeContrastBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Standardized Contrast of Means: B1`
              Est      SE      LL      UL
@@ -607,7 +623,7 @@ $`Confidence Interval for the Standardized Contrast of Means: B2`
 Contrast  -0.224   0.430  -1.068   0.619</code></pre>
 <p>The width of the confidence interval for the effect size can be
 altered if desired.</p>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizeContrastBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Standardized Contrast of Means: B1`
              Est      SE      LL      UL
@@ -630,7 +646,7 @@ multiple factors.</p>
 FactorA and the existing two levels of FactorB). Estimate and plot the
 interaction contrast (which includes the comparisons within each simple
 effect).</p>
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansInteraction.html">estimateInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Simple Effect Constrasts`
                         Est      SE      df      LL      UL
@@ -640,7 +656,7 @@ Simple Effect at B2   0.000   1.000  17.308  -2.107   2.107
 $`Confidence Interval for the Interaction Contrast`
                 Est      SE      df      LL      UL
 Interaction  -3.000   1.300  32.129  -5.647  -0.353</code></pre>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansInteraction.html">plotInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <p><img src="FactorialAlternativeDataExample_files/figure-html/Factorial-Data-Interaction-1.png" width="672"></p>
 </div>
@@ -649,7 +665,7 @@ Interaction  -3.000   1.300  32.129  -5.647  -0.353</code></pre>
 </h3>
 <p>Test the interaction contrast (which includes the comparisons within
 each simple effect) for statistical significance.</p>
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">A1</span>, <span class="va">A2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansInteraction.html">testInteraction</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Main Effect Constrasts`
                         Est      SE       t      df       p
