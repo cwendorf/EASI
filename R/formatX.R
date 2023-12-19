@@ -4,7 +4,7 @@
 ### Frames
 
 .formatFrame <- function(results, digits = 3) {
-  format(as.data.frame(round(results, digits = digits)), width = 7, trim = TRUE, nsmall = digits)
+  format(as.data.frame(round(results, digits = digits)), width = 8, trim = TRUE, nsmall = digits)
 }
 
 .unformatFrame <- function(results) {
@@ -44,7 +44,7 @@
 
 .formatList <- function(results, main = NULL, digits = 3) {
   results <- lapply(results, .formatFrame, digits)
-  names(results) <- main
+  if (!is.null(main)) names(results) <- main
   results
 }
 
