@@ -9,7 +9,7 @@ IndependentData <- construct(Factor, Outcome)
 #### Confidence Intervals
 
 (Outcome ~ Factor) |> estimateMeans()
-(Outcome ~ Factor) |> estimateMeanDifference()
-(Outcome ~ Factor) |> testMeanDifference()
-(Outcome ~ Factor) |> estimateStandardizedMeanDifference()
-(Outcome ~ Factor) |> plotMeanComparison()
+(Outcome ~ Factor) |> estimateDifference()
+(Outcome ~ Factor) |> testDifference()
+(Outcome ~ Factor) |> standardizeDifference()
+(Outcome ~ Factor) |> plotComparison()
