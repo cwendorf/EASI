@@ -106,16 +106,16 @@ correlations.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeSummaryBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Summary Statistics for the Data: Level1`
-               N       M      SD    Skew    Kurt
-Outcome1  10.000   8.000   1.414   0.000  -0.738
-Outcome2  10.000  11.000   2.211  -0.617  -0.212
-Outcome3  10.000  12.000   2.449   0.340  -1.102
+                N        M       SD     Skew     Kurt
+Outcome1   10.000    8.000    1.414    0.000   -0.738
+Outcome2   10.000   11.000    2.211   -0.617   -0.212
+Outcome3   10.000   12.000    2.449    0.340   -1.102
 
 $`Summary Statistics for the Data: Level2`
-               N       M      SD    Skew    Kurt
-Outcome1  10.000   8.000   2.449  -0.340  -1.102
-Outcome2  10.000   8.000   2.000  -0.417   0.735
-Outcome3  10.000   7.000   2.211   0.000   0.665</code></pre>
+                N        M       SD     Skew     Kurt
+Outcome1   10.000    8.000    2.449   -0.340   -1.102
+Outcome2   10.000    8.000    2.000   -0.417    0.735
+Outcome3   10.000    7.000    2.211    0.000    0.665</code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeCorrelationsBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Correlation Matrix for the Variables: Level1`
@@ -134,7 +134,7 @@ whole.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>, inset <span class="op">=</span> <span class="fl">.01</span>, box.lty <span class="op">=</span> <span class="fl">0</span>, pch <span class="op">=</span> <span class="fl">16</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Level1"</span>, <span class="st">"Level2"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="MixedTraditionalDataExample_files/figure-html/Interaction-Mixed-Omnibus-1.png" width="672"></p>
+<p><img src="MixedTraditionalDataExample_files/figure-html/Mixed-Data-Omnibus-1.png" width="672"></p>
 </div>
 </div>
 <div class="section level2">
@@ -149,15 +149,15 @@ interaction.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMeansFactorial.html">describeFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: Between Subjects`
-              SS      df      MS
-Blocks   106.667   1.000 106.667
-Subjects 152.000  18.000   8.444
+               SS       df       MS
+Blocks    106.667    1.000  106.667
+Subjects  152.000   18.000    8.444
 
 $`Source Table for the Model: Within Subjects`
-                     SS      df      MS
-Measures         30.000   2.000  15.000
-Measures:Blocks  63.333   2.000  31.667
-Residual         98.000  36.000   2.722</code></pre>
+                      SS       df       MS
+Measures          30.000    2.000   15.000
+Measures:Blocks   63.333    2.000   31.667
+Residual          98.000   36.000    2.722</code></pre>
 </div>
 <div class="section level3">
 <h3 id="proportion-of-variance-accounted-for">Proportion of Variance Accounted For<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for"></a>
@@ -167,13 +167,13 @@ effect (along with their confidence intervals).</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansFactorial.html">estimateFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: Between Subjects`
-           Est      LL      UL
-Blocks   0.412   0.114   0.595
+            Est       LL       UL
+Blocks    0.412    0.114    0.595
 
 $`Proportion of Variance Accounted For by the Model: Within Subjects`
-                    Est      LL      UL
-Measures          0.234   0.040   0.385
-Measures:Blocks   0.393   0.163   0.528</code></pre>
+                     Est       LL       UL
+Measures           0.234    0.040    0.385
+Measures:Blocks    0.393    0.163    0.528</code></pre>
 </div>
 <div class="section level3">
 <h3 id="significance-tests">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests"></a>
@@ -182,13 +182,13 @@ Measures:Blocks   0.393   0.163   0.528</code></pre>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansFactorial.html">testFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Model: Between Subjects`
-             F     df1     df2       p
-Blocks  12.632   1.000  18.000   0.002
+              F      df1      df2        p
+Blocks   12.632    1.000   18.000    0.002
 
 $`Hypothesis Tests for the Model: Within Subjects`
-                      F     df1     df2       p
-Measures          5.510   2.000  36.000   0.008
-Measures:Blocks  11.633   2.000  36.000   0.000</code></pre>
+                       F      df1      df2        p
+Measures           5.510    2.000   36.000    0.008
+Measures:Blocks   11.633    2.000   36.000    0.000</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -204,16 +204,16 @@ the levels of another factor).</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: Level1`
-              SS      df      MS
-Subjects  75.333   9.000   8.370
-Measures  86.667   2.000  43.333
-Error     40.667  18.000   2.259
+               SS       df       MS
+Subjects   75.333    9.000    8.370
+Measures   86.667    2.000   43.333
+Error      40.667   18.000    2.259
 
 $`Source Table for the Model: Level2`
-              SS      df      MS
-Subjects  76.667   9.000   8.519
-Measures   6.667   2.000   3.333
-Error     57.333  18.000   3.185</code></pre>
+               SS       df       MS
+Subjects   76.667    9.000    8.519
+Measures    6.667    2.000    3.333
+Error      57.333   18.000    3.185</code></pre>
 </div>
 <div class="section level3">
 <h3 id="proportion-of-variance-accounted-for-1">Proportion of Variance Accounted For<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for-1"></a>
@@ -223,12 +223,12 @@ simple effect (and the confidence interval for that estimate).</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: Level1`
-             Est      LL      UL
-Measures   0.681   0.389   0.772
+              Est       LL       UL
+Measures    0.681    0.389    0.772
 
 $`Proportion of Variance Accounted For by the Model: Level2`
-             Est      LL      UL
-Measures   0.104   0.000   0.282</code></pre>
+              Est       LL       UL
+Measures    0.104    0.000    0.282</code></pre>
 </div>
 <div class="section level3">
 <h3 id="significance-tests-1">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests-1"></a>
@@ -237,12 +237,12 @@ Measures   0.104   0.000   0.282</code></pre>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Model: Level1`
-               F     df1     df2       p
-Measures  19.180   2.000  18.000   0.000
+                F      df1      df2        p
+Measures   19.180    2.000   18.000    0.000
 
 $`Hypothesis Test for the Model: Level2`
-               F     df1     df2       p
-Measures   1.047   2.000  18.000   0.372</code></pre>
+                F      df1      df2        p
+Measures    1.047    2.000   18.000    0.372</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

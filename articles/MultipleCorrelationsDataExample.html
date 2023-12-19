@@ -102,10 +102,10 @@ frame.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeSummary.html">describeSummary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Summary Statistics for the Data`
-               N       M      SD    Skew    Kurt
-Outcome1  10.000   8.000   1.414   0.000  -0.738
-Outcome2  10.000  11.000   2.211  -0.617  -0.212
-Outcome3  10.000  12.000   2.449   0.340  -1.102</code></pre>
+                N        M       SD     Skew     Kurt
+Outcome1   10.000    8.000    1.414    0.000   -0.738
+Outcome2   10.000   11.000    2.211   -0.617   -0.212
+Outcome3   10.000   12.000    2.449    0.340   -1.102</code></pre>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeCorrelations.html">describeCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Correlation Matrix for the Variables`
@@ -144,8 +144,8 @@ correlation.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Correlation`
-                          R      SE      LL      UL
-Outcome1 &amp; Outcome2   0.533   0.378  -0.145   0.870</code></pre>
+                           R       SE       LL       UL
+Outcome1 &amp; Outcome2    0.533    0.378   -0.145    0.870</code></pre>
 <p>This code will produce a graph of the confidence interval for the
 correlation.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
@@ -156,8 +156,8 @@ desired.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Correlation`
-                          R      SE      LL      UL
-Outcome1 &amp; Outcome2   0.533   0.378  -0.362   0.917</code></pre>
+                           R       SE       LL       UL
+Outcome1 &amp; Outcome2    0.533    0.378   -0.362    0.917</code></pre>
 <p>Of course, it is possible to change from the default confidence level
 in the graph. It is also possible to add a comparison value and a region
 of practical equivalence.</p>
@@ -173,8 +173,8 @@ value of zero).</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testCorrelations.html">testCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Correlation`
-                          R      SE      df       t       p
-Outcome1 &amp; Outcome2   0.533   0.299   8.000   1.782   0.113</code></pre>
+                           R       SE       df        t        p
+Outcome1 &amp; Outcome2    0.533    0.299    8.000    1.782    0.113</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -189,10 +189,10 @@ correlations.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Correlations`
-                          R      SE      LL      UL
-Outcome1 &amp; Outcome2   0.533   0.378  -0.145   0.870
-Outcome1 &amp; Outcome3   0.385   0.378  -0.323   0.817
-Outcome2 &amp; Outcome3   0.574   0.378  -0.086   0.884</code></pre>
+                           R       SE       LL       UL
+Outcome1 &amp; Outcome2    0.533    0.378   -0.145    0.870
+Outcome1 &amp; Outcome3    0.385    0.378   -0.323    0.817
+Outcome2 &amp; Outcome3    0.574    0.378   -0.086    0.884</code></pre>
 <p>This code will produce a graph of the confidence intervals for the
 correlations.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
@@ -203,10 +203,10 @@ desired.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateCorrelations.html">estimateCorrelations</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Correlations`
-                          R      SE      LL      UL
-Outcome1 &amp; Outcome2   0.533   0.378  -0.362   0.917
-Outcome1 &amp; Outcome3   0.385   0.378  -0.514   0.881
-Outcome2 &amp; Outcome3   0.574   0.378  -0.309   0.926</code></pre>
+                           R       SE       LL       UL
+Outcome1 &amp; Outcome2    0.533    0.378   -0.362    0.917
+Outcome1 &amp; Outcome3    0.385    0.378   -0.514    0.881
+Outcome2 &amp; Outcome3    0.574    0.378   -0.309    0.926</code></pre>
 <p>Of course, it is possible to change from the default confidence level
 in the graph. It is also possible to add a comparison value and a region
 of practical equivalence.</p>
@@ -222,10 +222,10 @@ a value of zero).</p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testCorrelations.html">testCorrelations</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Correlations`
-                          R      SE      df       t       p
-Outcome1 &amp; Outcome2   0.533   0.299   8.000   1.782   0.113
-Outcome1 &amp; Outcome3   0.385   0.326   8.000   1.180   0.272
-Outcome2 &amp; Outcome3   0.574   0.289   8.000   1.985   0.082</code></pre>
+                           R       SE       df        t        p
+Outcome1 &amp; Outcome2    0.533    0.299    8.000    1.782    0.113
+Outcome1 &amp; Outcome3    0.385    0.326    8.000    1.180    0.272
+Outcome2 &amp; Outcome3    0.574    0.289    8.000    1.985    0.082</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

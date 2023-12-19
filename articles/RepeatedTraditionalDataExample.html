@@ -103,10 +103,10 @@ frame.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeSummary.html">describeSummary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Summary Statistics for the Data`
-               N       M      SD    Skew    Kurt
-Outcome1  10.000   8.000   1.414   0.000  -0.738
-Outcome2  10.000  11.000   2.211  -0.617  -0.212
-Outcome3  10.000  12.000   2.449   0.340  -1.102</code></pre>
+                N        M       SD     Skew     Kurt
+Outcome1   10.000    8.000    1.414    0.000   -0.738
+Outcome2   10.000   11.000    2.211   -0.617   -0.212
+Outcome3   10.000   12.000    2.449    0.340   -1.102</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -121,10 +121,10 @@ means.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMeansEffect.html">describeEffect</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model`
-              SS      df      MS
-Subjects  75.333   9.000   8.370
-Measures  86.667   2.000  43.333
-Error     40.667  18.000   2.259</code></pre>
+               SS       df       MS
+Subjects   75.333    9.000    8.370
+Measures   86.667    2.000   43.333
+Error      40.667   18.000    2.259</code></pre>
 </div>
 <div class="section level3">
 <h3 id="proportion-of-variance-accounted-for">Proportion of Variance Accounted for<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for"></a>
@@ -134,8 +134,8 @@ factor (and the confidence interval for that estimate).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansEffect.html">estimateEffect</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model`
-             Est      LL      UL
-Measures   0.681   0.389   0.772</code></pre>
+              Est       LL       UL
+Measures    0.681    0.389    0.772</code></pre>
 </div>
 <div class="section level3">
 <h3 id="significance-test">Significance Test<a class="anchor" aria-label="anchor" href="#significance-test"></a>
@@ -144,8 +144,8 @@ Measures   0.681   0.389   0.772</code></pre>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansEffect.html">testEffect</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Model`
-               F     df1     df2       p
-Measures  19.180   2.000  18.000   0.000</code></pre>
+                F      df1      df2        p
+Measures   19.180    2.000   18.000    0.000</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -162,10 +162,10 @@ tests).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansPairwise.html">estimatePairwise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Pairwise Comparisons of Means`
-                       Diff      SE      df      LL      UL
-Outcome1 v Outcome2   3.000   0.596   9.000   1.651   4.349
-Outcome1 v Outcome3   4.000   0.730   9.000   2.348   5.652
-Outcome2 v Outcome3   1.000   0.683   9.000  -0.545   2.545</code></pre>
+                        Diff       SE       df       LL       UL
+Outcome1 v Outcome2    3.000    0.596    9.000    1.651    4.349
+Outcome1 v Outcome3    4.000    0.730    9.000    2.348    5.652
+Outcome2 v Outcome3    1.000    0.683    9.000   -0.545    2.545</code></pre>
 <p>Provide a traditional plot of the confidence intervals for the
 pairwise comparisons (including a line that represents no difference for
 the comparisons).</p>
@@ -186,10 +186,10 @@ include zero (darkblue) and those that do include zero (darkred).</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansPairwise.html">testPairwise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Pairwise Comparisons of Means`
-                       Diff      SE      df       t       p
-Outcome1 v Outcome2   3.000   0.596   9.000   5.031   0.001
-Outcome1 v Outcome3   4.000   0.730   9.000   5.477   0.000
-Outcome2 v Outcome3   1.000   0.683   9.000   1.464   0.177</code></pre>
+                        Diff       SE       df        t        p
+Outcome1 v Outcome2    3.000    0.596    9.000    5.031    0.001
+Outcome1 v Outcome3    4.000    0.730    9.000    5.477    0.000
+Outcome2 v Outcome3    1.000    0.683    9.000    1.464    0.177</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-effect-sizes">Standardized Effect Sizes<a class="anchor" aria-label="anchor" href="#standardized-effect-sizes"></a>
@@ -199,10 +199,10 @@ for the pairwise comparisons.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateStandardizedMeansPairwise.html">standardizePairwise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Pairwise Standardized Comparisons of Means`
-                          d      SE      LL      UL
-Outcome1 v Outcome2   1.616   0.466   0.703   2.530
-Outcome1 v Outcome3   2.000   0.531   0.959   3.041
-Outcome2 v Outcome3   0.429   0.333  -0.224   1.082</code></pre>
+                           d       SE       LL       UL
+Outcome1 v Outcome2    1.616    0.466    0.703    2.530
+Outcome1 v Outcome3    2.000    0.531    0.959    3.041
+Outcome2 v Outcome3    0.429    0.333   -0.224    1.082</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -216,10 +216,10 @@ of variance but do not make adjustments for multiple comparisons.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansRelational.html">estimateRelational</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence and Relational Intervals for the Means`
-               M   RI.LL   RI.UL   CI.LL   CI.UL
-Outcome1   8.000   7.294   8.706   6.988   9.012
-Outcome2  11.000  10.294  11.706   9.418  12.582
-Outcome3  12.000  11.294  12.706  10.248  13.752</code></pre>
+                M    RI.LL    RI.UL    CI.LL    CI.UL
+Outcome1    8.000    7.294    8.706    6.988    9.012
+Outcome2   11.000   10.294   11.706    9.418   12.582
+Outcome3   12.000   11.294   12.706   10.248   13.752</code></pre>
 <p>Plot the intervals and enhance with color.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansRelational.html">plotRelational</a></span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span>, <span class="st">"darkgoldenrod"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -238,10 +238,10 @@ Tukey HSD procedures).</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansPosthoc.html">estimatePosthoc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Posthoc Comparisons of Means`
-                       Diff      SE      df      LL      UL
-Outcome1 v Outcome2   3.000   0.596   9.000   1.335   4.665
-Outcome1 v Outcome3   4.000   0.730   9.000   1.961   6.039
-Outcome2 v Outcome3   1.000   0.683   9.000  -0.907   2.907</code></pre>
+                        Diff       SE       df       LL       UL
+Outcome1 v Outcome2    3.000    0.596    9.000    1.335    4.665
+Outcome1 v Outcome3    4.000    0.730    9.000    1.961    6.039
+Outcome2 v Outcome3    1.000    0.683    9.000   -0.907    2.907</code></pre>
 <p>Provide a traditional plot of the confidence intervals for the post
 hoc comparisons (including a line that represents no difference for the
 comparisons).</p>
@@ -262,10 +262,10 @@ include zero (darkblue) and those that do include zero (darkred).</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansPosthoc.html">testPosthoc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Posthoc Comparisons of Means`
-                       Diff      SE      df       t       p
-Outcome1 v Outcome2   3.000   0.596   9.000   5.031   0.002
-Outcome1 v Outcome3   4.000   0.730   9.000   5.477   0.001
-Outcome2 v Outcome3   1.000   0.683   9.000   1.464   0.352</code></pre>
+                        Diff       SE       df        t        p
+Outcome1 v Outcome2    3.000    0.596    9.000    5.031    0.002
+Outcome1 v Outcome3    4.000    0.730    9.000    5.477    0.001
+Outcome2 v Outcome3    1.000    0.683    9.000    1.464    0.352</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-effect-sizes-1">Standardized Effect Sizes<a class="anchor" aria-label="anchor" href="#standardized-effect-sizes-1"></a>
@@ -275,10 +275,10 @@ for the post hoc comparisons.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizePosthoc</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Posthoc Standardized Comparisons of Means`
-                          d      SE      LL      UL
-Outcome1 v Outcome2   1.616   0.466   0.703   2.530
-Outcome1 v Outcome3   2.000   0.531   0.959   3.041
-Outcome2 v Outcome3   0.429   0.333  -0.224   1.082</code></pre>
+                           d       SE       LL       UL
+Outcome1 v Outcome2    1.616    0.466    0.703    2.530
+Outcome1 v Outcome3    2.000    0.531    0.959    3.041
+Outcome2 v Outcome3    0.429    0.333   -0.224    1.082</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

@@ -110,16 +110,16 @@ frames.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeSummaryBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Summary Statistics for the Data: Level1`
-               N       M      SD    Skew    Kurt
-Outcome1  10.000   8.000   1.414   0.000  -0.738
-Outcome2  10.000  11.000   2.211  -0.617  -0.212
-Outcome3  10.000  12.000   2.449   0.340  -1.102
+                N        M       SD     Skew     Kurt
+Outcome1   10.000    8.000    1.414    0.000   -0.738
+Outcome2   10.000   11.000    2.211   -0.617   -0.212
+Outcome3   10.000   12.000    2.449    0.340   -1.102
 
 $`Summary Statistics for the Data: Level2`
-               N       M      SD    Skew    Kurt
-Outcome1  10.000   8.000   2.449  -0.340  -1.102
-Outcome2  10.000   8.000   2.000  -0.417   0.735
-Outcome3  10.000   7.000   2.211   0.000   0.665</code></pre>
+                N        M       SD     Skew     Kurt
+Outcome1   10.000    8.000    2.449   -0.340   -1.102
+Outcome2   10.000    8.000    2.000   -0.417    0.735
+Outcome3   10.000    7.000    2.211    0.000    0.665</code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeCorrelationsBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">Factor</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Correlation Matrix for the Variables: Level1`
@@ -150,8 +150,8 @@ the correlations.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/estimateCorrelationsDifference.html">estimateCorrelationsDifference</a></span><span class="op">(</span><span class="va">CorrEstimateL1</span>, <span class="va">CorrEstimateL2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Difference of Correlations`
-              Diff      LL      UL
-Difference  -0.125  -0.921   0.657</code></pre>
+               Diff       LL       UL
+Difference   -0.125   -0.921    0.657</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotCorrelationsDifference.html">plotCorrelationsDifference</a></span><span class="op">(</span><span class="va">CorrEstimateL1</span>, <span class="va">CorrEstimateL2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="IndependentCorrelationsDataExample_files/figure-html/Compare-Data-Difference-1.png" width="672"></p>
@@ -160,13 +160,13 @@ be combined in one analyses.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/estimateCorrelationsComparison.html">estimateCorrelationsComparison</a></span><span class="op">(</span><span class="va">CorrEstimateL1</span>, <span class="va">CorrEstimateL2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Correlations`
-                    R      SE      LL      UL
-Correlation 1   0.533   0.378  -0.145   0.870
-Correlation 2   0.408   0.378  -0.298   0.826
+                     R       SE       LL       UL
+Correlation 1    0.533    0.378   -0.145    0.870
+Correlation 2    0.408    0.378   -0.298    0.826
 
 $`Confidence Interval for the Difference of Correlations`
-              Diff      LL      UL
-Difference  -0.125  -0.921   0.657</code></pre>
+               Diff       LL       UL
+Difference   -0.125   -0.921    0.657</code></pre>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotCorrelationsComparison.html">plotCorrelationsComparison</a></span><span class="op">(</span><span class="va">CorrEstimateL1</span>, <span class="va">CorrEstimateL2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="IndependentCorrelationsDataExample_files/figure-html/Compare-Data-Comparison-1.png" width="672"></p>

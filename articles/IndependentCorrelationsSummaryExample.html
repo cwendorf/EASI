@@ -119,16 +119,16 @@ tables.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedSummary</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeSummaryBy</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Summary Statistics for the Data: L1`
-               N       M      SD
-Outcome1  10.000   8.000   1.414
-Outcome2  10.000  11.000   2.211
-Outcome3  10.000  12.000   2.449
+                N        M       SD
+Outcome1   10.000    8.000    1.414
+Outcome2   10.000   11.000    2.211
+Outcome3   10.000   12.000    2.449
 
 $`Summary Statistics for the Data: L2`
-               N       M      SD
-Outcome1  10.000   8.000   2.449
-Outcome2  10.000   8.000   2.000
-Outcome3  10.000   7.000   2.211</code></pre>
+                N        M       SD
+Outcome1   10.000    8.000    2.449
+Outcome2   10.000    8.000    2.000
+Outcome3   10.000    7.000    2.211</code></pre>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">MixedCorr</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeCorrelationsBy</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Correlation Matrix for the Variables: L1`
@@ -159,8 +159,8 @@ correlations.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/estimateCorrelationsDifference.html">estimateCorrelationsDifference</a></span><span class="op">(</span><span class="va">CorrEstimateL1</span>, <span class="va">CorrEstimateL2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Interval for the Difference of Correlations`
-              Diff      LL      UL
-Difference  -0.125  -0.921   0.657</code></pre>
+               Diff       LL       UL
+Difference   -0.125   -0.921    0.657</code></pre>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotCorrelationsDifference.html">plotCorrelationsDifference</a></span><span class="op">(</span><span class="va">CorrEstimateL1</span>, <span class="va">CorrEstimateL2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="IndependentCorrelationsSummaryExample_files/figure-html/Compare-Summary-Difference-1.png" width="672"></p>
@@ -169,13 +169,13 @@ be combined in one analyses.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/estimateCorrelationsComparison.html">estimateCorrelationsComparison</a></span><span class="op">(</span><span class="va">CorrEstimateL1</span>, <span class="va">CorrEstimateL2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Correlations`
-                    R      SE      LL      UL
-Correlation 1   0.533   0.378  -0.145   0.870
-Correlation 2   0.408   0.378  -0.298   0.826
+                     R       SE       LL       UL
+Correlation 1    0.533    0.378   -0.145    0.870
+Correlation 2    0.408    0.378   -0.298    0.826
 
 $`Confidence Interval for the Difference of Correlations`
-              Diff      LL      UL
-Difference  -0.125  -0.921   0.657</code></pre>
+               Diff       LL       UL
+Difference   -0.125   -0.921    0.657</code></pre>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotCorrelationsComparison.html">plotCorrelationsComparison</a></span><span class="op">(</span><span class="va">CorrEstimateL1</span>, <span class="va">CorrEstimateL2</span><span class="op">)</span></span></code></pre></div>
 <p><img src="IndependentCorrelationsSummaryExample_files/figure-html/Compare-Summary-Comparison-1.png" width="672"></p>

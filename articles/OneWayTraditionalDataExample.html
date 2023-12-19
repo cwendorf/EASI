@@ -102,10 +102,10 @@ frame.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeSummary.html">describeSummary</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Summary Statistics for the Data`
-             N       M      SD    Skew    Kurt
-Level1  10.000   8.000   1.414   0.000  -0.738
-Level2  10.000  11.000   2.211  -0.617  -0.212
-Level3  10.000  12.000   2.449   0.340  -1.102</code></pre>
+              N        M       SD     Skew     Kurt
+Level1   10.000    8.000    1.414    0.000   -0.738
+Level2   10.000   11.000    2.211   -0.617   -0.212
+Level3   10.000   12.000    2.449    0.340   -1.102</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -120,9 +120,9 @@ means.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMeansEffect.html">describeEffect</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model`
-             SS      df      MS
-Between  86.667   2.000  43.333
-Within  116.000  27.000   4.296</code></pre>
+              SS       df       MS
+Between   86.667    2.000   43.333
+Within   116.000   27.000    4.296</code></pre>
 </div>
 <div class="section level3">
 <h3 id="proportion-of-variance-accounted-for">Proportion of Variance Accounted for<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for"></a>
@@ -132,8 +132,8 @@ factor (and the confidence interval for that estimate).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansEffect.html">estimateEffect</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model`
-           Est      LL      UL
-Factor   0.428   0.157   0.569</code></pre>
+            Est       LL       UL
+Factor    0.428    0.157    0.569</code></pre>
 </div>
 <div class="section level3">
 <h3 id="significance-test">Significance Test<a class="anchor" aria-label="anchor" href="#significance-test"></a>
@@ -142,8 +142,8 @@ Factor   0.428   0.157   0.569</code></pre>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansEffect.html">testEffect</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Model`
-             F     df1     df2       p
-Factor  10.086   2.000  27.000   0.001</code></pre>
+              F      df1      df2        p
+Factor   10.086    2.000   27.000    0.001</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -160,10 +160,10 @@ t tests).</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansPairwise.html">estimatePairwise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Pairwise Comparisons of Means`
-                     MD      SE      df      LL      UL
-Level1 v Level2   3.000   0.830  15.308   1.234   4.766
-Level1 v Level3   4.000   0.894  14.400   2.087   5.913
-Level2 v Level3   1.000   1.043  17.815  -1.194   3.194</code></pre>
+                      MD       SE       df       LL       UL
+Level1 v Level2    3.000    0.830   15.308    1.234    4.766
+Level1 v Level3    4.000    0.894   14.400    2.087    5.913
+Level2 v Level3    1.000    1.043   17.815   -1.194    3.194</code></pre>
 <p>Provide a traditional plot of the confidence intervals for the
 pairwise comparisons (including a line that represents no difference for
 the comparisons).</p>
@@ -184,10 +184,10 @@ include zero (darkblue) and those that do include zero (darkred).</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansPairwise.html">testPairwise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Pairwise Comparisons of Means`
-                     MD      SE      df       t       p
-Level1 v Level2   3.000   0.830  15.308   3.614   0.002
-Level1 v Level3   4.000   0.894  14.400   4.472   0.000
-Level2 v Level3   1.000   1.043  17.815   0.958   0.351</code></pre>
+                      MD       SE       df        t        p
+Level1 v Level2    3.000    0.830   15.308    3.614    0.002
+Level1 v Level3    4.000    0.894   14.400    4.472    0.000
+Level2 v Level3    1.000    1.043   17.815    0.958    0.351</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-effect-sizes">Standardized Effect Sizes<a class="anchor" aria-label="anchor" href="#standardized-effect-sizes"></a>
@@ -197,10 +197,10 @@ for the pairwise comparisons.</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateStandardizedMeansPairwise.html">standardizePairwise</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Pairwise Standardized Comparisons of Means`
-                      d      SE      LL      UL
-Level1 v Level2   1.616   0.555   0.529   2.703
-Level1 v Level3   2.000   0.601   0.822   3.178
-Level2 v Level3   0.429   0.477  -0.506   1.363</code></pre>
+                       d       SE       LL       UL
+Level1 v Level2    1.616    0.555    0.529    2.703
+Level1 v Level3    2.000    0.601    0.822    3.178
+Level2 v Level3    0.429    0.477   -0.506    1.363</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -214,10 +214,10 @@ of variance but do not make adjustments for multiple comparisons.</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansRelational.html">estimateRelational</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence and Relational Intervals for the Means`
-             M   RI.LL   RI.UL   CI.LL   CI.UL
-Level1   8.000   7.049   8.951   6.988   9.012
-Level2  11.000  10.049  11.951   9.418  12.582
-Level3  12.000  11.049  12.951  10.248  13.752</code></pre>
+              M    RI.LL    RI.UL    CI.LL    CI.UL
+Level1    8.000    7.049    8.951    6.988    9.012
+Level2   11.000   10.049   11.951    9.418   12.582
+Level3   12.000   11.049   12.951   10.248   13.752</code></pre>
 <p>Plot the intervals and enhance with color.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansRelational.html">plotRelational</a></span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span>, <span class="st">"darkgoldenrod"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -236,10 +236,10 @@ Tukey HSD procedures).</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansPosthoc.html">estimatePosthoc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Posthoc Comparisons of Means`
-                   Diff      SE      df      LL      UL
-Level1 v Level2   3.000   0.927  27.000   0.702   5.298
-Level1 v Level3   4.000   0.927  27.000   1.702   6.298
-Level2 v Level3   1.000   0.927  27.000  -1.298   3.298</code></pre>
+                    Diff       SE       df       LL       UL
+Level1 v Level2    3.000    0.927   27.000    0.702    5.298
+Level1 v Level3    4.000    0.927   27.000    1.702    6.298
+Level2 v Level3    1.000    0.927   27.000   -1.298    3.298</code></pre>
 <p>Provide a traditional plot of the confidence intervals for the post
 hoc comparisons (including a line that represents no difference for the
 comparisons).</p>
@@ -260,10 +260,10 @@ include zero (darkblue) and those that do include zero (darkred).</p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansPosthoc.html">testPosthoc</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Posthoc Comparisons of Means`
-                   Diff      SE      df       t       p
-Level1 v Level2   3.000   0.927  27.000   3.236   0.009
-Level1 v Level3   4.000   0.927  27.000   4.315   0.001
-Level2 v Level3   1.000   0.927  27.000   1.079   0.535</code></pre>
+                    Diff       SE       df        t        p
+Level1 v Level2    3.000    0.927   27.000    3.236    0.009
+Level1 v Level3    4.000    0.927   27.000    4.315    0.001
+Level2 v Level3    1.000    0.927   27.000    1.079    0.535</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-effect-sizes-1">Standardized Effect Sizes<a class="anchor" aria-label="anchor" href="#standardized-effect-sizes-1"></a>
@@ -273,10 +273,10 @@ for the post hoc comparisons.</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">standardizePosthoc</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Confidence Intervals for the Posthoc Standardized Comparisons of Means`
-                      d      SE      LL      UL
-Level1 v Level2   1.616   0.555   0.529   2.703
-Level1 v Level3   2.000   0.601   0.822   3.178
-Level2 v Level3   0.429   0.477  -0.506   1.363</code></pre>
+                       d       SE       LL       UL
+Level1 v Level2    1.616    0.555    0.529    2.703
+Level1 v Level3    2.000    0.601    0.822    3.178
+Level2 v Level3    0.429    0.477   -0.506    1.363</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

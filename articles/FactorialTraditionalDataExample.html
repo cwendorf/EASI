@@ -105,22 +105,22 @@ frame.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeSummaryBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Summary Statistics for the Data: B1`
-         N       M      SD    Skew    Kurt
-A1  10.000   8.000   1.414   0.000  -0.738
-A2  10.000  11.000   2.211  -0.617  -0.212
-A3  10.000  12.000   2.449   0.340  -1.102
+          N        M       SD     Skew     Kurt
+A1   10.000    8.000    1.414    0.000   -0.738
+A2   10.000   11.000    2.211   -0.617   -0.212
+A3   10.000   12.000    2.449    0.340   -1.102
 
 $`Summary Statistics for the Data: B2`
-         N       M      SD    Skew    Kurt
-A1  10.000   8.000   2.449  -0.340  -1.102
-A2  10.000   8.000   2.000  -0.417   0.735
-A3  10.000   7.000   2.211   0.000   0.665</code></pre>
+          N        M       SD     Skew     Kurt
+A1   10.000    8.000    2.449   -0.340   -1.102
+A2   10.000    8.000    2.000   -0.417    0.735
+A3   10.000    7.000    2.211    0.000    0.665</code></pre>
 <p>Plot the means and their confidence intervals for the design as a
 whole.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotFactorial</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/legend.html" class="external-link">legend</a></span><span class="op">(</span><span class="st">"topleft"</span>, inset <span class="op">=</span> <span class="fl">.01</span>, box.lty <span class="op">=</span> <span class="fl">0</span>, pch <span class="op">=</span> <span class="fl">16</span>, legend <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"B1"</span>, <span class="st">"B2"</span><span class="op">)</span>, col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"darkred"</span>, <span class="st">"darkblue"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="FactorialTraditionalDataExample_files/figure-html/Interaction-Factorial-Omnibus-1.png" width="672"></p>
+<p><img src="FactorialTraditionalDataExample_files/figure-html/Factorial-Data-Omnibus-1.png" width="672"></p>
 </div>
 </div>
 <div class="section level2">
@@ -135,11 +135,11 @@ interaction.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMeansFactorial.html">describeFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: Between Subjects`
-                   SS      df      MS
-Factor        106.667   1.000 106.667
-Blocks         30.000   2.000  15.000
-Factor:Blocks  63.333   2.000  31.667
-Residual      250.000  54.000   4.630</code></pre>
+                    SS       df       MS
+Factor         106.667    1.000  106.667
+Blocks          30.000    2.000   15.000
+Factor:Blocks   63.333    2.000   31.667
+Residual       250.000   54.000    4.630</code></pre>
 </div>
 <div class="section level3">
 <h3 id="proportion-of-variance-accounted-for">Proportion of Variance Accounted For<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for"></a>
@@ -149,10 +149,10 @@ effect (along with their confidence intervals).</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansFactorial.html">estimateFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: Between Subjects`
-                  Est      LL      UL
-Factor          0.299   0.136   0.437
-Blocks          0.107   0.000   0.176
-Factor:Blocks   0.202   0.014   0.248</code></pre>
+                   Est       LL       UL
+Factor           0.299    0.136    0.437
+Blocks           0.107    0.000    0.176
+Factor:Blocks    0.202    0.014    0.248</code></pre>
 </div>
 <div class="section level3">
 <h3 id="significance-tests">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests"></a>
@@ -161,10 +161,10 @@ Factor:Blocks   0.202   0.014   0.248</code></pre>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansFactorial.html">testFactorial</a></span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Tests for the Model: Between Subjects`
-                    F     df1     df2       p
-Factor         23.040   1.000  54.000   0.000
-Blocks          3.240   2.000  54.000   0.047
-Factor:Blocks   6.840   2.000  54.000   0.002</code></pre>
+                     F      df1      df2        p
+Factor          23.040    1.000   54.000    0.000
+Blocks           3.240    2.000   54.000    0.047
+Factor:Blocks    6.840    2.000   54.000    0.002</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -180,14 +180,14 @@ the levels of another factor).</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">describeEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Source Table for the Model: B1`
-             SS      df      MS
-Between  86.667   2.000  43.333
-Within  116.000  27.000   4.296
+              SS       df       MS
+Between   86.667    2.000   43.333
+Within   116.000   27.000    4.296
 
 $`Source Table for the Model: B2`
-             SS      df      MS
-Between   6.667   2.000   3.333
-Within  134.000  27.000   4.963</code></pre>
+              SS       df       MS
+Between    6.667    2.000    3.333
+Within   134.000   27.000    4.963</code></pre>
 </div>
 <div class="section level3">
 <h3 id="proportion-of-variance-accounted-for-1">Proportion of Variance Accounted For<a class="anchor" aria-label="anchor" href="#proportion-of-variance-accounted-for-1"></a>
@@ -197,12 +197,12 @@ simple effect (and the confidence interval for that estimate).</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">estimateEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Proportion of Variance Accounted For by the Model: B1`
-           Est      LL      UL
-Factor   0.428   0.157   0.569
+            Est       LL       UL
+Factor    0.428    0.157    0.569
 
 $`Proportion of Variance Accounted For by the Model: B2`
-           Est      LL      UL
-Factor   0.047   0.000   0.173</code></pre>
+            Est       LL       UL
+Factor    0.047    0.000    0.173</code></pre>
 </div>
 <div class="section level3">
 <h3 id="significance-tests-1">Significance Tests<a class="anchor" aria-label="anchor" href="#significance-tests-1"></a>
@@ -211,12 +211,12 @@ Factor   0.047   0.000   0.173</code></pre>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">FactorA</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">testEffectBy</span><span class="op">(</span>by <span class="op">=</span> <span class="va">FactorB</span><span class="op">)</span></span></code></pre></div>
 <pre><code>$`Hypothesis Test for the Model: B1`
-             F     df1     df2       p
-Factor  10.086   2.000  27.000   0.001
+              F      df1      df2        p
+Factor   10.086    2.000   27.000    0.001
 
 $`Hypothesis Test for the Model: B2`
-             F     df1     df2       p
-Factor   0.672   2.000  27.000   0.519</code></pre>
+              F      df1      df2        p
+Factor    0.672    2.000   27.000    0.519</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
