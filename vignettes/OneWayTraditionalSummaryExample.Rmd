@@ -5,7 +5,7 @@ description: >
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(fig.width = 7, fig.height = 6, comment = NA)
+knitr::opts_chunk$set(fig.width = 7, fig.height = 7, comment = NA)
 ```
 
 ```{r, include=FALSE}

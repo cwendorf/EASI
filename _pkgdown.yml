@@ -9,7 +9,7 @@ authors:
 
 reference:
 - title: Grammar and Manipulation
-  desc: Construct frames and focus on specific variables or factor levels
+  desc: Construct data frames and focus on specific variables or factor levels
   contents:
   - construct
   - focus

@@ -6,7 +6,7 @@ output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(fig.width = 7, fig.height = 6, comment = NA)
+knitr::opts_chunk$set(fig.width = 7, fig.height = 7, comment = NA)
 ```
 
 ```{r, include=FALSE}
@@ -42,7 +42,7 @@ This code provides a table of summary statistics and a table of correlations.
 ```
 
 Plot the means and confidence intervals for the design as a whole.
-```{r, Interaction-Mixed-Omnibus}
+```{r, Mixed-Data-Omnibus}
 (MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> plotFactorial(by = Factor, col = c("darkred", "darkblue"))
 legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("Level1", "Level2"), col = c("darkred", "darkblue"))
 ```
