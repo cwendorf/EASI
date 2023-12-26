@@ -38,6 +38,11 @@ This code obtains the descriptive statistics for the data frame.
 (RepeatedData) |> describeSummary()
 ```
 
+This code will display the correlations among the variables.
+```{r}
+(RepeatedData) |> describeCorrelations()
+```
+
 ## Analyses of the Omnibus Effect
 
 The Analysis of Variance examines the overall differences among the means.

@@ -43,6 +43,11 @@ Plot the summary statistics. The bars represent standard deviations, with dotted
 (RepeatedData) |> plotSummary()
 ```
 
+This code will display the correlations among the variables.
+```{r}
+(RepeatedData) |> describeCorrelations()
+```
+
 ## Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.
