@@ -221,7 +221,7 @@ This code produces a NHST for the identified contrast. It tests the contrast aga
 
 If desired, the contrast can be tested against other values.
 ```{r}
-(Outcome ~ FactorA) |> describeMoments(by = FactorB) |> testContrastBy(contrast = c(-1, .5, .5), mu = 4)
+(Outcome ~ FactorA) |> describeMoments(by = FactorB) |> testContrast(contrast = c(-1, .5, .5), mu = 4)
 ```
 
 ### Standardized Effect Sizes
