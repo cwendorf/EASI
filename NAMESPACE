@@ -94,7 +94,7 @@ S3method(describeMomentsSet,data.frame)
 S3method(describeMomentsSet,formula)
 S3method(describeMomentsSet,wsm)
 S3method(describeMomentsSet,bsm)
-export(describeMoments)
+export(describeMomentsSet)
 
 S3method(plotMomentsSet,data.frame)
 S3method(plotMomentsSet,formula)
