@@ -7,19 +7,19 @@
 \description{Provides a plot of all group or level means and their confidence intervals in a factorial or mixed design.}
 
 \usage{
-\method{plotMeans}{default}(frame, by, ylab="Outcome", xlab="", conf.level=.95)
+\method{plotMeans}{data.frame}(frame, by, ylab="Outcome", xlab="", conf.level=.95)
 
 \method{plotMeans}{formula}(formula, by, ylab="Outcome", xlab="", conf.level=.95)
 
-\method{plotMeans}{wss}(DescStats, ylab="Outcome", xlab="", conf.level=.95)
+\method{plotMeans}{wsm}(moments, ylab="Outcome", xlab="", conf.level=.95)
 
-\method{plotMeans}{bss}(DescStats, ylab="Outcome", xlab="", conf.level=.95)
+\method{plotMeans}{bsm}(moments, ylab="Outcome", xlab="", conf.level=.95)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
-\item{DescStats}{a matrix/frame of descriptive/summary statistics}
+\item{moments}{a matrix/frame of descriptive/summary statistics}
 \item{by}{a blocking factor}
 \item{ylab}{a label for the y-axis}
 \item{xlab}{a label for the x-axis}

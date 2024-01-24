@@ -8,7 +8,7 @@
 \description{Provides a plausibility curve for each group or variable.}
 
 \usage{
-\method{plotPlausible}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, type="right", offset=0, scale=1, col="black")
+\method{plotPlausible}{data.frame}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, type="right", offset=0, scale=1, col="black")
 
 \method{plotPlausible}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, type="right", offset=0, scale=1, col="black")
 }

@@ -1,31 +1,41 @@
 # Estimation Approach to Statistical Inference
 ## Plot
 
-### Initialize Plots
+### Color
 
-.plotMain <- function(results, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, ...) {
-  if (is.null(main)) {
-    main <- names(results)
-  }
+.colorTransparent <- function(someColor, alpha = 100) {
+  newColor <- col2rgb(someColor)
+  apply(newColor, 2, function(x) {
+    rgb(red = x[1], green = x[2], blue = x[3], alpha = alpha, maxColorValue = 255)
+  })
+}
+
+.colorIntensity <- function(someColor, increase = .0) {
+  newColor <- rgb2hsv(col2rgb(someColor))
+  newColor[3, ] <- newColor[3, ] + increase
+  newColor[newColor > 1] <- 1
+  apply(newColor, 2, function(x) {
+    hsv(h = x[1], s = x[2], v = x[3])
+  })
+}
+
+### Initialize
+
+plot.main <- function(results, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, ...) {
+  if (is.null(main)) main <- comment(results)
   main <- paste(strwrap(main, width = 0.7 * getOption("width")), collapse = "\n")
-  results <- .unformatFrame(results[[1]])
-  if (is.null(ylim)) {
-    ylim <- range(pretty(c(floor(min(results) - .5), ceiling(max(results) + .5))))
-  }
+  if (is.null(ylim)) ylim <- range(pretty(c(floor(min(results) - .5), ceiling(max(results) + .5))))
   par(mar = c(5, 5, 5, 3))
   plot(NULL, xaxs = "i", yaxs = "i", xaxt = "n", xlim = c(.4, nrow(results) + .6), ylim = ylim, xlab = xlab, cex.lab = 1.15, ylab = ylab, main = main, las = 1, bty = "l")
   axis(1, seq_len(nrow(results)), row.names(results))
 }
 
-.plotComp <- function(results, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, slab = "Difference", ...) {
-  if (is.null(main)) main <- names(results[1])
-  results <- .unformatFrame(results[[1]])
+plot.comp <- function(results, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, slab = "Difference", ...) {
+  if (is.null(main)) main <- comment(results)
   main <- paste(strwrap(main, width = 0.7 * getOption("width")), collapse = "\n")
   graph <- results
   graph[3, ] <- results[3, ] + results[1, 1]
-  if (is.null(ylim)) {
-    ylim <- range(pretty(c(floor(min(graph[, 2]) - .5), ceiling(max(graph[, 3]) + .5))))
-  }
+  if (is.null(ylim)) ylim <- range(pretty(c(floor(min(graph[, 2]) - .5), ceiling(max(graph[, 3]) + .5))))
   par(mar = c(5, 5, 5, 5))
   plot(NULL, xaxt = "n", yaxt = "n", xaxs = "i", yaxs = "i", xlim = c(.4, 3.6), ylim = ylim, xlab = xlab, ylab = ylab, main = main, las = 1, cex.lab = 1.15, bty = "n")
   axis(1, .4:2.5, labels = FALSE, lwd.tick = 0)
@@ -47,10 +57,23 @@
   mtext(slab, side = 4, las = 3, cex = 1.15, line = 3)
 }
 
-### Interval Plots
+plot.easi.list <- function(results, ...) {
+  for (i in seq_along(results)) {
+    temp <- results[[i]]
+    plot(temp, ...)
+    par(ask=TRUE)
+  }
+  par(ask = FALSE)
+}
 
-.intervalsMain <- function(results, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, line = NULL, rope = NULL, values = TRUE, digits = 3, connect = FALSE, pos = 2, pch = 16, col = "black", offset = 0, points = TRUE, intervals = TRUE, ...) {
-  results <- .unformatFrame(results[[1]])
+### Intervals
+
+plot.intervals.main <- function(results, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, line = NULL, rope = NULL, values = TRUE, digits = 3, connect = FALSE, pos = 2, pch = 16, col = "black", offset = 0, points = TRUE, intervals = TRUE, ...) {
+  out <- results
+  if (is.null(main)) main <- comment(results)
+  results <- results[, cbind(1, which(colnames(results) == "LL"), which(colnames(results) == "UL")), drop = FALSE]
+  comment(results) <- main
+  if (!add) plot.main(results, main, ylab, xlab, ylim)
   if (points) points(seq_len(nrow(results)) + offset, results[, 1], pch = pch, cex = 1.5, col = col, lwd = 2, bg = .colorIntensity(col, .6))
   if (intervals) arrows(seq_len(nrow(results)) + offset, results[, 2], seq_len(nrow(results)) + offset, results[, 3], col = col, lwd = 2, length = 0)
   if (connect) {
@@ -70,10 +93,15 @@
     text(seq_len(nrow(results)) + offset, as.numeric(results[, 2]), results[, 2], cex = .8, pos = pos, offset = .5, col = col)
     text(seq_len(nrow(results)) + offset, as.numeric(results[, 3]), results[, 3], cex = .8, pos = pos, offset = .5, col = col)
   }
+  invisible(out)
 }
 
-.intervalsComp <- function(results, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, slab = NULL, rope = NULL, values = TRUE, digits = 3, connect = FALSE, pos = c(2, 2, 4), pch = c(15, 15, 17), col = "black", offset = 0, points = TRUE, intervals = TRUE, lines = TRUE, ...) {
-  results <- .unformatFrame(results[[1]])
+plot.intervals.comp <- function(results, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, slab = "Difference", rope = NULL, values = TRUE, digits = 3, connect = FALSE, pos = c(2, 2, 4), pch = c(15, 15, 17), col = "black", offset = 0, points = TRUE, intervals = TRUE, lines = TRUE, ...) {
+  out <- results
+  if (is.null(main)) main <- comment(results)
+  results <- results[, cbind(1, which(colnames(results) == "LL"), which(colnames(results) == "UL"))]
+  comment(results) <- main
+  if (!add) plot.comp(results, main, ylab, xlab, ylim, slab)
   graph <- results
   graph[3, ] <- results[3, ] + results[1, 1]
   if (points) points(1:3 + offset, graph[, 1], pch = pch, cex = 1.5, col = col, lwd = 2, bg = .colorIntensity(col, .6))
@@ -92,12 +120,14 @@
     text(1:3 + offset, graph[, 2], results[, 2], cex = .8, pos = pos, offset = .5, col = col)
     text(1:3 + offset, graph[, 3], results[, 3], cex = .8, pos = pos, offset = .5, col = col)
   }
+  invisible(out)
 }
 
-.intervalsMulti <- function(results, main, ylab, xlab, col) {
+plot.intervals.multi <- function(results, main, ylab, xlab, col) {
+  if (is.null(main)) main <- comment(results[[1]])
   main <- paste(strwrap(main, width = 0.7 * getOption("width")), collapse = "\n")
-  ylimmin <- floor(min(unlist(lapply(results, FUN = function(x) min(x["LL"]))))) - .5
-  ylimmax <- ceiling(max(unlist(lapply(results, FUN = function(x) max(x["UL"]))))) + .5
+  ylimmin <- floor(min(unlist(lapply(results, FUN = function(x) min(x[,"LL"]))))) - .5
+  ylimmax <- ceiling(max(unlist(lapply(results, FUN = function(x) max(x[,"UL"]))))) + .5
   ylimrange <- range(c(ylimmin, ylimmax))
   xlimrange <- c(.4, nrow(results[[1]]) + .6)
   plot(NULL, xaxs = "i", yaxs = "i", xaxt = "n", xlim = xlimrange, ylim = ylimrange, ylab = ylab, xlab = xlab, cex.lab = 1.15, main = main, bty = "l")
@@ -111,12 +141,13 @@
     for (j in 1:nrow(results[[i]])) {
       lines(x = c(j + (i - (length(results) + 1) / 2) * .15, j + (i - (length(results) + 1) / 2) * .15), y = c(results[[i]][, 4][j], results[[i]][, 5][j]), lwd = 2, col = tempcol)
     }
-    if (class(results) == "wss") lines(1:nrow(results[[i]]) + (i - (length(results) + 1) / 2) * .15, results[[i]][, 1], bty = "l", col = tempcol)
+    if (class(results) == "wsml") lines(1:nrow(results[[i]]) + (i - (length(results) + 1) / 2) * .15, results[[i]][, 1], bty = "l", col = tempcol)
     points(1:nrow(results[[i]]) + (i - (length(results) + 1) / 2) * .15, results[[i]][, 1], cex = 1.5, pch = 16, bty = "l", col = tempcol, lwd = 2)
   }
 }
 
-.intervalsDiffogram <- function(dm, emp, main = NULL, ylab = "", xlab = "", ylim = NULL, pch = 17, col = "black") {
+.intervals.diffogram <- function(dm, emp, main = NULL, ylab = "", xlab = "", ylim = NULL, pch = 17, col = "black") {
+  if (is.null(main)) main <- comment(emp)
   fm <- t(combn(dm[, 2], 2))
   dif <- (emp[, "UL"] - emp[, "LL"]) / 4
   lox <- fm[, 1] - dif
@@ -139,14 +170,4 @@
   mtext(rownames(dm), side = 4, at = dm[, 2], las = 1, line = -2)
   arrows(lox, loy, hix, hiy, length = 0, lwd = 2, col = col)
   points(fm[, 1], fm[, 2], pch = pch, col = col, lwd = 2, bg = .colorIntensity(col, .6))
-}
-
-### Plot Shapes
-
-.plotCurve <- function(dens, loc, type = NULL, offset = .1, scale = 1, col = "black") {
-  y1 <- loc + (dens$y * scale) + offset
-  y2 <- loc - (dens$y * scale) + offset
-  if (type == "full") polygon(c(y1, rev(y2)), c(dens$x, rev(dens$x)), border = .colorTransparent(col, 50), col = .colorTransparent(col, 30))
-  if (type == "right") polygon(c(y1, seq(from = loc + offset, to = loc + offset, length.out = length(y1))), c(dens$x, rev(dens$x)), border = .colorTransparent(col, 50), col = .colorTransparent(col, 30))
-  if (type == "left") polygon(c(y2, seq(from = loc + offset, to = loc + offset, length.out = length(y2))), c(dens$x, rev(dens$x)), border = .colorTransparent(col, 50), col = .colorTransparent(col, 30))
 }

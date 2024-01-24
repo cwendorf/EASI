@@ -7,15 +7,15 @@
 \description{Provides a plot of all correlations and their confidence intervals for a list of variables.}
 
 \usage{
-\method{plotCorrelations}{default}(frame, , ylab="Correlation", xlab="", conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotCorrelations}{data.frame}(frame, , ylab="Correlation", xlab="", conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotCorrelations}{wss}(CompStats, CorrStats, ylab="Correlation", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotCorrelations}{wsm}(moments, corrs, ylab="Correlation", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
-\item{CompStats}{a matrix/frame of descriptive/summary statistics}
-\item{CorrStats}{a matrix/frame of correlations among the measures}
+\item{moments}{a matrix/frame of descriptive/summary statistics}
+\item{corrs}{a matrix/frame of correlations among the measures}
 \item{ylab}{a label for the y-axis}
 \item{xlab}{a label for the x-axis}
 \item{conf.level}{confidence level of the interval}

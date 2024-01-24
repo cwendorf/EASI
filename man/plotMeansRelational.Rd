@@ -8,19 +8,19 @@
 \description{Provides a plot of arelational (confidence) and relational (comparative) intervals for each group or level mean.}
 
 \usage{
-\method{plotMeansRelational}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
+\method{plotMeansRelational}{data.frame}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
 
 \method{plotMeansRelational}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
 
-\method{plotMeansRelational}{wss}(DescStats, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
+\method{plotMeansRelational}{wsm}(moments, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
 
-\method{plotMeansRelational}{bss}(DescStats, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
+\method{plotMeansRelational}{bsm}(moments, add=FALSE, main=NULL, ylab="Outcome", xlab="", conf.level=.95, mu=NULL, rope=NULL, values=TRUE, ylim=NULL, digits=3, col=rgb(.5, .5, .5, .4), border=NA)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
-\item{DescStats}{a matrix/frame of descriptive/summary statistics}
+\item{moments}{a matrix/frame of descriptive/summary statistics}
 \item{ylab}{a label for the y-axis}
 \item{xlab}{a label for the x-axis}
 \item{mu}{a number indicating the true/hypothesized value of the mean}

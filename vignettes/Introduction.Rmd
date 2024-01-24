@@ -1,12 +1,12 @@
 ---
 title: "Introduction"
 description: >
-  This page outlines the general purpose and structure of the EASI functions.
+  This page outlines the general purpose and structure of the EASI workflow.
 output: rmarkdown::html_vignette
 ---
 
 ```{r, include=FALSE}
-knitr::opts_chunk$set(fig.width = 7, fig.height = 6, comment = NA)
+knitr::opts_chunk$set(fig.width = 7, fig.height = 7, comment = NA)
 ```
 
 ```{r, include=FALSE}
@@ -23,7 +23,7 @@ This page outlines the general purpose and structure of the EASI functions.
 
 EASI was designed to offer a simple, intuitive, and consistent way to implement estimation statistics in R. The following goals set the scope of the project:
 
-- Functions are generally limited to means (and functions of means), correlations, and regression coefficients
+- Functions are generally limited to means (and functions of means)
 - Analyses can be conducted using either raw data or summary statistics (means, standard deviations, and correlations)
 - Calculations run on the same underlying functions regardless of type of input
 - Output utilizes consistent layouts and labeling across different types of analyses
@@ -47,22 +47,25 @@ Additionally, the `plot` versions offer graphs of the descriptive statistics, es
 - `plotScatter` - provides a scatterplot of the data from two variables
 - `plotMeans` - provides a graph of the means and their confidence intervals
 
-## Function Calls
+## Function Calls and Workflow
 
-In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant additional arguments (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional arguments in parentheses). This format is used throughout EASI.
+In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant optional arguments (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional arguments in parentheses). This format is used throughout EASI.
 
 ```{r, eval=FALSE}
 (Outcome ~ Factor) |> estimateMeans()
-(Outcome ~ Factor) |> estimateMeans(conf.level = .99, main = "Custom Table Title", digits = 2)
-construct(Outcome1, Outcome2) |> plotMeans()
-construct(Outcome1, Outcome2) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
+(Outcome ~ Factor) |> estimateMeans(conf.level = .99)
+construct(Outcome1, Outcome2, Outcome3) |> plotMeans()
+construct(Outcome1, Outcome2, Outcome3) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
 
-When individual variables are not directly accessible (like when the dataset is predefined) or when using subsets of larger datasets (like when analyzing factorial designs), it is typically necessary to identify the data first and then select the variables to be analyzed from within the data set. In base R, this is accomplished using a `with` command (or built in data identification arguments). In EASI, this is accomplished by using the `focus` command (which has many related uses as well).
-
+When individual variables are not directly accessible (like when the dataset is predefined) or when using subsets of larger datasets (like when analyzing specific variables or groups), it is typically necessary to identify the data first and then select the variables to be analyzed from within the data set. In base R, this is accomplished using a `with` command (or built in data identification arguments). In EASI, this is accomplished by using the `focus` command (which has many related uses as well).
 ```{r, eval=FALSE}
-(OneWayData) |> focus(Outcome ~ Factor) |> estimateMeans()
-(OneWayData) |> focus(Outcome ~ Factor) |> estimateMeans(conf.level = .99, main = "Custom Table Title", digits = 2)
-(RepeatedData) |> focus(Outcome1, Outcome2) |> plotMeans()
+(OneWayData) |> focus(Outcome ~ Factor) |> estimateMeans(conf.level = .99)
 (RepeatedData) |> focus(Outcome1, Outcome2) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
+```
+
+Note that the above function calls imply that EASI uses a very general analysis workflow. In most simple cases, the functions will expect a "Data |> Analyze" format, with intermediate steps for "focusing" on specific variables or groups. In advanced cases (like factorial and mixed designs), it will be important to elaborate with a "Data |> Describe |> Analyze" sequence (with the possibility of "focusing" between each of these).
+```{r, eval=FALSE}
+(MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> describeMoments(by = Factor) |> estimateMeans(conf.level = .99)
+(FactorialData) |> focus(Outcome ~ FactorA) |> describeMoments(by = FactorB) |> focus(A1, A2) |> plotComparison(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```

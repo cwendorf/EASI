@@ -1,4 +1,10 @@
 
+## EASI 6.0.240123
+
+- Rebuilt architecture to shrink size of entire package
+- Simplified output using print and plot methods
+- Removed most "by" functions to focus on analytical strategy
+
 ## EASI 5.5.231128
 
 - Moved all documentation and examples to a pkgdown-based website

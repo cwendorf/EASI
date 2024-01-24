@@ -12,6 +12,7 @@ reference:
   desc: Construct data frames and focus on specific variables or factor levels
   contents:
   - construct
+  - combine
   - focus
 
 - title: Data and Distributions
@@ -48,11 +49,11 @@ reference:
   - describeBoxes
   - plotBoxes
 
-- subtitle: Summary
+- subtitle: Moments
   desc: Obtain and plot summary statistics of the variables
   contents:
-  - describeSummary
-  - plotSummary
+  - describeMoments
+  - plotMoments
 
 - subtitle: Scatter
   desc: Plot scatterplots of the variables
@@ -67,11 +68,7 @@ reference:
   - estimateMeans
   - plotMeans
   - testMeans
-
-- subtitle: Standardized Means
-  desc: Examine all individual standardized group, level, or variable means
-  contents:
-  - estimateStandardizedMeans
+  - standardizeMeans
 
 - subtitle: Means Difference
   desc: Examine a difference among two group, level, or variable means
@@ -79,11 +76,7 @@ reference:
   - estimateMeansDifference
   - plotMeansDifference
   - testMeansDifference
-
-- subtitle: Standardized Means Difference
-  desc: Examine a standardized difference among two group, level, or variable means
-  contents:
-  - estimateStandardizedMeansDifference
+  - standardizeMeansDifference
 
 - subtitle: Means Comparison
   desc: Examine a comparison among two group, level, or variable means
@@ -98,11 +91,7 @@ reference:
   - estimateMeansContrast
   - plotMeansContrast
   - testMeansContrast
-
-- subtitle: Standardized Means Contrast
-  desc: Examine a standardized contrast among all of the group, level, or variable means
-  contents:
-  - estimateStandardizedMeansContrast
+  - standardizeMeansContrast
 
 - subtitle: Means Subsets
   desc: Examine a subset contrast among all of the group, level, or variable means
@@ -124,11 +113,7 @@ reference:
   - estimateMeansPairwise
   - plotMeansPairwise
   - testMeansPairwise
-
-- subtitle: Standardized Means Pairwise
-  desc: Examine all possible unadjusted standardized pairwise comparisons among the group, level, or variable means
-  contents:
-  - estimateStandardizedMeansPairwise
+  - standardizeMeansPairwise
 
 - subtitle: Means Posthoc
   desc: Examine all possible Tukey posthoc comparisons among the group, level, or variable means
@@ -136,6 +121,7 @@ reference:
   - estimateMeansPosthoc
   - plotMeansPosthoc
   - testMeansPosthoc
+  - standardizeMeansPosthoc
 
 - subtitle: Means Relational
   desc: Provide both arelational (confidence) and relational (comparative) intervals for group, level, or variable means
@@ -165,7 +151,7 @@ reference:
   - testMeansInteraction
   - plotMeansInteraction
 
-- title: Correlations and Regression Models
+- title: Correlation and Regression
 
 - subtitle: Correlations
   desc: Provide analyses of correlations among variables
@@ -175,23 +161,11 @@ reference:
   - plotCorrelations
   - testCorrelations
 
-- subtitle: Correlations Difference
-  desc: Provide analyses of differences of a correlation in multiple samples
-  contents:
-  - estimateCorrelationsDifference
-  - plotCorrelationsDifference
-
-- subtitle: Correlations Comparison
-  desc: Provide analyses of a comparison of a correlation in multiple samples
-  contents:
-  - estimateCorrelationsComparison
-  - plotCorrelationsComparison
-
-- subtitle: Regression
+- subtitle: Regression Line
   desc: Provide analyses of the regression line and values
   contents:
-  - estimateRegression
-  - plotRegression
+  - estimateRegressionLine
+  - plotRegressionLine
 
 - subtitle: Regression Coefficients
   desc: Provide analyses of regression coefficients
@@ -199,19 +173,14 @@ reference:
   - estimateRegressionCoefficients
   - plotRegressionCoefficients
   - testRegressionCoefficients
+  - standardizeRegressionCoefficients
 
-- subtitle: Standardized Regression Coefficients
-  desc: Provide analyses of standardized regression coefficients
-  contents:
-  - estimateStandardizedRegressionCoefficients
-  - plotStandardizedRegressionCoefficients
-
-- subtitle: Regression Effect
+- subtitle: Regression Model
   desc: Provide an analysis of variance and effect size for a regression model
   contents:
-  - describeRegressionEffect
-  - estimateRegressionEffect
-  - testRegressionEffect
+  - describeRegressionModel
+  - estimateRegressionModel
+  - testRegressionModel
 
 articles:
 - title: Getting Started
@@ -220,44 +189,29 @@ articles:
 
 - title: OneWay (Between-Subjects) Analyses
   contents:
-  - OneWayExplorationDataExample
-  - OneWayAlternativeDataExample
-  - OneWayTraditionalDataExample
-  - OneWayAlternativeSummaryExample
-  - OneWayTraditionalSummaryExample
+  - OneWayDataExploration
+  - OneWayDataContrasts
+  - OneWaySummaryContrasts
 
 - title: Repeated Measures (Within-Subjects) Analyses
   contents:
-  - RepeatedExplorationDataExample
-  - RepeatedAlternativeDataExample
-  - RepeatedTraditionalDataExample
-  - RepeatedAlternativeSummaryExample
-  - RepeatedTraditionalSummaryExample
+  - RepeatedDataExploration
+  - RepeatedDataContrasts
+  - RepeatedSummaryContrasts
 
 - title: Factorial (Between-Subjects) Analyses
   contents:
-  - FactorialAlternativeDataExample
-  - FactorialTraditionalDataExample
-  - FactorialAlternativeSummaryExample
-  - FactorialTraditionalSummaryExample
+  - FactorialDataContrasts
+  - FactorialSummaryContrasts
 
 - title: Mixed (Between-Subjects and Within-Subjects) Analyses
   contents:
-  - MixedAlternativeDataExample
-  - MixedTraditionalDataExample
-  - MixedAlternativeSummaryExample
-  - MixedTraditionalSummaryExample
+  - MixedDataContrasts
+  - MixedSummaryContrasts
 
-- title: Correlational Analyses
+- title: Correlation and Regression Analyses
   contents:
-  - MultipleCorrelationsDataExample
-  - MultipleCorrelationsSummaryExample
-  - IndependentCorrelationsDataExample
-  - IndependentCorrelationsSummaryExample
-
-- title: Regression Analyses
-  contents:
-  - BivariateRegressionDataExample
-  - BivariateRegressionSummaryExample
-  - MultipleRegressionDataExample
-  - MultipleRegressionSummaryExample
+  - RepeatedDataCorrelations
+  - RepeatedSummaryCorrelations
+  - BivariateDataRegression
+  - BivariateSummaryRegression

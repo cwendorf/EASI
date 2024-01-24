@@ -1,26 +1,26 @@
 # Estimation Approach to Statistical Inference
 ## Regression Coefficients
 
-### Confidence Intervals
+### Estimate
 
-.estimateRegressionCoefficients <- function(x, ...) {
-  UseMethod(".estimateRegressionCoefficients")
+estimateCoefficients <- estimateRegressionCoefficients <- function(x, ...) {
+  UseMethod("estimateRegressionCoefficients")
 }
 
-.estimateRegressionCoefficients.wss <- function(DescStats, CorrStats, y = NULL, conf.level = .95, ...) {
+estimateRegressionCoefficients.wsm <- function(moments, corrs, y = NULL, conf.level = .95, ...) {
   if (!is.null(y)) {
-    rn <- rownames(DescStats)
+    rn <- rownames(moments)
     ri <- which(rn == deparse(substitute(y)))
     rn <- c(rn[-ri], rn[ri])
-    DescStats <- DescStats[rn, ]
-    class(DescStats) <- "wss"
+    moments <- moments[rn, ]
+    class(moments) <- "wsm"
   }
-  rn <- rownames(DescStats)
-  CorrStats <- CorrStats[rn, rn]
-  M <- DescStats[, "M"]
-  V <- .cortocov(CorrStats, DescStats[, "SD"])
-  N <- DescStats[1, "N"]
-  k <- nrow(DescStats) - 1
+  rn <- rownames(moments)
+  corrs <- corrs[rn, rn]
+  M <- moments[, "M"]
+  V <- .cortocov(corrs, moments[, "SD"])
+  N <- moments[1, "N"]
+  k <- nrow(moments) - 1
   M <- M * N
   V <- V * (N - 1)
   V <- V + outer(M, M) / N
@@ -37,10 +37,12 @@
   UL <- b + qt(1 - alpha.upper, df) * SE
   results <- cbind(Est = b, SE = SE, LL = LL, UL = UL)
   rownames(results)[1] <- "(Intercept)"
+  comment(results) <- "Confidence Intervals for the Regression Coefficients"
+  class(results) <- c("easi.frame", "intervals.main")
   return(results)
 }
 
-.estimateRegressionCoefficients.default <- function(frame, y = NULL, conf.level = .95, ...) {
+estimateRegressionCoefficients.data.frame <- function(frame, y = NULL, conf.level = .95, ...) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
@@ -48,42 +50,44 @@
     cn <- c(cn[-ci], cn[ci])
     frame <- frame[, cn]
   }
-  DescStats <- .describeSummary.default(frame)
-  rownames(DescStats) <- colnames(frame)
-  CorrStats <- .describeCorrelations(frame)
-  .estimateRegressionCoefficients.wss(DescStats, CorrStats, conf.level = conf.level)
+  moments <- describeMoments(frame)
+  rownames(moments) <- colnames(frame)
+  corrs <- describeCorrelations(frame)
+  estimateRegressionCoefficients(moments, corrs, conf.level = conf.level)
 }
 
+### Plot
 
-estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
-  results <- .estimateRegressionCoefficients(...)
-  if (is.null(main)) {
-    main <- "Confidence Intervals for the Regression Coefficients"
+plotCoefficients <- plotRegressionCoefficients <- function(..., intercept = TRUE, main = NULL, digits = 3, ylab = "Regression Coefficient", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, pos = 2, connect = FALSE, ylim = NULL, add = FALSE, pch = 15, col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateRegressionCoefficients(..., conf.level = conf.level, main = main, digits = digits)
+  main <- comment(results)
+  if (intercept == "FALSE") {
+    results <- tail(results, -1)
+    class(results) <- c("easi.frame", "intervals.main")
   }
-  results <- .formatList(list(results), main = main, digits = digits)
-  return(results)
+  plot(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
 }
 
-### Null Hypothesis Significance Tests
+### Test
 
-.testRegressionCoefficients <- function(x, ...) {
-  UseMethod(".testRegressionCoefficients")
+testCoefficients <- testRegressionCoefficients <- function(x, ...) {
+  UseMethod("testRegressionCoefficients")
 }
 
-.testRegressionCoefficients.wss <- function(DescStats, CorrStats, y = NULL, ...) {
+testRegressionCoefficients.wsm <- function(moments, corrs, y = NULL, ...) {
   if (!is.null(y)) {
-    rn <- rownames(DescStats)
+    rn <- rownames(moments)
     ri <- which(rn == deparse(substitute(y)))
     rn <- c(rn[-ri], rn[ri])
-    DescStats <- DescStats[rn, ]
-    class(DescStats) <- "wss"
+    moments <- moments[rn, ]
+    class(moments) <- "wsm"
   }
-  rn <- rownames(DescStats)
-  CorrStats <- CorrStats[rn, rn]
-  M <- DescStats[, "M"]
-  V <- .cortocov(CorrStats, DescStats[, "SD"])
-  N <- DescStats[1, "N"]
-  k <- nrow(DescStats) - 1
+  rn <- rownames(moments)
+  corrs <- corrs[rn, rn]
+  M <- moments[, "M"]
+  V <- .cortocov(corrs, moments[, "SD"])
+  N <- moments[1, "N"]
+  k <- nrow(moments) - 1
   M <- M * N
   V <- V * (N - 1)
   V <- V + outer(M, M) / N
@@ -99,10 +103,12 @@ estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
   p <- 2 * pt(abs(t), df, lower.tail = FALSE)
   results <- cbind(Est = b, SE = SE, t = t, p = p)
   rownames(results)[1] <- "(Intercept)"
+  comment(results) <- "Hypothesis Tests for the Regression Coefficients"
+  class(results) <- "easi.frame"
   return(results)
 }
 
-.testRegressionCoefficients.default <- function(frame, y = NULL, ...) {
+testRegressionCoefficients.data.frame <- function(frame, y = NULL, ...) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)
@@ -110,37 +116,44 @@ estimateRegressionCoefficients <- function(..., main = NULL, digits = 3) {
     cn <- c(cn[-ci], cn[ci])
     frame <- frame[, cn]
   }
-  DescStats <- .describeSummary.default(frame)
-  rownames(DescStats) <- colnames(frame)
-  CorrStats <- .describeCorrelations(frame)
-  .testRegressionCoefficients.wss(DescStats, CorrStats)
+  moments <- describeMoments(frame)
+  rownames(moments) <- colnames(frame)
+  corrs <- describeCorrelations(frame)
+  testRegressionCoefficients(moments, corrs)
 }
 
-testRegressionCoefficients <- function(..., main = NULL, digits = 3) {
-  results <- .testRegressionCoefficients(...)
-  if (is.null(main)) {
-    main <- "Hypothesis Tests for the Regression Coefficients"
+### Standardize
+
+standardizeCoefficients <- standardizeRegressionCoefficients <- function(x, ...) {
+  UseMethod("standardizeRegressionCoefficients")
+}
+
+standardizeRegressionCoefficients.wsm <- function(moments, corrs, y = NULL, conf.level = .95, ...) {
+  if (!is.null(y)) {
+    rn <- rownames(moments)
+    ri <- which(rn == deparse(substitute(y)))
+    rn <- c(rn[-ri], rn[ri])
+    moments <- moments[rn, ]
+    class(moments) <- "wsm"
   }
-  results <- .formatList(list(results), main = main, digits = digits)
+  temptab <- estimateRegressionCoefficients.wsm(moments, corrs, conf.level = conf.level)
+  std <- moments[, "SD"] / moments[nrow(moments), "SD"]
+  results <- data.frame(temptab * std)[-1, ]
+  comment(results) <- "Confidence Intervals for the Standardized Regression Coefficients"
+  class(results) <- "easi.frame"
   return(results)
 }
 
-### Confidence Interval Plots
-
-plotRegressionCoefficients <- function(..., intercept = TRUE, main = NULL, digits = 3, ylab = "Regression Coefficient", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, pos = 2, connect = FALSE, ylim = NULL, add = FALSE, pch = 15, col = "black", offset = 0, intervals = TRUE) {
-  results <- estimateRegressionCoefficients(..., conf.level = conf.level, main = main, digits = digits)
-  if (intercept == "FALSE") {
-    results[[1]] <- tail(results[[1]], -1)
+standardizeRegressionCoefficients.data.frame <- function(frame, y = NULL, conf.level = .95, ...) {
+  frame <- data.frame(frame)
+  if (!is.null(y)) {
+    cn <- colnames(frame)
+    ci <- which(cn == deparse(substitute(y)))
+    cn <- c(cn[-ci], cn[ci])
+    frame <- frame[, cn]
   }
-  plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
-}
-
-### Combined Analyses
-
-analyzeRegressionCoefficients <- function(..., main = NULL, digits = 3) {
-  eRC <- estimateRegressionCoefficients(..., digits = digits)
-  tRC <- testRegressionCoefficients(..., digits = digits)
-  eSRC <- estimateStandardizedRegressionCoefficients(..., digits = digits)
-  results <- c(eRC, tRC, eSRC)
-  return(results)
+  moments <- describeMoments(frame)
+  rownames(moments) <- colnames(frame)
+  corrs <- describeCorrelations(frame)
+  standardizeRegressionCoefficients(moments, corrs, conf.level = conf.level)
 }

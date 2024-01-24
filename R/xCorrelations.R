@@ -1,100 +1,81 @@
 # Estimation Approach to Statistical Inference
 ## Correlations
 
-### Descriptives
+### Describe
 
-.describeCorrelations <- function(x, ...) {
-  UseMethod(".describeCorrelations")
-}
-
-.describeCorrelations.default <- function(frame, ...) {
-  data <- data.frame(frame)
-  results <- cor(data)
-  return(results)
-}
-
-.describeCorrelations.corr <- function(CorrStats, ...) {
-  results <- unclass(CorrStats)
-  return(results)
-}
-
-.describeCorrelations.wss <- function(DescStats, CorrStats, ...) {
-  SD <- DescStats[, "SD"]
-  results <- unclass(CorrStats)
-  return(results)
-}
-
-.describeCorrelations.list <- function(list, ...) {
-  results <- lapply(list, .describeCorrelations.corr)
-  return(results)
-}
-
-describeCorrelations <- function(..., main = NULL, digits = 3) {
-  if (is.null(main)) {
-    main <- "Correlation Matrix for the Variables"
-  }
-  if(typeof(...) ==  "list" & class(...) != "data.frame") {
-    results <- .describeCorrelations.list(...)
-    main <- paste(main, names(results), sep = ": ")
-    }
-  else {
-    results <- list(.describeCorrelations(...))
-    }
-  results <- .formatList(results, main = main, digits = digits)
-  return(results)
-}
-
-
-.cortocov <- function(CorrStats, SD) {
+.cortocov <- function(corrs, SD) {
   sdsquare <- SD %*% t(SD)
-  covstats <- sdsquare * CorrStats
+  covstats <- sdsquare * corrs
   return(covstats)
 }
 
-.describeCovariances <- function(x, ...) {
-  UseMethod(".describeCovariances")
+describeCorrelations <- describeCorrelationsSet <- function(x, ...) {
+  UseMethod("describeCorrelationsSet")
 }
 
-.describeCovariances.wss <- function(DescStats, CorrStats, ...) {
-  SD <- DescStats[, "SD"]
-  results <- .cortocov(CorrStats, SD)
+describeCorrelationsSet.data.frame <- function(frame, ...) {
+  results <- cor(frame)
+  class(results) <- c("easi.frame", "cor")
+  comment(results) <- "Correlations for the Data"
   return(results)
 }
 
-.describeCovariances.default <- function(frame, ...) {
-  data <- data.frame(frame)
-  results <- cov(data)
+describeCorrelationsSet.cor <- function(cor, ...) {
+  return(cor)
+}
+
+describeCorrelationsSet.wsm <- function(wsm, cor, ...) {
+  return(cor)
+}
+
+describeCorrelationsSet.corl <- function(list, ...) {
+  results <- lapply(list, describeCorrelations, ...)
   return(results)
 }
 
-describeCovariances <- function(..., main = NULL, digits = 3) {
-  results <- .describeCovariances(...)
-  if (is.null(main)) {
-    main <- "Covariance Matrix for the Variables"
+describeCorrelationsBy <- function(x, ...) {
+  UseMethod("describeCorrelationsBy")
+}
+
+describeCorrelationsBy.data.frame <- function(frame, by, ...) {
+  MixedData <- data.frame(by, frame)
+  SplitData <- split(MixedData[-1], by)
+  results <- lapply(SplitData, describeCorrelations)
+  results
+}
+
+describeCorrelationsBy.corl <- function(list, ...) {
+  results <- lapply(list, describeCorrelations, ...)
+  return(results)
+}
+
+describeCorrelations <- function(x, by = NULL, ...) {
+  if (!is.null(by)) {
+    describeCorrelationsBy(x, by, ...)
+  } else {
+    describeCorrelationsSet(x, ...)
   }
-  results <- .formatList(list(results), main = main, digits = digits)
-  return(results)
 }
 
-### Confidence Intervals
+### Estimate
 
-.estimateCorrelations <- function(x, ...) {
-  UseMethod(".estimateCorrelations")
+estimateCorrelations <- estimateCorrelationsSet <- function(x, ...) {
+  UseMethod("estimateCorrelationsSet")
 }
 
-.estimateCorrelations.wss <- function(DescStats, CorrStats, conf.level = .95, ...) {
-  N <- DescStats[, "N"]
-  rn <- rownames(DescStats)
-  nr <- nrow(DescStats)
+estimateCorrelationsSet.wsm <- function(moments, corrs, conf.level = .95, ...) {
+  N <- moments[, "N"]
+  rn <- rownames(moments)
+  nr <- nrow(moments)
   ncomp <- (nr) * (nr - 1) / 2
-  results <- data.frame(matrix(ncol = 4, nrow = ncomp))
+  results <- as.data.frame(matrix(ncol = 4, nrow = ncomp))
   colnames(results) <- c("R", "SE", "LL", "UL")
   comp <- 1
   for (i in 1:(nr - 1)) {
     for (j in (i + 1):nr) {
       rownames(results)[comp] <- paste(rn[i], "&", rn[j])
       n <- min(N[rn[j]], N[rn[i]])
-      R <- CorrStats[rn[i], rn[j]]
+      R <- corrs[rn[i], rn[j]]
       z <- qnorm((1 + conf.level) / 2)
       SE <- sqrt(1 / ((n - 3)))
       zR <- log((1 + R) / (1 - R)) / 2
@@ -106,42 +87,48 @@ describeCovariances <- function(..., main = NULL, digits = 3) {
       comp <- comp + 1
     }
   }
+  results <- as.matrix(results)
+  comment(results) <- "Confidence Intervals for the Correlations"
+  class(results) <- c("easi.frame", "intervals.main")
   return(results)
 }
 
-.estimateCorrelations.default <- function(frame, conf.level = .95, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  DescStats <- .describeSummary(data)
-  CorrStats <- .describeCorrelations(data)
-  .estimateCorrelations.wss(DescStats, CorrStats, conf.level = conf.level)
+estimateCorrelationsSet.data.frame <- function(frame, conf.level = .95, ...) {
+  moments <- describeMoments(frame)
+  corrs <- describeCorrelationsSet(frame)
+  estimateCorrelationsSet(moments, corrs, conf.level = conf.level)
 }
 
-estimateCorrelations <- function(..., main = NULL, digits = 3) {
-  results <- .estimateCorrelations(...)
-  if (is.null(main)) {
-    if (nrow(results) > 1) {
-      main <- "Confidence Intervals for the Correlations"
-    } else {
-      main <- "Confidence Interval for the Correlation"
-    }
-  }
-  results <- .formatList(list(results), main = main, digits = digits)
-  return(results)
+estimateCorrelationsSet.wsml <- function(moments, corrs, func, ...) {
+  iterate(moments, corrs, estimateCorrelationsSet, ...)
 }
 
-### Null Hypothesis Significance Tests
+### Plot
 
-.testCorrelations <- function(x, ...) {
-  UseMethod(".testCorrelations")
+plotCorrelations <- plotCorrelationsSet <- function(x, ...) {
+  UseMethod("plotCorrelationsSet")
 }
 
-.testCorrelations.wss <- function(DescStats, CorrStats, conf.level = .95, ...) {
-  N <- DescStats[, "N"]
-  rn <- rownames(DescStats)
-  nr <- nrow(DescStats)
+plotCorrelationsSet.data.frame <- function(frame, main = NULL, digits = 3, ylab = "Correlation", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, pos = 2, ylim = c(-1.1, 1.1), add = FALSE, pch = 16, connect = FALSE, col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateCorrelationsSet(frame, main = main, digits = digits)
+  plot(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, col = col, offset = offset, intervals = intervals)
+}
+
+plotCorrelationsSet.wsm <- function(moments, corrs, main = NULL, digits = 3, ylab = "Correlation", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, pos = 2, ylim = c(-1.1, 1.1), add = FALSE, pch = 16, connect = FALSE, col = "black", offset = 0, intervals = TRUE) {
+  results <- estimateCorrelationsSet(moments, corrs, main = main, digits = digits)
+  plot(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, col = col, offset = offset, intervals = intervals)
+}
+
+### Test
+
+testCorrelations <- testCorrelationsSet <- function(x, ...) {
+  UseMethod("testCorrelationsSet")
+}
+
+testCorrelationsSet.wsm <- function(moments, corrs, ...) {
+  N <- moments[, "N"]
+  rn <- rownames(moments)
+  nr <- nrow(moments)
   ncomp <- (nr) * (nr - 1) / 2
   results <- data.frame(matrix(ncol = 5, nrow = ncomp))
   colnames(results) <- c("R", "SE", "df", "t", "p")
@@ -150,7 +137,7 @@ estimateCorrelations <- function(..., main = NULL, digits = 3) {
     for (j in (i + 1):nr) {
       rownames(results)[comp] <- paste(rn[i], "&", rn[j])
       n <- min(N[rn[j]], N[rn[i]])
-      R <- CorrStats[rn[i], rn[j]]
+      R <- corrs[rn[i], rn[j]]
       df <- n - 2
       SE <- sqrt((1 - R^2) / (df))
       t <- R / SE
@@ -159,35 +146,14 @@ estimateCorrelations <- function(..., main = NULL, digits = 3) {
       comp <- comp + 1
     }
   }
+  results <- as.matrix(results)
+  comment(results) <- "Hypothesis Tests for the Correlations"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.testCorrelations.default <- function(frame, conf.level = .95, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  DescStats <- .describeSummary(data)
-  CorrStats <- .describeCorrelations(data)
-  .testCorrelations.wss(DescStats, CorrStats, conf.level = conf.level)
-}
-
-testCorrelations <- function(..., main = NULL, digits = 3) {
-  results <- .testCorrelations(...)
-  if (is.null(main)) {
-    if (nrow(results) > 1) {
-      main <- "Hypothesis Tests for the Correlations"
-    } else {
-      main <- "Hypothesis Test for the Correlation"
-    }
-  }
-  results <- .formatList(list(results), main = main, digits = digits)
-  return(results)
-}
-
-### Confidence Interval Plots
-
-plotCorrelations <- function(..., main = NULL, digits = 3, ylab = "Correlation", xlab = "", mu = 0, line = NULL, rope = NULL, conf.level = .95, values = TRUE, pos = 2, ylim = c(-1.1, 1.1), add = FALSE, pch = 16, connect = FALSE, col = "black", offset = 0, intervals = TRUE) {
-  results <- estimateCorrelations(..., main = main, digits = digits)
-  plotIntervals(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, col = col, offset = offset, intervals = intervals)
+testCorrelationsSet.data.frame <- function(frame, ...) {
+  moments <- describeMoments(frame)
+  corrs <- describeCorrelationsSet(frame)
+  testCorrelationsSet(moments, corrs)
 }

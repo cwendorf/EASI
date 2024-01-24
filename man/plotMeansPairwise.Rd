@@ -8,19 +8,19 @@
 \description{Provides a plot of all unadjusted pairwise comparisons and their confidence intervals.}
 
 \usage{
-\method{plotMeansPairwise}{default}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansPairwise}{data.frame}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 \method{plotMeansPairwise}{formula}(formula, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansPairwise}{wss}(DescStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansPairwise}{wsm}(moments, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansPairwise}{bss}(DescStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansPairwise}{bsm}(moments, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
-\item{DescStats}{a matrix/frame of descriptive/summary statistics}
+\item{moments}{a matrix/frame of descriptive/summary statistics}
 \item{ylab}{a label for the y-axis}
 \item{xlab}{a label for the x-axis}
 \item{mu}{a number indicating the true/hypothesized value of the mean}

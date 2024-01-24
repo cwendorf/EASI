@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Data
 
-### Modified stripchart
+### Plot
 
 dataChart <- function(x, ...) {
   UseMethod("dataChart")
@@ -116,13 +116,11 @@ dataChart.formula <- function(x, data = NULL, dlab = NULL, ..., subset, na.actio
   dataChart(split(mf[[response]], mf[-response]), dlab = dlab, ...)
 }
 
-### Data Plot
-
 plotData <- function(x, ...) {
   UseMethod("plotData")
 }
 
-plotData.default <- function(frame, add = FALSE, main = NULL, ylim = NULL, ylab = "Outcome", xlab = "", offset = .13, method = "stack", jitter = .05, col = "black", pch = 16, lty = "solid", connect = FALSE, ...) {
+plotData.data.frame <- function(frame, add = FALSE, main = NULL, ylim = NULL, ylab = "Outcome", xlab = "", offset = .13, method = "stack", jitter = .05, col = "black", pch = 16, lty = "solid", connect = FALSE, ...) {
   data <- data.frame(frame)
   if (ncol(data) == 1) {
     colnames(data) <- deparse(substitute(frame))
@@ -133,7 +131,7 @@ plotData.default <- function(frame, add = FALSE, main = NULL, ylim = NULL, ylab 
       main <- "Data for the Variables"
     }
     results <- describePercentiles(data)
-    .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
+    plot.main(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
   }
   dataChart(data, add = TRUE, at = loc, vertical = TRUE, method = method, jitter = jitter, col = .colorTransparent(col, 70), pch = pch)
   if (connect && method != "jitter") {
@@ -151,9 +149,9 @@ plotData.formula <- function(formula, add = FALSE, main = NULL, ylim = NULL, yla
     if (is.null(main)) {
       main <- "Data for the Groups"
     }
-    .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
+    plot.main(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
   }
-  loc <- (1:nrow(results[[1]])) + offset
+  loc <- (1:nrow(results)) + offset
   dataChart(formula, add = TRUE, at = loc, vertical = TRUE, method = method, jitter = jitter, col = .colorTransparent(col, 70), pch = pch)
   invisible(eval(formula))
 }

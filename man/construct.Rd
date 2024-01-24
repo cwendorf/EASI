@@ -16,5 +16,5 @@
 }
 
 \value{
-The returned frame contains a column for each variable (data), a row for each variable (bss and wss), and both columns and rows for each variable (corr).
+The returned frame contains a column for each variable (data), a row for each variable (bsm and wsm), and both columns and rows for each variable (cor).
 }

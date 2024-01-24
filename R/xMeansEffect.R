@@ -1,17 +1,17 @@
 # Estimation Approach to Statistical Inference
 ## Means Effect
 
-### Descriptives
+### Describe
 
-.describeMeansEffect <- function(x, ...) {
-  UseMethod(".describeMeansEffect")
+describeEffect <- describeMeansEffect <- function(x, ...) {
+  UseMethod("describeMeansEffect")
 }
 
-.describeMeansEffect.wss <- function(DescStats, CorrStats, ...) {
-  n <- DescStats[, "N"]
-  m <- DescStats[, "M"]
-  sd <- DescStats[, "SD"]
-  cov <- .cortocov(CorrStats, sd)
+describeMeansEffect.wsm <- function(moments, corrs, ...) {
+  n <- moments[, "N"]
+  m <- moments[, "M"]
+  sd <- moments[, "SD"]
+  cov <- .cortocov(corrs, sd)
   Mcov <- mean(cov[lower.tri(cov)])
   a <- length(m)
   Mt <- mean(m)
@@ -31,13 +31,15 @@
   results <- rbind(c(SSs, dfs, MSs), c(SSa, dfa, MSa), c(SSas, dfas, MSas))
   colnames(results) <- c("SS", "df", "MS")
   rownames(results) <- c("Subjects", "Measures", "Error")
+  comment(results) <- "Source Table for the Model"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.describeMeansEffect.bss <- function(DescStats, ...) {
-  N <- DescStats[, "N"]
-  M <- DescStats[, "M"]
-  SD <- DescStats[, "SD"]
+describeMeansEffect.bsm <- function(moments, ...) {
+  N <- moments[, "N"]
+  M <- moments[, "M"]
+  SD <- moments[, "SD"]
   k <- length(M)
   dfb <- k - 1
   dfw <- sum(N) - k
@@ -49,170 +51,158 @@
   results <- rbind(c(SSb, dfb, MSb), c(SSw, dfw, MSw))
   colnames(results) <- c("SS", "df", "MS")
   rownames(results) <- c("Between", "Within")
+  comment(results) <- "Source Table for the Model"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.describeMeansEffect.default <- function(frame, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  DescStats <- .describeSummary(data)
-  CorrStats <- .describeCorrelations(data)
-  results <- .describeMeansEffect.wss(DescStats, CorrStats)
+describeMeansEffect.data.frame <- function(frame, ...) {
+  moments <- describeMoments(frame)
+  corrs <- describeCorrelations(frame)
+  results <- describeMeansEffect(moments, corrs, ...)
   return(results)
 }
 
-.describeMeansEffect.formula <- function(formula, ...) {
-  DescStats <- .describeSummary(formula)
-  results <- .describeMeansEffect.bss(DescStats)
+describeMeansEffect.formula <- function(formula, ...) {
+  moments <- describeMoments(formula)
+  results <- describeMeansEffect(moments, ...)
   return(results)
 }
 
-describeMeansEffect <- function(..., main = NULL, digits = 3) {
-  results <- .describeMeansEffect(...)
-  if (is.null(main)) {
-    main <- "Source Table for the Model"
-  }
-  results <- .formatList(list(results), main = main, digits = digits)
-  return(results)
+describeMeansEffect.bsml <- function(moments, ...) {
+  iterate(moments, describeMeansEffect, ...)
 }
 
-### Confidence Intervals
+describeMeansEffect.wsml <- function(moments, corrs, ...) {
+  iterate(moments, corrs, describeMeansEffect, ...)
+}
+
+### Estimate
+
+.ncpF <- function(x, df1, df2, prob, interval = c(0, 10000), my.tol = 0.000001) {
+  temp <- function(ncp) pf(x, df1, df2, ncp) - prob
+  return(uniroot(temp, interval, tol = my.tol)$root)
+}
 
 .ciEta2 <- function(F, dff, dfe, etasq, conf.level) {
   delta.lower <- delta.upper <- numeric(length(etasq))
   delta.lower <- try(.ncpF(F, dff, dfe, prob = (1 + conf.level) / 2), silent = TRUE)
   delta.upper <- try(.ncpF(F, dff, dfe, prob = (1 - conf.level) / 2), silent = TRUE)
-  if (is.character(delta.lower)) {
-    delta.lower <- 0
-  }
+  if (is.character(delta.lower)) delta.lower <- 0
   etasq.lower <- delta.lower / (delta.lower + dff + dfe + 1)
   etasq.upper <- delta.upper / (delta.upper + dff + dfe + 1)
   results <- cbind(Est = etasq, LL = etasq.lower, UL = etasq.upper)
   results
 }
 
-.estimateMeansEffect <- function(x, ...) {
-  UseMethod(".estimateMeansEffect")
+estimateEffect <- estimateMeansEffect <- function(x, ...) {
+  UseMethod("estimateMeansEffect")
 }
 
-.estimateMeansEffect.wss <- function(DescStats, CorrStats, conf.level = .90, ...) {
-  temptab <- .describeMeansEffect.wss(DescStats, CorrStats)
-  SSf <- temptab["Measures", "SS"]
-  SSe <- temptab["Error", "SS"]
+estimateMeansEffect.wsm <- function(moments, corrs, conf.level = .90, ...) {
+  temp <- describeMeansEffect(moments, corrs)
+  SSf <- temp["Measures", "SS"]
+  SSe <- temp["Error", "SS"]
   SSt <- SSf + SSe
-  dff <- temptab["Measures", "df"]
-  dfe <- temptab["Error", "df"]
+  dff <- temp["Measures", "df"]
+  dfe <- temp["Error", "df"]
   F <- (SSf / dff) / (SSe / dfe)
   etasq <- SSf / SSt
   results <- .ciEta2(F = F, dff = dff, dfe = dfe, etasq = etasq, conf.level = conf.level)
   rownames(results) <- "Measures"
+  comment(results) <- "Proportion of Variance Accounted For by the Model"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.estimateMeansEffect.bss <- function(DescStats, conf.level = .90, ...) {
-  temptab <- .describeMeansEffect.bss(DescStats)
-  SSb <- temptab["Between", "SS"]
-  SSw <- temptab["Within", "SS"]
+estimateMeansEffect.bsm <- function(moments, conf.level = .90, ...) {
+  temp <- describeMeansEffect(moments)
+  SSb <- temp["Between", "SS"]
+  SSw <- temp["Within", "SS"]
   SSt <- SSb + SSw
-  dfb <- temptab["Between", "df"]
-  dfw <- temptab["Within", "df"]
+  dfb <- temp["Between", "df"]
+  dfw <- temp["Within", "df"]
   F <- (SSb / dfb) / (SSw / dfw)
   etasq <- SSb / SSt
   results <- .ciEta2(F = F, dff = dfb, dfe = dfw, etasq = etasq, conf.level = conf.level)
   rownames(results) <- "Factor"
+  comment(results) <- "Proportion of Variance Accounted For by the Model"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.estimateMeansEffect.default <- function(frame, conf.level = .90, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  DescStats <- .describeSummary(data)
-  CorrStats <- .describeCorrelations(data)
-  .estimateMeansEffect.wss(DescStats, CorrStats, conf.level)
+estimateMeansEffect.data.frame <- function(frame, conf.level = .90, ...) {
+  moments <- describeMoments(frame)
+  corrs <- describeCorrelations(frame)
+  estimateMeansEffect(moments, corrs, conf.level, ...)
 }
 
-.estimateMeansEffect.formula <- function(formula, conf.level = .90, ...) {
-  DescStats <- .describeSummary(formula)
-  .estimateMeansEffect.bss(DescStats, conf.level)
+estimateMeansEffect.formula <- function(formula, conf.level = .90, ...) {
+  moments <- describeMoments(formula)
+  estimateMeansEffect(moments, conf.level, ...)
 }
 
-estimateMeansEffect <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeansEffect(...)
-  if (is.null(main)) {
-    main <- "Proportion of Variance Accounted For by the Model"
-  }
-  results <- .formatList(list(results), main = main, digits = digits)
-  return(results)
+estimateMeansEffect.bsml <- function(moments, ...) {
+  iterate(moments, estimateMeansEffect, ...)
 }
 
-### Null Hypothesis Significance Tests
-
-.testMeansEffect <- function(x, ...) {
-  UseMethod(".testMeansEffect")
+estimateMeansEffect.wsml <- function(moments, corrs, ...) {
+  iterate(moments, corrs, estimateMeansEffect, ...)
 }
 
-.testMeansEffect.wss <- function(DescStats, CorrStats, ...) {
-  temptab <- .describeMeansEffect.wss(DescStats, CorrStats)
-  MSf <- temptab["Measures", "MS"]
-  MSe <- temptab["Error", "MS"]
-  dff <- temptab["Measures", "df"]
-  dfe <- temptab["Error", "df"]
+### Test
+
+testEffect <- testMeansEffect <- function(x, ...) {
+  UseMethod("testMeansEffect")
+}
+
+testMeansEffect.wsm <- function(moments, corrs, ...) {
+  temp <- describeMeansEffect(moments, corrs)
+  MSf <- temp["Measures", "MS"]
+  MSe <- temp["Error", "MS"]
+  dff <- temp["Measures", "df"]
+  dfe <- temp["Error", "df"]
   F <- MSf / MSe
   p <- 1 - pf(F, dff, dfe)
   results <- cbind(F, dff, dfe, p)
   colnames(results) <- c("F", "df1", "df2", "p")
   rownames(results) <- c("Measures")
+  comment(results) <- "Hypothesis Test for the Model"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.testMeansEffect.bss <- function(DescStats, ...) {
-  temptab <- .describeMeansEffect.bss(DescStats)
-  MSb <- temptab["Between", "MS"]
-  MSw <- temptab["Within", "MS"]
-  dfb <- temptab["Between", "df"]
-  dfw <- temptab["Within", "df"]
+testMeansEffect.bsm <- function(moments, ...) {
+  temp <- describeMeansEffect(moments)
+  MSb <- temp["Between", "MS"]
+  MSw <- temp["Within", "MS"]
+  dfb <- temp["Between", "df"]
+  dfw <- temp["Within", "df"]
   F <- MSb / MSw
   p <- 1 - pf(F, dfb, dfw)
   results <- cbind(F, dfb, dfw, p)
   colnames(results) <- c("F", "df1", "df2", "p")
   rownames(results) <- c("Factor")
+  comment(results) <- "Hypothesis Test for the Model"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.testMeansEffect.default <- function(frame, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  DescStats <- .describeSummary(data)
-  CorrStats <- .describeCorrelations(data)
-  .testMeansEffect.wss(DescStats, CorrStats)
+testMeansEffect.data.frame <- function(frame, ...) {
+  moments <- describeMoments(frame)
+  corrs <- describeCorrelations(frame)
+  testMeansEffect(moments, corrs, ...)
 }
 
-.testMeansEffect.formula <- function(formula, ...) {
-  DescStats <- .describeSummary(formula)
-  .testMeansEffect.bss(DescStats)
+testMeansEffect.formula <- function(formula, ...) {
+  moments <- describeMoments(formula)
+  testMeansEffect(moments, ...)
 }
 
-testMeansEffect <- function(..., main = NULL, digits = 3) {
-  results <- .testMeansEffect(...)
-  if (is.null(main)) {
-    main <- "Hypothesis Test for the Model"
-  }
-  results <- .formatList(list(results), main = main, digits = digits)
-  return(results)
+testMeansEffect.bsml <- function(moments, ...) {
+  iterate(moments, testMeansEffect, ...)
 }
 
-### Combined Analyses
-
-analyzeMeansEffect <- function(..., main = NULL, digits = 3) {
-  dMO <- describeMeansEffect(..., digits = digits)
-  tMO <- testMeansEffect(..., digits = digits)
-  eME <- estimateMeansEffect(..., digits = digits)
-  results <- c(dMO, tMO, eME)
-  return(results)
+testMeansEffect.wsml <- function(moments, corrs, ...) {
+  iterate(moments, corrs, testMeansEffect, ...)
 }

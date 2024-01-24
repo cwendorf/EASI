@@ -7,15 +7,13 @@
 \description{Provides a square matrix/frame of correlations for a data set.}
 
 \usage{
-\method{describeCorrelations}{default}(frame, main=NULL, digits=3)
+\method{describeCorrelations}{data.frame}(frame, ...)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
-\item{main}{a custom title for the table}
-\item{digits}{the specified number of decimal places}
 }
 
 \value{
-The returned list contains one frame of the correlations among the variables.
+The returned frame contains the correlations among the variables.
 }

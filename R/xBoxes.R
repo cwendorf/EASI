@@ -1,44 +1,37 @@
 # Estimation Approach to Statistical Inference
 ## Boxes
 
-### Descriptives
+### Describe
 
-.describeBoxes <- function(x, ...) {
-  UseMethod(".describeBoxes")
+describeBoxes <- function(x, ...) {
+  UseMethod("describeBoxes")
 }
 
-.describeBoxes.default <- function(frame, ...) {
+describeBoxes.data.frame <- function(frame, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
   results <- do.call(rbind, lapply(data, function(x) boxplot.stats(x)$stats))
   colnames(results) <- c("LW", "LH", "Mdn", "UH", "UW")
+  class(results) <- "easi.frame"
+  comment(results) <- "Boxes for the data"
   return(results)
 }
 
-.describeBoxes.formula <- function(formula) {
-  results <- aggregate(formula, FUN = .describeBoxes.default)
+describeBoxes.formula <- function(formula, ...) {
+  results <- aggregate(formula, FUN = describeBoxes.data.frame)
   rn <- results[, 1]
   results <- results[[2]]
   rownames(results) <- rn
   colnames(results) <- c("LW", "LH", "Mdn", "UH", "UW")
+  class(results) <- "easi.frame"
+  comment(results) <- "Boxes for the Data"
   return(results)
 }
 
-describeBoxes <- function(..., main = NULL, digits = 3) {
-  results <- .describeBoxes(...)
-  if (is.null(main)) {
-    main <- "Boxplots for the Data"
-  }
-  results <- .formatList(list(results), main = main, digits = digits)
-  return(results)
-}
+### Plot
 
-### Plots
-
-.boxes <- function(results, main, ylab, xlab, ylim, values, digits, pos, connect, add, col, offset, scale) {
-  results <- .unformatFrame(results[[1]])
+plot.boxes <- function(results, main, ylab, xlab, ylim, values, digits, pos, connect, add, col, offset, scale, ...) {
+  if (is.null(main)) main <- comment(results)
+  results <- unclass(results)
   if (!add) {
     if (is.null(ylim)) {
       ylim <- range(pretty(c(floor(min(results) - .5), ceiling(max(results) + .5))))
@@ -73,21 +66,15 @@ plotBoxes <- function(x, ...) {
   UseMethod("plotBoxes")
 }
 
-plotBoxes.default <- function(frame, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, offset = 0, scale = 1, col = "black", values = TRUE, digits = 3, pos = 2) {
+plotBoxes.data.frame <- function(frame, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, offset = 0, scale = 1, col = "black", values = TRUE, digits = 3, pos = 2) {
   results <- describeBoxes(frame, main = main, digits = digits)
-  if (is.null(main)) {
-    main <- names(results)
-  }
-  .boxes(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
+  plot.boxes(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
   invisible(eval(frame))
 }
 
 plotBoxes.formula <- function(formula, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, offset = 0, scale = 1, col = "black", values = TRUE, digits = 3, pos = 2) {
   results <- describeBoxes(formula, main = main, digits = digits)
-  if (is.null(main)) {
-    main <- names(results)
-  }
-  .boxes(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
+  plot.boxes(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
   invisible(eval(formula))
 }
 

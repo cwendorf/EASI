@@ -8,7 +8,7 @@
 \description{Provides a density plot for each group or variable.}
 
 \usage{
-\method{plotDensity}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.07, scale=.8, border=rgb(0, 0, 0, .2), col=rgb(0, 0, 0, .1))
+\method{plotDensity}{data.frame}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.07, scale=.8, border=rgb(0, 0, 0, .2), col=rgb(0, 0, 0, .1))
 
 \method{plotDensity}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=.07, scale=.8, border=rgb(0, 0, 0, .2), col=rgb(0, 0, 0, .1))
 }

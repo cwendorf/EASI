@@ -8,20 +8,20 @@
 \description{Provides a plot of the confidence intervals for the means and mean difference of a specified comparison.}
 
 \usage{
-\method{plotMeansComparison}{default}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansComparison}{data.frame}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 \method{plotMeansComparison}{formula}(formula, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansComparison}{wss}(CompStats, CorrStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansComparison}{wsm}(moments, corrs, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansComparison}{bss}(CompStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansComparison}{bsm}(moments, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
-\item{CompStats}{a matrix/frame of descriptive/summary statistics}
-\item{CorrStats}{a matrix/frame of correlations among the measures}
+\item{moments}{a matrix/frame of descriptive/summary statistics}
+\item{corrs}{a matrix/frame of correlations among the measures}
 \item{ylab}{a label for the y-axis}
 \item{xlab}{a label for the x-axis}
 \item{mu}{a number indicating the true/hypothesized value of the mean difference}

@@ -7,9 +7,9 @@
 \description{Provides a five number summary for a data set.}
 
 \usage{
-\method{describeBoxes}{default}(frame, main=NULL, digits=3)
+\method{describeBoxes}{data.frame}(frame, ...)
 
-\method{describeBoxes}{formula}(formula, main=NULL, digits=3)
+\method{describeBoxes}{formula}(formula, ...)
 }
 
 \arguments{
@@ -20,7 +20,7 @@
 }
 
 \value{
-The returned list contains one frame with the following components:
+The returned frame contains the following components:
 \item{LW}{the lower whisker}
 \item{LH}{the lower hinge}
 \item{Mdn}{the median value}

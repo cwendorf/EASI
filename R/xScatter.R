@@ -7,17 +7,17 @@ plotScatter <- function(x, ...) {
   UseMethod("plotScatter")
 }
 
-plotScatter.wss <- function(DescStats, CorrStats, y = NULL, main = "Scatter Plot for the Variables", ylab = NULL, xlab = NULL, pch = 16, xlim = NULL, ylim = NULL, add = FALSE, ellipse = TRUE, conf.level = .95, cross = FALSE, col = "black", ...) {
+plotScatter.wsm <- function(moments, corrs, y = NULL, main = "Scatter Plot for the Variables", ylab = NULL, xlab = NULL, pch = 16, xlim = NULL, ylim = NULL, add = FALSE, ellipse = TRUE, conf.level = .95, cross = FALSE, col = "black", ...) {
   if (!is.null(y)) {
-    rn <- rownames(DescStats)
+    rn <- rownames(moments)
     ri <- which(rn == deparse(substitute(y)))
     rn <- c(rn[-ri], rn[ri])
-    DescStats <- DescStats[rn, ]
-    class(DescStats) <- "wss"
+    moments <- moments[rn, ]
+    class(moments) <- "wsm"
   }
-  mu <- DescStats[1:2, 2]
-  rn <- rownames(DescStats)
-  P <- CorrStats[rn, rn]
+  mu <- moments[1:2, 2]
+  rn <- rownames(moments)
+  P <- corrs[rn, rn]
   evals <- eigen(P)$values
   evecs <- eigen(P)$vectors
   a <- seq(0, 2 * pi, len = 100)
@@ -31,8 +31,8 @@ plotScatter.wss <- function(DescStats, CorrStats, y = NULL, main = "Scatter Plot
   transM[, 1] <- transM[, 1] + mu[1]
   transM[, 2] <- transM[, 2] + mu[2]
   if (!add) {
-    if (is.null(xlab)) xlab <- rownames(DescStats)[1]
-    if (is.null(ylab)) ylab <- rownames(DescStats)[2]
+    if (is.null(xlab)) xlab <- rownames(moments)[1]
+    if (is.null(ylab)) ylab <- rownames(moments)[2]
     if (is.null(xlim)) {
       rmx <- c(min(transM[, 1]), max(transM[, 1]))
       xlim <- range(pretty(rmx))
@@ -56,7 +56,7 @@ plotScatter.wss <- function(DescStats, CorrStats, y = NULL, main = "Scatter Plot
   }
 }
 
-plotScatter.default <- function(frame, y = NULL, main = "Scatter Plot for the Variables", ylab = NULL, xlab = NULL, pch = 16, xlim = NULL, ylim = NULL, add = FALSE, points = TRUE, ellipse = FALSE, conf.level = .95, cross = FALSE, col = "black", ...) {
+plotScatter.data.frame <- function(frame, y = NULL, main = "Scatter Plot for the Variables", ylab = NULL, xlab = NULL, pch = 16, xlim = NULL, ylim = NULL, add = FALSE, points = TRUE, ellipse = FALSE, conf.level = .95, cross = FALSE, col = "black", ...) {
   frame <- data.frame(frame)
   if (!is.null(y)) {
     cn <- colnames(frame)

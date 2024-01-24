@@ -8,17 +8,17 @@
 \description{Provides a plot of the confidence intervals for the simple effects and the interaction contrast in a 2x2 design.}
 
 \usage{
-\method{plotMeansInteraction}{default}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansInteraction}{data.frame}(frame, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
 \method{plotMeansInteraction}{formula}(formula, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansInteraction}{bss}(CompStats, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
+\method{plotMeansInteraction}{bsm}(moments, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
-\item{CompStats}{a matrix/frame of descriptive/summary statistics}
+\item{moments}{a matrix/frame of descriptive/summary statistics}
 \item{by}{a factor used for blocking}
 \item{ylab}{a label for the y-axis}
 \item{xlab}{a label for the x-axis}

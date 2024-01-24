@@ -8,20 +8,20 @@
 \description{Provides the plot of the confidence intervals for mean contrasts and the difference between those contrasts.}
 
 \usage{
-\method{plotMeansComplex}{default}(frame, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansComplex}{data.frame}(frame, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
 \method{plotMeansComplex}{formula}(formula, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansComplex}{wss}(DescStats, CorrStats, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansComplex}{wsm}(moments, corrs, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansComplex}{bss}(DescStats, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansComplex}{bsm}(moments, contrast, ylab="Mean Contrasts", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
-\item{DescStats}{a matrix/frame of descriptive/summary statistics}
-\item{CorrStats}{a matrix/frame of correlations among the measures}
+\item{moments}{a matrix/frame of descriptive/summary statistics}
+\item{corrs}{a matrix/frame of correlations among the measures}
 \item{contrast1}{a vector of codes for the first contrast among all means}
 \item{contrast1}{a vector of codes for the second contrast among all means}
 \item{mu}{a number indicating the true/hypothesized value of the mean contrast}

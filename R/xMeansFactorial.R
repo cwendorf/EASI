@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Means Factorial
 
-### Descriptives
+### Describe
 
 .error.list <- function(sourceby) {
   source <- sourceby[[1]] + sourceby[[2]]
@@ -41,67 +41,60 @@
   return(out)
 }
 
-.describeMeansFactorial <- function(x, ...) {
-  UseMethod(".describeMeansFactorial")
+describeFactorial <- describeMeansFactorial <- function(x, ...) {
+  UseMethod("describeMeansFactorial")
 }
 
-.describeMeansFactorial.wss <- function(ListDescStats, ListCorrStats, ...) {
-  main <- .main.list(ListDescStats)
-  ListSourceStats <- .describeMeansEffectBy.wss(ListDescStats, ListCorrStats)
-  error <- .error.list(ListSourceStats)
+describeMeansFactorial.wsml <- function(moments, corrs, ...) {
+  main <- .main.list(moments)
+  temp <- describeMeansEffect(moments, corrs)
+  error <- .error.list(temp)
   out1 <- rbind(main[1, ], error[1, ])
   rownames(out1) <- c("Blocks", "Subjects")
+  comment(out1) <- "Source Table for the Model"
+  class(out1) <- c("easi.frame")
   out2 <- rbind(main[2:3, ], error[-1:-2, ])
   rownames(out2) <- c("Measures", "Measures:Blocks", "Residual")
+  comment(out2) <- "Source Table for the Model"
+  class(out2) <- c("easi.frame")
   results <- list(out1, out2)
   names(results) <- c("Between Subjects", "Within Subjects")
+  #results <- .deList(results)
+  comment(results) <- "Source Table for the Model"
+  class(results) <- c("easi.list")
   return(results)
 }
 
-.describeMeansFactorial.bss <- function(ListDescStats, ...) {
-  main <- .main.list(ListDescStats)
-  ListSourceStats <- .describeMeansEffectBy.bss(ListDescStats)
-  error <- .error.list(ListSourceStats)
-  out <- rbind(main[1:3, ], error[-1, ])
-  rownames(out) <- c("Factor", "Blocks", "Factor:Blocks", "Residual")
-  results <- list(out)
-  names(results) <- "Between Subjects"
+describeMeansFactorial.bsml <- function(moments, ...) {
+  main <- .main.list(moments)
+  temp <- describeMeansEffect(moments)
+  error <- .error.list(temp)
+  results <- rbind(main[1:3, ], error[-1, ])
+  rownames(results) <- c("Factor", "Blocks", "Factor:Blocks", "Residual")
+  comment(results) <- "Source Table for the Model"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.describeMeansFactorial.default <- function(frame, by, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  ListDescStats <- .describeSummaryBy.default(data, by = by)
-  ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
-  .describeMeansFactorial.wss(ListDescStats, ListCorrStats)
+describeMeansFactorial.data.frame <- function(frame, by, ...) {
+  moments <- describeMomentsBy(frame, by = by)
+  corrs <- describeCorrelationsBy(frame, by = by)
+  describeMeansFactorial(moments, corrs, ...)
 }
 
-.describeMeansFactorial.formula <- function(formula, by, ...) {
-  ListDescStats <- .describeSummaryBy.formula(formula, by = by)
-  .describeMeansFactorial.bss(ListDescStats)
+describeMeansFactorial.formula <- function(formula, by, ...) {
+  moments <- describeMomentsBy(formula, by = by)
+  describeMeansFactorial(moments, ...)
 }
 
-describeMeansFactorial <- function(..., main = NULL, digits = 3) {
-  results <- .describeMeansFactorial(...)
-  if (is.null(main)) {
-    main <- "Source Table for the Model"
-  }
-  main <- paste(main, names(results), sep = ": ")
-  results <- .formatList(results, main = main, digits = digits)
-  return(results)
+### Estimate
+
+estimateFactorial <- estimateMeansFactorial <- function(x, ...) {
+  UseMethod("estimateMeansFactorial")
 }
 
-### Confidence Intervals
-
-.estimateMeansFactorial <- function(x, ...) {
-  UseMethod(".estimateMeansFactorial")
-}
-
-.estimateMeansFactorial.wss <- function(ListDescStats, ListCorrStats, conf.level = .90, ...) {
-  x <- .describeMeansFactorial.wss(ListDescStats, ListCorrStats)
+estimateMeansFactorial.wsml <- function(moments, corrs, conf.level = .90, ...) {
+  x <- describeMeansFactorial(moments, corrs)
   results <- cbind(x[[1]], F = NA, Est = NA, LL = NA, UL = NA)
   results[, 4] <- results[, 3] / tail(results[, 3], 1)
   results[, 5] <- results[, 1] / (results[, 1] + tail(results[, 1], 1))
@@ -117,116 +110,112 @@ describeMeansFactorial <- function(..., main = NULL, digits = 3) {
   names(results) <- c("Between Subjects", "Within Subjects")
   results[[1]] <- rbind(results[[1]][-2, 5:7])
   rownames(results[[1]]) <- "Blocks"
-  results[[2]] <- as.data.frame(results[[2]][-3, 5:7])
+  comment(results[[1]]) <- "Proportion of Variance Accounted For by the Model"
+  class(results[[1]]) <- c("easi.frame")
+  results[[2]] <- rbind(results[[2]][-3, 5:7])
+  comment(results[[2]]) <- "Proportion of Variance Accounted For by the Model"
+  class(results[[2]]) <- c("easi.frame")
+  #results <- .deList(results)
+  comment(results) <- "Proportion of Variance Accounted For by the Model"
+  class(results) <- c("easi.list")
   return(results)
 }
 
-.estimateMeansFactorial.bss <- function(ListDescStats, conf.level = .90, ...) {
-  x <- .describeMeansFactorial.bss(ListDescStats)
-  results <- cbind(x[[1]], F = NA, Est = NA, LL = NA, UL = NA)
+estimateMeansFactorial.bsml <- function(moments, conf.level = .90, ...) {
+  x <- describeMeansFactorial(moments)
+  results <- cbind(x, F = NA, Est = NA, LL = NA, UL = NA)
   results[, 4] <- results[, 3] / tail(results[, 3], 1)
   results[, 5] <- results[, 1] / (results[, 1] + tail(results[, 1], 1))
   results[1, 5:7] <- .ciEta2(results[1, 4], results[1, 2], tail(results[, 2], 1), results[1, 5], conf.level = conf.level)
   results[2, 5:7] <- .ciEta2(results[2, 4], results[1, 2], tail(results[, 2], 1), results[2, 5], conf.level = conf.level)
   results[3, 5:7] <- .ciEta2(results[3, 4], results[1, 2], tail(results[, 2], 1), results[3, 5], conf.level = conf.level)
-  results <- list(results[-4, 5:7])
-  names(results) <- "Between Subjects"
+  results <- results[-4, 5:7]
+  comment(results) <- "Proportion of Variance Accounted For by the Model"
+  class(results) <- c("easi.frame")
   return(results)
 }
 
-.estimateMeansFactorial.default <- function(frame, by, conf.level = .90, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  ListDescStats <- .describeSummaryBy.default(data, by = by)
-  ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
-  .estimateMeansFactorial.wss(ListDescStats, ListCorrStats, conf.level = conf.level)
+estimateMeansFactorial.data.frame <- function(frame, by, conf.level = .90, ...) {
+  moments <- describeMomentsBy(frame, by = by)
+  corrs <- describeCorrelationsBy(frame, by = by)
+  estimateMeansFactorial(moments, corrs, conf.level = conf.level, ...)
 }
 
-.estimateMeansFactorial.formula <- function(formula, by, conf.level = .90, ...) {
-  ListDescStats <- .describeSummaryBy.formula(formula, by = by)
-  .estimateMeansFactorial.bss(ListDescStats, conf.level = conf.level)
+estimateMeansFactorial.formula <- function(formula, by, conf.level = .90, ...) {
+  moments <- describeMomentsBy(formula, by = by)
+  estimateMeansFactorial(moments, conf.level = conf.level, ...)
 }
 
-estimateMeansFactorial <- function(..., main = NULL, digits = 3) {
-  results <- .estimateMeansFactorial(...)
-  if (is.null(main)) {
-    main <- "Proportion of Variance Accounted For by the Model"
-  }
-  main <- paste(main, names(results), sep = ": ")
-  results <- .formatList(results, main = main, digits = digits)
-  return(results)
+### Plot
+
+plotFactorial <- plotMeansFactorial <- function(x, ...) {
+  UseMethod("plotMeansFactorial")
 }
 
-### Null Hypothesis Significance Tests
-
-.testMeansFactorial <- function(x, ...) {
-  UseMethod(".testMeansFactorial")
-}
-
-.testMeansFactorial.wss <- function(ListDescStats, ListCorrStats, ...) {
-  out <- .describeMeansFactorial.wss(ListDescStats, ListCorrStats)
-  for (i in 1:length(out)) {
-    out[[i]] <- cbind(out[[i]], NA, NA, NA, NA)
-    out[[i]][, 4] <- out[[i]][, 3] / tail(out[[i]][, 3], 1)
-    out[[i]][, 5] <- out[[i]][, 2]
-    out[[i]][, 6] <- tail(out[[i]][, 2], 1)
-    out[[i]][, 7] <- 1 - pf(out[[i]][, 4], out[[i]][, 2], tail(out[[i]][, 2], 1))
-    out[[i]] <- out[[i]][, 4:7]
-    colnames(out[[i]]) <- c("F", "df1", "df2", "p")
-  }
-  out[[1]] <- rbind(out[[1]][-2, ])
-  rownames(out[[1]]) <- "Blocks"
-  out[[2]] <- as.data.frame(out[[2]][-3, ])
-  return(out)
-}
-
-.testMeansFactorial.bss <- function(ListDescStats, ...) {
-  out <- .describeMeansFactorial.bss(ListDescStats)
-  i <- 1
-  out[[i]] <- cbind(out[[i]], NA, NA, NA, NA)
-  out[[i]][, 4] <- out[[i]][, 3] / tail(out[[i]][, 3], 1)
-  out[[i]][, 5] <- out[[i]][, 2]
-  out[[i]][, 6] <- tail(out[[i]][, 2], 1)
-  out[[i]][, 7] <- 1 - pf(out[[i]][, 4], out[[i]][, 2], tail(out[[i]][, 2], 1))
-  out[[i]] <- out[[i]][-4, 4:7]
-  colnames(out[[i]]) <- c("F", "df1", "df2", "p")
-  return(out)
-}
-
-.testMeansFactorial.default <- function(frame, by, ...) {
-  data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
-  ListDescStats <- .describeSummaryBy.default(data, by = by)
-  ListCorrStats <- .describeCorrelationsBy.default(data, by = by)
-  .testMeansFactorial.wss(ListDescStats, ListCorrStats)
-}
-
-.testMeansFactorial.formula <- function(formula, by, ...) {
-  ListDescStats <- .describeSummaryBy.formula(formula, by = by)
-  .testMeansFactorial.bss(ListDescStats)
-}
-
-testMeansFactorial <- function(..., main = NULL, digits = 3) {
-  results <- .testMeansFactorial(...)
-  if (is.null(main)) {
-    main <- "Hypothesis Tests for the Model"
-  }
-  main <- paste(main, names(results), sep = ": ")
-  results <- .formatList(results, main = main, digits = digits)
-  return(results)
-}
-
-### Confidence Interval Plots
-
-plotMeansFactorial <- function(..., by, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, col = "black") {
-  results <- .estimateMeansBy(..., by = by, conf.level = conf.level)
-  if (is.null(main)) {
-    main <- "Confidence Intervals for the Means"
-  }
-  .intervalsMulti(results, main = main, ylab = ylab, xlab = xlab, col = col)
+plotMeansFactorial.data.frame <- plotMeansFactorial.formula <- function(..., by, main = NULL, ylab = "Outcome", xlab = "", conf.level = .95, col = "black") {
+  moments <- describeMoments(..., by = by)
+  results <- estimateMeans(moments, conf.level = conf.level)
+  plot.intervals.multi(results, main = main, ylab = ylab, xlab = xlab, col = col)
   invisible(eval(...))
+}
+
+plotMeansFactorial.bsml <- plotMeansFactorial.wsml <- function(results, main = NULL, ylab = "Outcome", xlab = "", col = "black", ...) {
+  results <- estimateMeans(results, ...)
+  plot.intervals.multi(results, main = main, ylab = ylab, xlab = xlab, col = col)
+  invisible(eval(results))
+}
+
+### Test
+
+testFactorial <- testMeansFactorial <- function(x, ...) {
+  UseMethod("testMeansFactorial")
+}
+
+testMeansFactorial.wsml <- function(moments, corrs, ...) {
+  results <- describeMeansFactorial(moments, corrs)
+  for (i in 1:length(results)) {
+    results[[i]] <- cbind(results[[i]], NA, NA, NA, NA)
+    results[[i]][, 4] <- results[[i]][, 3] / tail(results[[i]][, 3], 1)
+    results[[i]][, 5] <- results[[i]][, 2]
+    results[[i]][, 6] <- tail(results[[i]][, 2], 1)
+    results[[i]][, 7] <- 1 - pf(results[[i]][, 4], results[[i]][, 2], tail(results[[i]][, 2], 1))
+    results[[i]] <- results[[i]][, 4:7]
+    colnames(results[[i]]) <- c("F", "df1", "df2", "p")
+  }
+  results[[1]] <- rbind(results[[1]][-2, ])
+  rownames(results[[1]]) <- "Blocks"
+  class(results[[1]]) <- c("easi.frame")
+  comment(results[[1]]) <- "Hypothesis Tests for the Model"
+  results[[2]] <- rbind(results[[2]][-3, ])
+  class(results[[2]]) <- c("easi.frame")
+  comment(results[[2]]) <- "Hypothesis Tests for the Model"
+  #results <- .deList(results)
+  comment(results) <- "Hypothesis Tests for the Model"
+  class(results) <- c("easi.list")
+  return(results)
+}
+
+testMeansFactorial.bsml <- function(moments, ...) {
+  results <- describeMeansFactorial(moments)
+  results <- cbind(results, NA, NA, NA, NA)
+  results[, 4] <- results[, 3] / tail(results[, 3], 1)
+  results[, 5] <- results[, 2]
+  results[, 6] <- tail(results[, 2], 1)
+  results[, 7] <- 1 - pf(results[, 4], results[, 2], tail(results[, 2], 1))
+  results <- results[-4, 4:7]
+  colnames(results) <- c("F", "df1", "df2", "p")
+  comment(results) <- "Hypothesis Tests for the Model"
+  class(results) <- c("easi.frame")
+  return(results)
+}
+
+testMeansFactorial.data.frame <- function(frame, by, ...) {
+  moments <- describeMomentsBy(frame, by = by)
+  corrs <- describeCorrelationsBy(frame, by = by)
+  testMeansFactorial(moments, corrs, ...)
+}
+
+testMeansFactorial.formula <- function(formula, by, ...) {
+  moments <- describeMomentsBy(formula, by = by)
+  testMeansFactorial(moments, ...)
 }

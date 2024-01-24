@@ -7,15 +7,15 @@
 \description{Provides a scatterplot and/or confidence ellipse.}
 
 \usage{
-\method{plotScatter}{default}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", xlim=NULL, ylim=NULL, ellipse=FALSE, conf.level=.95, points=TRUE, col="black", pch=16, add=FALSE)
+\method{plotScatter}{data.frame}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", xlim=NULL, ylim=NULL, ellipse=FALSE, conf.level=.95, points=TRUE, col="black", pch=16, add=FALSE)
 
-\method{plotScatter}{wss}(DescStats, CorrStats, add=FALSE, main=NULL, ylab="Outcome", xlab="", xlim=NULL, ylim=NULL, ellipse=TRUE, conf.level=.95, col="black", add=FALSE)
+\method{plotScatter}{wsm}(moments, corrs, add=FALSE, main=NULL, ylab="Outcome", xlab="", xlim=NULL, ylim=NULL, ellipse=TRUE, conf.level=.95, col="black", add=FALSE)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
-\item{DescStats}{a matrix/frame of descriptive/summary statistics for the variables}
-\item{CorrStats}{a matrix/frame of correlations for the data set}
+\item{moments}{a matrix/frame of descriptive/summary statistics for the variables}
+\item{corrs}{a matrix/frame of correlations for the data set}
 \item{add}{whether the plot should added to the existing plot}
 \item{ylab}{a label for the y-axis}
 \item{xlab}{a label for the x-axis}

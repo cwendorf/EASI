@@ -1,7 +1,7 @@
 # Estimation Approach to Statistical Inference
 ## Frequencies
 
-### Descriptives
+### Describe
 
 .frequencies <- function(x) {
   Freq <- table(x)
@@ -9,23 +9,22 @@
   CumFreq <- cumsum(table(x))
   CumPerc <- cumsum(table(x)) / summary(table(x))[[2]] * 100
   results <- cbind(Freq, Perc, CumFreq, CumPerc)
+  class(results) <- "easi.frame"
+  comment(results) <- "Frequencies for the Data"
   return(results)
 }
 
-.describeFrequencies <- function(x, ...) {
-  UseMethod(".describeFrequencies")
+describeFrequencies <- function(x, ...) {
+  UseMethod("describeFrequencies")
 }
 
-.describeFrequencies.default <- function(frame, ...) {
+describeFrequencies.data.frame <- function(frame, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
   results <- lapply(data, FUN = .frequencies)
   return(results)
 }
 
-.describeFrequencies.formula <- function(formula, ...) {
+describeFrequencies.formula <- function(formula, ...) {
   data <- unstack(model.frame(formula))
   if (typeof(data) == "list") {
     results <- lapply(data, .frequencies)
@@ -35,17 +34,7 @@
   return(results)
 }
 
-describeFrequencies <- function(..., main = NULL, digits = 3) {
-  results <- .describeFrequencies(...)
-  if (is.null(main)) {
-    main <- "Frequency Distribution for the Data"
-  }
-  main <- paste(main, names(results), sep = ": ")
-  results <- .formatList(results, main = main, digits = digits)
-  return(results)
-}
-
-### Plots
+### Plot
 
 .histogram <- function(y, x, type = "right", offset = 0, col = "black") {
   y <- as.integer(y)
@@ -60,11 +49,8 @@ plotFrequencies <- function(x, ...) {
   UseMethod("plotFrequencies")
 }
 
-plotFrequencies.default <- function(frame, add = FALSE, ylim = NULL, main = NULL, ylab = "Outcome", xlab = "", type = "right", offset = .1, col = "black", ...) {
+plotFrequencies.data.frame <- function(frame, add = FALSE, ylim = NULL, main = NULL, ylab = "Outcome", xlab = "", type = "right", offset = .1, col = "black", ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
   if (!add) {
     if (is.null(main)) {
       main <- "Frequencies for the Variables"
@@ -74,8 +60,7 @@ plotFrequencies.default <- function(frame, add = FALSE, ylim = NULL, main = NULL
     b <- lapply(a, function(x) c(min(x), max(x)))
     results <- data.frame(matrix(unlist(b), nrow = length(b), byrow = TRUE))
     rownames(results) <- names(data)
-    results <- list(results)
-    .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
+    plot.main(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
   }
   if (length(col) > length(data)) {
     col <- col[seq_along(data)]
@@ -102,8 +87,7 @@ plotFrequencies.formula <- function(formula, add = FALSE, ylim = NULL, main = NU
     b <- lapply(a, function(x) c(min(x), max(x)))
     results <- data.frame(matrix(unlist(b), nrow = length(b), byrow = TRUE))
     rownames(results) <- names(data)
-    results <- list(results)
-    .plotMain(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
+    plot.main(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim)
   }
   if (length(col) > length(data)) {
     col <- col[seq_along(data)]

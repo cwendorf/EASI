@@ -1,36 +1,28 @@
 # Estimation Approach to Statistical Inference
 ## Percentiles
 
-### Descriptives
+### Describe
 
-.describePercentiles <- function(x, ...) {
-  UseMethod(".describePercentiles")
+describePercentiles <- function(x, ...) {
+  UseMethod("describePercentiles")
 }
 
-.describePercentiles.default <- function(frame, ...) {
+describePercentiles.data.frame <- function(frame, ...) {
   data <- data.frame(frame)
-  if (ncol(data) == 1) {
-    colnames(data) <- deparse(substitute(frame))
-  }
   results <- t(sapply(data, quantile))
   colnames(results) <- c("Min", "25%", "50%", "75%", "Max")
+  class(results) <- "easi.frame"
+  comment(results) <- "Percentiles for the Data"
   return(results)
 }
 
-.describePercentiles.formula <- function(formula, ...) {
-  results <- aggregate(formula, FUN = .describePercentiles)
+describePercentiles.formula <- function(formula, ...) {
+  results <- aggregate(formula, FUN = describePercentiles.data.frame)
   rn <- results[, 1]
   results <- results[[2]]
   rownames(results) <- rn
   colnames(results) <- c("Min", "25%", "50%", "75%", "Max")
-  return(results)
-}
-
-describePercentiles <- function(..., main = NULL, digits = 3) {
-  results <- .describePercentiles(...)
-  if (is.null(main)) {
-    main <- "Percentiles for the Data"
-  }
-  results <- .formatList(list(results), main = main, digits = digits)
+  class(results) <- "easi.frame"
+  comment(results) <- "Percentiles for the Data"
   return(results)
 }

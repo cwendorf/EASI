@@ -1,73 +1,33 @@
 # Estimation Approach to Statistical Inference
 ## Grammar
 
-### Construction
+### Construct
 
 construct <- function(..., class = "data") {
-  if (class == "bss" || class == "wss") {
-    out <- rbind(...)
-    class(out) <- class
+  if (class == "bsm" || class == "wsm") {
+    results <- rbind(...)
+    class(results) <- c(class, "easi.frame")
+    comment(results) <- "Summary Statistics for the Data"
   } else if (class == "data") {
-    out <- data.frame(...)
-  } else if (class == "corr") {
-    out <- rbind(...)
-    colnames(out) <- rownames(out)
-    class(out) <- class
+    results <- data.frame(...)
+    comment(results) <- "Data"
+  } else if (class == "cor") {
+    results <- rbind(...)
+    colnames(results) <- rownames(results)
+    class(results) <- c(class, "easi.frame")
+    comment(results) <- "Correlations for the Data"
   }
-  return(out)
+  return(results)
 }
 
 combine <- function(..., class = NULL) {
-  out <- list(...)
-  class(out) <- class
-  return(out)
-}
-
-create <- function(..., class = "corr") {
-  clist <- as.character(match.call(expand.dots = FALSE)$...)
-  nr <- length(clist)
-  if (class == "corr") {
-    results <- matrix(data = NA, nr, nr)
-    colnames(results) <- clist
-  } else if (class == "bss" || class == "wss") {
-    results <- matrix(data = NA, nr, 3)
-    colnames(results) <- c("N", "M", "SD")
-  }
-  rownames(results) <- clist
-  class(results) <- class
+  results <- list(...)
+  if (class(results[[1]])[1] == "bsm") (class <- "bsml")
+  if (class(results[[1]])[1] == "wsm") (class <- "wsml")
+  if (class(results[[1]])[1] == "cor") (class <- "corl")
+  class(results) <- c(class, "easi.list")
   return(results)
 }
-
-complete <- function(x, ...) {
-  UseMethod("complete")
-}
-
-complete.corr <- function(mat) {
-  nr <- nrow(mat)
-  nc <- ncol(mat)
-  rn <- rownames(mat)
-  cn <- colnames(mat)
-  results <- matrix(data = NA, nr, nc)
-  rownames(results) <- rn
-  colnames(results) <- cn
-  for (i in 1:nr) {
-    for (j in 1:nc) {
-      if (!is.na(mat[rn[i], cn[j]])) {
-        if (mat[rn[i], cn[j]] == results[cn[j], rn[i]] || is.na(results[cn[j], rn[i]])) {
-          results[cn[j], rn[i]] <- mat[rn[i], cn[j]]
-          results[rn[i], cn[j]] <- mat[rn[i], cn[j]]
-        } else {
-          return("error")
-        }
-      }
-    }
-  }
-  diag(results) <- 1.000
-  class(results) <- "corr"
-  return(results)
-}
-
-### Assign and Retain
 
 retain <- function(x, name, where = parent.frame()) {
   name_string <- deparse(substitute(name))
@@ -80,39 +40,14 @@ retain <- function(x, name, where = parent.frame()) {
   invisible(x)
 }
 
-### Filtering and Focusing
-
-is.formula <- function(x) {
-  inherits(x, "formula")
-}
-
-filters <- function(data, ...) {
-  filts <- (match.call(expand.dots = FALSE)$...)
-  for (i in seq_along(filts)) {
-    data <- subset(data, eval(filts[[i]]))
-  }
-  return(data)
-}
+### Focus
 
 focus <- function(x, ...) {
   UseMethod("focus")
 }
 
-focus.bss <- focus.wss <- function(DescStats, ...) {
-  chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  if (typeof(DescStats) == "list") {
-    for (i in seq_along(DescStats)) {
-      newclass <- class(DescStats[[i]])
-      DescStats[[i]] <- DescStats[[i]][chosen, ]
-      class(DescStats[[i]]) <- newclass
-    }
-    return(DescStats)
-  }
-  else {
-    results <- DescStats[chosen, ]
-    class(results) <- class(DescStats)
-    return(results)
-  }
+focus.default <- function(...) {
+  data.frame(...)
 }
 
 focus.data.frame <- function(frame, ...) {
@@ -135,32 +70,65 @@ focus.data.frame <- function(frame, ...) {
 }
 
 focus.formula <- function(formula, ...) {
-  chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  update <- paste("~ factor(.,", paste(deparse(chosen), collapse = ","), ")")
+  chosen <- (match.call(expand.dots = FALSE)$...)
+  if (is.null(chosen)) update <- formula
+  else {
+    chosen <- as.character(chosen)
+    update <- paste("~ factor(.,", paste(deparse(chosen), collapse = ","), ")")}
   update(formula, update)
 }
 
-focus.corr <- function(CorrStats, ...) {
+focus.bsm <- focus.wsm <- function(moments, ...) {
   chosen <- as.character(match.call(expand.dots = FALSE)$...)
-  if (typeof(CorrStats) == "list") {
-    for (i in seq_along(CorrStats)) {
-      newclass <- class(CorrStats[[i]])
-      CorrStats[[i]] <- CorrStats[[i]][chosen, chosen]
-      class(CorrStats[[i]]) <- newclass
-    }
-    return(CorrStats)
-  }
-  else {
-    results <- CorrStats[chosen, chosen]
-    class(results) <- class(CorrStats)
-    return(results)
-  }
+  results <- moments[chosen, , drop = FALSE]
+  class(results) <- class(moments)
+  comment(results) <- comment(moments)
+  return(results)
 }
 
-### Exposition
+focus.cor <- function(corrs, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  results <- corrs[chosen, chosen]
+  class(results) <- class(corrs)
+  comment(results) <- comment(corrs)
+  return(results)
+}
 
-"%$>%" <- function(lhs, rhs) {
-  lhs <- substitute(lhs)
-  rhs <- substitute(rhs)
-  do.call(with, list(lhs, rhs))
+focus.bsml <- focus.wsml <- focus.corl <- function(list, ...) {
+  chosen <- as.character(match.call(expand.dots = FALSE)$...)
+  for (i in seq_along(list)) {
+    newclass <- class(list[[i]])
+    newcomment <- comment(list[[i]])
+    if (class(list[[i]][1]) == "corl") (list[[i]] <- list[[i]][chosen, chosen])
+    else (list[[i]] <- list[[i]][chosen, ])
+    class(list[[i]]) <- newclass
+    comment(list[[i]]) <- newcomment
+    }
+  return(list)
+}
+
+### Iterate
+
+iterate <- function(x, ...) {
+  UseMethod("iterate")
+}
+
+iterate.bsml <- function(moments, func, ...) {
+  results <- NULL
+  for (i in seq_along(moments)) {
+    results[[i]] <- func(moments[[i]], ...)
+  }
+  names(results) <- names(moments)
+  class(results) <- "easi.list"
+  return(results)
+}
+
+iterate.wsml <- function(moments, corrs, func, ...) {
+  results <- NULL
+  for (i in seq_along(moments)) {
+    results[[i]] <- func(moments[[i]], corrs[[i]], ...)
+  }
+  names(results) <- names(moments)
+  class(results) <- "easi.list"
+  return(results)
 }

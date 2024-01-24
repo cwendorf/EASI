@@ -8,20 +8,20 @@
 \description{Provides the plot of the mean subsets and mean contrast confidence intervals.}
 
 \usage{
-\method{plotMeansSubsets}{default}(frame, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansSubsets}{data.frame}(frame, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
 \method{plotMeansSubsets}{formula}(formula, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansSubsets}{wss}(DescStats, CorrStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansSubsets}{wsm}(moments, corrs, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 
-\method{plotMeansSubsets}{bss}(DescStats, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
+\method{plotMeansSubsets}{bsm}(moments, contrast, ylab="Outcome", xlab="", mu=0, conf.level=.95, rope=NULL, values=TRUE, main=NULL, labels=NULL, ylim=NULL, digits=3)
 }
 
 \arguments{
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
-\item{DescStats}{a matrix/frame of descriptive/summary statistics}
-\item{CorrStats}{a matrix/frame of correlations among the measures}
+\item{moments}{a matrix/frame of descriptive/summary statistics}
+\item{corrs}{a matrix/frame of correlations among the measures}
 \item{contrast}{a vector of codes for the contrast among all means}
 \item{mu}{a number indicating the true/hypothesized value of the mean contrast}
 \item{conf.level}{confidence level of the interval}
