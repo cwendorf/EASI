@@ -1,7 +1,8 @@
-% File man/describeCorrelations.Rd
+% File man/describeCorrelationsSet.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{describeCorrelations}
+\name{describeCorrelationsSet}
+\alias{describeCorrelationsSet}
 \alias{describeCorrelations}
 \title{Describe Correlations}
 \description{Provides a square matrix/frame of correlations for a data set.}

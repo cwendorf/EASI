@@ -1,7 +1,8 @@
-% File man/testCorrelations.Rd
+% File man/testCorrelationsSet.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{testCorrelations}
+\name{testCorrelationsSet}
+\alias{testCorrelationsSet}
 \alias{testCorrelations}
 \title{Test Correlations}
 \description{Provides a statistical significance test for correlations of the specified variables.}

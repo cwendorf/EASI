@@ -2,6 +2,7 @@
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
 \name{describePercentiles}
+\alias{describePercentiles}
 \title{Describe Percentiles}
 \description{Provides a table of percentile statistics for each variable or group.}
 
