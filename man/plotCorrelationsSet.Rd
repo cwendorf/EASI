@@ -5,7 +5,7 @@
 \alias{plotCorrelationsSet}
 \alias{plotCorrelations}
 \title{Plot Correlations}
-\description{Provides a plot of all correlations and their confidence intervals for a list of variables.}
+\description{Provides a plot of all correlations and their confidence intervals for a set of variables.}
 
 \usage{
 \method{plotCorrelations}{data.frame}(frame, , ylab="Correlation", xlab="", conf.level=.95, values=TRUE, main=NULL, ylim=NULL, digits=3)
