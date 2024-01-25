@@ -63,12 +63,20 @@
   return(results)
 }
 
-describeMoments <- describeMomentsSet <- function(x, ...) {
+describeMomentsSet <- function(x, ...) {
   UseMethod("describeMomentsSet")
 }
 
-describeMomentsSet.bsm <- describeMomentsSet.wsm <- function(frame, ...) {
-  return(frame)
+describeMomentsSet.bsm <- function(frame, ...) {
+  results <- frame
+  class(results) <- c("bsm", "easi.frame")
+  return(results)
+}
+
+describeMomentsSet.wsm <- function(frame, ...) {
+  results <- frame
+  class(results) <- c("wsm", "easi.frame")
+  return(results)
 }
 
 describeMomentsSet.data.frame <- function(frame, ...) {
@@ -111,9 +119,15 @@ describeMomentsBy.formula <- function(formula, by, ...) {
   return(results)
 }
 
-describeMomentsSet.bsml <- describeMomentsSet.wsml <- describeMomentsBy.bsml <- describeMomentsBy.wsml <- function(list, ...) {
+describeMomentsBy.bsml <- function(list, ...) {
   results <- lapply(list, describeMoments, ...)
-  class(results) <- "easi.list"
+  class(results) <- c("bsml", "easi.list")
+  return(results)
+}
+
+describeMomentsBy.wsml <- function(list, ...) {
+  results <- lapply(list, describeMoments, ...)
+  class(results) <- c("wsml", "easi.list")
   return(results)
 }
 
