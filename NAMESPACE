@@ -498,6 +498,10 @@ export(plotInteraction)
 
 ### Correlations
 
+S3method(describeCovariances,data.frame)
+S3method(describeCovariances,wsm)
+export(describeCovariances)
+
 S3method(describeCorrelationsSet,data.frame)
 S3method(describeCorrelationsSet,cor)
 S3method(describeCorrelationsSet,wsm)

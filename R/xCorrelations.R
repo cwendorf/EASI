@@ -9,6 +9,26 @@
   return(covstats)
 }
 
+describeCovariances <- function(x, ...) {
+  UseMethod("describeCovariances")
+}
+
+describeCovariances.wsm <- function(moments, corrs, ...) {
+  SD <- moments[, "SD"]
+  results <- .cortocov(corrs, SD)
+  class(results) <- c("easi.frame")
+  comment(results) <- "Covariances for the Data"
+  return(results)
+}
+
+describeCovariances.data.frame <- function(frame, ...) {
+  data <- data.frame(frame)
+  results <- cov(data)
+  class(results) <- c("easi.frame")
+  comment(results) <- "Covariances for the Data"
+  return(results)
+}
+
 describeCorrelations <- describeCorrelationsSet <- function(x, ...) {
   UseMethod("describeCorrelationsSet")
 }
