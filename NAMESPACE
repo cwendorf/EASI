@@ -152,6 +152,7 @@ export(standardizeMeansSet)
 
 export(estimateMeans)
 export(plotMeans)
+export(addMeans)
 export(testMeans)
 export(standardizeMeans)
 
