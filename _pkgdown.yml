@@ -121,7 +121,6 @@ reference:
   - estimateMeansPosthoc
   - plotMeansPosthoc
   - testMeansPosthoc
-  - standardizeMeansPosthoc
 
 - subtitle: Means Relational
   desc: Provide both arelational (confidence) and relational (comparative) intervals for group, level, or variable means
