@@ -5,13 +5,13 @@
 
 .formatFrame <- function(results, digits = 3, padding = 2, width = NULL, ...) {
   if (is.null(width)) width <- digits + (padding * 2)
-  format(as.data.frame(round(results, digits = digits)), width = width, trim = TRUE, nsmall = digits, ...)
+  format(as.data.frame(round(results, digits = digits)), width = width, trim = TRUE, nsmall = digits, scientific = FALSE, ...)
 }
 
 .formatEASI <- function(results, digits = 3, padding = 2, width = NULL, ...) {
   if (is.null(width)) width <- digits + (padding * 2)
   colnames(results) <- format(colnames(results), width = width, justify = "right")
-  noquote(format(results, width = width, justify = "right", digits = digits, nsmall = digits, trim = TRUE))
+  noquote(format(round(results, digits = digits), width = width, justify = "right", digits = digits, nsmall = digits, trim = TRUE, scientific = FALSE, ...))
 }
 
 .unformatFrame <- function(results) {
