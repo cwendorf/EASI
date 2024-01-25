@@ -170,10 +170,10 @@ zero.</p>
 <pre><code>
 Hypothesis Tests for the Means
 
-          Diff       SE       df        t        p 
-Level1 8.00e+00 4.47e-01 9.00e+00 1.79e+01 2.42e-08
-Level2 1.10e+01 6.99e-01 9.00e+00 1.57e+01 7.45e-08
-Level3 1.20e+01 7.74e-01 9.00e+00 1.55e+01 8.51e-08</code></pre>
+          Diff      SE      df       t       p
+Level1   8.000   0.447   9.000  17.891   0.000
+Level2  11.000   0.699   9.000  15.733   0.000
+Level3  12.000   0.774   9.000  15.495   0.000</code></pre>
 <p>Often, the default test value of zero is not meaningful or plausible.
 This too can be altered (often in conjunction with what is presented in
 the plot).</p>
@@ -182,10 +182,10 @@ the plot).</p>
 <pre><code>
 Hypothesis Tests for the Means
 
-          Diff       SE      df       t        p
-Level1 -1.00000 0.44715 9.00000 -2.23641 0.05215
-Level2 2.00000  0.69918 9.00000 2.86050  0.01877
-Level3 3.00000  0.77444 9.00000 3.87376  0.00377</code></pre>
+          Diff      SE      df       t       p
+Level1  -1.000   0.447   9.000  -2.236   0.052
+Level2   2.000   0.699   9.000   2.860   0.019
+Level3   3.000   0.774   9.000   3.874   0.004</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-effect-sizes">Standardized Effect Sizes<a class="anchor" aria-label="anchor" href="#standardized-effect-sizes"></a>
@@ -211,9 +211,9 @@ mean.</p>
 Confidence Intervals for the Standardized Means
 
              d      SE      LL      UL
-Level1 -0.7072  0.3643 -1.6140  0.2217
-Level2  0.9046  0.3837 -0.0828  1.8729
-Level3  1.2250  0.4221  0.1259  2.3172</code></pre>
+Level1  -0.707   0.364  -1.614   0.222
+Level2   0.905   0.384  -0.083   1.873
+Level3   1.225   0.422   0.126   2.317</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -296,8 +296,8 @@ default test value of zero).</p>
 <pre><code>
 Hypothesis Test for the Mean Difference
 
-              Diff      SE      df        t       p
-Comparison 3.00000 0.82993 15.30694 3.61474 0.00248</code></pre>
+              Diff      SE      df       t       p
+Comparison   3.000   0.830  15.307   3.615   0.002</code></pre>
 <p>If the default value of zero is not plausible, it too can be
 changed.</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
@@ -305,8 +305,8 @@ changed.</p>
 <pre><code>
 Hypothesis Test for the Mean Difference
 
-              Diff       SE       df        t        p 
-Comparison 5.00e+00 8.30e-01 1.53e+01 6.02e+00 2.13e-05</code></pre>
+              Diff      SE      df       t       p
+Comparison   5.000   0.830  15.307   6.025   0.000</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-effect-size">Standardized Effect Size<a class="anchor" aria-label="anchor" href="#standardized-effect-size"></a>
@@ -412,8 +412,8 @@ contrast against a value of zero by default.</p>
 <pre><code>
 Hypothesis Test for the Mean Contrast
 
-             Est       SE       df        t        p 
-Contrast 3.50e+00 6.87e-01 2.59e+01 5.09e+00 2.65e-05</code></pre>
+             Est      SE      df       t       p
+Contrast   3.500   0.687  25.917   5.094   0.000</code></pre>
 <p>If desired, the contrast can be tested against other values.</p>
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">OneWayMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansContrast.html">testContrast</a></span><span class="op">(</span>contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, mu <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
@@ -492,17 +492,17 @@ significance.</p>
 <pre><code>
 Hypothesis Test for the Mean Contrast
 
-             Est        SE       df        t         p 
-Contrast -2.33e+00 4.58e-01 2.59e+01 -5.09e+00 2.65e-05</code></pre>
+             Est      SE      df       t       p
+Contrast  -2.333   0.458  25.917  -5.094   0.000</code></pre>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">OneWayMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansComplex.html">testComplex</a></span><span class="op">(</span>contrast1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span>, contrast2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GrandMean"</span>, <span class="st">"L1Only"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Tests for the Mean Contrasts
 
-              Est        SE       df        t         p 
-GrandMean 1.03e+01  3.78e-01 2.34e+01 2.73e+01  0.00e+00
-L1Only    8.00e+00  4.47e-01 9.00e+00 1.79e+01  2.42e-08
-Contrast  -2.33e+00 4.58e-01 2.59e+01 -5.09e+00 2.65e-05</code></pre>
+              Est      SE      df       t       p
+GrandMean  10.333   0.378  23.398  27.309   0.000
+L1Only      8.000   0.447   9.000  17.891   0.000
+Contrast   -2.333   0.458  25.917  -5.094   0.000</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

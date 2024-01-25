@@ -185,10 +185,10 @@ zero.</p>
 <pre><code>
 Hypothesis Tests for the Means
 
-            Diff       SE       df        t        p 
-Outcome1 8.00e+00 4.47e-01 9.00e+00 1.79e+01 2.42e-08
-Outcome2 1.10e+01 6.99e-01 9.00e+00 1.57e+01 7.45e-08
-Outcome3 1.20e+01 7.74e-01 9.00e+00 1.55e+01 8.51e-08</code></pre>
+            Diff      SE      df       t       p
+Outcome1   8.000   0.447   9.000  17.891   0.000
+Outcome2  11.000   0.699   9.000  15.733   0.000
+Outcome3  12.000   0.774   9.000  15.495   0.000</code></pre>
 <p>Often, the default test value of zero is not meaningful or plausible.
 This too can be altered (often in conjunction with what is presented in
 the plot).</p>
@@ -197,10 +197,10 @@ the plot).</p>
 <pre><code>
 Hypothesis Tests for the Means
 
-            Diff       SE      df       t        p
-Outcome1 -1.00000 0.44715 9.00000 -2.23641 0.05215
-Outcome2 2.00000  0.69918 9.00000 2.86050  0.01877
-Outcome3 3.00000  0.77444 9.00000 3.87376  0.00377</code></pre>
+            Diff      SE      df       t       p
+Outcome1  -1.000   0.447   9.000  -2.236   0.052
+Outcome2   2.000   0.699   9.000   2.860   0.019
+Outcome3   3.000   0.774   9.000   3.874   0.004</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-effect-sizes">Standardized Effect Sizes<a class="anchor" aria-label="anchor" href="#standardized-effect-sizes"></a>
@@ -226,9 +226,9 @@ mean.</p>
 Confidence Intervals for the Standardized Means
 
                d      SE      LL      UL
-Outcome1 -0.7072  0.3643 -1.6140  0.2217
-Outcome2  0.9046  0.3837 -0.0828  1.8729
-Outcome3  1.2250  0.4221  0.1259  2.3172</code></pre>
+Outcome1  -0.707   0.364  -1.614   0.222
+Outcome2   0.905   0.384  -0.083   1.873
+Outcome3   1.225   0.422   0.126   2.317</code></pre>
 </div>
 </div>
 <div class="section level2">
@@ -311,8 +311,8 @@ default test value of zero).</p>
 <pre><code>
 Hypothesis Test for the Mean Difference
 
-              Diff       SE       df        t        p 
-Comparison 3.000000 0.596257 9.000000 5.031388 0.000708</code></pre>
+              Diff      SE      df       t       p
+Comparison   3.000   0.596   9.000   5.031   0.001</code></pre>
 <p>If the default value of zero is not plausible, it too can be
 changed.</p>
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
@@ -320,8 +320,8 @@ changed.</p>
 <pre><code>
 Hypothesis Test for the Mean Difference
 
-              Diff       SE       df        t        p 
-Comparison 5.00e+00 5.96e-01 9.00e+00 8.39e+00 1.52e-05</code></pre>
+              Diff      SE      df       t       p
+Comparison   5.000   0.596   9.000   8.386   0.000</code></pre>
 </div>
 <div class="section level3">
 <h3 id="standardized-effect-size">Standardized Effect Size<a class="anchor" aria-label="anchor" href="#standardized-effect-size"></a>
@@ -427,8 +427,8 @@ contrast against a value of zero by default.</p>
 <pre><code>
 Hypothesis Test for the Mean Contrast
 
-             Est       SE       df        t        p 
-Contrast 3.500000 0.572311 9.000000 6.115556 0.000176</code></pre>
+             Est      SE      df       t       p
+Contrast   3.500   0.572   9.000   6.116   0.000</code></pre>
 <p>If desired, the contrast can be tested against other values.</p>
 <div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansContrast.html">testContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, mu <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
@@ -507,17 +507,17 @@ significance.</p>
 <pre><code>
 Hypothesis Test for the Mean Contrast
 
-             Est        SE       df        t         p 
-Contrast -2.333333 0.381541 9.000000 -6.115556 0.000176</code></pre>
+             Est      SE      df       t       p
+Contrast  -2.333   0.382   9.000  -6.116   0.000</code></pre>
 <div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansComplex.html">testComplex</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span>, contrast2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GrandMean"</span>, <span class="st">"L1Only"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Tests for the Mean Contrasts
 
-              Est        SE       df        t         p 
-GrandMean 1.03e+01  5.28e-01 9.00e+00 1.96e+01  1.10e-08
-L1Only    8.00e+00  4.47e-01 9.00e+00 1.79e+01  2.42e-08
-Contrast  -2.33e+00 3.82e-01 9.00e+00 -6.12e+00 1.76e-04</code></pre>
+              Est      SE      df       t       p
+GrandMean  10.333   0.528   9.000  19.567   0.000
+L1Only      8.000   0.447   9.000  17.891   0.000
+Contrast   -2.333   0.382   9.000  -6.116   0.000</code></pre>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
