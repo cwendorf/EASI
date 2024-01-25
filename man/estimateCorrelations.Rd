@@ -1,8 +1,7 @@
-% File man/estimateCorrelationsSet.Rd
+% File man/estimateCorrelations.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{estimateCorrelationsSet}
-\alias{estimateCorrelationsSet}
+\name{estimateCorrelations}
 \alias{estimateCorrelations}
 \title{Estimate Correlations}
 \description{Provides correlations, their standard errors, and their confidence intervals for a list of variables.}

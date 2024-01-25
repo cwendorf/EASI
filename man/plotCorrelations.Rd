@@ -1,8 +1,7 @@
-% File man/plotCorrelationsSet.Rd
+% File man/plotCorrelations.Rd
 % Part of the EASI package, https://github.com/cwendorf/EASI
 
-\name{plotCorrelationsSet}
-\alias{plotCorrelationsSet}
+\name{plotCorrelations}
 \alias{plotCorrelations}
 \title{Plot Correlations}
 \description{Provides a plot of all correlations and their confidence intervals for a set of variables.}
