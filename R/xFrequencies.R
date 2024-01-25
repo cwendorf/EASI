@@ -34,6 +34,12 @@ describeFrequencies.formula <- function(formula, ...) {
   return(results)
 }
 
+describeFrequencies.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  describeFrequencies(frame, ...)
+}
+
 ### Plot
 
 .histogram <- function(y, x, type = "right", offset = 0, col = "black") {
@@ -94,6 +100,12 @@ plotFrequencies.formula <- function(formula, add = FALSE, ylim = NULL, main = NU
   }
   invisible(mapply(.histogram, data, x = seq_along(data), type = type, offset = offset, col = col))
   invisible(eval(formula))
+}
+
+plotFrequencies.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  plotFrequencies(frame, ...)
 }
 
 addFrequencies <- function(...) {

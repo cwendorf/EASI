@@ -27,6 +27,12 @@ describeBoxes.formula <- function(formula, ...) {
   return(results)
 }
 
+describeBoxes.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  describeBoxes(frame, ...)
+}
+
 ### Plot
 
 plot.boxes <- function(results, main, ylab, xlab, ylim, values, digits, pos, connect, add, col, offset, scale, ...) {
@@ -76,6 +82,12 @@ plotBoxes.formula <- function(formula, add = FALSE, main = NULL, ylab = "Outcome
   results <- describeBoxes(formula, main = main, digits = digits)
   plot.boxes(results, main = main, ylab = ylab, xlab = xlab, ylim = ylim, values = values, digits = digits, pos = pos, connect = FALSE, add = add, col = col, offset = offset, scale = scale)
   invisible(eval(formula))
+}
+
+plotBoxes.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  plotBoxes(frame, ...)
 }
 
 addBoxes <- function(...) {

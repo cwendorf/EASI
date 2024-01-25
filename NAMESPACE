@@ -36,6 +36,7 @@ S3method(plot,intervals.multi)
 
 S3method(plotData,data.frame)
 S3method(plotData,formula)
+S3method(plotData,default)
 export(plotData)
 export(addData)
 
@@ -43,6 +44,7 @@ export(addData)
 
 S3method(plotDensity,data.frame)
 S3method(plotDensity,formula)
+S3method(plotDensity,default)
 export(plotDensity)
 export(addDensity)
 
@@ -50,10 +52,12 @@ export(addDensity)
 
 S3method(describeBoxes,data.frame)
 S3method(describeBoxes,formula)
+S3method(describeBoxes,default)
 export(describeBoxes)
 
 S3method(plotBoxes,data.frame)
 S3method(plotBoxes,formula)
+S3method(plotBoxes,default)
 export(plotBoxes)
 export(addBoxes)
 
@@ -61,10 +65,12 @@ export(addBoxes)
 
 S3method(describeFrequencies,data.frame)
 S3method(describeFrequencies,formula)
+S3method(describeFrequencies,default)
 export(describeFrequencies)
 
 S3method(plotFrequencies,data.frame)
 S3method(plotFrequencies,formula)
+S3method(plotFrequencies,default)
 export(plotFrequencies)
 export(addFrequencies)
 
@@ -72,6 +78,7 @@ export(addFrequencies)
 
 S3method(describePercentiles,data.frame)
 S3method(describePercentiles,formula)
+S3method(describePercentiles,default)
 export(describePercentiles)
 
 ### EDA
@@ -96,12 +103,14 @@ S3method(describeMomentsSet,wsm)
 S3method(describeMomentsSet,bsm)
 S3method(describeMomentsSet,wsml)
 S3method(describeMomentsSet,bsml)
+S3method(describeMomentsSet,default)
 export(describeMomentsSet)
 
 S3method(plotMomentsSet,data.frame)
 S3method(plotMomentsSet,formula)
 S3method(plotMomentsSet,wsm)
 S3method(plotMomentsSet,bsm)
+S3method(plotMomentsSet,default)
 export(plotMomentsSet)
 export(addMomentsSet)
 
@@ -123,6 +132,7 @@ S3method(estimateMeansSet,wsm)
 S3method(estimateMeansSet,bsm)
 S3method(estimateMeansSet,wsml)
 S3method(estimateMeansSet,bsml)
+S3method(estimateMeansSet,default)
 export(estimateMeansSet)
 
 S3method(plotMeansSet,data.frame)
@@ -131,6 +141,7 @@ S3method(plotMeansSet,wsm)
 S3method(plotMeansSet,bsm)
 S3method(plotMeansSet,wsml)
 S3method(plotMeansSet,bsml)
+S3method(plotMeansSet,default)
 export(plotMeansSet)
 export(addMeansSet)
 
@@ -140,6 +151,7 @@ S3method(testMeansSet,wsm)
 S3method(testMeansSet,bsm)
 S3method(testMeansSet,wsml)
 S3method(testMeansSet,bsml)
+S3method(testMeansSet,default)
 export(testMeansSet)
 
 S3method(standardizeMeansSet,data.frame)
@@ -148,6 +160,7 @@ S3method(standardizeMeansSet,wsm)
 S3method(standardizeMeansSet,bsm)
 S3method(standardizeMeansSet,wsml)
 S3method(standardizeMeansSet,bsml)
+S3method(standardizeMeansSet,default)
 export(standardizeMeansSet)
 
 export(estimateMeans)

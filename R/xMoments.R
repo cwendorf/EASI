@@ -97,6 +97,12 @@ describeMomentsSet.formula <- function(formula, ...) {
   return(results)
 }
 
+describeMomentsSet.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  describeMomentsSet(frame, ...)
+}
+
 describeMomentsBy <- function(x, ...) {
   UseMethod("describeMomentsBy")
 }

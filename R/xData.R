@@ -156,6 +156,12 @@ plotData.formula <- function(formula, add = FALSE, main = NULL, ylim = NULL, yla
   invisible(eval(formula))
 }
 
+plotData.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  plotData(frame, ...)
+}
+
 addData <- function(...) {
   plotData(..., add = TRUE)
 }

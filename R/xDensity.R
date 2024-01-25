@@ -60,6 +60,12 @@ plotDensity.formula <- function(formula, type = "right", add = FALSE, main = NUL
   invisible(eval(formula))
 }
 
+plotDensity.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  plotDensity(frame, ...)
+}
+
 addDensity <- function(...) {
   plotDensity(..., add = TRUE)
 }

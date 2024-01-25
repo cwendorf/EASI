@@ -26,3 +26,9 @@ describePercentiles.formula <- function(formula, ...) {
   comment(results) <- "Percentiles for the Data"
   return(results)
 }
+
+describePercentiles.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  describePercentiles(frame, ...)
+}

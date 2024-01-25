@@ -38,6 +38,12 @@ estimateMeansSet.bsml <- estimateMeansSet.wsml <- function(moments, func, ...) {
   iterate.bsml(moments, estimateMeansSet, ...)
 }
 
+estimateMeansSet.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  estimateMeansSet(frame, ...)
+}
+
 ### Plot
 
 plotMeans <- plotMeansSet <- function(x, ...) {
@@ -54,6 +60,12 @@ plotMeansSet.bsm <- plotMeansSet.formula <- plotMeansSet.bsml <- function(..., c
   results <- estimateMeansSet(..., mu = mu, conf.level = conf.level, main = main, digits = digits)
   plot(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
   invisible(eval(...))
+}
+
+plotMeansSet.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  plotMeansSet(frame, ...)
 }
 
 addMeans <- addMeansSet <- function(...) {
@@ -93,6 +105,12 @@ testMeansSet.formula <- function(formula, mu = 0, ...) {
 
 testMeansSet.bsml <- testMeansSet.wsml <- function(moments, func, ...) {
   iterate.bsml(moments, testMeansSet, ...)
+}
+
+testMeansSet.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  testMeansSet(frame, ...)
 }
 
 ### Standardize
@@ -151,4 +169,10 @@ standardizeMeansSet.formula <- function(formula, mu = 0, conf.level = .95, ...) 
 
 standardizeMeansSet.bsml <- standardizeMeansSet.wsml <-function(moments, func, ...) {
   iterate.bsml(moments, standardizeMeansSet, ...)
+}
+
+standardizeMeansSet.default <- function(variable, ...) {
+  frame <- data.frame(variable)
+  names(frame) <- deparse(substitute(variable))
+  standardizeMeansSet(frame, ...)
 }
