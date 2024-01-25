@@ -151,9 +151,12 @@ describeMomentsSet.wsml <- function(list, ...) {
 
 describeMoments <- function(x, by = NULL, ...) {
   if (!is.null(by)) {
-    describeMomentsBy(x, by, ...)
+    results <- describeMomentsBy(x, by, ...)
+    return(results)
   } else {
-    describeMomentsSet(x, ...)
+    results <- describeMomentsSet(x, ...)
+    if (nrow(results) == 1) {rownames(results) <- deparse(substitute(x))}
+    return(results)
   }
 }
 
