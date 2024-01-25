@@ -111,7 +111,7 @@ describeMomentsBy.formula <- function(formula, by, ...) {
   return(results)
 }
 
-describeMomentsBy.list <- function(list, ...) {
+describeMomentsSet.bsml <- describeMomentsSet.wsml <- describeMomentsBy.bsml <- describeMomentsBy.wsml <- function(list, ...) {
   results <- lapply(list, describeMoments, ...)
   class(results) <- "easi.list"
   return(results)
