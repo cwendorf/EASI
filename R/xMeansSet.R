@@ -40,8 +40,9 @@ estimateMeansSet.bsml <- estimateMeansSet.wsml <- function(moments, func, ...) {
 
 estimateMeansSet.default <- function(variable, ...) {
   frame <- data.frame(variable)
-  names(frame) <- deparse(substitute(variable))
-  estimateMeansSet(frame, ...)
+  results <- estimateMeansSet(frame, ...)
+  if (nrow(results) == 1) {rownames(results) <- deparse(substitute(variable))}
+  return(results)
 }
 
 ### Plot
@@ -56,16 +57,10 @@ plotMeansSet.wsm <- plotMeansSet.data.frame <- plotMeansSet.wsml <- function(...
   invisible(eval(...))
 }
 
-plotMeansSet.bsm <- plotMeansSet.formula <- plotMeansSet.bsml <- function(..., conf.level = .95, mu = 0, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, line = NULL, rope = NULL, values = TRUE, digits = 3, pos = 2, pch = 16, col = "black", connect = FALSE, offset = 0, intervals = TRUE) {
+plotMeansSet.default <- plotMeansSet.bsm <- plotMeansSet.formula <- plotMeansSet.bsml <- function(..., conf.level = .95, mu = 0, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, line = NULL, rope = NULL, values = TRUE, digits = 3, pos = 2, pch = 16, col = "black", connect = FALSE, offset = 0, intervals = TRUE) {
   results <- estimateMeansSet(..., mu = mu, conf.level = conf.level, main = main, digits = digits)
   plot(results, add = add, main = main, xlab = xlab, ylab = ylab, ylim = ylim, values = values, line = line, rope = rope, digits = digits, connect = connect, pos = pos, pch = pch, col = col, offset = offset, intervals = intervals)
   invisible(eval(...))
-}
-
-plotMeansSet.default <- function(variable, ...) {
-  frame <- data.frame(variable)
-  names(frame) <- deparse(substitute(variable))
-  plotMeansSet(frame, ...)
 }
 
 addMeans <- addMeansSet <- function(...) {
@@ -109,8 +104,9 @@ testMeansSet.bsml <- testMeansSet.wsml <- function(moments, func, ...) {
 
 testMeansSet.default <- function(variable, ...) {
   frame <- data.frame(variable)
-  names(frame) <- deparse(substitute(variable))
-  testMeansSet(frame, ...)
+  results <- testMeansSet(frame, ...)
+  if (nrow(results) == 1) {rownames(results) <- deparse(substitute(variable))}
+  return(results)
 }
 
 ### Standardize
@@ -173,6 +169,7 @@ standardizeMeansSet.bsml <- standardizeMeansSet.wsml <-function(moments, func, .
 
 standardizeMeansSet.default <- function(variable, ...) {
   frame <- data.frame(variable)
-  names(frame) <- deparse(substitute(variable))
-  standardizeMeansSet(frame, ...)
+  results <- standardizeMeansSet(frame, ...)
+  if (nrow(results) == 1) {rownames(results) <- deparse(substitute(variable))}
+  return(results)
 }
