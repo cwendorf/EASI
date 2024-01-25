@@ -104,7 +104,7 @@ describeMomentsBy <- function(x, ...) {
 describeMomentsBy.data.frame <- function(frame, by, ...) {
   MixedData <- data.frame(by, frame)
   SplitData <- split(MixedData[-1], by)
-  results <- lapply(SplitData, describeMoments)
+  results <- lapply(SplitData, describeMomentsSet)
   class(results) <- c("wsml", "easi.list")
   return(results)
 }
@@ -114,19 +114,31 @@ describeMomentsBy.formula <- function(formula, by, ...) {
   Outcome <- eval(formula[[2]])
   FactorialData <- data.frame(by, Group, Outcome)
   SplitData <- split(FactorialData, by)
-  results <- lapply(SplitData, function(x) with(x, describeMoments(Outcome ~ Group)))
+  results <- lapply(SplitData, function(x) with(x, describeMomentsSet(Outcome ~ Group)))
   class(results) <- c("bsml", "easi.list")
   return(results)
 }
 
 describeMomentsBy.bsml <- function(list, ...) {
-  results <- lapply(list, describeMoments, ...)
+  results <- lapply(list, describeMomentsSet, ...)
   class(results) <- c("bsml", "easi.list")
   return(results)
 }
 
 describeMomentsBy.wsml <- function(list, ...) {
-  results <- lapply(list, describeMoments, ...)
+  results <- lapply(list, describeMomentsSet, ...)
+  class(results) <- c("wsml", "easi.list")
+  return(results)
+}
+
+describeMomentsSet.bsml <- function(list, ...) {
+  results <- lapply(list, describeMomentsSet, ...)
+  class(results) <- c("bsml", "easi.list")
+  return(results)
+}
+
+describeMomentsSet.wsml <- function(list, ...) {
+  results <- lapply(list, describeMomentsSet, ...)
   class(results) <- c("wsml", "easi.list")
   return(results)
 }

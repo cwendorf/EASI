@@ -11,7 +11,7 @@
 .formatEASI <- function(results, digits = 3, padding = 2, width = NULL, ...) {
   if (is.null(width)) width <- digits + (padding * 2)
   colnames(results) <- format(colnames(results), width = width, justify = "right")
-  noquote(format(results, width = width, justify = "right", digits = digits))
+  noquote(format(results, width = width, justify = "right", digits = digits, nsmall = digits, trim = TRUE))
 }
 
 .unformatFrame <- function(results) {
@@ -44,6 +44,6 @@ print.easi.frame <- function(x, format = "easi", main = NULL, ...) {
 
 print.easi.list <- function(x, ...) {
   results <- unclass(x)
-  print(results)
+  print(results, ...)
   invisible(x)
 }
