@@ -4,28 +4,16 @@
     <loc>https://cwendorf.github.io/EASI/404.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/BivariateRegressionDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/BivariateDataRegression.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/BivariateRegressionSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/BivariateSummaryRegression.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/FactorialAlternativeDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/FactorialDataContrasts.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/FactorialAlternativeSummaryExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/FactorialTraditionalDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/FactorialTraditionalSummaryExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/IndependentCorrelationsDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/IndependentCorrelationsSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/FactorialSummaryContrasts.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/articles/index.html</loc>
@@ -34,58 +22,34 @@
     <loc>https://cwendorf.github.io/EASI/articles/Introduction.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MixedAlternativeDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/MixedDataContrasts.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MixedAlternativeSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/MixedSummaryContrasts.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MixedTraditionalDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/OneWayDataContrasts.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MixedTraditionalSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/OneWayDataExploration.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MultipleCorrelationsDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/OneWaySummaryContrasts.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MultipleCorrelationsSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedDataContrasts.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MultipleRegressionDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedDataCorrelations.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/MultipleRegressionSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedDataExploration.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneWayAlternativeDataExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedSummaryContrasts.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneWayAlternativeSummaryExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneWayExplorationDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneWayTraditionalDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/OneWayTraditionalSummaryExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/RepeatedAlternativeDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/RepeatedAlternativeSummaryExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/RepeatedExplorationDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/RepeatedTraditionalDataExample.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/articles/RepeatedTraditionalSummaryExample.html</loc>
+    <loc>https://cwendorf.github.io/EASI/articles/RepeatedSummaryCorrelations.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/authors.html</loc>
@@ -98,6 +62,9 @@
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/combine.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/construct.html</loc>
@@ -118,25 +85,13 @@
     <loc>https://cwendorf.github.io/EASI/reference/describeMeansFactorial.html</loc>
   </url>
   <url>
+    <loc>https://cwendorf.github.io/EASI/reference/describeMoments.html</loc>
+  </url>
+  <url>
     <loc>https://cwendorf.github.io/EASI/reference/describePercentiles.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/describeRegressionEffect.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/describeSummary.html</loc>
-  </url>
-  <url>
     <loc>https://cwendorf.github.io/EASI/reference/estimateCorrelations.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateCorrelationsComparison.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateCorrelationsDifference.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateMeans.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/estimateMeansComparison.html</loc>
@@ -169,31 +124,19 @@
     <loc>https://cwendorf.github.io/EASI/reference/estimateMeansRelational.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateMeansSubsets.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/estimateMeansSet.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateRegression.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/estimateMeansSubsets.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/estimateRegressionCoefficients.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateRegressionEffect.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/estimateRegressionLine.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateStandardizedMeans.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateStandardizedMeansContrast.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateStandardizedMeansDifference.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateStandardizedMeansPairwise.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/estimateStandardizedRegressionCoefficients.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/estimateRegressionModel.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/focus.html</loc>
@@ -208,12 +151,6 @@
     <loc>https://cwendorf.github.io/EASI/reference/plotCorrelations.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/plotCorrelationsComparison.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/plotCorrelationsDifference.html</loc>
-  </url>
-  <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotData.html</loc>
   </url>
   <url>
@@ -221,9 +158,6 @@
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotFrequencies.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/plotMeans.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotMeansComparison.html</loc>
@@ -253,31 +187,43 @@
     <loc>https://cwendorf.github.io/EASI/reference/plotMeansRelational.html</loc>
   </url>
   <url>
+    <loc>https://cwendorf.github.io/EASI/reference/plotMeansSet.html</loc>
+  </url>
+  <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotMeansSubsets.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/plotMoments.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotPlausible.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/plotRegression.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/plotRegressionCoefficients.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/plotRegressionCoefficients.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/plotRegressionLine.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/plotScatter.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/plotStandardizedRegressionCoefficients.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/standardizeMeansContrast.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/plotSummary.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/standardizeMeansDifference.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/standardizeMeansPairwise.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/standardizeMeansSet.html</loc>
+  </url>
+  <url>
+    <loc>https://cwendorf.github.io/EASI/reference/standardizeRegressionCoefficients.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/testCorrelations.html</loc>
-  </url>
-  <url>
-    <loc>https://cwendorf.github.io/EASI/reference/testMeans.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/testMeansComparison.html</loc>
@@ -307,12 +253,15 @@
     <loc>https://cwendorf.github.io/EASI/reference/testMeansPosthoc.html</loc>
   </url>
   <url>
+    <loc>https://cwendorf.github.io/EASI/reference/testMeansSet.html</loc>
+  </url>
+  <url>
     <loc>https://cwendorf.github.io/EASI/reference/testMeansSubsets.html</loc>
   </url>
   <url>
     <loc>https://cwendorf.github.io/EASI/reference/testRegressionCoefficients.html</loc>
   </url>
   <url>
-    <loc>https://cwendorf.github.io/EASI/reference/testRegressionEffect.html</loc>
+    <loc>https://cwendorf.github.io/EASI/reference/testRegressionModel.html</loc>
   </url>
 </urlset>

@@ -12,6 +12,6 @@ RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 (RepeatedData) |> focus(Outcome1, Outcome2) |> estimateComparison(conf.level = .99)
 
 comparisonTheme <- c("darkred", "darkblue", "black")
-(RepeatedData) |> focus(Outcome1, Outcome2) |> plotIntervals(main = "Data, Confidence Intervals, and a Plausibility Curve on the Difference", conf.level = .99, ylim = c(0, 20), values = FALSE, col = comparisonTheme)
+(RepeatedData) |> focus(Outcome1, Outcome2) |> plotComparison(main = "Data, Confidence Intervals, and a Plausibility Curve on the Difference", conf.level = .99, ylim = c(0, 20), values = FALSE, col = comparisonTheme)
 (RepeatedData) |> focus(Outcome1, Outcome2) |> addPlausible(conf.level = .99, type = c("none", "none", "right"), col = comparisonTheme)
 (RepeatedData) |> focus(Outcome1, Outcome2) |> addData(method = "jitter", col = comparisonTheme)

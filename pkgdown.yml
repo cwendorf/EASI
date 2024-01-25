@@ -1,35 +1,23 @@
-pandoc: 3.1.9
+pandoc: 3.1.1
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
-  BivariateRegressionDataExample: BivariateRegressionDataExample.html
-  BivariateRegressionSummaryExample: BivariateRegressionSummaryExample.html
-  FactorialAlternativeDataExample: FactorialAlternativeDataExample.html
-  FactorialAlternativeSummaryExample: FactorialAlternativeSummaryExample.html
-  FactorialTraditionalDataExample: FactorialTraditionalDataExample.html
-  FactorialTraditionalSummaryExample: FactorialTraditionalSummaryExample.html
-  IndependentCorrelationsDataExample: IndependentCorrelationsDataExample.html
-  IndependentCorrelationsSummaryExample: IndependentCorrelationsSummaryExample.html
+  BivariateDataRegression: BivariateDataRegression.html
+  BivariateSummaryRegression: BivariateSummaryRegression.html
+  FactorialDataContrasts: FactorialDataContrasts.html
+  FactorialSummaryContrasts: FactorialSummaryContrasts.html
   Introduction: Introduction.html
-  MixedAlternativeDataExample: MixedAlternativeDataExample.html
-  MixedAlternativeSummaryExample: MixedAlternativeSummaryExample.html
-  MixedTraditionalDataExample: MixedTraditionalDataExample.html
-  MixedTraditionalSummaryExample: MixedTraditionalSummaryExample.html
-  MultipleCorrelationsDataExample: MultipleCorrelationsDataExample.html
-  MultipleCorrelationsSummaryExample: MultipleCorrelationsSummaryExample.html
-  MultipleRegressionDataExample: MultipleRegressionDataExample.html
-  MultipleRegressionSummaryExample: MultipleRegressionSummaryExample.html
-  OneWayAlternativeDataExample: OneWayAlternativeDataExample.html
-  OneWayAlternativeSummaryExample: OneWayAlternativeSummaryExample.html
-  OneWayExplorationDataExample: OneWayExplorationDataExample.html
-  OneWayTraditionalDataExample: OneWayTraditionalDataExample.html
-  OneWayTraditionalSummaryExample: OneWayTraditionalSummaryExample.html
-  RepeatedAlternativeDataExample: RepeatedAlternativeDataExample.html
-  RepeatedAlternativeSummaryExample: RepeatedAlternativeSummaryExample.html
-  RepeatedExplorationDataExample: RepeatedExplorationDataExample.html
-  RepeatedTraditionalDataExample: RepeatedTraditionalDataExample.html
-  RepeatedTraditionalSummaryExample: RepeatedTraditionalSummaryExample.html
-last_built: 2023-12-19T16:31Z
+  MixedDataContrasts: MixedDataContrasts.html
+  MixedSummaryContrasts: MixedSummaryContrasts.html
+  OneWayDataContrasts: OneWayDataContrasts.html
+  OneWayDataExploration: OneWayDataExploration.html
+  OneWaySummaryContrasts: OneWaySummaryContrasts.html
+  RepeatedDataContrasts: RepeatedDataContrasts.html
+  RepeatedDataCorrelations: RepeatedDataCorrelations.html
+  RepeatedDataExploration: RepeatedDataExploration.html
+  RepeatedSummaryContrasts: RepeatedSummaryContrasts.html
+  RepeatedSummaryCorrelations: RepeatedSummaryCorrelations.html
+last_built: 2024-01-25T10:57Z
 urls:
   reference: https://cwendorf.github.io/EASI/reference
   article: https://cwendorf.github.io/EASI/articles
