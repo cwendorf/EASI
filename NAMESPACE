@@ -110,7 +110,6 @@ S3method(plotMomentsSet,data.frame)
 S3method(plotMomentsSet,formula)
 S3method(plotMomentsSet,wsm)
 S3method(plotMomentsSet,bsm)
-S3method(plotMomentsSet,default)
 export(plotMomentsSet)
 export(addMomentsSet)
 
