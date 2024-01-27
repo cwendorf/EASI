@@ -125,11 +125,6 @@ Correlations for the Data
 Outcome1   1.000    0.533    0.385 
 Outcome2   0.533    1.000    0.574 
 Outcome3   0.385    0.574    1.000 </code></pre>
-<p>Plot the summary statistics. The bars represent standard
-deviations.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMoments.html">plotMoments</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-Summary-Moments-1.png" width="672"></p>
 </div>
 </div>
 <div class="section level2">
@@ -142,7 +137,7 @@ analyses separately for each level of a factor.</p>
 </h3>
 <p>This code will provide a table of confidence intervals for each level
 of the factor.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansSet.html">estimateMeans</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Means
@@ -153,12 +148,12 @@ Outcome2  11.000   0.699   9.000   9.418  12.582
 Outcome3  12.000   0.774   9.000  10.248  13.752</code></pre>
 <p>This code will produce a graph of the confidence intervals for each
 level of the factor.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansSet.html">plotMeans</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-MeansA-1.png" width="672"></p>
 <p>The code defaults to 95% confidence intervals. This can be changed if
 desired.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansSet.html">estimateMeans</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Means
@@ -170,7 +165,7 @@ Outcome3  12.000   0.774   9.000   9.483  14.517</code></pre>
 <p>For the graph, it is possible to add a comparison line to represent a
 population (or test) value and a region of practical equivalence in
 addition to changing the confidence level.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansSet.html">plotMeans</a></span><span class="op">(</span>conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">9</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-MeansB-1.png" width="672"></p>
 </div>
@@ -180,7 +175,7 @@ addition to changing the confidence level.</p>
 <p>This code will produce a table of NHST separately for each level of
 the factor. In this case, all the means are tested against a value of
 zero.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansSet.html">testMeans</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Tests for the Means
@@ -192,7 +187,7 @@ Outcome3  12.000   0.774   9.000  15.495   0.000</code></pre>
 <p>Often, the default test value of zero is not meaningful or plausible.
 This too can be altered (often in conjunction with what is presented in
 the plot).</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansSet.html">testMeans</a></span><span class="op">(</span>mu <span class="op">=</span> <span class="fl">9</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Tests for the Means
@@ -208,7 +203,7 @@ Outcome3   3.000   0.774   9.000   3.874   0.004</code></pre>
 <p>This code will produce a table of standardized mean differences
 separately for each level of the factor. In this case, the mean is
 compared to zero to form the effect size.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/standardizeMeansSet.html">standardizeMeans</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Standardized Means
@@ -220,7 +215,7 @@ Outcome3   4.900   1.096   2.580   7.204</code></pre>
 <p>Here too it is possible to alter the width of the confidence
 intervals and to establish a more plausible comparison value for the
 mean.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/standardizeMeansSet.html">standardizeMeans</a></span><span class="op">(</span>mu <span class="op">=</span> <span class="fl">9</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Standardized Means
@@ -240,7 +235,7 @@ a factor.</p>
 <h3 id="confidence-intervals-1">Confidence Intervals<a class="anchor" aria-label="anchor" href="#confidence-intervals-1"></a>
 </h3>
 <p>This code estimates the confidence interval of the difference.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansDifference.html">estimateDifference</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Mean Difference
@@ -249,12 +244,12 @@ Confidence Interval for the Mean Difference
 Comparison   3.000   0.596   9.000   1.651   4.349</code></pre>
 <p>This code obtains and plots the confidence intervals for the mean
 difference in the identified comparison.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansDifference.html">plotDifference</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-DifferenceA-1.png" width="672"></p>
 <p>Of course, you can change the confidence level from the default 95%
 if desired.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansDifference.html">estimateDifference</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Mean Difference
@@ -264,12 +259,12 @@ Comparison   3.000   0.596   9.000   1.062   4.938</code></pre>
 <p>Once again, the confidence levels can be changed away from the
 default and a comparison line to represent a population (or test) value
 and a region of practical equivalence can be added to the graph.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansDifference.html">plotDifference</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-DifferenceB-1.png" width="672"></p>
 <p>If you wish, you can get the confidence intervals for the means and
 the mean difference in one command.</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansComparison.html">estimateComparison</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Mean Comparison
@@ -280,12 +275,12 @@ Outcome2    11.000   0.699   9.000   9.418  12.582
 Comparison   3.000   0.596   9.000   1.651   4.349</code></pre>
 <p>This code produces a difference plot using the confidence intervals
 for the means and the mean difference.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansComparison.html">plotComparison</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-ComparisonA-1.png" width="672"></p>
 <p>Of course, you can change the confidence level from the default 95%
 if desired.</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansComparison.html">estimateComparison</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Mean Comparison
@@ -297,7 +292,7 @@ Comparison   3.000   0.596   9.000   1.062   4.938</code></pre>
 <p>Once again, the confidence levels can be changed away from the
 default and a region of practical equivalence can be added to the
 graph.</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansComparison.html">plotComparison</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-ComparisonB-1.png" width="672"></p>
 </div>
@@ -306,7 +301,7 @@ graph.</p>
 </h3>
 <p>This code produces NHST for the identified comparison (using a
 default test value of zero).</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansDifference.html">testDifference</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Test for the Mean Difference
@@ -315,7 +310,7 @@ Hypothesis Test for the Mean Difference
 Comparison   3.000   0.596   9.000   5.031   0.001</code></pre>
 <p>If the default value of zero is not plausible, it too can be
 changed.</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansDifference.html">testDifference</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, mu <span class="op">=</span> <span class="op">-</span><span class="fl">2</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Test for the Mean Difference
@@ -328,7 +323,7 @@ Comparison   5.000   0.596   9.000   8.386   0.000</code></pre>
 </h3>
 <p>This code calculates a standardized mean difference for the
 comparison and its confidence interval.</p>
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/standardizeMeansDifference.html">standardizeDifference</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Standardized Mean Difference
@@ -337,7 +332,7 @@ Confidence Interval for the Standardized Mean Difference
 Comparison   1.617   0.466   0.703   2.530</code></pre>
 <p>The width of the confidence interval for the effect size can be
 altered if desired.</p>
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/focus.html">focus</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/standardizeMeansDifference.html">standardizeDifference</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Standardized Mean Difference
@@ -356,7 +351,7 @@ factor.</p>
 </h3>
 <p>This code produces a confidence interval for a specified
 contrast.</p>
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansContrast.html">estimateContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Mean Contrast
@@ -365,12 +360,12 @@ Confidence Interval for the Mean Contrast
 Contrast   3.500   0.572   9.000   2.205   4.795</code></pre>
 <p>This code obtains and plots the confidence intervals for the mean
 difference in the identified contrast.</p>
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansContrast.html">plotContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-ContrastA-1.png" width="672"></p>
 <p>As in all other cases, the default value of the confidence interval
 can be changed.</p>
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansContrast.html">estimateContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Mean Contrast
@@ -380,12 +375,12 @@ Contrast   3.500   0.572   9.000   1.640   5.360</code></pre>
 <p>The width of the confidence interval for the contrast can be altered
 and a comparison line to represent a population (or test) value and a
 region of practical equivalence can be added to the graph.</p>
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansContrast.html">plotContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, line <span class="op">=</span> <span class="fl">0</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-ContrastB-1.png" width="672"></p>
 <p>If you wish, you can get the confidence intervals for the mean
 subsets and the mean contrast in one command.</p>
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansSubsets.html">estimateSubsets</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Mean Subsets
@@ -396,12 +391,12 @@ Pos Weighted  11.500   0.654   9.000  10.021  12.979
 Contrast       3.500   0.572   9.000   2.205   4.795</code></pre>
 <p>This code produces a difference plot using the confidence intervals
 for the mean subsets and the mean contrast.</p>
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansSubsets.html">plotSubsets</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-SubsetsA-1.png" width="672"></p>
 <p>Of course, you can change the confidence level from the default 95%
 if desired.</p>
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansSubsets.html">estimateSubsets</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Mean Subsets
@@ -413,7 +408,7 @@ Contrast       3.500   0.572   9.000   1.640   5.360</code></pre>
 <p>Once again, the confidence levels can be changed away from the
 default and a region of practical equivalence can be added to the
 graph.</p>
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansSubsets.html">plotSubsets</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Outcome1"</span>, <span class="st">"Others"</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span>, rope <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-SubsetsB-1.png" width="672"></p>
 </div>
@@ -422,7 +417,7 @@ graph.</p>
 </h3>
 <p>This code produces a NHST for the identified contrast. It tests the
 contrast against a value of zero by default.</p>
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansContrast.html">testContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Test for the Mean Contrast
@@ -430,7 +425,7 @@ Hypothesis Test for the Mean Contrast
              Est      SE      df       t       p
 Contrast   3.500   0.572   9.000   6.116   0.000</code></pre>
 <p>If desired, the contrast can be tested against other values.</p>
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansContrast.html">testContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, mu <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Test for the Mean Contrast
@@ -443,7 +438,7 @@ Contrast  -0.500   0.572   9.000  -0.874   0.405</code></pre>
 </h3>
 <p>This code calculates a standardized contrast and its confidence
 interval.</p>
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/standardizeMeansContrast.html">standardizeContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Standardized Mean Contrast
@@ -452,7 +447,7 @@ Confidence Interval for the Standardized Mean Contrast
 Contrast   1.689   0.371   0.962   2.415</code></pre>
 <p>The width of the confidence interval for the effect size can be
 altered if desired.</p>
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/standardizeMeansContrast.html">standardizeContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, conf.level <span class="op">=</span> <span class="fl">.99</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Standardized Mean Contrast
@@ -471,20 +466,20 @@ Contrast   1.689   0.371   0.734   2.644</code></pre>
 <p>Create a single contrast to compare the first variable to the grand
 mean (which requires some arithmetic). Then esimate and plot the
 contrast.</p>
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansContrast.html">estimateContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Interval for the Mean Contrast
 
              Est      SE      df      LL      UL
 Contrast  -2.333   0.382   9.000  -3.196  -1.470</code></pre>
-<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansContrast.html">plotContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-Summary-ComplexA-1.png" width="672"></p>
 <p>Rather than setting just one contrast, set two contrasts: one for the
 Grand Mean and one for Level 1. Estimate and plot the confidence
 intervals for each contrast and the difference between contrasts.</p>
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/estimateMeansComplex.html">estimateComplex</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span>, contrast2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GrandMean"</span>, <span class="st">"O1Only"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Confidence Intervals for the Mean Contrasts
@@ -493,7 +488,7 @@ Confidence Intervals for the Mean Contrasts
 GrandMean  10.333   0.528   9.000   9.139  11.528
 O1Only      8.000   0.447   9.000   6.988   9.012
 Contrast   -2.333   0.382   9.000  -3.196  -1.470</code></pre>
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMeansComplex.html">plotComplex</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span>, contrast2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GrandMean"</span>, <span class="st">"O1Only"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedSummaryContrasts_files/figure-html/Repeated-Summary-ComplexB-1.png" width="672"></p>
 </div>
@@ -502,14 +497,14 @@ Contrast   -2.333   0.382   9.000  -3.196  -1.470</code></pre>
 </h3>
 <p>The two versions of the contrast can be tested for statistical
 significance.</p>
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansContrast.html">testContrast</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span><span class="op">/</span><span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Test for the Mean Contrast
 
              Est      SE      df       t       p
 Contrast  -2.333   0.382   9.000  -6.116   0.000</code></pre>
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedMoments</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/testMeansComplex.html">testComplex</a></span><span class="op">(</span><span class="va">RepeatedCorrs</span>, contrast1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span>, contrast2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"GrandMean"</span>, <span class="st">"L1Only"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <pre><code>
 Hypothesis Tests for the Mean Contrasts
