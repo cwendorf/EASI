@@ -38,11 +38,6 @@ This code obtains the descriptive statistics for the data frame.
 (Outcome ~ Factor) |> describeMoments()
 ```
 
-Plot the the summary statistics. The bars represent standard deviations, with dotted lines as the default but solid lines representing the sides with more skew.
-```{r, OneWay-Data-Moments}
-(Outcome ~ Factor) |> plotMoments()
-```
-
 ## Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.

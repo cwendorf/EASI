@@ -33,14 +33,7 @@ RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 
 ### Summarizing Data
 
-Obtaining frequency distributions and data plots are often a first step in exploring data.
-
-Describe the frequency distributions.
-```{r}
-(RepeatedData) |> describeFrequencies()
-```
-
-Plot the frequencies as data points. Data points obtained from the same individuals are connected.
+Plotting data points is often a first step in exploring data. Data points obtained from the same individuals are connected.
 ```{r, Repeated-Data-Dataplot}
 (RepeatedData) |> plotData(offset = 0, method = "swarm", connect = TRUE)
 ```
@@ -72,7 +65,7 @@ Rather than separate lines for function calls, all plotting elements have passth
 
 As a second example, plot the frequency distributions as histograms and add the summary statistics. The bars represent standard deviations, with dotted lines as the default but solid lines representing the sides with more skew.
 ```{r, Repeated-Data-PassthroughB}
-(RepeatedData) |> plotFrequencies(main = "Frequencies and Summary Statistics for the Data") |> addMeans()
+(RepeatedData) |> plotFrequencies(main = "Frequencies and Summary Statistics for the Data") |> addMoments()
 ```
 
 ## Common Layered Plots

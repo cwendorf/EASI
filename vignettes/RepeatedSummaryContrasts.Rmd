@@ -47,11 +47,6 @@ This code confirms the descriptive statistics from the summary table and matrix.
 (RepeatedCorrs) |> describeCorrelations()
 ```
 
-Plot the summary statistics. The bars represent standard deviations.
-```{r, Repeated-Summary-Moments}
-(RepeatedMoments) |> plotMoments()
-```
-
 ## Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.

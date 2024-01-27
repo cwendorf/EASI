@@ -38,11 +38,6 @@ This code confirms the descriptive statistics from the summary table.
 (OneWayMoments) |> describeMoments()
 ```
 
-Plot the summary statistics. The bars represent standard deviations.
-```{r, OneWay-Summary-Moments}
-(OneWayMoments) |> plotMoments()
-```
-
 ## Analyses of the Means
 
 This section produces analyses that are equivalent to one-sample analyses separately for each level of a factor.

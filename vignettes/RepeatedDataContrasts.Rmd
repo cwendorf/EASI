@@ -38,11 +38,6 @@ This code obtains the descriptive statistics for the data frame.
 (RepeatedData) |> describeMoments()
 ```
 
-Plot the summary statistics. The bars represent standard deviations, with dotted lines as the default but solid lines representing the sides with more skew.
-```{r, Repeated-Data-Moments}
-(RepeatedData) |> plotMoments()
-```
-
 This code will display the correlations among the variables.
 ```{r}
 (RepeatedData) |> describeCorrelations()
