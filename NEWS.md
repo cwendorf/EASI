@@ -4,6 +4,7 @@
 - Rebuilt architecture to shrink size of entire package
 - Simplified output using print and plot methods
 - Removed most "by" functions to focus on analytical strategy
+- Deprecated diamonds, intervals, analyze, theme, and exposition functions
 
 ## EASI 5.5.231128
 
