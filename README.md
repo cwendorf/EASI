@@ -11,7 +11,7 @@
 
 ![Standard EASI Output](./man/figures/CoverImageOne.jpg)
 
-Additional functions extend the analysis capabilities much further. These extensions also offer summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations. 
+Other functions extend the analysis capabilities by offering summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations. 
 
 ![Enhanced EASI Output](./man/figures/CoverImageTwo.jpg)
 
