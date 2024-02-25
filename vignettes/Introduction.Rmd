@@ -28,6 +28,23 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 - Calculations run on the same underlying functions regardless of type of input
 - Output utilizes consistent layouts and labeling across different types of analyses
 
+## Data Structure
+
+EASI assumes tidy raw data. Simply put: 1) each variable is its own column, 2) each observation is its own row, and 3) each value is its own cell. This is essential for how EASI will interpret the commands for analyses.
+
+Raw data can be entered in standard vectors and data frames, and don't necesarily require tidyverse data (e.g., tibbles, etc.). In fact, EASI provides a few functions for creating simple tidy data structures. In the case of a single-factor design (i.e., where there are multiple groups defined by an existing single variable and there is an outcome variable to be analyzed), the data are structured into a simple two-column frame and, for analyses (see below under Function Calls), a formula can be used to indicate the desire to analyze by groups. In the case of a repeated measures design, the data are arranged in the number of columns matching the number of measurements and, for analyses (again see below), the entire frame is passed to the function call.
+```{r, eval=FALSE}
+(OneWayData) <- construct(Outcome, Factor)
+(RepeatedData) <- construct(Outcome1, Outcome2, Outcome3)
+```
+
+When analyzing summary statistics instead of raw data, EASI uses special frames containing rows for each variable or group, columns for sample size, means, and standard deviations, and a special class to identify whether its a between-subjects or a within-subjects design. A similar process is used for tables of correlations.
+```{r, eval=FALSE}
+(OneWayMoments) <- construct(Level1, Level2, Level3, class = "bsm")
+(RepeatedMoments) <- construct(Outcome1, Outcome2, Outcome3, class = "wsm")
+(RepeatedCorrs) <- construct(Outcome1, Outcome2, Outcome3, class = "cor")
+```
+
 ## Function Names
 
 EASI offers a general convention for function names. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted). These are the basic options (though more elaborate functions also exist):
@@ -47,7 +64,7 @@ Additionally, the `plot` versions offer graphs of the descriptive statistics, es
 - `plotScatter` - provides a scatterplot of the data from two variables
 - `plotMeans` - provides a graph of the means and their confidence intervals
 
-## Function Calls and Workflow
+## Function Calls
 
 In standard R syntax, the function name is followed in parentheses by the variables to be analyzed and any relevant optional arguments (such as different confidence levels, null values, etc.). In R versions 4.1 and greater, the native pipe operator can be used instead of standard syntax. Here, the variables to be analyzed are included first, followed by the pipe operator, and then the function call (with any relevant additional arguments in parentheses). This format is used throughout EASI.
 
