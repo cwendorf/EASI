@@ -101,21 +101,22 @@ types of analyses</li>
 <div class="section level2">
 <h2 id="data-structure">Data Structure<a class="anchor" aria-label="anchor" href="#data-structure"></a>
 </h2>
-<p>EASI assumes tidy raw data. Simply put: 1) each variable is its own
-column, 2) each observation is its own row, and 3) each value is its own
-cell. This is essential for how EASI will interpret the commands for
-analyses.</p>
-<p>Raw data can be entered in standard vectors and data frames, and
-don’t necesarily require tidyverse data (e.g., tibbles, etc.). In fact,
-EASI provides a few functions for creating simple tidy data structures.
-In the case of a single-factor design (i.e., where there are multiple
-groups defined by an existing single variable and there is an outcome
-variable to be analyzed), the data are structured into a simple
-two-column frame and, for analyses (see below under Function Calls), a
-formula can be used to indicate the desire to analyze by groups. In the
-case of a repeated measures design, the data are arranged in the number
-of columns matching the number of measurements and, for analyses (again
-see below), the entire frame is passed to the function call.</p>
+<p>EASI can be used to analyze either raw data or summary
+statistics.</p>
+<p>When analyzing raw data, EASI assumes a tidy data structure. Simply
+put: 1) each variable is its own column, 2) each observation is its own
+row, and 3) each value is its own cell. This is essential for how EASI
+will interpret the commands for analyses. Raw data can be entered in
+standard vectors and data frames, though EASI provides a few functions
+for creating these structures. In the case of a single-factor design
+(i.e., where there are multiple groups defined by an existing single
+variable and there is an outcome variable to be analyzed), the data are
+structured into a simple two-column frame and, for analyses (see below
+under Function Calls), a formula can be used to indicate the desire to
+analyze by groups. In the case of a repeated measures design, the data
+are arranged in the number of columns matching the number of
+measurements and, for analyses (again see below), the entire frame is
+passed to the function call.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">OneWayData</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome</span>, <span class="va">Factor</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Outcome1</span>, <span class="va">Outcome2</span>, <span class="va">Outcome3</span><span class="op">)</span></span></code></pre></div>
