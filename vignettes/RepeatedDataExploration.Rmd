@@ -76,8 +76,8 @@ Some forms of exploratory plots are very common (e.g., violin plots, bean plots,
 
 Build violin plots using multiple basic plot calls.
 ```{r, Repeated-Data-ViolinsA}
-(RepeatedData) |> plotBoxes(values = FALSE, main = "Violin Plots")
-(RepeatedData) |> plotDensity(add = TRUE, offset = 0, type = "full")
+(RepeatedData) |> plotDensity(offset = 0, type = "full", main = "Violin Plots")
+(RepeatedData) |> plotBoxes(add = TRUE, values = FALSE)
 ```
 
 Obtain violin plots using one call (and enhance the plot with color).
