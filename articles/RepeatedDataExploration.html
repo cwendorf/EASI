@@ -158,8 +158,8 @@ the methods above, specific functions for these are built into EASI.</p>
 </h3>
 <p>Build violin plots using multiple basic plot calls.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotBoxes.html">plotBoxes</a></span><span class="op">(</span>values <span class="op">=</span> <span class="cn">FALSE</span>, main <span class="op">=</span> <span class="st">"Violin Plots"</span><span class="op">)</span></span>
-<span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotDensity.html">plotDensity</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span>, offset <span class="op">=</span> <span class="fl">0</span>, type <span class="op">=</span> <span class="st">"full"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotDensity.html">plotDensity</a></span><span class="op">(</span>offset <span class="op">=</span> <span class="fl">0</span>, type <span class="op">=</span> <span class="st">"full"</span>, main <span class="op">=</span> <span class="st">"Violin Plots"</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">RepeatedData</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotBoxes.html">plotBoxes</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span>, values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="RepeatedDataExploration_files/figure-html/Repeated-Data-ViolinsA-1.png" width="672"></p>
 <p>Obtain violin plots using one call (and enhance the plot with
 color).</p>
