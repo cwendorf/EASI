@@ -188,23 +188,31 @@ articles:
 - title: OneWay (Between-Subjects) Analyses
   contents:
   - OneWayDataExploration
+  - OneWayDataTraditional  
   - OneWayDataContrasts
+  - OneWaySummaryTraditional  
   - OneWaySummaryContrasts
 
 - title: Repeated Measures (Within-Subjects) Analyses
   contents:
   - RepeatedDataExploration
+  - RepeatedDataTraditional
   - RepeatedDataContrasts
+  - RepeatedSummaryTraditional  
   - RepeatedSummaryContrasts
 
 - title: Factorial (Between-Subjects) Analyses
   contents:
+  - FactorialDataTraditional
   - FactorialDataContrasts
+  - FactorialSummaryTraditional
   - FactorialSummaryContrasts
 
 - title: Mixed (Between-Subjects and Within-Subjects) Analyses
   contents:
+  - MixedDataTraditional
   - MixedDataContrasts
+  - MixedSummaryTraditional
   - MixedSummaryContrasts
 
 - title: Correlation and Regression Analyses

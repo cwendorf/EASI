@@ -1,0 +1,100 @@
+---
+title: "Factorial Summary Traditional"
+description: >
+  This page examines a two-factor between-subjects (factorial) design using summary statistics input, focusing on omnibus and simple effects analyses.
+output: rmarkdown::html_vignette
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 7, comment = NA)
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+This page examines a two-factor between-subjects (factorial) design using summary statistics input, focusing on omnibus and simple effects analyses.
+
+## Preliminary Tasks
+
+### Data Entry
+
+This code inputs the group summaries and creates a single summary table
+```{r}
+A1 <- c(N = 10, M = 8.000, SD = 1.414)
+A2 <- c(N = 10, M = 11.000, SD = 2.211)
+A3 <- c(N = 10, M = 12.000, SD = 2.449)
+FactorialMomentsB1 <- construct(A1, A2, A3, class = "bsm")
+A1 <- c(N = 10, M = 8.000, SD = 2.449)
+A2 <- c(N = 10, M = 8.000, SD = 2.000)
+A3 <- c(N = 10, M = 7.000, SD = 2.211)
+FactorialMomentsB2 <- construct(A1, A2, A3, class = "bsm")
+FactorialMoments <- combine(B1 = FactorialMomentsB1, B2 = FactorialMomentsB2)
+```
+
+### Summary Statistics
+
+This code confirms the descriptive statistics from the summary tables.
+```{r}
+(FactorialMoments) |> describeMoments()
+```
+
+Plot the means and their confidence intervals for the design as a whole.
+```{r, Factorial-Summary-Omnibus}
+(FactorialMoments) |> plotFactorial(col = c("darkred", "darkblue"))
+legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("B1", "B2"), col = c("darkred", "darkblue"))
+```
+
+## Analyses of the Omnibus Effects
+
+The omnibus analysis usually consists of an Analysis of Variance.
+
+### Source Table
+
+Get the source table associated with the main effects and the interaction.
+```{r}
+(FactorialMoments) |> describeFactorial()
+```
+
+### Proportion of Variance Accounted For
+
+Get estimates of the proportion of variance accounted for by each effect (along with their confidence intervals).
+```{r}
+(FactorialMoments) |> estimateFactorial()
+```
+
+### Significance Tests
+
+Finally, test the various effects for statistical significance.
+```{r}
+(FactorialMoments) |> testFactorial()
+```
+
+## Analyses of the Simple Effects
+
+As a follow-up to an Analysis of Variance, it is cusotmary to examine the simple effects (essentially a single-factor ANOVA separately across the levels of another factor).
+
+### Source Table
+
+Get the source tables separately for the simple effects.
+```{r}
+(FactorialMoments) |> describeEffect()
+```
+
+### Proportion of Variance Accounted For
+
+Get an estimate of the proportion of variance account for by the simple effect (and the confidence interval for that estimate).
+```{r}
+(FactorialMoments) |> estimateEffect()
+```
+
+### Significance Tests
+
+Finally, test the simple effects for statistical significance.
+```{r}
+(FactorialMoments) |> testEffect()
+```

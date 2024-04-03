@@ -1,0 +1,99 @@
+---
+title: "Mixed Data Traditional"
+description: >
+  This page examines a two-factor mixed design (one between-subjects and one within-subjects factor) using raw data input, focusing on omnibus and simple effects analyses.
+output: rmarkdown::html_vignette
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(fig.width = 7, fig.height = 7, comment = NA)
+```
+
+```{r, include=FALSE}
+if (!require(EASI)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/EASI")
+}
+library(EASI)
+```
+
+This page examines a two-factor mixed design (one between-subjects and one within-subjects factor) using raw data input, focusing on omnibus and simple effects analyses.
+
+## Preliminary Tasks
+
+### Data Entry
+
+This code inputs the variable names and creates a viewable data frame.
+```{r}
+Factor <- c(rep(1, 10), rep(2, 10))
+Factor <- factor(Factor, levels = c(1, 2), labels = c("Level1", "Level2"))
+Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 5, 9, 10, 9, 11, 4, 11, 7, 6, 8)
+Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11, 7, 8, 7, 11, 10, 7, 8, 4, 8, 10)
+Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10, 8, 6, 8, 11, 5, 7, 9, 3, 6, 7)
+MixedData <- construct(Factor, Outcome1, Outcome2, Outcome3)
+```
+
+### Summary Statistics
+
+This code provides a table of summary statistics and a table of correlations and then retain them for the subsequent analyses.
+```{r}
+(MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> describeMoments(by = Factor) |> retain(MixedMoments)
+(MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> describeCorrelations(by = Factor) |> retain(MixedCorr)
+```
+
+Plot the means and confidence intervals for the design as a whole.
+```{r, Mixed-Summary-Omnibus}
+(MixedMoments) |> plotFactorial(col = c("darkred", "darkblue"))
+legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("Level1", "Level2"), col = c("darkred", "darkblue"))
+```
+
+## Analyses of the Omnibus Effects
+
+The omnibus analysis usually consists of an Analysis of Variance.
+
+### Source Table
+
+Get the source table associated with the main effects and the interaction.
+
+```{r}
+(MixedMoments) |> describeFactorial(MixedCorr)
+```
+
+### Proportion of Variance Accounted For
+
+Get estimates of the proportion of variance accounted for by each effect (along with their confidence intervals).
+```{r}
+(MixedMoments) |> estimateFactorial(MixedCorr)
+```
+
+### Significance Tests
+
+Finally, test the various effects for statistical significance.
+```{r}
+(MixedMoments) |> testFactorial(MixedCorr)
+```
+
+## Analyses of the Simple Effects
+
+As a follow-up to an Analysis of Variance, it is cusotmary to examine the simple effects (essentially a single-factor ANOVA separately across the levels of another factor).
+
+### Source Table
+
+Get the source tables separately for the simple effects.
+```{r}
+(MixedMoments) |> describeEffect(MixedCorr)
+```
+
+### Proportion of Variance Accounted For
+
+Get an estimate of the proportion of variance account for by the simple effect (and the confidence interval for that estimate).
+```{r}
+(MixedMoments) |> estimateEffect(MixedCorr)
+```
+
+### Significance Tests
+
+Finally, test the simple effects for statistical significance.
+```{r}
+(MixedMoments) |> testEffect(MixedCorr)
+```
