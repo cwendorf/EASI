@@ -471,6 +471,10 @@ S3method(estimateMeansFactorial,wsml)
 S3method(estimateMeansFactorial,bsml)
 export(estimateMeansFactorial)
 
+S3method(plotMeansFactorial,data.frame)
+S3method(plotMeansFactorial,formula)
+S3method(plotMeansFactorial,wsml)
+S3method(plotMeansFactorial,bsml)
 export(plotMeansFactorial)
 
 S3method(testMeansFactorial,data.frame)
