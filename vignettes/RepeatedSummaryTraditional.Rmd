@@ -88,11 +88,6 @@ Provide a traditional plot of the confidence intervals for the pairwise comparis
 (RepeatedMoments) |> plotPairwise(RepeatedCorr, line = 0, values = FALSE)
 ```
 
-Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons)and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
-```{r, Repeated-Summary-PairwiseDiffogram}
-(RepeatedMoments) |> plotPairwiseDiffogram(RepeatedCorr, col = c("darkblue", "darkred"))
-```
-
 ### Significance Tests
 
 Test the pairwise comparisons for statistical significance.
@@ -116,9 +111,9 @@ Provide estimates of the arelational and relational intervals.
 (RepeatedMoments) |> estimateRelational(RepeatedCorr)
 ```
 
-Plot the intervals and enhance with color.
+Plot the intervals.
 ```{r, Repeated-Summary-Relational}
-(RepeatedMoments) |> plotRelational(RepeatedCorr, col = c("darkred", "darkblue", "darkgoldenrod"))
+(RepeatedMoments) |> plotRelational(RepeatedCorr)
 ```
 
 ## Analyses of Post Hoc Comparisons
@@ -135,11 +130,6 @@ Obtain interval estimates for the post hoc comparisons.
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 ```{r, Repeated-Summary-Posthoc}
 (RepeatedMoments) |> plotPosthoc(RepeatedCorr, line = 0, values = FALSE)
-```
-
-Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
-```{r, Repeated-Summary-PosthocDiffogram}
-(RepeatedMoments) |> plotPosthocDiffogram(RepeatedCorr, col = c("darkblue", "darkred"))
 ```
 
 ### Significance Tests

@@ -78,11 +78,6 @@ Provide a traditional plot of the confidence intervals for the pairwise comparis
 (OneWayMoments) |> plotPairwise(line = 0, values = FALSE)
 ```
 
-Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
-```{r, OneWay-Summary-PairwiseDiffogram}
-(OneWayMoments) |> plotPairwiseDiffogram(col = c("darkblue", "darkred"))
-```
-
 ### Significance Tests
 
 Test the pairwise comparisons for statistical significance.
@@ -106,9 +101,9 @@ Provide estimates of the arelational and relational intervals.
 (OneWayMoments) |> estimateRelational()
 ```
 
-Plot the intervals and enhance with color.
+Plot the intervals.
 ```{r, OneWay-Summary-Relational}
-(OneWayMoments) |> plotRelational(col = c("darkred", "darkblue", "darkgoldenrod"))
+(OneWayMoments) |> plotRelational()
 ```
 
 ## Analyses of Post Hoc Comparisons
@@ -125,11 +120,6 @@ Obtain interval estimates for the post hoc comparisons.
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 ```{r, OneWay-Summary-Posthoc}
 (OneWayMoments) |> plotPosthoc(line = 0, values = FALSE)
-```
-
-Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons) and specify colors for intervals that do not include zero (darkblue) and those that do include zero (darkred).
-```{r, OneWay-Summary-PosthocDiffogram}
-(OneWayMoments) |> plotPosthocDiffogram(col = c("darkblue", "darkred"))
 ```
 
 ### Significance Tests

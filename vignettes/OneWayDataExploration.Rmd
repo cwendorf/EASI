@@ -80,9 +80,9 @@ Build violin plots using multiple basic plot calls.
 (Outcome ~ Factor) |> plotBoxes(add = TRUE, values = FALSE)
 ```
 
-Obtain violin plots using one call (and enhance the plot with color).
+Obtain violin plots using one call.
 ```{r, OneWay-Data-ViolinsB}
-(Outcome ~ Factor) |> plotViolins(col = c("darkred", "darkblue", "darkgoldenrod"))
+(Outcome ~ Factor) |> plotViolins()
 ```
 
 ### Bean Plots
@@ -93,9 +93,9 @@ Build bean plots using multiple basic plot calls.
 (Outcome ~ Factor) |> plotData(add = TRUE, offset = 0, pch = 95, method = "overplot")
 ```
 
-Obtain bean plots using one call (and enhance the plot with color).
+Obtain bean plots using one call.
 ```{r, OneWay-Data-BeansB}
-(Outcome ~ Factor) |> plotBeans(col = c("darkred", "darkblue", "darkgoldenrod"))
+(Outcome ~ Factor) |> plotBeans()
 ```
 
 ### Raincloud Plots
@@ -107,7 +107,7 @@ Build raincloud plots using multiple basic plot calls.
 (Outcome ~ Factor) |> plotData(add = TRUE, method = "jitter", offset = -.15)
 ```
 
-Obtain raincloud plots using one call (and enhance the plot with color).
+Obtain raincloud plots using one call.
 ```{r, OneWay-Data-RaincloudsB}
-(Outcome ~ Factor) |> plotRainclouds(col = c("darkred", "darkblue", "darkgoldenrod"))
+(Outcome ~ Factor) |> plotRainclouds()
 ```
