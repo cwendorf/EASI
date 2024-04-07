@@ -5,19 +5,27 @@ articles:
   BivariateDataRegression: BivariateDataRegression.html
   BivariateSummaryRegression: BivariateSummaryRegression.html
   FactorialDataContrasts: FactorialDataContrasts.html
+  FactorialDataTraditional: FactorialDataTraditional.html
   FactorialSummaryContrasts: FactorialSummaryContrasts.html
+  FactorialSummaryTraditional: FactorialSummaryTraditional.html
   Introduction: Introduction.html
   MixedDataContrasts: MixedDataContrasts.html
+  MixedDataTraditional: MixedDataTraditional.html
   MixedSummaryContrasts: MixedSummaryContrasts.html
+  MixedSummaryTraditional: MixedSummaryTraditional.html
   OneWayDataContrasts: OneWayDataContrasts.html
   OneWayDataExploration: OneWayDataExploration.html
+  OneWayDataTraditional: OneWayDataTraditional.html
   OneWaySummaryContrasts: OneWaySummaryContrasts.html
+  OneWaySummaryTraditional: OneWaySummaryTraditional.html
   RepeatedDataContrasts: RepeatedDataContrasts.html
   RepeatedDataCorrelations: RepeatedDataCorrelations.html
   RepeatedDataExploration: RepeatedDataExploration.html
+  RepeatedDataTraditional: RepeatedDataTraditional.html
   RepeatedSummaryContrasts: RepeatedSummaryContrasts.html
   RepeatedSummaryCorrelations: RepeatedSummaryCorrelations.html
-last_built: 2024-02-28T14:14Z
+  RepeatedSummaryTraditional: RepeatedSummaryTraditional.html
+last_built: 2024-04-07T20:47Z
 urls:
   reference: https://cwendorf.github.io/EASI/reference
   article: https://cwendorf.github.io/EASI/articles
