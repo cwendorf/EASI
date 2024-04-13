@@ -65,6 +65,22 @@ plotPlausible.default <- function(x, contrast = NULL, ...) {
   invisible(eval(x))
 }
 
+plotPlausible.wsm <- function(x, corrs = NULL, contrast = NULL, conf.level = .95, ...) {
+  howmany <- nrow(estimateMeans(x))
+  print(howmany)
+  if (!is.null(contrast)) {
+    z <- estimateMeansSubsets(x, corrs = corrs, contrast = contrast, conf.level = conf.level)
+    .plausible.comp(z, ...)
+  } else if (howmany == 2) {
+    z <- estimateMeansComparison(x, corrs = corrs, conf.level = conf.level)
+    .plausible.comp(z, ...)
+  } else {
+    z <- estimateMeansSet(x, conf.level = conf.level, ...)
+    .plausible.main(z, ...)
+  }
+  invisible(eval(x))
+}
+
 plotPlausible.intervals.main <- function(x, ...) {
   .plausible.main(x, ...)
 }

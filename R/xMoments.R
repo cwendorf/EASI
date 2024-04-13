@@ -149,7 +149,7 @@ describeMomentsSet.wsml <- function(list, ...) {
   return(results)
 }
 
-describeMoments <- function(x, by = NULL, ...) {
+describeMoments <- function(x, ..., by = NULL) {
   if (!is.null(by)) {
     describeMomentsBy(x, by, ...)
   } else {

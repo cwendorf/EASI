@@ -90,6 +90,7 @@ export(plotRainclouds)
 ### Plausible
 
 S3method(plotPlausible,default)
+S3method(plotPlausible,wsm)
 S3method(plotPlausible,intervals.main)
 S3method(plotPlausible,intervals.comp)
 export(plotPlausible)
