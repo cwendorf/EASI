@@ -96,33 +96,56 @@ frame.</p>
 <span><span class="va">OneWayData</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/construct.html">construct</a></span><span class="op">(</span><span class="va">Factor</span>, <span class="va">Outcome</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="displaying-data">Displaying Data<a class="anchor" aria-label="anchor" href="#displaying-data"></a>
+<h3 id="summary-statistics">Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"></a>
 </h3>
-<p>Plotting data points is often a first step in exploring data.</p>
+<p>For reference, this code obtains the boxplot statistics for the data
+frame.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotData.html">plotData</a></span><span class="op">(</span>offset <span class="op">=</span> <span class="fl">0</span>, method <span class="op">=</span> <span class="st">"swarm"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-Dataplot-1.png" width="672"></p>
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeBoxes.html">describeBoxes</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>
+Boxes for the Data
+
+            LW      LH     Mdn      UH      UW
+Level1   6.000   7.000   8.000   9.000  10.000
+Level2   7.000  10.000  11.000  13.000  14.000
+Level3   9.000  10.000  11.500  14.000  16.000</code></pre>
+<p>This code obtains the typical descriptive statistics for the data
+frame.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/describeMoments.html">describeMoments</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<pre><code>
+Summary Statistics for the Data
+
+             N       M      SD    Skew    Kurt
+Level1  10.000   8.000   1.414   0.000  -0.738
+Level2  10.000  11.000   2.211  -0.617  -0.212
+Level3  10.000  12.000   2.449   0.340  -1.102</code></pre>
 </div>
 </div>
 <div class="section level2">
 <h2 id="building-layered-plots">Building Layered Plots<a class="anchor" aria-label="anchor" href="#building-layered-plots"></a>
 </h2>
+<p>Plotting data points is often a first step in exploring data.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotData.html">plotData</a></span><span class="op">(</span>offset <span class="op">=</span> <span class="fl">0</span>, method <span class="op">=</span> <span class="st">"swarm"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-Dataplot-1.png" width="672"></p>
 <p>To make the plots more informative, it is often desirable to layer
-multiple elements on the same plot.</p>
+multiple elements on the same plot. This can be done in a couple of
+ways.</p>
 <div class="section level3">
 <h3 id="using-separate-calls">Using Separate Calls<a class="anchor" aria-label="anchor" href="#using-separate-calls"></a>
 </h3>
 <p>The typical way to build a plot is to use separate calls for each
 plotting elements (e.g., data, boxplots) and using the “add” argument to
 put them on the same plot.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotData.html">plotData</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotBoxes.html">plotBoxes</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-AddplotA-1.png" width="672"></p>
 <p>This can be simplified by using an “add” version of the function call
 instead of using the longer “add” argument for the function call. Note
 that additional arguments can be used to alter the plots.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotData.html">plotData</a></span><span class="op">(</span>main <span class="op">=</span> <span class="st">"Data and Boxplots"</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotBoxes.html">addBoxes</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-AddplotB-1.png" width="672"></p>
@@ -133,14 +156,14 @@ that additional arguments can be used to alter the plots.</p>
 <p>Rather than separate lines for function calls, all plotting elements
 have passthrough capabilities that allow the them to be placed on the
 same line. Note that additional arguments can still be used.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotData.html">plotData</a></span><span class="op">(</span>main <span class="op">=</span> <span class="st">"Data and Boxplots"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotBoxes.html">addBoxes</a></span><span class="op">(</span>values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-PassthroughA-1.png" width="672"></p>
 <p>As a second example, plot the frequency distributions as histograms
 and add the summary statistics. The bars represent standard deviations,
 with dotted lines as the default but solid lines representing the sides
 with more skew.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotFrequencies.html">plotFrequencies</a></span><span class="op">(</span>main <span class="op">=</span> <span class="st">"Frequencies and Summary Statistics for the Data"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotMoments.html">addMoments</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-PassthroughB-1.png" width="672"></p>
 </div>
@@ -155,12 +178,12 @@ the methods above, specific functions for these are built into EASI.</p>
 <h3 id="violin-plots">Violin Plots<a class="anchor" aria-label="anchor" href="#violin-plots"></a>
 </h3>
 <p>Build violin plots using multiple basic plot calls.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotDensity.html">plotDensity</a></span><span class="op">(</span>offset <span class="op">=</span> <span class="fl">0</span>, type <span class="op">=</span> <span class="st">"full"</span>, main <span class="op">=</span> <span class="st">"Violin Plots"</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotBoxes.html">plotBoxes</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span>, values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-ViolinsA-1.png" width="672"></p>
 <p>Obtain violin plots using one call.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotViolins</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-ViolinsB-1.png" width="672"></p>
 </div>
@@ -168,12 +191,12 @@ the methods above, specific functions for these are built into EASI.</p>
 <h3 id="bean-plots">Bean Plots<a class="anchor" aria-label="anchor" href="#bean-plots"></a>
 </h3>
 <p>Build bean plots using multiple basic plot calls.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotDensity.html">plotDensity</a></span><span class="op">(</span>type <span class="op">=</span> <span class="st">"full"</span>, offset <span class="op">=</span> <span class="fl">0</span>, main <span class="op">=</span> <span class="st">"Bean Plots"</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotData.html">plotData</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span>, offset <span class="op">=</span> <span class="fl">0</span>, pch <span class="op">=</span> <span class="fl">95</span>, method <span class="op">=</span> <span class="st">"overplot"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-BeansA-1.png" width="672"></p>
 <p>Obtain bean plots using one call.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotBeans</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-BeansB-1.png" width="672"></p>
 </div>
@@ -181,13 +204,13 @@ the methods above, specific functions for these are built into EASI.</p>
 <h3 id="raincloud-plots">Raincloud Plots<a class="anchor" aria-label="anchor" href="#raincloud-plots"></a>
 </h3>
 <p>Build raincloud plots using multiple basic plot calls.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotBoxes.html">plotBoxes</a></span><span class="op">(</span>values <span class="op">=</span> <span class="cn">FALSE</span>, main <span class="op">=</span> <span class="st">"Raincloud Plots"</span><span class="op">)</span></span>
-<span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotDensity.html">plotDensity</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span>, offset <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotDensity.html">plotDensity</a></span><span class="op">(</span>main <span class="op">=</span> <span class="st">"Raincloud Plots"</span>, offset <span class="op">=</span> <span class="fl">.1</span><span class="op">)</span></span>
+<span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotBoxes.html">plotBoxes</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span>, values <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="../reference/plotData.html">plotData</a></span><span class="op">(</span>add <span class="op">=</span> <span class="cn">TRUE</span>, method <span class="op">=</span> <span class="st">"jitter"</span>, offset <span class="op">=</span> <span class="op">-</span><span class="fl">.15</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-RaincloudsA-1.png" width="672"></p>
 <p>Obtain raincloud plots using one call.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="op">(</span><span class="va">Outcome</span> <span class="op">~</span> <span class="va">Factor</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">plotRainclouds</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="OneWayDataExploration_files/figure-html/OneWay-Data-RaincloudsB-1.png" width="672"></p>
 </div>
