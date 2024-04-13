@@ -1,4 +1,9 @@
 
+## EASI 6.1.240413
+
+- Rebuilt diffogram functions for pairwise and posthoc analyses
+- Updated plausiblilty curves for all types of input
+
 ## EASI 6.0.240123
 
 - Rebuilt architecture to shrink size of entire package
