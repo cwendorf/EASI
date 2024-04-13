@@ -31,16 +31,26 @@ Outcome <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7, 7, 13, 11, 10, 13, 8, 11, 14, 12, 1
 OneWayData <- construct(Factor, Outcome)
 ```
 
-### Displaying Data
+### Summary Statistics
+
+For reference, this code obtains the boxplot statistics for the data frame.
+```{r}
+(Outcome ~ Factor) |> describeBoxes()
+```
+
+This code obtains the typical descriptive statistics for the data frame.
+```{r}
+(Outcome ~ Factor) |> describeMoments()
+```
+
+## Building Layered Plots
 
 Plotting data points is often a first step in exploring data.
 ```{r, OneWay-Data-Dataplot}
 (Outcome ~ Factor) |> plotData(offset = 0, method = "swarm")
 ```
 
-## Building Layered Plots
-
-To make the plots more informative, it is often desirable to layer multiple elements on the same plot.
+To make the plots more informative, it is often desirable to layer multiple elements on the same plot. This can be done in a couple of ways.
 
 ### Using Separate Calls
 
@@ -102,8 +112,8 @@ Obtain bean plots using one call.
 
 Build raincloud plots using multiple basic plot calls.
 ```{r, OneWay-Data-RaincloudsA}
-(Outcome ~ Factor) |> plotBoxes(values = FALSE, main = "Raincloud Plots")
-(Outcome ~ Factor) |> plotDensity(add = TRUE, offset = .1)
+(Outcome ~ Factor) |> plotDensity(main = "Raincloud Plots", offset = .1)
+(Outcome ~ Factor) |> plotBoxes(add = TRUE, values = FALSE)
 (Outcome ~ Factor) |> plotData(add = TRUE, method = "jitter", offset = -.15)
 ```
 

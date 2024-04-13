@@ -190,16 +190,20 @@ articles:
   - OneWayDataExploration
   - OneWayDataTraditional  
   - OneWayDataContrasts
+  - OneWayDataAdvanced  
   - OneWaySummaryTraditional  
   - OneWaySummaryContrasts
+  - OneWaySummaryAdvanced
 
 - title: Repeated Measures (Within-Subjects) Analyses
   contents:
   - RepeatedDataExploration
   - RepeatedDataTraditional
   - RepeatedDataContrasts
+  - RepeatedDataAdvanced
   - RepeatedSummaryTraditional  
   - RepeatedSummaryContrasts
+  - RepeatedSummaryAdvanced  
 
 - title: Factorial (Between-Subjects) Analyses
   contents:

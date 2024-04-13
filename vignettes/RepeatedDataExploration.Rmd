@@ -31,16 +31,26 @@ Outcome3 <- c(9, 16, 11, 12, 15, 13, 9, 14, 11, 10)
 RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 ```
 
-### Summarizing Data
+### Summary Statistics
+
+For reference, this code obtains the boxplot statistics for the data frame.
+```{r}
+(RepeatedData) |> describeBoxes()
+```
+
+This code obtains the typical descriptive statistics for the data frame.
+```{r}
+(RepeatedData) |> describeMoments()
+```
+
+## Building Layered Plots
 
 Plotting data points is often a first step in exploring data. Data points obtained from the same individuals are connected.
 ```{r, Repeated-Data-Dataplot}
 (RepeatedData) |> plotData(offset = 0, method = "swarm", connect = TRUE)
 ```
 
-## Building Layered Plots
-
-To make the plots more informative, it is often desirable to layer multiple elements on the same plot.
+To make the plots more informative, it is often desirable to layer multiple elements on the same plot. This can be done in a couple of ways.
 
 ### Using Separate Calls
 
@@ -102,8 +112,8 @@ Obtain bean plots using one call.
 
 Build raincloud plots using multiple basic plot calls.
 ```{r, Repeated-Data-RaincloudsA}
-(RepeatedData) |> plotBoxes(values = FALSE, main = "Raincloud Plots")
-(RepeatedData) |> plotDensity(add = TRUE, offset = .1)
+(RepeatedData) |> plotDensity(main = "Raincloud Plots", offset = .1)
+(RepeatedData) |> plotBoxes(add = TRUE, values = FALSE)
 (RepeatedData) |> plotData(add = TRUE, method = "jitter", offset = -.15)
 ```
 

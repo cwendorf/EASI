@@ -88,6 +88,11 @@ Provide a traditional plot of the confidence intervals for the pairwise comparis
 (RepeatedMoments) |> plotPairwise(RepeatedCorr, line = 0, values = FALSE)
 ```
 
+Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons).
+```{r, Repeated-Summary-PairwiseDiffogram}
+(RepeatedMoments) |> plotPairwiseDiffogram(RepeatedCorr)
+```
+
 ### Significance Tests
 
 Test the pairwise comparisons for statistical significance.
@@ -130,6 +135,11 @@ Obtain interval estimates for the post hoc comparisons.
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 ```{r, Repeated-Summary-Posthoc}
 (RepeatedMoments) |> plotPosthoc(RepeatedCorr, line = 0, values = FALSE)
+```
+
+Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons).
+```{r, Repeated-Summary-PosthocDiffogram}
+(RepeatedMoments) |> plotPosthocDiffogram(RepeatedCorr)
 ```
 
 ### Significance Tests

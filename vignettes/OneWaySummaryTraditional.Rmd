@@ -78,6 +78,11 @@ Provide a traditional plot of the confidence intervals for the pairwise comparis
 (OneWayMoments) |> plotPairwise(line = 0, values = FALSE)
 ```
 
+Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons).
+```{r, OneWay-Summary-PairwiseDiffogram}
+(OneWayMoments) |> plotPairwiseDiffogram()
+```
+
 ### Significance Tests
 
 Test the pairwise comparisons for statistical significance.
@@ -120,6 +125,11 @@ Obtain interval estimates for the post hoc comparisons.
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
 ```{r, OneWay-Summary-Posthoc}
 (OneWayMoments) |> plotPosthoc(line = 0, values = FALSE)
+```
+
+Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons).
+```{r, OneWay-Summary-PosthocDiffogram}
+(OneWayMoments) |> plotPosthocDiffogram()
 ```
 
 ### Significance Tests
