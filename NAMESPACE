@@ -28,9 +28,6 @@ S3method(print,easi.list)
 S3method(plot,main)
 S3method(plot,comp)
 S3method(plot,easi.list)
-S3method(plot,intervals.main)
-S3method(plot,intervals.comp)
-S3method(plot,intervals.multi)
 
 ### Data
 
@@ -86,6 +83,17 @@ export(describePercentiles)
 export(plotViolins)
 export(plotBeans)
 export(plotRainclouds)
+
+### Intervals
+
+S3method(plot,intervals.main)
+S3method(plot,intervals.comp)
+S3method(plot,intervals.multi)
+
+S3method(plotIntervals,intervals.main)
+S3method(plotIntervals,intervals.comp)
+export(plotIntervals)
+export(addIntervals)
 
 ### Plausible
 
