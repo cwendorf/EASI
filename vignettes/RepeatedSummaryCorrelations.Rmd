@@ -1,5 +1,5 @@
 ---
-title: "Repeated Data Correlations"
+title: "Repeated Summary Correlations"
 description: >
   This page analyzes a set of correlations among variables using summary statistics input.
 output: rmarkdown::html_vignette
