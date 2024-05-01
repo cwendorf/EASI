@@ -1,7 +1,7 @@
 ---
 title: "Repeated Data Advanced"
 description: >
-  This page examines a single-factor within-subjects (repeated measures) design using summary statistics input, adding data, color, and plausibility curves to plots of comparisons and contrasts.
+  This page examines a single-factor within-subjects (repeated measures) design using raw data input, adding data, color, and plausibility curves to plots of comparisons and contrasts.
 output: rmarkdown::html_vignette
 ---
 
@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page examines a single-factor within-subjects (repeated measures) design using summary statistics input, adding data, color, and plausibility curves to plots of comparisons and contrasts.
+This page examines a single-factor within-subjects (repeated measures) design using raw data input, adding data, color, and plausibility curves to plots of comparisons and contrasts.
 
 ## Data Management
 
