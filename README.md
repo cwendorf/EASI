@@ -9,11 +9,7 @@
 
 **EASI** is an R package that implements features of estimation statistics and data visualization in a pipe-oriented framework. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs. Most functions can take either raw data or summary statistics as input.
 
-![Standard EASI Output](./man/figures/CoverImageOne.jpg)
-
-Other functions extend the analysis capabilities by offering summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations. 
-
-![Enhanced EASI Output](./man/figures/CoverImageTwo.jpg)
+EASI is a later version of [**easiOrigin**](https://github.com/cwendorf/easiOrigin/), but was rebranded and extended as [**DEVISE**](https://github.com/cwendorf/DEVISE/) in 2025. It is maintained here primarily for archival purposes.
 
 ### Installation
 
@@ -31,20 +27,12 @@ If you do not wish a full install, the latest functions can be made available us
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 ```
 
-### Usage
-
-The package includes a wide variety of materials that demonstrate its use:
-
-- [Introduction](https://cwendorf.github.io/EASI/articles/Introduction.html) - A quick overview and summary of the package
-- [Reference](https://cwendorf.github.io/EASI/reference/index.html) - Reference documentation of the functions of the package
-- [Articles](https://cwendorf.github.io/EASI/articles/index.html) - Examples and applications of features of the package
-
 ### Contact Me
 
 - GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
-- Author Homepage: [https://cwendorf.github.io](https://cwendorf.github.io)
+- Author Homepage: [https://www.uwsp.edu/directory/profile/craig-wendorf/](https://www.uwsp.edu/directory/profile/craig-wendorf/)
 
 ### Citation
 
-Wendorf, C. A. (2022). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://cwendorf.github.io/EASI/](https://cwendorf.github.io/EASI/)
+Wendorf, C. A. (2022). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://github.com/cwendorf/EASI](https://github.com/cwendorf/EASI)
