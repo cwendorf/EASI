@@ -31,7 +31,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 - GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
-- Author Homepage: [https://www.uwsp.edu/directory/profile/craig-wendorf/](https://www.uwsp.edu/directory/profile/craig-wendorf/)
+- Author Homepage: [https://github.com/cwendorf](https://github.com/cwendorf)
 
 ### Citation
 
