@@ -7,7 +7,7 @@
 \description{Combine multiple frames of summary statistics into a list.}
 
 \usage{
-\method{construct}{default}(..., class="NULL")
+\method{combine}{default}(..., class="NULL")
 }
 
 \arguments{

@@ -7,6 +7,8 @@
 \description{Selects the variables or factor levels of the specified frame.}
 
 \usage{
+\method{focus}{default}(...)
+
 \method{focus}{data.frame}(frame, ...)
 
 \method{focus}{formula}(formula, ...)

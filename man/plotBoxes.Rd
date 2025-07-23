@@ -8,12 +8,15 @@
 \description{Provides a boxplot for each group or variable.}
 
 \usage{
+\method{plotBoxes}{default}(variable, ...)
+
 \method{plotBoxes}{data.frame}(frame, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=0, scale=.8, border="black", col=rgb(0, 0, 0, 0), values=TRUE)
 
 \method{plotBoxes}{formula}(formula, add=FALSE, main=NULL, ylab="Outcome", xlab="", ylim=NULL, offset=0, scale=.8, border="black", col=rgb(0, 0, 0, 0), values=TRUE)
 }
 
 \arguments{
+\item{variable}{a numeric vector of data values}
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
 \item{add}{whether the plot should added to the existing plot}

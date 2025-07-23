@@ -7,6 +7,8 @@
 \description{Provides a table of descriptive/summary statistics for a data set.}
 
 \usage{
+\method{describeMoments}{default}(variable, ...)
+
 \method{describeMoments}{data.frame}(frame, ...)
 
 \method{describeMoments}{formula}(formula, ...)
@@ -17,6 +19,7 @@
 }
 
 \arguments{
+\item{variable}{a numeric vector of data values}
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
 \item{moments}{a matrix/frame of descriptive/summary statistics}

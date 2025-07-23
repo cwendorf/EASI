@@ -7,12 +7,15 @@
 \description{Provides a frequency distributions for each variable or group.}
 
 \usage{
+\method{describeFrequencies}{default}(variable, ...)
+
 \method{describeFrequencies}{data.frame}(frame, ...)
 
 \method{describeFrequencies}{formula}(formula, ...)
 }
 
 \arguments{
+\item{variable}{a numeric vector of data values}
 \item{frame}{a set of (non-empty) numeric vectors of data values}
 \item{formula}{a formula of the form \code{lhs ~ rhs} where \code{lhs} is a numeric variable giving the data values and \code{rhs} a factor giving the corresponding groups}
 }
