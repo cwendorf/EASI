@@ -1,0 +1,35 @@
+pandoc: 3.1.11
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  BivariateDataRegression: BivariateDataRegression.html
+  BivariateSummaryRegression: BivariateSummaryRegression.html
+  FactorialDataContrasts: FactorialDataContrasts.html
+  FactorialDataTraditional: FactorialDataTraditional.html
+  FactorialSummaryContrasts: FactorialSummaryContrasts.html
+  FactorialSummaryTraditional: FactorialSummaryTraditional.html
+  Introduction: Introduction.html
+  MixedDataContrasts: MixedDataContrasts.html
+  MixedDataTraditional: MixedDataTraditional.html
+  MixedSummaryContrasts: MixedSummaryContrasts.html
+  MixedSummaryTraditional: MixedSummaryTraditional.html
+  OneWayDataAdvanced: OneWayDataAdvanced.html
+  OneWayDataContrasts: OneWayDataContrasts.html
+  OneWayDataExploration: OneWayDataExploration.html
+  OneWayDataTraditional: OneWayDataTraditional.html
+  OneWaySummaryAdvanced: OneWaySummaryAdvanced.html
+  OneWaySummaryContrasts: OneWaySummaryContrasts.html
+  OneWaySummaryTraditional: OneWaySummaryTraditional.html
+  RepeatedDataAdvanced: RepeatedDataAdvanced.html
+  RepeatedDataContrasts: RepeatedDataContrasts.html
+  RepeatedDataCorrelations: RepeatedDataCorrelations.html
+  RepeatedDataExploration: RepeatedDataExploration.html
+  RepeatedDataTraditional: RepeatedDataTraditional.html
+  RepeatedSummaryAdvanced: RepeatedSummaryAdvanced.html
+  RepeatedSummaryContrasts: RepeatedSummaryContrasts.html
+  RepeatedSummaryCorrelations: RepeatedSummaryCorrelations.html
+  RepeatedSummaryTraditional: RepeatedSummaryTraditional.html
+last_built: 2025-07-23T17:09Z
+urls:
+  reference: https://cwendorf.github.io/EASI/reference
+  article: https://cwendorf.github.io/EASI/articles
