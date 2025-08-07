@@ -15,8 +15,6 @@ Other functions extend the analysis capabilities by offering summaries and plots
 
 ![Enhanced Output](./man/figures/CoverImageTwo.jpg)
 
-EASI will be extended as [`DEVISE`](https://github.com/cwendorf/DEVISE/) in 2025.
-
 ### Installation
 
 This R package is not currently on CRAN, but the latest version can be installed and loaded using these R commands:
