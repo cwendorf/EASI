@@ -12,7 +12,7 @@ describeBoxes.data.frame <- function(frame, ...) {
   results <- do.call(rbind, lapply(data, function(x) boxplot.stats(x)$stats))
   colnames(results) <- c("LW", "LH", "Mdn", "UH", "UW")
   class(results) <- "easi.frame"
-  comment(results) <- "Boxes for the data"
+  comment(results) <- "Boxes for the Data"
   return(results)
 }
 
