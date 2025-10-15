@@ -25,7 +25,7 @@ remotes::install_github("cwendorf/EASI")
 library(EASI)
 ```
 
-If you do not wish a full install, the latest functions can be made available using these R commands:
+If you do not wish a full install, the latest functions can be made available using this R command:
 
 ``` r
 source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
