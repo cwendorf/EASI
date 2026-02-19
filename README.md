@@ -39,7 +39,7 @@ The `EASI` website includes a wide variety of materials that demonstrate its use
 - [Reference](https://cwendorf.github.io/EASI/reference/index.html): Reference documentation of the functions of the package
 - [Articles](https://cwendorf.github.io/EASI/articles/index.html): Examples and applications of features of the package
 
-### Contact Me
+### Contact
 
 - GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
