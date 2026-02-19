@@ -1,4 +1,4 @@
-# `EASI` 
+# [`EASI`](https://cwendorf.github.io/EASI)
 
 ## Estimation Approach to Statistical Inference
 
@@ -33,7 +33,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Usage
 
-The package includes a wide variety of materials that demonstrate its use:
+The [`EASI`](https://cwendorf.github.io/EASI) website includes a wide variety of materials that demonstrate its use:
 
 - [Introduction](https://cwendorf.github.io/EASI/articles/Introduction.html): A quick overview and summary of the package
 - [Reference](https://cwendorf.github.io/EASI/reference/index.html): Reference documentation of the functions of the package
