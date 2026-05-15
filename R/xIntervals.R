@@ -31,7 +31,7 @@ plot.intervals.main <- function(results, add = FALSE, main = NULL, ylab = "Outco
   invisible(out)
 }
 
-plot.intervals.comp <- function(results, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, slab = "Difference", rope = NULL, values = TRUE, digits = 3, connect = FALSE, pos = c(2, 2, 4), pch = c(15, 15, 17), col = "black", offset = 0, points = TRUE, intervals = TRUE, lines = TRUE, ...) {
+plot.intervals.comp <- function(results, add = FALSE, main = NULL, ylab = "Outcome", xlab = "", ylim = NULL, slab = "Difference", rope = NULL, values = TRUE, digits = 3, connect = FALSE, pos = c(2, 2, 4), pch = c(16, 16, 17), col = "black", offset = 0, points = TRUE, intervals = TRUE, lines = TRUE, ...) {
   out <- results
   if (is.null(main)) main <- comment(results)
   results <- results[, cbind(1, which(colnames(results) == "LL"), which(colnames(results) == "UL"))]
