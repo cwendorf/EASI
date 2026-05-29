@@ -6,9 +6,9 @@
 .frequencies <- function(x) {
   Freq <- table(x)
   Perc <- prop.table(table(x)) * 100
-  CumFreq <- cumsum(table(x))
-  CumPerc <- cumsum(table(x)) / summary(table(x))[[2]] * 100
-  results <- cbind(Freq, Perc, CumFreq, CumPerc)
+  CumlFreq <- cumsum(table(x))
+  CumlPerc <- cumsum(table(x)) / summary(table(x))[[2]] * 100
+  results <- cbind(Freq, Perc, CumlFreq, CumlPerc)
   class(results) <- "easi.frame"
   comment(results) <- "Frequencies for the Data"
   return(results)
