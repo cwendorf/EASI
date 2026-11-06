@@ -24,6 +24,7 @@ This page examines a single-factor within-subjects (repeated measures) design us
 ### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
+
 ```{r}
 Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7)
 Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)
@@ -34,11 +35,13 @@ RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 ### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
+
 ```{r}
 (RepeatedData) |> describeMoments()
 ```
 
 This code will display the correlations among the variables.
+
 ```{r}
 (RepeatedData) |> describeCorrelations()
 ```
@@ -50,6 +53,7 @@ The Analysis of Variance examines the overall differences among the means.
 ### Source Table
 
 Display the source table.
+
 ```{r}
 (RepeatedData) |> describeEffect()
 ```
@@ -57,6 +61,7 @@ Display the source table.
 ### Proportion of Variance Accounted for
 
 Get an estimate of the proportion of variance account for by the factor (and the confidence interval for that estimate).
+
 ```{r}
 (RepeatedData) |> estimateEffect()
 ```
@@ -64,6 +69,7 @@ Get an estimate of the proportion of variance account for by the factor (and the
 ### Significance Test
 
 Test the overall differences for statistical significance.
+
 ```{r}
 (RepeatedData) |> testEffect()
 ```
@@ -75,16 +81,19 @@ The analyses for the pairwise comparisons do not assume homogeneity of variance 
 ### Confidence Intervals
 
 Obtain interval estimates for the pairwise comparisons.
+
 ```{r}
 (RepeatedData) |> estimatePairwise()
 ```
 
 Provide a traditional plot of the confidence intervals for the pairwise comparisons (including a line that represents no difference for the comparisons).
+
 ```{r, Repeated-Data-Pairwise}
 (RepeatedData) |> plotPairwise(line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the pairwise comparisons).
+
 ```{r, Repeated-Data-PairwiseDiffogram}
 (RepeatedData) |> plotPairwiseDiffogram()
 ```
@@ -92,6 +101,7 @@ Provide a diffogram (plot of means and the confidence intervals for the pairwise
 ### Significance Tests
 
 Test the pairwise comparisons for statistical significance.
+
 ```{r}
 (RepeatedData) |> testPairwise()
 ```
@@ -99,6 +109,7 @@ Test the pairwise comparisons for statistical significance.
 ### Standardized Effect Sizes
 
 Get the standardized effect sizes (and their confidence intervals) for the pairwise comparisons.
+
 ```{r}
 (RepeatedData) |> standardizePairwise()
 ```
@@ -108,11 +119,13 @@ Get the standardized effect sizes (and their confidence intervals) for the pairw
 Relational intervals are values (and boxes on a graph) that indicate whether two conditions are statistically significantly different. The analyses for the relational confidence intervals do assume homogeneity of variance but do not make adjustments for multiple comparisons.
 
 Provide estimates of the arelational and relational intervals.
+
 ```{r}
 (RepeatedData) |> estimateRelational()
 ```
 
 Plot the intervals.
+
 ```{r, Repeated-Data-Relational}
 (RepeatedData) |> plotRelational()
 ```
@@ -124,16 +137,19 @@ The analyses for the post hoc comparisons do assume homogeneity of variance and 
 ### Confidence Intervals
 
 Obtain interval estimates for the post hoc comparisons.
+
 ```{r}
 (RepeatedData) |> estimatePosthoc()
 ```
 
 Provide a traditional plot of the confidence intervals for the post hoc comparisons (including a line that represents no difference for the comparisons).
+
 ```{r, Repeated-Data-Posthoc}
 (RepeatedData) |> plotPosthoc(line = 0, values = FALSE)
 ```
 
 Provide a diffogram (plot of means and the confidence intervals for the post hoc comparisons).
+
 ```{r, Repeated-Data-PosthocDiffogram}
 (RepeatedData) |> plotPosthocDiffogram()
 ```
@@ -141,6 +157,7 @@ Provide a diffogram (plot of means and the confidence intervals for the post hoc
 ### Significance Tests
 
 Test the post hoc comparisons for statistical significance.
+
 ```{r}
 (RepeatedData) |> testPosthoc()
 ```
@@ -148,6 +165,7 @@ Test the post hoc comparisons for statistical significance.
 ### Standardized Effect Sizes
 
 Get the standardized effect sizes (and their confidence intervals) for the post hoc comparisons.
+
 ```{r}
 (RepeatedData) |> standardizePosthoc()
 ```

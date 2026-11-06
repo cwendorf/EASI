@@ -9,11 +9,11 @@
 
 `EASI` is an R package that implements features of estimation statistics and data visualization in a pipe-oriented framework. Its primary functions describe, estimate, test, and plot confidence intervals for means, mean comparisons, correlations, and standardized effect sizes in between- and within-subjects single-factor, factorial, and mixed designs. Most functions can take either raw data or summary statistics as input.
 
-![Standard Output](./man/figures/CoverImageOne.jpg)
+![Standard Output](./docs/vignettes/figures/CoverImageOne.jpg)
 
-Other functions extend the analysis capabilities by offering summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations. 
+Other functions extend the analysis capabilities by offering summaries and plots of data, frequencies, densities, and more. These features can be combined to produce images similar to those from other estimation statistics implementations.
 
-![Enhanced Output](./man/figures/CoverImageTwo.jpg)
+![Enhanced Output](./docs/vignettes/figures/CoverImageTwo.jpg)
 
 ### Installation
 
@@ -35,9 +35,9 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 The `EASI` website includes a wide variety of materials that demonstrate its use:
 
-- [Introduction](https://cwendorf.github.io/EASI/articles/Introduction.html): A quick overview and summary of the package
-- [Reference](https://cwendorf.github.io/EASI/reference/index.html): Reference documentation of the functions of the package
-- [Articles](https://cwendorf.github.io/EASI/articles/index.html): Examples and applications of features of the package
+- [Introduction](./docs/README.md): A quick overview and summary of the package
+- [Reference](./docs/man/README.md): Reference documentation of the functions of the package
+- [Articles](./docs/vignettes/README.md): Examples and applications of features of the package
 
 ### Contact
 

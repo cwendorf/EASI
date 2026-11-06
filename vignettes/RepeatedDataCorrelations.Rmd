@@ -24,6 +24,7 @@ This page analyzes a set of correlations among variables using raw data input.
 ### Data Entry
 
 This code inputs the variable names and creates a viewable data frame.
+
 ```{r}
 Outcome1 <- c(6, 8, 6, 8, 10, 8, 10, 9, 8, 7)
 Outcome2 <- c(7, 13, 11, 10, 13, 8, 11, 14, 12, 11)
@@ -34,6 +35,7 @@ RepeatedData <- construct(Outcome1, Outcome2, Outcome3)
 ### Summary Statistics
 
 This code obtains the descriptive statistics for the data frame.
+
 ```{r}
 (RepeatedData) |> describeMoments()
 (RepeatedData) |> describeCorrelations()
@@ -46,16 +48,19 @@ This section produces analyses of a single correlation.
 #### Scatterlot and Confidence Ellipse
 
 This code provides a scatterplot for the bivariate relationship.
+
 ```{r, Correlation-Data-ScatterA}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> plotScatter()
 ```
 
 This code provides a scatterplot along with a 95% confidence ellipse for the data.
+
 ```{r, Correlations-Data-ScatterB}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> plotScatter(ellipse = TRUE)
 ```
 
 The ellipse can be altered for different confidence levels.
+
 ```{r, Correlations-Data-ScatterC}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> plotScatter(ellipse = TRUE, conf.level = .99)
 ```
@@ -63,21 +68,25 @@ The ellipse can be altered for different confidence levels.
 ### Confidence Interval
 
 This code will provide the confidence interval for the correlation.
+
 ```{r}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> estimateCorrelations()
 ```
 
 This code will produce a graph of the confidence interval for the correlation.
+
 ```{r, Correlations-Data-IntervalsA}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> plotCorrelations()
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
+
 ```{r}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> estimateCorrelations(conf.level = .99)
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
+
 ```{r, Correlations-Data-IntervalsB}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> plotCorrelations(conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
@@ -85,6 +94,7 @@ Of course, it is possible to change from the default confidence level in the gra
 ### Significance Test
 
 This code will produce a table of NHST for the correlation (against a value of zero).
+
 ```{r}
 (RepeatedData) |> focus(Outcome1, Outcome2) |> testCorrelations()
 ```
@@ -96,21 +106,25 @@ This section analyzes the correlations among multiple variables.
 ### Confidence Intervals
 
 This code will provide the confidence intervals for the correlations.
+
 ```{r}
 (RepeatedData) |> estimateCorrelations()
 ```
 
 This code will produce a graph of the confidence intervals for the correlations.
+
 ```{r, Correlations-Data-IntervalsC}
 (RepeatedData) |> plotCorrelations()
 ```
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
+
 ```{r}
 (RepeatedData) |> estimateCorrelations(conf.level = .99)
 ```
 
 Of course, it is possible to change from the default confidence level in the graph. It is also possible to add a comparison value and a region of practical equivalence.
+
 ```{r, Correlations-Data-IntervalsD}
 (RepeatedData) |> plotCorrelations(conf.level = .99, line = 0, rope = c(-.2, .2))
 ```
@@ -118,6 +132,7 @@ Of course, it is possible to change from the default confidence level in the gra
 ### Significance Tests
 
 This code will produce a table of NHST for the correlations (against a value of zero).
+
 ```{r}
 (RepeatedData) |> testCorrelations()
 ```

@@ -33,12 +33,14 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 EASI can be used to analyze either raw data or summary statistics.
 
 When analyzing raw data, EASI assumes a tidy data structure. Simply put: 1) each variable is its own column, 2) each observation is its own row, and 3) each value is its own cell. This is essential for how EASI will interpret the commands for analyses. Raw data can be entered in standard vectors and data frames, though EASI provides a few functions for creating these structures. In the case of a single-factor design (i.e., where there are multiple groups defined by an existing single variable and there is an outcome variable to be analyzed), the data are structured into a simple two-column frame and, for analyses (see below under Function Calls), a formula can be used to indicate the desire to analyze by groups. In the case of a repeated measures design, the data are arranged in the number of columns matching the number of measurements and, for analyses (again see below), the entire frame is passed to the function call.
+
 ```{r, eval=FALSE}
 (OneWayData) <- construct(Outcome, Factor)
 (RepeatedData) <- construct(Outcome1, Outcome2, Outcome3)
 ```
 
 When analyzing summary statistics instead of raw data, EASI uses special frames containing rows for each variable or group, columns for sample size, means, and standard deviations, and a special class to identify whether its a between-subjects or a within-subjects design. A similar process is used for tables of correlations.
+
 ```{r, eval=FALSE}
 (OneWayMoments) <- construct(Level1, Level2, Level3, class = "bsm")
 (RepeatedMoments) <- construct(Outcome1, Outcome2, Outcome3, class = "wsm")
@@ -76,12 +78,14 @@ construct(Outcome1, Outcome2, Outcome3) |> plotMeans(values = FALSE, main = "Cus
 ```
 
 When individual variables are not directly accessible (like when the dataset is predefined) or when using subsets of larger datasets (like when analyzing specific variables or groups), it is typically necessary to identify the data first and then select the variables to be analyzed from within the data set. In base R, this is accomplished using a `with` command (or built in data identification arguments). In EASI, this is accomplished by using the `focus` command (which has many related uses as well).
+
 ```{r, eval=FALSE}
 (OneWayData) |> focus(Outcome ~ Factor) |> estimateMeans(conf.level = .99)
 (RepeatedData) |> focus(Outcome1, Outcome2) |> plotMeans(values = FALSE, main = "Custom Plot Title", col = "darkblue")
 ```
 
 Note that the above function calls imply that EASI uses a very general analysis workflow. In most simple cases, the functions will expect a "Data |> Analyze" format, with intermediate steps for "focusing" on specific variables or groups. In advanced cases (like factorial and mixed designs), it will be important to elaborate with a "Data |> Describe |> Analyze" sequence (with the possibility of "focusing" between each of these).
+
 ```{r, eval=FALSE}
 (MixedData) |> focus(Outcome1, Outcome2, Outcome3) |> describeMoments(by = Factor) |> estimateMeans(conf.level = .99)
 (FactorialData) |> focus(Outcome ~ FactorA) |> describeMoments(by = FactorB) |> focus(A1, A2) |> plotComparison(values = FALSE, main = "Custom Plot Title", col = "darkblue")
