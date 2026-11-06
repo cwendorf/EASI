@@ -4,6 +4,13 @@
 
 This page analyzes bivariate regression models using summary statistics input.
 
+- [Preliminary Tasks](#preliminary-tasks)
+- [Analyses of Overall Model](#analyses-of-overall-model)
+- [Analyses of the Regression Coefficients](#analyses-of-the-regression-coefficients)
+- [Analyses of Regression Values](#analyses-of-regression-values)
+
+------------------------------------------------------------------------
+
 ### Preliminary Tasks
 
 #### Data Entry

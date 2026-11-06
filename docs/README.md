@@ -4,6 +4,14 @@
 
 This page outlines the general purpose and structure of the EASI functions.
 
+- [Scope of the Project](#scope-of-the-project)
+- [Data Structure](#data-structure)
+- [Function Names](#function-names)
+- [Function Calls](#function-calls)
+- [Resources](#resources)
+
+------------------------------------------------------------------------
+
 ### Scope of the Project
 
 EASI was designed to offer a simple, intuitive, and consistent way to implement estimation statistics in R. The following goals set the scope of the project:

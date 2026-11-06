@@ -4,6 +4,12 @@
 
 This page examines a single-factor within-subjects (repeated measures) design using raw data input, focusing on exploratory data analyses.
 
+- [Preliminary Tasks](#preliminary-tasks)
+- [Building Layered Plots](#building-layered-plots)
+- [Common Layered Plots](#common-layered-plots)
+
+------------------------------------------------------------------------
+
 ### Preliminary Tasks
 
 #### Data Entry

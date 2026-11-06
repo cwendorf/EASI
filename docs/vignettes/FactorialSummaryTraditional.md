@@ -4,6 +4,12 @@
 
 This page examines a two-factor between-subjects (factorial) design using summary statistics input, focusing on omnibus and simple effects analyses.
 
+- [Preliminary Tasks](#preliminary-tasks)
+- [Analyses of the Omnibus Effects](#analyses-of-the-omnibus-effects)
+- [Analyses of the Simple Effects](#analyses-of-the-simple-effects)
+
+------------------------------------------------------------------------
+
 ### Preliminary Tasks
 
 #### Data Entry

@@ -4,6 +4,13 @@
 
 This section is the reference for `EASI`. Each page documents one function, including usage, arguments, and return values.
 
+- [Grammar and Manipulation](#grammar-and-manipulation)
+- [Data and Distributions](#data-and-distributions)
+- [Means and Mean Differences](#means-and-mean-differences)
+- [Correlation and Regression](#correlation-and-regression)
+
+------------------------------------------------------------------------
+
 ### Grammar and Manipulation
 
 Construct data frames and focus on specific variables or factor levels

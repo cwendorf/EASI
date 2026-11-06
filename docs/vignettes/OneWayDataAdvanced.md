@@ -4,6 +4,13 @@
 
 This page examines a single-factor between-subjects (one-way) design using raw data input, adding data, color, and plausibility curves to plots of comparisons and contrasts.
 
+- [Data Management](#data-management)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of a Comparison](#analyses-of-a-comparison)
+- [Analyses of a Mean Contrast](#analyses-of-a-mean-contrast)
+
+------------------------------------------------------------------------
+
 ### Data Management
 
 This code inputs the variable names and creates a viewable data frame.

@@ -4,6 +4,14 @@
 
 This page examines a two-factor mixed design (one between-subjects and one within-subjects factor) using summary statistics input, focusing on comparisons and contrasts.
 
+- [Preliminary Tasks](#preliminary-tasks)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of a Comparison](#analyses-of-a-comparison)
+- [Analyses of a Contrast](#analyses-of-a-contrast)
+- [Analyses of 2x2 Interaction Comparisons](#analyses-of-2x2-interaction-comparisons)
+
+------------------------------------------------------------------------
+
 ### Preliminary Tasks
 
 #### Data Entry

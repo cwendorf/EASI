@@ -4,6 +4,13 @@
 
 This page examines a single-factor within-subjects (repeated measures) design using summary statistics input, adding color and plausibility curves to plots of comparisons and contrasts.
 
+- [Data Management](#data-management)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of a Comparison](#analyses-of-a-comparison)
+- [Analyses of a Mean Contrast](#analyses-of-a-mean-contrast)
+
+------------------------------------------------------------------------
+
 ### Data Management
 
 This code inputs the variable summaries and creates a summary table.

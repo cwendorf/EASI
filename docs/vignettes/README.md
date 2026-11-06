@@ -2,9 +2,13 @@
 
 ## Articles
 
-### Getting Started
+- [OneWay (Between-Subjects) Analyses](#oneway-between-subjects-analyses)
+- [Repeated Measures (Within-Subjects) Analyses](#repeated-measures-within-subjects-analyses)
+- [Factorial (Between-Subjects) Analyses](#factorial-between-subjects-analyses)
+- [Mixed (Between-Subjects and Within-Subjects) Analyses](#mixed-between-subjects-and-within-subjects-analyses)
+- [Correlation and Regression Analyses](#correlation-and-regression-analyses)
 
-- [Introduction](./Introduction.md): This page outlines the general purpose and structure of the EASI workflow.
+------------------------------------------------------------------------
 
 ### OneWay (Between-Subjects) Analyses
 

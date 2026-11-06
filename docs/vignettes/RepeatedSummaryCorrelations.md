@@ -4,6 +4,12 @@
 
 This page analyzes a set of correlations among variables using summary statistics input.
 
+- [Preliminary Tasks](#preliminary-tasks)
+- [Analyses of a Correlation](#analyses-of-a-correlation)
+- [Analyses of Several Correlations](#analyses-of-several-correlations)
+
+------------------------------------------------------------------------
+
 ### Preliminary Tasks
 
 #### Data Entry

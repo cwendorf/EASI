@@ -4,6 +4,14 @@
 
 This page examines a single-factor within-subjects (repeated measures) design using summary statistics input, focusing on comparisons and contrasts.
 
+- [Preliminary Tasks](#preliminary-tasks)
+- [Analyses of the Means](#analyses-of-the-means)
+- [Analyses of a Comparison](#analyses-of-a-comparison)
+- [Analyses of a Contrast](#analyses-of-a-contrast)
+- [Analyses of a Complex Contrast](#analyses-of-a-complex-contrast)
+
+------------------------------------------------------------------------
+
 ### Preliminary Tasks
 
 #### Data Entry
