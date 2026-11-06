@@ -2,6 +2,8 @@
 
 ## Articles
 
+This section provides vignettes for `EASI`. They show how to use the software to analyze various types of data using the esimation approach.
+
 - [OneWay (Between-Subjects) Analyses](#oneway-between-subjects-analyses)
 - [Repeated Measures (Within-Subjects) Analyses](#repeated-measures-within-subjects-analyses)
 - [Factorial (Between-Subjects) Analyses](#factorial-between-subjects-analyses)
