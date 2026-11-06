@@ -33,7 +33,7 @@ source("http://raw.githubusercontent.com/cwendorf/EASI/main/source-EASI.R")
 
 ### Usage
 
-The `EASI` website includes a wide variety of materials that demonstrate its use:
+This package includes the following documentation:
 
 - [Introduction](./docs/README.md): A quick overview and summary of the package
 - [Reference](./docs/man/README.md): Reference documentation of the functions of the package
@@ -41,7 +41,7 @@ The `EASI` website includes a wide variety of materials that demonstrate its use
 
 ### Contact
 
-- GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues) 
+- GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues)
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
 - Author Homepage: [https://github.com/cwendorf](https://github.com/cwendorf)
 
