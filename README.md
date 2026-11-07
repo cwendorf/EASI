@@ -2,8 +2,8 @@
 
 ## Estimation Approach to Statistical Inference
 
-[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.6.2-6666ff.svg)](https://cran.r-project.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Minimal R Version](https://img.shields.io/badge/R%3E%3D-3.6.2-6666ff?style=for-the-badge)](https://cran.r-project.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 ### Overview
 
