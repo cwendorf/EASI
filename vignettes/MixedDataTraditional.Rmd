@@ -45,7 +45,7 @@ This code provides a table of summary statistics and a table of correlations and
 
 Plot the means and confidence intervals for the design as a whole.
 
-```{r, Mixed-Summary-Omnibus}
+```{r, Mixed-Data-Omnibus}
 (MixedMoments) |> plotFactorial(col = c("darkred", "darkblue"))
 legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("Level1", "Level2"), col = c("darkred", "darkblue"))
 ```

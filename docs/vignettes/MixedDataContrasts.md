@@ -63,8 +63,8 @@ This code will produce a graph of the confidence intervals for each level of the
 (MixedMoments) |> plotMeans()
 ```
 
-![Mixed Summary Means A](figures/Mixed-Summary-MeansA-1.png)
-![Mixed Summary Means A (plot 2)](figures/Mixed-Summary-MeansA-2.png)
+![Mixed Summary Means A](figures/Mixed-Data-MeansA-1.png)
+![Mixed Summary Means A (plot 2)](figures/Mixed-Data-MeansA-2.png)
 
 The code defaults to 95% confidence intervals. This can be changed if desired.
 
@@ -78,8 +78,8 @@ For the graph, it is possible to add a comparison line to represent a population
 (MixedMoments) |> plotMeans(conf.level = .99, line = 9, rope = c(8, 10))
 ```
 
-![Mixed Summary Means B](figures/Mixed-Summary-MeansB-1.png)
-![Mixed Summary Means B (plot 2)](figures/Mixed-Summary-MeansB-2.png)
+![Mixed Summary Means B](figures/Mixed-Data-MeansB-1.png)
+![Mixed Summary Means B (plot 2)](figures/Mixed-Data-MeansB-2.png)
 
 #### Significance Tests
 
@@ -127,8 +127,8 @@ This code obtains and plots the confidence intervals for the mean difference in 
 (MixedMoments) |> focus(Outcome1, Outcome2) |> plotDifference(MixedCorr)
 ```
 
-![Mixed Summary Difference A](figures/Mixed-Summary-DifferenceA-1.png)
-![Mixed Summary Difference A (plot 2)](figures/Mixed-Summary-DifferenceA-2.png)
+![Mixed Summary Difference A](figures/Mixed-Data-DifferenceA-1.png)
+![Mixed Summary Difference A (plot 2)](figures/Mixed-Data-DifferenceA-2.png)
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -142,8 +142,8 @@ Once again, the confidence levels can be changed away from the default and a com
 (MixedMoments) |> focus(Outcome1, Outcome2) |> plotDifference(MixedCorr, conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
-![Mixed Summary Difference B](figures/Mixed-Summary-DifferenceB-1.png)
-![Mixed Summary Difference B (plot 2)](figures/Mixed-Summary-DifferenceB-2.png)
+![Mixed Summary Difference B](figures/Mixed-Data-DifferenceB-1.png)
+![Mixed Summary Difference B (plot 2)](figures/Mixed-Data-DifferenceB-2.png)
 
 If you wish, you can get the confidence intervals for the means and the mean difference in one command.
 
@@ -157,8 +157,8 @@ This code produces a difference plot using the confidence intervals for the mean
 (MixedMoments) |> focus(Outcome1, Outcome2) |> plotComparison(MixedCorr)
 ```
 
-![Mixed Summary Comparison A](figures/Mixed-Summary-ComparisonA-1.png)
-![Mixed Summary Comparison A (plot 2)](figures/Mixed-Summary-ComparisonA-2.png)
+![Mixed Summary Comparison A](figures/Mixed-Data-ComparisonA-1.png)
+![Mixed Summary Comparison A (plot 2)](figures/Mixed-Data-ComparisonA-2.png)
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -172,8 +172,8 @@ Once again, the confidence levels can be changed away from the default and a reg
 (MixedMoments) |> focus(Outcome1, Outcome2) |> plotComparison(MixedCorr, conf.level = .99, rope = c(-2, 2))
 ```
 
-![Mixed Summary Comparison B](figures/Mixed-Summary-ComparisonB-1.png)
-![Mixed Summary Comparison B (plot 2)](figures/Mixed-Summary-ComparisonB-2.png)
+![Mixed Summary Comparison B](figures/Mixed-Data-ComparisonB-1.png)
+![Mixed Summary Comparison B (plot 2)](figures/Mixed-Data-ComparisonB-2.png)
 
 #### Significance Tests
 
@@ -221,8 +221,8 @@ This code obtains and plots the confidence intervals for the mean difference in 
 (MixedMoments) |> plotContrast(MixedCorr, contrast = c(-1, .5, .5))
 ```
 
-![Mixed Summary Contrast A](figures/Mixed-Summary-ContrastA-1.png)
-![Mixed Summary Contrast A (plot 2)](figures/Mixed-Summary-ContrastA-2.png)
+![Mixed Summary Contrast A](figures/Mixed-Data-ContrastA-1.png)
+![Mixed Summary Contrast A (plot 2)](figures/Mixed-Data-ContrastA-2.png)
 
 As in all other cases, the default value of the confidence interval can be changed.
 
@@ -236,8 +236,8 @@ The width of the confidence interval for the contrast can be altered and a compa
 (MixedMoments) |> plotContrast(MixedCorr, contrast = c(-1, .5, .5), conf.level = .99, line = 0, rope = c(-2, 2))
 ```
 
-![Mixed Summary Contrast B](figures/Mixed-Summary-ContrastB-1.png)
-![Mixed Summary Contrast B (plot 2)](figures/Mixed-Summary-ContrastB-2.png)
+![Mixed Summary Contrast B](figures/Mixed-Data-ContrastB-1.png)
+![Mixed Summary Contrast B (plot 2)](figures/Mixed-Data-ContrastB-2.png)
 
 If you wish, you can get the confidence intervals for the mean subsets and the mean contrast in one command.
 
@@ -251,8 +251,8 @@ This code produces a difference plot using the confidence intervals for the mean
 (MixedMoments) |> plotSubsets(MixedCorr, contrast = c(-1, .5, .5))
 ```
 
-![Mixed Summary Subsets A](figures/Mixed-Summary-SubsetsA-1.png)
-![Mixed Summary Subsets A (plot 2)](figures/Mixed-Summary-SubsetsA-2.png)
+![Mixed Summary Subsets A](figures/Mixed-Data-SubsetsA-1.png)
+![Mixed Summary Subsets A (plot 2)](figures/Mixed-Data-SubsetsA-2.png)
 
 Of course, you can change the confidence level from the default 95% if desired.
 
@@ -266,8 +266,8 @@ Once again, the confidence levels can be changed away from the default and a reg
 (MixedMoments) |> plotSubsets(MixedCorr, contrast = c(-1, .5, .5), labels = c("Outcome1", "Others"), conf.level = .99, rope = c(-2, 2))
 ```
 
-![Mixed Summary Subsets B](figures/Mixed-Summary-SubsetsB-1.png)
-![Mixed Summary Subsets B (plot 2)](figures/Mixed-Summary-SubsetsB-2.png)
+![Mixed Summary Subsets B](figures/Mixed-Data-SubsetsB-1.png)
+![Mixed Summary Subsets B (plot 2)](figures/Mixed-Data-SubsetsB-2.png)
 
 #### Significance Tests
 
@@ -310,7 +310,7 @@ Identify a 2 x 2 interaction of interest (in this case, two levels of Outcome an
 (MixedMoments) |> focus(Outcome1, Outcome2) |> plotInteraction(MixedCorr)
 ```
 
-![Mixed Summary Interaction](figures/Mixed-Summary-Interaction-1.png)
+![Mixed Summary Interaction](figures/Mixed-Data-Interaction-1.png)
 
 #### Significance Tests
 

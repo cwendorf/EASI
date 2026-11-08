@@ -41,7 +41,7 @@ Plot the means and confidence intervals for the design as a whole.
 legend("topleft", inset = .01, box.lty = 0, pch = 16, legend = c("Level1", "Level2"), col = c("darkred", "darkblue"))
 ```
 
-![Mixed Summary Omnibus](figures/Mixed-Summary-Omnibus-1.png)
+![Mixed Summary Omnibus](figures/Mixed-Data-Omnibus-1.png)
 
 ### Analyses of the Omnibus Effects
 
