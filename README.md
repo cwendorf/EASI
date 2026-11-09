@@ -39,12 +39,6 @@ This package includes the following documentation:
 - [Reference](./docs/man/README.md): Reference documentation of the functions of the package
 - [Articles](./docs/vignettes/README.md): Examples and applications of features of the package
 
-### Contact
-
-- GitHub Issues: [https://github.com/cwendorf/EASI/issues](https://github.com/cwendorf/EASI/issues)
-- Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
-- Author Homepage: [https://github.com/cwendorf](https://github.com/cwendorf)
-
 ### Citation
 
 Wendorf, C. A. (2024). *EASI: Estimation Approach to Statistical Inference* [R Package]. [https://github.com/cwendorf/EASI](https://github.com/cwendorf/EASI)
