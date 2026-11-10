@@ -2,7 +2,7 @@
 
 ## Bivariate Data Regression
 
-This page analyzes bivariate regression models using raw data input.
+This page examines bivariate regression models using raw data input.
 
 - [Preliminary Tasks](#preliminary-tasks)
 - [Analyses of the Overall Model](#analyses-of-the-overall-model)

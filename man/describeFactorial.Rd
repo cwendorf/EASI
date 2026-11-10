@@ -5,7 +5,7 @@
 \alias{describeFactorial}
 \alias{describeMeansFactorial}
 \title{Describe Factorial}
-\description{Provides a Analysis of Variance source table for a factorial or mixed design.}
+\description{Provides an Analysis of Variance source table for a factorial or mixed design.}
 
 \usage{
 \method{describeFactorial}{data.frame}(frame, by, ...)

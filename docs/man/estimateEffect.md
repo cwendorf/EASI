@@ -4,7 +4,7 @@
 
 ### Description
 
-Calculates the proportion of variance accounted for and its confidence interval.
+Provides the proportion of variance accounted for and its confidence interval.
 
 ### Usage
 

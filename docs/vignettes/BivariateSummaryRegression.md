@@ -2,7 +2,7 @@
 
 ## Bivariate Summary Regression
 
-This page analyzes bivariate regression models using summary statistics input.
+This page examines bivariate regression models using summary statistics input.
 
 - [Preliminary Tasks](#preliminary-tasks)
 - [Analyses of Overall Model](#analyses-of-overall-model)

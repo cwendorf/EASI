@@ -4,7 +4,7 @@
 
 ### Description
 
-Provides a Analysis of Variance source table for a factorial or mixed design.
+Provides an Analysis of Variance source table for a factorial or mixed design.
 
 ### Usage
 

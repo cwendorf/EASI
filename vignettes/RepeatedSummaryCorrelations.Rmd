@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page analyzes a set of correlations among variables using summary statistics input.
+This page examines a set of correlations among variables using summary statistics input.
 
 ## Preliminary Tasks
 

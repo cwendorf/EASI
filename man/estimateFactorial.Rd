@@ -5,7 +5,7 @@
 \alias{estimateFactorial}
 \alias{estimateMeansFactorial}
 \title{Estimate Factorial}
-\description{Calculates the proportion of variance accounted for and its confidence interval in a factorial or mixed design.}
+\description{Provides the proportion of variance accounted for and its confidence interval in a factorial or mixed design.}
 
 \usage{
 \method{estimateFactorial}{data.frame}(frame, by, conf.level=.95, ...)

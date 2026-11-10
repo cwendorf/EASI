@@ -17,7 +17,7 @@ if (!require(EASI)) {
 library(EASI)
 ```
 
-This page analyzes bivariate regression models using raw data input.
+This page examines bivariate regression models using raw data input.
 
 ## Preliminary Tasks
 

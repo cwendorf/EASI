@@ -2,7 +2,7 @@
 
 ## Repeated Summary Correlations
 
-This page analyzes a set of correlations among variables using summary statistics input.
+This page examines a set of correlations among variables using summary statistics input.
 
 - [Preliminary Tasks](#preliminary-tasks)
 - [Analyses of a Correlation](#analyses-of-a-correlation)

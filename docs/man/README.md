@@ -15,10 +15,10 @@ This section is the reference for `EASI`. Each page documents one function, incl
 
 Construct data frames and focus on specific variables or factor levels
 
-- [construct](./construct.md): Contruct
-- [combine](./combine.md): Combine
-- [retain](./retain.md): Retain
-- [focus](./focus.md): Focus
+- [construct](./construct.md): Construct a frame from vectors of data, summary statistics, or correlations.
+- [combine](./combine.md): Combine multiple frames of summary statistics into a list.
+- [retain](./retain.md): Retain a frame following other calculations.
+- [focus](./focus.md): Selects the variables or factor levels of the specified frame.
 
 ### Data and Distributions
 
@@ -26,52 +26,52 @@ Construct data frames and focus on specific variables or factor levels
 
 Plot the data for the groups, levels, or variables
 
-- [plotData](./plotData.md): Plot Data
+- [plotData](./plotData.md): Provides a plot of data points for each group or level mean.
 
 #### Frequencies
 
 Obtain and plot frequencies for the groups, levels, or variables
 
-- [describeFrequencies](./describeFrequencies.md): Describe Frequencies
-- [plotFrequencies](./plotFrequencies.md): Plot Frequencies
+- [describeFrequencies](./describeFrequencies.md): Provides a frequency distributions for each variable or group.
+- [plotFrequencies](./plotFrequencies.md): Provides a frequency distribution for each group or variable.
 
 #### Density
 
 Plot densities for the groups, levels, or variables
 
-- [plotDensity](./plotDensity.md): Plot Density
+- [plotDensity](./plotDensity.md): Provides a density plot for each group or variable.
 
 #### Plausible
 
 Plot plausibility curves for the groups, levels, or variables
 
-- [plotPlausible](./plotPlausible.md): Plot Plausible
+- [plotPlausible](./plotPlausible.md): Provides a plausibility curve for each group or variable.
 
 #### Percentiles
 
 Describe percentiles for the groups, levels, or variables
 
-- [describePercentiles](./describePercentiles.md): Describe Percentiles
+- [describePercentiles](./describePercentiles.md): Provides a table of percentile statistics for each variable or group.
 
 #### Boxes
 
 Obtain and plot boxplots for the groups, levels, or variables
 
-- [describeBoxes](./describeBoxes.md): Describe Boxes
-- [plotBoxes](./plotBoxes.md): Plot Boxes
+- [describeBoxes](./describeBoxes.md): Provides a five number summary for a data set.
+- [plotBoxes](./plotBoxes.md): Provides a boxplot for each group or variable.
 
 #### Moments
 
 Obtain and plot summary statistics of the variables
 
-- [describeMoments](./describeMoments.md): Describe Moments
-- [plotMoments](./plotMoments.md): Plot Moments
+- [describeMoments](./describeMoments.md): Provides a table of descriptive/summary statistics for a data set.
+- [plotMoments](./plotMoments.md): Provides a plot of all group or level means and standard deviations.
 
 #### Scatter
 
 Plot scatterplots of the variables
 
-- [plotScatter](./plotScatter.md): Plot Scatter
+- [plotScatter](./plotScatter.md): Provides a scatterplot and/or confidence ellipse.
 
 ### Means and Mean Differences
 
@@ -79,101 +79,101 @@ Plot scatterplots of the variables
 
 Examine all individual group, level, or variable means
 
-- [estimateMeans](./estimateMeans.md): Estimate Means
-- [plotMeans](./plotMeans.md): Plot Means
-- [testMeans](./testMeans.md): Test Means
-- [standardizeMeans](./standardizeMeans.md): Standardize Means
+- [estimateMeans](./estimateMeans.md): Provides a table of means, standard deviations, and confidence intervals for each group or level mean.
+- [plotMeans](./plotMeans.md): Provides a plot of all group or level means and their confidence intervals.
+- [testMeans](./testMeans.md): Provides a statistical significance test for each group or level mean.
+- [standardizeMeans](./standardizeMeans.md): Provides a standardized effect size and its confidence interval for each group or level mean.
 
 #### Difference
 
 Examine a difference among two group, level, or variable means
 
-- [estimateDifference](./estimateDifference.md): Estimate Difference
-- [plotDifference](./plotDifference.md): Plot Difference
-- [testDifference](./testDifference.md): Test Difference
-- [standardizeDifference](./standardizeDifference.md): Standardize Difference
+- [estimateDifference](./estimateDifference.md): Provides the mean difference, standard error, and confidence interval of the difference.
+- [plotDifference](./plotDifference.md): Provides a plot of the mean difference and its confidence interval.
+- [testDifference](./testDifference.md): Provides a statistical significance test of the mean difference.
+- [standardizeDifference](./standardizeDifference.md): Provides the standardized effect size for the difference and its confidence interval.
 
 #### Comparison
 
 Examine a comparison among two group, level, or variable means
 
-- [estimateComparison](./estimateComparison.md): Estimate Comparison
-- [plotComparison](./plotComparison.md): Plot Comparison
-- [testComparison](./testComparison.md): Test Comparison
+- [estimateComparison](./estimateComparison.md): Provides the confidence intervals for the means and mean difference of a specified comparison.
+- [plotComparison](./plotComparison.md): Provides a plot of the confidence intervals for the means and mean difference of a specified comparison.
+- [testComparison](./testComparison.md): Provides the statistical significances tests for the means and mean difference of a specified comparison.
 
 #### Contrast
 
 Examine a contrast among all of the group, level, or variable means
 
-- [estimateContrast](./estimateContrast.md): Estimate Contrast
-- [plotContrast](./plotContrast.md): Plot Contrast
-- [testContrast](./testContrast.md): Test Contrast
-- [standardizeContrast](./standardizeContrast.md): Standardize Contrast
+- [estimateContrast](./estimateContrast.md): Provides the mean contrast, standard error, and confidence interval of the contrast.
+- [plotContrast](./plotContrast.md): Provides the plot of the mean contrast and its confidence interval.
+- [testContrast](./testContrast.md): Provides a statistical significance test of the mean contrast.
+- [standardizeContrast](./standardizeContrast.md): Provides the standardized effect size and its confidence interval for the contrast.
 
 #### Subsets
 
 Examine a subset contrast among all of the group, level, or variable means
 
-- [estimateSubsets](./estimateSubsets.md): Estimate Subsets
-- [plotSubsets](./plotSubsets.md): Plot Subsets
-- [testSubsets](./testSubsets.md): Test Subsets
+- [estimateSubsets](./estimateSubsets.md): Provides the confidence intervals for a mean contrast and the mean subsets that comprise that contrast.
+- [plotSubsets](./plotSubsets.md): Provides the plot of the mean subsets and mean contrast confidence intervals.
+- [testSubsets](./testSubsets.md): Provides the statistical significance tests for a mean contrast and the mean subsets that comprise that contrast.
 
 #### Complex
 
 Examine two contrasts among all of the group, level, or variable means and the differences between those contrasts
 
-- [estimateComplex](./estimateComplex.md): Estimate Complex
-- [plotComplex](./plotComplex.md): Plot Complex
-- [testComplex](./testComplex.md): Test Complex
+- [estimateComplex](./estimateComplex.md): Provides the confidence intervals for mean contrasts and the difference between those contrasts.
+- [plotComplex](./plotComplex.md): Provides the plot of the confidence intervals for mean contrasts and the difference between those contrasts.
+- [testComplex](./testComplex.md): Provides the statistical significance tests for mean contrasts and the difference between those contrasts.
 
 #### Pairwise
 
 Examine all possible unadjusted pairwise comparisons among the group, level, or variable means
 
-- [estimatePairwise](./estimatePairwise.md): Estimate Pairwise
-- [plotPairwise](./plotPairwise.md): Plot Pairwise
-- [testPairwise](./testPairwise.md): Test Pairwise
-- [standardizePairwise](./standardizePairwise.md): Standardize Pairwise
+- [estimatePairwise](./estimatePairwise.md): Provides a table of confidence intervals for all unadjusted pairwise comparisons.
+- [plotPairwise](./plotPairwise.md): Provides a plot of all unadjusted pairwise comparisons and their confidence intervals.
+- [testPairwise](./testPairwise.md): Provides a statistical significance test for all unadjusted pairwise comparisons.
+- [standardizePairwise](./standardizePairwise.md): Provides standardized effect sizes and their confidence intervals for all unadjusted pairwise comparisons.
 
 #### Posthoc
 
 Examine all possible Tukey posthoc comparisons among the group, level, or variable means
 
-- [estimatePosthoc](./estimatePosthoc.md): Estimate Posthoc
-- [plotPosthoc](./plotPosthoc.md): Plot Posthoc
-- [testPosthoc](./testPosthoc.md): Test Posthoc
+- [estimatePosthoc](./estimatePosthoc.md): Provides a table of confidence intervals for all Tukey HSD comparisons.
+- [plotPosthoc](./plotPosthoc.md): Provides a plot of all Tukey HSD comparisons and their confidence intervals.
+- [testPosthoc](./testPosthoc.md): Provides a statistical significance test for all Tukey HSD comparisons.
 
 #### Relational
 
 Provide both arelational (confidence) and relational (comparative) intervals for group, level, or variable means
 
-- [estimateRelational](./estimateRelational.md): Estimate Relational
-- [plotRelational](./plotRelational.md): Plot Relational
+- [estimateRelational](./estimateRelational.md): Provides a table of arelational (confidence) and relational (comparative) intervals for each group or level mean.
+- [plotRelational](./plotRelational.md): Provides a plot of arelational (confidence) and relational (comparative) intervals for each group or level mean.
 
 #### Effect
 
 Provide an analysis of variance and effect size across all group, level, or variable means
 
-- [describeEffect](./describeEffect.md): Describe Effect
-- [estimateEffect](./estimateEffect.md): Estimate Effect
-- [testEffect](./testEffect.md): Test Effect
+- [describeEffect](./describeEffect.md): Provides a Analysis of Variance source table.
+- [estimateEffect](./estimateEffect.md): Provides the proportion of variance accounted for and its confidence interval.
+- [testEffect](./testEffect.md): Provides a statistical significance test for an Analysis of Variance.
 
 #### Factorial
 
 Provide a factorial analysis of variance and effect size across all group, level, or variable means
 
-- [describeFactorial](./describeFactorial.md): Describe Factorial
-- [estimateFactorial](./estimateFactorial.md): Estimate Factorial
-- [plotFactorial](./plotFactorial.md): Plot Factorial
-- [testFactorial](./testFactorial.md): Test Factorial
+- [describeFactorial](./describeFactorial.md): Provides an Analysis of Variance source table for a factorial or mixed design.
+- [estimateFactorial](./estimateFactorial.md): Provides the proportion of variance accounted for and its confidence interval in a factorial or mixed design.
+- [plotFactorial](./plotFactorial.md): Provides a plot of all group or level means and their confidence intervals in a factorial or mixed design.
+- [testFactorial](./testFactorial.md): Provides a statistical significance test for an Analysis of Variance for a factorial or mixed design.
 
 #### Interaction
 
-Provide analyses 2x2 interaction contrasts in factorial and mixed designs
+Provide analyses of 2x2 interaction contrasts in factorial and mixed designs
 
-- [estimateInteraction](./estimateInteraction.md): Estimate Interaction
-- [plotInteraction](./plotInteraction.md): Plot Interaction
-- [testInteraction](./testInteraction.md): Test Interaction
+- [estimateInteraction](./estimateInteraction.md): Provides the confidence intervals for the simple effects and the interaction contrast in a 2x2 design.
+- [plotInteraction](./plotInteraction.md): Provides a plot of the confidence intervals for the simple effects and the interaction contrast in a 2x2 design.
+- [testInteraction](./testInteraction.md): Provides the statistical significance tests for the simple effects and the interaction contrast in a 2x2 design.
 
 ### Correlation and Regression
 
@@ -181,30 +181,30 @@ Provide analyses 2x2 interaction contrasts in factorial and mixed designs
 
 Provide analyses of correlations among variables
 
-- [describeCorrelations](./describeCorrelations.md): Describe Correlations
-- [estimateCorrelations](./estimateCorrelations.md): Estimate Correlations
-- [plotCorrelations](./plotCorrelations.md): Plot Correlations
-- [testCorrelations](./testCorrelations.md): Test Correlations
+- [describeCorrelations](./describeCorrelations.md): Provides a square matrix/frame of correlations for a data set.
+- [estimateCorrelations](./estimateCorrelations.md): Provides correlations, their standard errors, and their confidence intervals for a list of variables.
+- [plotCorrelations](./plotCorrelations.md): Provides a plot of all correlations and their confidence intervals for a set of variables.
+- [testCorrelations](./testCorrelations.md): Provides a statistical significance test for correlations of the specified variables.
 
 #### Line
 
 Provide analyses of the regression line and values
 
-- [estimateRegression](./estimateLine.md): Estimate Line
-- [plotRegression](./plotLine.md): Plot Line
+- [estimateRegression](./estimateLine.md): Provides a table of the regression estimate and its intervals.
+- [plotRegression](./plotLine.md): Provides a plot of the regression line and its intervals.
 
 #### Coefficients
 
 Provide analyses of regression coefficients
 
-- [estimateCoefficients](./estimateCoefficients.md): Estimate Coefficients
-- [plotCoefficients](./plotCoefficients.md): Plot Coefficients
-- [testCoefficients](./testCoefficients.md): Test Coefficients
-- [standardizeCoefficients](./standardizeCoefficients.md): Standardize Coefficients
+- [estimateCoefficients](./estimateCoefficients.md): Provides a table of regression coefficients and their confidence intervals.
+- [plotCoefficients](./plotCoefficients.md): Provides a plot of the regression coefficients and their confidence intervals.
+- [testCoefficients](./testCoefficients.md): Provides statistical significance tests for the regression coefficients.
+- [standardizeCoefficients](./standardizeCoefficients.md): Provides a table of standardized regression coefficients and their confidence intervals.
 
 #### Model
 
 Provide an analysis of variance and effect size for a regression model
 
-- [estimateModel](./estimateModel.md): Estimate Model
-- [testModel](./testModel.md): Test Model
+- [estimateModel](./estimateModel.md): Provides R Squared and its confidence interval.
+- [testModel](./testModel.md): Provides a statistical significance test for a regression model.

@@ -4,7 +4,7 @@
 
 ### Description
 
-Calculates R Squared and its confidence interval.
+Provides R Squared and its confidence interval.
 
 ### Usage
 

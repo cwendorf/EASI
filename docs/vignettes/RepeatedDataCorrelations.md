@@ -2,7 +2,7 @@
 
 ## Repeated Data Correlations
 
-This page analyzes a set of correlations among variables using raw data input.
+This page examines a set of correlations among variables using raw data input.
 
 - [Preliminary Tasks](#preliminary-tasks)
 - [Analyses of a Correlation](#analyses-of-a-correlation)

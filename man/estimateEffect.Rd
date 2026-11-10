@@ -5,7 +5,7 @@
 \alias{estimateEffect}
 \alias{estimateMeansEffect}
 \title{Estimate Effect}
-\description{Calculates the proportion of variance accounted for and its confidence interval.}
+\description{Provides the proportion of variance accounted for and its confidence interval.}
 
 \usage{
 \method{estimateEffect}{data.frame}(frame, conf.level=.95, ...)
