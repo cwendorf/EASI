@@ -1,18 +1,16 @@
-# Purpose: Source all R functions from a GitHub repo
-# Updated: 2023-07-17
+# Purpose: Source R Functions from a GitHub Repository
+# Updated: 2026-11-10
 
-source.github <- function(username, repo, branch) {
-  url <- paste("https://github.com/", username, "/", repo, "/archive/refs/heads/", branch, ".zip", sep = "")
-  name <- paste(repo, "-", branch, sep = "")
-  file <- paste(name, ".zip", sep = "")
-  download.file(url = url, destfile = file)
-  unzip(zipfile = file)
-  folder <- paste(name, "/R/", sep = "")
-  paths <- list.files(path = folder, full.names = TRUE)
-  for (i in 1:length(paths)) source(paths[i])
-  unlink(file)
-  unlink(name, recursive = TRUE)
+source.functions <- function(username, repo, branch = "main", folder = "R") {
+  api_url <- paste0("https://api.github.com/repos/", username, "/", repo, "/contents/", folder, "?ref=", branch  )
+  listing <- paste(readLines(api_url, warn = FALSE), collapse = "")
+  files <- regmatches(listing, gregexpr('"name"[[:space:]]*:[[:space:]]*"[^"]+\\.R"', listing))[[1]]
+  sizes <- regmatches(listing, gregexpr('"size"[[:space:]]*:[[:space:]]*[0-9]+', listing))[[1]]
+  if (!length(files)) stop("No R source files were found in the repository folder.")
+  names <- sub('.*"name"[[:space:]]*:[[:space:]]*"([^"]+)".*', "\\1", files)
+  for (file in names) source(paste0("https://raw.githubusercontent.com/", username, "/", repo, "/", branch, "/", folder, "/", file))
+  message(sprintf("Sourced %d R files (%.1f KB).", length(names), sum(as.numeric(sub(".*:", "", sizes))) / 1024))
 }
 
 # Call for this Repo
-source.github("cwendorf", "EASI", "main")
+source.functions("cwendorf", "EASI")
