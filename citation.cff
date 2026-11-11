@@ -5,9 +5,5 @@ authors:
   - family-names: "Wendorf"
     given-names: "Craig A."
     email: "cwendorf@uwsp.edu"
-version: "6.240413"
-license: "MIT"
-repository-code: "https://github.com/cwendorf/EASI"
+date-released: "2024-04-13"
 url: "https://github.com/cwendorf/EASI"
-abstract: >-
-  An R package to estimate, test, and plot confidence intervals.
