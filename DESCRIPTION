@@ -2,7 +2,7 @@ Package: EASI
 Type: Package
 Title: Estimation Approach to Statistical Inference
 Description: An R package to estimate, test, and plot confidence intervals 
-Version: 6.0.240123
+Version: 6.240413
 Depends: R (>= 4.1.0)
 Authors@R: person("Craig", "Wendorf", email = "cwendorf@uwsp.edu", role = c("aut", "cre"))
 License: MIT + file LICENSE
