@@ -2,8 +2,9 @@
 
 ## Introduction
 
-This page outlines the general purpose and structure of the EASI functions.
+Estimation analyses involve describing data, estimating effects, testing hypotheses, and communicating results. `EASI` organizes these tasks into a consistent workflow that supports raw data and summary statistics. The function families share naming conventions and output layouts across these tasks.
 
+- [Overview](#overview)
 - [Scope of the Project](#scope-of-the-project)
 - [Data Structure](#data-structure)
 - [Function Names](#function-names)
@@ -12,9 +13,9 @@ This page outlines the general purpose and structure of the EASI functions.
 
 ------------------------------------------------------------------------
 
-### Scope of the Project
+### Overview
 
-EASI was designed to offer a simple, intuitive, and consistent way to implement estimation statistics in R. The following goals set the scope of the project:
+`EASI` was designed to offer a simple, intuitive, and consistent way to implement estimation statistics in R. The following goals set the scope of the project:
 
 - Functions are generally limited to means (and functions of means)
 - Analyses can be conducted using either raw data or summary statistics (means, standard deviations, and correlations)
@@ -25,14 +26,14 @@ EASI was designed to offer a simple, intuitive, and consistent way to implement 
 
 EASI can be used to analyze either raw data or summary statistics.
 
-When analyzing raw data, EASI assumes a tidy data structure. Simply put: 1) each variable is its own column, 2) each observation is its own row, and 3) each value is its own cell. This is essential for how EASI will interpret the commands for analyses. Raw data can be entered in standard vectors and data frames, though EASI provides a few functions for creating these structures. In the case of a single-factor design (i.e., where there are multiple groups defined by an existing single variable and there is an outcome variable to be analyzed), the data are structured into a simple two-column frame and, for analyses (see below under Function Calls), a formula can be used to indicate the desire to analyze by groups. In the case of a repeated measures design, the data are arranged in the number of columns matching the number of measurements and, for analyses (again see below), the entire frame is passed to the function call.
+When analyzing raw data, `EASI` assumes a tidy data structure. Simply put: 1) each variable is its own column, 2) each observation is its own row, and 3) each value is its own cell. This is essential for how `EASI` will interpret the commands for analyses. Raw data can be entered in standard vectors and data frames, though `EASI` provides a few functions for creating these structures. In the case of a single-factor design (i.e., where there are multiple groups defined by an existing single variable and there is an outcome variable to be analyzed), the data are structured into a simple two-column frame and, for analyses (see below under Function Calls), a formula can be used to indicate the desire to analyze by groups. In the case of a repeated measures design, the data are arranged in the number of columns matching the number of measurements and, for analyses (again see below), the entire frame is passed to the function call.
 
 ```r
 (OneWayData) <- construct(Outcome, Factor)
 (RepeatedData) <- construct(Outcome1, Outcome2, Outcome3)
 ```
 
-When analyzing summary statistics instead of raw data, EASI uses special frames containing rows for each variable or group, columns for sample size, means, and standard deviations, and a special class to identify whether its a between-subjects or a within-subjects design. A similar process is used for tables of correlations.
+When analyzing summary statistics instead of raw data, `EASI` uses special frames containing rows for each variable or group, columns for sample size, means, and standard deviations, and a special class to identify whether its a between-subjects or a within-subjects design. A similar process is used for tables of correlations.
 
 ```r
 (OneWayMoments) <- construct(Level1, Level2, Level3, class = "bsm")
@@ -42,7 +43,7 @@ When analyzing summary statistics instead of raw data, EASI uses special frames 
 
 ### Function Names
 
-EASI offers a general convention for function names. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted). These are the basic options (though more elaborate functions also exist):
+`EASI` offers a general convention for function names. Each function is first comprised of a prefix (the verb that indicates what procedure should be conducted). These are the basic options (though more elaborate functions also exist):
 
 - `describe` - describe the data or model with summary statistics
 - `estimate` - estimate the statistic and its confidence interval

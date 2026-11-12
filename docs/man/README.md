@@ -2,7 +2,7 @@
 
 ## Reference
 
-This section is the reference for `EASI`. Each page documents one function, including usage, arguments, and return values.
+This section is the reference for `EASI`. Each page documents one exported function, including usage, arguments, return values, and examples.
 
 - [Grammar and Manipulation](#grammar-and-manipulation)
 - [Data and Distributions](#data-and-distributions)

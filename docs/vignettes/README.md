@@ -2,7 +2,7 @@
 
 ## Articles
 
-This section provides vignettes for `EASI`. They show how to use the software to analyze various types of data using the esimation approach.
+This section contains articles for `EASI`. They demonstrate estimation-based analyses for one-way, repeated-measures, factorial, and mixed designs, as well as correlations and regression.
 
 - [OneWay (Between-Subjects) Analyses](#oneway-between-subjects-analyses)
 - [Repeated Measures (Within-Subjects) Analyses](#repeated-measures-within-subjects-analyses)
